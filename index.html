@@ -45,6 +45,10 @@
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  /* belt-and-braces: no element on this page is meant to exceed the viewport
+     width, so a stray sub-pixel/box-shadow/rounding overflow should never be
+     able to make the whole page scrollable (or rubber-band) sideways */
+  html, body { max-width: 100%; overflow-x: hidden; overscroll-behavior-x: none; }
   html { -webkit-text-size-adjust: 100%; }
   body {
     background: var(--paper); color: var(--ink);
@@ -336,9 +340,13 @@
   .card:hover { border-color: var(--line-2); box-shadow: var(--shadow); transform: translateY(-2px); }
   .card-dim { opacity: .5; }
   .card-dim:hover { opacity: .85; }
+  /* flag/school on the left and the compare toggle on the right, sharing one
+     row — previously siblings stacked in the card's own flex column, which put
+     the toggle on its own row above the school name with a gap of dead space */
+  .card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
   .card-select {
-    align-self: flex-end; display: inline-flex; align-items: center; gap: 7px;
-    padding: 7px 10px; margin: -2px -2px 0 0; border-radius: 999px;
+    flex: none; display: inline-flex; align-items: center; gap: 7px;
+    padding: 7px 10px; border-radius: 999px;
     border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--line));
     background: var(--accent-soft); color: var(--accent-ink); font-size: 12px;
     font-weight: 700; line-height: 1; cursor: pointer; transition: .15s;
@@ -349,7 +357,7 @@
   .card-select input:checked::after { content: ""; position: absolute; left: 3px; top: .5px; width: 3px; height: 6px; border: solid #fff; border-width: 0 1.7px 1.7px 0; transform: rotate(43deg); }
   .card-select.selected { background: var(--accent); color: #fff; border-color: var(--accent); }
   .card-select.selected:hover { background: var(--accent-ink); border-color: var(--accent-ink); }
-  .card .top { display: flex; align-items: flex-start; gap: 10px; }
+  .card .top { display: flex; align-items: flex-start; gap: 10px; flex: 1 1 auto; min-width: 0; }
   .card .flag { font-size: 22px; line-height: 1; flex: none; }
   .card .school { font-size: 13px; font-weight: 600; color: var(--ink-2); letter-spacing: -.005em; }
   .card .place { font-size: 12.5px; color: var(--ink-3); margin-top: 1px; }
@@ -463,7 +471,7 @@
   .application-boards { display: grid; gap: 20px; }
   /* a normal flex row, not absolute positioning, so this can never overlap
      the title text once it wraps to two or three lines on a narrow screen */
-  .checklist-card-toolbar { display: flex; justify-content: flex-end; margin-bottom: 10px; }
+  .checklist-card-toolbar { display: flex; justify-content: flex-end; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
   .checklist-picker { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 9px; }
   .checklist-picker-item { display: flex; align-items: flex-start; gap: 9px; border: 1px solid var(--line); border-radius: 10px; padding: 11px 12px; background: var(--paper); cursor: pointer; }
   .checklist-picker-item:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
@@ -695,24 +703,46 @@
   @media (max-width: 620px) {
     .wrap { padding: 0 18px; }
     .site .wrap { gap: 12px; }
-    .hero { padding: 120px 0 20px; }
+    .hero { padding: 120px 0 6px; }
     .grid { grid-template-columns: 1fr; }
     footer .cols { margin-left: 0; gap: 30px; }
     .mobile-menu { left: 18px; right: 18px; }
 
-    /* three stat tiles (months dropped) on one line, comfortably sized,
-       with a tighter top border/margin so filters don't sit so far below */
-    .stats { flex-wrap: nowrap; gap: 14px; margin-top: 16px; padding-top: 14px; }
-    .stat { min-width: 0; flex: 1 1 0; }
+    /* three stat tiles (months dropped) on one line, each centred within its
+       own third rather than left-hugging (which read as randomly offset, not
+       a centred row), with a tighter top border/margin and a tighter board
+       top padding right after so Filters doesn't sit far below */
+    .stats { flex-wrap: nowrap; gap: 14px; margin-top: 14px; padding-top: 12px; }
+    .stat { min-width: 0; flex: 1 1 0; text-align: center; }
     .stat:nth-child(4) { display: none; }
     .stat b { font-size: 19px; white-space: nowrap; }
     .stat span { font-size: 9.5px; letter-spacing: .01em; white-space: nowrap; }
+    .board { padding-top: 8px; }
 
     /* results bar: stack instead of wrapping mid-row, which read as messy */
     .resbar { flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 16px; }
     .resbar h2 { font-size: 19px; }
     .shortlist-filter { margin-left: 0; }
     .sortwrap { width: 100%; justify-content: space-between; }
+  }
+
+  /* ---------- checklist PDF export (print-to-PDF, no library/backend) ---------- */
+  .print-area { display: none; }
+  .print-area h1 { font-family: var(--serif); font-size: 22px; margin-bottom: 4px; }
+  .print-area .print-meta { font-size: 12px; color: var(--ink-3); margin-bottom: 18px; }
+  .print-area h2 { font-family: var(--serif); font-size: 16px; margin: 18px 0 6px; }
+  .print-area h3 { font-size: 13px; margin: 14px 0 4px; }
+  .print-area p, .print-area li { font-size: 12.5px; line-height: 1.5; }
+  .print-area ul { margin-left: 18px; margin-bottom: 8px; }
+  .print-area a { color: var(--ink); text-decoration: underline; }
+  @media print {
+    body > *:not(.print-area) { display: none !important; }
+    .print-area { display: block !important; }
+    .print-area .checklist-card-toolbar, .print-area .locator, .print-area .locator-map,
+    .print-area .live-map-links, .print-area button, .print-area input { display: none !important; }
+    .print-area .breakdown-card { border: none; box-shadow: none; padding: 0; }
+    .print-area .cat-card { border: none; border-top: 1px solid #ccc; border-radius: 0; page-break-inside: avoid; }
+    .print-area .cat-chevron { display: none; }
   }
 </style>
 </head>
@@ -1209,6 +1239,8 @@
   </div>
   <div class="wrap"><div class="compare-body" id="compareBody"></div></div>
 </div>
+
+<div class="print-area" id="printArea"></div>
 
 <script>
 /* ============================================================
@@ -3066,6 +3098,14 @@ const PROGRAMS = [
   { id:410, school:"College of Europe", program:"Master in European Economic Studies", city:"Bruges", country:"Belgium", flag:"🇧🇪", region:"Europe",
     fields:["Economics","Public Policy"], months:10, lang:"English", tuition:24000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.coleurope.eu/", extRank:"The EU institutions' most established feeder postgraduate school", rank:400,
     openFields:["Any"], freshGradOnly:false, blurb:"A highly selective, EU-focused economics degree widely regarded as the single strongest feeder programme into the European Commission and EU institutions.", highlights:["Top feeder into EU institutions","Extremely selective admissions","Bruges/Warsaw campus options","Merit scholarships available"] },
+
+  { id:411, school:"Universidad del Pacífico — Pacífico Business School", program:"MBA", city:"Lima", country:"Peru", flag:"🇵🇪", region:"Latin America",
+    fields:["Management","Strategy"], months:24, lang:"Spanish", tuition:21600, intake:"August", deadline:"Rolling", work:"2+ yrs", gmat:false, scholar:true, link:"https://pbs.edu.pe/maestrias/mba/", extRank:"One of Peru's leading business schools", rank:401,
+    openFields:["Any"], freshGradOnly:false, blurb:"Peru's leading business school for working professionals, using its own admissions aptitude test rather than GMAT/GRE, with deep ties into Lima's corporate market.", highlights:["No GMAT/GRE — school's own aptitude test","Lima's top corporate/finance network","AACSB-accredited","Taught in Spanish"] },
+
+  { id:412, school:"Koç University — Graduate School of Business", program:"MBA", city:"Istanbul", country:"Turkey", flag:"🇹🇷", region:"Asia-Pacific",
+    fields:["Management","Strategy"], months:12, lang:"English", tuition:18750, intake:"September", deadline:"Rolling", work:"2–3 yrs", gmat:true, scholar:true, link:"https://gsb.ku.edu.tr/", extRank:"Turkey's leading business school", rank:402,
+    openFields:["Any"], freshGradOnly:false, blurb:"Turkey's top-ranked business school, with an accelerated one-year MBA and strong placement into Istanbul's corporate and finance sector.", highlights:["One-year accelerated format","Istanbul corporate/finance ties","GMAT/GRE required (avg. GMAT ~560)","Scholarship support available"] },
 ];
 
 const FIELDS  = ["Management","Finance","Analytics","Strategy","Marketing","Entrepreneurship","Economics","Sustainability",
@@ -3263,10 +3303,14 @@ async function renderLocator(kind, resultsElId, selectElId) {
   let loc = null;
   try { loc = await geocodeLocation(query); } catch (_) { /* live Maps search links below still work without geocoding */ }
 
-  const searches = kind === "gmat"
-    ? [["GMAT", `GMAT test centre near ${loc?.label || query}`], ["GRE", `GRE test centre near ${loc?.label || query}`]]
-    : [["TOEFL", `TOEFL test centre near ${loc?.label || query}`], ["IELTS", `IELTS test centre near ${loc?.label || query}`]];
-  const links = searches.map(([label, search]) => `<a class="btn secondary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(search)}">Open ${label} search in Maps ↗</a>`).join("");
+  // Not a Google Maps text-search guess (that returned unrelated countries for
+  // real users — e.g. "GMAT test centre near Ninove, Belgium" surfaced UK/France
+  // results despite a real Pearson VUE-administered sitting in Brussels) — these
+  // are each programme's actual authoritative, always-current locator tool.
+  const officialLocators = kind === "gmat"
+    ? [["GMAT (Pearson VUE)", "https://www.pearsonvue.com/us/en/test-takers/test-centers.html"], ["GRE (ETS)", "https://maprequest.ets.org/"]]
+    : [["TOEFL (ETS)", "https://www.ets.org/toefl/test-takers/ibt/schedule.html"], ["IELTS", "https://www.ielts.org/test-centres"]];
+  const links = officialLocators.map(([label, href]) => `<a class="btn secondary" target="_blank" rel="noopener noreferrer" href="${href}">Official ${label} test-centre locator ↗</a>`).join("");
   const mapId = `${resultsElId}-map`;
   const map = loc ? `<div id="${mapId}" class="locator-map"></div>` : "";
 
@@ -3281,7 +3325,7 @@ async function renderLocator(kind, resultsElId, selectElId) {
           <div class="name">${escapeHTML(c.name)}</div>
           <div class="note">${c.dist < 1 ? "< 1 km away" : Math.round(c.dist) + " km away"}</div>
         </a>`).join("")}</div>`
-    : `<p class="locator-placeholder">No test-centre operator found in our directory within ${MAX_CENTRE_KM} km of ${escapeHTML(loc?.label || query)}. That doesn't mean there isn't one — our directory (OpenStreetMap) has gaps. Use the live search below instead.</p>`;
+    : `<p class="locator-placeholder">No test-centre operator found in our directory within ${MAX_CENTRE_KM} km of ${escapeHTML(loc?.label || query)}. That doesn't mean there isn't one — our directory (OpenStreetMap) has real coverage gaps, especially outside major cities. Use the official locator below instead — it's the authoritative, always-current source.</p>`;
 
   const costNote = kind === "gmat"
     ? "Approximate cost: GMAT Focus ~$275 USD worldwide · GRE General Test ~$220 USD (varies slightly by country). Always check the exact local fee when you book."
@@ -3359,6 +3403,8 @@ const CURRENCY_BY_COUNTRY = {
   "Israel": { code: "ILS", symbol: "₪", rate: 4.0 },
   "Egypt": { code: "EGP", symbol: "E£", rate: 53 },
   "Lebanon": { code: "LBP", symbol: "LBP ", rate: 96000 },
+  "Peru": { code: "PEN", symbol: "S/", rate: 4.05 },
+  "Turkey": { code: "TRY", symbol: "₺", rate: 40 },
 };
 
 // Returns "Local ~€EUR" for non-Eurozone countries, or just "€EUR" for Eurozone ones.
@@ -3508,11 +3554,23 @@ const MATCH_RANK = { eligible: 0, check: 1, none: 2, mismatch: 3 };
 
 function prestigeScore(p) {
   const label = p.extRank || "";
-  const exact = label.match(/#=?\s*(\d+)/);
-  if (exact) return +exact[1];
-  const topBand = label.match(/top\s*(\d+)/i);
-  if (topBand) return +topBand[1] + 2;
-  // Unranked entries retain the existing curated order, after ranked entries.
+  // Only a genuine global QS/FT numbered ranking should drive sort order. In this
+  // catalogue those always follow one structured format: "QS <category> #N (YEAR)"
+  // or "FT Global <category> — Top N (YEAR)". Narrative claims that merely *cite*
+  // QS/FT as a source without that structure — "Canada's #3-ranked university (QS)",
+  // "Frequently Africa's #1 MBA (FT)", "US News #1 Entrepreneurship" — are regional
+  // or other-ranking-body claims; the "#N" in them is not a global QS/FT position,
+  // so they must not sort as if they outrank an actual global top-10 programme.
+  // They still keep their real descriptive text (extRank) as a shown badge —
+  // this only changes what determines sort order, not what's displayed.
+  const isStructuredQsFt = /^(QS|FT)\s.*\(\d{4}\)\s*$/.test(label);
+  if (isStructuredQsFt) {
+    const exact = label.match(/#=?\s*(\d+)/);
+    if (exact) return +exact[1];
+    const topBand = label.match(/top\s*(\d+)/i);
+    if (topBand) return +topBand[1] + 2;
+  }
+  // Unranked (or non-structured) entries retain the existing curated order, after ranked entries.
   return 500 + p.rank;
 }
 
@@ -3579,16 +3637,18 @@ function cardHTML(p) {
   return `
   <article class="card${dim}" data-id="${p.id}" tabindex="0">
     ${p.rank <= 5 ? `<div class="rank">TOP ${p.rank}</div>` : ""}
-    <label class="card-select${state.compare.has(p.id) ? " selected" : ""}" onclick="event.stopPropagation()">
-      <input type="checkbox" data-compare="${p.id}" ${state.compare.has(p.id) ? "checked" : ""}>
-      ${state.compare.has(p.id) ? "Selected for compare" : "Add to compare"}
-    </label>
-    <div class="top">
-      <span class="flag">${p.flag}</span>
-      <div>
-        <div class="school">${p.school}</div>
-        <div class="place">${p.city}, ${p.country}</div>
+    <div class="card-head">
+      <div class="top">
+        <span class="flag">${p.flag}</span>
+        <div>
+          <div class="school">${p.school}</div>
+          <div class="place">${p.city}, ${p.country}</div>
+        </div>
       </div>
+      <label class="card-select${state.compare.has(p.id) ? " selected" : ""}" onclick="event.stopPropagation()">
+        <input type="checkbox" data-compare="${p.id}" ${state.compare.has(p.id) ? "checked" : ""}>
+        ${state.compare.has(p.id) ? "Selected for compare" : "Add to compare"}
+      </label>
     </div>
     <h3>${p.program}</h3>
     ${matchBadge(p)}
@@ -4147,37 +4207,49 @@ const SCHOOL_CLEARADMIT = {
   "IE Business School": "https://www.clearadmit.com/schools/ie-business-school/",
 };
 
-// Community/insight links are live search actions, not claimed specific videos or
-// posts — we have no way to verify a particular YouTube video or blog post still
-// exists, so we point at a real search scoped to the school and programme instead
-// of naming one. This mirrors the test-centre locator's fallback pattern.
-function communityLinksHTML(p) {
-  const topic = encodeURIComponent(`${p.school} ${p.program}`);
-  const clearAdmit = SCHOOL_CLEARADMIT[p.school]
-    ? `<li><a href="${SCHOOL_CLEARADMIT[p.school]}" target="_blank" rel="noopener noreferrer">${p.school} on Clear Admit</a> — admit interviews, essay analysis and application data for this school.</li>`
-    : `<li><a href="https://www.google.com/search?q=${encodeURIComponent(`site:clearadmit.com ${p.school}`)}" target="_blank" rel="noopener noreferrer">Search Clear Admit for ${p.school}</a> — admissions journalism site; coverage varies by school.</li>`;
-  return `<ul class="resource-list">
-    ${clearAdmit}
-    <li><a href="https://www.google.com/search?q=${encodeURIComponent(`site:gmatclub.com ${p.school} ${p.program}`)}" target="_blank" rel="noopener noreferrer">GMAT Club discussions for ${escapeHTML(p.school)}</a> — applicant Q&amp;A, class-profile threads and admit chances.</li>
-    <li><a href="https://www.reddit.com/search/?q=${topic}" target="_blank" rel="noopener noreferrer">Reddit search: ${escapeHTML(p.school)} ${escapeHTML(p.program)}</a> — informal applicant and student discussion.</li>
-    <li><a href="https://www.youtube.com/results?search_query=${topic}%20application%20tips" target="_blank" rel="noopener noreferrer">YouTube: ${escapeHTML(p.school)} application tips</a> — search results only; verify any advice against the official portal.</li>
-  </ul>`;
-}
-
 function applicationChecklistCard(p) {
   const t = applicationTiming(p), suffix = p.id, engTestsList = getEnglishTests(p), engTests = engTestsList.join(" · "), strategy = applicationStrategyTips(p), essentials = PROGRAMME_ESSENTIALS[p.id];
   return `<div class="breakdown-card" data-checklist-card="${p.id}">
-    <div class="checklist-card-toolbar"><button class="btn secondary checklist-card-remove" data-remove-checklist="${p.id}" type="button">Remove</button></div>
+    <div class="checklist-card-toolbar"><button class="btn secondary" data-download-checklist="${p.id}" type="button">Download PDF</button><button class="btn secondary checklist-card-remove" data-remove-checklist="${p.id}" type="button">Remove</button></div>
     <div class="breakdown-head"><div class="breakdown-prog-meta"><span class="flag">${p.flag}</span><div><h3>${p.school} — ${p.program}</h3><p>${p.city}, ${p.country} · Taught in ${p.lang} · Target intake: ${p.intake} · Tuition: ${tuitionDisplay(p)}</p></div></div><div class="breakdown-summary-badge"><span class="total-support-label">Next application deadline</span><span class="total-support-val">${p.deadline} · verify live</span></div></div>
     <div class="programme-focus"><p><b>${t.label}.</b> ${t.detail}</p><p style="margin-top:9px"><a href="${p.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Open official application page ↗</a></p></div>
     <div class="checklist-cats">
-      <details class="cat-card" open><summary class="cat-head"><span class="cat-num">01</span><div><h3>GMAT / GRE</h3><p>${p.gmat ? "Required or expected in the catalogue record." : "Not required in the catalogue record."}</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">${p.gmat ? "Plan early and verify waiver and score requirements on the official portal." : "Focus on the other application steps unless the official portal says otherwise."}</p>${p.gmat ? gmatAvgNote(p) : ""}<div class="locator"><label class="pfield"><span>Find a test centre near you</span><input class="loc-search" id="focusGmatLocation${suffix}" list="locationList" placeholder="Any city or address…" autocomplete="off"></label><button class="btn primary" data-find-gmat="${suffix}" type="button">Find test centres</button></div><div class="locator-results" id="focusGmatResults${suffix}"></div><h4>Preparation resources</h4><ul class="resource-list"><li><a href="https://www.mba.com" target="_blank" rel="noopener noreferrer">GMAT Official Prep</a> — official practice exams.</li><li><a href="https://www.ets.org/gre.html" target="_blank" rel="noopener noreferrer">ETS GRE Official Prep</a> — official POWERPREP tests.</li><li><a href="https://www.manhattanprep.com" target="_blank" rel="noopener noreferrer">Manhattan Prep</a> — courses and tutoring.</li><li><a href="https://www.google.com/search?q=${encodeURIComponent(`site:gmatclub.com ${p.school}`)}" target="_blank" rel="noopener noreferrer">Search GMAT Club for ${escapeHTML(p.school)} threads ↗</a> — Google search scoped to gmatclub.com, not a direct link (their own search requires a login).</li></ul></div></details>
+      <details class="cat-card" open><summary class="cat-head"><span class="cat-num">01</span><div><h3>GMAT / GRE</h3><p>${p.gmat ? "Required or expected in the catalogue record." : "Not required in the catalogue record."}</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">${p.gmat ? "Plan early and verify waiver and score requirements on the official portal." : "Focus on the other application steps unless the official portal says otherwise."}</p>${p.gmat ? gmatAvgNote(p) : ""}<div class="locator"><label class="pfield"><span>Find a test centre near you</span><input class="loc-search" id="focusGmatLocation${suffix}" list="locationList" placeholder="Any city or address…" autocomplete="off"></label><button class="btn primary" data-find-gmat="${suffix}" type="button">Find test centres</button></div><div class="locator-results" id="focusGmatResults${suffix}"></div><h4>Preparation resources</h4><ul class="resource-list"><li><a href="https://www.mba.com/exams/gmat-exam/prepare-for-the-gmat-exam" target="_blank" rel="noopener noreferrer">GMAT Official Prep</a> — official practice exams and study materials.</li><li><a href="https://www.ets.org/gre/test-takers/general-test/prepare.html" target="_blank" rel="noopener noreferrer">ETS GRE Official Prep</a> — official POWERPREP tests.</li><li><a href="https://www.manhattanprep.com" target="_blank" rel="noopener noreferrer">Manhattan Prep</a> — courses and tutoring.</li></ul></div></details>
       <details class="cat-card"><summary class="cat-head"><span class="cat-num">02</span><div><h3>English-language test</h3><p>Recorded accepted tests: ${engTests}.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">Confirm minimum score and exemption rules on ${p.school}'s official portal.</p><div class="locator"><label class="pfield"><span>Find an English-test centre near you</span><input class="loc-search" id="focusEnglishLocation${suffix}" list="locationList" placeholder="Any city or address…" autocomplete="off"></label><button class="btn primary" data-find-english="${suffix}" type="button">Find test centres</button></div><div class="locator-results" id="focusEnglishResults${suffix}"></div><h4>Preparation resources</h4><ul class="resource-list">${engTestsList.includes("TOEFL iBT") ? `<li><a href="https://www.ets.org/toefl.html" target="_blank" rel="noopener noreferrer">ETS TOEFL Official Prep</a></li>` : ""}${engTestsList.includes("IELTS Academic") ? `<li><a href="https://www.ielts.org" target="_blank" rel="noopener noreferrer">IELTS official practice</a></li>` : ""}${engTestsList.includes("Duolingo English Test") ? `<li><a href="https://englishtest.duolingo.com" target="_blank" rel="noopener noreferrer">Duolingo English Test</a> — remote option, accepted per this catalogue's regional record.</li>` : ""}${engTestsList.includes("PTE Academic") ? `<li><a href="https://www.pearsonpte.com" target="_blank" rel="noopener noreferrer">PTE Academic Official Prep</a></li>` : ""}</ul></div></details>
       <details class="cat-card"><summary class="cat-head"><span class="cat-num">03</span><div><h3>Academic documents &amp; CV</h3><p>Transcript, degree certificate/expected-graduation proof and CV.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.docs}</div>` : ""}<ul class="tip-list"><li>Prepare official transcripts and certified English translations if needed.</li><li>Prepare your degree certificate or expected-graduation letter.</li><li>${strategy.cv}</li></ul></div></details>
-      <details class="cat-card"><summary class="cat-head"><span class="cat-num">04</span><div><h3>Statement of purpose / essays</h3><p>Programme-specific motivation and career goals.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.essays}</div>` : `<p class="scholar-section-sub">Not individually researched for this programme yet. As a general guide, most competitive masters/MBA essays run 400–650 words per prompt across 1–3 prompts, and cover: (1) why this programme specifically, not master's degrees in general, (2) your relevant story/evidence, (3) concrete short- and long-term goals it enables. Confirm the actual prompts and word limits on the official portal — they change most cycles.</p>`}<ul class="tip-list"><li>${strategy.sopField}</li><li>${strategy.sop}</li><li>Verify prompts, word count and submission format on the official portal.</li><li>Leave time for several revisions and an outside reader.</li></ul><h4>Widely-used essay resources</h4><ul class="resource-list"><li><a href="https://www.mbamission.com/blog/" target="_blank" rel="noopener noreferrer">mbaMission essay guides</a> — free, school-specific essay breakdowns updated each cycle.</li><li><a href="https://mbacrystalball.com/blog/" target="_blank" rel="noopener noreferrer">MBA Crystal Ball</a> — admissions blog and YouTube channel with essay and profile-review content.</li><li><a href="https://gmatclub.com/blog/" target="_blank" rel="noopener noreferrer">GMAT Club Blog</a> — admissions-consultant-authored essay and application advice.</li><li><a href="https://www.reddit.com/r/MBA/" target="_blank" rel="noopener noreferrer">Reddit — r/MBA</a> and <a href="https://www.reddit.com/r/gradadmissions/" target="_blank" rel="noopener noreferrer">r/gradadmissions</a> — applicant discussion and essay feedback threads.</li></ul></div></details>
+      <details class="cat-card"><summary class="cat-head"><span class="cat-num">04</span><div><h3>Statement of purpose / essays</h3><p>Programme-specific motivation and career goals.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.essays}</div>` : `<p class="scholar-section-sub">Not individually researched for this programme yet. As a general guide, most competitive masters/MBA essays run 400–650 words per prompt across 1–3 prompts, and cover: (1) why this programme specifically, not master's degrees in general, (2) your relevant story/evidence, (3) concrete short- and long-term goals it enables. Confirm the actual prompts and word limits on the official portal — they change most cycles.</p>`}<ul class="tip-list"><li>${strategy.sopField}</li><li>${strategy.sop}</li><li>Verify prompts, word count and submission format on the official portal.</li><li>Leave time for several revisions and an outside reader.</li></ul><h4>Widely-used essay resources</h4><ul class="resource-list"><li><a href="https://www.mbamission.com/blog/" target="_blank" rel="noopener noreferrer">mbaMission essay guides</a> — free, school-specific essay breakdowns updated each cycle.</li><li><a href="https://poetsandquants.com/" target="_blank" rel="noopener noreferrer">Poets&amp;Quants</a> — the most-read MBA admissions news site, with extensive essay and application-strategy coverage.</li>${SCHOOL_CLEARADMIT[p.school] ? `<li><a href="${SCHOOL_CLEARADMIT[p.school]}" target="_blank" rel="noopener noreferrer">${escapeHTML(p.school)} on Clear Admit</a> — real admit interviews and essay analysis for this specific school.</li>` : ""}</ul></div></details>
       <details class="cat-card"><summary class="cat-head"><span class="cat-num">05</span><div><h3>Letters of recommendation</h3><p>Choose referees and give them time.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.recLetters}</div>` : ""}<ul class="tip-list"><li>${strategy.referees}</li><li>Structure guidance for your recommender: 1) how they know you and for how long, 2) one or two specific, evidenced examples of your impact or growth (not generic praise), 3) a direct comparison to peers if possible (e.g. "top 10% of the analysts I've managed"), 4) a closing statement of confident support for this specific programme.</li><li>Send your CV, goals and this programme's deadline at least 4–6 weeks early.</li><li>Verify the exact number and type of references directly in the application portal — it varies by programme and changes most cycles.</li></ul></div></details>
-      <details class="cat-card"><summary class="cat-head"><span class="cat-num">06</span><div><h3>Community &amp; insight resources</h3><p>Discussion, admit stories and application tips for ${escapeHTML(p.school)}.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">These are live searches, not specific claimed videos or posts — verify anything you find against ${escapeHTML(p.school)}'s official portal before acting on it.</p>${communityLinksHTML(p)}</div></details>
     </div></div>`;
+}
+
+// Downloads a programme's checklist as a PDF via the browser's native print
+// dialog ("Save as PDF") — no PDF library and no backend, consistent with
+// this being a static file. Clones the already-rendered card (so the PDF
+// always matches what's on screen) into a print-only area, opens every
+// collapsed section so nothing is missing on paper, and strips controls
+// that mean nothing on a printed page (search inputs, buttons, the live map).
+function downloadChecklistPDF(progId) {
+  const card = document.querySelector(`.breakdown-card[data-checklist-card="${progId}"]`);
+  const area = $("printArea");
+  if (!card || !area) return;
+
+  const clone = card.cloneNode(true);
+  clone.querySelectorAll("details").forEach(d => { d.open = true; });
+  clone.querySelectorAll(".checklist-card-toolbar, .locator, .locator-map, .live-map-links, input, button")
+    .forEach(el => el.remove());
+
+  const p = PROGRAMS.find(x => x.id === progId);
+  const title = p ? `${p.school} — ${p.program}` : "Application checklist";
+  area.innerHTML = `
+    <h1>Campus Atlas — Application Checklist</h1>
+    <p class="print-meta">${escapeHTML(title)} · generated ${new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</p>`;
+  area.appendChild(clone);
+
+  const prevTitle = document.title;
+  document.title = title.replace(/[/\\]/g, "-");
+  const restore = () => { document.title = prevTitle; window.removeEventListener("afterprint", restore); };
+  window.addEventListener("afterprint", restore);
+  window.print();
 }
 
 function renderSingleApplicationChecklist() {
@@ -4189,6 +4261,7 @@ function renderSingleApplicationChecklist() {
   board.querySelectorAll("[data-find-gmat]").forEach(btn => btn.addEventListener("click", () => { const id = btn.dataset.findGmat; renderLocator("gmat", `focusGmatResults${id}`, `focusGmatLocation${id}`); }));
   board.querySelectorAll("[data-find-english]").forEach(btn => btn.addEventListener("click", () => { const id = btn.dataset.findEnglish; renderLocator("toefl", `focusEnglishResults${id}`, `focusEnglishLocation${id}`); }));
   board.querySelectorAll("[data-remove-checklist]").forEach(btn => btn.addEventListener("click", () => { state.checklist.delete(+btn.dataset.removeChecklist); renderApplicationChecklist(); }));
+  board.querySelectorAll("[data-download-checklist]").forEach(btn => btn.addEventListener("click", () => downloadChecklistPDF(+btn.dataset.downloadChecklist)));
 }
 
 function renderApplicationChecklist() {
@@ -4279,6 +4352,34 @@ const SCHOOL_SCHOLARSHIPS = {
   "University of Cambridge — Judge": { name: "Cambridge Trust & Judge Business School Scholarships", desc: "A mix of Cambridge Trust need-based funding and Judge-specific merit awards." },
 };
 
+// Home-country/region funding: money tied to *where the applicant is from*, usable
+// for a degree anywhere abroad — a different axis from GOV_SCHOLARSHIPS (which is
+// destination-country funding for incoming international students). Several
+// countries devolve this to a sub-national region, so eligibility can depend on
+// exactly where in the country the applicant lives, not just their nationality —
+// each entry's `restriction` says so explicitly wherever that applies, asterisked.
+// Real, sourced entries only — start with what's been explicitly asked for
+// (Belgium/Flanders); expand country-by-country rather than guess at others.
+const HOME_REGION_FUNDING = {
+  "Belgium": [
+    {
+      name: "Fayat Scholarship (Fayatbeurzen)*",
+      desc: "A Flemish government excellence grant specifically for pursuing an additional master's degree at one of ~78 top-ranked international institutions, reselected annually from the QS World Rankings' top 5 per subject across 13 countries — a strong match for many programmes in this catalogue.",
+      support: "Real costs reimbursed (tuition, housing, living, travel) for up to 24 months; not combinable with other scholarships",
+      restriction: "*Region- and background-dependent — not just Belgian nationality: also requires C1-level Dutch and a master's degree already obtained from a Flemish institution (within the last 3 years, or in the award year), at one of the annually-published eligible institutions only.",
+      deadline: "Apply before 1 December each year",
+      link: "https://www.vlaanderen.be/en/studying/fayat-scholarship",
+    },
+    {
+      name: "Vlaamse studietoelage (Flemish study allowance)*",
+      desc: "The Flemish Community's means-tested study grant. It's built for study within Flanders, but under specific conditions can also apply to a first master's degree abroad — confirm your exact case with the official portal before counting on it.",
+      support: "Means-tested; amount depends on household income and family situation",
+      restriction: "*Region-dependent, not nationwide: only for residents of the Flemish Region (and Dutch-speaking Brussels students under specific rules). If you live in Wallonia or French-speaking Brussels, this does not apply — the Fédération Wallonie-Bruxelles runs a separate allocation d'études scheme instead.",
+      link: "https://www.vlaanderen.be/studietoelage",
+    },
+  ],
+};
+
 function scholarshipEligibility(p) {
   const citizenship = state.profile.citizenship;
   const government = GOV_SCHOLARSHIPS.find(g => g.country === p.country);
@@ -4350,7 +4451,7 @@ function openFundingModal(progId, type) {
         <p style="margin-top:8px;"><strong>Academic background:</strong> ${state.profile.field || "Not set"}. This can matter for merit awards, but the official criteria decide eligibility.</p>
       </div>
       <div style="margin-top:20px;text-align:right;">
-        <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="btn btn-action">Apply via Official ${p.school} Portal ↗</a>
+        <a href="https://www.google.com/search?q=${encodeURIComponent(`${p.school} ${data.schoolAwardName}`)}" target="_blank" rel="noopener noreferrer" class="btn btn-action">More information on that scholarship ↗</a>
       </div>
     `;
   } else if (type === "flex") {
@@ -4414,7 +4515,8 @@ function renderScholarshipBreakdown() {
     const showMerit = true;
     const showGov = true;
     const showFlex = false;
-    
+    const homeFundingList = citizenship && citizenship !== p.country ? (HOME_REGION_FUNDING[citizenship] || []) : [];
+
     html += `
       <div class="breakdown-card" style="margin-bottom:20px;">
         <div class="breakdown-head">
@@ -4469,6 +4571,25 @@ function renderScholarshipBreakdown() {
               <a href="${data.govLink}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Official Grant Portal ↗</a>
             </div>
           </div>` : ""}
+
+          ${homeFundingList.map(hf => `
+          <div class="funding-option-row">
+            <div class="row-icon">🏠</div>
+            <div class="row-content">
+              <div class="row-header">
+                <h4>${hf.name}</h4>
+                <span class="pill-amount">${hf.support}</span>
+              </div>
+              <p class="row-desc">${hf.desc}</p>
+              <div class="row-meta">
+                <span class="elig-match-badge match-info">Based on where you're from, not where you're studying${hf.deadline ? ` · ${hf.deadline}` : ""}</span>
+                <span class="deadline-note">${hf.restriction}</span>
+              </div>
+            </div>
+            <div class="row-action">
+              <a href="${hf.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Official Portal ↗</a>
+            </div>
+          </div>`).join("")}
 
           ${showFlex ? `
           <div class="funding-option-row">
