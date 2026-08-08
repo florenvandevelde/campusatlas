@@ -109,6 +109,34 @@
     display: inline-flex; align-items: center; justify-content: center; padding: 0 5px;
   }
 
+  /* ---------- hamburger / mobile menu (≤940px) ---------- */
+  .hamburger { display: none; }
+  .mobile-menu-backdrop { position: fixed; inset: 0; background: rgba(20,16,14,.28); z-index: 65; }
+  .mobile-menu-backdrop[hidden] { display: none; }
+  .mobile-menu {
+    position: absolute; top: calc(100% + 8px); left: 20px; right: 20px;
+    max-height: 55vh; overflow-y: auto; z-index: 70;
+    background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+    box-shadow: var(--shadow); padding: 8px; display: flex; flex-direction: column; gap: 2px;
+  }
+  .mobile-menu[hidden] { display: none; }
+  .mm-item {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px;
+    width: 100%; text-align: left; padding: 13px 12px; border-radius: 10px;
+    font-size: 15px; font-weight: 500; color: var(--ink); background: none; border: 0;
+  }
+  .mm-item:hover, .mm-item:focus-visible { background: var(--paper-2); }
+  .mm-item.active { color: var(--accent-ink); background: var(--accent-soft); }
+  .mm-brand { font-family: var(--serif); font-size: 17px; gap: 9px; }
+  .mm-brand .mark { color: var(--ink); flex: none; }
+  .mm-divider { height: 1px; background: var(--line); margin: 6px 6px; }
+  .mm-action { font-size: 13.5px; color: var(--ink-2); }
+  .mm-shortlist {
+    padding: 11px 12px 6px; margin-top: 2px; border-top: 1px solid var(--line);
+    font-size: 12.5px; color: var(--ink-3);
+  }
+  .mm-shortlist b { color: var(--ink); }
+
   /* ---------- hero ---------- */
   .hero {
     /* pulled up behind the sticky header (~74px) so the banner photo starts
@@ -254,6 +282,7 @@
     position: sticky; top: 84px; max-height: calc(100vh - 104px);
     overflow-y: auto; overscroll-behavior: contain; padding-right: 4px;
   }
+  .filters-toggle { display: none; }
   aside.filters::-webkit-scrollbar { width: 6px; }
   aside.filters::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 999px; }
   .fgroup { border-bottom: 1px solid var(--line); padding: 18px 0; }
@@ -351,6 +380,7 @@
   }
   .fact span { display: block; font-size: 10.5px; text-transform: uppercase; letter-spacing: .07em; color: var(--ink-3); }
   .fact b { font-weight: 600; font-size: 13.5px; font-variant-numeric: tabular-nums; }
+  .tuition-approx { font-weight: 400; color: var(--ink-3); font-size: 0.85em; }
   .visa-fact { margin-top: -2px; }
   .visa-fact b { font-size: 12.5px; }
   .compare-toggle { margin-top: 4px; padding: 0; font-size: 12.5px; color: var(--ink-3); }
@@ -630,7 +660,28 @@
       max-height: none; overflow-y: visible;
     }
     .fgroup:first-child { padding-top: 18px; }
-    nav.main { display: none; }
+
+    /* whole header collapses to a single hamburger; its contents move into
+       the dropdown menu instead, so nothing here is simply hidden-and-lost */
+    .logo, nav.main, .header-tools { display: none; }
+    .site-bar { justify-content: flex-end; }
+    .hamburger {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 42px; height: 42px; border: 1px solid var(--line-2); border-radius: 999px;
+      background: var(--card); color: var(--ink);
+    }
+
+    /* filters become a closed-by-default disclosure so results are visible
+       right away instead of buried below the full region/field checklist */
+    .filters-toggle {
+      display: flex; align-items: center; justify-content: space-between; width: 100%;
+      padding: 16px 2px; background: none; border: 0; cursor: pointer;
+      font-family: var(--serif); font-size: 17px; color: var(--ink);
+    }
+    .filters-chevron { transition: transform .18s ease; flex: none; }
+    aside.filters.collapsed { padding-bottom: 4px; }
+    aside.filters.collapsed .filters-chevron { transform: rotate(-90deg); }
+    aside.filters.collapsed .filters-body { display: none; }
   }
   @media (max-width: 620px) {
     .wrap { padding: 0 18px; }
@@ -638,11 +689,13 @@
     .hero { padding: 120px 0 30px; }
     .grid { grid-template-columns: 1fr; }
     footer .cols { margin-left: 0; gap: 30px; }
-    /* keep the header on one line: compare button collapses to icon + count */
-    #compareBtn .label { display: none; }
-    .header-action .label { display: none; }
-    .header-tools { gap: 5px; }
-    .btn { padding: 8px 13px; }
+    .mobile-menu { left: 18px; right: 18px; }
+
+    /* four stat tiles on one line instead of wrapping across several */
+    .stats { flex-wrap: nowrap; gap: 10px; }
+    .stat { min-width: 0; flex: 1 1 0; }
+    .stat b { font-size: 15.5px; white-space: nowrap; }
+    .stat span { font-size: 8px; letter-spacing: .01em; white-space: nowrap; }
   }
 </style>
 </head>
@@ -685,8 +738,28 @@
       </span>
       </div>
     </div>
+    <button class="hamburger" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="2" y1="5" x2="16" y2="5"/><line x1="2" y1="9" x2="16" y2="9"/><line x1="2" y1="13" x2="16" y2="13"/></svg>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu" hidden>
+    <button class="mm-item mm-brand" id="mmHome" type="button"><svg class="mark" width="20" height="20" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+      <circle cx="13" cy="13" r="10.25" stroke="currentColor" stroke-width="1.3"/>
+      <ellipse cx="13" cy="13" rx="4.4" ry="10.25" stroke="currentColor" stroke-width="1.1"/>
+      <line x1="2.75" y1="13" x2="23.25" y2="13" stroke="currentColor" stroke-width="1.1"/>
+      <path d="M4.6 7.6C8 9.1 18 9.1 21.4 7.6" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+      <path d="M4.6 18.4C8 16.9 18 16.9 21.4 18.4" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+    </svg> Campus&nbsp;Atlas</button>
+    <button class="mm-item mm-navlink" data-page="programmes" type="button">Programmes</button>
+    <button class="mm-item mm-navlink" data-page="about" type="button">About Campus Atlas</button>
+    <div class="mm-divider"></div>
+    <button class="mm-item mm-action" id="mmCompare" type="button">Compare <span class="pill-count" id="mmCompareCount">0</span></button>
+    <button class="mm-item mm-action" id="mmChecklist" type="button">Application Checklist</button>
+    <button class="mm-item mm-action" id="mmScholarships" type="button">Scholarships</button>
+    <div class="mm-shortlist">Your shortlist: <b id="mmShortlistCount">0</b></div>
   </div>
 </header>
+<div class="mobile-menu-backdrop" id="mobileMenuBackdrop" hidden></div>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <filter id="pencilEdge" color-interpolation-filters="sRGB">
@@ -715,7 +788,7 @@
 
     <div class="searchbar">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
-      <input id="q" type="search" placeholder="Try “physics in Leuven”, “no GMAT”, “Oxford”…" autocomplete="off" />
+      <input id="q" type="search" placeholder="Try “physics in Oxford”, “no GMAT”, “Singapore”…" autocomplete="off" />
       <button class="btn primary search-btn" id="searchBtn" type="button">Search</button>
     </div>
 
@@ -790,7 +863,12 @@
 <div class="wrap" id="explore">
   <div class="board">
 
-    <aside class="filters">
+    <aside class="filters collapsed" id="filtersAside">
+      <button class="filters-toggle" id="filtersToggle" type="button" aria-expanded="false" aria-controls="filtersBody">
+        <span>Filters</span>
+        <svg class="filters-chevron" width="11" height="11" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+      </button>
+      <div class="filters-body" id="filtersBody">
       <div class="fgroup">
         <h4>Region</h4>
         <div id="fRegion"></div>
@@ -819,6 +897,7 @@
         <label class="opt"><input type="checkbox" id="fScholar"> Scholarships available</label>
       </div>
       <button class="clear" id="clearBtn">Reset all filters</button>
+      </div>
     </aside>
 
     <main>
@@ -2870,6 +2949,106 @@ const PROGRAMS = [
   { id:385, school:"Northeastern University", program:"MS Data Analytics Engineering", city:"Boston, MA", country:"United States", flag:"🇺🇸", region:"North America",
     fields:["Analytics","Engineering","Computer Science"], months:16, lang:"English", tuition:52000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://coe.northeastern.edu/", extRank:"Known for one of the largest co-op/internship networks in the US", rank:375,
     openFields:["STEM & Engineering","Computer Science"], freshGradOnly:true, blurb:"An analytics-engineering degree built around one of the US's largest co-op programmes, giving students paid industry experience mid-degree.", highlights:["Large, well-established co-op network","Boston tech-sector access","Paid industry experience built into the degree","STEM-designated (OPT eligible)"] },
+
+  { id:386, school:"Charles University", program:"MSc Economics and Finance", city:"Prague", country:"Czech Republic", flag:"🇨🇿", region:"Europe",
+    fields:["Finance","Economics"], months:24, lang:"English", tuition:8000, intake:"September", deadline:"30 Apr", work:"0 yrs", gmat:false, scholar:true, link:"https://cuni.cz/UKEN-1.html", extRank:"Central Europe's oldest university (founded 1348)", rank:376,
+    openFields:["Business & Economics","STEM & Engineering"], freshGradOnly:true, blurb:"Central Europe's oldest university (founded 1348) offers a low-tuition, English-taught route into the region's fast-growing finance sector.", highlights:["Central Europe's oldest university (1348)","Low tuition relative to Western Europe","Prague's growing finance/tech sector","No GMAT/GRE required"] },
+
+  { id:387, school:"University of Vienna", program:"MSc Economics", city:"Vienna", country:"Austria", flag:"🇦🇹", region:"Europe",
+    fields:["Economics","Finance"], months:24, lang:"English", tuition:1500, intake:"October", deadline:"Rolling", work:"0 yrs", gmat:false, scholar:true, link:"https://www.univie.ac.at/en/", extRank:"Austria's largest and oldest university", rank:377,
+    openFields:["Business & Economics","STEM & Engineering"], freshGradOnly:true, blurb:"An economics degree at Austria's largest and oldest university, at low public-university tuition in one of Europe's most liveable capitals.", highlights:["Austria's largest, oldest university","Very low public-university tuition","Vienna's central-European institution access","No GMAT/GRE required"] },
+
+  { id:388, school:"Corvinus University of Budapest", program:"MSc Finance", city:"Budapest", country:"Hungary", flag:"🇭🇺", region:"Europe",
+    fields:["Finance"], months:24, lang:"English", tuition:9000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.uni-corvinus.hu/contents/index_en.html", extRank:"Hungary's leading business and economics university", rank:378,
+    openFields:["Business & Economics"], freshGradOnly:true, blurb:"Hungary's leading business and economics university, offering a low-cost route into Central Europe's growing financial-services sector.", highlights:["Hungary's leading business university","Low tuition relative to Western Europe","Budapest financial-services growth","No GMAT/GRE required"] },
+
+  { id:389, school:"Geneva Graduate Institute", program:"Master in International Affairs", city:"Geneva", country:"Switzerland", flag:"🇨🇭", region:"Europe",
+    fields:["Public Policy","Social Sciences","Economics"], months:24, lang:"English", tuition:22000, intake:"September", deadline:"15 Jan", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.graduateinstitute.ch/", extRank:"Consistently ranked among the world's top international-affairs schools", rank:379,
+    openFields:["Any"], freshGradOnly:true, blurb:"A dedicated international-affairs degree in the city that hosts more UN agencies and NGOs than anywhere else on Earth.", highlights:["Based in the world's diplomatic capital","Direct UN/WHO/WTO institutional access","Highly international cohort","No GMAT/GRE required"] },
+
+  { id:390, school:"Tufts University — Fletcher School", program:"Master of Arts in Law and Diplomacy", city:"Medford, MA", country:"United States", flag:"🇺🇸", region:"North America",
+    fields:["Public Policy","Social Sciences","Law"], months:24, lang:"English", tuition:64000, intake:"September", deadline:"Rolling", work:"0–3 yrs", gmat:false, scholar:true, link:"https://fletcher.tufts.edu/", extRank:"The oldest dedicated graduate school of international affairs in the US (founded 1933)", rank:380,
+    openFields:["Any"], freshGradOnly:false, blurb:"The oldest dedicated school of international affairs in the US, blending law, diplomacy and international business for future global-affairs leaders.", highlights:["Oldest dedicated US international-affairs school","Law + diplomacy + business combined","Extensive foreign-service alumni network","Merit and need-based fellowships"] },
+
+  { id:391, school:"Johns Hopkins University — SAIS", program:"Master of Arts in International Affairs", city:"Washington, DC", country:"United States", flag:"🇺🇸", region:"North America",
+    fields:["Public Policy","Social Sciences","Economics"], months:24, lang:"English", tuition:66000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://sais.jhu.edu/", extRank:"One of the most established DC schools of international affairs", rank:381,
+    openFields:["Any"], freshGradOnly:true, blurb:"A DC-based international-affairs degree with an unusually strong economics core, walking distance from the State Department and World Bank.", highlights:["Steps from State Dept/World Bank/IMF","Strong international-economics core","Bologna, Italy campus option","Merit scholarships available"] },
+
+  { id:392, school:"University of British Columbia", program:"MEng in Data Science", city:"Vancouver", country:"Canada", flag:"🇨🇦", region:"North America",
+    fields:["Analytics","Computer Science","AI"], months:16, lang:"English", tuition:36000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.ubc.ca/", extRank:"Canada's #3-ranked university (QS)", rank:382,
+    openFields:["STEM & Engineering","Computer Science"], freshGradOnly:true, blurb:"A data-science engineering degree at Canada's #3-ranked university, distinct from UBC Sauder's business-analytics offering.", highlights:["Canada's #3-ranked university (QS)","Vancouver tech-sector access","Applied, project-based curriculum","3-year Canadian work permit eligible"] },
+
+  { id:393, school:"McMaster University", program:"MSc Global Health", city:"Hamilton", country:"Canada", flag:"🇨🇦", region:"North America",
+    fields:["Public Health","Life Sciences"], months:16, lang:"English", tuition:24000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.mcmaster.ca/", extRank:"Birthplace of evidence-based medicine as a discipline", rank:383,
+    openFields:["STEM & Engineering","Any"], freshGradOnly:true, blurb:"A global-health degree at the university that originated evidence-based medicine as a formal discipline in the 1980s.", highlights:["Birthplace of evidence-based medicine","Strong health-systems research faculty","Below-average tuition for the specialism","3-year Canadian work permit eligible"] },
+
+  { id:394, school:"University of Calgary", program:"MEng in Energy and Environment", city:"Calgary", country:"Canada", flag:"🇨🇦", region:"North America",
+    fields:["Energy","Engineering","Sustainability"], months:16, lang:"English", tuition:26000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.ucalgary.ca/", extRank:"Located in Canada's energy-industry capital", rank:384,
+    openFields:["STEM & Engineering"], freshGradOnly:true, blurb:"An energy-transition engineering degree in Calgary, the historic heart of Canada's oil, gas and increasingly renewable-energy industry.", highlights:["Canada's energy-industry capital","Oil & gas to renewables transition focus","Strong energy-sector employer ties","3-year Canadian work permit eligible"] },
+
+  { id:395, school:"Utrecht University", program:"MSc Sustainable Development", city:"Utrecht", country:"Netherlands", flag:"🇳🇱", region:"Europe",
+    fields:["Sustainability","Earth Sciences"], months:12, lang:"English", tuition:18000, intake:"September", deadline:"1 May", work:"0 yrs", gmat:false, scholar:true, link:"https://www.uu.nl/en", extRank:"QS Environmental Sciences — Top 25 (2025)", rank:385,
+    openFields:["STEM & Engineering","Any"], freshGradOnly:true, blurb:"A top-25 sustainability degree at one of the Netherlands' leading research universities, spanning earth-system science and environmental governance.", highlights:["World top-25 environmental sciences (QS)","Science + governance combined","Dutch sustainability-policy access","No GMAT/GRE required"] },
+
+  { id:396, school:"Leiden University", program:"MSc International Relations", city:"Leiden / The Hague", country:"Netherlands", flag:"🇳🇱", region:"Europe",
+    fields:["Social Sciences","Public Policy"], months:12, lang:"English", tuition:17000, intake:"September", deadline:"1 May", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.universiteitleiden.nl/en", extRank:"The Netherlands' oldest university (founded 1575)", rank:386,
+    openFields:["Any"], freshGradOnly:true, blurb:"An international-relations degree taught partly in The Hague — home to the International Court of Justice and dozens of international tribunals.", highlights:["The Hague international-law hub","Netherlands' oldest university (1575)","ICJ/international-tribunal proximity","No GMAT/GRE required"] },
+
+  { id:397, school:"Universidade Estadual de Campinas", program:"MSc Electrical Engineering", city:"Campinas", country:"Brazil", flag:"🇧🇷", region:"Latin America",
+    fields:["Engineering","Computer Science"], months:24, lang:"English", tuition:0, intake:"March", deadline:"Rolling", work:"0 yrs", gmat:false, scholar:false, link:"https://www.unicamp.br/unicamp/english", extRank:"Brazil's top engineering-focused research university", rank:387,
+    openFields:["STEM & Engineering","Computer Science"], freshGradOnly:true, blurb:"Brazil's top engineering-focused research university, tuition-free and responsible for a large share of the country's patent output.", highlights:["Brazil's top engineering research university","Free tuition (public university)","Leads Brazil in patent output","No GMAT/GRE required"] },
+
+  { id:398, school:"Pontifícia Universidade Católica do Rio de Janeiro", program:"MSc Business Administration", city:"Rio de Janeiro", country:"Brazil", flag:"🇧🇷", region:"Latin America",
+    fields:["Management","Strategy"], months:18, lang:"English", tuition:8000, intake:"March", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.puc-rio.br/english/", extRank:"One of Brazil's most respected private universities", rank:388,
+    openFields:["Any"], freshGradOnly:true, blurb:"A management degree at one of Brazil's most respected private universities, in Rio's growing corporate and startup scene.", highlights:["One of Brazil's most respected private universities","Rio corporate/startup access","Low tuition relative to Western peers","No GMAT/GRE required"] },
+
+  { id:399, school:"American University of Sharjah", program:"MS Engineering Systems Management", city:"Sharjah", country:"United Arab Emirates", flag:"🇦🇪", region:"Asia-Pacific",
+    fields:["Engineering","Management"], months:18, lang:"English", tuition:22000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.aus.edu/", extRank:"One of the Gulf region's most established American-model universities", rank:389,
+    openFields:["STEM & Engineering","Business & Economics"], freshGradOnly:true, blurb:"An engineering-management hybrid at one of the Gulf's most established American-curriculum universities, in the UAE's fast-growing logistics hub.", highlights:["American-curriculum, AACSB/ABET accredited","UAE logistics/engineering-sector ties","Tax-free UAE salary environment post-study","No GMAT/GRE required"] },
+
+  { id:400, school:"Ashesi University", program:"MS Computer Science", city:"Berekuso", country:"Ghana", flag:"🇬🇭", region:"Africa",
+    fields:["Computer Science","AI"], months:18, lang:"English", tuition:9000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.ashesi.edu.gh/", extRank:"Widely cited as one of Africa's most innovative universities (Times Higher Education)", rank:390,
+    openFields:["STEM & Engineering","Computer Science"], freshGradOnly:true, blurb:"Founded by an MIT-educated entrepreneur and widely cited as one of Africa's most innovative universities, with a strong ethics-and-leadership core alongside technical training.", highlights:["Cited among Africa's most innovative universities","Strong ethics-and-leadership curriculum core","Growing Ghanaian/West African tech scene","No GMAT/GRE required"] },
+
+  { id:401, school:"National Taiwan University", program:"MS Computer Science and Information Engineering", city:"Taipei", country:"Taiwan", flag:"🇹🇼", region:"Asia-Pacific",
+    fields:["Computer Science","AI"], months:24, lang:"English", tuition:6000, intake:"September", deadline:"Rolling", work:"0 yrs", gmat:false, scholar:true, link:"https://www.ntu.edu.tw/english/", extRank:"QS Computer Science — Top 30 (2025)", rank:391,
+    openFields:["STEM & Engineering","Computer Science"], freshGradOnly:true, blurb:"A top-30 computer-science degree at Taiwan's leading university, in the country that fabricates the majority of the world's advanced semiconductors.", highlights:["World top-30 CS programme (QS)","Taiwan's global semiconductor-industry access","Very low tuition for the ranking","No GMAT/GRE required"] },
+
+  { id:402, school:"University of Bologna", program:"MSc Economics and Finance", city:"Bologna", country:"Italy", flag:"🇮🇹", region:"Europe",
+    fields:["Finance","Economics"], months:24, lang:"English", tuition:3000, intake:"September", deadline:"Rolling", work:"0 yrs", gmat:false, scholar:true, link:"https://www.unibo.it/en", extRank:"The world's oldest university in continuous operation (founded 1088)", rank:392,
+    openFields:["Business & Economics","STEM & Engineering"], freshGradOnly:true, blurb:"An economics and finance degree at the world's oldest university still in continuous operation, at Italian public-university tuition.", highlights:["World's oldest university (founded 1088)","Very low Italian public-university tuition","Historic university-town setting","No GMAT/GRE required"] },
+
+  { id:403, school:"Sorbonne University", program:"MSc Data Science", city:"Paris", country:"France", flag:"🇫🇷", region:"Europe",
+    fields:["Analytics","Computer Science","AI"], months:24, lang:"English", tuition:4000, intake:"September", deadline:"Rolling", work:"0 yrs", gmat:false, scholar:true, link:"https://www.sorbonne-universite.fr/en", extRank:"One of France's most historic and prestigious comprehensive universities", rank:393,
+    openFields:["STEM & Engineering","Computer Science"], freshGradOnly:true, blurb:"A data-science degree at one of France's most historic universities, tracing its roots back to the 13th-century Sorbonne college.", highlights:["Historic Sorbonne lineage (13th century)","Low French public-university tuition","Central Paris location","No GMAT/GRE required"] },
+
+  { id:404, school:"University of Oxford", program:"MSc in Mathematical and Theoretical Physics", city:"Oxford", country:"United Kingdom", flag:"🇬🇧", region:"Europe",
+    fields:["Physics"], months:9, lang:"English", tuition:39000, intake:"October", deadline:"Rolling", work:"0 yrs", gmat:false, scholar:true, link:"https://mmathphys.physics.ox.ac.uk/", extRank:"Jointly run by Oxford's Physics Department and Mathematical Institute", rank:394,
+    openFields:["STEM & Engineering"], freshGradOnly:true, blurb:"A research-level theoretical-physics degree jointly run by Oxford's Physics Department and Mathematical Institute, covering everything from string theory to condensed matter.", highlights:["Jointly run by Physics and Mathematics departments","Covers string theory to condensed-matter physics","Oxford college membership","No GMAT/GRE required"] },
+
+  { id:405, school:"Hult International Business School", program:"Master in International Business", city:"London", country:"United Kingdom", flag:"🇬🇧", region:"Europe",
+    fields:["Management","Strategy"], months:12, lang:"English", tuition:34000, intake:"Sept / Jan", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.hult.edu/", extRank:"Unique multi-campus rotation model (London/Boston/Dubai/SF)", rank:395,
+    openFields:["Any"], freshGradOnly:true, blurb:"A pre-experience management degree with a genuinely unusual perk — free rotations between Hult's London, Boston, Dubai and San Francisco campuses.", highlights:["Free rotation across 4 global campuses","London home campus","Practical, project-based teaching","No GMAT/GRE required"] },
+
+  { id:406, school:"Solvay Brussels School", program:"Master in Business Engineering", city:"Brussels", country:"Belgium", flag:"🇧🇪", region:"Europe",
+    fields:["Management","Analytics","Engineering"], months:24, lang:"English", tuition:6000, intake:"September", deadline:"Rolling", work:"0 yrs", gmat:false, scholar:true, link:"https://www.solvay.edu/en", extRank:"Belgium's leading quantitative business degree", rank:396,
+    openFields:["Any","STEM & Engineering"], freshGradOnly:true, blurb:"A quantitative business-engineering hybrid at Belgium's leading school for the discipline, combining management with a genuine STEM core.", highlights:["Belgium's leading business-engineering degree","Management + STEM combined","Brussels EU-institution proximity","Low Belgian public-university tuition"] },
+
+  { id:407, school:"Luiss Business School", program:"Master in Management", city:"Rome", country:"Italy", flag:"🇮🇹", region:"Europe",
+    fields:["Management","Strategy"], months:24, lang:"English", tuition:22000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://businessschool.luiss.edu/", extRank:"One of Italy's leading private universities", rank:397,
+    openFields:["Any"], freshGradOnly:true, blurb:"A management degree at one of Italy's leading private universities, in Rome's growing consulting and corporate market.", highlights:["Leading Italian private university","Rome consulting/corporate access","CEMS-adjacent network","No GMAT/GRE required"] },
+
+  { id:408, school:"Maastricht School of Management", program:"Master in Management", city:"Maastricht", country:"Netherlands", flag:"🇳🇱", region:"Europe",
+    fields:["Management","Strategy"], months:12, lang:"English", tuition:18000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.msm.nl/", extRank:"Independent Dutch management school with a global-development focus", rank:398,
+    openFields:["Any"], freshGradOnly:true, blurb:"An independent Dutch management school with an unusually strong focus on international development and emerging-market management.", highlights:["Global-development management focus","Highly international cohort","Independent from Maastricht University","No GMAT/GRE required"] },
+
+  { id:409, school:"EADA Business School", program:"Master in International Management", city:"Barcelona", country:"Spain", flag:"🇪🇸", region:"Europe",
+    fields:["Management","Strategy"], months:10, lang:"English", tuition:24000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.eada.edu/en", extRank:"Established Barcelona business school (founded 1957)", rank:399,
+    openFields:["Any"], freshGradOnly:true, blurb:"An established Barcelona business school with a strongly practical, project-based approach to pre-experience management education.", highlights:["Founded 1957, established reputation","Barcelona corporate/startup access","Practical, project-based teaching","No GMAT/GRE required"] },
+
+  { id:410, school:"College of Europe", program:"Master in European Economic Studies", city:"Bruges", country:"Belgium", flag:"🇧🇪", region:"Europe",
+    fields:["Economics","Public Policy"], months:10, lang:"English", tuition:24000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.coleurope.eu/", extRank:"The EU institutions' most established feeder postgraduate school", rank:400,
+    openFields:["Any"], freshGradOnly:false, blurb:"A highly selective, EU-focused economics degree widely regarded as the single strongest feeder programme into the European Commission and EU institutions.", highlights:["Top feeder into EU institutions","Extremely selective admissions","Bruges/Warsaw campus options","Merit scholarships available"] },
 ];
 
 const FIELDS  = ["Management","Finance","Analytics","Strategy","Marketing","Entrepreneurship","Economics","Sustainability",
@@ -3077,6 +3256,57 @@ const state = {
 
 const eur = n => "€" + n.toLocaleString("en-US");
 const $   = id => document.getElementById(id);
+
+// Catalogue tuition is stored as a single EUR reference figure. Local-currency
+// amounts below are that figure converted at an approximate, roughly-current rate —
+// clearly marked as approximate, since exchange rates move daily and this is a
+// prototype. Eurozone countries just show euros (no redundant conversion).
+const EUROZONE_COUNTRIES = new Set(["France","Germany","Spain","Italy","Netherlands","Belgium","Austria","Ireland","Portugal","Finland"]);
+const CURRENCY_BY_COUNTRY = {
+  "United States": { code: "USD", symbol: "US$", rate: 1.08 },
+  "United Kingdom": { code: "GBP", symbol: "£", rate: 0.85 },
+  "Switzerland": { code: "CHF", symbol: "CHF ", rate: 0.94 },
+  "Japan": { code: "JPY", symbol: "¥", rate: 165 },
+  "China": { code: "CNY", symbol: "¥", rate: 7.85 },
+  "South Korea": { code: "KRW", symbol: "₩", rate: 1470 },
+  "Singapore": { code: "SGD", symbol: "S$", rate: 1.46 },
+  "Hong Kong SAR": { code: "HKD", symbol: "HK$", rate: 8.45 },
+  "Taiwan": { code: "TWD", symbol: "NT$", rate: 34.5 },
+  "India": { code: "INR", symbol: "₹", rate: 91 },
+  "Australia": { code: "AUD", symbol: "A$", rate: 1.65 },
+  "New Zealand": { code: "NZD", symbol: "NZ$", rate: 1.78 },
+  "Canada": { code: "CAD", symbol: "C$", rate: 1.48 },
+  "Brazil": { code: "BRL", symbol: "R$", rate: 6.0 },
+  "Mexico": { code: "MXN", symbol: "Mex$", rate: 20.5 },
+  "Chile": { code: "CLP", symbol: "CLP$", rate: 1020 },
+  "Argentina": { code: "ARS", symbol: "ARS$", rate: 1450 },
+  "Costa Rica": { code: "CRC", symbol: "₡", rate: 555 },
+  "South Africa": { code: "ZAR", symbol: "R", rate: 20.5 },
+  "Kenya": { code: "KES", symbol: "KSh", rate: 140 },
+  "Nigeria": { code: "NGN", symbol: "₦", rate: 1700 },
+  "Ghana": { code: "GHS", symbol: "GH₵", rate: 16.5 },
+  "Sweden": { code: "SEK", symbol: "kr", rate: 11.3 },
+  "Norway": { code: "NOK", symbol: "kr", rate: 11.7 },
+  "Denmark": { code: "DKK", symbol: "kr", rate: 7.46 },
+  "Poland": { code: "PLN", symbol: "zł", rate: 4.28 },
+  "Czech Republic": { code: "CZK", symbol: "Kč", rate: 25.2 },
+  "Hungary": { code: "HUF", symbol: "Ft", rate: 398 },
+  "United Arab Emirates": { code: "AED", symbol: "AED ", rate: 3.97 },
+  "Saudi Arabia": { code: "SAR", symbol: "SAR ", rate: 4.06 },
+  "Israel": { code: "ILS", symbol: "₪", rate: 4.0 },
+  "Egypt": { code: "EGP", symbol: "E£", rate: 53 },
+  "Lebanon": { code: "LBP", symbol: "LBP ", rate: 96000 },
+};
+
+// Returns "Local ~€EUR" for non-Eurozone countries, or just "€EUR" for Eurozone ones.
+function tuitionDisplay(p) {
+  if (p.tuition === 0) return eur(0);
+  if (EUROZONE_COUNTRIES.has(p.country)) return eur(p.tuition);
+  const cur = CURRENCY_BY_COUNTRY[p.country];
+  if (!cur) return eur(p.tuition);
+  const local = Math.round((p.tuition * cur.rate) / 100) * 100;
+  return `${cur.symbol}${local.toLocaleString("en-US")} <span class="tuition-approx">(~${eur(p.tuition)})</span>`;
+}
 
 /* ============================================================
    ELIGIBILITY — matches the user's "Your situation" profile
@@ -3303,10 +3533,10 @@ function cardHTML(p) {
     <div class="tags">
       ${p.fields.slice(0,2).map(f => `<span class="tag">${f}</span>`).join("")}
       ${!p.gmat ? `<span class="tag teal">No GMAT</span>` : ""}
-      ${p.scholar ? `<button class="tag accent tag-link" onclick="event.stopPropagation(); showPage('scholarships')">Scholarships</button>` : ""}
+      ${p.scholar ? `<button class="tag accent tag-link" onclick="event.stopPropagation(); showPage('scholarships', null, ${p.id})">Scholarships</button>` : ""}
     </div>
     <div class="facts">
-      <div class="fact"><span>Tuition</span><b>${eur(p.tuition)}</b></div>
+      <div class="fact"><span>Tuition</span><b>${tuitionDisplay(p)}</b></div>
       <div class="fact"><span>Duration</span><b>${p.months} months</b></div>
       <div class="fact"><span>Starts</span><b>${p.intake}</b></div>
       <div class="fact"><span>Deadline</span><b>${p.deadline}</b></div>
@@ -3365,6 +3595,8 @@ function updateSelectionCounts() {
   const count = state.compare.size;
   $("compareCount").textContent = count;
   $("shortlistCount").textContent = count;
+  $("mmCompareCount").textContent = count;
+  $("mmShortlistCount").textContent = count;
   const shortlistButton = $("shortlistFilter");
   shortlistButton.disabled = count === 0;
   $("clearShortlistBtn").hidden = count === 0;
@@ -3409,12 +3641,12 @@ function openModal(id) {
         <span class="tag">${p.city}, ${p.country}</span>
         <span class="tag">${p.lang}-taught</span>
         ${!p.gmat ? `<span class="tag teal">No GMAT/GRE</span>` : ""}
-        ${p.scholar ? `<button class="tag accent tag-link" onclick="closeModal(); showPage('scholarships')">Scholarships available</button>` : ""}
+        ${p.scholar ? `<button class="tag accent tag-link" onclick="closeModal(); showPage('scholarships', null, ${p.id})">Scholarships available</button>` : ""}
       </div>
     </div>
     <div class="body">
       <div class="kv">
-        <div class="fact"><span>Tuition (total)</span><b>${eur(p.tuition)}</b></div>
+        <div class="fact"><span>Tuition (total)</span><b>${tuitionDisplay(p)}</b></div>
         <div class="fact"><span>Duration</span><b>${p.months} months</b></div>
         <div class="fact"><span>Intake</span><b>${p.intake}</b></div>
         <div class="fact"><span>Next deadline</span><b>${p.deadline}</b></div>
@@ -3451,7 +3683,7 @@ function closeModal() {
    COMPARE PAGE
    ============================================================ */
 const COMPARE_ROWS = [
-  { label: "Tuition (total)", get: p => eur(p.tuition) },
+  { label: "Tuition (total)", get: p => tuitionDisplay(p), raw: true },
   { label: "Duration", get: p => `${p.months} months` },
   { label: "Language", get: p => p.lang },
   { label: "Intake", get: p => p.intake },
@@ -3534,7 +3766,7 @@ const PAGES = {
   about: "pageAbout",
 };
 
-function showPage(page, scrollTarget) {
+function showPage(page, scrollTarget, progId) {
   state.page = page;
   Object.entries(PAGES).forEach(([key, id]) => { $(id).hidden = key !== page; });
   $("mainNav").querySelectorAll(".navlink").forEach(btn =>
@@ -3543,8 +3775,30 @@ function showPage(page, scrollTarget) {
   document.querySelectorAll("[data-page-action]").forEach(btn =>
     btn.classList.toggle("active", btn.dataset.pageAction === page));
 
-  if (page === "scholarships") renderScholarships();
+  if (page === "scholarships") {
+    // Jumping here from a specific programme's "Scholarships" tag should show
+    // that programme's funding info immediately, not an empty picker — so it's
+    // added to the shortlist (if not already) and pre-selected in the dropdown.
+    if (progId) {
+      state.compare.add(progId);
+      localStorage.setItem("ca_compare", JSON.stringify([...state.compare]));
+      updateSelectionCounts();
+    }
+    renderScholarships();
+    if (progId) {
+      const sel = $("sTargetProgramme");
+      if (sel) sel.value = progId;
+      renderScholarshipBreakdown();
+      const applyBtn = $("scholarshipApply"), note = $("scholarshipApplyNote");
+      if (applyBtn) applyBtn.textContent = "✓ Applied";
+      if (note) note.textContent = "Showing funding options for your selection above.";
+    }
+  }
   if (page === "checklist") renderApplicationChecklist();
+  // Re-render so card checkboxes reflect state.compare — it can change while
+  // this page isn't visible (e.g. the Scholarships shortcut adds a programme),
+  // and stale checkbox DOM otherwise desyncs from the real selection state.
+  if (page === "programmes") render();
 
   const target = scrollTarget && document.getElementById(scrollTarget);
   if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -3641,7 +3895,7 @@ const APPLICATION_ROWS = [
   { label:"Academic documents", raw:true, get:p => `<b>Transcript + degree certificate</b><span class="place">Prepare certified translations or expected-graduation proof if needed.</span>` },
   { label:"CV / résumé", raw:true, get:p => `<b>1–2 page CV</b><span class="place">Emphasise internships, projects and evidence relevant to ${p.fields[0]}.</span>` },
   { label:"Essays & recommenders", raw:true, get:p => `<b>Prepare statement + references</b><span class="place">Confirm exact essay prompts and referee count on the application portal.</span>` },
-  { label:"Funding & visa", raw:true, get:p => `<b>${eur(p.tuition)} tuition</b><span class="place">${getVisa(p).label}. Build proof-of-funds plan early.</span>` },
+  { label:"Funding & visa", raw:true, get:p => `<b>${tuitionDisplay(p)} tuition</b><span class="place">${getVisa(p).label}. Build proof-of-funds plan early.</span>` },
   { label:"Profile fit", raw:true, get:applicationFit },
 ];
 
@@ -3849,7 +4103,7 @@ function applicationChecklistCard(p) {
   const t = applicationTiming(p), suffix = p.id, engTestsList = getEnglishTests(p), engTests = engTestsList.join(" · "), strategy = applicationStrategyTips(p), essentials = PROGRAMME_ESSENTIALS[p.id];
   return `<div class="breakdown-card" data-checklist-card="${p.id}">
     <button class="btn secondary checklist-card-remove" data-remove-checklist="${p.id}" type="button">Remove</button>
-    <div class="breakdown-head"><div class="breakdown-prog-meta"><span class="flag">${p.flag}</span><div><h3>${p.school} — ${p.program}</h3><p>${p.city}, ${p.country} · Taught in ${p.lang} · Target intake: ${p.intake} · Tuition: ${eur(p.tuition)}</p></div></div><div class="breakdown-summary-badge"><span class="total-support-label">Next application deadline</span><span class="total-support-val">${p.deadline} · verify live</span></div></div>
+    <div class="breakdown-head"><div class="breakdown-prog-meta"><span class="flag">${p.flag}</span><div><h3>${p.school} — ${p.program}</h3><p>${p.city}, ${p.country} · Taught in ${p.lang} · Target intake: ${p.intake} · Tuition: ${tuitionDisplay(p)}</p></div></div><div class="breakdown-summary-badge"><span class="total-support-label">Next application deadline</span><span class="total-support-val">${p.deadline} · verify live</span></div></div>
     <div class="programme-focus"><p><b>${t.label}.</b> ${t.detail}</p><p style="margin-top:9px"><a href="${p.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Open official application page ↗</a></p></div>
     <div class="checklist-cats">
       <details class="cat-card" open><summary class="cat-head"><span class="cat-num">01</span><div><h3>GMAT / GRE</h3><p>${p.gmat ? "Required or expected in the catalogue record." : "Not required in the catalogue record."}</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">${p.gmat ? "Plan early and verify waiver and score requirements on the official portal." : "Focus on the other application steps unless the official portal says otherwise."}</p>${p.gmat ? gmatAvgNote(p) : ""}<div class="locator"><label class="pfield"><span>Find a test centre near you</span><input class="loc-search" id="focusGmatLocation${suffix}" list="locationList" placeholder="Any city or address…" autocomplete="off"></label><button class="btn primary" data-find-gmat="${suffix}" type="button">Find test centres</button></div><div class="locator-results" id="focusGmatResults${suffix}"></div><h4>Preparation resources</h4><ul class="resource-list"><li><a href="https://www.mba.com" target="_blank" rel="noopener noreferrer">GMAT Official Prep</a> — official practice exams.</li><li><a href="https://www.ets.org/gre.html" target="_blank" rel="noopener noreferrer">ETS GRE Official Prep</a> — official POWERPREP tests.</li><li><a href="https://www.manhattanprep.com" target="_blank" rel="noopener noreferrer">Manhattan Prep</a> — courses and tutoring.</li><li><a href="https://www.google.com/search?q=${encodeURIComponent(`site:gmatclub.com ${p.school}`)}" target="_blank" rel="noopener noreferrer">Search GMAT Club for ${escapeHTML(p.school)} threads ↗</a> — Google search scoped to gmatclub.com, not a direct link (their own search requires a login).</li></ul></div></details>
@@ -3973,7 +4227,7 @@ const SCHOLARSHIP_ROWS = [
   { label:"Government opportunity", raw:true, get:scholarshipEligibility },
   { label:"Your citizenship signal", raw:true, get:p => state.profile.citizenship ? `<b>${state.profile.citizenship} citizen</b><span class="place">Funding rules can depend on citizenship, not where you studied.</span>` : `<span class="planner-status watch">Add citizenship to personalise this</span><span class="place">Government schemes often use it as the first eligibility check.</span>` },
   { label:"Target intake & school deadline", raw:true, get:p => { const t = applicationTiming(p); return `<span class="planner-status ${t.tone}">${t.label}</span><span class="place">${t.detail}</span>`; } },
-  { label:"Funding preparation", raw:true, get:p => `<b>Plan for ${eur(p.tuition)} + living costs</b><span class="place">Prepare proof of funds, scholarship essays and referee support before the school deadline.</span>` },
+  { label:"Funding preparation", raw:true, get:p => `<b>Plan for ${tuitionDisplay(p)} + living costs</b><span class="place">Prepare proof of funds, scholarship essays and referee support before the school deadline.</span>` },
 ];
 
 function populateScholarshipTargetDropdown() {
@@ -4021,7 +4275,7 @@ function openFundingModal(progId, type) {
     body = `
       <div class="kv">
         <div class="fact"><span>Programme</span><b>${p.program}</b></div>
-        <div class="fact"><span>School Tuition</span><b>${eur(p.tuition)}</b></div>
+        <div class="fact"><span>School Tuition</span><b>${tuitionDisplay(p)}</b></div>
         <div class="fact"><span>Potential Support</span><b>${data.schoolAwardAmount}</b></div>
         <div class="fact"><span>Application Deadline</span><b>${p.deadline}</b></div>
       </div>
@@ -4038,7 +4292,7 @@ function openFundingModal(progId, type) {
     title = `${data.paymentPlanName} — ${p.school}`;
     body = `
       <div class="kv">
-        <div class="fact"><span>Total Tuition</span><b>${eur(p.tuition)}</b></div>
+        <div class="fact"><span>Total Tuition</span><b>${tuitionDisplay(p)}</b></div>
         <div class="fact"><span>Term Installments</span><b>Not verified</b></div>
         <div class="fact"><span>Interest Rate</span><b>Not verified</b></div>
         <div class="fact"><span>Duration</span><b>${p.months} Months</b></div>
@@ -4103,7 +4357,7 @@ function renderScholarshipBreakdown() {
             <span class="flag">${p.flag}</span>
             <div>
               <h3>${p.school} — ${p.program}</h3>
-              <p>${p.city}, ${p.country} · Tuition: ${eur(p.tuition)} · Duration: ${p.months} mos</p>
+              <p>${p.city}, ${p.country} · Tuition: ${tuitionDisplay(p)} · Duration: ${p.months} mos</p>
             </div>
           </div>
           <div class="breakdown-summary-badge">
@@ -4416,6 +4670,32 @@ $("applicationChecklistBtn").addEventListener("click", () => showPage("checklist
 $("scholarshipsBtn").addEventListener("click", () => showPage("scholarships"));
 
 $("logoHome").addEventListener("click", () => showPage("programmes"));
+
+// ---------- mobile hamburger menu (≤940px) ----------
+function setMobileMenu(open) {
+  $("mobileMenu").hidden = !open;
+  $("mobileMenuBackdrop").hidden = !open;
+  $("navToggle").setAttribute("aria-expanded", String(open));
+}
+$("navToggle").addEventListener("click", () => setMobileMenu($("mobileMenu").hidden));
+$("mobileMenuBackdrop").addEventListener("click", () => setMobileMenu(false));
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("mobileMenu").hidden) setMobileMenu(false); });
+
+$("mobileMenu").querySelectorAll(".mm-navlink").forEach(btn =>
+  btn.addEventListener("click", () => {
+    setMobileMenu(false);
+    showPage(btn.dataset.page, btn.dataset.page === "programmes" ? "explore" : null);
+  }));
+$("mmHome").addEventListener("click", () => { setMobileMenu(false); showPage("programmes"); });
+$("mmCompare").addEventListener("click", () => { setMobileMenu(false); openCompare(); });
+$("mmChecklist").addEventListener("click", () => { setMobileMenu(false); showPage("checklist"); });
+$("mmScholarships").addEventListener("click", () => { setMobileMenu(false); showPage("scholarships"); });
+
+// ---------- collapsible filters panel (≤940px) ----------
+$("filtersToggle").addEventListener("click", () => {
+  const nowCollapsed = $("filtersAside").classList.toggle("collapsed");
+  $("filtersToggle").setAttribute("aria-expanded", String(!nowCollapsed));
+});
 
 buildLocationDatalist();
 $("gmatFindBtn").addEventListener("click", () => renderLocator("gmat", "gmatResults", "gmatLocation"));
