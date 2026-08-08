@@ -4,6 +4,8 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Campus Atlas — Find your master's abroad</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
   /* ============================================================
      CAMPUS ATLAS — design tokens
@@ -111,7 +113,10 @@
 
   /* ---------- hamburger / mobile menu (≤940px) ---------- */
   .hamburger { display: none; }
-  .mobile-menu-backdrop { position: fixed; inset: 0; background: rgba(20,16,14,.28); z-index: 65; }
+  /* z-index stays below header's own (60): header creates its own stacking
+     context, so the menu inside it (however high its own z-index) would
+     otherwise be trapped under a backdrop that outranks the header itself */
+  .mobile-menu-backdrop { position: fixed; inset: 0; background: rgba(20,16,14,.28); z-index: 55; }
   .mobile-menu-backdrop[hidden] { display: none; }
   .mobile-menu {
     position: absolute; top: calc(100% + 8px); left: 20px; right: 20px;
@@ -131,11 +136,11 @@
   .mm-brand .mark { color: var(--ink); flex: none; }
   .mm-divider { height: 1px; background: var(--line); margin: 6px 6px; }
   .mm-action { font-size: 13.5px; color: var(--ink-2); }
-  .mm-shortlist {
-    padding: 11px 12px 6px; margin-top: 2px; border-top: 1px solid var(--line);
-    font-size: 12.5px; color: var(--ink-3);
+  .mm-group-label {
+    padding: 8px 12px 2px; font-size: 11px; text-transform: uppercase; letter-spacing: .06em;
+    color: var(--ink-3);
   }
-  .mm-shortlist b { color: var(--ink); }
+  .mm-group-label b { color: var(--accent-ink); font-variant-numeric: tabular-nums; }
 
   /* ---------- hero ---------- */
   .hero {
@@ -257,7 +262,7 @@
   .pfield { display: flex; flex-direction: column; gap: 5px; }
   .pfield span { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-3); font-weight: 600; }
   .pfield select {
-    border: 1px solid var(--line-2); background: var(--paper-2); border-radius: 8px;
+    width: 100%; border: 1px solid var(--line-2); background: var(--paper-2); border-radius: 8px;
     padding: 8px 10px; font-size: 13.5px; outline: none; color: var(--ink); appearance: none;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%238a8e97' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat; background-position: right 10px center; padding-right: 26px;
@@ -448,16 +453,17 @@
   .locator { display: flex; align-items: flex-end; gap: 10px; flex-wrap: wrap; }
   .locator .pfield { min-width: 220px; }
   .locator-results { margin-top: 16px; }
-  .locator-results .map-embed {
-    width: 100%; height: 220px; border: 1px solid var(--line); border-radius: var(--radius-sm);
-    overflow: hidden; margin-bottom: 14px;
+  .locator-map {
+    width: 100%; height: 260px; border: 1px solid var(--line); border-radius: var(--radius-sm);
+    margin-bottom: 14px; background: var(--paper-2);
   }
-  .locator-results .map-embed iframe { width: 100%; height: 100%; border: 0; display: block; }
+  .locator-map .leaflet-popup-content-wrapper { border-radius: 10px; font-size: 12.5px; }
   .live-map-links { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px; }
   .live-map-links .btn { font-size: 12.5px; padding: 8px 12px; }
   .application-boards { display: grid; gap: 20px; }
-  .application-boards .breakdown-card { position: relative; }
-  .checklist-card-remove { position: absolute; top: 16px; right: 18px; }
+  /* a normal flex row, not absolute positioning, so this can never overlap
+     the title text once it wraps to two or three lines on a narrow screen */
+  .checklist-card-toolbar { display: flex; justify-content: flex-end; margin-bottom: 10px; }
   .checklist-picker { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 9px; }
   .checklist-picker-item { display: flex; align-items: flex-start; gap: 9px; border: 1px solid var(--line); border-radius: 10px; padding: 11px 12px; background: var(--paper); cursor: pointer; }
   .checklist-picker-item:has(input:checked) { border-color: var(--accent); background: var(--accent-soft); }
@@ -517,7 +523,10 @@
   .row-content { flex: 1; min-width: 0; }
   .row-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 6px; flex-wrap: wrap; }
   .row-header h4 { font-size: 15px; font-weight: 600; margin: 0; color: var(--ink); }
-  .pill-amount { font-size: 12.5px; font-weight: 700; color: #2b7a4b; background: rgba(43, 122, 75, 0.1); padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+  /* no white-space:nowrap — this holds free-text amounts (e.g. a full "€X/month,
+     tuition not covered" clause), not just a short figure, so it must be able
+     to wrap like any other text or it pushes the whole page into horizontal scroll */
+  .pill-amount { font-size: 12.5px; font-weight: 700; color: #2b7a4b; background: rgba(43, 122, 75, 0.1); padding: 3px 10px; border-radius: 20px; max-width: 100%; }
   .row-desc { font-size: 13px; color: var(--ink-2); margin: 0 0 10px; line-height: 1.5; }
   .row-meta { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 12px; }
   .elig-match-badge { font-weight: 600; display: inline-flex; align-items: center; gap: 5px; }
@@ -653,7 +662,7 @@
 
   /* ---------- responsive ---------- */
   @media (max-width: 940px) {
-    .board { grid-template-columns: 1fr; gap: 24px; }
+    .board { padding-top: 18px; grid-template-columns: 1fr; gap: 24px; }
     aside.filters {
       position: static; border: 1px solid var(--line); border-radius: var(--radius);
       padding: 4px 18px 18px; background: var(--card);
@@ -661,10 +670,10 @@
     }
     .fgroup:first-child { padding-top: 18px; }
 
-    /* whole header collapses to a single hamburger; its contents move into
-       the dropdown menu instead, so nothing here is simply hidden-and-lost */
-    .logo, nav.main, .header-tools { display: none; }
-    .site-bar { justify-content: flex-end; }
+    /* nav links + tool group move into the dropdown menu instead of being
+       simply hidden-and-lost; logo stays as the visible, clickable brand mark */
+    nav.main, .header-tools { display: none; }
+    .site-bar { justify-content: space-between; }
     .hamburger {
       display: inline-flex; align-items: center; justify-content: center;
       width: 42px; height: 42px; border: 1px solid var(--line-2); border-radius: 999px;
@@ -686,16 +695,24 @@
   @media (max-width: 620px) {
     .wrap { padding: 0 18px; }
     .site .wrap { gap: 12px; }
-    .hero { padding: 120px 0 30px; }
+    .hero { padding: 120px 0 20px; }
     .grid { grid-template-columns: 1fr; }
     footer .cols { margin-left: 0; gap: 30px; }
     .mobile-menu { left: 18px; right: 18px; }
 
-    /* four stat tiles on one line instead of wrapping across several */
-    .stats { flex-wrap: nowrap; gap: 10px; }
+    /* three stat tiles (months dropped) on one line, comfortably sized,
+       with a tighter top border/margin so filters don't sit so far below */
+    .stats { flex-wrap: nowrap; gap: 14px; margin-top: 16px; padding-top: 14px; }
     .stat { min-width: 0; flex: 1 1 0; }
-    .stat b { font-size: 15.5px; white-space: nowrap; }
-    .stat span { font-size: 8px; letter-spacing: .01em; white-space: nowrap; }
+    .stat:nth-child(4) { display: none; }
+    .stat b { font-size: 19px; white-space: nowrap; }
+    .stat span { font-size: 9.5px; letter-spacing: .01em; white-space: nowrap; }
+
+    /* results bar: stack instead of wrapping mid-row, which read as messy */
+    .resbar { flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 16px; }
+    .resbar h2 { font-size: 19px; }
+    .shortlist-filter { margin-left: 0; }
+    .sortwrap { width: 100%; justify-content: space-between; }
   }
 </style>
 </head>
@@ -753,10 +770,10 @@
     <button class="mm-item mm-navlink" data-page="programmes" type="button">Programmes</button>
     <button class="mm-item mm-navlink" data-page="about" type="button">About Campus Atlas</button>
     <div class="mm-divider"></div>
+    <div class="mm-group-label">Your shortlist — <b id="mmShortlistCount">0</b> applies below</div>
     <button class="mm-item mm-action" id="mmCompare" type="button">Compare <span class="pill-count" id="mmCompareCount">0</span></button>
-    <button class="mm-item mm-action" id="mmChecklist" type="button">Application Checklist</button>
-    <button class="mm-item mm-action" id="mmScholarships" type="button">Scholarships</button>
-    <div class="mm-shortlist">Your shortlist: <b id="mmShortlistCount">0</b></div>
+    <button class="mm-item mm-action" id="mmChecklist" type="button">Application Checklist <span class="pill-count" id="mmChecklistCount">0</span></button>
+    <button class="mm-item mm-action" id="mmScholarships" type="button">Scholarships <span class="pill-count" id="mmScholarshipsCount">0</span></button>
   </div>
 </header>
 <div class="mobile-menu-backdrop" id="mobileMenuBackdrop" hidden></div>
@@ -3136,11 +3153,6 @@ function escapeHTML(value) {
   return String(value).replace(/[&<>"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[char]);
 }
 
-function osmEmbedSrc(lat, lon, delta) {
-  const box = [lon - delta, lat - delta, lon + delta, lat + delta].join("%2C");
-  return `https://www.openstreetmap.org/export/embed.html?bbox=${box}&layer=mapnik&marker=${lat}%2C${lon}`;
-}
-
 async function geocodeLocation(query) {
   const normalized = query.trim().toLowerCase();
   const local = LOCATIONS.find(l => locationLabel(l).toLowerCase() === normalized)
@@ -3171,12 +3183,28 @@ function haversineKm(lat1, lon1, lat2, lon2) {
 // patchy, so this can legitimately come back empty; the caller falls back to a live
 // official Maps search rather than inventing a venue or showing a distant one as "near".
 const MAX_CENTRE_KM = 350;
+
+// A plain Nominatim free-text search for a chain name (e.g. "Pearson VUE") has no
+// geographic bias at all — it just returns Nominatim's global "importance" sample
+// (verified: a bare search returns scattered results in the UK/US/Romania/India/UAE
+// regardless of where the user searched from), so almost none of the first 15 rows
+// ever land near an arbitrary user location. `viewbox` + `bounded=1` restricts the
+// search to a real box around the user's point so results, when OSM has any, are
+// genuinely nearby rather than an unrelated global sample.
+function bboxAround(lat, lon, km) {
+  const dLat = km / 111;
+  const dLon = km / (111 * Math.max(Math.cos(lat * Math.PI / 180), 0.2));
+  return { minLat: lat - dLat, maxLat: lat + dLat, minLon: lon - dLon, maxLon: lon + dLon };
+}
+
 async function findNearbyCentres(lat, lon, terms) {
+  const { minLat, maxLat, minLon, maxLon } = bboxAround(lat, lon, MAX_CENTRE_KM);
+  const viewbox = `${minLon},${maxLat},${maxLon},${minLat}`;
   const seen = new Set();
   const all = [];
   for (const term of terms) {
     try {
-      const res = await fetch(`https://nominatim.openstreetmap.org/search?format=jsonv2&limit=15&q=${encodeURIComponent(term)}`, { headers: { Accept: "application/json" } });
+      const res = await fetch(`https://nominatim.openstreetmap.org/search?format=jsonv2&limit=15&q=${encodeURIComponent(term)}&viewbox=${viewbox}&bounded=1`, { headers: { Accept: "application/json" } });
       if (!res.ok) continue;
       const places = await res.json();
       for (const p of places) {
@@ -3189,6 +3217,38 @@ async function findNearbyCentres(lat, lon, terms) {
     } catch (_) { /* try the next term */ }
   }
   return all.sort((a, b) => a.dist - b.dist).slice(0, 5);
+}
+
+// Renders real dots on an actual map (Leaflet + OSM tiles) instead of the old
+// single-marker static embed: one dot for the searched location, one per nearby
+// centre found above, auto-framed to fit all of them.
+const LOCATOR_MAPS = {};
+function renderLocatorMap(containerId, loc, centres) {
+  const el = document.getElementById(containerId);
+  if (!el || typeof L === "undefined") return;
+  if (LOCATOR_MAPS[containerId]) { LOCATOR_MAPS[containerId].remove(); delete LOCATOR_MAPS[containerId]; }
+
+  const map = L.map(containerId, { scrollWheelZoom: false });
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors',
+    maxZoom: 18,
+  }).addTo(map);
+
+  const accent = (getComputedStyle(document.documentElement).getPropertyValue("--accent") || "#a5322c").trim();
+  const points = [[loc.lat, loc.lon]];
+  L.circleMarker([loc.lat, loc.lon], { radius: 8, color: "#16181d", weight: 2, fillColor: "#16181d", fillOpacity: 1 })
+    .addTo(map).bindPopup(`<b>${escapeHTML(loc.label)}</b><br>Your search location`);
+
+  centres.forEach(c => {
+    points.push([c.lat, c.lon]);
+    L.circleMarker([c.lat, c.lon], { radius: 7, color: accent, weight: 2, fillColor: accent, fillOpacity: 0.85 })
+      .addTo(map).bindPopup(`<b>${escapeHTML(c.name)}</b><br>${c.dist < 1 ? "< 1 km away" : Math.round(c.dist) + " km away"}`);
+  });
+
+  if (points.length > 1) map.fitBounds(points, { padding: [28, 28] });
+  else map.setView(points[0], 12);
+
+  LOCATOR_MAPS[containerId] = map;
 }
 
 async function renderLocator(kind, resultsElId, selectElId) {
@@ -3207,7 +3267,8 @@ async function renderLocator(kind, resultsElId, selectElId) {
     ? [["GMAT", `GMAT test centre near ${loc?.label || query}`], ["GRE", `GRE test centre near ${loc?.label || query}`]]
     : [["TOEFL", `TOEFL test centre near ${loc?.label || query}`], ["IELTS", `IELTS test centre near ${loc?.label || query}`]];
   const links = searches.map(([label, search]) => `<a class="btn secondary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(search)}">Open ${label} search in Maps ↗</a>`).join("");
-  const map = loc ? `<div class="map-embed"><iframe src="${osmEmbedSrc(loc.lat, loc.lon, 0.1)}" loading="lazy" title="Map centred on ${escapeHTML(loc.label)}"></iframe></div>` : "";
+  const mapId = `${resultsElId}-map`;
+  const map = loc ? `<div id="${mapId}" class="locator-map"></div>` : "";
 
   let centres = [];
   if (loc) {
@@ -3232,6 +3293,8 @@ async function renderLocator(kind, resultsElId, selectElId) {
     ${centreList}
     <div class="live-map-links">${links}</div>
     <div class="cost-note">${costNote}</div>`;
+
+  if (loc) renderLocatorMap(mapId, loc, centres);
 }
 
 /* ============================================================
@@ -3596,6 +3659,8 @@ function updateSelectionCounts() {
   $("compareCount").textContent = count;
   $("shortlistCount").textContent = count;
   $("mmCompareCount").textContent = count;
+  $("mmChecklistCount").textContent = count;
+  $("mmScholarshipsCount").textContent = count;
   $("mmShortlistCount").textContent = count;
   const shortlistButton = $("shortlistFilter");
   shortlistButton.disabled = count === 0;
@@ -4102,7 +4167,7 @@ function communityLinksHTML(p) {
 function applicationChecklistCard(p) {
   const t = applicationTiming(p), suffix = p.id, engTestsList = getEnglishTests(p), engTests = engTestsList.join(" · "), strategy = applicationStrategyTips(p), essentials = PROGRAMME_ESSENTIALS[p.id];
   return `<div class="breakdown-card" data-checklist-card="${p.id}">
-    <button class="btn secondary checklist-card-remove" data-remove-checklist="${p.id}" type="button">Remove</button>
+    <div class="checklist-card-toolbar"><button class="btn secondary checklist-card-remove" data-remove-checklist="${p.id}" type="button">Remove</button></div>
     <div class="breakdown-head"><div class="breakdown-prog-meta"><span class="flag">${p.flag}</span><div><h3>${p.school} — ${p.program}</h3><p>${p.city}, ${p.country} · Taught in ${p.lang} · Target intake: ${p.intake} · Tuition: ${tuitionDisplay(p)}</p></div></div><div class="breakdown-summary-badge"><span class="total-support-label">Next application deadline</span><span class="total-support-val">${p.deadline} · verify live</span></div></div>
     <div class="programme-focus"><p><b>${t.label}.</b> ${t.detail}</p><p style="margin-top:9px"><a href="${p.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Open official application page ↗</a></p></div>
     <div class="checklist-cats">
@@ -4696,6 +4761,17 @@ $("filtersToggle").addEventListener("click", () => {
   const nowCollapsed = $("filtersAside").classList.toggle("collapsed");
   $("filtersToggle").setAttribute("aria-expanded", String(!nowCollapsed));
 });
+
+// Narrow search input truncates the full example list mid-word ("...no
+// GMAT",  "Singapore"…" becomes just a stray "n"); show one clean example
+// there instead, full list once there's room for it to actually display.
+function updateSearchPlaceholder() {
+  $("q").placeholder = window.innerWidth <= 620
+    ? "Try “physics in Oxford”…"
+    : "Try “physics in Oxford”, “no GMAT”, “Singapore”…";
+}
+updateSearchPlaceholder();
+window.addEventListener("resize", updateSearchPlaceholder);
 
 buildLocationDatalist();
 $("gmatFindBtn").addEventListener("click", () => renderLocator("gmat", "gmatResults", "gmatLocation"));
