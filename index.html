@@ -678,10 +678,11 @@
     }
     .fgroup:first-child { padding-top: 18px; }
 
-    /* nav links + tool group move into the dropdown menu instead of being
-       simply hidden-and-lost; logo stays as the visible, clickable brand mark */
-    nav.main, .header-tools { display: none; }
-    .site-bar { justify-content: space-between; }
+    /* header collapses to just the hamburger — logo + nav + tool group all
+       move into the dropdown menu instead (Campus Atlas is the first item
+       there), since the full header doesn't fit at this width */
+    .logo, nav.main, .header-tools { display: none; }
+    .site-bar { justify-content: flex-end; }
     .hamburger {
       display: inline-flex; align-items: center; justify-content: center;
       width: 42px; height: 42px; border: 1px solid var(--line-2); border-radius: 999px;
@@ -3106,6 +3107,22 @@ const PROGRAMS = [
   { id:412, school:"Koç University — Graduate School of Business", program:"MBA", city:"Istanbul", country:"Turkey", flag:"🇹🇷", region:"Asia-Pacific",
     fields:["Management","Strategy"], months:12, lang:"English", tuition:18750, intake:"September", deadline:"Rolling", work:"2–3 yrs", gmat:true, scholar:true, link:"https://gsb.ku.edu.tr/", extRank:"Turkey's leading business school", rank:402,
     openFields:["Any"], freshGradOnly:false, blurb:"Turkey's top-ranked business school, with an accelerated one-year MBA and strong placement into Istanbul's corporate and finance sector.", highlights:["One-year accelerated format","Istanbul corporate/finance ties","GMAT/GRE required (avg. GMAT ~560)","Scholarship support available"] },
+
+  { id:413, school:"ESCP Business School", program:"MSc in Marketing and Digital Media", city:"Paris + 3 other campuses", country:"France", flag:"🇫🇷", region:"Europe",
+    fields:["Marketing","Management"], months:15, lang:"English", tuition:23900, intake:"October", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://escp.eu/programmes/specialised-masters-MSc/MSc-in-marketing-and-digital-media", extRank:"QS Masters in Marketing #3 (2026)", rank:403,
+    openFields:["Any"], freshGradOnly:true, blurb:"A dedicated marketing specialist degree spanning ESCP's Madrid, London and Berlin campuses, built for students who want deep marketing/digital expertise rather than general management.", highlights:["Multi-campus: Madrid, London, Berlin","4-month internship built in","No GMAT/GRE required","QS Marketing top-3 globally (2026)"] },
+
+  { id:414, school:"King's College London — Dickson Poon School of Law", program:"LLM (Master of Laws)", city:"London", country:"United Kingdom", flag:"🇬🇧", region:"Europe",
+    fields:["Law"], months:12, lang:"English", tuition:45000, intake:"September", deadline:"25 Jul", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.kcl.ac.uk/study/postgraduate-taught/courses/master-of-laws-llm", extRank:"One of the world's leading law schools", rank:404,
+    openFields:["Any"], freshGradOnly:false, blurb:"One of London's leading law faculties, offering a choice of nine specialist LLM pathways or a general qualification, with deep connections into the City's legal market.", highlights:["9 specialist pathways or general LLM","Central London legal-market access","No GMAT/GRE required","Strong international/qualified-lawyer cohort"] },
+
+  { id:415, school:"University of Toronto — OISE", program:"MEd (Master of Education)", city:"Toronto", country:"Canada", flag:"🇨🇦", region:"North America",
+    fields:["Education"], months:18, lang:"English", tuition:48800, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.oise.utoronto.ca/", extRank:"One of the world's top-ranked education schools", rank:405,
+    openFields:["Any"], freshGradOnly:false, blurb:"Canada's largest and most research-intensive faculty of education, at a globally top-ranked institution for education, with strong ties into Ontario's education-policy establishment.", highlights:["Canada's largest education faculty","No GMAT/GRE required","Toronto education-policy network","Multiple specialization tracks"] },
+
+  { id:416, school:"The University of Tokyo", program:"Master's Program in Chemistry", city:"Tokyo", country:"Japan", flag:"🇯🇵", region:"Asia-Pacific",
+    fields:["Chemistry"], months:24, lang:"English", tuition:5000, intake:"April / October", deadline:"Rolling", work:"0 yrs", gmat:false, scholar:true, link:"https://www.chem.s.u-tokyo.ac.jp/chem_graduate/apply_en.html", extRank:"Japan's leading university", rank:406,
+    openFields:["STEM & Engineering"], freshGradOnly:true, blurb:"A research-focused chemistry master's at Japan's top-ranked university, with English-taught lab tracks and access to Tokyo's dense chemicals and materials R&D ecosystem.", highlights:["Japan's leading university","English-taught lab tracks available","Very low national-university tuition","MEXT/foundation scholarships common"] },
 ];
 
 const FIELDS  = ["Management","Finance","Analytics","Strategy","Marketing","Entrepreneurship","Economics","Sustainability",
@@ -4300,8 +4317,8 @@ const GOV_SCHOLARSHIPS = [
 // Schools not in this table fall back to the generic scholar-flag description — no
 // invented scholarship names.
 const SCHOOL_SCHOLARSHIPS = {
-  "INSEAD": { name: "INSEAD MIM Scholarships", desc: "Merit- and need-based awards funded by INSEAD's alumni and corporate partners, applied for after admission." },
-  "London Business School": { name: "LBS Merit & Diversity Scholarships", desc: "A portfolio of named awards, including women-in-business and regional scholarships, alongside need-based bursaries." },
+  "INSEAD": { name: "INSEAD MIM Scholarships", desc: "Every admitted MiM candidate is automatically reviewed for the Diversity and Achievement Scholarships as part of admission (no separate application); a small number of named scholarships have their own criteria and require a dedicated application. About 36% of a recent class received one, averaging roughly €13,300.", link: "https://www.insead.edu/master-programmes/master-management/insead-scholarships" },
+  "London Business School": { name: "LBS Merit & Diversity Scholarships", desc: "A portfolio of named awards, including women-in-business and regional scholarships, alongside need-based bursaries — most are auto-considered from your application, though some require a separate one submitted by the same deadline. Around 20% of a recent Masters class received funding; some awards cover up to £20,000, with a small number of full-tuition awards for women with strong leadership profiles.", link: "https://www.london.edu/masters-degrees/financial-aid/search-for-funding/masters-in-management-merit-scholarship" },
   "HEC Paris": { name: "HEC Foundation Scholarships", desc: "Merit- and need-based awards funded by the HEC Foundation and corporate partners." },
   "ESSEC Business School": { name: "ESSEC Excellence Scholarships", desc: "Merit-based tuition reductions for top applicants, plus need-based financial aid." },
   "ESCP Business School": { name: "ESCP Excellence & Diversity Scholarships", desc: "Merit-, need- and diversity-based awards that vary by campus and intake." },
@@ -4322,17 +4339,19 @@ const SCHOOL_SCHOLARSHIPS = {
   "Stockholm School of Economics": { name: "SSE Excellence Scholarships", desc: "Merit-based tuition scholarships for non-EU/EEA applicants, awarded competitively." },
   "Vlerick Business School": { name: "Vlerick Scholarships", desc: "A mix of merit-based and diversity scholarships covering part of the tuition fee." },
   "Nova School of Business & Economics": { name: "Nova SBE Scholarships", desc: "Merit- and need-based tuition waivers assessed as part of the admission process." },
-  "University of Pennsylvania — Wharton": { name: "Wharton Fellowship Program", desc: "Wharton's MBA funding is need-based rather than merit-based, awarded through a separate fellowship application after admission." },
-  "Harvard Business School": { name: "HBS Need-Based Fellowships", desc: "HBS awards financial aid on demonstrated need only — there are no merit scholarships, so every admit can apply." },
+  "University of Pennsylvania — Wharton": { name: "Joseph Wharton Fellowship", desc: "A merit-based award for exceptional MBA admits, judged on academic achievement, professional accomplishment, leadership and community involvement — every applicant is automatically considered from the MBA application itself, no separate form. Open to both US and international applicants; renewal into year two requires staying in good academic standing.", link: "https://mba-inside.wharton.upenn.edu/financial-aid/welcome/funding-opportunities/" },
+  "Harvard Business School": { name: "HBS Need-Based Fellowships", desc: "HBS awards financial aid on demonstrated need only — there are no merit scholarships, so every admit can apply via the Office of Financial Assistance (application form, personal statement, financial information, three years of tax returns/asset information). About half of all students receive a fellowship; awards range roughly $2,000–$87,000/year and don't need to be repaid.", link: "https://www.hbs.edu/mba/financial-aid" },
   "MIT Sloan School of Management": { name: "MIT Sloan Fellowships", desc: "A mix of need- and merit-based fellowships, including programme-specific named awards for MBA and Master of Finance students." },
-  "Stanford Graduate School of Business": { name: "Stanford GSB Fellowships", desc: "Stanford GSB awards funding on demonstrated financial need, not merit, via a separate fellowship application." },
-  "Columbia Business School": { name: "Columbia Board of Overseers & Merit Fellowships", desc: "A mix of merit-based fellowships and need-based grants awarded at admission." },
-  "Northwestern University — Kellogg": { name: "Kellogg Full-Tuition & Forte Scholarships", desc: "Merit-based scholarships including named full-tuition awards and Forte Fellowships for women." },
-  "University of Chicago — Booth": { name: "Booth Merit Scholarships", desc: "Merit-based scholarships awarded automatically at admission, including named regional and emerging-markets fellowships." },
-  "UC Berkeley — Haas": { name: "Haas Achievement Award & Merit Fellowships", desc: "Merit-based fellowships awarded at admission, with additional need-based options." },
+  "Stanford Graduate School of Business": { name: "Stanford GSB Fellowships", desc: "Awarded on demonstrated financial need only (not merit), for admitted students of any citizenship who complete the institutional application; US citizens/permanent residents must also file the FAFSA. Employer sponsorship or forgivable loans generally rule out eligibility. About half of MBA students receive a fellowship, averaging roughly $47,000/year.", link: "https://www.gsb.stanford.edu/programs/mba/tuition-financial-aid" },
+  "Columbia Business School": { name: "Columbia Board of Overseers Fellowship", desc: "A full-tuition, second-year-renewable merit fellowship for admits who show exceptional academic/professional promise and leadership. No separate application — your regular MBA application is auto-considered — but only August-entry students are eligible in year one, and applying by Round 1/2 gives priority consideration.", link: "https://www8.gsb.columbia.edu/financial-aid/fellowships-scholarships/merit-based/fellowships-list" },
+  "Northwestern University — Kellogg": { name: "Kellogg Full-Tuition & Forte Scholarships", desc: "Merit-based scholarships including named full-tuition awards, plus a Forté Foundation Fellowship reserved for women (auto-considered once you apply to Kellogg — no separate Forté application, judged on leadership, diversity of background and commitment to advancing women in business)." },
+  "University of Chicago — Booth": { name: "Booth Merit Scholarships", desc: "No separate application — every admitted Full-Time MBA applicant is automatically evaluated for merit aid based on academics, interview, career progression, leadership and career goals. Coverage ranges from partial to full tuition; some are notified at admission, others shortly after.", link: "https://www.chicagobooth.edu/mba/full-time/admissions" },
+  "UC Berkeley — Haas": { name: "Haas Achievement Award & Merit Fellowships", desc: "A mix of need- and merit-based awards open to US and international applicants alike (~$13M awarded to one recent entering class). Most need no extra paperwork beyond the standard application, though some list a supplemental scholarship form — best submitted in the same round as your application, since awards are limited in later rounds.", link: "https://haas.berkeley.edu/financial-aid/full-time-mba/haas-scholarships/" },
   "Cornell University — Johnson": { name: "Park Leadership Fellows Program", desc: "A prestigious full-tuition leadership fellowship alongside standard merit scholarships." },
   "Yale School of Management": { name: "Yale SOM Fellowships", desc: "Merit-based fellowships awarded at admission, ranging from partial to full tuition." },
   "Duke University — Fuqua": { name: "Fuqua Scholars Program", desc: "Merit-based scholarships awarded automatically at admission based on the strength of the application." },
+  "Dartmouth College — Tuck": { name: "Tuck MBA Scholarships & Fellowships", desc: "Merit scholarships range $10,000 to full tuition (averaging ~$34,700/year) and are open to international applicants; auto-considered from your application, though applying Early Action or Round 1 improves your odds as funds are limited. Named fellowships (Forté, ROMBA, diversity- and entrepreneurship-focused) need the optional fellowship section of the same application, not a separate one.", link: "https://tuck.dartmouth.edu/admissions/finance-your-degree/scholarships-fellowships-sponsorships" },
+  "University of Virginia — Darden": { name: "Darden Merit Scholarships & Jefferson/Oculus Fellowships", desc: "Standard merit scholarships (partial to full tuition) are auto-considered once your application is complete — no extra form. The most competitive named awards need an Early Action/Round 1/Round 2 application to even be considered: Jefferson Fellowships (full tuition + $20,000 stipend, for exceptional global leadership) and Oculus Fellowships (up to full tuition). AccessDarden offers separate need-based support.", link: "https://www.darden.virginia.edu/mba/tuition-financial-aid/scholarships" },
   "UCLA Anderson": { name: "Anderson Merit-Based Fellowships", desc: "Merit-based fellowships awarded at admission, plus need-based loan support." },
   "NYU Stern": { name: "Stern Merit Scholarships", desc: "Merit-based scholarships awarded automatically at admission, no separate application required." },
   "University of Michigan — Ross": { name: "Ross Merit-Based Fellowships", desc: "Merit-based fellowships awarded automatically at admission based on the overall application." },
@@ -4416,6 +4435,7 @@ function getProgrammeScholarshipData(p) {
     schoolAwardDesc: schoolScheme
       ? `${schoolScheme.desc} Exact amounts and criteria change year to year — confirm current terms on ${p.school}'s official funding page.`
       : (p.scholar ? `This catalogue flags scholarship or fee-reduction availability for this programme. Award amount, criteria and deadline must be confirmed on ${p.school}'s official funding page.` : `No programme-specific award is currently mapped. Check ${p.school}'s official funding page before ruling it out.`),
+    schoolAwardLink: schoolScheme?.link || null,
     govName: govScheme.name,
     govSupport: govScheme.support || "Award amount varies — check official call",
     govDeadline: govScheme.deadline || "Annual call — check official page",
@@ -4451,7 +4471,7 @@ function openFundingModal(progId, type) {
         <p style="margin-top:8px;"><strong>Academic background:</strong> ${state.profile.field || "Not set"}. This can matter for merit awards, but the official criteria decide eligibility.</p>
       </div>
       <div style="margin-top:20px;text-align:right;">
-        <a href="https://www.google.com/search?q=${encodeURIComponent(`${p.school} ${data.schoolAwardName}`)}" target="_blank" rel="noopener noreferrer" class="btn btn-action">More information on that scholarship ↗</a>
+        <a href="${data.schoolAwardLink || `https://www.google.com/search?q=${encodeURIComponent(`${p.school} ${data.schoolAwardName}`)}`}" target="_blank" rel="noopener noreferrer" class="btn btn-action">More information on that scholarship ↗</a>
       </div>
     `;
   } else if (type === "flex") {
