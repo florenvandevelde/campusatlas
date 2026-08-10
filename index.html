@@ -558,6 +558,11 @@
   .scholar-gov-card h4 { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
   .scholar-gov-card p { font-size: 12.5px; color: var(--ink-2); line-height: 1.5; margin-bottom: 8px; }
   .scholar-gov-card a { font-size: 12px; font-weight: 600; color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  .scholar-gov-support { font-size: 12px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+  .fund-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .fund-tabs .chip { cursor: pointer; }
+  .fund-tabs .chip[aria-selected="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .fund-count { font-size: 12px; color: var(--ink-3); margin: -6px 0 14px; }
   @media (max-width: 900px) { .scholar-gov-grid, .scholarship-checklist-grid { grid-template-columns: 1fr 1fr; } }
   @media (max-width: 620px) { .scholar-gov-grid, .scholarship-checklist-grid { grid-template-columns: 1fr; } }
   @media (max-width: 768px) { .funding-option-row { flex-direction: column; } .row-action { align-self: flex-start; margin-top: 8px; } }
@@ -1169,6 +1174,19 @@
 
     <!-- Dynamic Programme Funding Options Board -->
     <div id="scholarshipBreakdown" class="scholar-breakdown-section"></div>
+
+    <!-- Full funding directory: every scheme in the catalogue, not just the ones
+         attached to a shortlisted programme -->
+    <h2 class="scholar-section-title">Full funding directory</h2>
+    <p class="scholar-section-sub" id="fundingDirIntro">Every scheme researched for this catalogue, on three axes: what your <em>home country</em> pays for, what your <em>destination country</em> pays for, and awards attached to the <em>programme itself</em> regardless of where you're from. Set your citizenship above to see which ones you can actually compete for.</p>
+    <div class="fund-tabs" id="fundTabs" role="tablist">
+      <button class="chip" type="button" data-fund-tab="relevant" role="tab">Relevant to me</button>
+      <button class="chip" type="button" data-fund-tab="home" role="tab">🏠 From my country</button>
+      <button class="chip" type="button" data-fund-tab="dest" role="tab">🏛️ Destination country</button>
+      <button class="chip" type="button" data-fund-tab="global" role="tab">🌍 Programme-linked</button>
+      <button class="chip" type="button" data-fund-tab="all" role="tab">All</button>
+    </div>
+    <div class="scholar-gov-grid" id="scholarGovGrid"></div>
 
   </div>
 </section>
@@ -4304,18 +4322,184 @@ function renderApplicationChecklist() {
   renderSingleApplicationChecklist();
 }
 
+// Destination-country funding: schemes for studying *in* that country as an
+// incoming international student. Several countries legitimately run more than one
+// scheme, so this is a flat list and every consumer filters by country rather than
+// taking the first match — getProgrammeScholarshipData() returns all of them.
+// Every entry below was verified against the scheme's own official page or its
+// official announcement; amounts are quoted with the cycle they belong to, because
+// they are re-set annually.
 const GOV_SCHOLARSHIPS = [
-  { flag: "🇫🇷", country: "France", name: "Eiffel Excellence Scholarship", desc: "Institution-nominated French government scholarship for outstanding international master's students.", support: "€1,200/month living allowance (2026); tuition is not generally covered", deadline: "Institution nomination deadline varies", link: "https://www.campusfrance.org/en/the-france-excellence-eiffel-scholarship-program", restriction: "For non-French nationals; the institution submits the application." },
-  { flag: "🇩🇪", country: "Germany", name: "DAAD Scholarships", desc: "Germany's national academic exchange service — awards vary by programme, field and country of origin.", support: "Typical master's award: €992/month + eligible allowances", deadline: "Varies by DAAD programme", link: "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database?detail=50026200", restriction: "Open to many nationalities; programme-specific rules apply." },
-  { flag: "🇬🇧", country: "United Kingdom", name: "Chevening Scholarships", desc: "UK government award funding one-year master's degrees, fully funded including tuition and living costs.", link: "https://www.chevening.org/", restriction: "Excludes UK and dual UK nationals; usually requires 2+ years work experience." },
-  { flag: "🇳🇱", country: "Netherlands", name: "Holland Scholarship", desc: "A one-off grant for non-EEA students starting a master's at a participating Dutch institution.", link: "https://www.studyinnl.org/finances/holland-scholarship", restriction: "Non-EU/EEA nationals only — EU citizens aren't eligible." },
-  { flag: "🇨🇭", country: "Switzerland", name: "Swiss Government Excellence Scholarships", desc: "Federal scholarships for foreign students and researchers at Swiss universities.", link: "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html", restriction: "For non-Swiss nationals only." },
-  { flag: "🇸🇪", country: "Sweden", name: "Swedish Institute Scholarships for Global Professionals", desc: "Full scholarship for eligible citizens pursuing an approved master's programme in Sweden.", support: "Full tuition + SEK 12,000/month + travel grant", deadline: "Annual spring call; 2026 call is closed", link: "https://si.se/en/apply/scholarships/swedish-institute-scholarships-for-global-professionals/", restriction: "Eligible citizenship, programme, work and leadership experience are required." },
-  { flag: "🇺🇸", country: "United States", name: "Fulbright Foreign Student Program", desc: "The best-known US government scholarship for international graduate study, covering tuition and living costs.", link: "https://foreign.fulbrightonline.org/", restriction: "Excludes US citizens." },
-  { flag: "🇦🇺", country: "Australia", name: "Australia Awards Scholarships", desc: "Australian government scholarships for students from eligible countries across the Indo-Pacific.", link: "https://www.dfat.gov.au/people-to-people/australia-awards/australia-awards-scholarships", restriction: "Restricted to specific Indo-Pacific/developing partner countries — most European citizens aren't eligible." },
-  { flag: "🇮🇪", country: "Ireland", name: "Government of Ireland International Education Scholarships", desc: "Highly competitive award for eligible international master’s students at participating Irish institutions.", support: "€10,000 stipend + one-year full fee waiver", deadline: "2026 call closed 12 March — watch for next call", link: "https://hea.ie/policy/internationalisation/goi-ies/", restriction: "For applicants domiciled outside EU/EEA, Switzerland and the UK, with an eligible offer." },
-  { flag: "🇪🇺", country: "EU-wide", name: "Erasmus Mundus Joint Master Degrees", desc: "Fully-funded joint master's programmes taught across two or more European countries.", link: "https://education.ec.europa.eu/education-levels/higher-education/erasmus-mundus", restriction: "Open to all nationalities, EU and non-EU alike." },
+  // ── France ──────────────────────────────────────────────────────────────────
+  { flag: "🇫🇷", country: "France", name: "Eiffel Excellence Scholarship", desc: "Institution-nominated French government scholarship for outstanding international master's students. You never apply directly — your French host institution builds and submits the file, so the real deadline is the school's internal one (usually several weeks before Campus France's).", support: "€1,200/month living allowance (2026); tuition is not generally covered", deadline: "Institution nomination deadline varies — ask the school in autumn", link: "https://www.campusfrance.org/en/the-france-excellence-eiffel-scholarship-program", restriction: "For non-French nationals only; candidates already holding a French government scholarship are excluded. Preference goes to applicants under 25 at master's level." },
+  { flag: "🇫🇷", country: "France", name: "Bourses du gouvernement français (BGF) — French Embassy scholarships", desc: "Country-by-country embassy scholarship programmes run by France's diplomatic network, separate from Eiffel. Each embassy publishes its own call, its own fields of priority and its own award sizes, so the scheme in your country may look nothing like the one next door.", support: "Varies by country programme — from partial fee support to a full living stipend + social cover", deadline: "Set independently by each embassy — typically winter/spring for a September intake", link: "https://www.campusfrance.org/en/french-government-scholarships-bgf", restriction: "Eligibility, fields and award size are defined by the French embassy in *your* country — check your own country's page rather than the general description." },
+  // ── Germany ─────────────────────────────────────────────────────────────────
+  { flag: "🇩🇪", country: "Germany", name: "DAAD Scholarships", desc: "Germany's national academic exchange service — the single largest funder of international students in Germany. Awards vary enormously by programme, field and country of origin; DAAD's own searchable database is the only reliable way to see what applies to you.", support: "Typical master's award: €992/month + travel, insurance and study allowances", deadline: "Varies by DAAD programme — many close 6–12 months before the intake", link: "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database?detail=50026200", restriction: "Open to many nationalities; each programme sets its own country list, field list and work-experience bar." },
+  { flag: "🇩🇪", country: "Germany", name: "Deutschlandstipendium", desc: "A federal top-up scholarship co-funded 50/50 by the government and private donors, awarded by the universities themselves. Explicitly income-independent — it rewards academic record, social commitment and personal circumstances rather than financial need, and it stacks with BAföG.", support: "€300/month for at least two semesters, renewable up to the standard length of the degree", deadline: "Set by each university — most call in spring/summer for the winter semester", link: "https://www.deutschlandstipendium.de/", restriction: "Open to students of all nationalities enrolled at a participating German university; doctoral candidates and students at federal (Bund) universities are excluded." },
+  { flag: "🇩🇪", country: "Germany", name: "Konrad-Adenauer-Stiftung International Scholarship", desc: "One of Germany's major political-foundation scholarships (Begabtenförderungswerke). Beyond the money it runs a substantial seminar and mentoring programme — selection weighs political/social engagement as heavily as grades.", support: "€992/month for master's students (2026 rate) plus insurance and family allowances", deadline: "15 July 2026 for the international programme", link: "https://www.kas.de/en/web/begabtenfoerderung-und-kultur/scholarships-for-foreign-students", restriction: "Primarily for students from non-EU countries; requires German language ability for most tracks and demonstrable civic engagement." },
+  { flag: "🇩🇪", country: "Germany", name: "Heinrich Böll Foundation Scholarship", desc: "The Green-affiliated political foundation's scholarship for international master's and doctoral students, with a strong emphasis on ecology, democracy and human rights. Selection is by a written application plus a selection workshop.", support: "€934/month for master's students plus allowances", deadline: "1 September 2026 for international applicants", link: "https://www.boell.de/en/scholarships", restriction: "Only funds master's programmes with a standard duration of four semesters or more — one-year master's degrees are ineligible." },
+  // ── United Kingdom ──────────────────────────────────────────────────────────
+  { flag: "🇬🇧", country: "United Kingdom", name: "Chevening Scholarships", desc: "The UK government's flagship award, funding one-year master's degrees in full — tuition, a monthly stipend, flights and arrival allowances — and building a global alumni network that is a large part of its actual value.", support: "Fully funded: tuition, monthly living stipend, return flights, arrival/departure allowance", deadline: "Annual call opens August, closes early November", link: "https://www.chevening.org/", restriction: "Excludes UK and dual UK nationals. Requires at least 2 years' work experience, three UK university choices, and a commitment to return home for two years afterwards." },
+  { flag: "🇬🇧", country: "United Kingdom", name: "GREAT Scholarships (British Council)", desc: "A tuition-fee award co-funded by the British Council and the participating university — the most realistic UK government-backed route for students from several Western European countries, since Chevening and Commonwealth exclude or largely bypass them.", support: "£10,000 towards tuition for a one-year taught master's", deadline: "Applied for directly at each participating university — deadlines vary, most spring", link: "https://study-uk.britishcouncil.org/scholarships-funding/great-scholarships", restriction: "Limited to 18 eligible countries — including France, Italy, Spain, Greece and Turkey, but not Belgium, Germany, the Netherlands or the UK itself. One-year taught master's only." },
+  { flag: "🇬🇧", country: "United Kingdom", name: "Commonwealth Scholarships (Master's)", desc: "Funded by the UK's Foreign, Commonwealth & Development Office for students from eligible Commonwealth countries who could not otherwise afford to study in the UK — a development award, not a merit prize, so financial need is genuinely part of the assessment.", support: "Fully funded: tuition, living allowance, airfares, thesis/warm-clothing grants", deadline: "Annual autumn call via a national nominating agency", link: "https://cscuk.fcdo.gov.uk/scholarships/commonwealth-masters-scholarships/", restriction: "Restricted to citizens of eligible (mostly low- and middle-income) Commonwealth countries — no Western European country qualifies. Nomination must come through an approved national agency or university." },
+  // ── Belgium ─────────────────────────────────────────────────────────────────
+  { flag: "🇧🇪", country: "Belgium", name: "Master Mind Scholarships (Government of Flanders)", desc: "Flanders' own excellence scholarship for incoming international master's students at Flemish institutions (KU Leuven, Ghent, Antwerp, VUB, Hasselt and the university colleges). You cannot apply directly — the Flemish host institution nominates you, so the school's internal scholarship deadline is the one that matters.", support: "€10,225 grant per academic year plus a tuition-fee waiver (~30 awards/year)", deadline: "Set per host institution, typically January–April; the 2026-27 call has closed", link: "https://www.studyinflanders.be/scholarships/master-mind-scholarships", restriction: "Flemish institutions only — this does not cover the French-speaking universities (ULB, UCLouvain, Liège). Open to most nationalities, with a number of places ring-fenced for Japan, Mexico, Palestine and the USA." },
+  { flag: "🇧🇪", country: "Belgium", name: "ARES International Training Scholarships (Wallonia-Brussels Federation)", desc: "The French-speaking Community's development-cooperation scholarship, covering a one-year advanced master's at a Wallonia-Brussels institution. Built around development-relevant subject areas and mid-career professionals rather than fresh graduates.", support: "€1,150/month for 12 months, plus full tuition, one return economy flight and health insurance", deadline: "Applications 3 August – 18 September 2026 for the 2027-28 intake", link: "https://www.studyinbelgium.be/en/scholarships/international-training-scholarship-ares-1", restriction: "For nationals of ARES's list of developing partner countries with relevant professional experience — not open to EU/Western European applicants. French-speaking institutions only." },
+  // ── Italy ───────────────────────────────────────────────────────────────────
+  { flag: "🇮🇹", country: "Italy", name: "Italian Government Scholarships (MAECI)", desc: "The Italian Ministry of Foreign Affairs' central scholarship programme, applied for through the single Study in Italy portal rather than through the university. Covers master's (laurea magistrale), AFAM, PhD and Italian language courses.", support: "€10,800 for a full study programme (€900/month), plus tuition/registration exemption and health insurance", deadline: "26 March 2026, 14:00 Italian time, for the 2026-27 cycle", link: "https://studyinitaly.esteri.it/", restriction: "For non-Italian citizens and Italian citizens resident abroad (IRE). Country eligibility lists are re-published each year — confirm your nationality is on the current one." },
+  { flag: "🇮🇹", country: "Italy", name: "Invest Your Talent in Italy", desc: "A joint Foreign Ministry / ICE / Uni-Italia programme pairing a master's at a participating Italian university with a mandatory 3–4 month internship at an Italian company — the internship is the point of the scheme, not a bonus.", support: "€9,000 (€1,000/month over 9 months) plus a tuition-fee waiver at participating universities", deadline: "Annual call, typically closing in spring for the following September", link: "https://investyourtalent.esteri.it/", restriction: "Restricted to a fixed list of partner countries (Armenia, Azerbaijan, Brazil, Colombia, Egypt, Ethiopia, Ghana, India, Indonesia, Iran, Kazakhstan, Mexico, South Korea, China, Tunisia, Turkey, Vietnam) — no European nationality qualifies. Engineering, technology, design, economics and management programmes only." },
+  { flag: "🇮🇹", country: "Italy", name: "Regional right-to-study grants (DSU / borsa di studio regionale)", desc: "Italy's biggest source of student money is not national but regional: each region's DSU agency (ER-GO in Emilia-Romagna, DSU Toscana, Laziodisu, ERSU in Sicily and so on) awards income-based grants that also cover fee exemption, canteen access and subsidised housing. International students are explicitly eligible — the assessment uses your family's income and assets converted onto the Italian ISEE scale.", support: "Income-banded grant plus tuition exemption; the largest bands (off-site students) commonly run into several thousand euro per year", deadline: "Regional calls typically open July–September for the same academic year", link: "https://www.universitaly.it/index.php/studenti/borse", restriction: "Income- and merit-tested, not a merit prize; each region runs its own call, income thresholds and documentation rules, and non-EU applicants usually need consular income certification. Apply through the region of your university, not the university itself." },
+  // ── Spain ───────────────────────────────────────────────────────────────────
+  { flag: "🇪🇸", country: "Spain", name: "Fundación Carolina Scholarships", desc: "The largest scholarship programme for studying in Spain, run jointly with the Spanish state and a group of major companies. The 2026-27 call offers 736 awards in total, of which 228 are for postgraduate study (official master's, own-title master's and specialisation courses) across 203 academic programmes.", support: "Full or partial tuition, return flights, health insurance and a living/accommodation allowance — the exact package depends on the specific programme", deadline: "12 January – 2 March 2026 for the 2026-27 postgraduate call", link: "https://www.fundacioncarolina.es/convocatoria-de-becas-2026-2027/", restriction: "Overwhelmingly for nationals of Latin American countries (plus a smaller Spanish/Portuguese track for some modalities) — not open to most European applicants. You must already be admitted, or applying, to one of the listed programmes." },
+  { flag: "🇪🇸", country: "Spain", name: "MAEC-AECID Scholarships", desc: "The Spanish development agency's scholarship programme, split into separate calls: a Master's programme for Latin America and the Philippines aimed at public-sector employees, and an África-Med Máster track for African and Middle Eastern applicants.", support: "Tuition for an official master's (up to 60 ECTS) plus a maintenance allowance; the Latin America call ran ~90 new awards on a €1.98M budget", deadline: "Call-specific — the África-Med Máster window ran 2–15 July 2026 for 2026-27", link: "https://www.aecid.es/becas-para-ciudadanos-de-paises-de-america-latina-africa-y-asia", restriction: "Strictly country-listed (Latin America + Philippines, or Africa + Middle East depending on the call); several tracks additionally require public-sector employment. You must already hold admission to the master's when you apply." },
+  // ── Rest of Europe ──────────────────────────────────────────────────────────
+  { flag: "🇳🇱", country: "Netherlands", name: "Holland Scholarship", desc: "A one-off arrival grant for non-EEA students starting a bachelor's or master's at a participating Dutch institution, funded by the Ministry of Education together with the universities.", support: "€5,000 in the first year only — not a full scholarship and not renewable", deadline: "Set by each institution, typically 1 February or 1 May", link: "https://www.studyinnl.org/finances/holland-scholarship", restriction: "Non-EU/EEA nationals only — EU citizens (including Belgian, French, German, Spanish and Italian students) are not eligible." },
+  { flag: "🇨🇭", country: "Switzerland", name: "Swiss Government Excellence Scholarships", desc: "Federal scholarships for foreign researchers and postgraduate students at Swiss universities, allocated country by country through the Swiss embassy in your home country.", support: "Monthly stipend, tuition exemption, health insurance and a housing allowance; exact package varies by scholarship type", deadline: "Set per country by the local Swiss embassy — usually autumn", link: "https://www.sbfi.admin.ch/sbfi/en/home/education/scholarships-and-grants/swiss-government-excellence-scholarships.html", restriction: "For non-Swiss nationals only, and only from countries on the current eligibility list — the research-oriented tracks dominate, so taught master's applicants often do not qualify." },
+  { flag: "🇸🇪", country: "Sweden", name: "Swedish Institute Scholarships for Global Professionals", desc: "Sweden's flagship government scholarship for master's study, weighted heavily towards demonstrated leadership and work experience rather than grades alone.", support: "Full tuition + SEK 12,000/month living allowance + SEK 15,000 travel grant + insurance", deadline: "Annual call each February; the 2026 call is closed", link: "https://si.se/en/apply/scholarships/swedish-institute-scholarships-for-global-professionals/", restriction: "Eligible citizenship list only (largely Africa, Asia, the Middle East and parts of Latin America and Eastern Europe), with a minimum of 3,000 hours of work/leadership experience. Western European citizens are not eligible." },
+  { flag: "🇮🇪", country: "Ireland", name: "Government of Ireland International Education Scholarships", desc: "A small, highly competitive award for international students at participating Irish institutions, run by the Higher Education Authority.", support: "€10,000 stipend + one-year full fee waiver", deadline: "2026 call closed 12 March — watch for the next call", link: "https://hea.ie/policy/internationalisation/goi-ies/", restriction: "For applicants domiciled outside the EU/EEA, Switzerland and the UK, holding an eligible offer — EU students including Belgian, French, German, Spanish and Italian citizens are not eligible." },
+  { flag: "🇦🇹", country: "Austria", name: "OeAD / Ernst Mach Grant", desc: "Austria's national agency for education and internationalisation administers the country's public scholarship database, including the Ernst Mach Grant for incoming students and researchers.", support: "Roughly €1,150/month for graduate-level grantees, plus insurance and travel support depending on the track", deadline: "Track-specific — most annual calls close in late winter/early spring", link: "https://grants.at/en/", restriction: "Individual tracks set their own country lists and age limits; several are restricted to non-EU applicants or to specific bilateral partner countries." },
+  { flag: "🇪🇺", country: "EU-wide", name: "Erasmus Mundus Joint Masters", desc: "Fully-funded two-year joint master's degrees delivered by a consortium of universities in at least two countries, with built-in mobility between them. Applications go directly to each consortium, not to a central EU portal — every EMJM has its own website, deadline and selection panel.", support: "€1,400/month for up to 24 months (≈€33,600), covering participation/tuition costs, insurance, travel and installation", deadline: "Set per consortium, most closing December–February for a September start", link: "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en", restriction: "Open to all nationalities, EU and non-EU alike — one of the few genuinely open fully-funded routes for Western European students. You may apply to a maximum of three EMJM courses per intake." },
+  // ── North America ───────────────────────────────────────────────────────────
+  { flag: "🇺🇸", country: "United States", name: "Fulbright Foreign Student Program", desc: "The best-known US government scholarship for international graduate study. Critically, it is administered by the binational Fulbright Commission *in your own country*, so the deadline, the selection process and even the degree levels funded differ from country to country.", support: "Typically tuition, living stipend, health cover and airfare — some country programmes fund only partially", deadline: "Set by your national Fulbright commission — usually 10–14 months before the intake", link: "https://foreign.fulbrightonline.org/", restriction: "Excludes US citizens and permanent residents. Apply through your home country's commission (Belgium, France, the UK, Spain, Italy and Germany each run their own)." },
+  { flag: "🇨🇦", country: "Canada", name: "Canadian institutional & provincial graduate awards", desc: "Canada has no single national master's scholarship for international students — the federal Vanier programme is doctoral-only. In practice, funding comes from the university's own entrance awards and from provincial graduate scholarships (OGS in Ontario, FRQ in Quebec), several of which international students can hold.", support: "Varies widely — provincial graduate scholarships commonly sit around CAD $10,000–$15,000/year", deadline: "University- and province-specific, typically December–February", link: "https://www.educanada.ca/scholarships-bourses/index.aspx?lang=eng", restriction: "No single national scheme to apply to; eligibility for provincial awards is set per province and often favours research-based (thesis) master's over course-based ones." },
+  // ── Asia-Pacific ────────────────────────────────────────────────────────────
+  { flag: "🇯🇵", country: "Japan", name: "MEXT Scholarship (Japanese Government)", desc: "Japan's government scholarship, available through two distinct routes: an Embassy Recommendation track (apply via the Japanese embassy in your country) and a University Recommendation track (apply via a Japanese university you already have a supervisor contact with). The university track is usually the better fit if you have a specific lab in mind.", support: "¥144,000/month for master's students, full tuition, return airfare and an optional 6-month Japanese course", deadline: "Embassy track opens May–June; university-recommendation deadlines run September–January", link: "https://www.studyinjapan.go.jp/en/planning/scholarship/", restriction: "Open to most nationalities with a diplomatic relationship with Japan, with age limits per track. Applicants generally cannot hold another government scholarship simultaneously." },
+  { flag: "🇨🇳", country: "China", name: "Chinese Government Scholarship (CSC)", desc: "China's central government scholarship, applied for either through the Chinese embassy in your country (Type A) or directly through the Chinese university (Type B) — the two tracks have different deadlines and different odds, and you can often pursue both.", support: "Full tuition waiver, CNY 3,000/month stipend for master's students, on-campus accommodation or a housing subsidy, and comprehensive medical insurance", deadline: "Country-specific, mostly February–late April for the following September", link: "https://www.campuschina.org/", restriction: "Non-Chinese nationals in good health, generally under 35 for master's applicants. Embassy-track quotas are set per country, so competition varies enormously by nationality." },
+  { flag: "🇰🇷", country: "South Korea", name: "Global Korea Scholarship (GKS)", desc: "Korea's national scholarship for international graduate students, run by NIIED via both an embassy track and a university track, and including a full year of Korean language training before the degree begins.", support: "Full tuition, a monthly living allowance, airfare, settlement and repatriation allowances, insurance and a Korean-language training year — exact rates published in each year's GKS guidelines", deadline: "Annual call, typically February–March for a September start", link: "https://www.studyinkorea.go.kr/en/sub/gks/allnew_invite.do", restriction: "Non-Korean nationals (and their parents) only, with an age limit (generally under 40) and a minimum grade threshold (~80% or 2.64/4.0). Quotas are allocated per country." },
+  { flag: "🇸🇬", country: "Singapore", name: "Singapore institutional graduate awards", desc: "Singapore does not run a broad national master's scholarship for international students — NUS, NTU, SMU and SUTD each administer their own graduate scholarships and fee subsidies, and the government's main lever is the Tuition Grant Scheme.", support: "The MOE Tuition Grant substantially reduces fees in exchange for a service obligation; school awards vary from partial to full tuition", deadline: "Set per university/programme", link: "https://www.moe.gov.sg/financial-matters/awards-scholarships", restriction: "The Tuition Grant carries a binding 3-year obligation to work for a Singapore-registered company after graduation — a real commitment, not a formality. Read the bond terms before accepting." },
+  { flag: "🇦🇺", country: "Australia", name: "Australia Awards Scholarships", desc: "Australian government scholarships tied to its development programme, aimed at building capacity in partner countries across the Indo-Pacific.", support: "Fully funded: tuition, return air travel, establishment allowance, contribution to living expenses and health cover", deadline: "Annual call, typically opening February and closing late April/May", link: "https://www.dfat.gov.au/people-to-people/australia-awards/australia-awards-scholarships", restriction: "Restricted to specific Indo-Pacific/developing partner countries — no European citizen is eligible. Recipients must return home for two years after completing the award." },
+  { flag: "🇳🇿", country: "New Zealand", name: "New Zealand Scholarships (Manaaki)", desc: "New Zealand's government scholarship programme for students from eligible developing countries, administered through MFAT.", support: "Fully funded: tuition, living allowance, establishment allowance, medical insurance and travel", deadline: "Country-specific annual calls", link: "https://www.mfat.govt.nz/en/aid-and-development/scholarships", restriction: "Restricted to citizens of eligible Pacific, Asian, African, Latin American and Caribbean countries — Western European applicants are not eligible." },
 ];
+
+// Region-independent awards: money attached to the *programme or school you apply
+// to*, not to where you're from — the funding a Western European student can
+// realistically compete for, since most development-oriented national schemes
+// (Chevening, Commonwealth, Australia Awards, Carolina, Invest Your Talent) exclude
+// them by nationality. Matching is data-driven: an entry applies to a programme if
+// its `schools`/`countries`/`regions`/`fields` list matches, or if `universal`.
+const GLOBAL_SCHOLARSHIPS = [
+  {
+    name: "Erasmus Mundus Joint Masters (EMJM)",
+    desc: "Fully-funded two-year joint master's run by consortia of European universities, with compulsory mobility between at least two countries. The single most accessible fully-funded route for EU/EEA students, because — unlike most national schemes — it has no nationality restriction at all. Applications go to each consortium directly.",
+    support: "€1,400/month for up to 24 months (≈€33,600) covering tuition/participation costs, insurance, travel and installation",
+    deadline: "Per consortium; most close December–February for a September start",
+    link: "https://www.eacea.ec.europa.eu/scholarships/erasmus-mundus-catalogue_en",
+    restriction: "Applies only to programmes formally designated as Erasmus Mundus Joint Masters — not to a normal master's at a European university. Maximum three EMJM applications per intake.",
+    listOnly: true, // an EMJM is its own degree, so this is never a funding route for a specific catalogue programme
+  },
+  {
+    name: "Knight-Hennessy Scholars",
+    desc: "Stanford's university-wide graduate fellowship, funding *any* full-time Stanford graduate degree — MBA, MS, JD, MPP, PhD and more — alongside a separate leadership development programme. You apply to Knight-Hennessy and to the degree programme separately, and must be admitted to both.",
+    support: "Tuition and fees, a living/academic stipend, an annual travel stipend and a one-time relocation stipend, for up to 3 years",
+    deadline: "Annual October deadline (6 October 2026 for the following year)",
+    link: "https://knight-hennessy.stanford.edu/admission",
+    restriction: "Stanford only, all nationalities. You must normally have completed your first bachelor's degree within the last seven years, and you must separately win admission to your Stanford degree programme.",
+    schools: ["Stanford Graduate School of Business", "Stanford University"],
+  },
+  {
+    name: "Gates Cambridge Scholarship",
+    desc: "Cambridge's flagship international scholarship, funding the full cost of a postgraduate degree plus discretionary funding for fieldwork, conferences and family costs. Selection explicitly weighs a commitment to improving the lives of others alongside academic excellence.",
+    support: "Full university composition fee, a maintenance allowance (£22,050/year at the 2025-26 rate) and discretionary travel/family/fieldwork funding",
+    deadline: "Mid-October for US citizens; early December/early January for all other nationalities",
+    link: "https://www.gatescambridge.org/programme/the-scholarship/",
+    restriction: "Cambridge only. Open to citizens of any country outside the UK — UK nationals are not eligible. You apply through the standard Cambridge graduate application by the earlier Gates deadline.",
+    schools: ["University of Cambridge", "University of Cambridge — Judge", "Cambridge Judge Business School"],
+  },
+  {
+    name: "Clarendon Fund Scholarships",
+    desc: "Oxford's largest graduate scholarship scheme — over 200 new fully-funded awards a year across every subject. There is no separate application: submitting your Oxford graduate application by your department's earlier funding deadline is what puts you in the pool.",
+    support: "Full course fees plus a living-costs grant of at least £20,780/year for full-time students",
+    deadline: "Your department's January (or occasionally December) graduate funding deadline",
+    link: "https://www.ox.ac.uk/admissions/graduate/fees-and-funding/funding/clarendon",
+    restriction: "Oxford only. Open to all nationalities and all subjects, but you must meet the earlier of your course's two application deadlines — applying in the later round removes you from consideration entirely.",
+    schools: ["University of Oxford", "University of Oxford — Saïd", "Saïd Business School"],
+  },
+  {
+    name: "Rhodes Scholarship",
+    desc: "The oldest international graduate scholarship, funding postgraduate study at Oxford. Selection runs through national constituencies with their own committees, interviews and (often) earlier deadlines than Oxford's own.",
+    support: "Full Oxford course fees plus an annual living stipend, for two years (extendable to three for some degrees)",
+    deadline: "Constituency-specific, most closing July–October the year before entry",
+    link: "https://www.rhodeshouse.ox.ac.uk/scholarships/the-rhodes-scholarship/",
+    restriction: "Oxford only, and only for citizens of a Rhodes constituency. Most of Western Europe is covered by the pan-European 'Global' constituency rather than a dedicated national one, which makes it markedly more competitive — check the current constituency list before counting on it.",
+    schools: ["University of Oxford", "University of Oxford — Saïd", "Saïd Business School"],
+  },
+  {
+    name: "Schwarzman Scholars",
+    desc: "A one-year fully-funded Master's in Global Affairs at Tsinghua University in Beijing, built around leadership training, mentorship and a deliberately international cohort. Selection is by written application plus a panel interview.",
+    support: "Tuition, room and board, health insurance, study trips, a personal stipend (US$4,000) and travel to and from Beijing",
+    deadline: "Global application window roughly April–September for entry the following year",
+    link: "https://www.schwarzmanscholars.org/admissions/",
+    restriction: "Tsinghua only, and age-limited: you must be at least 18 and under 29 on 1 August of your enrolment year. Instruction is in English; no Chinese required.",
+    schools: ["Tsinghua University"],
+  },
+  {
+    name: "Rotary Peace Fellowship",
+    desc: "Funds a master's degree at one of Rotary's partner Peace Centers (including Uppsala, Bradford, Duke/UNC, Queensland and Tokyo) in peace and conflict studies, plus applied field experience. Applications go through Rotary, endorsed by a local club or district.",
+    support: "Fully funded: tuition and fees, room and board, round-trip transportation, and internship/field-study expenses",
+    deadline: "15 May for entry the following academic year",
+    link: "https://www.rotary.org/en/our-programs/peace-fellowships",
+    restriction: "Only for degrees at a designated Rotary Peace Center. Requires roughly 3 years of relevant work experience and proficiency in English; a Rotary club/district endorsement is part of the application.",
+    schools: ["Uppsala University", "University of Bradford", "Duke University — Fuqua", "Duke University", "University of North Carolina — Kenan-Flagler", "University of Queensland", "Chulalongkorn University", "Makerere University", "International Christian University"],
+    fields: ["Public Policy", "Social Sciences"],
+    requireBoth: true, // must be a Peace Center school *and* a peace/policy-adjacent field
+  },
+  {
+    name: "Forté Foundation Fellowships",
+    desc: "A women-in-business fellowship awarded by the individual member business schools rather than by Forté itself — you don't apply to Forté, you apply to the school and are considered automatically or via a short extra section. Comes with access to Forté's conferences and network.",
+    support: "Partial to full tuition, set by each member school",
+    deadline: "Follows the school's own MBA/master's round deadlines — earlier rounds materially improve odds",
+    link: "https://www.fortefoundation.org/",
+    restriction: "Women applying to a Forté member school only. Award sizes and whether a separate form is needed differ school by school — confirm on the school's funding page.",
+    schools: ["Northwestern University — Kellogg", "Yale School of Management", "Dartmouth College — Tuck", "University of Virginia — Darden", "NYU Stern", "University of Michigan — Ross", "University of Chicago — Booth", "UC Berkeley — Haas", "Columbia Business School", "MIT Sloan School of Management", "University of Pennsylvania — Wharton", "Duke University — Fuqua", "Cornell University — Johnson", "UCLA Anderson", "University of Cambridge — Judge", "University of Oxford — Saïd", "London Business School", "IESE Business School", "INSEAD", "University of Toronto — Rotman", "Georgetown University — McDonough", "Emory University — Goizueta"],
+  },
+  {
+    name: "Weidenfeld-Hoffmann Scholarships & Leadership Programme",
+    desc: "A fully-funded Oxford scholarship combining a graduate degree with a structured leadership and public-service programme, aimed at people who intend to return home and take on public leadership roles.",
+    support: "Full course fees plus a living-costs grant, for the duration of fee liability",
+    deadline: "Oxford's January graduate funding deadline",
+    link: "https://www.weidenfeldhoffmann.org/",
+    restriction: "Oxford only, and restricted to nationals of an eligible list of developing and transition-economy countries — Western European applicants are not eligible. Requires a demonstrated commitment to returning home.",
+    schools: ["University of Oxford", "University of Oxford — Saïd", "Saïd Business School"],
+  },
+  {
+    name: "Skoll Scholarship (Oxford MBA)",
+    desc: "A fully-funded award for social entrepreneurs on the Oxford MBA, run by the Skoll Centre for Social Entrepreneurship — one of the few named awards that explicitly targets applicants already running a venture with social impact.",
+    support: "Full or substantial tuition support plus access to the Skoll Centre's programme and network",
+    deadline: "Requires application in one of Oxford's earlier MBA rounds plus a separate Skoll application",
+    link: "https://www.sbs.ox.ac.uk/programmes/mba/mba-fees-financing/skoll-scholarship",
+    restriction: "Oxford MBA only, and genuinely restricted to entrepreneurs with a track record in a social venture — not a general merit award.",
+    schools: ["University of Oxford — Saïd", "Saïd Business School"],
+    programMatch: "MBA",
+  },
+  {
+    name: "Aga Khan Foundation International Scholarship Programme",
+    desc: "A half-grant/half-loan postgraduate scholarship for outstanding students from the countries where the Aga Khan Development Network works, awarded on a strict need basis.",
+    support: "50% grant / 50% interest-free loan, covering tuition and living expenses",
+    deadline: "Annual, applications typically due by 31 March",
+    link: "https://the.akdn/en/how-we-work/our-agencies/aga-khan-foundation/international-scholarship-programme",
+    restriction: "Restricted to nationals of selected countries in South/Central Asia, the Middle East and Africa (plus Portugal, France, Canada, USA and the UK for Ismaili applicants) — read the current country list carefully, it is narrower than it first looks.",
+    listOnly: true, // not tied to any school/region, so it's shown in the directory but never attached to a specific programme row
+  },
+];
+
+// Given a programme, the region-independent awards that plausibly apply to it.
+// Deliberately conservative: an entry only matches if it names the school, the
+// country, the region or one of the programme's own fields.
+function globalSchemesFor(p) {
+  return GLOBAL_SCHOLARSHIPS.filter(g => {
+    if (g.listOnly) return false;
+    if (g.programMatch && !p.program.toLowerCase().includes(g.programMatch.toLowerCase())) return false;
+    const bySchool = g.schools ? g.schools.includes(p.school) : null;
+    const byCountry = g.countries ? g.countries.includes(p.country) : null;
+    const byRegion = g.regions ? g.regions.includes(p.region) : null;
+    const byField = g.fields ? p.fields.some(f => g.fields.includes(f)) : null;
+    const checks = [bySchool, byCountry, byRegion, byField].filter(v => v !== null);
+    if (!checks.length) return false;
+    // requireBoth: every stated axis must match (e.g. a Rotary Peace Center *and* a
+    // peace/policy field). Otherwise any single stated axis matching is enough.
+    return g.requireBoth ? checks.every(Boolean) : checks.some(Boolean);
+  });
+}
 
 // Real, publicly documented school funding routes — named where a specific programme
 // exists, or the school's known funding *policy* where that's the more accurate fact
@@ -4385,8 +4569,13 @@ const SCHOOL_SCHOLARSHIPS = {
 // countries devolve this to a sub-national region, so eligibility can depend on
 // exactly where in the country the applicant lives, not just their nationality —
 // each entry's `restriction` says so explicitly wherever that applies, asterisked.
-// Real, sourced entries only — start with what's been explicitly asked for
-// (Belgium/Flanders); expand country-by-country rather than guess at others.
+// Real, sourced entries only. `scope` says where the money can actually be spent:
+//   "abroad"   — only usable for a degree outside the home country
+//   "domestic" — only usable for a degree inside the home country
+//   "both"     — portable either way (Nordic/Dutch student finance, mostly)
+// The Scholarships page uses this to decide which entries to show for a given
+// programme, so a UK student looking at a UK master's still sees the Postgraduate
+// Master's Loan, and a UK student looking at Harvard sees Kennedy/Fulbright instead.
 const HOME_REGION_FUNDING = {
   "Belgium": [
     {
@@ -4396,6 +4585,38 @@ const HOME_REGION_FUNDING = {
       restriction: "*Region- and background-dependent — not just Belgian nationality: also requires C1-level Dutch and a master's degree already obtained from a Flemish institution (within the last 3 years, or in the award year), at one of the annually-published eligible institutions only.",
       deadline: "Apply before 1 December each year",
       link: "https://www.vlaanderen.be/en/studying/fayat-scholarship",
+      scope: "abroad",
+    },
+    {
+      name: "BAEF Graduate Study Fellowship (Belgian American Educational Foundation)",
+      desc: "The single strongest route for a Belgian graduate heading to a US master's. Funds a two-year Master's programme at a top US university across all academic fields — the Fellowship Committee interviews every Belgian candidate personally. BAEF's own advice is to start about a year ahead, because you must win US admission in parallel.",
+      support: "Up to $72,000 for a two-year Master's — a $22,000 stipend plus up to $50,000 towards tuition and health insurance",
+      restriction: "Belgian nationality (any region — this one is genuinely nationwide), a bachelor's degree with an outstanding record over 120 credits, admission to a two-year US Master's, plus TOEFL iBT >100 or IELTS >7.5 and GRE Verbal >155 / Quant >155 / AW >3.5.",
+      deadline: "31 October 2026 for US study in 2027-28 (test scores due 15 November)",
+      link: "https://baef.be/graduate-study-fellowships-be/",
+      scope: "abroad",
+      destCountries: ["United States"],
+    },
+    {
+      name: "Fondation Wiener-Anspach (ULB → Oxford / Cambridge)*",
+      desc: "A one-year postgraduate scholarship for ULB graduates going to Oxford or Cambridge, open to every field. Small and specific but exceptionally generous — the Foundation pays University and College fees on top of the living stipend, and even the visa and NHS surcharge.",
+      support: "£4,500 per term living stipend, plus University and College fees up to £45,590/year, plus Student Visa and mandatory NHS surcharge costs",
+      restriction: "*Institution-dependent, not just nationality: you must be a graduate of the Université libre de Bruxelles, and the award only covers Oxford or Cambridge. Around 9–12 fellowships a year across both directions.",
+      deadline: "7 September 2026 for the 2027-28 academic year",
+      link: "https://fwa.ulb.be/subsides-et-financements/bourses-etudes/?lang=en",
+      scope: "abroad",
+      destCountries: ["United Kingdom"],
+      destSchools: ["Oxford", "Cambridge"],
+    },
+    {
+      name: "Fulbright Belgium — Belgian Student Grants",
+      desc: "The Belgian-American Fulbright Commission funds Belgian citizens for graduate study and research in the United States, with the usual Fulbright extras: J-1 visa sponsorship, pre-departure orientation and the alumni network.",
+      support: "Grant amounts are set per annual call — historically a partial award intended to combine with school funding rather than to cover everything",
+      restriction: "Belgian nationality; US destination only. Fulbright grants are rarely full rides at master's level, so plan them as a top-up alongside a school scholarship.",
+      deadline: "Annual call — typically closing in the spring for the following academic year",
+      link: "https://www.fulbright.be/",
+      scope: "abroad",
+      destCountries: ["United States"],
     },
     {
       name: "Vlaamse studietoelage (Flemish study allowance)*",
@@ -4403,16 +4624,285 @@ const HOME_REGION_FUNDING = {
       support: "Means-tested; amount depends on household income and family situation",
       restriction: "*Region-dependent, not nationwide: only for residents of the Flemish Region (and Dutch-speaking Brussels students under specific rules). If you live in Wallonia or French-speaking Brussels, this does not apply — the Fédération Wallonie-Bruxelles runs a separate allocation d'études scheme instead.",
       link: "https://www.vlaanderen.be/studietoelage",
+      scope: "both",
+    },
+    {
+      name: "Allocation d'études — Fédération Wallonie-Bruxelles*",
+      desc: "The French Community's counterpart to the Flemish study allowance: a means-tested grant based on household taxable income and the number of dependants, applied for online each academic year.",
+      support: "Means-tested; the amount depends on household income, dependants and whether you live away from home",
+      restriction: "*Region-dependent, not nationwide: for students enrolled in Wallonia-Brussels Federation institutions. It is designed for study inside the Federation — it does not fund a full degree abroad, so treat it as support during a Belgian master's rather than an export route.",
+      deadline: "Annual application window, typically closing 31 October",
+      link: "https://allocations-etudes.cfwb.be/",
+      scope: "domestic",
+    },
+  ],
+
+  "France": [
+    {
+      name: "Bourse sur critères sociaux, maintained abroad (CROUS)",
+      desc: "France's main means-tested student grant, which — unlike most national grants — can be kept while you study in another Council of Europe country, provided the studies are at the same level and recognised. Applied for through the Dossier Social Étudiant, not through your school.",
+      support: "€1,454–€6,335 per year depending on your échelon (household income, dependants, distance)",
+      restriction: "Means-tested on the household tax return, with an age condition at first application. Keeping it abroad is conditional on the destination and the recognition of the course — confirm your specific case with your CROUS before you commit.",
+      deadline: "Dossier Social Étudiant opens 13 March and closes 31 May",
+      link: "https://www.etudiant.gouv.fr/fr/bourses-sur-criteres-sociaux-27",
+      scope: "both",
+    },
+    {
+      name: "Aide à la mobilité internationale (AMI)",
+      desc: "A top-up specifically for grant holders spending a study or internship period abroad. Important limitation: it is designed for a mobility period embedded in a French degree, not for enrolling directly in a foreign master's — so it fits a double-degree or exchange track far better than a straight application abroad.",
+      support: "€400/month, for a stay of 2–9 months (study) — capped at 10 months of AMI across your whole higher-education career",
+      restriction: "You must already hold a bourse sur critères sociaux or an aide spécifique annuelle. Awarded by your French institution from a fixed contingent, so it is competitive even when you're eligible.",
+      deadline: "Set by your French institution, usually the term before departure",
+      link: "https://www.etudiant.gouv.fr/fr/bourses-erasmus-et-aide-la-mobilite-internationale-ami-67",
+      scope: "abroad",
+    },
+    {
+      name: "Fulbright France — bourses pour étudiants français",
+      desc: "The Franco-American Fulbright Commission funds French citizens for master's and doctoral study in the United States, including several named partnerships with specific US universities that carry larger awards than the base grant.",
+      support: "Varies by programme — from a partial grant to substantial tuition support under the named university partnerships",
+      restriction: "French nationality; US destination only. Requires you to apply to US programmes in parallel, and the commission's deadline sits well before US admission decisions.",
+      deadline: "Annual call — typically closing in the winter for the following academic year",
+      link: "https://fulbright-france.org/",
+      scope: "abroad",
+      destCountries: ["United States"],
+    },
+    {
+      name: "Prêt étudiant garanti par l'État",
+      desc: "Not a scholarship but the most widely usable French funding route for an expensive master's abroad: a bank loan partially guaranteed by the State, with no guarantor and no means test required — a real option where the fee is the blocker rather than eligibility.",
+      support: "Up to €20,000, with deferred repayment until after graduation; partial state guarantee via Bpifrance",
+      restriction: "Under 28, French or EEA national resident in France. It is debt, not a grant — the guarantee only means the bank can't require a personal guarantor, it does not reduce what you repay.",
+      link: "https://www.etudiant.gouv.fr/fr/pret-etudiant-garanti-par-l-etat-1149",
+      scope: "both",
+    },
+  ],
+
+  "United Kingdom": [
+    {
+      name: "Postgraduate Master's Loan (Student Finance England)",
+      desc: "The default funding route for an English-domiciled student doing a UK master's: a single loan paid directly to you, in three instalments per year, to spend on fees or living costs as you choose. Not means-tested and not tied to your course fee.",
+      support: "Up to £13,206 for the whole course in 2026/27 (split evenly if the course runs more than one year)",
+      restriction: "For courses in the UK only — it cannot fund a master's abroad. You must normally be under 60 on the first day of the course and not already hold a master's-level qualification. Scotland, Wales and Northern Ireland run their own separate schemes.",
+      deadline: "Apply from spring for an autumn start; applications stay open into the academic year",
+      link: "https://www.gov.uk/masters-loan",
+      scope: "domestic",
+    },
+    {
+      name: "SAAS Postgraduate Funding (Scotland)",
+      desc: "Scotland's separate postgraduate scheme for Scottish-domiciled students, structured as a tuition-fee loan plus a living-cost loan rather than the single combined loan used in England.",
+      support: "A tuition-fee loan plus a living-cost loan; rates are re-set each academic year by SAAS",
+      restriction: "Scottish-domiciled students at eligible institutions in the UK. Eligible course lists and rates differ from the English scheme — check SAAS directly rather than assuming the English figures apply.",
+      link: "https://www.saas.gov.uk/full-time/postgraduate-funding",
+      scope: "domestic",
+    },
+    {
+      name: "Kennedy Scholarships (Harvard / MIT)",
+      desc: "The stand-out award for a British graduate heading to the US: a fully-funded year at Harvard or MIT, selected on intellectual achievement, leadership and commitment to public service. Around ten scholars a year.",
+      support: "Full tuition fees, health insurance and a means-tested living bursary for one academic year",
+      restriction: "Harvard and MIT only. British citizenship, ordinarily resident in the UK, and either mainly educated in the UK before university or a graduate of a UK university — with a recency condition on when you started your first degree.",
+      deadline: "20 October, the year before entry",
+      link: "https://www.kennedytrust.org.uk/scholarships/",
+      scope: "abroad",
+      destCountries: ["United States"],
+      destSchools: ["Harvard", "MIT", "Massachusetts Institute of Technology"],
+    },
+    {
+      name: "US-UK Fulbright Commission — Postgraduate Awards",
+      desc: "Funds UK citizens for a full master's or PhD in the United States, including several named partner awards co-funded with specific US universities that are worth substantially more than the open award.",
+      support: "Varies by award — from a partial grant to full tuition plus maintenance under the partner-university awards",
+      restriction: "UK nationality; US destination only. The Commission's deadline falls roughly a year before entry, before most US admissions decisions are out.",
+      deadline: "Annual autumn call for entry the following year",
+      link: "https://www.fulbright.org.uk/",
+      scope: "abroad",
+      destCountries: ["United States"],
+    },
+  ],
+
+  "Spain": [
+    {
+      name: "Fundación \"la Caixa\" — Becas de posgrado en el extranjero",
+      desc: "The most valuable Spanish award for postgraduate study abroad, and one of the very few that funds an expensive master's essentially in full. 100 fellowships a year across the European Higher Education Area, North America and selected Asia-Pacific countries.",
+      support: "Full tuition for the postgraduate programme, a monthly allowance scaled to the destination country, an installation payment, travel, visa costs, medical insurance and reimbursement of up to five admission applications",
+      restriction: "Spanish or Portuguese nationality. Destinations limited to the EHEA, the USA/Canada, and Australia, South Korea, India, Japan, Singapore and China. Your bachelor's must have been completed within the window set in the call.",
+      deadline: "Applications closed 19 January 2026 for the 2026 call; results 21 May 2026",
+      link: "https://fundacionlacaixa.org/es/becas-posgrado-extranjero",
+      scope: "abroad",
+    },
+    {
+      name: "Fundación Rafael del Pino — Becas de Excelencia",
+      desc: "A small, very high-value award for Spanish graduates going to world-leading universities, explicitly including professional master's degrees such as the MBA and LLM — a rare thing among European public and foundation funding, most of which excludes them.",
+      support: "Up to €50,000 per year for a master's (MBA, LLM and similar); up to €24,600 per year for a doctorate, covering fees, living and travel",
+      restriction: "Spanish nationality, full-time in-person study only, and you must stay in the top 25% of your cohort each term. Not combinable with any other grant except awards from the destination university itself. Habilitating master's degrees are excluded.",
+      deadline: "9 January – 23 February 2026 (20 awards, for entry in 2026-27 or 2027-28)",
+      link: "https://frdelpino.es/becas-de-excelencia/",
+      scope: "abroad",
+    },
+    {
+      name: "Fundación Ramón Areces — Becas para estudios en el extranjero",
+      desc: "Long-running annual calls funding Spanish graduates for postgraduate study abroad, concentrated in economics and social sciences and in life and materials sciences. Fields, destinations and amounts are re-set in each year's call rather than fixed.",
+      support: "Set per call — historically a multi-year package covering fees and a maintenance allowance",
+      restriction: "Spanish nationality and a field that matches the specific call. The calls are narrow and change year to year, so check the current bases before assuming your subject qualifies.",
+      link: "https://www.fundacionareces.es/fundacionareces/es/becas-y-ayudas/",
+      scope: "abroad",
+    },
+    {
+      name: "Comisión Fulbright España — Becas de ampliación de estudios",
+      desc: "Fulbright's Spanish commission funds Spanish citizens for master's and doctoral study in the United States, and is one of the better-resourced Fulbright commissions in Europe.",
+      support: "Varies by call — typically tuition support plus a maintenance allowance and insurance",
+      restriction: "Spanish nationality; US destination only. Requires a strong English score and, for most calls, applications to US programmes in parallel.",
+      deadline: "Annual call, typically closing in spring for entry 15 months later",
+      link: "https://fulbright.es/",
+      scope: "abroad",
+      destCountries: ["United States"],
+    },
+  ],
+
+  "Italy": [
+    {
+      name: "Commissione Fulbright Italia — Programma All Disciplines",
+      desc: "The main Italian route to a funded US master's: the US-Italy Fulbright Commission's all-fields programme, which funds master's and doctoral study in the United States for Italian citizens. A separate AFAM programme, funded by the Italian Ministry of Education, covers AFAM diploma holders.",
+      support: "Set in each annual call — combine it with school funding rather than expecting it to cover a full US master's alone",
+      restriction: "Italian citizenship; US destination only. The Commission publishes calls roughly 18 months ahead of the intake, so the deadline is early relative to US admissions.",
+      deadline: "Annual call — the 2027-28 competition opens well before US admissions decisions",
+      link: "https://www.fulbright.it/borse-studio-cittadini-italiani/",
+      scope: "abroad",
+      destCountries: ["United States"],
+    },
+    {
+      name: "Borsa di studio regionale (DSU) — your region's right-to-study agency",
+      desc: "Italy's largest student-support channel is regional, not national: ER-GO, DSU Toscana, Laziodisu, ERSU and their equivalents award income-based grants that also carry tuition exemption, canteen access and subsidised housing. Assessment is on ISEE (household income and assets), and it applies to master's (laurea magistrale) as well as bachelor's.",
+      support: "Income-banded annual grant plus fee exemption; the highest bands (students living away from home) run to several thousand euro per year",
+      restriction: "For study at an Italian institution in that region — it does not follow you abroad. Each region runs its own call, thresholds and merit conditions, and grants can be revoked if you fall behind on credits.",
+      deadline: "Regional calls typically open July–September for the same academic year",
+      link: "https://www.universitaly.it/index.php/studenti/borse",
+      scope: "domestic",
+    },
+    {
+      name: "INPS — Borse di studio per master universitari*",
+      desc: "INPS funds university master's degrees for the families covered by its Gestione unitaria delle prestazioni creditizie e sociali — in practice, public-sector employees, pensioners and their children. Under-used because eligibility is defined by your parent's employer rather than by your own profile.",
+      support: "Up to €10,000 for an in-person university master's (up to €5,000 for online/blended); 800 places in the 2025-26 call",
+      restriction: "*Employment-dependent, not nationality-dependent: you or a parent must be enrolled in the INPS Gestione unitaria fund. The scheme funds master's degrees at Italian universities, not degrees abroad.",
+      deadline: "Annual autumn call (the 2025-26 call closed 18 November 2025)",
+      link: "https://www.inps.it/it/it/dettaglio-scheda.it.schede-servizio-strumento.schede-servizi.52356.borse-di-studio-per-master-universitari-executive-gestione-unitaria-delle-prestazioni-creditizie-e-sociali.html",
+      scope: "domestic",
+    },
+  ],
+
+  "Germany": [
+    {
+      name: "Auslands-BAföG",
+      desc: "Germany's student-finance scheme in its study-abroad form, and by far the most under-used tool for a German student facing UK/US fees — the tuition contribution is a straight grant that is never repaid, on top of the normal BAföG entitlement. A different BAföG office handles it depending on the destination country, not your usual one.",
+      support: "Tuition subsidy up to €5,600/year as a pure grant (no repayment), plus a foreign supplement, travel costs and insurance on top of the standard BAföG rate",
+      restriction: "Means-tested on parental income like domestic BAföG. Inside the EU/EEA and Switzerland you can fund a complete degree abroad; outside it, funding is generally capped at about 12 months. Apply at least 6 months ahead — processing routinely takes 3–4 months.",
+      deadline: "No fixed date, but apply ≥6 months before departure",
+      link: "https://www.xn--bafg-7qa.de/bafoeg/de/das-bafoeg-alle-infos-auf-einen-blick/einzelfragen-der-foerderung/gibt-es-bafoeg-auch-im-ausland/gibt-es-bafoeg-auch-im-ausland.html",
+      scope: "abroad",
+    },
+    {
+      name: "DAAD Studienstipendien — Masterstudium im Ausland",
+      desc: "DAAD funds outbound German students as well as inbound international ones, including full master's degrees abroad. The tuition subsidy is destination-scaled, and the US/UK rate is high enough to matter against an Anglo-American fee.",
+      support: "Monthly rate set by host country (e.g. ~€1,250 for the USA, ~€1,525 for Japan), plus travel, insurance and a tuition subsidy — usually up to €2,500/year, but up to €18,000/year for the USA and the UK",
+      restriction: "Programme-specific eligibility; you generally apply roughly a year ahead and must show a coherent academic reason for the specific destination. Non-German citizens studying in Germany can also apply to several of these tracks.",
+      deadline: "Varies by programme — most annual calls close 9–12 months before departure",
+      link: "https://www2.daad.de/ausland/studieren/stipendium/de/70-stipendien-finden-und-bewerben/?detail=57503584",
+      scope: "abroad",
+    },
+    {
+      name: "Studienstiftung des deutschen Volkes",
+      desc: "Germany's largest and most selective merit foundation. Beyond the monthly support it funds study abroad for its members, including tuition contributions for expensive foreign master's degrees, plus language courses and academies.",
+      support: "Monthly study allowance (means-tested) plus a flat monthly allowance for all members, and separate study-abroad support including tuition contributions",
+      restriction: "Entry is by nomination (school, university or self-application in defined windows) and a demanding selection seminar — you generally need to be in the foundation before the study-abroad support becomes relevant, so this is a route to plan early, not late.",
+      link: "https://www.studienstiftung.de/",
+      scope: "both",
+    },
+    {
+      name: "Fulbright Germany — Studienstipendien für Graduierte",
+      desc: "The German-American Fulbright Commission funds German students for a study year or a full degree at a US university, and is unusually well-funded compared with several other European commissions.",
+      support: "Set per call — tuition contribution plus a maintenance allowance, insurance and travel",
+      restriction: "German nationality; US destination only. Applications typically close roughly a year before departure, ahead of US admissions decisions.",
+      deadline: "Annual call, generally closing in the summer for the following academic year",
+      link: "https://www.fulbright.de/",
+      scope: "abroad",
+      destCountries: ["United States"],
+    },
+  ],
+
+  "Netherlands": [
+    {
+      name: "Meeneembare studiefinanciering (DUO)",
+      desc: "Dutch student finance is portable: you can take your studiefinanciering — including the basic grant, the supplementary grant and the loan — with you to a degree programme abroad, anywhere in the world, provided the programme is comparable to a funded Dutch one.",
+      support: "Basic grant, means-tested supplementary grant, tuition credit and loan components, at the rates set for each academic year",
+      restriction: "Requires Dutch student-finance entitlement plus a residency condition (broadly, at least 3 of the previous 6 years in the Netherlands). The programme abroad must be recognised as comparable — check with DUO before enrolling, not after.",
+      link: "https://duo.nl/particulier/studiefinanciering/meenemen-naar-het-buitenland.jsp",
+      scope: "both",
+    },
+  ],
+
+  "Sweden": [
+    {
+      name: "CSN studiemedel för studier utomlands",
+      desc: "Swedish student aid is portable to studies abroad and, unusually, includes a separate loan component specifically for tuition fees — which makes an expensive UK or US master's genuinely financeable rather than theoretical.",
+      support: "Grant plus loan at the standard Swedish rates, with an additional tuition-fee loan whose ceiling depends on the destination country",
+      restriction: "Requires Swedish student-aid entitlement; the programme and institution must be approved by CSN. Country-specific ceilings on the tuition loan differ substantially — check yours before assuming the fee is covered.",
+      link: "https://www.csn.se/bidrag-och-lan/studiestod-utomlands.html",
+      scope: "both",
+    },
+  ],
+
+  "Norway": [
+    {
+      name: "Lånekassen — støtte til utdanning i utlandet",
+      desc: "Norway's state education fund is among the most generous in Europe for degrees abroad, combining a base grant/loan with a separate tuition-fee support component, and converting part of the loan to a grant on completion.",
+      support: "Living support (part grant, part loan) plus separate tuition-fee support — a portion is a grant and the rest a loan, with an extra grant conversion on completing the degree",
+      restriction: "Requires Norwegian citizenship or an equivalent affiliation, and the institution/programme must be on Lånekassen's approved list. Support levels for the tuition component are capped and vary by country and level.",
+      link: "https://lanekassen.no/nb-NO/stipend-og-lan/utland/",
+      scope: "both",
+    },
+  ],
+
+  "Denmark": [
+    {
+      name: "SU — udlandsstipendium / SU til udlandet",
+      desc: "Danish students can take SU abroad and, on top of it, apply for the udlandsstipendium — a dedicated tuition grant for a full degree or an exchange period outside Denmark.",
+      support: "SU at the standard rate plus an udlandsstipendium towards tuition, with ceilings set per academic year",
+      restriction: "Requires SU entitlement and, for a full degree abroad, that you have not used up your SU clip. The udlandsstipendium is capped and is allocated by your Danish institution for exchange, or by the ministry for a full degree.",
+      link: "https://www.su.dk/su-i-udlandet",
+      scope: "both",
     },
   ],
 };
 
+function govSchemesFor(country) {
+  return GOV_SCHOLARSHIPS.filter(g => g.country === country);
+}
+
+// Home-country funding usable for this specific programme. Three filters, all of
+// which matter: `scope` (can the money leave the country at all), `destCountries`
+// (several schemes are bilateral — BAEF and every Fulbright commission only fund
+// the USA), and `destSchools` (Kennedy is Harvard/MIT only, Wiener-Anspach is
+// Oxford/Cambridge only). Without these a Belgian student browsing an Oxford
+// programme would be shown a US-only fellowship as if it applied.
+function homeSchemesFor(p) {
+  const citizenship = state.profile.citizenship;
+  if (!citizenship) return [];
+  const list = HOME_REGION_FUNDING[citizenship] || [];
+  const goingAbroad = citizenship !== p.country;
+  return list.filter(h => {
+    const scope = h.scope || "abroad";
+    if (!(scope === "both" || (goingAbroad ? scope === "abroad" : scope === "domestic"))) return false;
+    if (h.destCountries && !h.destCountries.includes(p.country)) return false;
+    if (h.destSchools && !h.destSchools.some(s => p.school.includes(s))) return false;
+    return true;
+  });
+}
+
 function scholarshipEligibility(p) {
   const citizenship = state.profile.citizenship;
-  const government = GOV_SCHOLARSHIPS.find(g => g.country === p.country);
-  if (!government) return `<span class="planner-status muted">No destination-government scheme mapped yet</span><span class="place">Check ${p.school}'s own scholarship directory.</span>`;
-  if (citizenship && citizenship === p.country) return `<span class="planner-status muted">Usually not for home-country citizens</span><span class="place">${government.name}: ${government.restriction}</span>`;
-  return `<span class="planner-status good">Potential destination-country route</span><span class="place">${government.name} · ${government.restriction}</span>`;
+  const schemes = govSchemesFor(p.country);
+  if (!schemes.length) return `<span class="planner-status muted">No destination-government scheme mapped yet</span><span class="place">Check ${p.school}'s own scholarship directory.</span>`;
+  const more = schemes.length > 1 ? ` (+${schemes.length - 1} more mapped for ${p.country})` : "";
+  const first = schemes[0];
+  if (citizenship && citizenship === p.country) return `<span class="planner-status muted">Usually not for home-country citizens</span><span class="place">${first.name}: ${first.restriction}${more}</span>`;
+  return `<span class="planner-status good">${schemes.length} destination-country route${schemes.length > 1 ? "s" : ""} mapped</span><span class="place">${first.name} · ${first.restriction}${more}</span>`;
 }
 
 const SCHOLARSHIP_ROWS = [
@@ -4428,15 +4918,22 @@ function populateScholarshipTargetDropdown() {
 }
 
 function getProgrammeScholarshipData(p) {
-  const govScheme = GOV_SCHOLARSHIPS.find(g => g.country === p.country) || {
-    name: `${p.country} National Higher Education Grant`,
-    desc: `Official government scholarships and bilateral exchange grants for international students pursuing master's degrees in ${p.country}.`,
+  const mapped = govSchemesFor(p.country);
+  const govList = mapped.length ? mapped : [{
+    flag: p.flag,
+    country: p.country,
+    name: `${p.country} national scholarship routes`,
+    desc: `No central ${p.country} government scheme has been individually verified for this catalogue yet. In most countries the realistic routes are the university's own awards plus any bilateral scheme run by ${p.country}'s embassy in your country — start with the programme page below.`,
     link: p.link,
-    restriction: "Open to international candidates — check official portal for country lists."
-  };
+    restriction: "Not verified in this catalogue — confirm on the official programme page before ruling funding in or out."
+  }];
+  const govScheme = govList[0];
   const schoolScheme = p.scholar ? SCHOOL_SCHOLARSHIPS[p.school] : null;
 
   return {
+    govList,
+    globalList: globalSchemesFor(p),
+    homeList: homeSchemesFor(p),
     schoolAwardName: schoolScheme ? schoolScheme.name : `${p.school} scholarships / financial aid`,
     schoolAwardAmount: p.scholar ? "Funding route flagged — amount varies" : "No school award mapped",
     schoolAwardRange: "Not verified in this catalogue",
@@ -4541,9 +5038,9 @@ function renderScholarshipBreakdown() {
     const matchTag = userField ? `High Match for ${userField}` : `Open to All Academic Backgrounds`;
     
     const showMerit = true;
-    const showGov = true;
     const showFlex = false;
-    const homeFundingList = citizenship && citizenship !== p.country ? (HOME_REGION_FUNDING[citizenship] || []) : [];
+    const homeFundingList = data.homeList;
+    const goingAbroad = citizenship && citizenship !== p.country;
 
     html += `
       <div class="breakdown-card" style="margin-bottom:20px;">
@@ -4581,24 +5078,24 @@ function renderScholarshipBreakdown() {
             </div>
           </div>` : ""}
 
-          ${showGov ? `
+          ${data.govList.map(g => `
           <div class="funding-option-row">
             <div class="row-icon">🏛️</div>
             <div class="row-content">
               <div class="row-header">
-                <h4>${data.govName}</h4>
-                <span class="pill-amount">${data.govSupport}</span>
+                <h4>${g.name}</h4>
+                <span class="pill-amount">${g.support || "Award amount varies — check the official call"}</span>
               </div>
-              <p class="row-desc">${data.govDesc}</p>
+              <p class="row-desc">${g.desc}</p>
               <div class="row-meta">
-                <span class="elig-match-badge ${isCitizenMatch ? "match-flex" : "match-info"}">${isCitizenMatch ? "⚠️ Generally for non-home citizens" : (citizenship ? `✓ Open to ${citizenship} applicants` : "✓ Open to international applicants")}</span>
-                <span class="deadline-note">${data.govDeadline} · ${data.govRestriction}</span>
+                <span class="elig-match-badge ${isCitizenMatch ? "match-flex" : "match-info"}">${isCitizenMatch ? `⚠️ Destination-country scheme — generally not for ${p.country} citizens` : (citizenship ? `Destination-country scheme · check the restriction against your ${citizenship} citizenship` : "Destination-country scheme for incoming international students")}</span>
+                <span class="deadline-note">${g.deadline || "Annual call — check official page"} · ${g.restriction}</span>
               </div>
             </div>
             <div class="row-action">
-              <a href="${data.govLink}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Official Grant Portal ↗</a>
+              <a href="${g.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Official Grant Portal ↗</a>
             </div>
-          </div>` : ""}
+          </div>`).join("")}
 
           ${homeFundingList.map(hf => `
           <div class="funding-option-row">
@@ -4610,12 +5107,31 @@ function renderScholarshipBreakdown() {
               </div>
               <p class="row-desc">${hf.desc}</p>
               <div class="row-meta">
-                <span class="elig-match-badge match-info">Based on where you're from, not where you're studying${hf.deadline ? ` · ${hf.deadline}` : ""}</span>
+                <span class="elig-match-badge match-info">${goingAbroad ? "Based on where you're from, not where you're studying" : `Home funding for studying inside ${citizenship}`}${hf.deadline ? ` · ${hf.deadline}` : ""}</span>
                 <span class="deadline-note">${hf.restriction}</span>
               </div>
             </div>
             <div class="row-action">
               <a href="${hf.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Official Portal ↗</a>
+            </div>
+          </div>`).join("")}
+
+          ${data.globalList.map(gs => `
+          <div class="funding-option-row">
+            <div class="row-icon">🌍</div>
+            <div class="row-content">
+              <div class="row-header">
+                <h4>${gs.name}</h4>
+                <span class="pill-amount">${gs.support}</span>
+              </div>
+              <p class="row-desc">${gs.desc}</p>
+              <div class="row-meta">
+                <span class="elig-match-badge match-high">✓ Tied to the programme, not to your nationality</span>
+                <span class="deadline-note">${gs.deadline ? gs.deadline + " · " : ""}${gs.restriction}</span>
+              </div>
+            </div>
+            <div class="row-action">
+              <a href="${gs.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Official Portal ↗</a>
             </div>
           </div>`).join("")}
 
@@ -4645,56 +5161,83 @@ function renderScholarshipBreakdown() {
   container.innerHTML = html;
 }
 
-function renderScholarGov() {
+// ── Full funding directory ────────────────────────────────────────────────────
+// Every researched scheme, browsable independently of the shortlist. Three axes:
+// home-country funding, destination-country funding, and programme-linked awards.
+let fundingDirTab = "relevant";
+
+function fundingDirectoryEntries() {
   const citizenship = state.profile.citizenship;
   const shortlistCountries = new Set(PROGRAMS.filter(p => state.compare.has(p.id)).map(p => p.country));
 
-  const scored = GOV_SCHOLARSHIPS.map(g => ({
-    ...g,
-    ownCountry: citizenship && g.country === citizenship,
+  const home = (HOME_REGION_FUNDING[citizenship] || []).map(h => ({
+    ...h, axis: "home", flag: "🏠",
+    axisLabel: `Home funding · ${citizenship}`,
+    // home funding is by definition relevant once citizenship is known
+    relevant: true,
+  }));
+
+  const dest = GOV_SCHOLARSHIPS.map(g => ({
+    ...g, axis: "dest",
+    axisLabel: `Study in ${g.country}`,
+    ownCountry: !!citizenship && g.country === citizenship,
     matchesShortlist: shortlistCountries.has(g.country),
-  })).sort((a, b) => (b.matchesShortlist - a.matchesShortlist) || (a.ownCountry - b.ownCountry));
+    // a destination scheme is relevant if it's for a country you're actually
+    // considering, and you aren't excluded from it as a home-country citizen
+    relevant: shortlistCountries.has(g.country) && !(citizenship && g.country === citizenship),
+  }));
 
-  const introEl = $("scholarGovIntro");
-  if (citizenship || shortlistCountries.size) {
-    introEl.hidden = false;
-    introEl.innerHTML =
-      (shortlistCountries.size ? `Scholarships for countries in your shortlist are pulled to the top. ` : "") +
-      (citizenship ? `As these are government scholarships for <em>international</em> students, any ${citizenship} scholarship below won't apply to you as a ${citizenship} citizen.` : "");
-  } else {
-    introEl.hidden = true;
-  }
+  const global = GLOBAL_SCHOLARSHIPS.map(g => ({
+    ...g, axis: "global", flag: "🌍",
+    axisLabel: "Tied to the programme",
+    matchesShortlist: PROGRAMS.some(p => state.compare.has(p.id) && globalSchemesFor(p).includes(g)),
+    relevant: !g.listOnly,
+  }));
 
-  $("scholarGovGrid").innerHTML = scored.map(g => `
+  return [...home, ...dest, ...global];
+}
+
+function renderFundingDirectory() {
+  const grid = $("scholarGovGrid");
+  if (!grid) return;
+  const citizenship = state.profile.citizenship;
+  const all = fundingDirectoryEntries();
+
+  let shown;
+  if (fundingDirTab === "home")        shown = all.filter(e => e.axis === "home");
+  else if (fundingDirTab === "dest")   shown = all.filter(e => e.axis === "dest");
+  else if (fundingDirTab === "global") shown = all.filter(e => e.axis === "global");
+  else if (fundingDirTab === "all")    shown = all;
+  else                                 shown = all.filter(e => e.relevant);
+
+  // shortlist matches first, then anything you're excluded from last
+  shown = shown.slice().sort((a, b) =>
+    (!!b.matchesShortlist - !!a.matchesShortlist) || (!!a.ownCountry - !!b.ownCountry));
+
+  document.querySelectorAll("#fundTabs .chip").forEach(c =>
+    c.setAttribute("aria-selected", String(c.dataset.fundTab === fundingDirTab)));
+
+  const empty = fundingDirTab === "home" && !citizenship
+    ? `<div class="planner-empty" style="grid-column:1/-1"><strong>Set your country of citizenship above</strong>Home-country funding is the one axis that depends entirely on where you're from, so there's nothing to show until that's set.</div>`
+    : `<div class="planner-empty" style="grid-column:1/-1"><strong>Nothing matches this filter yet</strong>Add programmes to your shortlist, or set your citizenship, to see which schemes you can actually compete for.</div>`;
+
+  grid.innerHTML = shown.length ? shown.map(g => `
     <div class="scholar-gov-card${g.ownCountry ? " scholar-gov-dim" : ""}">
       ${g.matchesShortlist ? `<span class="tag accent" style="margin-bottom:6px;display:inline-block">Matches your shortlist</span>` : ""}
-      <span class="flag">${g.flag}</span>
+      <span class="flag">${g.flag || "🌍"}</span>
       <h4>${g.name}</h4>
+      ${g.support ? `<p class="scholar-gov-support">${g.support}</p>` : ""}
       <p>${g.desc}</p>
+      ${g.deadline ? `<p class="scholar-gov-restriction"><b>Deadline:</b> ${g.deadline}</p>` : ""}
       <p class="scholar-gov-restriction">${g.restriction}</p>
-      <a href="${g.link}" target="_blank" rel="noopener noreferrer">${g.country} · Visit official page ↗</a>
-    </div>`).join("");
-}
+      <a href="${g.link}" target="_blank" rel="noopener noreferrer">${g.axisLabel} · Visit official page ↗</a>
+    </div>`).join("") : empty;
 
-function wireProgrammeGridInteractions(container) {
-  container.querySelectorAll("[data-compare]").forEach(cb =>
-    cb.addEventListener("change", () => toggleCompare(+cb.dataset.compare, cb)));
-  container.querySelectorAll(".card").forEach(c => {
-    const open = () => { showPage("programmes"); openModal(+c.dataset.id); };
-    c.addEventListener("click", open);
-    c.addEventListener("keydown", e => { if (e.key === "Enter") open(); });
-  });
-}
-
-function renderScholarshipShortlist() {
-  const list = PROGRAMS.filter(p => state.compare.has(p.id));
-  $("scholarshipShortlist").innerHTML = list.length
-    ? list.map(cardHTML).join("")
-    : `<div class="empty" style="grid-column:1/-1">
-         <h3>Nothing in your shortlist yet</h3>
-         <p>Tick "Add to compare" on any programme — up to ${MAX_COMPARE} at a time — and its scholarship &amp; destination-country funding notes will show up here.</p>
-       </div>`;
-  wireProgrammeGridInteractions($("scholarshipShortlist"));
+  const intro = $("fundingDirIntro");
+  if (intro) {
+    const counts = { home: all.filter(e => e.axis === "home").length, dest: all.filter(e => e.axis === "dest").length, global: all.filter(e => e.axis === "global").length };
+    intro.innerHTML = `Every scheme researched for this catalogue, on three axes: what your <em>home country</em> pays for (${counts.home} mapped${citizenship ? ` for ${citizenship}` : " — set your citizenship above"}), what your <em>destination country</em> pays for (${counts.dest}), and awards attached to the <em>programme itself</em> regardless of where you're from (${counts.global}). Amounts and deadlines are quoted with the cycle they belong to — every one of them is re-set annually.`;
+  }
 }
 
 function syncScholarProfileInputs() {
@@ -4706,6 +5249,7 @@ function renderScholarships() {
   populateScholarshipTargetDropdown();
   syncScholarProfileInputs();
   renderScholarshipBreakdown();
+  renderFundingDirectory();
 }
 
 /* ============================================================
@@ -4814,8 +5358,16 @@ Object.entries(PROFILE_INPUTS).forEach(([elId, key]) =>
   }
 });
 
+$("fundTabs").addEventListener("click", e => {
+  const btn = e.target.closest("[data-fund-tab]");
+  if (!btn) return;
+  fundingDirTab = btn.dataset.fundTab;
+  renderFundingDirectory();
+});
+
 $("scholarshipApply").addEventListener("click", () => {
   renderScholarshipBreakdown();
+  renderFundingDirectory();
   $("scholarshipApply").textContent = "✓ Applied";
   $("scholarshipApplyNote").textContent = "Showing funding options for your selection above.";
   $("scholarshipBreakdown").scrollIntoView({ behavior: "smooth", block: "start" });
