@@ -1,6 +1,22 @@
 # Campus Atlas — handoff context (session 4, continued from session 3)
 
-## Session 4b — ranking sweep (QS + FT), 503 programmes
+## READ THIS FIRST — the method that works
+
+The catalogue is now **531 programmes**. The single highest-value activity is not adding rows, it's this loop, per domain:
+
+1. **Pull the published ranking table.** QS subject/business-masters tables via `xuanxiao.org/en/rankings/qs/...` (a mirror that WebFetch can read; `topuniversities.com` returns 403). The FT tables are only published as PDFs — download with WebFetch and parse with `pypdf` (the mirror sites only carry a top 10).
+2. **Diff it against `PROGRAMS` with a Node script** (see the one-liners throughout this session's commits): for each ranked school, does an entry exist *for that degree*?
+3. **Apply the rank to entries that already exist but have none** — this matters more than adding new rows. An entry with no `extRank` scores `500 + rank` in `prestigeScore()`, i.e. it sorts below every ranked programme. Whole domains (Law, Public Health, most MiM entries) were invisible purely because of this.
+4. **Then** add the missing schools, with tuition verified from the school's own fees page.
+5. **Verify every new link** before committing: `git diff | grep '^+' | grep -o 'https\?://...' | xargs -P 8 curl -o /dev/null -w "%{http_code}"`. This has caught a dead link in almost every batch, including pre-existing ones.
+
+### Ranking hygiene — non-negotiable
+- **Never write an `extRank` by guessing an id.** Grep the entry, assert on a distinctive substring of the *programme name*, then write. Two misattributions happened this session and were caught only by re-reading the output: Cambridge's Environmental Sciences #6 briefly landed on Sciences Po, and Queen's Smith nearly took a rank belonging to a different Queen's degree.
+- **The rank must match the degree, not just the school.** FT MiM #72 for Queen's is their Master of International Business; the catalogue's Queen's entry is Management Analytics, so it was left unranked. Same reason Stockholm School of Economics' MiM rank is not on its MSc Finance entry.
+- **Only structured `QS ... (YYYY)` / `FT ... (YYYY)` labels drive sort order** (see `prestigeScore()`). Prose like "Africa's #1 MBA" is displayed but deliberately ignored — don't "fix" that.
+- **Mirrors disagree** (Imperial CS #8 vs #12, EPFL #11 vs #15). Prefer the ranking body's own summary text; where mirrors conflict, leave the existing value alone rather than churn.
+
+## Session 4b — ranking sweep (QS + FT), 503 → 531 programmes
 
 ### Method now established for ranking work
 For each domain: pull the published table, diff it against `PROGRAMS` with a Node script, add the missing schools with verified tuition, and — just as important — **apply the subject rank to entries that already existed but had none**, because an unranked entry sorts below everything. Sources used: QS Business Masters 2026 (Business Analytics, Management, Finance, Marketing), QS Global MBA 2026, QS subject 2026 (Computer Science, Mechanical/Aero/Manufacturing, Environmental Sciences), and the **FT Masters in Management 2025 table parsed out of the FT's own PDF** (`pypdf`; the mirror sites only publish a top 10).
@@ -18,6 +34,12 @@ For each domain: pull the published table, diff it against `PROGRAMS` with a Nod
 1. **Ranking labels are not on a common scale.** `QS Supply Chain Management #2` sorted as a "2" in an *AI* search, putting a supply-chain degree above every AI programme. `queryAwarePrestige()` now only trusts a rank when the ranking's subject matches the query's subject (`RANK_SUBJECT_HINTS`); otherwise +200.
 2. **Relevance tiers were an absolute gate.** An unranked title match outranked a world #2 subject-area match — under "sustainability" that buried Oxford #2 and Wageningen #2. A tier is now worth 40 places, not infinity. The "Related programmes" divider became a per-card note as a result, since results are no longer in strict tier blocks.
 
+### Hero banner — settled, don't re-litigate
+The dark-mode banner went through three states in one session because I over-solved it. **Final state: one image, the original daylight coloured-pencil drawing, in both colour schemes.** Dark mode changes only the overlays (wash → dark page colour, deeper vignette, flipped text halo, image dimmed to `brightness(.86)`, eyebrow forced to full-strength `--ink`). A sunset variant and then a night variant were both built and both rejected — the user's actual complaint was only ever that a `display:none` rule was deleting the image. If the banner comes up again, fix the CSS, don't regrade the art.
+
+### Mobile input zoom — the non-obvious one
+"The search button shifts right and the page slides sideways when I type" was **not** a layout bug. iOS Safari auto-zooms the whole page when a focused input has `font-size` under 16px. All text inputs and selects are now 16px below 620px. If a similar "page drifts on mobile" report appears, check input font-size first.
+
 ### Also in this pass
 - **Dark-mode homepage banner restored.** A dark-scheme rule was setting `.hero-photo-layer { display:none }`, so evening visitors got no image at all. Added `assets/stanford-pencil-hero-evening.png` — the same coloured-pencil drawing graded to dusk by a luminance-driven split-tone remap (script logic is in the commit message; regenerate with Pillow + numpy if the base art ever changes). Dark mode swaps image, wash, vignette, grain blend and text halo.
 - **`SCHOOL_SCHOLARSHIPS` 58 → 74**, prioritised by ranking. Includes the genuinely useful negative finding that **MIT and Stanford largely do not fund master's students** — worth keeping, it's the kind of thing applicants discover too late.
@@ -27,10 +49,26 @@ For each domain: pull the published table, diff it against `PROGRAMS` with a Nod
 - A rank must match the *degree*, not just the school. FT MiM #72 for Queen's is their Master of International Business; the catalogue's Queen's entry is Management Analytics, so it was deliberately left unranked.
 - Third-party QS mirrors disagree with each other (Imperial CS #8 vs #12, EPFL #11 vs #15). Prefer the ranking body's own summary text; where mirrors conflict, leave the existing value alone.
 
+### Domain coverage as it stands (all verified by a live search, ordering checked)
+| Domain | Search returns | State |
+|---|---|---|
+| MBA | 1,2,3,4,5… | QS 2026 top 15 complete; most of the top 50 |
+| Business Analytics | 1,2,4,7,8… | QS 2026 top 20 complete; 28–38 band added |
+| Masters in Management | FT 1,2,3,4… | FT 2025 ranks on 27 previously-unranked entries |
+| Finance | 1,3,4,7,10… | QS 2026 top 24 complete |
+| Marketing | 1,2,3,4,5… | QS 2026 top 15 complete |
+| Law | 1,2,3,4,5… | QS 2026 top 13 complete (was entirely unranked) |
+| Chemical engineering | 1,2,3,4,7,11,15 | QS 2026 top 15 complete (had 3 entries total) |
+| Mechanical engineering | 1,2,3,5,13… | QS 2026 top 20 gaps filled |
+| Computer science / AI | 2,3,4,4,10… | See the MIT caveat below |
+| Sustainability | 2,2,4,5,6… | QS Environmental Sciences 2026 applied |
+
 ### Still outstanding
-- Catalogue is 503. The remaining ranked-but-absent schools are mostly ranks 20–50 in each table (Grenoble/SKEMA/NEOMA/Audencia marketing and finance entries, US MBAs at Goizueta/Foster/Owen/Kenan-Flagler/McCombs, Asian and Australian schools in the analytics 25–50 band).
-- `SCHOOL_SCHOLARSHIPS` still covers 74 of 330 schools.
-- `PROGRAMME_ESSENTIALS` still 14 of 503 — genuinely one programme at a time.
+- **Ranks ~20–50 in most tables.** Named, researched, not yet added: SKEMA, NEOMA, Grenoble (marketing/finance entries), Leeds, Cranfield, JHU Carey, Michigan State, UC Davis, UCSD Rady, Mannheim, ASU, GWU, Texas A&M, Wisconsin, EGADE, Macquarie. US MBAs still missing at Emory Goizueta, UNC Kenan-Flagler and Vanderbilt Owen — **their admit rates are already researched** (20%/37%/38%, Class of 2027) but I could not find tuition separated from cost-of-attendance, and the `tuition` field must not carry a COA figure.
+- **`SCHOOL_SCHOLARSHIPS` covers 74 of ~335 schools.** Prioritise by best `extRank` — there's a script for that in the session log.
+- **`PROGRAMME_ESSENTIALS` is 14 of 531.** Genuinely one programme at a time; the destination-country checklist layer covers everyone else.
+- **Public Health has no structured ranking applied** — deliberately. QS publishes no standalone public-health subject table, so the 12 entries keep accurate prose and fall back to curated order. Don't invent one.
+- **MIT has no admittable CS master's.** Verified directly: MEng is MIT-undergrad-only, the SM sits inside the PhD track, and the CSE SM has external admissions paused. A "computer science" search legitimately starts at Stanford (#2). Do not "fix" this.
 
 ## Session 4 summary (this pass)
 
