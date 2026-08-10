@@ -1,4 +1,127 @@
-# Campus Atlas — handoff context (session 4, continued from session 3)
+# Campus Atlas — handoff context (session 5, continued from session 4)
+
+## SESSION 5 — the two tooling breakthroughs, read these first
+
+Session 4's method (pull ranking table → diff → apply ranks → add schools) still
+holds. Session 5 replaced the *plumbing* underneath it, and that is what makes
+volume possible.
+
+### 1. Bulk-fetch official pages with curl, don't WebFetch them one at a time
+`scratchpad/fetch.sh` + `extract.py` fetch 12 URLs in parallel and print every
+fee / duration / deadline line. **This is 20× faster than WebFetch per page and
+it reads the school's own figure**, which is the standard the user set explicitly:
+*"always refer to the official websites for any information regarding tuition or
+timelines. Always make sure you have that official link in there."*
+
+Where it works (fee is in the server-rendered HTML): **UCL, Imperial, KU Leuven,
+Ghent, ULB, UCLouvain, VUB, Antwerp Management School, Vlerick, Sheffield,
+Glasgow, Nottingham, Warwick**.
+Where it does **not** (fee is injected by JS): **Oxford, Cambridge, Edinburgh,
+KCL, Manchester, Bristol, Monash, UNSW, UQ**. For those, use the browser.
+
+Two tricks that saved a lot of guessing:
+- **`/sitemap.xml`** is the fastest way to enumerate a school's real programme
+  URLs (found all six Vlerick masters this way after the nav-scrape failed).
+- Fetching an index page and grepping `href` gives the full slug list — UCL's
+  A–Z yielded all 550 taught degrees in one request.
+
+### 2. topuniversities.com is directly readable through the in-app browser
+`xuanxiao.org` no longer mirrors the subject tables, and curl gets a Cloudflare
+403. But **the in-app browser clears Cloudflare**, and from a page on that origin
+`fetch()` reaches QS's own JSON endpoint:
+
+```
+/rankings/endpoint?nid=<NID>&page=<0-based>&items_per_page=100&tab=indicators
+   header required: X-Requested-With: XMLHttpRequest      ← without it you get HTML
+```
+`<NID>` comes from `"currentPath":"node\/<NID>"` in the ranking page's HTML.
+A helper (`window.__qsGet(slug, pages)`) is in the session log. This is the
+**ranking body's own site**, so it outranks every mirror when they disagree —
+which is how UCL's Computer Science label was corrected from #22 to #20.
+
+Tables pulled and saved to `scratchpad/qs2026.md`: computer science, mathematics,
+electrical, mechanical, civil, chemical, economics, accounting & finance,
+business & management, law, politics, physics, chemistry, biological sciences,
+environmental sciences, statistics & OR, architecture, education, materials,
+medicine, psychology, communication, development studies, earth & marine,
+pharmacy, agriculture.
+
+### ⚠️ QS World 2027 is out — the catalogue is still on 2026
+The World table now live is **2027** (`nid=4153156`); the *subject* tables are
+still 2026 (published 25 March 2026), so a mixed year is correct, not a bug.
+European 2027 positions are saved in `scratchpad/qsworld2027.txt`. Spot-checked
+schools were unchanged (KU Leuven 59, Ghent 150, UCLouvain 196), so new entries
+added in session 5 use `(2027)` while older ones still say `(2026)`.
+**Unfinished: sweep the existing `QS World University Rankings #N (2026)` labels
+against that file and refresh them.** Do not bump a year without checking the
+number.
+
+## Session 5 — what changed
+
+- **PROGRAMS 551 → 635.** UCL +30 (was 4 entries at a QS #9 school with 550
+  taught degrees), KU Leuven +27, ULB/Solvay +14, Antwerp Management School +7,
+  Vlerick +5.
+- **Six new `FIELDS`**: Mathematics, Architecture, Psychology, Media &
+  Communication, Agriculture & Food, Humanities — each with `RANK_SUBJECT_HINTS`
+  entries so a rank in those QS tables counts as relevant to the query. The
+  catalogue previously had no tag at all for a maths, architecture or psychology
+  degree.
+- **Academic background rebuilt (user request).** The four-way select became
+  `BACKGROUND_OPTIONS`: 7 optgroups, 29 subjects. Each carries a **conservative**
+  roll-up to the four legacy broad labels, so the 580 entries tagged only
+  "STEM & Engineering" still match. Psychology deliberately does *not* roll into
+  STEM. Programme `openFields` may now mix broad and granular values;
+  `backgroundAccepts()` handles both.
+- **Stale figures corrected against the school's own page**, all found by the
+  bulk fetch: UCL MSc Computer Science (€41,000 → the published £42,700), Vlerick
+  MiM (€19,500 → €20,950, and off the homepage onto the programme page), Antwerp
+  Management School (€24,000 → €19,900), Solvay Business Engineering (flat
+  €6,000 → the FWB's €1,194 EU / ≈€5,369 non-EU). **Three of those four entries
+  linked to a homepage, not a programme page — worth auditing the rest for that.**
+
+### Belgian fee structures, as published (useful, non-obvious)
+- **KU Leuven** 2026-27 tariffs per 60 ECTS: €1,181.40 / €3,093.12 / €5,613.12 /
+  €9,493.92. The tariff is assigned *per programme*, and KU Leuven says its fee
+  **tool** is "the only official information" — the programme pages themselves
+  carry no figure. Entries use the top non-EEA tariff and say so.
+- **Ghent** splits non-EEA fees by faculty: **Fee A €2,297.40** (Arts, Law,
+  Psychology) vs **Fee B €7,079.40** (Sciences, Engineering, Economics, Medicine,
+  Vet, Bioscience, Pharmacy, Political & Social Sciences).
+- **ULB and UCLouvain** share the Wallonia-Brussels Federation scale: €1,194 full
+  fee, €835 intermediate, €374 low income, €0 for grant holders, **plus a €4,175
+  non-EU contribution** (ARES Circular 2026-001).
+- **VUB** non-EEA is a formula: €2,200 fixed + €52/credit.
+- ULB programme pages are `ulb.be/en/programme/<CODE>` (MA-INFO, MA-IRIF,
+  MA-DROI, MA-PHYS, MA-CHIM, MA-MATH, MA-STAT, MA-URBA, MA-ARCH, MA-PSYC,
+  MA-GEOG, MA-ETEU, MA-COMU, MA-INGE, MA-GEST, MA-ECON all verified live).
+
+## STILL TO DO — the user's brief, unfinished
+The ask was: every relevant programme at the top-50 schools globally across all
+domains; comprehensive scholarships for **Belgium, France, UK, Spain, Italy,
+Germany**; and application checklists tailored per programme. Delivered so far is
+Belgium and UCL. Remaining, in the user's own priority order:
+
+1. **France, Germany, Italy, Spain** — currently 38 / 16 / 13 / 18 entries and
+   almost entirely business schools. Germany 16 entries covers 12 schools with no
+   science or humanities breadth at all. **Germany's fee picture must be verified
+   per state** — Baden-Württemberg charges non-EU €1,500/semester, Bavaria (TUM,
+   LMU) introduced non-EU fees from winter 2024/25, everywhere else is a semester
+   contribution only. Do not assume "Germany is free".
+2. **Rest of the UK** — Oxford, Cambridge, Edinburgh, Manchester, KCL and LSE are
+   all thin, and all need the browser rather than curl.
+3. **US/Asia top-50** — Caltech (2 entries), Chicago (2), UPenn (2), Princeton
+   (2), Northwestern (2), UNSW (2), Sydney (2), Fudan (2), ANU (1), CUHK (1),
+   Monash (1), SJTU (1), Yonsei (1), **Zhejiang (0)**. Zhejiang's full
+   English-taught catalogue with per-programme fees was parsed out of its 2026 PDF
+   and is in this session's log — it just needs writing up.
+4. **Specialist domains the user asked for by name: fashion and supply chain.**
+   Supply chain got Antwerp Management School and Vlerick; still missing IFM Paris,
+   Istituto Marangoni, Polimi/Bocconi fashion-and-luxury, LCF, Parsons.
+5. **Scholarships** — untouched this session. `SCHOOL_SCHOLARSHIPS` is 103 of
+   ~360 schools; the six focus countries need far more, especially awards tied to
+   the *programme* rather than the applicant's nationality.
+6. **`PROGRAMME_ESSENTIALS` is 14 of 635.** This is the weakest part of the site
+   relative to the brief.
 
 ## READ THIS FIRST — the method that works
 
