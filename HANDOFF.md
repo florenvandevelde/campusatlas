@@ -1,3 +1,47 @@
+# Campus Atlas — handoff context (session 4, continued from session 3)
+
+## Session 4 summary (this pass)
+
+### Scholarships — rebuilt as three axes
+`GOV_SCHOLARSHIPS` was one entry per country looked up with `.find()`; it is now a flat list filtered by country, so a destination can have several schemes. Three axes now exist and all three render as rows on a programme's funding card:
+- **Destination-country** (`GOV_SCHOLARSHIPS`, 30 entries): BE (Master Mind, ARES), FR (Eiffel, BGF), UK (Chevening, GREAT, Commonwealth), DE (DAAD, Deutschlandstipendium, KAS, Böll), IT (MAECI, Invest Your Talent, regional DSU), ES (Carolina, MAEC-AECID), plus NL/CH/SE/IE/AT/EU/US/CA/JP/CN/KR/SG/AU/NZ.
+- **Home-country** (`HOME_REGION_FUNDING`, 9 countries): each entry carries `scope` (`abroad`/`domestic`/`both`) plus optional `destCountries`/`destSchools`, so BAEF, Kennedy, Wiener-Anspach and the Fulbright commissions only surface on programmes they can actually fund. Belgium has 6 entries, France 4, UK 4, Spain 4, Italy 3, Germany 4, plus NL/SE/NO/DK portable student finance.
+- **Programme-linked** (`GLOBAL_SCHOLARSHIPS`, 11 entries): Erasmus Mundus, Knight-Hennessy, Gates Cambridge, Clarendon, Rhodes, Schwarzman, Rotary Peace, Forté, Weidenfeld-Hoffmann, Skoll, Aga Khan. Matching is data-driven (`schools`/`countries`/`regions`/`fields`, with `requireBoth` and `programMatch` for precision, and `listOnly` for entries that belong in the directory but not on a programme row).
+- New **Full funding directory** section on the Scholarships page with axis tabs — replaced three dead render functions (`renderScholarGov`, `renderScholarshipShortlist`, `wireProgrammeGridInteractions`) whose DOM targets had been deleted at some point.
+
+### Search — intent parsing, aliases, relevance
+- `parseQuery()` turns free text into structured intent (places / subjects / constraints) and drops filler, so "best programmes in the USA" returns 125 US programmes instead of nothing. Vocabulary is built partly from `PROGRAMS` itself so it can't drift.
+- `SEARCH_ALIASES`: ~90 abbreviations (MiM, IB, MSBA, LLM, MPP, ML, LBS, HBS, polimi, uk/usa/holland…).
+- **Real bug fixed**: short terms were plain substring matches — `uk` matched **Duke**, `ai` matched **Bahrain** and **Chain**, `us` matched **Business**. Terms ≤3 chars now require a word boundary.
+- `queryRelevance()`: title match > school match > field-tag match > blurb match. This is what stops MBAs dominating a "management"/MiM search — they now appear below a labelled "Related programmes" divider.
+
+### Other user-reported fixes
+- **Mobile/tablet header**: `.logo` was `display:none` at ≤940px. Restored at every width; only nav + tool group collapse into the hamburger. (Note: session 3's handoff says the user asked for hamburger-only — they have since reversed that. The logo stays.)
+- **Belgium post-study visa** was recorded as "no dedicated job-search visa" — wrong. Belgium has a 12-month search year (zoekjaar) under EU Directive 2016/801. Fixed. Austria and Finland added.
+- **TUM tuition** was €1,500–3,000 and described as "near-zero public tuition". TUM has charged non-EU/EEA master's students €4,000–6,000 **per semester** since WS 2024/25. All three entries corrected to €8,000/yr with the EU/EEA exemption stated.
+- **ETH Zurich MSc Computer Science** had a dead `link` and no `extRank`, so it sorted last in a CS search. Both fixed.
+
+### New: selectivity
+`SELECTIVITY` holds published admit rate / applicants / class size, with a `basis` field separating school-published figures from widely-reported third-party ones. 15 programmes covered (the US MBAs, INSEAD MiM cohort size, IMD). Everything else says "not published" and points at the real entry signals rather than inventing a number. Rendered on cards, in the modal and as a compare row.
+
+### New: destination-specific checklist
+`DESTINATION_REQUIREMENTS` covers 15 countries with the country-level machinery that actually causes missed intakes — UK CAS + £1,529/£1,171 per month held 28 days + ATAS for technical subjects; Germany uni-assist, APS for India/China/Vietnam, €11,904 blocked account; France compulsory Études en France; Italy compulsory Universitaly pre-enrolment + DoV/CIMEA; Belgium NARIC-Vlaanderen vs FWB equivalence; US I-20/SEVIS/DS-160; Canada's new PAL. Field notes fire only for affected subjects, and the card says plainly when free movement or home citizenship makes the visa section moot. **This applies to all 450 programmes**, unlike `PROGRAMME_ESSENTIALS` (still 14).
+
+### Catalogue: 398 → 450
+Belgium 4→25 (KU Leuven ×8, Ghent ×7, UCLouvain ×6 — all programme names and URLs verified by probing the institutions' own URL patterns), plus the world's top MBAs which were **missing entirely** (every QS 2026 Global MBA top-15 school is now present: HEC Paris #5, LBS #6, Cambridge Judge #7, INSEAD #8, IE #11, Oxford Saïd #12, IESE #15, plus Yale SOM, Fuqua, Johnson, Rice, Esade, SDA Bocconi, IMD), plus Western European research universities (LMU, Heidelberg, TU Berlin, KIT, IP Paris, Mines Paris-PSL, PoliMi ×2, PoliTo, UPC, UC3M, UPM, Navarra), plus Oxford MSc Advanced Computer Science.
+
+### Link hygiene
+Every URL added or changed this session (113) was checked with a real browser user agent. Ten 404s were found and repointed at live pages. Remaining non-200s are Cloudflare/403 bot blocks (chevening.org, insead.edu, ox.ac.uk, daad.de) that work in a browser.
+
+## Still outstanding after session 4
+1. **Catalogue is not yet "fully exhaustive"** — 450 is far short of covering the top-50 global schools across all 24 fields. Biggest remaining gaps: UCL/LSE/KCL/Edinburgh depth (UCL still has 2 entries), the 13 US MBAs at schools already present but without an MBA entry (Stern, Ross, Anderson, McDonough, Tepper, Kenan-Flagler, McCombs, Owen, Foster, Goizueta, Kelley, Fisher, Simon — acceptance rates already researched, tuition not verified), and top-50 schools with no entry at all: Kyoto, Osaka, Tohoku, Lund, Uppsala, Zhejiang, USTC, City University of Hong Kong, UWA, Adelaide, PSL, Paris-Saclay.
+2. **`SCHOOL_SCHOLARSHIPS`** is ~58 of 320+ schools. New schools added this session that still need entries: LMU, Heidelberg, TU Berlin, KIT, IP Paris, Mines Paris, PoliMi, PoliTo, UPC, UC3M, UPM, Navarra.
+3. **`PROGRAMME_ESSENTIALS`** is still 14 of 450 — real per-programme essay/recommender research, one programme at a time.
+4. **MIT has no admittable CS master's.** Verified directly: the MEng is MIT-undergrad-only, the SM exists only inside the PhD track, and the SM in Computational Science and Engineering has external admissions paused. So a "computer science" search legitimately starts at #2 (Stanford). Do not "fix" this by inventing an MIT CS entry. Worth considering a general "why isn't the #1 school here?" note for cases like this.
+5. **Subject-ranking sources conflict.** Third-party QS mirrors disagreed on Imperial (#8 vs #12), EPFL (#11 vs #15) and Berkeley (#6 vs #7) for CS 2026. Existing `extRank` values were left alone rather than churned against an unreliable mirror. If rankings are ever refreshed wholesale, use one source consistently.
+
+---
+
 # Campus Atlas — handoff context (session 3, continued from session 2)
 
 ## IMPORTANT — deploy state
