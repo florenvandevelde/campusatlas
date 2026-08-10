@@ -354,11 +354,10 @@
   }
 
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 16px; }
-  .grid-divider {
-    grid-column: 1 / -1; margin: 14px 0 2px; padding-top: 16px; border-top: 1px solid var(--line);
+  .subject-match-note {
+    font-size: 11px; color: var(--ink-3); font-style: italic;
+    margin: -2px 0 8px; line-height: 1.35;
   }
-  .grid-divider span { font-family: var(--serif); font-size: 17px; color: var(--ink); }
-  .grid-divider p { font-size: 12.5px; color: var(--ink-3); margin-top: 4px; max-width: 72ch; }
 
   .card {
     background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
@@ -4713,6 +4712,54 @@ function queryRelevance(p) {
   return 3;
 }
 
+/* Ranking labels are not on a common scale. "QS Supply Chain Management #2" is a
+   real global #2 — but it says nothing about a programme's standing in AI, and
+   letting it sort as a 2 put a supply-chain degree at the top of an "ai" search,
+   ahead of every actual AI programme. Same problem made a Computer Science rank
+   surface high in a "finance" search.
+
+   So when the query names a subject, a ranking only counts at face value if the
+   ranking is in that subject; otherwise the entry is pushed down. These are the
+   words that can appear in an extRank label for each of the catalogue's fields. */
+const RANK_SUBJECT_HINTS = {
+  "Management": ["management", "mim", "mba", "business"],
+  "Strategy": ["management", "mba", "mim", "strategy"],
+  "Finance": ["finance", "financial"],
+  "Analytics": ["analytics", "data", "statistic"],
+  "Marketing": ["marketing"],
+  "Entrepreneurship": ["entrepreneur", "mba", "innovation"],
+  "Economics": ["economic", "finance"],
+  "Computer Science": ["computer science", "computing", "artificial intelligence", "data"],
+  "AI": ["computer science", "artificial intelligence", "computing", "data"],
+  "Information Science": ["information", "computer science", "data"],
+  "Engineering": ["engineering", "technology", "mechanical", "civil", "electrical", "chemical", "aerospace"],
+  "Energy": ["energy", "environmental", "engineering", "sustainab"],
+  "Sustainability": ["environmental", "sustainab", "energy", "climate"],
+  "Earth Sciences": ["earth", "environmental", "geolog", "geo"],
+  "Physics": ["physics", "astronomy", "mathematic"],
+  "Chemistry": ["chemistry", "chemical"],
+  "Life Sciences": ["biolog", "life sciences", "biomedic", "medicine", "biotech"],
+  "Biochemistry": ["biochem", "biolog", "life sciences"],
+  "Public Policy": ["policy", "politics", "government", "social"],
+  "Public Health": ["public health", "medicine", "health"],
+  "Law": ["law", "legal"],
+  "Social Sciences": ["social", "politics", "sociolog", "policy"],
+  "Education": ["education"],
+};
+
+// Prestige, adjusted for what was actually asked. A rank in an unrelated subject
+// is treated as if the programme were unranked for this query rather than being
+// trusted as a global position.
+function queryAwarePrestige(p) {
+  const base = prestigeScore(p);
+  const intent = state.parsedFor === state.q ? state.parsed : null;
+  if (!intent || !intent.fields.size || !p.extRank) return base;
+  const label = p.extRank.toLowerCase();
+  const relevant = [...intent.fields].some(f =>
+    (RANK_SUBJECT_HINTS[f] || []).some(hint => label.includes(hint)));
+  return relevant ? base : base + 200;
+}
+
 function sorted(list) {
   const c = [...list];
   switch (state.sort) {
@@ -4720,9 +4767,13 @@ function sorted(list) {
     case "tuitionDesc": c.sort((a,b) => b.tuition - a.tuition); break;
     case "durAsc":      c.sort((a,b) => a.months - b.months); break;
     case "az":          c.sort((a,b) => a.school.localeCompare(b.school)); break;
-    // relevance (the default) leads with how directly the programme answers the
-    // query, then falls back to the existing prestige/curated ordering
-    default:            c.sort((a,b) => queryRelevance(a) - queryRelevance(b) || prestigeScore(a) - prestigeScore(b) || a.rank - b.rank);
+    // Relevance (the default) blends two things rather than making one an
+    // absolute gate: how directly the programme answers the query, and how
+    // strong it is. A tier is worth 40 places, so a title match still leads —
+    // but a world #2 that matched on subject area beats an unranked title match,
+    // which a strict tier sort got wrong.
+    default:            c.sort((a,b) =>
+      (queryRelevance(a)*40 + queryAwarePrestige(a)) - (queryRelevance(b)*40 + queryAwarePrestige(b)) || a.rank - b.rank);
   }
   // once the visitor has told us anything about themselves, pull good/possible
   // matches to the front so filling in the form visibly changes the list
@@ -4773,7 +4824,7 @@ function matchBadge(p) {
   return `<span class="match match-${e.status}"><span class="dot"></span>${MATCH_LABEL[e.status]}</span>`;
 }
 
-function cardHTML(p) {
+function cardHTML(p, subjectOnlyMatch) {
   const dim = !profileIsEmpty() && eligibility(p).status === "mismatch" ? " card-dim" : "";
   return `
   <article class="card${dim}" data-id="${p.id}" tabindex="0">
@@ -4794,6 +4845,7 @@ function cardHTML(p) {
     <h3>${p.program}</h3>
     ${matchBadge(p)}
     ${p.extRank ? `<div class="ext-rank">${p.extRank}</div>` : ""}
+    ${subjectOnlyMatch ? `<div class="subject-match-note" title="This programme does not have your search term in its degree name — it matched on subject area.">Subject-area match, not a “${escapeHTML(state.q)}” degree</div>` : ""}
     <div class="tags">
       ${p.fields.slice(0,2).map(f => `<span class="tag">${f}</span>`).join("")}
       ${!p.gmat ? `<span class="tag teal">No GMAT</span>` : ""}
@@ -4813,19 +4865,14 @@ function cardHTML(p) {
 function render() {
   const list = sorted(PROGRAMS.filter(matches));
 
-  // When a query pulls in programmes that only share a subject area — an MBA
-  // under "management", say — say so out loud instead of silently mixing them
-  // in with the degrees actually called that.
-  let html = "", markedRelated = false;
+  // A programme that only shares a subject area with the query — an MBA under
+  // "management" — is labelled as such on its own card. (This used to be a
+  // divider before the "Related" block, but results are no longer in strict
+  // tier order: a world #2 that matched on subject area can now legitimately
+  // outrank an unranked programme that matched on its title.)
   const relevanceApplies = state.q && state.sort !== "tuitionAsc" && state.sort !== "tuitionDesc"
                                    && state.sort !== "durAsc" && state.sort !== "az";
-  list.forEach(p => {
-    if (relevanceApplies && !markedRelated && queryRelevance(p) >= 2) {
-      markedRelated = true;
-      if (html) html += `<div class="grid-divider"><span>Related programmes</span><p>These don't have “${escapeHTML(state.q)}” in the degree name — they matched on subject area, so a different degree type (an MBA under “management”, for instance) can show up here.</p></div>`;
-    }
-    html += cardHTML(p);
-  });
+  const html = list.map(p => cardHTML(p, relevanceApplies && queryRelevance(p) >= 2)).join("");
 
   $("grid").innerHTML = list.length
     ? html
@@ -5898,6 +5945,22 @@ const SCHOOL_SCHOLARSHIPS = {
   "Bocconi University — SDA Bocconi": { name: "SDA Bocconi MBA Scholarships", desc: "A portfolio of merit and diversity awards covering a share of the €82,000 MBA fee, including women-in-business, regional and early-application awards. All admitted candidates are considered from the standard application, and applying in an earlier round materially improves the odds because the pool is allocated as it goes.", link: "https://www.sdabocconi.it/en/mba-executive-mba/full-time-mba/admissions/" },
   "IMD Business School": { name: "IMD MBA Scholarships", desc: "With a class of only ~90, IMD runs a small number of named scholarships — including awards focused on women in leadership, emerging markets and social impact — most of which require their own short application and essay in addition to the MBA application, not just a tick-box. Applying early matters more than usual given the cohort size.", link: "https://www.imd.org/mba/" },
   "Rice University": { name: "Rice Business Merit Scholarships", desc: "Every admitted full-time MBA applicant is automatically considered for merit scholarships — no separate application — with awards ranging from partial to full tuition and a strong record of funding a large share of the (deliberately small) class. Energy-focused and entrepreneurship-focused named awards exist alongside the general pool.", link: "https://business.rice.edu/rice-mba/full-time-mba/tuition-and-financial-aid" },
+  "Massachusetts Institute of Technology": { name: "MIT graduate funding — mostly not available at master's level", desc: "An important, unglamorous fact: MIT funds doctoral students well (RA/TA appointments covering tuition plus a stipend) but master's students are largely expected to fund themselves through savings, loans or an external fellowship. Departmental exceptions exist and a few professional master's carry their own aid, but do not plan around MIT paying for a master's.", link: "https://sfs.mit.edu/graduate-students/funding-and-aid/graduate-funding-and-aid/" },
+  "Stanford University": { name: "Stanford graduate financial aid — limited at master's level", desc: "Like MIT, Stanford concentrates funding on doctoral students. Master's candidates outside the professional schools are told directly to expect outside funding or loans; some fellowships and assistantships exist but they are the exception, not the norm. Knight-Hennessy is the one route that reliably funds a Stanford master's — and it is separately and extremely competitive.", link: "https://financialaid.stanford.edu/grad/aid/index.html" },
+  "Harvard University": { name: "Harvard Griffin GSAS master's funding & Committee on General Scholarships", desc: "GSAS master's funding is programme-specific rather than universal — check your own department's page first. Separately, Harvard's Committee on General Scholarships runs a set of country-specific fellowships for international applicants across all of Harvard's graduate and professional schools, with amounts and durations that differ by country.", link: "https://gsas.harvard.edu/financial-support/funding-and-aid/masters-degree-funding" },
+  "University of Cambridge": { name: "Cambridge Trust Scholarships", desc: "The Cambridge Trust is the university's central scholarship body, awarding both full-cost and part-cost scholarships at master's level. Most are considered automatically from your graduate application, but you must meet the earlier funding deadline (usually early December or early January) rather than the course's later one. Gates Cambridge sits alongside it for non-UK nationals.", link: "https://www.cambridgetrust.org/scholarships" },
+  "University of Oxford": { name: "Oxford graduate scholarships (Clarendon and 1,000+ others)", desc: "Oxford awards over 1,000 full and partial graduate scholarships a year, of which Clarendon (200+ fully funded, all subjects, all nationalities) is the largest. The overwhelming majority need no separate application — but nearly all require you to apply by your course's *January* deadline, not the later one. Applying in the later round removes you from almost all of it.", link: "https://www.ox.ac.uk/admissions/graduate/fees-and-funding/funding" },
+  "ETH Zurich": { name: "ETH Excellence Scholarship & Opportunity Programme (ESOP)", desc: "ESOP covers a CHF 12,000 grant per semester plus a full tuition-fee waiver, for the standard length of the master's — around 60 awards a year across the whole university. You need to be in roughly the top 10% of your bachelor's cohort, and there is a single hard application window each November, separate from the admission application.", link: "https://ethz.ch/students/en/studies/financial/scholarships/excellencescholarship.html" },
+  "EPFL": { name: "EPFL Master Excellence Fellowships", desc: "CHF 10,000 per semester (up to CHF 32,000 in total, covering tuition, accommodation and visa costs) plus a reserved room in a student residence. Roughly 3% of master's students receive one, so treat it as a long shot on top of EPFL's already very low ~CHF 1,266/year public tuition rather than as the reason the degree is affordable.", link: "https://www.epfl.ch/education/master/master-excellence-fellowships/" },
+  "Technical University of Munich": { name: "TUM Scholarship for International Students", desc: "€500–€1,800 per semester, awarded on a combination of academic performance and financial need, renewable each semester up to 36 months. It is for students already enrolled at TUM, so it cannot be counted on when deciding whether you can afford the (new, and substantial) non-EU tuition of €4,000–€6,000 per semester.", link: "https://www.tum.de/en/studies/fees-and-financial-aid/scholarships/tum-scholarships/scholarship-for-international-students-of-tum" },
+  "Imperial College London": { name: "Imperial College President's and departmental scholarships", desc: "Imperial's central awards sit alongside a large set of department-specific ones, and the departmental awards are where most master's money actually is — engineering, computing and natural sciences each run their own. Check your department's page as well as the central listing, and note that most require you to hold an offer first.", link: "https://www.imperial.ac.uk/study/fees-and-funding/" },
+  "University of California, Berkeley": { name: "Berkeley Graduate Division fellowships", desc: "Berkeley's central fellowships are heavily weighted towards doctoral students; professional master's programmes (MEng, MIMS, MFE) largely run their own smaller awards instead. International master's applicants should budget on non-resident supplemental tuition being charged in full unless a specific programme says otherwise.", link: "https://grad.berkeley.edu/financial/fellowships/" },
+  "Carnegie Mellon University": { name: "Carnegie Mellon graduate financial aid", desc: "CMU's master's programmes are largely self-funded, with merit awards administered per college rather than centrally — Heinz, SCS and Tepper each run their own, with different criteria and deadlines. Apply early in the cycle: several of these pools are allocated round by round.", link: "https://www.cmu.edu/sfs/financial-aid/graduate/index.html" },
+  "Carnegie Mellon University — Tepper": { name: "Tepper MBA merit scholarships", desc: "Every admitted MBA candidate is automatically considered for merit-based scholarships — no separate application — judged on academics, professional record and interview. Awards range from partial to full tuition, and applying in an earlier round genuinely improves your odds because funds are allocated as the cycle progresses.", link: "https://www.cmu.edu/tepper/programs/mba/index.html" },
+  "Wageningen University & Research": { name: "Wageningen Scholarship Programme (WSP) & Holland Scholarship", desc: "The WSP is Wageningen's own award for excellent non-EU master's students, covering a share of the €21,700/year institutional fee, alongside the national Holland Scholarship (€5,000, first year only, non-EEA). Both have early, hard deadlines — typically 1 February for a September start — well before the general application deadline.", link: "https://www.wur.nl/en" },
+  "Politecnico di Milano": { name: "Polimi merit-based scholarships & DSU regional grants", desc: "Politecnico runs its own merit awards for international master's students (typically a tuition waiver plus a cash contribution, applied for in a separate window alongside admission), and Lombardy's DSU right-to-study grant is a second, income-based channel with its own regional application. Most students who get significant money get it from the regional scheme, not the university one.", link: "https://www.polimi.it/en/prospective-students/scholarships" },
+  "WU Vienna": { name: "WU Vienna scholarships & Austrian public tuition", desc: "The bigger financial fact at WU is the fee itself: Austrian public universities charge non-EU students roughly €727 per semester, so the tuition bar is low before any scholarship. WU's own awards and the OeAD-administered national schemes then sit on top, mostly aimed at students already enrolled.", link: "https://www.wu.ac.at/en/students/my-program/masters-programs" },
+  "Copenhagen Business School": { name: "CBS scholarships & Danish state support", desc: "EU/EEA students pay no tuition at all for CBS's regular MSc programmes — the fee only applies to non-EU/EEA students and to the full-time MBA. For non-EU applicants CBS awards a small number of tuition waivers with living-cost grants, decided together with admission and with no separate application.", link: "https://www.cbs.dk/en" },
   "University of Cambridge — Judge": { name: "Cambridge Trust & Judge Business School Scholarships", desc: "Up to £40,000 across 4 scholarship programmes; indicate interest in the relevant one(s) directly on your MBA application (any of the 4 rounds) — no separate form. The Forté Foundation Fellowship (5 awards/year, up to £40k) is nomination-only by the Admissions team and requires already holding another award or a Distinction Award. Fully open to international applicants — several tracks specifically target Asia, Africa and Latin America.", link: "https://www.jbs.cam.ac.uk/masters-degrees/mba/fees-funding/scholarships-loans/" },
 };
 
