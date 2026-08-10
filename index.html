@@ -736,6 +736,14 @@
     aside.filters.collapsed .filters-body { display: none; }
   }
   @media (max-width: 620px) {
+    /* iOS Safari auto-zooms the whole page when a focused input's font-size is
+       under 16px — that zoom is what made the page scroll sideways and the
+       Search button drift right while typing. 16px everywhere stops it. */
+    .searchbar input, .pfield select, .sortwrap select, .loc-search,
+    input[type="text"], input[type="search"], select, textarea { font-size: 16px; }
+    .searchbar { padding: 5px 5px 5px 16px; }
+    .search-btn { padding: 9px 15px; font-size: 14px; }
+
     .wrap { padding: 0 18px; }
     .site .wrap { gap: 12px; }
     .hero { padding: 120px 0 6px; }
@@ -1243,7 +1251,7 @@
       </div>
     </div>
     <h2 class="scholar-section-title">Sources &amp; credits</h2>
-    <p class="scholar-section-sub">Homepage banner: coloured-pencil illustration based on Stanford University aerial view by Mark Leschinsky, shown in a daylight rendering and a dusk rendering (dark mode), licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">CC BY 4.0</a>, from the <a href="https://commons.wikimedia.org/wiki/File:Stanford_University_Aerial_View.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">original on Wikimedia Commons</a>. Programme, tuition, and visa data throughout the site is illustrative and unverified — always confirm on the school's own page.</p>
+    <p class="scholar-section-sub">Homepage banner: coloured-pencil illustration based on Stanford University aerial view by Mark Leschinsky, shown in a daylight rendering and a night rendering (dark mode), licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">CC BY 4.0</a>, from the <a href="https://commons.wikimedia.org/wiki/File:Stanford_University_Aerial_View.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">original on Wikimedia Commons</a>. Programme, tuition, and visa data throughout the site is illustrative and unverified — always confirm on the school's own page.</p>
   </div>
 </section>
 
@@ -1258,7 +1266,7 @@
       <path d="M4.6 18.4C8 16.9 18 16.9 21.4 18.4" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
     </svg> Campus&nbsp;Atlas</div>
       <p class="note"><strong>Mock-up / prototype.</strong> Programme details, tuition figures, deadlines and rankings shown here are illustrative sample data for design purposes and are not verified. Always confirm details on the school's official admissions page before applying.</p>
-      <p class="note" style="margin-top:8px">Homepage banner: coloured-pencil illustration based on Stanford University aerial view, photo by Mark Leschinsky, shown in a daylight rendering and a dusk rendering (dark mode), licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">CC BY 4.0</a>, from the <a href="https://commons.wikimedia.org/wiki/File:Stanford_University_Aerial_View.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">original on Wikimedia Commons</a>.</p>
+      <p class="note" style="margin-top:8px">Homepage banner: coloured-pencil illustration based on Stanford University aerial view, photo by Mark Leschinsky, shown in a daylight rendering and a night rendering (dark mode), licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">CC BY 4.0</a>, from the <a href="https://commons.wikimedia.org/wiki/File:Stanford_University_Aerial_View.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">original on Wikimedia Commons</a>.</p>
     </div>
     <div class="cols">
       <div><strong>Explore</strong><span>By country</span><span>By field</span><span>By deadline</span></div>
@@ -4845,7 +4853,7 @@ function cardHTML(p, subjectOnlyMatch) {
     <h3>${p.program}</h3>
     ${matchBadge(p)}
     ${p.extRank ? `<div class="ext-rank">${p.extRank}</div>` : ""}
-    ${subjectOnlyMatch ? `<div class="subject-match-note" title="This programme does not have your search term in its degree name — it matched on subject area.">Subject-area match, not a “${escapeHTML(state.q)}” degree</div>` : ""}
+    ${subjectOnlyMatch ? `<div class="subject-match-note" title="This programme matched on subject area rather than on its degree name.">Subject-area match</div>` : ""}
     <div class="tags">
       ${p.fields.slice(0,2).map(f => `<span class="tag">${f}</span>`).join("")}
       ${!p.gmat ? `<span class="tag teal">No GMAT</span>` : ""}
@@ -4870,7 +4878,10 @@ function render() {
   // divider before the "Related" block, but results are no longer in strict
   // tier order: a world #2 that matched on subject area can now legitimately
   // outrank an unranked programme that matched on its title.)
-  const relevanceApplies = state.q && state.sort !== "tuitionAsc" && state.sort !== "tuitionDesc"
+  // Only worth flagging for a short, degree-shaped query ("mba", "data science").
+  // On a sentence like "best mba in europe" the distinction is meaningless noise.
+  const shortQuery = state.q.trim().split(/\s+/).length <= 2;
+  const relevanceApplies = state.q && shortQuery && state.sort !== "tuitionAsc" && state.sort !== "tuitionDesc"
                                    && state.sort !== "durAsc" && state.sort !== "az";
   const html = list.map(p => cardHTML(p, relevanceApplies && queryRelevance(p) >= 2)).join("");
 
