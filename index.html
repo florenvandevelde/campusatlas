@@ -167,6 +167,9 @@
      graphite hatching and paper texture remain crisp rather than reading as
      a photo with a sketch effect over it. */
   .hpl-base { filter: saturate(1.03) contrast(1.02); object-position: center 43%; }
+  /* two renderings of the same drawing: daylight and dusk. The dusk one is only
+     shown in dark mode (see the dark-scheme block below). */
+  .hpl-dusk { display: none; }
   /* Fine paper tooth reinforces the physical-pencil finish without obscuring
      the hand-rendered details in the illustration. */
   .hpl-grain {
@@ -188,9 +191,29 @@
       linear-gradient(90deg, var(--paper) 0%, rgba(250,249,247,.97) 21%, rgba(250,249,247,.76) 39%, rgba(250,249,247,.30) 57%, rgba(250,249,247,.04) 74%),
       linear-gradient(to bottom, rgba(250,249,247,.12) 0%, rgba(250,249,247,.30) 45%, var(--paper) 93%);
   }
+  /* Dark mode keeps the banner — it just switches to the dusk rendering of the
+     same coloured-pencil drawing (indigo sky, low sun on the horizon) and
+     replaces the paper-white fade with the dark page colour, so the copy on the
+     left stays readable instead of the image being dropped altogether. */
   @media (prefers-color-scheme: dark) {
-    .hero { margin-top: 0; padding: 48px 0 36px; }
-    .hero-photo-layer { display: none; }
+    .hpl-day { display: none; }
+    .hpl-dusk { display: block; filter: contrast(1.02) brightness(.94); }
+    .hpl-grain { mix-blend-mode: overlay; opacity: .12; }
+    .hpl-vignette {
+      background: radial-gradient(ellipse 90% 75% at 62% 30%, transparent 40%, rgba(0,0,0,.45) 100%);
+      mix-blend-mode: normal;
+    }
+    .hpl-wash {
+      background:
+        linear-gradient(90deg, var(--paper) 0%, color-mix(in srgb, var(--paper) 96%, transparent) 21%, color-mix(in srgb, var(--paper) 74%, transparent) 39%, color-mix(in srgb, var(--paper) 28%, transparent) 57%, color-mix(in srgb, var(--paper) 4%, transparent) 74%),
+        linear-gradient(to bottom, color-mix(in srgb, var(--paper) 14%, transparent) 0%, color-mix(in srgb, var(--paper) 32%, transparent) 45%, var(--paper) 93%);
+    }
+    /* the light-mode text glow is a white halo — wrong colour on a dark page */
+    .hero .eyebrow, .hero .lede, .hero .quick .lbl { text-shadow: 0 1px 3px var(--paper), 0 0 18px var(--paper), 0 0 7px var(--paper); }
+  }
+  @media (prefers-color-scheme: dark) and (max-width: 940px) {
+    /* the banner is shorter on small screens, so pull the copy back up under it */
+    .hero-photo-layer { height: 560px; }
   }
   .hero::before {
     content: ""; position: absolute; inset: -40% -10% auto -10%; height: 520px; z-index: 0;
@@ -836,7 +859,8 @@
 <div id="pageProgrammes">
 <section class="hero">
   <div class="hero-photo-layer" aria-hidden="true">
-    <img class="hpl-base" src="assets/stanford-pencil-hero-v2.png" alt="" />
+    <img class="hpl-base hpl-day" src="assets/stanford-pencil-hero-v2.png" alt="" />
+    <img class="hpl-base hpl-dusk" src="assets/stanford-pencil-hero-evening.png" alt="" />
     <div class="hpl-grain"></div>
     <div class="hpl-vignette"></div>
     <div class="hpl-wash"></div>
@@ -1220,7 +1244,7 @@
       </div>
     </div>
     <h2 class="scholar-section-title">Sources &amp; credits</h2>
-    <p class="scholar-section-sub">Homepage banner: coloured-pencil illustration based on Stanford University aerial view by Mark Leschinsky, licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">CC BY 4.0</a>, from the <a href="https://commons.wikimedia.org/wiki/File:Stanford_University_Aerial_View.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">original on Wikimedia Commons</a>. Programme, tuition, and visa data throughout the site is illustrative and unverified — always confirm on the school's own page.</p>
+    <p class="scholar-section-sub">Homepage banner: coloured-pencil illustration based on Stanford University aerial view by Mark Leschinsky, shown in a daylight rendering and a dusk rendering (dark mode), licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">CC BY 4.0</a>, from the <a href="https://commons.wikimedia.org/wiki/File:Stanford_University_Aerial_View.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">original on Wikimedia Commons</a>. Programme, tuition, and visa data throughout the site is illustrative and unverified — always confirm on the school's own page.</p>
   </div>
 </section>
 
@@ -1235,7 +1259,7 @@
       <path d="M4.6 18.4C8 16.9 18 16.9 21.4 18.4" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
     </svg> Campus&nbsp;Atlas</div>
       <p class="note"><strong>Mock-up / prototype.</strong> Programme details, tuition figures, deadlines and rankings shown here are illustrative sample data for design purposes and are not verified. Always confirm details on the school's official admissions page before applying.</p>
-      <p class="note" style="margin-top:8px">Homepage banner: coloured-pencil illustration based on Stanford University aerial view, photo by Mark Leschinsky, licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">CC BY 4.0</a>, from the <a href="https://commons.wikimedia.org/wiki/File:Stanford_University_Aerial_View.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">original on Wikimedia Commons</a>.</p>
+      <p class="note" style="margin-top:8px">Homepage banner: coloured-pencil illustration based on Stanford University aerial view, photo by Mark Leschinsky, shown in a daylight rendering and a dusk rendering (dark mode), licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">CC BY 4.0</a>, from the <a href="https://commons.wikimedia.org/wiki/File:Stanford_University_Aerial_View.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">original on Wikimedia Commons</a>.</p>
     </div>
     <div class="cols">
       <div><strong>Explore</strong><span>By country</span><span>By field</span><span>By deadline</span></div>
@@ -3723,6 +3747,43 @@ const PROGRAMS = [
     openFields:["Business & Economics"], freshGradOnly:false,
     blurb:"Taught across ESCP's London and Paris campuses so students sit in both of Europe's main financial centres during the programme, with two intakes a year and no GMAT requirement.",
     highlights:["QS Masters in Finance #15 (2026)","London and Paris campus terms","Two intakes a year","No GMAT/GRE required"] },
+
+  // ── Marketing: the QS Masters in Marketing 2026 top 10 that had no entry.
+  { id:511, school:"ESSEC Business School", program:"MSc in Marketing Management and Digital", city:"Singapore", country:"Singapore", flag:"🇸🇬", region:"Asia-Pacific",
+    fields:["Marketing","Analytics"], months:12, lang:"English", tuition:29000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:true, scholar:true, link:"https://www.essec.edu/en/program/msc-marketing-management-digital/", extRank:"QS Masters in Marketing #2 (2026)", rank:501,
+    openFields:["Business & Economics"], freshGradOnly:true,
+    blurb:"Taught on ESSEC's Singapore campus rather than in France, which puts a top-ranked European marketing degree inside the Asian consumer market it spends most of its time analysing.",
+    highlights:["QS Masters in Marketing #2 (2026)","Taught in Singapore, not France","Digital and data-driven marketing focus","Singapore job-search pass after graduation"] },
+
+  { id:512, school:"Columbia Business School", program:"MS in Marketing Science", city:"New York, NY", country:"United States", flag:"🇺🇸", region:"North America",
+    fields:["Marketing","Analytics"], months:12, lang:"English", tuition:73500, intake:"August", deadline:"Rolling", work:"0–2 yrs", gmat:true, scholar:true, link:"https://www8.gsb.columbia.edu/programs/masters-marketing-science", extRank:"QS Masters in Marketing #4 (2026)", rank:502,
+    openFields:["Business & Economics","STEM & Engineering"], freshGradOnly:true,
+    blurb:"A genuinely quantitative marketing degree — closer to applied econometrics than to brand management — taught at Columbia in Manhattan and aimed at marketing analytics and consumer-insight roles.",
+    highlights:["QS Masters in Marketing #4 (2026)","Quantitative: econometrics, not brand theory","STEM-designated (36-month OPT)","Manhattan consumer and media employers"] },
+
+  { id:513, school:"IE Business School", program:"Master in Strategic Marketing & Communication", city:"Madrid", country:"Spain", flag:"🇪🇸", region:"Europe",
+    fields:["Marketing","Strategy"], months:12, lang:"English", tuition:34000, intake:"September / January", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.ie.edu/business-school/programs/masters/master-in-strategic-marketing-communication/", extRank:"QS Masters in Marketing #5 (2026)", rank:503,
+    openFields:["Business & Economics"], freshGradOnly:false,
+    blurb:"IE pairs marketing with communication rather than analytics, which suits people heading into brand, agency or corporate-communication roles — and, like IE's other master's, it runs two intakes a year.",
+    highlights:["QS Masters in Marketing #5 (2026)","Marketing paired with communication, not analytics","Two intakes a year","No GMAT/GRE required"] },
+
+  { id:514, school:"Warwick Business School", program:"MSc Marketing & Strategy", city:"Coventry", country:"United Kingdom", flag:"🇬🇧", region:"Europe",
+    fields:["Marketing","Strategy"], months:12, lang:"English", tuition:38000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.wbs.ac.uk/courses/masters/marketing-and-strategy/", extRank:"QS Masters in Marketing #6 (2026)", rank:504,
+    openFields:["Business & Economics"], freshGradOnly:true,
+    blurb:"Warwick teaches marketing as a strategy discipline rather than a communications one, and the WBS scholarship rules apply here too — a GMAT of 680+ automatically shortlists you for 25–50% off.",
+    highlights:["QS Masters in Marketing #6 (2026)","Strategy-led rather than communications-led","GMAT 680+ auto-shortlists for a WBS scholarship","UK Graduate Route: 24 months after graduation"] },
+
+  { id:515, school:"Imperial College Business School", program:"MSc Strategic Marketing", city:"London", country:"United Kingdom", flag:"🇬🇧", region:"Europe",
+    fields:["Marketing","Analytics"], months:12, lang:"English", tuition:46000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.imperial.ac.uk/business-school/masters/strategic-marketing/", extRank:"QS Masters in Marketing #7 (2026)", rank:505,
+    openFields:["Business & Economics","STEM & Engineering"], freshGradOnly:true,
+    blurb:"Imperial's marketing master's inherits the university's analytical bent — consumer analytics, digital measurement and marketing technology sit alongside the strategy content rather than as an elective.",
+    highlights:["QS Masters in Marketing #7 (2026)","Analytics and martech embedded in the core","No separate scholarship application needed","UK Graduate Route: 24 months after graduation"] },
+
+  { id:516, school:"London School of Economics", program:"MSc Marketing", city:"London", country:"United Kingdom", flag:"🇬🇧", region:"Europe",
+    fields:["Marketing","Analytics","Social Sciences"], months:12, lang:"English", tuition:42500, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.lse.ac.uk/study-at-lse/graduate/msc-marketing", extRank:"QS Masters in Marketing #8 (2026)", rank:506,
+    openFields:["Business & Economics","Social Sciences & Humanities"], freshGradOnly:true,
+    blurb:"LSE approaches marketing through behavioural science and consumer psychology rather than through management practice — a distinctive positioning, and one that suits research-minded applicants.",
+    highlights:["QS Masters in Marketing #8 (2026)","Behavioural-science approach to consumer research","One LSE funding application covers all awards","UK Graduate Route: 24 months after graduation"] },
 ];
 
 const FIELDS  = ["Management","Finance","Analytics","Strategy","Marketing","Entrepreneurship","Economics","Sustainability",
