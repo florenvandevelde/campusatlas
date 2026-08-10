@@ -5021,6 +5021,11 @@ function queryRelevance(p) {
   const allIn = hay => terms.every(t => termMatches(t, hay));
   const title = p.program.toLowerCase();
   if (title.includes(state.q.toLowerCase()) || allIn(title)) return 0;
+  // A subject ranking naming the searched subject is as strong a signal as the
+  // title carrying the word — MIT's "SM in Aeronautics and Astronautics" is an
+  // aerospace degree ranked #1 in aerospace, and was sorting below a #9 purely
+  // because its title says "Aeronautics" rather than "Aerospace".
+  if (p.extRank && allIn(p.extRank.toLowerCase())) return 0;
   if (allIn((p.school + " " + p.program).toLowerCase())) return 1;
   if (allIn(p.fields.join(" ").toLowerCase())) return 2;
   return 3;
