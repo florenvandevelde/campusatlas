@@ -4054,6 +4054,69 @@ function matches(p) {
   return true;
 }
 
+/* ============================================================
+   SELECTIVITY — how hard is it actually to get in?
+
+   Most master's programmes never publish an admit rate; business schools are
+   the big exception, because MBA class profiles are a competitive marketing
+   artefact. So this table only holds figures that a school (or a compilation of
+   school-reported class profiles) has actually put a number on, and everything
+   else gets an honest "not published" state rather than an invented estimate.
+
+   `basis` distinguishes the two kinds of number that circulate:
+     "published" — from the school's own class profile for a named cohort
+     "reported"  — a widely-cited third-party figure the school itself doesn't
+                   publish; directionally useful, not authoritative
+   ============================================================ */
+const SELECTIVITY = {
+  200: { rate: 7,  applicants: 7259, classSize: 434, cohort: "Class of 2027", basis: "published" },
+  198: { rate: 11, applicants: 9409, classSize: 943, cohort: "Class of 2027", basis: "published" },
+  199: { rate: 14, classSize: 450, cohort: "Class of 2027", basis: "published" },
+  197: { rate: 21, applicants: 7613, classSize: 888, cohort: "Class of 2027", basis: "published" },
+  201: { rate: 21, applicants: 7477, classSize: 982, cohort: "Class of 2027", basis: "published" },
+  204: { rate: 25, classSize: 273, cohort: "Class of 2027", basis: "published" },
+  203: { rate: 29, applicants: 5876, classSize: 635, cohort: "Class of 2027", basis: "published" },
+  202: { rate: 29, classSize: 534, cohort: "Class of 2027", basis: "published" },
+  205: { rate: 31, classSize: 304, cohort: "Class of 2027", basis: "published" },
+  206: { rate: 34, classSize: 361, cohort: "Class of 2027", basis: "published" },
+  // Small, deliberately-capped European cohorts where the school publishes the
+  // class size but not an admit rate — the size alone is the useful signal.
+  1:   { classSize: 90, cohort: "recent intake", basis: "published", note: "INSEAD publishes the cohort size (~90 across 30+ nationalities) but not an admit rate for the MiM." },
+};
+
+// Bands are derived from the rate itself, so they can never disagree with it.
+function selectivityBand(rate) {
+  if (rate <= 10) return { label: "Extremely selective", tone: "watch" };
+  if (rate <= 20) return { label: "Highly selective", tone: "watch" };
+  if (rate <= 35) return { label: "Selective", tone: "good" };
+  return { label: "Moderately selective", tone: "good" };
+}
+
+function selectivityFor(p) {
+  const s = SELECTIVITY[p.id];
+  if (!s) return null;
+  const parts = [];
+  if (s.rate != null) parts.push(`${s.rate}% admitted`);
+  if (s.applicants) parts.push(`${s.applicants.toLocaleString("en-GB")} applicants`);
+  if (s.classSize) parts.push(`class of ${s.classSize}`);
+  return {
+    ...s,
+    band: s.rate != null ? selectivityBand(s.rate) : null,
+    summary: parts.join(" · "),
+    caveat: s.basis === "published"
+      ? `From the school's published ${s.cohort} class profile. Admit rates move by several points between cycles — confirm against the current profile.`
+      : `Widely reported but not published by the school itself, so treat it as a rough indication rather than a fact.`,
+  };
+}
+
+// One-line version for cards and compare rows.
+function selectivityShort(p) {
+  const s = selectivityFor(p);
+  if (!s) return `Not published`;
+  if (s.rate != null) return `${s.rate}% admitted${s.classSize ? ` · class of ${s.classSize}` : ""}`;
+  return `Class of ${s.classSize}`;
+}
+
 const MATCH_RANK = { eligible: 0, check: 1, none: 2, mismatch: 3 };
 
 function prestigeScore(p) {
@@ -4189,6 +4252,7 @@ function cardHTML(p) {
       <div class="fact"><span>Starts</span><b>${p.intake}</b></div>
       <div class="fact"><span>Deadline</span><b>${p.deadline}</b></div>
     </div>
+    ${SELECTIVITY[p.id] ? `<div class="fact visa-fact"><span>Admissions selectivity</span><b>${selectivityShort(p)}</b></div>` : ""}
     <div class="fact visa-fact"><span>Work visa after graduation</span><b>${getVisa(p).label}</b></div>
   </article>`;
 }
@@ -4320,6 +4384,16 @@ function openModal(id) {
         <div class="fact"><span>Work visa after graduation</span><b>${getVisa(p).label}</b></div>
       </div>
       ${modalEligibility(p)}
+      ${(() => {
+        const s = selectivityFor(p);
+        if (!s) return `<h5>How hard is it to get in?</h5><p class="scholar-section-sub" style="margin-bottom:0">${p.school} doesn't publish an admit rate for this programme. That's normal outside the MBA world — most master's degrees never release one, so judge competitiveness from the entry bar instead: ${p.gmat ? "a GMAT/GRE is expected" : "no GMAT/GRE is required"}, ${p.work === "0 yrs" ? "no work experience is needed" : `${p.work} of work experience is expected`}${p.extRank ? `, and the programme sits at ${p.extRank}` : ""}.</p>`;
+        return `<h5>How hard is it to get in?</h5>
+          <div class="elig elig-eligible">
+            <div class="elig-head"><span class="dot"></span> ${s.band ? s.band.label : "Published cohort size"}${s.rate != null ? ` — ${s.rate}% of applicants admitted` : ""}</div>
+            <p>${s.summary} (${s.cohort}).${s.note ? ` ${s.note}` : ""}</p>
+            <p style="margin-top:8px;">${s.caveat}</p>
+          </div>`;
+      })()}
       <h5>Why this programme</h5>
       <p>${p.blurb}</p>
       <h5>What stands out</h5>
@@ -4355,6 +4429,11 @@ const COMPARE_ROWS = [
   { label: "Next deadline", get: p => p.deadline },
   { label: "Work experience", get: p => p.work },
   { label: "GMAT / GRE", get: p => p.gmat ? "Required" : "Not required" },
+  { label: "Admissions selectivity", raw: true, get: p => {
+      const s = selectivityFor(p);
+      if (!s) return `<span class="planner-status muted">Not published</span><span class="place">This school doesn't publish an admit rate for this programme — most non-MBA master's don't.</span>`;
+      return `<span class="planner-status ${s.band ? s.band.tone : "muted"}">${s.band ? s.band.label : "Cohort size published"}</span><span class="place">${s.summary} · ${s.cohort}</span>`;
+    } },
   { label: "Region", get: p => p.region },
   { label: "Work visa after graduation", get: p => getVisa(p).label },
   { label: "Fields", raw: true, get: p => `<div class="tags">${p.fields.map(f => `<span class="tag">${f}</span>`).join("")}${p.scholar ? `<span class="tag accent">Scholarships</span>` : ""}</div>` },
