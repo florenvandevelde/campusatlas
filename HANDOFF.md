@@ -1,5 +1,37 @@
 # Campus Atlas — handoff context (session 4, continued from session 3)
 
+## Session 4b — ranking sweep (QS + FT), 503 programmes
+
+### Method now established for ranking work
+For each domain: pull the published table, diff it against `PROGRAMS` with a Node script, add the missing schools with verified tuition, and — just as important — **apply the subject rank to entries that already existed but had none**, because an unranked entry sorts below everything. Sources used: QS Business Masters 2026 (Business Analytics, Management, Finance, Marketing), QS Global MBA 2026, QS subject 2026 (Computer Science, Mechanical/Aero/Manufacturing, Environmental Sciences), and the **FT Masters in Management 2025 table parsed out of the FT's own PDF** (`pypdf`; the mirror sites only publish a top 10).
+
+### Coverage now
+- **MBA** — every school in the QS 2026 Global top 15 is present, plus most of the top 50. 55 entries, ordered 1→30 cleanly.
+- **Business Analytics** — QS 2026 top 20 complete (was missing 7 of the top 10, including #1 and #2).
+- **Masters in Management** — FT 2025 ranks applied to 27 previously-unranked entries; six FT top-50 schools added.
+- **Finance** — QS 2026 top 15 complete.
+- **Marketing** — QS 2026 top 8 complete.
+- **Mechanical engineering** — QS 2026 top 20 gaps filled (NUS #3, Cambridge #4, NTU #5, EPFL #13).
+- **Sustainability** — QS Environmental Sciences 2026 ranks applied; Wageningen (joint world #2) added.
+
+### Two real ranking bugs found and fixed here
+1. **Ranking labels are not on a common scale.** `QS Supply Chain Management #2` sorted as a "2" in an *AI* search, putting a supply-chain degree above every AI programme. `queryAwarePrestige()` now only trusts a rank when the ranking's subject matches the query's subject (`RANK_SUBJECT_HINTS`); otherwise +200.
+2. **Relevance tiers were an absolute gate.** An unranked title match outranked a world #2 subject-area match — under "sustainability" that buried Oxford #2 and Wageningen #2. A tier is now worth 40 places, not infinity. The "Related programmes" divider became a per-card note as a result, since results are no longer in strict tier blocks.
+
+### Also in this pass
+- **Dark-mode homepage banner restored.** A dark-scheme rule was setting `.hero-photo-layer { display:none }`, so evening visitors got no image at all. Added `assets/stanford-pencil-hero-evening.png` — the same coloured-pencil drawing graded to dusk by a luminance-driven split-tone remap (script logic is in the commit message; regenerate with Pillow + numpy if the base art ever changes). Dark mode swaps image, wash, vignette, grain blend and text halo.
+- **`SCHOOL_SCHOLARSHIPS` 58 → 74**, prioritised by ranking. Includes the genuinely useful negative finding that **MIT and Stanford largely do not fund master's students** — worth keeping, it's the kind of thing applicants discover too late.
+
+### Ranking hygiene rules learned the hard way
+- **Never set an `extRank` by guessing an id.** Two misattributions happened this session (Cambridge's Environmental Sciences #6 briefly landed on Sciences Po; Queen's Smith nearly took a rank belonging to a different Queen's degree). Always grep the entry and assert on a distinctive substring of the *programme name* before writing.
+- A rank must match the *degree*, not just the school. FT MiM #72 for Queen's is their Master of International Business; the catalogue's Queen's entry is Management Analytics, so it was deliberately left unranked.
+- Third-party QS mirrors disagree with each other (Imperial CS #8 vs #12, EPFL #11 vs #15). Prefer the ranking body's own summary text; where mirrors conflict, leave the existing value alone.
+
+### Still outstanding
+- Catalogue is 503. The remaining ranked-but-absent schools are mostly ranks 20–50 in each table (Grenoble/SKEMA/NEOMA/Audencia marketing and finance entries, US MBAs at Goizueta/Foster/Owen/Kenan-Flagler/McCombs, Asian and Australian schools in the analytics 25–50 band).
+- `SCHOOL_SCHOLARSHIPS` still covers 74 of 330 schools.
+- `PROGRAMME_ESSENTIALS` still 14 of 503 — genuinely one programme at a time.
+
 ## Session 4 summary (this pass)
 
 ### Scholarships — rebuilt as three axes
