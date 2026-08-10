@@ -2,7 +2,7 @@
 
 ## READ THIS FIRST — the method that works
 
-The catalogue is now **531 programmes**. The single highest-value activity is not adding rows, it's this loop, per domain:
+The catalogue is now **548 programmes**. The single highest-value activity is not adding rows, it's this loop, per domain:
 
 1. **Pull the published ranking table.** QS subject/business-masters tables via `xuanxiao.org/en/rankings/qs/...` (a mirror that WebFetch can read; `topuniversities.com` returns 403). The FT tables are only published as PDFs — download with WebFetch and parse with `pypdf` (the mirror sites only carry a top 10).
 2. **Diff it against `PROGRAMS` with a Node script** (see the one-liners throughout this session's commits): for each ranked school, does an entry exist *for that degree*?
@@ -15,6 +15,18 @@ The catalogue is now **531 programmes**. The single highest-value activity is no
 - **The rank must match the degree, not just the school.** FT MiM #72 for Queen's is their Master of International Business; the catalogue's Queen's entry is Management Analytics, so it was left unranked. Same reason Stockholm School of Economics' MiM rank is not on its MSc Finance entry.
 - **Only structured `QS ... (YYYY)` / `FT ... (YYYY)` labels drive sort order** (see `prestigeScore()`). Prose like "Africa's #1 MBA" is displayed but deliberately ignored — don't "fix" that.
 - **Mirrors disagree** (Imperial CS #8 vs #12, EPFL #11 vs #15). Prefer the ranking body's own summary text; where mirrors conflict, leave the existing value alone rather than churn.
+
+## Session 4c — second ranking sweep, 531 → 548 programmes
+
+Same loop as 4b, applied to the tables that were still missing or stale.
+
+**New coverage**: Supply Chain (a fifth QS business-masters table — ESSEC #1, WU Vienna #3, RSM #4 added), Electrical Engineering (NUS #3, EPFL #10), Civil Engineering (NUS #2, Imperial #7), Law top 15 completed (Stanford #5, Berkeley #10, UCL #13), Finance ranks 16–24 (IE, Warwick, Esade, emlyon, EDHEC), Marketing ranks 10–15 (emlyon, EDHEC, WU Vienna, Manchester, St Gallen), Management #14/#29 (LSE, KCL), Business Analytics 28–38 (SMU Singapore, Edinburgh, Georgetown, Trinity), three more US MBAs (McCombs #37, Georgetown, UW Foster), and six global top-100 universities that had no entry at all: Lund, Uppsala, Kyoto, Paris-Saclay, PSL, City University of Hong Kong.
+
+**Ranking labels refreshed to the 2026 edition**: Computer Science (11 entries), Physics & Astronomy (6), Chemistry (5), Chemical Engineering (5), Civil (6), Electrical (2). The ~20 entries still carrying 2025 labels are all "Top N" bands for tables I have not verified for 2026 (Engineering & Technology, Earth & Marine, Aerospace, Education) — **leave them alone rather than bumping the year without the data**. The 54 `FT Global MiM (2025)` labels are correct; that is the current FT edition.
+
+**`extRank` coverage**: 24 entries at KU Leuven, Ghent, UCLouvain, LMU, Heidelberg, TU Berlin, EPFL and Wageningen had no ranking at all and were given their **QS World University Rankings 2026 institution position**. Labelled explicitly as the world ranking, which means `queryAwarePrestige()` discounts it on subject searches — so it improves place-based searches ("belgium" now leads with KU Leuven #59) without ever outranking a genuine subject rank. Entries with no ranking: 94 → 70.
+
+**`SCHOOL_SCHOLARSHIPS` 74 → 92.** The six top US law schools were the biggest gap and behave unlike business schools: Harvard, Yale and Stanford give LLM aid on demonstrated need only with no merit track, and international students cannot access US federal loans. NYU (Hauser Global Scholarship — full tuition plus stipend) and Columbia (Bhagwati Fellowship) are the two that genuinely fund international LLM candidates.
 
 ## Session 4b — ranking sweep (QS + FT), 503 → 531 programmes
 
@@ -63,8 +75,9 @@ The dark-mode banner went through three states in one session because I over-sol
 | Computer science / AI | 2,3,4,4,10… | See the MIT caveat below |
 | Sustainability | 2,2,4,5,6… | QS Environmental Sciences 2026 applied |
 
-### Still outstanding
-- **Ranks ~20–50 in most tables.** Named, researched, not yet added: SKEMA, NEOMA, Grenoble (marketing/finance entries), Leeds, Cranfield, JHU Carey, Michigan State, UC Davis, UCSD Rady, Mannheim, ASU, GWU, Texas A&M, Wisconsin, EGADE, Macquarie. US MBAs still missing at Emory Goizueta, UNC Kenan-Flagler and Vanderbilt Owen — **their admit rates are already researched** (20%/37%/38%, Class of 2027) but I could not find tuition separated from cost-of-attendance, and the `tuition` field must not carry a COA figure.
+### Still outstanding (updated after session 4c)
+- **Ranks ~25–50 in most tables.** Still named-and-researched but not added: La Salle Ramon Llull, Purdue and HKUST (supply chain 9–15), JHU Carey, Michigan State, UC Davis, UCSD Rady, Mannheim, ASU, GWU, Texas A&M, Wisconsin, EGADE, Macquarie. Previously listed and now **done**: SKEMA, NEOMA, Grenoble, Leeds, Cranfield, McCombs, UW Foster.
+- **Ranks ~20–50 in most tables (original note).** Named, researched, not yet added: SKEMA, NEOMA, Grenoble (marketing/finance entries), Leeds, Cranfield, JHU Carey, Michigan State, UC Davis, UCSD Rady, Mannheim, ASU, GWU, Texas A&M, Wisconsin, EGADE, Macquarie. US MBAs still missing at Emory Goizueta, UNC Kenan-Flagler and Vanderbilt Owen — **their admit rates are already researched** (20%/37%/38%, Class of 2027) but I could not find tuition separated from cost-of-attendance, and the `tuition` field must not carry a COA figure.
 - **`SCHOOL_SCHOLARSHIPS` covers 74 of ~335 schools.** Prioritise by best `extRank` — there's a script for that in the session log.
 - **`PROGRAMME_ESSENTIALS` is 14 of 531.** Genuinely one programme at a time; the destination-country checklist layer covers everyone else.
 - **Public Health has no structured ranking applied** — deliberately. QS publishes no standalone public-health subject table, so the 12 entries keep accurate prose and fall back to curated order. Don't invent one.
