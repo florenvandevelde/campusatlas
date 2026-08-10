@@ -4931,8 +4931,211 @@ function applicationChecklistCard(p) {
       <details class="cat-card"><summary class="cat-head"><span class="cat-num">03</span><div><h3>Academic documents &amp; CV</h3><p>Transcript, degree certificate/expected-graduation proof and CV.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.docs}</div>` : ""}<ul class="tip-list"><li>Prepare official transcripts and certified English translations if needed.</li><li>Prepare your degree certificate or expected-graduation letter.</li><li>${strategy.cv}</li></ul></div></details>
       <details class="cat-card"><summary class="cat-head"><span class="cat-num">04</span><div><h3>Statement of purpose / essays</h3><p>Programme-specific motivation and career goals.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.essays}</div>` : `<p class="scholar-section-sub">Not individually researched for this programme yet. As a general guide, most competitive masters/MBA essays run 400–650 words per prompt across 1–3 prompts, and cover: (1) why this programme specifically, not master's degrees in general, (2) your relevant story/evidence, (3) concrete short- and long-term goals it enables. Confirm the actual prompts and word limits on the official portal — they change most cycles.</p>`}<ul class="tip-list"><li>${strategy.sopField}</li><li>${strategy.sop}</li><li>Verify prompts, word count and submission format on the official portal.</li><li>Leave time for several revisions and an outside reader.</li></ul><h4>Widely-used essay resources</h4><ul class="resource-list"><li><a href="https://www.mbamission.com/blog/" target="_blank" rel="noopener noreferrer">mbaMission essay guides</a> — free, school-specific essay breakdowns updated each cycle.</li><li><a href="https://poetsandquants.com/" target="_blank" rel="noopener noreferrer">Poets&amp;Quants</a> — the most-read MBA admissions news site, with extensive essay and application-strategy coverage.</li>${SCHOOL_CLEARADMIT[p.school] ? `<li><a href="${SCHOOL_CLEARADMIT[p.school]}" target="_blank" rel="noopener noreferrer">${escapeHTML(p.school)} on Clear Admit</a> — real admit interviews and essay analysis for this specific school.</li>` : ""}</ul></div></details>
       <details class="cat-card"><summary class="cat-head"><span class="cat-num">05</span><div><h3>Letters of recommendation</h3><p>Choose referees and give them time.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.recLetters}</div>` : ""}<ul class="tip-list"><li>${strategy.referees}</li><li>Structure guidance for your recommender: 1) how they know you and for how long, 2) one or two specific, evidenced examples of your impact or growth (not generic praise), 3) a direct comparison to peers if possible (e.g. "top 10% of the analysts I've managed"), 4) a closing statement of confident support for this specific programme.</li><li>Send your CV, goals and this programme's deadline at least 4–6 weeks early.</li><li>Verify the exact number and type of references directly in the application portal — it varies by programme and changes most cycles.</li></ul></div></details>
+      ${destinationRequirementsHTML(p)}
     </div></div>`;
 }
+
+/* ============================================================
+   DESTINATION-SPECIFIC APPLICATION REQUIREMENTS
+
+   The steps that trip people up are almost never the essay — they're the
+   country-level machinery: a credential evaluation the school won't tell you
+   about until it's late, a mandatory pre-enrolment portal, a blocked bank
+   account, an export-control clearance for certain STEM subjects. None of that
+   is programme-specific research, so it can be made specific for every single
+   entry in the catalogue rather than the handful with researched essay prompts.
+
+   Figures are the ones in force for the 2026 cycle and are dated in the text,
+   because visa financial thresholds are re-set annually.
+   ============================================================ */
+const DESTINATION_REQUIREMENTS = {
+  "United States": {
+    visa: "F-1 student visa",
+    steps: [
+      "Have official transcripts sent <b>directly from your university</b> to the school or to a credential service — most US programmes will not accept a copy you hand over yourself.",
+      "Budget for a credential evaluation (WES, ECE or SpanTran) if your degree is from outside the US — many programmes require a course-by-course report, which takes several weeks.",
+      "After you're admitted and have shown proof of funds, the school issues a Form I-20. Nothing visa-related can start before that.",
+      "Pay the SEVIS I-901 fee, complete the DS-160, then book a visa interview at your local US embassy — interview waits are the single most common cause of a missed start date.",
+      "Prepare financial documentation covering the <b>full first year</b> of tuition plus living costs; the school certifies this before releasing the I-20.",
+    ],
+  },
+  "United Kingdom": {
+    visa: "Student visa (formerly Tier 4)",
+    steps: [
+      "UK postgraduate applications go <b>directly to the university</b>, not through UCAS — each school runs its own portal and deadline.",
+      "Two academic references are the norm, plus a personal statement (typically 500–1,000 words) rather than multiple essay prompts.",
+      "After you accept an offer the university issues a CAS (Confirmation of Acceptance for Studies). You cannot apply for the visa without it.",
+      "Financial requirement for 2026: <b>£1,529/month in London or £1,171/month elsewhere</b>, for up to 9 months (so £13,761 or £10,539), <i>plus</i> your outstanding first-year tuition. The money must sit in the account for <b>28 consecutive days</b>, with a statement no more than 31 days old at submission.",
+      "You will also pay the Immigration Health Surcharge for the full length of your visa, up front.",
+    ],
+    fieldNote: { fields: ["Engineering", "Physics", "Chemistry", "AI", "Computer Science", "Energy", "Earth Sciences"], text: "Some technical subjects require <b>ATAS clearance</b> (Academic Technology Approval Scheme) before the visa can be issued — a free but slow UK government export-control check. The offer letter states whether your specific course code needs it; if it does, apply the moment you have the offer." },
+  },
+  "France": {
+    visa: "VLS-TS student long-stay visa",
+    steps: [
+      "If you live in one of the ~70 countries connected to the <b>Études en France</b> platform, you must go through Campus France <i>before</i> the visa stage — it is a compulsory step, not an optional service, and it has its own earlier calendar.",
+      "Grande École master's programmes generally assess through a written file plus an interview; several also accept the GMAT/GRE or run their own test.",
+      "Diplomas usually need a certified French or English translation by a sworn translator (traducteur assermenté).",
+      "Register your VLS-TS online within three months of arrival or it stops being valid.",
+      "Budget for the CVEC (contribution vie étudiante et de campus), a compulsory annual student-life fee paid before enrolment.",
+    ],
+  },
+  "Germany": {
+    visa: "National (type D) student visa",
+    steps: [
+      "Many German universities do not accept applications directly — you apply through <b>uni-assist</b>, which pre-checks foreign qualifications and charges a per-application fee.",
+      "Applicants who studied in India, China or Vietnam usually need an <b>APS certificate</b> verifying their previous degree before they can apply at all. Start this months ahead; it is the single most common cause of a missed German intake.",
+      "Proof of funds is normally a <b>blocked account (Sperrkonto) holding €11,904</b> for 2026 — €992/month for twelve months, released monthly.",
+      "German health insurance must be arranged before enrolment; public-scheme student rates are the default for under-30s.",
+      "Enrolment (Immatrikulation) and city registration (Anmeldung) are separate steps done after arrival, both with deadlines.",
+    ],
+  },
+  "Belgium": {
+    visa: "Type D student visa / student residence permit",
+    steps: [
+      "Foreign diplomas usually need formal recognition: <b>NARIC-Vlaanderen</b> for the Flemish institutions (KU Leuven, Ghent, Antwerp, VUB) or the Fédération Wallonie-Bruxelles equivalence service for the French-speaking ones (UCLouvain, ULB, Liège).",
+      "Documents typically need legalisation or an apostille, plus a sworn translation into Dutch, French or English depending on the institution's language.",
+      "Non-EEA applicants face a much earlier deadline than EEA ones — 1 March vs 1 June at KU Leuven, for example — because the visa has to fit before September.",
+      "You must show sufficient means of subsistence for the visa, either from your own funds or via a Belgian guarantor (annexe 32).",
+      "Register with your local commune within eight days of arrival to convert the visa into a residence card.",
+    ],
+  },
+  "Netherlands": {
+    visa: "MVV entry visa + residence permit (arranged by the university)",
+    steps: [
+      "Enrolment runs through <b>Studielink</b>, the national portal, in parallel with the university's own application — both must be completed.",
+      "The university applies for your MVV and residence permit on your behalf as a recognised sponsor; you do not go to the embassy first.",
+      "You'll be asked to transfer proof-of-funds for one year to the university, which holds it and confirms it to the IND.",
+      "Diploma comparison through Nuffic may be requested for non-EU qualifications.",
+      "Register with the municipality (BRP) after arrival to get your BSN, which you need for a bank account and insurance.",
+    ],
+  },
+  "Italy": {
+    visa: "Type D student visa",
+    steps: [
+      "<b>Pre-enrolment through the Universitaly portal is compulsory</b> for non-EU applicants — the consulate will not process a student visa without it, and it opens on a fixed national calendar.",
+      "You will need either a <b>Declaration of Value (DoV)</b> from the Italian consulate or a <b>CIMEA statement of comparability</b> for your degree — CIMEA is usually faster and increasingly accepted.",
+      "Apply for the permesso di soggiorno within eight working days of arriving in Italy.",
+      "Regional right-to-study (DSU) grants have their own separate application, usually opening July–September, assessed on ISEE-converted family income.",
+      "Italian universities frequently ask for a detailed transcript with ECTS and syllabi for credit recognition — request it early.",
+    ],
+  },
+  "Spain": {
+    visa: "Student visa (estancia por estudios)",
+    steps: [
+      "For an official (oficial) master's, most Spanish universities accept foreign degrees without full homologación, but they do require legalised and sworn-translated documents.",
+      "Private business-school master's (IE, IESE, Esade) run their own admissions and don't need the public-university recognition route at all.",
+      "Proof of funds for the visa is set against IPREM and is checked at the consulate; you'll also need private health insurance with no co-payments.",
+      "Apply for the TIE (foreigner ID card) within 30 days of arrival for programmes over six months.",
+      "Documents from outside the EU generally need an apostille under the Hague Convention.",
+    ],
+  },
+  "Switzerland": {
+    visa: "Cantonal student residence permit",
+    steps: [
+      "Swiss universities apply their own credential requirements and several charge a non-refundable application fee (CHF 100–150) before assessment.",
+      "The residence permit is granted by the <b>canton</b>, not nationally — requirements and processing times differ between Zurich, Vaud and Geneva.",
+      "You must show funds covering living costs for a year; Swiss living costs are the highest in this catalogue even though tuition is low.",
+      "Register at your commune within 14 days of arrival.",
+      "Compulsory Swiss health insurance must be taken out within three months unless you're exempted with equivalent EU cover.",
+    ],
+  },
+  "Canada": {
+    visa: "Study permit",
+    steps: [
+      "Most applicants now need a <b>Provincial Attestation Letter (PAL/TAL)</b> from the province in addition to the university's letter of acceptance — a requirement introduced in 2024 that catches out anyone using older guidance.",
+      "Proof of funds is usually shown through a Guaranteed Investment Certificate (GIC) plus first-year tuition.",
+      "Credential assessment (WES Canada or ICAS) is commonly requested for non-Canadian degrees.",
+      "Biometrics are required for almost all applicants; book them as soon as the permit application is submitted.",
+      "Quebec programmes additionally require a CAQ (Certificat d'acceptation du Québec) before the federal study permit.",
+    ],
+  },
+  "Australia": {
+    visa: "Student visa (subclass 500)",
+    steps: [
+      "You need a Confirmation of Enrolment (CoE) from the university before lodging the visa.",
+      "The <b>Genuine Student</b> requirement replaced the old GTE statement in 2024 — it is a structured set of questions about your study intent, not a free-form essay.",
+      "Overseas Student Health Cover (OSHC) is compulsory for the full visa period and must be paid up front.",
+      "Proof of funds must cover tuition, travel and living costs at the annually-updated Department of Home Affairs threshold.",
+      "Some technical fields trigger additional security assessment, which can add months — apply early if your subject is sensitive.",
+    ],
+  },
+  "Singapore": {
+    visa: "Student's Pass",
+    steps: [
+      "The Student's Pass is applied for through <b>SOLAR</b> after admission, usually initiated by the university.",
+      "You will need a medical examination and, for some nationalities, additional security clearance.",
+      "If you accept the MOE Tuition Grant, you take on a binding three-year obligation to work for a Singapore-registered company after graduation — read those terms before accepting the fee reduction.",
+      "Original academic documents are verified on arrival at matriculation.",
+      "Housing is tight and allocated early; apply for on-campus accommodation as soon as you're admitted.",
+    ],
+  },
+  "Japan": {
+    visa: "Student visa via Certificate of Eligibility",
+    steps: [
+      "The university applies for a <b>Certificate of Eligibility (COE)</b> on your behalf; you then take it to a Japanese embassy for the visa. The COE stage takes 1–3 months.",
+      "Many programmes admit through a research-student route first, which means contacting a prospective supervisor before you formally apply.",
+      "MEXT scholarships have two separate tracks (embassy and university recommendation) with entirely different deadlines — decide which you're pursuing early.",
+      "Documents usually need to be originals with Japanese or English translations.",
+      "Register at your local ward office and enrol in National Health Insurance within 14 days of arrival.",
+    ],
+  },
+  "China": {
+    visa: "X1 student visa",
+    steps: [
+      "The university issues an <b>admission notice plus a JW201/JW202 form</b>; both are needed for the visa application.",
+      "A Foreigner Physical Examination Form, completed by a doctor, is part of the standard application.",
+      "CSC scholarship applications run on a separate track (embassy or university) with country-specific deadlines from February to April.",
+      "Apply for a residence permit within 30 days of arrival, converting the X1 visa.",
+      "Notarised and, in many cases, apostilled academic documents are expected.",
+    ],
+  },
+  "Hong Kong SAR": {
+    visa: "Student visa sponsored by the institution",
+    steps: [
+      "The university acts as your visa sponsor and files the application — you cannot apply independently.",
+      "Processing typically takes 6–8 weeks after the university submits, so accept your offer promptly.",
+      "Academic documents in Chinese or English are accepted directly; other languages need certified translation.",
+      "The IANG arrangement lets graduates stay 24 months after graduating without a job offer — one of the most generous post-study routes in this catalogue.",
+    ],
+  },
+  "Ireland": {
+    visa: "Stamp 2 student permission",
+    steps: [
+      "Non-EEA students need proof of at least €10,000 available for the year, in addition to paid tuition.",
+      "Private medical insurance is required before registration.",
+      "Register with immigration (IRP card) after arrival, within the period stated on your landing stamp.",
+      "Degrees are assessed against the Irish NFQ; a NARIC Ireland comparison may be requested.",
+    ],
+  },
+};
+
+// Field-specific and situation-specific rules layered on top of the country
+// requirements — this is what makes the checklist differ between two
+// programmes in the same country.
+function destinationRequirementsHTML(p) {
+  const d = DESTINATION_REQUIREMENTS[p.country];
+  if (!d) {
+    return `<details class="cat-card"><summary class="cat-head"><span class="cat-num">06</span><div><h3>Country requirements &amp; visa</h3><p>${p.country} — not individually mapped yet.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">
+      <p class="scholar-section-sub">The country-level steps for ${p.country} haven't been individually researched for this catalogue yet, so nothing specific is claimed here. What applies to every destination: confirm whether your degree needs formal recognition or a credential evaluation, what proof of funds the consulate wants and for how long it must have been held, and how long the visa appointment queue is in your own country — that queue, not the application, is usually what decides whether you make the intake.</p>
+      <p class="scholar-section-sub" style="margin-top:8px"><b>Recorded post-study route:</b> ${getVisa(p).label}.</p></div></details>`;
+  }
+  const fieldNote = d.fieldNote && p.fields.some(f => d.fieldNote.fields.includes(f)) ? d.fieldNote.text : null;
+  const isHome = state.profile.citizenship && state.profile.citizenship === p.country;
+  const euCitizen = EU_EEA_COUNTRIES.includes(state.profile.citizenship);
+  const euDestination = EU_EEA_COUNTRIES.includes(p.country);
+
+  return `<details class="cat-card"><summary class="cat-head"><span class="cat-num">06</span><div><h3>Country requirements &amp; visa</h3><p>${p.country} · ${d.visa}</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">
+    ${isHome ? `<div class="gmat-avg-note gmat-avg-verified"><b>You're applying at home.</b> As a ${p.country} citizen the visa and credential-recognition steps below don't apply to you — skip to the academic requirements. They're kept here because they decide the timeline for everyone else in your cohort.</div>`
+      : euCitizen && euDestination ? `<div class="gmat-avg-note gmat-avg-verified"><b>Free movement applies.</b> As a ${state.profile.citizenship} citizen studying in ${p.country}, you don't need a student visa or proof of funds — you register locally instead. The document-recognition and translation steps below still apply, and so do the deadlines.</div>` : ""}
+    <p class="scholar-section-sub">Recorded route: <b>${d.visa}</b>. After graduation: <b>${getVisa(p).label}</b>.</p>
+    <ul class="tip-list">${d.steps.map(x => `<li>${x}</li>`).join("")}</ul>
+    ${fieldNote ? `<div class="gmat-avg-note gmat-avg-verified" style="margin-top:10px"><b>Applies to this subject:</b> ${fieldNote}</div>` : ""}
+    <p class="scholar-section-sub" style="margin-top:10px">Visa financial thresholds and portal rules are re-set every year — treat the figures above as the 2026-cycle position and confirm on the official government page before you move money.</p>
+  </div></details>`;
+}
+
+const EU_EEA_COUNTRIES = ["Austria","Belgium","Bulgaria","Croatia","Cyprus","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Iceland","Ireland","Italy","Latvia","Liechtenstein","Lithuania","Luxembourg","Malta","Netherlands","Norway","Poland","Portugal","Romania","Slovakia","Slovenia","Spain","Sweden"];
 
 // Downloads a programme's checklist as a PDF via the browser's native print
 // dialog ("Save as PDF") — no PDF library and no backend, consistent with
