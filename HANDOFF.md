@@ -2,7 +2,7 @@
 
 ## READ THIS FIRST — the method that works
 
-The catalogue is now **548 programmes**. The single highest-value activity is not adding rows, it's this loop, per domain:
+The catalogue is now **551 programmes**. The single highest-value activity is not adding rows, it's this loop, per domain:
 
 1. **Pull the published ranking table.** QS subject/business-masters tables via `xuanxiao.org/en/rankings/qs/...` (a mirror that WebFetch can read; `topuniversities.com` returns 403). The FT tables are only published as PDFs — download with WebFetch and parse with `pypdf` (the mirror sites only carry a top 10).
 2. **Diff it against `PROGRAMS` with a Node script** (see the one-liners throughout this session's commits): for each ranked school, does an entry exist *for that degree*?
@@ -15,6 +15,15 @@ The catalogue is now **548 programmes**. The single highest-value activity is no
 - **The rank must match the degree, not just the school.** FT MiM #72 for Queen's is their Master of International Business; the catalogue's Queen's entry is Management Analytics, so it was left unranked. Same reason Stockholm School of Economics' MiM rank is not on its MSc Finance entry.
 - **Only structured `QS ... (YYYY)` / `FT ... (YYYY)` labels drive sort order** (see `prestigeScore()`). Prose like "Africa's #1 MBA" is displayed but deliberately ignored — don't "fix" that.
 - **Mirrors disagree** (Imperial CS #8 vs #12, EPFL #11 vs #15). Prefer the ranking body's own summary text; where mirrors conflict, leave the existing value alone rather than churn.
+
+## Session 4d — ranking-label completeness + a full link audit
+
+- **Every subject table I could verify is now on the 2026 edition.** Refreshed this pass: Education (UCL #1, Harvard GSE #2, Stanford/Oxford #3, OISE #10), Earth & Marine Sciences (ETH is world #1), Engineering & Technology, Aerospace. Entries still on 2025 labels: **7**, and they should stay there — they are "Top N" bands for tables where the school does not appear in the 2026 top list I could verify (Melbourne mechanical, HKU law, Utrecht environmental) or for tables I have not pulled (Life Sciences & Medicine, Biomedical Engineering). **Bumping the year without the data is fabrication.**
+- **QS publishes no standalone aerospace table** — aerospace sits inside Mechanical/Aeronautical/Manufacturing. That is where the aerospace numbers come from.
+- **Relevance fix**: a subject ranking naming the searched subject now counts as a *direct* match (tier 0), not a subject-area one. MIT's "SM in Aeronautics and Astronautics" is ranked #1 in aerospace but was sorting below a #9 purely because its title says Aeronautics. Knock-on wins: finance now surfaces Oxford Saïd #2 second, AI surfaces Tsinghua #11 second.
+- **Full link audit: all 729 URLs in the file, not just the diff.** 33 were dead — mostly deep programme pages from earlier sessions whose schools have restructured (Cornell Tech, Babson, DTU, ISB, Tuck, Harvard Data Science, HEC's data-science MSc, Delft aerospace, RSM analytics, UBC Sauder, Tsinghua admissions, UC3M and a dozen departmental pages). All repointed to the nearest live page on the same official domain. **Re-run this audit periodically — deep links rot fast.** The remaining non-200s are Cloudflare/403 bot blocks (ox.ac.uk, insead.edu, daad.de, chevening.org) that work in a browser.
+- **Supply chain** completed to #15 (CBS, Purdue, HKUST). Note: an aggregator reported the CBS non-EU fee as $120,000, off by roughly an order of magnitude — CBS's own structure was used instead. **Aggregator fee figures need a sanity check against the school's own page.**
+- **`SCHOOL_SCHOLARSHIPS` 92 → 103**, including the three Chinese universities (where CSC, not the school, is the actual mechanism), Caltech and Georgia Tech (both doctoral-funded; master's candidates should expect to self-fund), and Prague (Czech-taught degrees are free to everyone regardless of nationality).
 
 ## Session 4c — second ranking sweep, 531 → 548 programmes
 
@@ -78,8 +87,8 @@ The dark-mode banner went through three states in one session because I over-sol
 ### Still outstanding (updated after session 4c)
 - **Ranks ~25–50 in most tables.** Still named-and-researched but not added: La Salle Ramon Llull, Purdue and HKUST (supply chain 9–15), JHU Carey, Michigan State, UC Davis, UCSD Rady, Mannheim, ASU, GWU, Texas A&M, Wisconsin, EGADE, Macquarie. Previously listed and now **done**: SKEMA, NEOMA, Grenoble, Leeds, Cranfield, McCombs, UW Foster.
 - **Ranks ~20–50 in most tables (original note).** Named, researched, not yet added: SKEMA, NEOMA, Grenoble (marketing/finance entries), Leeds, Cranfield, JHU Carey, Michigan State, UC Davis, UCSD Rady, Mannheim, ASU, GWU, Texas A&M, Wisconsin, EGADE, Macquarie. US MBAs still missing at Emory Goizueta, UNC Kenan-Flagler and Vanderbilt Owen — **their admit rates are already researched** (20%/37%/38%, Class of 2027) but I could not find tuition separated from cost-of-attendance, and the `tuition` field must not carry a COA figure.
-- **`SCHOOL_SCHOLARSHIPS` covers 74 of ~335 schools.** Prioritise by best `extRank` — there's a script for that in the session log.
-- **`PROGRAMME_ESSENTIALS` is 14 of 531.** Genuinely one programme at a time; the destination-country checklist layer covers everyone else.
+- **`SCHOOL_SCHOLARSHIPS` covers 103 of ~340 schools.** Prioritise by best `extRank` — there's a script for that in the session log.
+- **`PROGRAMME_ESSENTIALS` is 14 of 551.** Genuinely one programme at a time; the destination-country checklist layer covers everyone else.
 - **Public Health has no structured ranking applied** — deliberately. QS publishes no standalone public-health subject table, so the 12 entries keep accurate prose and fall back to curated order. Don't invent one.
 - **MIT has no admittable CS master's.** Verified directly: MEng is MIT-undergrad-only, the SM sits inside the PhD track, and the CSE SM has external admissions paused. A "computer science" search legitimately starts at Stanford (#2). Do not "fix" this.
 
