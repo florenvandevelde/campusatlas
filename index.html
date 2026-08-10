@@ -206,6 +206,10 @@
     }
     /* the light-mode text glow is a white halo — wrong colour on a dark page */
     .hero .eyebrow, .hero .lede, .hero .quick .lbl { text-shadow: 0 1px 3px var(--paper), 0 0 18px var(--paper), 0 0 7px var(--paper); }
+    /* the eyebrow uses the muted --ink-3, which sits too close to the dark
+       banner behind it to read. Over the image it needs the same full-strength
+       colour as the lede underneath. */
+    .hero .eyebrow { color: var(--ink); }
   }
   @media (prefers-color-scheme: dark) and (max-width: 940px) {
     /* the banner is shorter on small screens, so pull the copy back up under it */
@@ -3630,7 +3634,7 @@ const PROGRAMS = [
     highlights:["QS Global MBA #19 (2026)","Technology and analytics-heavy curriculum","One year, in South Kensington London","UK Graduate Route: 24 months after graduation"] },
 
   { id:491, school:"University of Michigan — Ross", program:"MBA", city:"Ann Arbor, MI", country:"United States", flag:"🇺🇸", region:"North America",
-    fields:["Management","Strategy","Marketing"], months:24, lang:"English", tuition:140000, intake:"August", deadline:"Rolling", work:"2+ yrs", gmat:true, scholar:true, link:"https://michiganross.umich.edu/", extRank:"QS Global MBA #22 (2026)", rank:481,
+    fields:["Management","Strategy","Marketing"], months:24, lang:"English", tuition:150000, intake:"August", deadline:"Rolling", work:"2+ yrs", gmat:true, scholar:true, link:"https://michiganross.umich.edu/", extRank:"QS Global MBA #22 (2026)", rank:481,
     openFields:["Any"], freshGradOnly:false,
     blurb:"Ross built the action-based learning model that most MBAs now imitate — MAP puts every first-year on a seven-week live project with a real organisation, and the school's alumni network is one of the largest anywhere.",
     highlights:["QS Global MBA #22 (2026)","29% admit rate, class of ~379 (Class of 2027)","MAP: seven-week live project for every first-year","Ross Global Fellowships for international talent"] },
@@ -3899,6 +3903,25 @@ const PROGRAMS = [
     openFields:["Business & Economics"], freshGradOnly:true,
     blurb:"St. Gallen holds the FT's #1 Masters in Management spot and its marketing degree sits in the same faculty — Swiss public-university fees (about CHF 9,987/year for non-Swiss students) make it far cheaper than its reputation implies.",
     highlights:["QS Masters in Marketing #15 (2026)","~CHF 9,987/year for non-Swiss students","Same faculty as the FT's #1 MiM","Two intakes a year"] },
+
+  // ── MBA: the rest of the US top-40 at schools already in the catalogue.
+  { id:535, school:"University of Texas at Austin — McCombs", program:"MBA", city:"Austin, TX", country:"United States", flag:"🇺🇸", region:"North America",
+    fields:["Management","Entrepreneurship","Analytics"], months:22, lang:"English", tuition:110500, intake:"August", deadline:"Rolling", work:"2+ yrs", gmat:true, scholar:true, link:"https://www.mccombs.utexas.edu/mba/full-time/", extRank:"QS Global MBA #37 (2026)", rank:525,
+    openFields:["Any"], freshGradOnly:false,
+    blurb:"One of only a handful of top-25 US MBAs still under $200k all-in, in a city that has become a genuine second tech hub — Austin's Tesla, Oracle and Apple campuses are all recent arrivals.",
+    highlights:["QS Global MBA #37 (2026)","$59,684/year — among the cheapest US top-25","38% admit rate, class of ~235 (Class of 2027)","Austin's tech and venture ecosystem"] },
+
+  { id:536, school:"Georgetown University — McDonough", program:"MBA", city:"Washington, DC", country:"United States", flag:"🇺🇸", region:"North America",
+    fields:["Management","Strategy","Public Policy"], months:22, lang:"English", tuition:130000, intake:"August", deadline:"Rolling", work:"2+ yrs", gmat:true, scholar:true, link:"https://msb.georgetown.edu/full-time-mba/", extRank:"Top-25 US MBA (US News)", rank:526,
+    openFields:["Any"], freshGradOnly:false,
+    blurb:"The obvious choice if your career sits where business meets government — Georgetown is in Washington DC, and the school leans into policy, international development and the regulated industries that cluster there.",
+    highlights:["Washington DC — policy and regulated industries","~40–50% of admits receive an award","Double Hoya Scholarship for Georgetown alumni","Early Action needed for the Dean's Fellowship"] },
+
+  { id:537, school:"University of Washington — Foster", program:"MBA", city:"Seattle, WA", country:"United States", flag:"🇺🇸", region:"North America",
+    fields:["Management","Analytics","Entrepreneurship"], months:21, lang:"English", tuition:107000, intake:"September", deadline:"Rolling", work:"2+ yrs", gmat:true, scholar:true, link:"https://foster.uw.edu/academics/degree-programs/full-time-mba/", extRank:"Top-25 US MBA (US News)", rank:527,
+    openFields:["Any"], freshGradOnly:false,
+    blurb:"A deliberately small class in the city that Amazon and Microsoft call home — Foster's tech-product-management placement rate is the reason most people apply, and the total fee is among the lowest in the US top 25.",
+    highlights:["$57,831/year — one of the cheapest US top-25 MBAs","39% admit rate, class of ~102 (Class of 2027)","Amazon/Microsoft product-management pipeline","Small cohort, high recruiter-per-student ratio"] },
 ];
 
 const FIELDS  = ["Management","Finance","Analytics","Strategy","Marketing","Entrepreneurship","Economics","Sustainability",
@@ -4699,6 +4722,9 @@ const SELECTIVITY = {
   501: { rate: 31, classSize: 176, cohort: "Class of 2027", basis: "published" },
   502: { rate: 27, classSize: 144, cohort: "Class of 2027", basis: "published" },
   503: { rate: 29, classSize: 106, cohort: "Class of 2027", basis: "published" },
+  535: { rate: 38, classSize: 235, cohort: "Class of 2027", basis: "published" },
+  536: { rate: 60, classSize: 248, cohort: "Class of 2027", basis: "published" },
+  537: { rate: 39, classSize: 102, cohort: "Class of 2027", basis: "published" },
 };
 
 // Bands are derived from the rate itself, so they can never disagree with it.
