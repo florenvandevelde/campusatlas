@@ -4,8 +4,10 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Campus Atlas — Find your master's abroad</title>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- Leaflet is deliberately NOT loaded here. Pulling it from a CDN on page load would
+     disclose every visitor's IP address to unpkg.com before they have asked for a map.
+     loadLeaflet() injects it on demand, the first time someone actually runs a test-centre
+     search. See the Legal page for the full list of third parties this page can contact. -->
 <style>
   /* ============================================================
      CAMPUS ATLAS — design tokens
@@ -591,6 +593,14 @@
     .odds-chip.odds-hard    { color: #ef9b86; background: rgba(239, 155, 134, 0.18); }
     .odds-chip.odds-unknown { color: var(--ink-3); background: rgba(200, 200, 200, 0.14); }
   }
+  .locator-privacy { font-size: 12px; color: var(--ink-3); line-height: 1.55; margin: 8px 0 0; }
+  .linklike, .footer-link { background: none; border: 0; padding: 0; font: inherit; color: inherit;
+    text-decoration: underline; cursor: pointer; text-align: left; }
+  .footer-link { display: block; color: var(--ink-3); text-decoration: none; }
+  .footer-link:hover { text-decoration: underline; }
+  .footer-link.inline { display: inline; text-decoration: underline; }
+  .source-line { font-size: 11.5px; color: var(--ink-3); margin-top: 6px; line-height: 1.5; }
+  .source-line a { text-decoration: underline; }
   .row-action { align-self: center; flex-shrink: 0; }
   .action-btn { white-space: nowrap; padding: 8px 14px; font-size: 12.5px; }
 
@@ -1073,6 +1083,7 @@
             </label>
             <button class="btn primary" id="gmatFindBtn" type="button">Find test centres</button>
           </div>
+          <p class="locator-privacy">Pressing this sends the place name you type to <a href="https://nominatim.openstreetmap.org/" target="_blank" rel="noopener noreferrer">OpenStreetMap's Nominatim</a> geocoder, and loads map tiles from OpenStreetMap. Nothing leaves your browser until you press it. <button type="button" class="linklike" data-page-jump="legal">How we handle data</button></p>
           <div class="locator-results" id="gmatResults"></div>
           <h4>Study resources &amp; tutors</h4>
           <ul class="resource-list">
@@ -1100,6 +1111,7 @@
             </label>
             <button class="btn primary" id="toeflFindBtn" type="button">Find test centres</button>
           </div>
+          <p class="locator-privacy">Pressing this sends the place name you type to <a href="https://nominatim.openstreetmap.org/" target="_blank" rel="noopener noreferrer">OpenStreetMap's Nominatim</a> geocoder, and loads map tiles from OpenStreetMap. Nothing leaves your browser until you press it. <button type="button" class="linklike" data-page-jump="legal">How we handle data</button></p>
           <div class="locator-results" id="toeflResults"></div>
           <h4>Study resources</h4>
           <ul class="resource-list">
@@ -1273,6 +1285,89 @@
   </div>
 </section>
 
+<section id="pageLegal" class="subpage" hidden>
+  <div class="wrap">
+    <div class="subpage-head">
+      <div class="eyebrow"><span class="dot"></span> Legal</div>
+      <h1>Terms, privacy and where the numbers come from.</h1>
+      <p class="lede">Short version: this is an information tool, not advice; every figure links to the official page it came from and you should check it there before you act on it; and we do not collect anything about you.</p>
+    </div>
+
+    <h2 class="scholar-section-title">Terms of use</h2>
+    <div class="about-grid">
+      <div class="about-block">
+        <h3>What this is</h3>
+        <p>Campus Atlas is a free comparison tool for postgraduate programmes and their funding. It is informational only. It is not educational, immigration, financial or legal advice, and it does not create any adviser relationship between us and you.</p>
+      </div>
+      <div class="about-block">
+        <h3>Accuracy, and its limits</h3>
+        <p>Tuition, deadlines, entry requirements, scholarship amounts and rankings are compiled from the institutions' and awarding bodies' own published pages, and each one carries a link to the page it came from. They change without notice — often mid-cycle. We make no warranty that any figure here is current, complete or correct, and the official page always overrides what you read here.</p>
+      </div>
+      <div class="about-block">
+        <h3>Decisions are yours</h3>
+        <p>Verify every figure on the source page before you rely on it — before paying a deposit, declining an offer, budgeting a year abroad or submitting an application. To the fullest extent the law allows, we accept no liability for loss arising from reliance on this site.</p>
+      </div>
+      <div class="about-block">
+        <h3>No affiliation, no commission</h3>
+        <p>We are not an agent for any institution and take no commission, referral fee or placement payment from any school, scholarship body or lender. Inclusion here is not an endorsement, and exclusion is not a judgement — usually it just means we have not researched it yet.</p>
+      </div>
+      <div class="about-block">
+        <h3>Third-party names and rankings</h3>
+        <p>University and programme names, logos and trademarks belong to their owners and are used descriptively to identify the programmes discussed. Ranking positions are attributed to their publisher (QS Quacquarelli Symonds, the Financial Times) and reproduced as short factual references; neither publisher endorses or is affiliated with this site.</p>
+      </div>
+      <div class="about-block">
+        <h3>Links out</h3>
+        <p>Links to universities, ministries and awarding bodies are provided so you can check a figure at its source. We do not control those sites and are not responsible for their content, availability or their own privacy practices.</p>
+      </div>
+    </div>
+
+    <h2 class="scholar-section-title">Privacy</h2>
+    <p class="scholar-section-sub">We have deliberately built this so there is nothing to collect. There is no account, no sign-in, no analytics, no advertising and no tracking of any kind.</p>
+    <div class="about-grid">
+      <div class="about-block">
+        <h3>What stays on your device</h3>
+        <p>Your shortlist (the Compare list) is saved in your browser's own local storage under the key <code>ca_compare</code>, so it survives a refresh. Your situation answers — subject of your bachelor's, citizenship, work experience — are held in memory for the session only and are not saved anywhere. Clearing your browser data removes both. Neither ever reaches us: this page has no server to send them to.</p>
+      </div>
+      <div class="about-block">
+        <h3>No cookies, no analytics</h3>
+        <p>The site sets no cookies, uses no analytics or tag manager, embeds no advertising or social pixels, and does not fingerprint your device. That is why you are not being asked to accept anything.</p>
+      </div>
+      <div class="about-block">
+        <h3>The one feature that contacts a third party</h3>
+        <p>The test-centre locator on the Checklist page. When — and only when — you press <em>Find test centres</em>, your browser sends the place name you typed to OpenStreetMap's Nominatim geocoding service, loads the map library from unpkg.com and map tiles from openstreetmap.org. Those services will see your IP address and your search term under their own privacy policies. Nothing is requested from them on page load, and never if you do not use that feature.</p>
+      </div>
+      <div class="about-block">
+        <h3>Your rights</h3>
+        <p>Because we hold no personal data, there is nothing for us to access, correct, export or erase on your behalf under the GDPR or comparable law. The data that exists is on your device and under your control. If that ever changes — an account system, a saved-search email — this section will change first and say so plainly.</p>
+      </div>
+    </div>
+
+    <h2 class="scholar-section-title">Where the numbers come from</h2>
+    <p class="scholar-section-sub">Every tuition figure, deadline and scholarship amount in the catalogue is read from the institution's or awarding body's own page, and that page is the link on the entry — so you can always go from a number here to the number at source in one click. Rankings come from the ranking body's own site rather than a mirror.</p>
+    <div class="about-grid">
+      <div class="about-block">
+        <h3>Last checked</h3>
+        <p>Figures carry the academic year they belong to (typically <b>2026-27</b>). The catalogue was last reviewed against source pages in <b id="legalCheckedDate">August 2026</b>. Anything published after that date will not be reflected here yet.</p>
+      </div>
+      <div class="about-block">
+        <h3>Why it is not live</h3>
+        <p>This is a single static page with no back end, and browsers block it from reading other sites directly, so it cannot re-read a university's fee page by itself. Updates are a manual re-check against the same source links. Where a figure is an estimate — a scholarship's value against a specific programme's fee — the arithmetic is shown so you can audit it rather than take it on trust.</p>
+      </div>
+      <div class="about-block">
+        <h3>What is explicitly not verified</h3>
+        <p>Living costs, visa outcomes, post-study work rights and admissions probabilities are indicative context, not guarantees. Scholarship selectivity is shown as a band with the evidence behind it; where an awarding body publishes no success rate, we say so instead of estimating one.</p>
+      </div>
+      <div class="about-block">
+        <h3>Report an error</h3>
+        <p>If a figure here disagrees with the official page, the official page is right and we want to know. Corrections are the fastest way to make this useful to the next person reading it.</p>
+      </div>
+    </div>
+
+    <h2 class="scholar-section-title">Credits</h2>
+    <p class="scholar-section-sub">Homepage banner: coloured-pencil illustration based on Stanford University aerial view by Mark Leschinsky, licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">CC BY 4.0</a>, from the <a href="https://commons.wikimedia.org/wiki/File:Stanford_University_Aerial_View.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">original on Wikimedia Commons</a>. Map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">OpenStreetMap</a> contributors.</p>
+  </div>
+</section>
+
 <footer class="site">
   <div class="wrap">
     <div>
@@ -1283,13 +1378,13 @@
       <path d="M4.6 7.6C8 9.1 18 9.1 21.4 7.6" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
       <path d="M4.6 18.4C8 16.9 18 16.9 21.4 18.4" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
     </svg> Campus&nbsp;Atlas</div>
-      <p class="note"><strong>Mock-up / prototype.</strong> Programme details, tuition figures, deadlines and rankings shown here are illustrative sample data for design purposes and are not verified. Always confirm details on the school's official admissions page before applying.</p>
+      <p class="note"><strong>Always check the source.</strong> Tuition, deadlines, scholarship amounts and rankings are compiled from each institution's or awarding body's own published pages — every entry links to the page its figures came from — but they change without notice. Confirm on the official page before you act on anything here. <button type="button" class="footer-link inline" data-page-jump="legal">Terms, privacy &amp; sources</button></p>
       <p class="note" style="margin-top:8px">Homepage banner: coloured-pencil illustration based on Stanford University aerial view, photo by Mark Leschinsky, licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">CC BY 4.0</a>, from the <a href="https://commons.wikimedia.org/wiki/File:Stanford_University_Aerial_View.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">original on Wikimedia Commons</a>.</p>
     </div>
     <div class="cols">
       <div><strong>Explore</strong><span>By country</span><span>By field</span><span>By deadline</span></div>
       <div><strong>Resources</strong><span>Funding guide</span><span>Visa basics</span><span>GMAT vs GRE</span></div>
-      <div><strong>Company</strong><span>About</span><span>For schools</span><span>Contact</span></div>
+      <div><strong>Company</strong><button type="button" class="footer-link" data-page-jump="about">About</button><button type="button" class="footer-link" data-page-jump="legal">Terms &amp; privacy</button><button type="button" class="footer-link" data-page-jump="legal">Sources</button></div>
     </div>
   </div>
 </footer>
@@ -5027,9 +5122,33 @@ async function findNearbyCentres(lat, lon, terms) {
 // single-marker static embed: one dot for the searched location, one per nearby
 // centre found above, auto-framed to fit all of them.
 const LOCATOR_MAPS = {};
-function renderLocatorMap(containerId, loc, centres) {
+
+// Leaflet is fetched from a CDN, which means the browser discloses its IP address to
+// unpkg.com. That is fine once someone has asked for a map; it is not fine on page
+// load for everyone. Injected here, once, and only at that point.
+let leafletPromise = null;
+function loadLeaflet() {
+  if (typeof L !== "undefined") return Promise.resolve();
+  if (leafletPromise) return leafletPromise;
+  leafletPromise = new Promise((resolve, reject) => {
+    const css = document.createElement("link");
+    css.rel = "stylesheet";
+    css.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
+    document.head.appendChild(css);
+    const js = document.createElement("script");
+    js.src = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
+    js.onload = () => resolve();
+    js.onerror = () => reject(new Error("Leaflet failed to load"));
+    document.head.appendChild(js);
+  });
+  return leafletPromise;
+}
+
+async function renderLocatorMap(containerId, loc, centres) {
   const el = document.getElementById(containerId);
-  if (!el || typeof L === "undefined") return;
+  if (!el) return;
+  try { await loadLeaflet(); } catch { el.innerHTML = `<p class="locator-placeholder">The map library could not be loaded. The list of centres above is unaffected.</p>`; return; }
+  if (typeof L === "undefined") return;
   if (LOCATOR_MAPS[containerId]) { LOCATOR_MAPS[containerId].remove(); delete LOCATOR_MAPS[containerId]; }
 
   const map = L.map(containerId, { scrollWheelZoom: false });
@@ -6125,6 +6244,7 @@ function openModal(id) {
         <div class="fact"><span>GMAT / GRE</span><b>${p.gmat ? "Required" : "Not required"}</b></div>
         <div class="fact"><span>Work visa after graduation</span><b>${getVisa(p).label}</b></div>
       </div>
+      ${sourceLine(p.link, `${p.school}'s own programme page`)}
       ${modalEligibility(p)}
       ${(() => {
         const s = selectivityFor(p);
@@ -6164,7 +6284,7 @@ function closeModal() {
    COMPARE PAGE
    ============================================================ */
 const COMPARE_ROWS = [
-  { label: "Tuition (total)", get: p => tuitionDisplay(p), raw: true },
+  { label: "Tuition (total)", get: p => `${tuitionDisplay(p)}${sourceLine(p.link, `${p.school}'s own programme page`)}`, raw: true },
   { label: "Duration", get: p => `${p.months} months` },
   { label: "Language", get: p => p.lang },
   { label: "Intake", get: p => p.intake },
@@ -6250,6 +6370,7 @@ const PAGES = {
   checklist: "pageChecklist",
   scholarships: "pageScholarships",
   about: "pageAbout",
+  legal: "pageLegal",
 };
 
 function showPage(page, scrollTarget, progId) {
@@ -6997,6 +7118,19 @@ function bestAwardHeadline(p, data) {
   }
   if (best) return `${eur(bestVal)} — ${best.name}`;
   return candidates.length ? `Amounts vary — ${candidates.length} route${candidates.length === 1 ? "" : "s"} open to you` : "No external scheme open to you — the school's own award is the route";
+}
+
+// Every number on a card should be traceable to the page it was read from, in one
+// click. DATA_CHECKED is the month the catalogue was last reviewed against those
+// pages — the site is static and cannot re-read them by itself, so saying when it
+// was last checked is the honest substitute for claiming it is live.
+const DATA_CHECKED = "August 2026";
+
+function sourceLine(url, label) {
+  if (!url) return "";
+  let host = "";
+  try { host = new URL(url).hostname.replace(/^www\./, ""); } catch { host = "the official page"; }
+  return `<p class="source-line">Figures read from <a href="${url}" target="_blank" rel="noopener noreferrer">${escapeHTML(label || host)}</a> · last checked ${DATA_CHECKED} · confirm there before you rely on it</p>`;
 }
 
 const ODDS_BANDS = {
@@ -7812,6 +7946,7 @@ function renderScholarshipBreakdown() {
             <div>
               <h3>${p.school} — ${p.program}</h3>
               <p>${p.city}, ${p.country} · Tuition: ${tuitionDisplay(p)} · Duration: ${p.months} mos</p>
+              ${sourceLine(p.link, `${p.school}'s own programme page`)}
             </div>
           </div>
           <div class="breakdown-summary-badge">
@@ -7831,6 +7966,7 @@ function renderScholarshipBreakdown() {
               </div>
               <p class="row-desc">${data.schoolAwardDesc}</p>
               ${data.schoolScheme ? awardDetail(data.schoolScheme, p) : ""}
+              ${sourceLine(data.schoolAwardLink || p.link, data.schoolAwardLink ? `${p.school}'s funding page` : `${p.school}'s programme page`)}
               <div class="row-meta">
                 <span class="elig-match-badge match-high">✓ ${matchTag}</span>
                 ${data.schoolScheme ? oddsChip(data.schoolScheme) : ""}
@@ -7852,6 +7988,7 @@ function renderScholarshipBreakdown() {
               </div>
               <p class="row-desc">${g.desc}</p>
               ${awardDetail(g, p)}
+              ${sourceLine(g.link, `${g.name} — official page`)}
               <div class="row-meta">
                 <span class="elig-match-badge ${citizenshipVerdict(g, citizenship) === "yes" ? "match-high" : "match-info"}">${citizenshipVerdict(g, citizenship) === "yes" ? `✓ Your ${citizenship} citizenship is covered by the published rules` : (citizenship ? `Eligibility is set per call — confirm it covers ${citizenship}` : "Destination-country scheme for incoming international students")}</span>
                 ${oddsChip(g)}
@@ -7872,6 +8009,7 @@ function renderScholarshipBreakdown() {
                 <span class="pill-amount">${hf.support}</span>
               </div>
               <p class="row-desc">${hf.desc}</p>
+              ${sourceLine(hf.link, `${hf.name} — official page`)}
               <div class="row-meta">
                 <span class="elig-match-badge match-info">${goingAbroad ? "Based on where you're from, not where you're studying" : `Home funding for studying inside ${citizenship}`}${hf.deadline ? ` · ${hf.deadline}` : ""}</span>
                 <span class="deadline-note">${hf.restriction}</span>
@@ -7892,6 +8030,7 @@ function renderScholarshipBreakdown() {
               </div>
               <p class="row-desc">${gs.desc}</p>
               ${awardDetail(gs, p)}
+              ${sourceLine(gs.link, `${gs.name} — official page`)}
               <div class="row-meta">
                 <span class="elig-match-badge match-high">✓ Tied to the programme, not to your nationality</span>
                 ${oddsChip(gs)}
@@ -8214,6 +8353,15 @@ $("scholarshipsBtn").addEventListener("click", () => showPage("scholarships"));
 
 $("logoHome").addEventListener("click", () => showPage("programmes"));
 
+// Any control anywhere can jump to a page with data-page-jump="<key>", so the
+// footer, the locator privacy notes and the funding cards all route the same way.
+document.addEventListener("click", e => {
+  const jump = e.target.closest("[data-page-jump]");
+  if (!jump) return;
+  e.preventDefault();
+  showPage(jump.dataset.pageJump);
+});
+
 // ---------- mobile hamburger menu (≤940px) ----------
 function setMobileMenu(open) {
   $("mobileMenu").hidden = !open;
@@ -8256,8 +8404,9 @@ $("gmatFindBtn").addEventListener("click", () => renderLocator("gmat", "gmatResu
 $("toeflFindBtn").addEventListener("click", () => renderLocator("toefl", "toeflResults", "toeflLocation"));
 $("gmatLocation").addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); $("gmatFindBtn").click(); } });
 $("toeflLocation").addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); $("toeflFindBtn").click(); } });
-renderLocator("gmat", "gmatResults", "gmatLocation");
-renderLocator("toefl", "toeflResults", "toeflLocation");
+// Deliberately not run on load: renderLocator() sends the typed place name to
+// OpenStreetMap's Nominatim geocoder, and that request should only ever happen
+// because someone pressed "Find test centres".
 renderEnglishTestMatrix();
 
 buildBackgroundSelect();
