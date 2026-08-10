@@ -906,14 +906,11 @@
       </summary>
       <div class="profile-grid">
         <label class="pfield">
-          <span>Field of your bachelor's</span>
-          <select id="pField">
-            <option value="">Any / not sure</option>
-            <option value="Business & Economics">Business &amp; Economics</option>
-            <option value="STEM & Engineering">STEM &amp; Engineering</option>
-            <option value="Computer Science">Computer Science</option>
-            <option value="Social Sciences & Humanities">Social Sciences &amp; Humanities</option>
-          </select>
+          <span>Subject of your bachelor's</span>
+          <!-- Options are built from BACKGROUND_OPTIONS so the list, the roll-up to
+               the broad buckets programmes are tagged with, and the wording stay in
+               one place. -->
+          <select id="pField"></select>
         </label>
         <label class="pfield">
           <span>Already hold a master's?</span>
@@ -4725,6 +4722,95 @@ function workRange(str) {
   return nums.length > 1 ? [nums[0], nums[1]] : [nums[0], nums[0]];
 }
 
+/* ============================================================
+   ACADEMIC BACKGROUND
+   "STEM & Engineering" lumps a mathematician, a civil engineer and a
+   microbiologist together, which is useless for deciding whether a given
+   master's will take you. The select below is the granular list the user
+   actually picks from; `buckets` is the roll-up to the four broad labels the
+   catalogue's `openFields` were originally written in, so a granular answer
+   still matches every entry tagged only "STEM & Engineering".
+
+   Roll-ups are deliberately conservative — Psychology does NOT roll up into
+   STEM, so a psychology graduate is told "prefers STEM backgrounds" on an
+   engineering degree rather than being waved through. That is a soft warning,
+   not a hard exclusion, which is the right strength for a judgement the
+   admissions office ultimately makes.
+   ============================================================ */
+const BACKGROUND_OPTIONS = [
+  { group: "Business & economics", items: [
+    { value: "Business & Management",              buckets: ["Business & Economics"] },
+    { value: "Economics",                          buckets: ["Business & Economics"] },
+    { value: "Finance & Accounting",               buckets: ["Business & Economics"] },
+    { value: "Marketing & Communication",          buckets: ["Business & Economics", "Social Sciences & Humanities"] },
+  ]},
+  { group: "Computing", items: [
+    { value: "Computer Science",                   buckets: ["Computer Science", "STEM & Engineering"] },
+    { value: "Software & Data Engineering",        buckets: ["Computer Science", "STEM & Engineering"] },
+    { value: "Information Systems",                buckets: ["Computer Science", "Business & Economics"] },
+  ]},
+  { group: "Engineering", items: [
+    { value: "Mechanical & Aerospace Engineering", buckets: ["STEM & Engineering"] },
+    { value: "Electrical & Electronic Engineering",buckets: ["STEM & Engineering"] },
+    { value: "Civil & Environmental Engineering",  buckets: ["STEM & Engineering"] },
+    { value: "Chemical & Materials Engineering",   buckets: ["STEM & Engineering"] },
+    { value: "Industrial & Systems Engineering",   buckets: ["STEM & Engineering", "Business & Economics"] },
+    { value: "Biomedical Engineering",             buckets: ["STEM & Engineering"] },
+  ]},
+  { group: "Sciences & mathematics", items: [
+    { value: "Mathematics & Statistics",           buckets: ["STEM & Engineering", "Computer Science"] },
+    { value: "Physics & Astronomy",                buckets: ["STEM & Engineering"] },
+    { value: "Chemistry",                          buckets: ["STEM & Engineering"] },
+    { value: "Biology & Life Sciences",            buckets: ["STEM & Engineering"] },
+    { value: "Earth & Environmental Sciences",     buckets: ["STEM & Engineering"] },
+  ]},
+  { group: "Health & medicine", items: [
+    { value: "Medicine & Health Sciences",         buckets: ["STEM & Engineering"] },
+    { value: "Pharmacy & Biomedical Sciences",     buckets: ["STEM & Engineering"] },
+    { value: "Psychology",                         buckets: ["Social Sciences & Humanities"] },
+  ]},
+  { group: "Social sciences & law", items: [
+    { value: "Politics & International Relations", buckets: ["Social Sciences & Humanities"] },
+    { value: "Law",                                buckets: ["Social Sciences & Humanities"] },
+    { value: "Sociology & Anthropology",           buckets: ["Social Sciences & Humanities"] },
+    { value: "Education",                          buckets: ["Social Sciences & Humanities"] },
+    { value: "Geography & Urban Studies",          buckets: ["Social Sciences & Humanities"] },
+  ]},
+  { group: "Arts & humanities", items: [
+    { value: "History, Philosophy & Languages",    buckets: ["Social Sciences & Humanities"] },
+    { value: "Architecture & Design",              buckets: ["Social Sciences & Humanities", "STEM & Engineering"] },
+    { value: "Arts, Media & Journalism",           buckets: ["Social Sciences & Humanities"] },
+  ]},
+];
+
+// value -> the set of labels that count as a match for it (itself + its roll-ups)
+const BACKGROUND_MATCHES = (() => {
+  const m = {};
+  for (const g of BACKGROUND_OPTIONS)
+    for (const it of g.items) m[it.value] = new Set([it.value, ...it.buckets]);
+  // The four legacy broad labels remain selectable answers in their own right so
+  // that anything still passing them (older links, the compare view) keeps working.
+  for (const b of ["Business & Economics", "STEM & Engineering", "Computer Science", "Social Sciences & Humanities"])
+    m[b] = m[b] || new Set([b]);
+  return m;
+})();
+
+function backgroundAccepts(openFields, background) {
+  if (!background) return true;
+  if (openFields.includes("Any")) return true;
+  const ok = BACKGROUND_MATCHES[background] || new Set([background]);
+  return openFields.some(f => ok.has(f));
+}
+
+function buildBackgroundSelect() {
+  const sel = $("pField");
+  if (!sel) return;
+  sel.innerHTML = `<option value="">Any / not sure</option>` + BACKGROUND_OPTIONS.map(g =>
+    `<optgroup label="${escapeHTML(g.group)}">` +
+    g.items.map(it => `<option value="${escapeHTML(it.value)}">${escapeHTML(it.value)}</option>`).join("") +
+    `</optgroup>`).join("");
+}
+
 function eligibility(p) {
   if (profileIsEmpty()) return { status: "none", reasons: [] };
   const reasons = [];
@@ -4741,8 +4827,8 @@ function eligibility(p) {
       reasons.push(`Expects at least ${min} year${min === 1 ? "" : "s"} of work experience`);
     }
   }
-  if (state.profile.field && !p.openFields.includes("Any") && !p.openFields.includes(state.profile.field)) {
-    reasons.push(`Prefers applicants from ${p.openFields.join(" or ")} backgrounds`);
+  if (state.profile.field && !backgroundAccepts(p.openFields, state.profile.field)) {
+    reasons.push(`Prefers applicants from ${p.openFields.join(" or ")} backgrounds — yours is ${state.profile.field}`);
   }
   if (hardFail) return { status: "mismatch", reasons };
   if (reasons.length) return { status: "check", reasons };
@@ -7424,6 +7510,7 @@ renderLocator("gmat", "gmatResults", "gmatLocation");
 renderLocator("toefl", "toeflResults", "toeflLocation");
 renderEnglishTestMatrix();
 
+buildBackgroundSelect();
 buildFilterLists();
 render();
 showPage("programmes");
