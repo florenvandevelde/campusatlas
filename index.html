@@ -331,6 +331,11 @@
   }
 
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 16px; }
+  .grid-divider {
+    grid-column: 1 / -1; margin: 14px 0 2px; padding-top: 16px; border-top: 1px solid var(--line);
+  }
+  .grid-divider span { font-family: var(--serif); font-size: 17px; color: var(--ink); }
+  .grid-divider p { font-size: 12.5px; color: var(--ink-3); margin-top: 4px; max-width: 72ch; }
 
   .card {
     background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
@@ -1994,7 +1999,7 @@ const PROGRAMS = [
     highlights:["Europe's top-ranked aerospace programme","ESA research collaborations","Dutch orientation-year work visa","English-taught throughout"] },
 
   { id:144, school:"ETH Zurich", program:"MSc Computer Science", city:"Zurich", country:"Switzerland", flag:"🇨🇭", region:"Europe",
-    fields:["Computer Science"], months:24, lang:"English", tuition:2000, intake:"September", deadline:"Rolling", work:"0 yrs", gmat:false, scholar:true, link:"https://ethz.ch/en/studies/master/degree-programmes/computer-information-science/computer-science.html", rank:134,
+    fields:["Computer Science"], months:24, lang:"English", tuition:2000, intake:"September", deadline:"Rolling", work:"0 yrs", gmat:false, scholar:true, link:"https://ethz.ch/en/studies/master/degree-programmes/computer-information-science/computer-science.html", extRank:"QS Computer Science — Top 10 (2026)", rank:134,
     openFields:["STEM & Engineering","Computer Science"], freshGradOnly:true,
     blurb:"Continental Europe's top-ranked computer science degree, with near-zero tuition and a direct pipeline into Google, Meta and top European tech firms.",
     highlights:["Continental Europe's #1 CS programme (QS)","Near-zero Swiss tuition","Strong Big Tech recruiting","No GMAT/GRE required"] },
@@ -2049,19 +2054,19 @@ const PROGRAMS = [
 
   { id:153, school:"Stanford University", program:"MS in Computer Science", city:"Stanford, CA", country:"United States", flag:"🇺🇸", region:"North America",
     fields:["Computer Science"], months:18, lang:"English", tuition:78000, intake:"September", deadline:"Rolling", work:"0 yrs", gmat:false, scholar:true, link:"https://cs.stanford.edu/", rank:143,
-    extRank:"QS Computer Science #2 (2025)", openFields:["STEM & Engineering","Computer Science"], freshGradOnly:true,
+    extRank:"QS Computer Science #2 (2026)", openFields:["STEM & Engineering","Computer Science"], freshGradOnly:true,
     blurb:"Based in the heart of Silicon Valley, this is one of the most sought-after computer science master's degrees on earth.",
     highlights:["Silicon Valley location","World top-3 CS programme (QS)","STEM-designated (OPT eligible)","Extremely selective admissions"] },
 
   { id:154, school:"Carnegie Mellon University", program:"MS in Computer Science", city:"Pittsburgh, PA", country:"United States", flag:"🇺🇸", region:"North America",
     fields:["Computer Science"], months:16, lang:"English", tuition:74000, intake:"August", deadline:"Rolling", work:"0 yrs", gmat:false, scholar:true, link:"https://www.cs.cmu.edu/", rank:144,
-    extRank:"QS Computer Science #3 (2025)", openFields:["STEM & Engineering","Computer Science"], freshGradOnly:true,
+    extRank:"QS Computer Science #3 (2026)", openFields:["STEM & Engineering","Computer Science"], freshGradOnly:true,
     blurb:"Home to one of the very first computer science departments in the world, with an unmatched reputation in AI and robotics research.",
     highlights:["World top-3 CS programme (QS)","Global leader in AI/robotics research","STEM-designated (OPT eligible)","Strong Big Tech recruiting"] },
 
   { id:155, school:"National University of Singapore", program:"MSc Computer Science", city:"Singapore", country:"Singapore", flag:"🇸🇬", region:"Asia-Pacific",
     fields:["Computer Science"], months:18, lang:"English", tuition:32000, intake:"August", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.comp.nus.edu.sg/", rank:145,
-    extRank:"QS Computer Science #4 (2025)", openFields:["STEM & Engineering","Computer Science"], freshGradOnly:true,
+    extRank:"QS Computer Science #4 (2026)", openFields:["STEM & Engineering","Computer Science"], freshGradOnly:true,
     blurb:"Asia's top-ranked computer science degree, with deep ties into Singapore's booming tech and fintech sectors.",
     highlights:["World top-5 CS programme (QS)","Asia's top-ranked CS department","Singapore tech/fintech hub","No GMAT/GRE required"] },
 
@@ -2187,7 +2192,7 @@ const PROGRAMS = [
     highlights:["Chicago employer market","Applied analytics projects","STEM-designated (OPT eligible)","No GMAT/GRE required"] },
 
   { id:180, school:"Carnegie Mellon University — Tepper", program:"Master of Science in Computational Finance", city:"Pittsburgh, PA", country:"United States", flag:"🇺🇸", region:"North America",
-    fields:["Finance","Analytics"], months:16, lang:"English", tuition:85000, intake:"August", deadline:"Rolling", work:"0–2 yrs", gmat:true, scholar:true, link:"https://www.cmu.edu/mscf/", extRank:"QS Computer Science #3 (2025)", rank:170,
+    fields:["Finance","Analytics"], months:16, lang:"English", tuition:85000, intake:"August", deadline:"Rolling", work:"0–2 yrs", gmat:true, scholar:true, link:"https://www.cmu.edu/mscf/", extRank:"QS Computer Science #3 (2026)", rank:170,
     openFields:["STEM & Engineering","Computer Science","Business & Economics"], freshGradOnly:true, blurb:"A highly mathematical finance master's jointly delivered across Carnegie Mellon's business, statistics and computer science strengths.",
     highlights:["Quant finance specialist programme","CMU computing ecosystem","New York and Pittsburgh recruiting","STEM-designated (OPT eligible)"] },
 
@@ -2433,7 +2438,7 @@ const PROGRAMS = [
     openFields:["STEM & Engineering","Computer Science"], freshGradOnly:true, blurb:"Taught out of Edinburgh's Informatics department — the UK's oldest and largest concentration of AI research — with direct access to DeepMind-adjacent faculty.", highlights:["UK's largest AI research group","Direct ties to leading AI labs","World top-20 CS department","No GMAT/GRE required"] },
 
   { id:239, school:"University of Cambridge", program:"MPhil Advanced Computer Science", city:"Cambridge", country:"United Kingdom", flag:"🇬🇧", region:"Europe",
-    fields:["Computer Science","AI"], months:9, lang:"English", tuition:42000, intake:"October", deadline:"Rolling", work:"0 yrs", gmat:false, scholar:true, link:"https://www.cst.cam.ac.uk/admissions/acs", extRank:"QS Computer Science — Top 5 (2025)", rank:229,
+    fields:["Computer Science","AI"], months:9, lang:"English", tuition:42000, intake:"October", deadline:"Rolling", work:"0 yrs", gmat:false, scholar:true, link:"https://www.cst.cam.ac.uk/admissions/acs", extRank:"QS Computer Science — Top 10 (2026)", rank:229,
     openFields:["STEM & Engineering","Computer Science"], freshGradOnly:true, blurb:"A one-year, research-intensive conversion into advanced computer science at one of the world's oldest and most prestigious CS departments.", highlights:["World top-5 CS department (QS)","Cambridge college membership","Research-track option into a PhD","No GMAT/GRE required"] },
 
   { id:240, school:"Carnegie Mellon University", program:"MS in Artificial Intelligence and Innovation", city:"Pittsburgh, PA", country:"United States", flag:"🇺🇸", region:"North America",
@@ -3282,6 +3287,12 @@ const PROGRAMS = [
     openFields:["STEM & Engineering"], freshGradOnly:true,
     blurb:"Covers microelectronics, signal processing and telecommunications, with the ICTEAM institute behind it and a strong record in cryptographic hardware research.",
     highlights:["ICTEAM research institute","Recognised cryptographic-hardware group","Two years (120 ECTS)","English-taught"] },
+
+  { id:440, school:"University of Oxford", program:"MSc in Advanced Computer Science", city:"Oxford", country:"United Kingdom", flag:"🇬🇧", region:"Europe",
+    fields:["Computer Science","AI"], months:12, lang:"English", tuition:51500, intake:"October", deadline:"8 Jan", work:"0 yrs", gmat:false, scholar:true, link:"https://www.ox.ac.uk/admissions/graduate/courses/msc-advanced-computer-science", extRank:"QS Computer Science #4 (2026)", rank:430,
+    openFields:["STEM & Engineering","Computer Science"], freshGradOnly:true,
+    blurb:"Oxford's twelve-month taught computer science master's, built around the department's research strengths in verification, security, machine learning and quantum computing — a research-flavoured degree rather than a conversion one.",
+    highlights:["Joint QS #4 in Computer Science worldwide (2026)","12 months, October start","Single January deadline — no later rounds","Automatically considered for Clarendon Scholarships"] },
 ];
 
 const FIELDS  = ["Management","Finance","Analytics","Strategy","Marketing","Entrepreneurship","Economics","Sustainability",
@@ -3706,15 +3717,326 @@ function eligibility(p) {
 /* ============================================================
    FILTER + SORT
    ============================================================ */
+/* ============================================================
+   SEARCH ALIASES
+   People search the way they talk about these degrees — "MiM", "IB", "MSBA",
+   "LBS", "uk" — not the way the catalogue spells them out. Each key is a term
+   someone might type; the values are strings that, if any of them appears in a
+   programme's searchable text, count as a match for that term.
+
+   Deliberately one-directional (abbreviation → full text), because the
+   catalogue itself always stores the full name. Two-letter keys are only
+   included where the expansion is unambiguous in this domain — plain substring
+   matching already handles a lot ("mba", "mit", "lse" all appear literally).
+   ============================================================ */
+const SEARCH_ALIASES = {
+  // degree types
+  mim: ["master in management", "masters in management", "master of management", "management"],
+  mm: ["master in management", "masters in management"],
+  emba: ["executive mba"],
+  msc: ["master of science", "msc"],
+  ms: ["master of science", "msc"],
+  ma: ["master of arts"],
+  llm: ["master of laws", "llm", "law"],
+  jd: ["law"],
+  mpa: ["public administration", "public policy"],
+  mpp: ["public policy"],
+  mph: ["public health"],
+  mfin: ["finance"],
+  mif: ["international finance", "finance"],
+  msf: ["finance"],
+  mfe: ["financial engineering", "finance"],
+  msba: ["business analytics", "analytics"],
+  mem: ["engineering management"],
+  march: ["architecture"],
+  // fields & specialisms
+  ib: ["international business"],
+  im: ["international management"],
+  ai: ["artificial intelligence", "machine learning"],
+  ml: ["machine learning", "artificial intelligence"],
+  nlp: ["natural language processing"],
+  hci: ["human-computer interaction"],
+  ds: ["data science", "analytics"],
+  cs: ["computer science"],
+  ee: ["electrical engineering"],
+  che: ["chemical engineering"],
+  scm: ["supply chain"],
+  ba: ["business analytics", "analytics"],
+  bi: ["business intelligence", "analytics"],
+  hr: ["human resource"],
+  ir: ["international relations", "public policy", "social sciences"],
+  vc: ["venture capital", "entrepreneurship"],
+  pe: ["private equity", "finance"],
+  fintech: ["financial technology", "finance"],
+  esg: ["sustainability"],
+  econ: ["economics"],
+  eng: ["engineering"],
+  mgmt: ["management"],
+  mktg: ["marketing"],
+  quant: ["quantitative", "analytics", "finance"],
+  entrepreneurship: ["entrepreneurship"],
+  sustainability: ["sustainability"],
+  // schools people abbreviate
+  lbs: ["london business school"],
+  hbs: ["harvard business school"],
+  gsb: ["graduate school of business"],
+  cbs: ["columbia business school", "copenhagen business school"],
+  wharton: ["wharton"],
+  sloan: ["mit sloan"],
+  haas: ["haas"],
+  booth: ["booth"],
+  kul: ["ku leuven"],
+  ugent: ["ghent university"],
+  polimi: ["politecnico di milano"],
+  polito: ["politecnico di torino"],
+  sciencespo: ["sciences po"],
+  unimelb: ["university of melbourne"],
+  iim: ["indian institute of management"],
+  isb: ["indian school of business"],
+  iit: ["indian institute of technology"],
+  // places
+  uk: ["united kingdom"],
+  britain: ["united kingdom"],
+  british: ["united kingdom"],
+  england: ["united kingdom"],
+  us: ["united states"],
+  usa: ["united states"],
+  america: ["united states"],
+  american: ["united states"],
+  nl: ["netherlands"],
+  holland: ["netherlands"],
+  dutch: ["netherlands"],
+  german: ["germany"],
+  french: ["france"],
+  spanish: ["spain"],
+  italian: ["italy"],
+  belgian: ["belgium"],
+  swiss: ["switzerland"],
+  korea: ["south korea"],
+  korean: ["south korea"],
+  uae: ["united arab emirates"],
+  hk: ["hong kong"],
+  nyc: ["new york"],
+};
+
+// A single typed term matches a programme if it appears literally in the
+// programme's searchable text, or if any of its aliases does.
+//
+// Short terms (≤3 characters) must appear as a whole word. Plain substring
+// matching is actively wrong at that length: "uk" is inside "Duke", "ai" is
+// inside "Bahrain" and "Management", "ml" is inside "Melbourne" — all of which
+// used to outrank the programmes the searcher actually meant.
+function termMatches(term, hay) {
+  const key = term.replace(/[^a-z0-9]/g, "");
+  const alts = SEARCH_ALIASES[key];
+  const literal = key.length <= 3 && key
+    ? new RegExp(`\\b${key}\\b`, "i").test(hay)
+    : hay.includes(term);
+  if (literal) return true;
+  return !!alts && alts.some(a => hay.includes(a));
+}
+
+/* ============================================================
+   QUERY INTENT PARSING
+   The old search demanded that every word the visitor typed appear verbatim
+   somewhere in the programme record. That fails exactly when someone writes the
+   way people actually write: "best programmes in the USA" returned nothing,
+   because no programme record contains the words "best", "programmes" or "USA".
+
+   This turns a free-text query into structured intent instead — places,
+   subjects, and constraints — and drops the filler. Anything it doesn't
+   recognise is still matched as text, so precise searches ("Oxford", "Bocconi")
+   behave exactly as before. There is no backend and no model at runtime, so
+   this is a vocabulary-driven parser, not a language model — but it covers the
+   ways people actually phrase these searches.
+   ============================================================ */
+
+// Words that carry no filtering meaning here. Dropping them is what lets a
+// sentence-shaped query work at all.
+const QUERY_FILLER = new Set(["a","an","the","in","at","on","for","of","to","and","or","with","without",
+  "me","my","i","im","want","wanting","looking","look","find","show","see","get","interested","interest",
+  "programme","programmes","program","programs","course","courses","degree","degrees","masters","master",
+  "msc","ma","study","studying","studies","school","schools","university","universities","abroad","overseas",
+  "please","some","any","that","this","there","are","is","be","best","top","good","great","strongest",
+  "prestigious","elite","leading","ranked","ranking","rankings","world","worlds","global","globally",
+  "class","level","options","option","something","anything","like","about","near","around","most","more",
+  "quality","high","really","just","only","can","should","would","which","what","where"]);
+
+// Constraint phrases → what they actually mean against the data.
+const QUERY_CONSTRAINTS = [
+  { phrases: ["no gmat", "without gmat", "no gre", "without gre", "gmat free", "no gmat or gre", "no test"], apply: f => f.noTest = true, label: "no GMAT/GRE" },
+  { phrases: ["fully funded", "full scholarship", "free tuition", "no tuition", "tuition free"], apply: f => f.maxTuition = 3000, label: "little or no tuition" },
+  { phrases: ["cheap", "affordable", "low cost", "inexpensive", "budget", "low tuition"], apply: f => f.maxTuition = 20000, label: "under €20,000 tuition" },
+  { phrases: ["scholarship", "scholarships", "funding", "funded", "financial aid"], apply: f => f.scholar = true, label: "scholarship flagged" },
+  { phrases: ["one year", "1 year", "12 month", "12 months", "short", "quick", "accelerated"], apply: f => f.maxMonths = 12, label: "one year or less" },
+  { phrases: ["two year", "2 year", "24 month", "24 months", "long"], apply: f => f.minMonths = 18, label: "18 months or longer" },
+  { phrases: ["no work experience", "fresh graduate", "fresh graduates", "straight from", "pre experience", "no experience"], apply: f => f.noWork = true, label: "open without work experience" },
+  { phrases: ["english taught", "in english", "english"], apply: f => f.english = true, label: "taught in English" },
+];
+
+// Subject vocabulary → the catalogue's own FIELDS values. Multi-word entries are
+// consumed before single words, so "computer science" never degrades to "science".
+const FIELD_VOCAB = {
+  "Management": ["management", "mim", "general management", "business management", "leadership"],
+  "Finance": ["finance", "financial", "banking", "investment", "investments", "private equity", "venture capital", "fintech", "financial engineering", "asset management"],
+  "Analytics": ["analytics", "data science", "business analytics", "data analytics", "big data", "statistics", "statistical", "quantitative", "msba", "data"],
+  "Strategy": ["strategy", "strategic", "consulting"],
+  "Marketing": ["marketing", "brand", "branding", "advertising", "consumer"],
+  "Entrepreneurship": ["entrepreneurship", "entrepreneurial", "startup", "startups", "founder", "innovation"],
+  "Economics": ["economics", "econ", "economic", "econometrics"],
+  "Sustainability": ["sustainability", "sustainable", "climate", "esg", "green", "circular economy"],
+  "Engineering": ["engineering", "mechanical", "civil", "aerospace", "electrical", "industrial engineering", "robotics", "manufacturing"],
+  "Physics": ["physics", "astronomy", "astrophysics", "mathematics", "maths", "math"],
+  "Computer Science": ["computer science", "software", "software engineering", "programming", "cybersecurity", "security", "computing", "computer"],
+  "Biochemistry": ["biochemistry", "biochemical"],
+  "Life Sciences": ["life sciences", "biology", "biotech", "biotechnology", "bioinformatics", "biomedical", "genetics", "neuroscience"],
+  "History": ["history", "historical"],
+  "Law": ["law", "llm", "legal", "jurisprudence"],
+  "Social Sciences": ["social sciences", "sociology", "international relations", "politics", "political science", "anthropology", "psychology", "development studies"],
+  "AI": ["ai", "artificial intelligence", "machine learning", "deep learning", "nlp", "natural language processing"],
+  "Energy": ["energy", "renewables", "renewable energy", "nuclear", "petroleum"],
+  "Public Policy": ["public policy", "policy", "mpp", "government", "governance", "public administration"],
+  "Public Health": ["public health", "mph", "epidemiology", "global health"],
+  "Earth Sciences": ["earth sciences", "geology", "environmental", "environment", "oceanography", "geoscience", "marine"],
+  "Chemistry": ["chemistry", "chemical"],
+  "Information Science": ["information science", "information systems", "human computer interaction", "hci", "library science"],
+  "Education": ["education", "teaching", "pedagogy", "edtech"],
+};
+
+// Place vocabulary, built once from the catalogue itself so it can never drift
+// out of sync with the data, plus the informal names people actually type.
+const PLACE_ALIASES = {
+  "united kingdom": ["uk", "u k", "britain", "british", "england", "great britain", "scotland", "wales"],
+  "United States": ["us", "u s", "usa", "u s a", "america", "american", "the states", "stateside"],
+  "Netherlands": ["holland", "dutch", "the netherlands"],
+  "Germany": ["german", "deutschland"],
+  "France": ["french"],
+  "Spain": ["spanish"],
+  "Italy": ["italian"],
+  "Belgium": ["belgian", "flanders", "wallonia"],
+  "Switzerland": ["swiss"],
+  "South Korea": ["korea", "korean"],
+  "United Arab Emirates": ["uae", "dubai", "abu dhabi"],
+  "Hong Kong SAR": ["hong kong", "hk", "hongkong"],
+  "China": ["chinese", "mainland china", "prc"],
+  "Japan": ["japanese"],
+  "India": ["indian"],
+  "Ireland": ["irish"],
+  "Sweden": ["swedish"],
+  "Denmark": ["danish"],
+  "Norway": ["norwegian"],
+  "Portugal": ["portuguese"],
+  "Australia": ["australian", "aus", "oz"],
+  "Canada": ["canadian"],
+  "Singapore": ["singaporean"],
+  "Austria": ["austrian"],
+  "Brazil": ["brazilian"],
+  "Mexico": ["mexican"],
+  "South Africa": ["south african"],
+};
+
+let PLACE_INDEX = null;
+function placeIndex() {
+  if (PLACE_INDEX) return PLACE_INDEX;
+  const idx = { country: new Map(), city: new Map(), region: new Map() };
+  PROGRAMS.forEach(p => {
+    idx.country.set(p.country.toLowerCase(), p.country);
+    idx.city.set(p.city.toLowerCase(), p.city);
+    idx.region.set(p.region.toLowerCase(), p.region);
+  });
+  idx.region.set("europe", "Europe");
+  idx.region.set("asia", "Asia-Pacific");
+  idx.region.set("asia pacific", "Asia-Pacific");
+  idx.region.set("america", "North America");
+  idx.region.set("latin america", "Latin America");
+  idx.region.set("africa", "Africa");
+  // informal names map onto whichever catalogue country they refer to
+  Object.entries(PLACE_ALIASES).forEach(([canonical, alts]) => {
+    const real = [...idx.country.values()].find(c => c.toLowerCase() === canonical.toLowerCase());
+    if (!real) return;
+    alts.forEach(a => idx.country.set(a, real));
+  });
+  PLACE_INDEX = idx;
+  return idx;
+}
+
+// Longest phrases first, so "computer science" is consumed before "computer"
+// and "hong kong" before "kong".
+function vocabPhrases() {
+  const out = [];
+  const idx = placeIndex();
+  idx.country.forEach((v, k) => out.push({ phrase: k, kind: "country", value: v }));
+  idx.city.forEach((v, k) => out.push({ phrase: k, kind: "city", value: v }));
+  idx.region.forEach((v, k) => out.push({ phrase: k, kind: "region", value: v }));
+  Object.entries(FIELD_VOCAB).forEach(([field, words]) =>
+    words.forEach(w => out.push({ phrase: w, kind: "field", value: field })));
+  QUERY_CONSTRAINTS.forEach(c => c.phrases.forEach(ph => out.push({ phrase: ph, kind: "constraint", value: c })));
+  return out.sort((a, b) => b.phrase.length - a.phrase.length);
+}
+let VOCAB_CACHE = null;
+
+function parseQuery(q) {
+  const intent = { countries: new Set(), cities: new Set(), regions: new Set(), fields: new Set(),
+                   flags: {}, terms: [], labels: [], raw: q };
+  if (!q || !q.trim()) return intent;
+  VOCAB_CACHE = VOCAB_CACHE || vocabPhrases();
+
+  let s = " " + q.toLowerCase().replace(/[^a-z0-9+& ]+/g, " ").replace(/\s+/g, " ").trim() + " ";
+  VOCAB_CACHE.forEach(({ phrase, kind, value }) => {
+    const padded = " " + phrase + " ";
+    if (!s.includes(padded)) return;
+    s = s.split(padded).join(" ");
+    if (kind === "country") { intent.countries.add(value); intent.labels.push(value); }
+    else if (kind === "city") { intent.cities.add(value); intent.labels.push(value); }
+    else if (kind === "region") { intent.regions.add(value); intent.labels.push(value); }
+    else if (kind === "field") { intent.fields.add(value); intent.labels.push(value); }
+    else { value.apply(intent.flags); intent.labels.push(value.label); }
+  });
+
+  intent.terms = s.trim().split(/\s+/).filter(w => w && !QUERY_FILLER.has(w));
+  intent.labels = [...new Set(intent.labels)];
+  return intent;
+}
+
 function matches(p) {
 
   if (state.shortlistOnly && !state.compare.has(p.id)) return false;
 
   if (state.q) {
-    const t = state.q.toLowerCase();
+    // parsed once per distinct query string, not once per programme
+    if (state.parsedFor !== state.q) { state.parsed = parseQuery(state.q); state.parsedFor = state.q; }
+    const intent = state.parsed;
     const hay = [p.school, p.program, p.city, p.country, p.region, p.lang, ...p.fields,
                  p.gmat ? "" : "no gmat no gre", p.blurb].join(" ").toLowerCase();
-    if (!t.split(/\s+/).every(w => hay.includes(w))) return false;
+
+    // Places are a hard filter — "USA" means the United States, not "any
+    // programme whose blurb happens to say America". Country, city and region
+    // are OR'd together so "Europe London" doesn't cancel itself out.
+    const placeAsked = intent.countries.size || intent.cities.size || intent.regions.size;
+    if (placeAsked && !(intent.countries.has(p.country) || intent.cities.has(p.city) || intent.regions.has(p.region))) return false;
+
+    // Subjects are satisfied by a field tag OR by the words appearing in the
+    // record, so a "finance" search still finds a programme tagged Economics
+    // whose title says Finance.
+    if (intent.fields.size && !(p.fields.some(f => intent.fields.has(f)) ||
+        [...intent.fields].some(f => hay.includes(f.toLowerCase())))) return false;
+
+    const f = intent.flags;
+    if (f.noTest && p.gmat) return false;
+    if (f.maxTuition && p.tuition > f.maxTuition) return false;
+    if (f.scholar && !p.scholar) return false;
+    if (f.maxMonths && p.months > f.maxMonths) return false;
+    if (f.minMonths && p.months < f.minMonths) return false;
+    if (f.noWork && !p.work.startsWith("0")) return false;
+    if (f.english && p.lang !== "English") return false;
+
+    // Anything the parser didn't recognise still has to appear in the record —
+    // that's what keeps "Bocconi" or "Fontainebleau" precise.
+    if (intent.terms.length && !intent.terms.every(w => termMatches(w, hay))) return false;
+
+    // A query that produced no recognised facet and no usable term (pure
+    // filler, e.g. "the best programmes") should show everything, prestige
+    // first, rather than nothing.
   }
   if (state.regions.size && !state.regions.has(p.region)) return false;
   if (state.fields.size && !p.fields.some(f => state.fields.has(f))) return false;
@@ -3756,6 +4078,25 @@ function prestigeScore(p) {
   return 500 + p.rank;
 }
 
+/* How *directly* a programme answers the typed query. An MBA is a management
+   degree by subject area, but it is not what someone searching "MiM" is asking
+   for — so a programme whose own title carries the term outranks one that only
+   shares a field tag. Tier 3 programmes still appear, just below the direct hits.
+     0 — the term is in the programme's own title
+     1 — the term is in the school name
+     2 — the term is one of the programme's field tags
+     3 — matched only on blurb / city / country text                            */
+function queryRelevance(p) {
+  if (!state.q) return 0;
+  const terms = state.q.toLowerCase().split(/\s+/).filter(Boolean);
+  const allIn = hay => terms.every(t => termMatches(t, hay));
+  const title = p.program.toLowerCase();
+  if (title.includes(state.q.toLowerCase()) || allIn(title)) return 0;
+  if (allIn((p.school + " " + p.program).toLowerCase())) return 1;
+  if (allIn(p.fields.join(" ").toLowerCase())) return 2;
+  return 3;
+}
+
 function sorted(list) {
   const c = [...list];
   switch (state.sort) {
@@ -3763,7 +4104,9 @@ function sorted(list) {
     case "tuitionDesc": c.sort((a,b) => b.tuition - a.tuition); break;
     case "durAsc":      c.sort((a,b) => a.months - b.months); break;
     case "az":          c.sort((a,b) => a.school.localeCompare(b.school)); break;
-    default:            c.sort((a,b) => prestigeScore(a) - prestigeScore(b) || a.rank - b.rank);
+    // relevance (the default) leads with how directly the programme answers the
+    // query, then falls back to the existing prestige/curated ordering
+    default:            c.sort((a,b) => queryRelevance(a) - queryRelevance(b) || prestigeScore(a) - prestigeScore(b) || a.rank - b.rank);
   }
   // once the visitor has told us anything about themselves, pull good/possible
   // matches to the front so filling in the form visibly changes the list
@@ -3852,8 +4195,23 @@ function cardHTML(p) {
 
 function render() {
   const list = sorted(PROGRAMS.filter(matches));
+
+  // When a query pulls in programmes that only share a subject area — an MBA
+  // under "management", say — say so out loud instead of silently mixing them
+  // in with the degrees actually called that.
+  let html = "", markedRelated = false;
+  const relevanceApplies = state.q && state.sort !== "tuitionAsc" && state.sort !== "tuitionDesc"
+                                   && state.sort !== "durAsc" && state.sort !== "az";
+  list.forEach(p => {
+    if (relevanceApplies && !markedRelated && queryRelevance(p) >= 2) {
+      markedRelated = true;
+      if (html) html += `<div class="grid-divider"><span>Related programmes</span><p>These don't have “${escapeHTML(state.q)}” in the degree name — they matched on subject area, so a different degree type (an MBA under “management”, for instance) can show up here.</p></div>`;
+    }
+    html += cardHTML(p);
+  });
+
   $("grid").innerHTML = list.length
-    ? list.map(cardHTML).join("")
+    ? html
     : `<div class="empty" style="grid-column:1/-1">
          <h3>Nothing matches those filters</h3>
          <p>Try widening the tuition range or clearing a region.</p>
