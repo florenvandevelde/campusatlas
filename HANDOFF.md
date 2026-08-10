@@ -58,9 +58,22 @@ number.
 
 ## Session 5 — what changed
 
-- **PROGRAMS 551 → 635.** UCL +30 (was 4 entries at a QS #9 school with 550
-  taught degrees), KU Leuven +27, ULB/Solvay +14, Antwerp Management School +7,
-  Vlerick +5.
+- **PROGRAMS 551 → 668.** UCL +30 (was 4 entries at a QS #9 school with 550
+  taught degrees), KU Leuven +27, TUM +21, ULB/Solvay +14, Imperial +12,
+  Antwerp Management School +7, Vlerick +5.
+- **`SCHOOL_SCHOLARSHIPS` 103 → 115**, weighted to the six focus countries.
+
+### ⚠️ The link-quality problem — the biggest open defect
+**318 of 656 entries linked to a homepage or a department landing page rather
+than the programme's own page**, which is exactly what the user ruled out
+("always make sure you have that official link in there"). Imperial's eight were
+fixed this session, and four of those turned out to name courses Imperial no
+longer offers under that title — so a wrong link was hiding wrong content.
+Expect the same elsewhere. A ready-made audit script pair
+(`scratchpad/check.sh` + `allurls.txt`) will curl every catalogue URL and print
+its status code; **run it against a slice at a time, not all 700 at once.**
+Note the heuristic used to find these has false positives: `uclouvain.be/en-prog-2026-<code>`
+and `mba.nus.edu.sg` are one path segment deep but *are* the programme page.
 - **Six new `FIELDS`**: Mathematics, Architecture, Psychology, Media &
   Communication, Agriculture & Food, Humanities — each with `RANK_SUBJECT_HINTS`
   entries so a rank in those QS tables counts as relevant to the query. The
@@ -117,9 +130,13 @@ Belgium and UCL. Remaining, in the user's own priority order:
 4. **Specialist domains the user asked for by name: fashion and supply chain.**
    Supply chain got Antwerp Management School and Vlerick; still missing IFM Paris,
    Istituto Marangoni, Polimi/Bocconi fashion-and-luxury, LCF, Parsons.
-5. **Scholarships** — untouched this session. `SCHOOL_SCHOLARSHIPS` is 103 of
-   ~360 schools; the six focus countries need far more, especially awards tied to
-   the *programme* rather than the applicant's nationality.
+5. **Scholarships** — started, nowhere near done. `SCHOOL_SCHOLARSHIPS` is 115
+   of ~250 distinct schools. `GOV_SCHOLARSHIPS` and `HOME_REGION_FUNDING` were
+   not touched at all, and the user specifically asked for awards tied to the
+   *programme* rather than the applicant's nationality — `GLOBAL_SCHOLARSHIPS`
+   is still the 11 entries session 4 left. Warning from this session: roughly
+   half the scholarship URLs guessed from a plausible pattern were dead. Verify
+   every one with curl before committing it.
 6. **`PROGRAMME_ESSENTIALS` is 14 of 635.** This is the weakest part of the site
    relative to the brief.
 
