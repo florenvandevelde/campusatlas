@@ -5075,47 +5075,21 @@ function haversineKm(lat1, lon1, lat2, lon2) {
   return R * 2 * Math.asin(Math.sqrt(a));
 }
 
-// Looks up real, named test-delivery operators (Pearson VUE for GMAT, Prometric for
-// GRE, British Council/IDP/Prometric for TOEFL & IELTS) via Nominatim's free-text
-// search, then keeps only the ones within MAX_CENTRE_KM of the geocoded point —
-// computed with real coordinates, never guessed. OSM's coverage of these chains is
-// patchy, so this can legitimately come back empty; the caller falls back to a live
-// official Maps search rather than inventing a venue or showing a distant one as "near".
-const MAX_CENTRE_KM = 350;
-
-// A plain Nominatim free-text search for a chain name (e.g. "Pearson VUE") has no
-// geographic bias at all — it just returns Nominatim's global "importance" sample
-// (verified: a bare search returns scattered results in the UK/US/Romania/India/UAE
-// regardless of where the user searched from), so almost none of the first 15 rows
-// ever land near an arbitrary user location. `viewbox` + `bounded=1` restricts the
-// search to a real box around the user's point so results, when OSM has any, are
-// genuinely nearby rather than an unrelated global sample.
-function bboxAround(lat, lon, km) {
-  const dLat = km / 111;
-  const dLon = km / (111 * Math.max(Math.cos(lat * Math.PI / 180), 0.2));
-  return { minLat: lat - dLat, maxLat: lat + dLat, minLon: lon - dLon, maxLon: lon + dLon };
-}
-
-async function findNearbyCentres(lat, lon, terms) {
-  const { minLat, maxLat, minLon, maxLon } = bboxAround(lat, lon, MAX_CENTRE_KM);
-  const viewbox = `${minLon},${maxLat},${maxLon},${minLat}`;
-  const seen = new Set();
-  const all = [];
-  for (const term of terms) {
-    try {
-      const res = await fetch(`https://nominatim.openstreetmap.org/search?format=jsonv2&limit=15&q=${encodeURIComponent(term)}&viewbox=${viewbox}&bounded=1`, { headers: { Accept: "application/json" } });
-      if (!res.ok) continue;
-      const places = await res.json();
-      for (const p of places) {
-        const name = p.display_name.split(",")[0] + (p.display_name.split(",")[1] ? "," + p.display_name.split(",")[1] : "");
-        if (seen.has(name)) continue;
-        seen.add(name);
-        const dist = haversineKm(lat, lon, +p.lat, +p.lon);
-        if (dist <= MAX_CENTRE_KM) all.push({ name, lat: +p.lat, lon: +p.lon, dist });
-      }
-    } catch (_) { /* try the next term */ }
-  }
-  return all.sort((a, b) => a.dist - b.dist).slice(0, 5);
+// There is deliberately no "nearby centres" directory here any more.
+//
+// The previous version searched OpenStreetMap for the operator chains by name. That was
+// checked properly this session and OSM simply does not hold this data: an Overpass query
+// for Pearson/Prometric/VUE within 60 km of Brussels returns zero results. With a 350 km
+// cap the search could therefore only ever surface something far away — a Brussels search
+// returned a centre in the UK, 295 km out, labelled "nearest first". A directory that is
+// empty where you live and wrong where it isn't should not exist.
+//
+// The centres themselves are not the hard part of this decision anyway: the GMAT and GRE
+// are standardised, so any authorised centre is equivalent and all you actually need is a
+// convenient one. So we geocode the place, show it on a map, and hand off to sources that
+// really do hold live centre data, anchored to those coordinates.
+function mapsSearchUrl(term, lat, lon) {
+  return `https://www.google.com/maps/search/${encodeURIComponent(term)}/@${lat},${lon},10z`;
 }
 
 // Renders real dots on an actual map (Leaflet + OSM tiles) instead of the old
@@ -5186,29 +5160,33 @@ async function renderLocator(kind, resultsElId, selectElId) {
   let loc = null;
   try { loc = await geocodeLocation(query); } catch (_) { /* live Maps search links below still work without geocoding */ }
 
-  // Not a Google Maps text-search guess (that returned unrelated countries for
-  // real users — e.g. "GMAT test centre near Ninove, Belgium" surfaced UK/France
-  // results despite a real Pearson VUE-administered sitting in Brussels) — these
-  // are each programme's actual authoritative, always-current locator tool.
-  const officialLocators = kind === "gmat"
-    ? [["GMAT (Pearson VUE)", "https://www.pearsonvue.com/us/en/test-takers/test-centers.html"], ["GRE (ETS)", "https://maprequest.ets.org/"]]
-    : [["TOEFL (ETS)", "https://www.ets.org/toefl/test-takers/ibt/schedule.html"], ["IELTS", "https://www.ielts.org/test-centres"]];
-  const links = officialLocators.map(([label, href]) => `<a class="btn secondary" target="_blank" rel="noopener noreferrer" href="${href}">Official ${label} test-centre locator ↗</a>`).join("");
   const mapId = `${resultsElId}-map`;
   const map = loc ? `<div id="${mapId}" class="locator-map"></div>` : "";
+  const place = loc ? loc.label.split(",").slice(0, 2).map(x => x.trim()).filter(Boolean).join(", ") : query;
 
-  let centres = [];
-  if (loc) {
-    try { centres = await findNearbyCentres(loc.lat, loc.lon, kind === "gmat" ? ["Pearson VUE", "Prometric"] : ["British Council", "IDP", "Prometric"]); } catch (_) { /* fall back to the search links below */ }
-  }
+  // Two actions, both anchored to the place that was actually geocoded: one that shows
+  // real centres on a map that has the data, and one that goes to the body you have to
+  // book through. Generic "here is the locator homepage" links were dropped — they made
+  // the user do the location step again by hand.
+  const actions = kind === "gmat"
+    ? [
+        loc ? ["See GMAT / Pearson VUE centres around " + place, mapsSearchUrl("Pearson VUE test centre", loc.lat, loc.lon)] : null,
+        loc ? ["See GRE / Prometric centres around " + place, mapsSearchUrl("Prometric test centre", loc.lat, loc.lon)] : null,
+        ["Book the GMAT at mba.com", "https://www.mba.com/exams/gmat-exam/register/find-a-test-center"],
+        ["Book the GRE at ETS", "https://www.ets.org/gre/test-takers/general-test/register.html"],
+      ]
+    : [
+        loc ? ["See TOEFL / Prometric centres around " + place, mapsSearchUrl("Prometric test centre", loc.lat, loc.lon)] : null,
+        loc ? ["See IELTS centres around " + place, mapsSearchUrl("IELTS test centre", loc.lat, loc.lon)] : null,
+        ["Book the TOEFL at ETS", "https://www.ets.org/toefl/test-takers/ibt/register.html"],
+        ["Find an IELTS centre", "https://ielts.org/take-a-test/test-centres"],
+      ];
+  const links = actions.filter(Boolean)
+    .map(([label, href]) => `<a class="btn secondary" target="_blank" rel="noopener noreferrer" href="${href}">${escapeHTML(label)} ↗</a>`).join("");
 
-  const centreList = centres.length
-    ? `<div class="center-list">${centres.map(c => `
-        <a class="center-item" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=${c.lat}%2C${c.lon}">
-          <div class="name">${escapeHTML(c.name)}</div>
-          <div class="note">${c.dist < 1 ? "< 1 km away" : Math.round(c.dist) + " km away"}</div>
-        </a>`).join("")}</div>`
-    : `<p class="locator-placeholder">No test-centre operator found in our directory within ${MAX_CENTRE_KM} km of ${escapeHTML(loc?.label || query)}. That doesn't mean there isn't one — our directory (OpenStreetMap) has real coverage gaps, especially outside major cities. Use the official locator below instead — it's the authoritative, always-current source.</p>`;
+  const centreList = loc
+    ? `<p class="locator-placeholder">Map centred on <b>${escapeHTML(place)}</b>. We don't keep our own centre directory — no open dataset covers these operators reliably, and a list that's empty where you live is worse than none. The buttons below open live, always-current centre listings already centred on this place.</p>`
+    : `<p class="locator-placeholder">We couldn't place "${escapeHTML(query)}" on the map. Try a nearby city, or open one of the official booking pages below.</p>`;
 
   const costNote = kind === "gmat"
     ? "Approximate cost: GMAT Focus ~$275 USD worldwide · GRE General Test ~$220 USD (varies slightly by country). Always check the exact local fee when you book."
@@ -5216,12 +5194,11 @@ async function renderLocator(kind, resultsElId, selectElId) {
 
   box.innerHTML = `
     ${map}
-    ${centres.length ? `<p class="locator-placeholder">Real operators nearest first, from OpenStreetMap's directory — verify hours and book on the official portal, as branches change.</p>` : ""}
     ${centreList}
     <div class="live-map-links">${links}</div>
     <div class="cost-note">${costNote}</div>`;
 
-  if (loc) renderLocatorMap(mapId, loc, centres);
+  if (loc) renderLocatorMap(mapId, loc, []);
 }
 
 /* ============================================================
