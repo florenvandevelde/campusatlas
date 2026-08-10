@@ -1403,10 +1403,10 @@ const PROGRAMS = [
     highlights:["12 or 18-month track","Proseminar with live capital","Quant-fund and IB placement","STEM-designated for OPT"] },
 
   { id:22, school:"MIT Sloan School of Management", program:"Master of Business Analytics", city:"Cambridge, MA", country:"United States", flag:"🇺🇸", region:"North America",
-    fields:["Analytics"], months:12, lang:"English", tuition:83000, intake:"August", deadline:"20 Jan", work:"0–3 yrs", gmat:true, scholar:true, link:"https://mitsloan.mit.edu/mban", rank:2,
+    fields:["Analytics","AI"], months:12, lang:"English", tuition:90000, intake:"August", deadline:"20 Jan", work:"0–3 yrs", gmat:true, scholar:true, link:"https://mitsloan.mit.edu/master-of-business-analytics", extRank:"QS Business Analytics #1 (2026)", rank:2,
     openFields:["STEM & Engineering","Computer Science","Business & Economics"], freshGradOnly:false,
-    blurb:"Run with MIT's Operations Research Center — arguably the strongest analytics master's anywhere, and priced accordingly.",
-    highlights:["Year-long analytics capstone","Taught by MIT ORC faculty","Near-total placement rate","STEM-designated"] },
+    blurb:"The world's #1-ranked business analytics master's, run with MIT's Operations Research Center. The defining feature is the Analytics Capstone: a full-time company project over the final semester, with a subsidy applied against tuition.",
+    highlights:["QS Business Analytics #1 (2026)","Analytics Capstone with a partner company","Taught by MIT ORC faculty","STEM-designated (36-month OPT)"] },
 
   { id:23, school:"Duke University — Fuqua", program:"Master of Quantitative Management", city:"Durham, NC", country:"United States", flag:"🇺🇸", region:"North America",
     fields:["Analytics","Management"], months:10, lang:"English", tuition:71000, intake:"July", deadline:"Rolling", work:"0–2 yrs", gmat:true, scholar:true, link:"https://www.fuqua.duke.edu/programs/master-quantitative-management", rank:8,
@@ -2102,7 +2102,7 @@ const PROGRAMS = [
     highlights:["Hong Kong and China employer access","Business-school analytics focus","Compact 12-month format","International classroom"] },
 
   { id:162, school:"Duke University — Fuqua", program:"Master of Quantitative Management: Business Analytics", city:"Durham, NC", country:"United States", flag:"🇺🇸", region:"North America",
-    fields:["Analytics","Management"], months:10, lang:"English", tuition:69000, intake:"August", deadline:"Rolling", work:"0–2 yrs", gmat:true, scholar:true, link:"https://www.fuqua.duke.edu/programs/mqm-business-analytics", extRank:"QS World University Rankings #61 (2026)", rank:152,
+    fields:["Analytics","Management"], months:10, lang:"English", tuition:69000, intake:"August", deadline:"Rolling", work:"0–2 yrs", gmat:true, scholar:true, link:"https://www.fuqua.duke.edu/programs/mqm-business-analytics", extRank:"QS Business Analytics #7 (2026)", rank:152,
     openFields:["STEM & Engineering","Computer Science","Business & Economics"], freshGradOnly:false, blurb:"A STEM-designated business analytics master's from Duke's Fuqua School of Business, designed for early-career candidates.",
     highlights:["STEM-designated (OPT eligible)","Duke employer network","10-month format","Team-based client projects"] },
 
@@ -2247,7 +2247,7 @@ const PROGRAMS = [
     highlights:["Rotterdam logistics and business hub","Analytics + management focus","Dutch orientation-year pathway","One-year format"] },
 
   { id:191, school:"HEC Paris & École Polytechnique", program:"MSc Data Science for Business", city:"Jouy-en-Josas / Palaiseau", country:"France", flag:"🇫🇷", region:"Europe",
-    fields:["Analytics","Management"], months:24, lang:"English", tuition:56000, intake:"September", deadline:"Rolling", work:"0 yrs", gmat:true, scholar:true, link:"https://www.hec.edu/en/master-s-programs/msc-data-science-business", extRank:"QS Business Analytics #2 (2026)", rank:181,
+    fields:["Analytics","Management"], months:24, lang:"English", tuition:56000, intake:"September", deadline:"Rolling", work:"0 yrs", gmat:true, scholar:true, link:"https://www.hec.edu/en/master-s-programs/msc-data-science-business", extRank:"QS Business Analytics #3 (2026)", rank:181,
     openFields:["STEM & Engineering","Computer Science","Business & Economics"], freshGradOnly:true, blurb:"A joint HEC–École Polytechnique degree for candidates who want deep data-science capability with elite business-school context.",
     highlights:["HEC + École Polytechnique joint degree","QS business-analytics top tier","Paris technology ecosystem","Two-year format"] },
 
@@ -3483,6 +3483,68 @@ const PROGRAMS = [
     openFields:["STEM & Engineering"], freshGradOnly:true,
     blurb:"Taught alongside the Clínica Universidad de Navarra, one of Spain's leading hospitals, which gives this degree an unusual amount of direct clinical exposure for an engineering master's.",
     highlights:["Taught with a leading Spanish teaching hospital","One year, English-taught","Direct clinical exposure","Private-university tuition, well below UK levels"] },
+
+  // ── Business Analytics: the QS Business Masters 2026 top 20. Seven of the top
+  // ten had no entry at all before this — including the #1 and #2.
+  { id:472, school:"UCLA Anderson", program:"MS in Business Analytics", city:"Los Angeles, CA", country:"United States", flag:"🇺🇸", region:"North America",
+    fields:["Analytics","Management"], months:13, lang:"English", tuition:86000, intake:"July", deadline:"Rolling", work:"0–2 yrs", gmat:true, scholar:true, link:"https://www.anderson.ucla.edu/degrees/master-of-science-in-business-analytics", extRank:"QS Business Analytics #2 (2026)", rank:462,
+    openFields:["STEM & Engineering","Business & Economics"], freshGradOnly:false,
+    blurb:"Thirteen months in Los Angeles with a year-long Applied Analytics Project for a real client — Anderson's programme is deliberately small and unusually close to the entertainment, gaming and consumer-tech employers on its doorstep.",
+    highlights:["QS Business Analytics #2 (2026)","Year-long client Applied Analytics Project","LA entertainment/gaming/consumer-tech pipeline","STEM-designated (36-month OPT)"] },
+
+  { id:473, school:"ESSEC Business School", program:"MSc in Data Sciences & Business Analytics", city:"Cergy", country:"France", flag:"🇫🇷", region:"Europe",
+    fields:["Analytics","AI"], months:12, lang:"English", tuition:30000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:true, scholar:true, link:"https://www.essec.edu/en/program/master-data-sciences-business-analytics/", extRank:"QS Business Analytics #4 (2026)", rank:463,
+    openFields:["STEM & Engineering","Business & Economics"], freshGradOnly:false,
+    blurb:"A joint degree between ESSEC and CentraleSupélec — a business school and one of France's top engineering grandes écoles — which is why it sits well above most business-school analytics programmes on technical depth.",
+    highlights:["Joint ESSEC × CentraleSupélec degree","QS Business Analytics #4 (2026)","Genuine engineering-grade technical content","€30,000 first-year fee — far below US equivalents"] },
+
+  { id:474, school:"London Business School", program:"Masters in Analytics and Management", city:"London", country:"United Kingdom", flag:"🇬🇧", region:"Europe",
+    fields:["Analytics","Management"], months:12, lang:"English", tuition:62500, intake:"August", deadline:"Rolling", work:"0–2 yrs", gmat:true, scholar:true, link:"https://www.london.edu/masters-degrees/masters-in-analytics-and-management", extRank:"QS Business Analytics #6 (2026)", rank:464,
+    openFields:["Business & Economics","STEM & Engineering"], freshGradOnly:true,
+    blurb:"LBS's analytics degree for pre-experience candidates, deliberately paired with management content rather than being a pure technical master's — extendable to 16 months if you take the internship option.",
+    highlights:["QS Business Analytics #6 (2026)","Extendable to 16 months with an internship","LBS recruiting network in London","UK Graduate Route: 24 months after graduation"] },
+
+  { id:475, school:"ESCP Business School", program:"MSc in Business Analytics & AI", city:"Paris", country:"France", flag:"🇫🇷", region:"Europe",
+    fields:["Analytics","AI"], months:15, lang:"English", tuition:24000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://escp.eu/programmes/specialised-masters-MSc/MSc-in-Business-Analytics-in-AI", extRank:"QS Business Analytics #9 (2026)", rank:465,
+    openFields:["Business & Economics","STEM & Engineering"], freshGradOnly:false,
+    blurb:"ESCP's multi-campus model means this degree can be taken across two of its six European campuses, and at €24,000 it is one of the least expensive programmes anywhere in the QS analytics top ten.",
+    highlights:["QS Business Analytics #9 (2026)","Multi-campus across ESCP's European network","€24,000 — cheapest in the QS analytics top 10","No GMAT/GRE required"] },
+
+  { id:476, school:"Warwick Business School", program:"MSc Business Analytics & Artificial Intelligence", city:"Coventry", country:"United Kingdom", flag:"🇬🇧", region:"Europe",
+    fields:["Analytics","AI"], months:12, lang:"English", tuition:45000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.wbs.ac.uk/courses/masters/business-analytics-artificial-intelligence/", extRank:"QS Business Analytics #13 (2026)", rank:466,
+    openFields:["Business & Economics","STEM & Engineering"], freshGradOnly:false,
+    blurb:"Warwick's operational-research heritage shows in this degree — it is heavier on optimisation and decision science than most business-school analytics master's, and WBS scholarships are triggered automatically at GMAT 680+.",
+    highlights:["QS Business Analytics #13 (2026)","Optimisation and decision-science depth","GMAT 680+ auto-shortlists for a WBS scholarship","UK Graduate Route: 24 months after graduation"] },
+
+  { id:477, school:"IE Business School", program:"Master in Business Analytics and Big Data", city:"Madrid", country:"Spain", flag:"🇪🇸", region:"Europe",
+    fields:["Analytics","AI"], months:11, lang:"English", tuition:41000, intake:"September / January", deadline:"Rolling", work:"0–3 yrs", gmat:true, scholar:true, link:"https://www.ie.edu/school-human-sciences-technology/masters/global-master-business-analytics-big-data/", extRank:"QS Business Analytics #14 (2026)", rank:467,
+    openFields:["Business & Economics","STEM & Engineering"], freshGradOnly:false,
+    blurb:"Run by IE's School of Science and Technology rather than the business school, which gives it more engineering content than IE's other master's — and two intakes a year, which is rare in this category.",
+    highlights:["QS Business Analytics #14 (2026)","Run by IE's School of Science & Technology","Two intakes a year (September and January)","Spain's 12-month post-study job-search permit"] },
+
+  { id:478, school:"Melbourne Business School", program:"Master of Business Analytics", city:"Melbourne", country:"Australia", flag:"🇦🇺", region:"Asia-Pacific",
+    fields:["Analytics","Management"], months:12, lang:"English", tuition:46500, intake:"January", deadline:"Rolling", work:"0–2 yrs", gmat:true, scholar:true, link:"https://mbs.edu/", extRank:"QS Business Analytics #19 (2026)", rank:468,
+    openFields:["Business & Economics","STEM & Engineering"], freshGradOnly:false,
+    blurb:"Australia's highest-ranked analytics master's, at the country's leading business school, with an industry project and an unusually generous post-study work window compared with US or UK equivalents.",
+    highlights:["QS Business Analytics #19 (2026)","Australia's top-ranked analytics master's","Industry project built into the year","Temporary Graduate visa: 24–36 months"] },
+
+  { id:479, school:"McGill University — Desautels", program:"Master of Management in Analytics", city:"Montreal", country:"Canada", flag:"🇨🇦", region:"North America",
+    fields:["Analytics","Management"], months:12, lang:"English", tuition:52500, intake:"August", deadline:"Rolling", work:"0–2 yrs", gmat:true, scholar:true, link:"https://www.mcgill.ca/desautels/programs/mma", extRank:"QS Business Analytics #20 (2026)", rank:469,
+    openFields:["Business & Economics","STEM & Engineering"], freshGradOnly:false,
+    blurb:"Montreal is one of the world's densest AI research clusters (Mila, Element AI's successors, Google Brain and Meta labs), and McGill's analytics master's sits directly inside it at a fraction of US tuition.",
+    highlights:["QS Business Analytics #20 (2026)","Montreal's AI research cluster","Canadian PGWP: up to 36 months","Substantial tuition waiver for Canadians/PRs"] },
+
+  { id:480, school:"Esade Business School", program:"MSc in Business Analytics", city:"Barcelona", country:"Spain", flag:"🇪🇸", region:"Europe",
+    fields:["Analytics","Management"], months:12, lang:"English", tuition:35000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:true, scholar:true, link:"https://www.esade.edu/master-of-science/en/programme/esade-master-in-business-analytics/academics/curriculum", extRank:"QS Business Analytics #23 (2026)", rank:470,
+    openFields:["Business & Economics","STEM & Engineering"], freshGradOnly:true,
+    blurb:"A pre-experience analytics master's in Barcelona, positioned for consulting and product-analytics roles rather than data-engineering ones, with Esade's talent-and-need awards covering 50–85% of tuition for some students.",
+    highlights:["QS Business Analytics #23 (2026)","Talent-and-need awards cover 50–85% of tuition","Consulting and product-analytics positioning","Spain's 12-month post-study job-search permit"] },
+
+  { id:481, school:"Alliance Manchester Business School", program:"MSc Business Analytics and Artificial Intelligence", city:"Manchester", country:"United Kingdom", flag:"🇬🇧", region:"Europe",
+    fields:["Analytics","AI"], months:12, lang:"English", tuition:42000, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.alliancembs.manchester.ac.uk/study/masters/msc-business-analytics-and-artificial-intelligence/", extRank:"QS Business Analytics #24 (2026)", rank:471,
+    openFields:["Business & Economics","STEM & Engineering"], freshGradOnly:false,
+    blurb:"Grown out of Manchester's operational-research and risk-analysis tradition, this degree keeps a strong OR core alongside the machine-learning content — and no GMAT is required.",
+    highlights:["QS Business Analytics #24 (2026)","Operational-research and risk-analysis heritage","No GMAT/GRE required","UK Graduate Route: 24 months after graduation"] },
 ];
 
 const FIELDS  = ["Management","Finance","Analytics","Strategy","Marketing","Entrepreneurship","Economics","Sustainability",
