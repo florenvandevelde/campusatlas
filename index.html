@@ -601,6 +601,15 @@
   .footer-link.inline { display: inline; text-decoration: underline; }
   .source-line { font-size: 11.5px; color: var(--ink-3); margin-top: 6px; line-height: 1.5; }
   .source-line a { text-decoration: underline; }
+  .prep-jump { margin-top: 14px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .prep-jump-note { font-size: 12px; color: var(--ink-3); flex: 1 1 220px; min-width: 0; }
+  .test-prep-hub { margin-top: 40px; padding-top: 8px; border-top: 1px solid var(--line); }
+  .test-prep-hub .prep-title { margin: 0 0 8px; }
+  .prep-table-wrap { overflow-x: auto; margin: 4px 0 16px; }
+  .prep-table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 13px; }
+  .prep-table th, .prep-table td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .prep-table th { font-weight: 700; color: var(--ink-2); white-space: nowrap; }
+  .prep-table tbody tr:last-child td { border-bottom: 0; }
   .row-action { align-self: center; flex-shrink: 0; }
   .action-btn { white-space: nowrap; padding: 8px 14px; font-size: 12.5px; }
 
@@ -1204,6 +1213,220 @@
         </div>
       </details>
 
+    </div>
+
+    <!-- ============================================================
+         GMAT / GRE PREPARATION HUB
+         Structure, scoring and timings below are taken from GMAC's and ETS's own
+         pages (mba.com exam-structure + scores, ets.org test-structure) and are
+         current for the 2026-27 cycle. Both bodies change formats occasionally —
+         the GMAT moved to the Focus Edition in 2023 and the GRE was shortened the
+         same year — so every claim here links back to the source that states it.
+         ============================================================ -->
+    <div id="testPrepHub" class="test-prep-hub">
+      <div class="subpage-head" style="margin-top:8px">
+        <div class="eyebrow"><span class="dot"></span> Admissions tests</div>
+        <h2 class="prep-title">The GMAT and GRE, end to end.</h2>
+        <p class="lede">What each test actually is, how it is scored, how to choose between them, and a preparation plan that fits around a job. Figures here come from GMAC and ETS directly — each block links to the page it came from.</p>
+      </div>
+
+      <details class="cat-card" open>
+        <summary class="cat-head"><span class="cat-num">A</span>
+          <div><h3>GMAT or GRE — which one?</h3><p>Almost every business school now takes both. The choice is about your own strengths, not about prestige.</p></div>
+          <span class="cat-chevron">⌄</span></summary>
+        <div class="cat-body">
+          <p class="scholar-section-sub">There is no longer a "better" test for admissions at the great majority of schools — they are treated as interchangeable and converted onto a common scale internally. What differs is what each rewards, so choose on fit and then commit; switching halfway is the single most expensive mistake here.</p>
+          <h4>Choose the GMAT if…</h4>
+          <ul class="tip-list">
+            <li>You are aiming at an MBA or a management master's and want the test the admissions committee sees most often — GMAC states that more than 7 in 10 business-school test takers use it.</li>
+            <li>You are comfortable with dense logic and data interpretation. <b>Data Insights</b> is a third of the exam and has no GRE equivalent.</li>
+            <li>You like being able to <b>edit up to three answers</b> per section and to choose the order you sit them in.</li>
+            <li>You want a score that is unambiguous to a business school with no conversion step.</li>
+          </ul>
+          <h4>Choose the GRE if…</h4>
+          <ul class="tip-list">
+            <li>You are applying to a mix of business and non-business master's — engineering, policy, data science — where the GRE is often the only one accepted.</li>
+            <li>Your vocabulary and reading are stronger than your data-handling. GRE Verbal rewards lexical range in a way GMAT Verbal does not.</li>
+            <li>You want a shorter sitting: about <b>1 hour 58 minutes</b> against the GMAT's <b>2 hours 15 minutes</b>.</li>
+            <li>You want an on-screen calculator throughout the quantitative sections.</li>
+          </ul>
+          <h4>Before you decide</h4>
+          <ul class="tip-list">
+            <li>Check each target programme's own page — a minority still state a preference, and some waive the test entirely for strong academic records or several years of work experience.</li>
+            <li>Sit one free official practice test of each in the same week and compare percentiles, not raw scores. That comparison is worth more than any online quiz.</li>
+            <li>Both scores are valid for <b>five years</b>, so a good score taken early does not go to waste.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="cat-card">
+        <summary class="cat-head"><span class="cat-num">B</span>
+          <div><h3>GMAT structure and scoring</h3><p>Three sections, 2 h 15 m, 64 questions. Total score 205–805.</p></div>
+          <span class="cat-chevron">⌄</span></summary>
+        <div class="cat-body">
+          <div class="prep-table-wrap"><table class="prep-table">
+            <thead><tr><th>Section</th><th>Questions</th><th>Time</th><th>What it tests</th></tr></thead>
+            <tbody>
+              <tr><td>Quantitative Reasoning</td><td>21</td><td>45 min</td><td>Problem solving in arithmetic and algebra. No calculator, and no geometry in the Focus Edition.</td></tr>
+              <tr><td>Verbal Reasoning</td><td>23</td><td>45 min</td><td>Reading comprehension and critical reasoning. Sentence correction was removed in the Focus Edition.</td></tr>
+              <tr><td>Data Insights</td><td>20</td><td>45 min</td><td>Data sufficiency, tables, graphs, multi-source reasoning and two-part analysis. Calculator provided here only.</td></tr>
+            </tbody>
+          </table></div>
+          <h4>How it is scored</h4>
+          <ul class="tip-list">
+            <li><b>Total score 205–805</b>, in intervals of 10 — every valid total ends in a 5. All three sections are weighted equally.</li>
+            <li><b>Section scores run 60–90</b>, in intervals of 1.</li>
+            <li>The standard error of measurement is <b>30–40 points</b> on the total and about 3 points per section. Two scores 20 points apart are not meaningfully different — do not retake to chase that.</li>
+            <li>There is a <b>penalty for unanswered questions</b>, so guessing on everything you cannot finish is strictly better than leaving it blank.</li>
+            <li>You see unofficial section and total scores on screen immediately. You may not photograph or record them.</li>
+            <li>Scores are valid five years, and GMAC's <b>Superscore</b> combines your best section scores across attempts.</li>
+          </ul>
+          <h4>Test-day features worth rehearsing</h4>
+          <ul class="tip-list">
+            <li><b>Select Section Order</b>: you choose the order of the three sections. Practise in the order you intend to sit them.</li>
+            <li><b>Question Review &amp; Edit</b>: bookmark as you go, then change up to <b>three</b> answers per section at the end — but only if time remains. Run out of time and the review screen is skipped entirely.</li>
+            <li>One optional <b>10-minute break</b>, taken after either the first or the second section.</li>
+          </ul>
+          <p class="source-line">Structure and scoring read from <a href="https://www.mba.com/exams/gmat-exam/about/exam-structure" target="_blank" rel="noopener noreferrer">GMAC's exam-structure page</a> and <a href="https://www.mba.com/exams/gmat-exam/scores" target="_blank" rel="noopener noreferrer">its scoring page</a> · confirm there before you rely on it</p>
+        </div>
+      </details>
+
+      <details class="cat-card">
+        <summary class="cat-head"><span class="cat-num">C</span>
+          <div><h3>GRE structure and scoring</h3><p>Five sections, about 1 h 58 m. Verbal and Quant each 130–170.</p></div>
+          <span class="cat-chevron">⌄</span></summary>
+        <div class="cat-body">
+          <div class="prep-table-wrap"><table class="prep-table">
+            <thead><tr><th>Section</th><th>Questions</th><th>Time</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td>Analytical Writing</td><td>One "Analyze an Issue" task</td><td>30 min</td><td>Always the first section.</td></tr>
+              <tr><td>Verbal Reasoning — section 1</td><td>12</td><td>18 min</td><td rowspan="2">Verbal and Quant may appear in any order after the writing task.</td></tr>
+              <tr><td>Verbal Reasoning — section 2</td><td>15</td><td>23 min</td></tr>
+              <tr><td>Quantitative Reasoning — section 1</td><td>12</td><td>21 min</td><td rowspan="2">On-screen calculator available.</td></tr>
+              <tr><td>Quantitative Reasoning — section 2</td><td>15</td><td>26 min</td></tr>
+            </tbody>
+          </table></div>
+          <h4>How it is scored</h4>
+          <ul class="tip-list">
+            <li><b>Verbal Reasoning 130–170</b> and <b>Quantitative Reasoning 130–170</b>, both in 1-point steps.</li>
+            <li><b>Analytical Writing 0–6</b>, in half-point steps, reported separately. Most business and engineering programmes weight it lightly — but a very low score is noticed.</li>
+            <li>The test is <b>section-level adaptive</b>: how you perform on the first Verbal or Quant section determines the difficulty of the second. Front-loaded accuracy therefore matters more than it looks.</li>
+            <li>Scores are valid five years, and <b>ScoreSelect</b> lets you decide which sittings a school sees.</li>
+          </ul>
+          <p class="source-line">Section counts and timings read from <a href="https://www.ets.org/gre/test-takers/general-test/prepare/test-structure.html" target="_blank" rel="noopener noreferrer">ETS's GRE test-structure page</a> · confirm there before you rely on it</p>
+        </div>
+      </details>
+
+      <details class="cat-card">
+        <summary class="cat-head"><span class="cat-num">D</span>
+          <div><h3>An eight-week plan that survives a full-time job</h3><p>Roughly 8–10 hours a week. Longer if you are rebuilding maths from scratch.</p></div>
+          <span class="cat-chevron">⌄</span></summary>
+        <div class="cat-body">
+          <p class="scholar-section-sub">The structure matters more than the hours. Almost everyone who under-performs did the same thing: solved hundreds of questions without ever analysing the ones they got wrong.</p>
+          <h4>Weeks 1–2 · Diagnose, don't study</h4>
+          <ul class="tip-list">
+            <li>Sit one full official practice test cold, timed, in one sitting. The number is not the point — the section and question-type breakdown is.</li>
+            <li>Build an <b>error log</b> from day one: question, your answer, correct answer, and the real reason you missed it — concept gap, misread, or timing. This single habit separates a 40-point gain from a 100-point one.</li>
+            <li>Relearn fundamentals before drilling. Doing 500 questions on a shaky foundation just practises the mistake.</li>
+          </ul>
+          <h4>Weeks 3–5 · Build accuracy, ignore the clock</h4>
+          <ul class="tip-list">
+            <li>Work untimed by question type until accuracy is above 80% in a type before you time it. Speed follows accuracy; it never leads it.</li>
+            <li>Review every question you got right but were unsure about — those are the ones that will fail you under pressure.</li>
+            <li>For GMAT Data Insights and GRE Quant, practise reading the question <em>before</em> the chart or table. Most of the time pressure here is self-inflicted.</li>
+          </ul>
+          <h4>Weeks 6–7 · Timing and stamina</h4>
+          <ul class="tip-list">
+            <li>Move to timed sets, then full sections, then a full test a week — at the same time of day as your real booking.</li>
+            <li>Learn your abandon rule: decide in advance how long you will give any single question (about 2 minutes on GMAT Quant/Verbal) and practise letting go at that point.</li>
+            <li>Rehearse the mechanics — GMAT section order and the three-answer edit, or the GRE's within-section navigation — so nothing on the day is new.</li>
+          </ul>
+          <h4>Week 8 · Taper</h4>
+          <ul class="tip-list">
+            <li>Last full practice test no later than five days before. After that, review your error log only.</li>
+            <li>Do not learn new material in the final week. It displaces recall of what you already know.</li>
+            <li>Book the real test <em>before</em> you feel ready. Open-ended preparation expands to fill the time and rarely improves the score.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="cat-card">
+        <summary class="cat-head"><span class="cat-num">E</span>
+          <div><h3>Section tactics that actually move the score</h3><p>The handful of habits that separate a first attempt from a second.</p></div>
+          <span class="cat-chevron">⌄</span></summary>
+        <div class="cat-body">
+          <h4>Quantitative (both tests)</h4>
+          <ul class="tip-list">
+            <li>The GMAT Focus Edition has <b>no geometry</b> — do not spend weeks on it. The GRE does still test it.</li>
+            <li>Learn to test the answer choices and to pick smart numbers. On many questions this is faster than the algebra.</li>
+            <li>The GMAT gives you no calculator outside Data Insights; the GRE gives you one throughout. Practise under the right constraint.</li>
+          </ul>
+          <h4>Verbal</h4>
+          <ul class="tip-list">
+            <li>GMAT Critical Reasoning: identify the conclusion before you read the options. Most wrong answers are true statements that simply do not affect the argument.</li>
+            <li>GMAT Reading Comprehension: map the passage's structure, not its details. You can look details up; you cannot re-read for structure under time.</li>
+            <li>GRE Text Completion and Sentence Equivalence reward vocabulary breadth — but learn words in context, not from isolated flashcards.</li>
+          </ul>
+          <h4>GMAT Data Insights</h4>
+          <ul class="tip-list">
+            <li>Data sufficiency asks whether you <em>could</em> answer, not what the answer is. Solving it fully is the classic time sink.</li>
+            <li>Multi-source reasoning: read the tabs once, properly, before touching the questions.</li>
+            <li>This section is a full third of your total score and is where most candidates under-prepare.</li>
+          </ul>
+          <h4>GRE Analytical Writing</h4>
+          <ul class="tip-list">
+            <li>One task, 30 minutes. Spend five of them planning — unplanned essays read as unplanned.</li>
+            <li>Concede a counter-argument explicitly and answer it. That single move lifts more essays than better prose does.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="cat-card">
+        <summary class="cat-head"><span class="cat-num">F</span>
+          <div><h3>Booking, test day and sending scores</h3><p>The logistics that quietly cost people a cycle.</p></div>
+          <span class="cat-chevron">⌄</span></summary>
+        <div class="cat-body">
+          <ul class="tip-list">
+            <li><b>Book early.</b> Centre slots in smaller cities go weeks ahead, and rescheduling close to the date costs a fee.</li>
+            <li><b>Leave room for a retake.</b> Plan your first sitting at least 8–10 weeks before your earliest deadline. Almost nobody peaks first time, and a retake needs a gap of several weeks.</li>
+            <li><b>ID must match your registration exactly</b> — the name on your passport, in the same order. Mismatches turn people away at the door.</li>
+            <li>Both tests can be taken <b>at home</b> as well as at a centre. At-home sittings need a clear room, a supported machine and a system check done in advance, not on the day.</li>
+            <li>You see unofficial scores immediately on the GMAT and can then choose where they go; official reports follow by email.</li>
+            <li>Send scores to more schools than you are certain about — adding recipients later usually costs extra.</li>
+          </ul>
+          <h4>Common, avoidable mistakes</h4>
+          <ul class="tip-list">
+            <li>Grinding questions without an error log, so the same mistake repeats for eight weeks.</li>
+            <li>Practising untimed right up to test day, then meeting the clock for the first time on the day itself.</li>
+            <li>Chasing a 20-point improvement that sits inside the test's own margin of error.</li>
+            <li>Assuming the test is required. Check each programme — waivers are more common than they were, and the catalogue flags which entries expect a score.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="cat-card">
+        <summary class="cat-head"><span class="cat-num">G</span>
+          <div><h3>Resources</h3><p>Official material first — it is the only source with real retired questions.</p></div>
+          <span class="cat-chevron">⌄</span></summary>
+        <div class="cat-body">
+          <h4>Official — start here</h4>
+          <ul class="resource-list">
+            <li><a href="https://www.mba.com/exams/gmat-exam/prepare-for-the-gmat-exam" target="_blank" rel="noopener noreferrer">GMAT Official Prep (GMAC)</a> — the official practice exams and question banks. Two free practice tests come with an mba.com account.</li>
+            <li><a href="https://www.ets.org/gre/test-takers/general-test/prepare.html" target="_blank" rel="noopener noreferrer">GRE Official Prep (ETS)</a> — POWERPREP practice tests, free and paid, using retired questions.</li>
+            <li><a href="https://www.mba.com/exams/gmat-exam/about/exam-structure" target="_blank" rel="noopener noreferrer">GMAT exam structure</a> and <a href="https://www.mba.com/exams/gmat-exam/scores" target="_blank" rel="noopener noreferrer">GMAT scoring</a> — the authoritative description of both.</li>
+            <li><a href="https://www.ets.org/gre/test-takers/general-test/prepare/test-structure.html" target="_blank" rel="noopener noreferrer">GRE test structure</a> — section counts and timings.</li>
+            <li><a href="https://www.ets.org/gre/test-takers/general-test/register/fees.html" target="_blank" rel="noopener noreferrer">GRE fees by country</a> — the fee genuinely varies by where you sit it.</li>
+          </ul>
+          <h4>Community and third-party</h4>
+          <ul class="resource-list">
+            <li><a href="https://gmatclub.com" target="_blank" rel="noopener noreferrer">GMAT Club</a> — the largest question archive and error-log community, plus a free forum-run practice test.</li>
+            <li><a href="https://www.manhattanprep.com" target="_blank" rel="noopener noreferrer">Manhattan Prep</a> — strategy guides and courses, strongest on Quant fundamentals.</li>
+            <li><a href="https://magoosh.com" target="_blank" rel="noopener noreferrer">Magoosh</a> — video-led self-study at a much lower price point than classroom courses.</li>
+            <li><a href="https://poetsandquants.com" target="_blank" rel="noopener noreferrer">Poets&amp;Quants</a> — score context: what ranges the schools you are targeting actually admit.</li>
+          </ul>
+          <p class="scholar-section-sub">We take no commission from any of these and none of them paid to appear. Official material is listed first because it is the only place retired questions come from — third-party questions approximate the real thing, sometimes badly.</p>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -6673,7 +6896,7 @@ function applicationChecklistCard(p) {
     <div class="breakdown-head"><div class="breakdown-prog-meta"><span class="flag">${p.flag}</span><div><h3>${p.school} — ${p.program}</h3><p>${p.city}, ${p.country} · Taught in ${p.lang} · Target intake: ${p.intake} · Tuition: ${tuitionDisplay(p)}</p></div></div><div class="breakdown-summary-badge"><span class="total-support-label">Next application deadline</span><span class="total-support-val">${p.deadline} · verify live</span></div></div>
     <div class="programme-focus"><p><b>${t.label}.</b> ${t.detail}</p><p style="margin-top:9px"><a href="${p.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Open official application page ↗</a></p></div>
     <div class="checklist-cats">
-      <details class="cat-card" open><summary class="cat-head"><span class="cat-num">01</span><div><h3>GMAT / GRE</h3><p>${p.gmat ? "Required or expected in the catalogue record." : "Not required in the catalogue record."}</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">${p.gmat ? "Plan early and verify waiver and score requirements on the official portal." : "Focus on the other application steps unless the official portal says otherwise."}</p>${p.gmat ? gmatAvgNote(p) : ""}<div class="locator"><label class="pfield"><span>Find a test centre near you</span><input class="loc-search" id="focusGmatLocation${suffix}" list="locationList" placeholder="Any city or address…" autocomplete="off"></label><button class="btn primary" data-find-gmat="${suffix}" type="button">Find test centres</button></div><div class="locator-results" id="focusGmatResults${suffix}"></div><h4>Preparation resources</h4><ul class="resource-list"><li><a href="https://www.mba.com/exams/gmat-exam/prepare-for-the-gmat-exam" target="_blank" rel="noopener noreferrer">GMAT Official Prep</a> — official practice exams and study materials.</li><li><a href="https://www.ets.org/gre/test-takers/general-test/prepare.html" target="_blank" rel="noopener noreferrer">ETS GRE Official Prep</a> — official POWERPREP tests.</li><li><a href="https://www.manhattanprep.com" target="_blank" rel="noopener noreferrer">Manhattan Prep</a> — courses and tutoring.</li></ul></div></details>
+      <details class="cat-card" open><summary class="cat-head"><span class="cat-num">01</span><div><h3>GMAT / GRE</h3><p>${p.gmat ? "Required or expected in the catalogue record." : "Not required in the catalogue record."}</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">${p.gmat ? "Plan early and verify waiver and score requirements on the official portal." : "Focus on the other application steps unless the official portal says otherwise."}</p>${p.gmat ? gmatAvgNote(p) : ""}<div class="locator"><label class="pfield"><span>Find a test centre near you</span><input class="loc-search" id="focusGmatLocation${suffix}" list="locationList" placeholder="Any city or address…" autocomplete="off"></label><button class="btn primary" data-find-gmat="${suffix}" type="button">Find test centres</button></div><div class="locator-results" id="focusGmatResults${suffix}"></div><div class="prep-jump"><button type="button" class="btn primary" data-jump-prep>Full GMAT &amp; GRE guide — structure, scoring, 8-week plan ↓</button><span class="prep-jump-note">Test format, section tactics, booking and resources, at the bottom of this page.</span></div></div></details>
       <details class="cat-card"><summary class="cat-head"><span class="cat-num">02</span><div><h3>English-language test</h3><p>Recorded accepted tests: ${engTests}.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">Confirm minimum score and exemption rules on ${p.school}'s official portal.</p><div class="locator"><label class="pfield"><span>Find an English-test centre near you</span><input class="loc-search" id="focusEnglishLocation${suffix}" list="locationList" placeholder="Any city or address…" autocomplete="off"></label><button class="btn primary" data-find-english="${suffix}" type="button">Find test centres</button></div><div class="locator-results" id="focusEnglishResults${suffix}"></div><h4>Preparation resources</h4><ul class="resource-list">${engTestsList.includes("TOEFL iBT") ? `<li><a href="https://www.ets.org/toefl.html" target="_blank" rel="noopener noreferrer">ETS TOEFL Official Prep</a></li>` : ""}${engTestsList.includes("IELTS Academic") ? `<li><a href="https://www.ielts.org" target="_blank" rel="noopener noreferrer">IELTS official practice</a></li>` : ""}${engTestsList.includes("Duolingo English Test") ? `<li><a href="https://englishtest.duolingo.com" target="_blank" rel="noopener noreferrer">Duolingo English Test</a> — remote option, accepted per this catalogue's regional record.</li>` : ""}${engTestsList.includes("PTE Academic") ? `<li><a href="https://www.pearsonpte.com" target="_blank" rel="noopener noreferrer">PTE Academic Official Prep</a></li>` : ""}</ul></div></details>
       <details class="cat-card"><summary class="cat-head"><span class="cat-num">03</span><div><h3>Academic documents &amp; CV</h3><p>Transcript, degree certificate/expected-graduation proof and CV.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.docs}</div>` : ""}<ul class="tip-list"><li>Prepare official transcripts and certified English translations if needed.</li><li>Prepare your degree certificate or expected-graduation letter.</li><li>${strategy.cv}</li></ul></div></details>
       <details class="cat-card"><summary class="cat-head"><span class="cat-num">04</span><div><h3>Statement of purpose / essays</h3><p>Programme-specific motivation and career goals.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.essays}</div>` : `<p class="scholar-section-sub">Not individually researched for this programme yet. As a general guide, most competitive masters/MBA essays run 400–650 words per prompt across 1–3 prompts, and cover: (1) why this programme specifically, not master's degrees in general, (2) your relevant story/evidence, (3) concrete short- and long-term goals it enables. Confirm the actual prompts and word limits on the official portal — they change most cycles.</p>`}<ul class="tip-list"><li>${strategy.sopField}</li><li>${strategy.sop}</li><li>Verify prompts, word count and submission format on the official portal.</li><li>Leave time for several revisions and an outside reader.</li></ul><h4>Widely-used essay resources</h4><ul class="resource-list"><li><a href="https://www.mbamission.com/blog/" target="_blank" rel="noopener noreferrer">mbaMission essay guides</a> — free, school-specific essay breakdowns updated each cycle.</li><li><a href="https://poetsandquants.com/" target="_blank" rel="noopener noreferrer">Poets&amp;Quants</a> — the most-read MBA admissions news site, with extensive essay and application-strategy coverage.</li>${SCHOOL_CLEARADMIT[p.school] ? `<li><a href="${SCHOOL_CLEARADMIT[p.school]}" target="_blank" rel="noopener noreferrer">${escapeHTML(p.school)} on Clear Admit</a> — real admit interviews and essay analysis for this specific school.</li>` : ""}</ul></div></details>
@@ -6924,6 +7147,15 @@ function renderSingleApplicationChecklist() {
   board.querySelectorAll("[data-find-english]").forEach(btn => btn.addEventListener("click", () => { const id = btn.dataset.findEnglish; renderLocator("toefl", `focusEnglishResults${id}`, `focusEnglishLocation${id}`); }));
   board.querySelectorAll("[data-remove-checklist]").forEach(btn => btn.addEventListener("click", () => { state.checklist.delete(+btn.dataset.removeChecklist); renderApplicationChecklist(); }));
   board.querySelectorAll("[data-download-checklist]").forEach(btn => btn.addEventListener("click", () => downloadChecklistPDF(+btn.dataset.downloadChecklist)));
+  // Jump to the prep hub at the bottom of this page and open its first card, so the
+  // reader lands on content rather than on a row of collapsed headings.
+  board.querySelectorAll("[data-jump-prep]").forEach(btn => btn.addEventListener("click", () => {
+    const hub = $("testPrepHub");
+    if (!hub) return;
+    const first = hub.querySelector("details.cat-card");
+    if (first) first.open = true;
+    hub.scrollIntoView({ behavior: "smooth", block: "start" });
+  }));
 }
 
 function renderApplicationChecklist() {
