@@ -6407,6 +6407,7 @@ function openModal(id) {
       <p>${p.blurb}</p>
       <h5>What stands out</h5>
       <ul>${p.highlights.map(h => `<li>${h}</li>`).join("")}</ul>
+      ${outcomesHTML(p)}
       <div class="actions">
         <a class="btn" href="${p.link}" target="_blank" rel="noopener noreferrer">Official programme page ↗</a>
         <button class="btn primary" id="modalCompare">
@@ -6821,6 +6822,54 @@ function gmatAvgNote(p) {
 // profiles) — a well-known, genuine admissions-journalism site with per-school
 // coverage. Schools not in this list fall back to a live site-scoped search instead
 // of a guessed URL, so we never link somewhere that might not exist.
+/* ============================================================
+   ALUMNI OUTCOMES — where graduates of a programme end up.
+
+   Keyed by programme id. Every field is optional and only rendered when present,
+   and every entry carries a `source` {url,label} that the card links to, because
+   this is exactly the kind of number that is easy to find in a plausible-looking
+   form and wrong. The rule, same as tuition and scholarship odds: only figures
+   read from the school's own employment report or programme page, quoted with the
+   class year, never an estimate. A programme with no verified data simply has no
+   entry and the card says outcome data was not found rather than inventing one.
+
+   Fields: employedRate (%), employedWindow (e.g. "within 3 months"), salary
+   (string, keep the school's own currency), sectors[] , employers[], alumniCount,
+   alumniCountries, note, classYear, source {url,label}.
+   ============================================================ */
+const PROGRAMME_OUTCOMES = {
+  // London Business School — Masters in Management. Verified from LBS's own MiM
+  // page (london.edu/masters-degrees/masters-in-management), Aug 2026.
+  2: {
+    employedRate: 92, employedWindow: "within 3 months of graduation",
+    salary: "up to £102,593",
+    sectors: ["Consulting", "Financial services", "Technology"],
+    classYear: "most recent reported class",
+    source: { url: "https://www.london.edu/masters-degrees/masters-in-management", label: "LBS Masters in Management page" },
+  },
+};
+
+function outcomesHTML(p) {
+  const o = PROGRAMME_OUTCOMES[p.id];
+  if (!o) {
+    return `<h5>Où finissent les diplômés</h5>
+      <p class="scholar-section-sub" style="margin-bottom:0">We haven't yet verified an employment report for this programme against ${escapeHTML(p.school)}'s own figures, so nothing is shown rather than an estimate. Most schools publish one — check the "careers" or "employment report" section of the <a href="${p.link}" target="_blank" rel="noopener noreferrer">official programme page</a>.</p>`;
+  }
+  const rows = [];
+  if (o.employedRate != null) rows.push(`<li><b>${o.employedRate}% employed</b>${o.employedWindow ? " " + o.employedWindow : ""}</li>`);
+  if (o.salary) rows.push(`<li>Reported salary: <b>${o.salary}</b></li>`);
+  if (o.sectors && o.sectors.length) rows.push(`<li>Top sectors: ${o.sectors.join(" · ")}</li>`);
+  if (o.employers && o.employers.length) rows.push(`<li>Recruiters include: ${o.employers.join(" · ")}</li>`);
+  if (o.alumniCount) rows.push(`<li>Alumni network: <b>${o.alumniCount}</b>${o.alumniCountries ? ` across ${o.alumniCountries}` : ""}</li>`);
+  if (o.note) rows.push(`<li>${o.note}</li>`);
+  return `<h5>Où finissent les diplômés</h5>
+    <div class="elig elig-eligible">
+      <div class="elig-head"><span class="dot"></span> ${o.classYear ? `From ${o.school || p.school}'s ${o.classYear}` : "Reported outcomes"}</div>
+      <ul>${rows.join("")}</ul>
+      <p style="margin-top:8px">Figures as published by the school; they are re-set each class year. ${o.source ? `Source: <a href="${o.source.url}" target="_blank" rel="noopener noreferrer">${escapeHTML(o.source.label)}</a>.` : ""}</p>
+    </div>`;
+}
+
 const SCHOOL_CLEARADMIT = {
   "INSEAD": "https://www.clearadmit.com/schools/insead/",
   "University of Pennsylvania — Wharton": "https://www.clearadmit.com/schools/wharton/",
