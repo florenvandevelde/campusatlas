@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Campus Atlas — Find your master's abroad</title>
+<title>Campus Atlas — Trouvez votre master à l'étranger</title>
 <!-- Leaflet is deliberately NOT loaded here. Pulling it from a CDN on page load would
      disclose every visitor's IP address to unpkg.com before they have asked for a map.
      loadLeaflet() injects it on demand, the first time someone actually runs a test-centre
@@ -845,7 +845,7 @@
 
 <header class="site">
   <div class="wrap site-bar">
-    <button class="logo" id="logoHome" aria-label="Campus Atlas home"><svg class="mark" width="24" height="24" viewBox="0 0 26 26" fill="none" aria-hidden="true">
+    <button class="logo" id="logoHome" aria-label="Accueil Campus Atlas"><svg class="mark" width="24" height="24" viewBox="0 0 26 26" fill="none" aria-hidden="true">
       <circle cx="13" cy="13" r="10.25" stroke="currentColor" stroke-width="1.3"/>
       <ellipse cx="13" cy="13" rx="4.4" ry="10.25" stroke="currentColor" stroke-width="1.1"/>
       <line x1="2.75" y1="13" x2="23.25" y2="13" stroke="currentColor" stroke-width="1.1"/>
@@ -854,40 +854,40 @@
     </svg> Campus&nbsp;Atlas</button>
     <nav class="main" id="mainNav">
       <button class="navlink" data-page="programmes">Programmes</button>
-      <button class="navlink" data-page="about">About Campus Atlas</button>
+      <button class="navlink" data-page="about">À propos de Campus Atlas</button>
     </nav>
     <span class="spacer"></span>
     <div class="header-tools">
       <div class="header-tool-group">
       <button class="btn" id="compareBtn">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3v18M15 3v18M5 8h4M15 8h4M5 16h4M15 16h4"/></svg>
-        <span class="label">Compare</span>
+        <span class="label">Comparer</span>
       </button>
       <button class="btn header-action" id="applicationChecklistBtn" data-page-action="checklist" type="button">
-        <span class="label">Application Checklist</span>
+        <span class="label">Check-list de candidature</span>
       </button>
       <button class="btn header-action" id="scholarshipsBtn" data-page-action="scholarships" type="button">
-        <span class="label">Scholarships</span>
+        <span class="label">Bourses</span>
       </button>
-      <span class="shortlist-indicator" tabindex="0" aria-label="How to use your shortlist">
+      <span class="shortlist-indicator" tabindex="0" aria-label="Comment utiliser votre sélection">
         <span class="pill-count" id="compareCount">0</span>
         <span class="shortlist-tooltip" role="tooltip">
-          <strong>Build your shortlist</strong>
-          <span>First add programmes to your shortlist to compare.</span>
-          <span>Check your checklists.</span>
-          <span>Check out scholarships for your situation.</span>
+          <strong>Constituez votre sélection</strong>
+          <span>Ajoutez d'abord des programmes à votre sélection pour les comparer.</span>
+          <span>Consultez vos check-lists.</span>
+          <span>Découvrez les bourses adaptées à votre situation.</span>
         </span>
       </span>
       </div>
       <!-- data-lang-switch is rewritten per build by build-i18n.js so the active
            language is marked and the hrefs stay correct from /, /nl/ and /fr/. -->
-      <nav class="lang-switch" data-lang-switch aria-label="Language">
-        <a href="./" hreflang="en" class="lang-opt is-active" aria-current="true">EN</a>
-        <a href="nl/" hreflang="nl" class="lang-opt">NL</a>
-        <a href="fr/" hreflang="fr" class="lang-opt">FR</a>
+      <nav class="lang-switch" data-lang-switch aria-label="Langue">
+        <a href="../" hreflang="en" class="lang-opt">EN</a>
+        <a href="../nl/" hreflang="nl" class="lang-opt">NL</a>
+        <a href="../fr/" hreflang="fr" class="lang-opt is-active" aria-current="true">FR</a>
       </nav>
     </div>
-    <button class="hamburger" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+    <button class="hamburger" id="navToggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="2" y1="5" x2="16" y2="5"/><line x1="2" y1="9" x2="16" y2="9"/><line x1="2" y1="13" x2="16" y2="13"/></svg>
     </button>
   </div>
@@ -900,18 +900,18 @@
       <path d="M4.6 18.4C8 16.9 18 16.9 21.4 18.4" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
     </svg> Campus&nbsp;Atlas</button>
     <button class="mm-item mm-navlink" data-page="programmes" type="button">Programmes</button>
-    <button class="mm-item mm-navlink" data-page="about" type="button">About Campus Atlas</button>
+    <button class="mm-item mm-navlink" data-page="about" type="button">À propos de Campus Atlas</button>
     <div class="mm-divider"></div>
-    <div class="mm-group-label">Your shortlist — <b id="mmShortlistCount">0</b> applies below</div>
-    <button class="mm-item mm-action" id="mmCompare" type="button">Compare <span class="pill-count" id="mmCompareCount">0</span></button>
-    <button class="mm-item mm-action" id="mmChecklist" type="button">Application Checklist <span class="pill-count" id="mmChecklistCount">0</span></button>
-    <button class="mm-item mm-action" id="mmScholarships" type="button">Scholarships <span class="pill-count" id="mmScholarshipsCount">0</span></button>
+    <div class="mm-group-label">Votre sélection — <b id="mmShortlistCount">0</b> candidatures ci-dessous</div>
+    <button class="mm-item mm-action" id="mmCompare" type="button">Comparer <span class="pill-count" id="mmCompareCount">0</span></button>
+    <button class="mm-item mm-action" id="mmChecklist" type="button">Check-list de candidature <span class="pill-count" id="mmChecklistCount">0</span></button>
+    <button class="mm-item mm-action" id="mmScholarships" type="button">Bourses <span class="pill-count" id="mmScholarshipsCount">0</span></button>
     <div class="mm-divider"></div>
-    <div class="mm-group-label">Language</div>
-    <nav class="mm-lang" data-lang-switch aria-label="Language">
-      <a href="./" hreflang="en" class="lang-opt is-active" aria-current="true">English</a>
-      <a href="nl/" hreflang="nl" class="lang-opt">Nederlands</a>
-      <a href="fr/" hreflang="fr" class="lang-opt">Français</a>
+    <div class="mm-group-label">Langue</div>
+    <nav class="mm-lang" data-lang-switch aria-label="Langue">
+      <a href="../" hreflang="en" class="lang-opt">English</a>
+      <a href="../nl/" hreflang="nl" class="lang-opt">Nederlands</a>
+      <a href="../fr/" hreflang="fr" class="lang-opt is-active" aria-current="true">Français</a>
     </nav>
   </div>
 </header>
@@ -932,24 +932,24 @@
 <div id="pageProgrammes">
 <section class="hero">
   <div class="hero-photo-layer" aria-hidden="true">
-    <img class="hpl-base" src="assets/stanford-pencil-hero-v2.png" alt="" />
+    <img class="hpl-base" src="../assets/stanford-pencil-hero-v2.png" alt="" />
     <div class="hpl-grain"></div>
     <div class="hpl-vignette"></div>
     <div class="hpl-wash"></div>
   </div>
   <div class="wrap">
     <div class="eyebrow"><span class="dot"></span> <span id="heroStats">176 programmes · 34 countries · 5 continents</span></div>
-    <h1>The best master's degrees, <em>anywhere</em> on earth.</h1>
+    <h1>Les meilleurs masters, <em>partout</em> dans le monde.</h1>
     <p class="lede">Campus Atlas maps top-ranked master's programmes at the world's leading universities — business, engineering, science and more — so you can compare tuition, length, entry requirements and deadlines side by side, before you commit a year of your life.</p>
 
     <div class="searchbar">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
       <input id="q" type="search" placeholder="Try “physics in Oxford”, “no GMAT”, “Singapore”…" autocomplete="off" />
-      <button class="btn primary search-btn" id="searchBtn" type="button">Search</button>
+      <button class="btn primary search-btn" id="searchBtn" type="button">Rechercher</button>
     </div>
 
     <div class="quick">
-      <span class="lbl">Popular:</span>
+      <span class="lbl">Populaire :</span>
       <button class="chip" data-q="finance">Finance</button>
       <button class="chip" data-q="analytics">Business analytics</button>
       <button class="chip" data-q="management">Management (MiM)</button>
@@ -965,50 +965,50 @@
           <svg width="11" height="11" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
         </span>
         <div>
-          <h3>Your situation <span class="profile-badge" id="profileBadge" hidden></span></h3>
-          <p>Answer a few questions and every programme below is flagged as a match for you — nothing here is submitted anywhere.</p>
+          <h3>Votre situation <span class="profile-badge" id="profileBadge" hidden></span></h3>
+          <p>Répondez à quelques questions et chaque programme ci-dessous indique s'il vous correspond — rien n'est transmis nulle part.</p>
         </div>
-        <button class="profile-reset" id="profileReset" type="button">Clear</button>
+        <button class="profile-reset" id="profileReset" type="button">Effacer</button>
       </summary>
       <div class="profile-grid">
         <label class="pfield">
-          <span>Subject of your bachelor's</span>
+          <span>Discipline de votre licence</span>
           <!-- Options are built from BACKGROUND_OPTIONS so the list, the roll-up to
                the broad buckets programmes are tagged with, and the wording stay in
                one place. -->
           <select id="pField"></select>
         </label>
         <label class="pfield">
-          <span>Already hold a master's?</span>
+          <span>Vous avez déjà un master ?</span>
           <select id="pMaster">
-            <option value="">Not sure</option>
-            <option value="no">No — this would be my first</option>
-            <option value="yes">Yes, I already have one</option>
+            <option value="">Je ne sais pas</option>
+            <option value="no">Non — ce serait mon premier</option>
+            <option value="yes">Oui, j'en ai déjà un</option>
           </select>
         </label>
         <label class="pfield">
-          <span>Work experience</span>
+          <span>Expérience professionnelle</span>
           <select id="pWork">
-            <option value="">Not sure</option>
-            <option value="0">None yet</option>
-            <option value="1">Up to 2 years</option>
-            <option value="2">2–3 years</option>
-            <option value="4">3–5 years</option>
-            <option value="6">5+ years</option>
+            <option value="">Je ne sais pas</option>
+            <option value="0">Aucune pour l'instant</option>
+            <option value="1">Jusqu'à 2 ans</option>
+            <option value="2">2–3 ans</option>
+            <option value="4">3–5 ans</option>
+            <option value="6">5 ans et plus</option>
           </select>
         </label>
       </div>
       <div class="profile-actions">
-        <button class="btn primary" id="profileApply" type="button">Apply to programmes</button>
-        <span class="profile-apply-note" id="profileApplyNote">Set your criteria, then apply them to the results.</span>
+        <button class="btn primary" id="profileApply" type="button">Appliquer aux programmes</button>
+        <span class="profile-apply-note" id="profileApplyNote">Définissez vos critères, puis appliquez-les aux résultats.</span>
       </div>
     </details>
 
     <div class="stats">
       <div class="stat"><b id="statPrograms">62</b><span>PROGRAMMES</span></div>
-      <div class="stat"><b id="statCountries">27</b><span>COUNTRIES</span></div>
-      <div class="stat"><b id="statTuitionRange">€0–€104k</b><span>TUITION RANGE</span></div>
-      <div class="stat"><b id="statMonthsRange">9–24</b><span>MONTHS</span></div>
+      <div class="stat"><b id="statCountries">27</b><span>PAYS</span></div>
+      <div class="stat"><b id="statTuitionRange">€0–€104k</b><span>FRAIS DE SCOLARITÉ</span></div>
+      <div class="stat"><b id="statMonthsRange">9–24</b><span>MOIS</span></div>
     </div>
   </div>
 </section>
@@ -1018,57 +1018,57 @@
 
     <aside class="filters collapsed" id="filtersAside">
       <button class="filters-toggle" id="filtersToggle" type="button" aria-expanded="false" aria-controls="filtersBody">
-        <span>Filters</span>
+        <span>Filtres</span>
         <svg class="filters-chevron" width="11" height="11" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
       </button>
       <div class="filters-body" id="filtersBody">
       <div class="fgroup">
-        <h4>Region</h4>
+        <h4>Région</h4>
         <div id="fRegion"></div>
       </div>
       <div class="fgroup">
-        <h4>Field of study</h4>
+        <h4>Domaine d'études</h4>
         <div id="fField"></div>
       </div>
       <div class="fgroup">
-        <h4>Duration</h4>
-        <label class="opt"><input type="radio" name="dur" value="any" checked> Any length</label>
-        <label class="opt"><input type="radio" name="dur" value="short"> 12 months or less</label>
-        <label class="opt"><input type="radio" name="dur" value="mid"> 13–18 months</label>
-        <label class="opt"><input type="radio" name="dur" value="long"> 19 months or more</label>
+        <h4>Durée</h4>
+        <label class="opt"><input type="radio" name="dur" value="any" checked> Toute durée</label>
+        <label class="opt"><input type="radio" name="dur" value="short"> 12 mois ou moins</label>
+        <label class="opt"><input type="radio" name="dur" value="mid"> 13–18 mois</label>
+        <label class="opt"><input type="radio" name="dur" value="long"> 19 mois ou plus</label>
       </div>
       <div class="fgroup">
-        <h4>Tuition (max)</h4>
+        <h4>Frais de scolarité (max)</h4>
         <input class="range" id="fTuition" type="range" min="0" max="85000" step="1000" value="85000" />
-        <div class="range-val"><span>€0</span><b id="tuitionOut">Any</b></div>
+        <div class="range-val"><span>€0</span><b id="tuitionOut">Tous</b></div>
       </div>
       <div class="fgroup">
-        <h4>Requirements</h4>
-        <label class="opt"><input type="checkbox" id="fNoGmat"> No GMAT/GRE required</label>
-        <label class="opt"><input type="checkbox" id="fNoWork"> No work experience needed</label>
-        <label class="opt"><input type="checkbox" id="fEnglish"> Taught fully in English</label>
-        <label class="opt"><input type="checkbox" id="fScholar"> Scholarships available</label>
+        <h4>Conditions</h4>
+        <label class="opt"><input type="checkbox" id="fNoGmat"> Pas de GMAT/GRE exigé</label>
+        <label class="opt"><input type="checkbox" id="fNoWork"> Aucune expérience requise</label>
+        <label class="opt"><input type="checkbox" id="fEnglish"> Entièrement en anglais</label>
+        <label class="opt"><input type="checkbox" id="fScholar"> Bourses disponibles</label>
       </div>
-      <button class="clear" id="clearBtn">Reset all filters</button>
+      <button class="clear" id="clearBtn">Réinitialiser les filtres</button>
       </div>
     </aside>
 
     <main>
       <div class="resbar">
-        <h2 id="resTitle">All programmes</h2>
+        <h2 id="resTitle">Tous les programmes</h2>
         <span class="sub" id="resSub"></span>
         <button class="btn shortlist-filter" id="shortlistFilter" type="button" aria-pressed="false">
-          <span>Shortlist</span> <span class="pill-count" id="shortlistCount">0</span>
+          <span>Sélection</span> <span class="pill-count" id="shortlistCount">0</span>
         </button>
-        <button class="clear-shortlist" id="clearShortlistBtn" type="button" hidden>Clear shortlist</button>
+        <button class="clear-shortlist" id="clearShortlistBtn" type="button" hidden>Vider la sélection</button>
         <div class="sortwrap">
-          <label for="sort">Sort</label>
+          <label for="sort">Trier</label>
           <select id="sort">
-            <option value="rec">Recommended</option>
-            <option value="tuitionAsc">Tuition: low to high</option>
-            <option value="tuitionDesc">Tuition: high to low</option>
-            <option value="durAsc">Shortest first</option>
-            <option value="az">School A–Z</option>
+            <option value="rec">Recommandé</option>
+            <option value="tuitionAsc">Frais : croissants</option>
+            <option value="tuitionDesc">Frais : décroissants</option>
+            <option value="durAsc">Les plus courts d'abord</option>
+            <option value="az">École A–Z</option>
           </select>
         </div>
       </div>
@@ -1082,17 +1082,17 @@
 <section id="pageChecklist" class="subpage" hidden>
   <div class="wrap">
     <div class="subpage-head">
-      <div class="eyebrow"><span class="dot"></span> Before you apply</div>
-      <h1>Your Application Checklist &amp; Timeline</h1>
-      <p class="lede">Select any of your shortlisted programmes below to see its specific application rounds, rolling intake schedule, test policies, document checklist, and official portal link.</p>
+      <div class="eyebrow"><span class="dot"></span> Avant de candidater</div>
+      <h1>Votre check-list et calendrier de candidature</h1>
+      <p class="lede">Sélectionnez ci-dessous un programme de votre sélection pour voir ses tours de candidature, ses rentrées, ses exigences de test, la liste des documents et le lien vers le portail officiel.</p>
     </div>
 
     <!-- Target Programme Dropdown for Checklist -->
     <div class="profile-panel profile-panel-static" style="margin-bottom:24px;">
       <div class="profile-head" style="cursor:default">
         <div>
-          <h3>Choose programmes for your checklist</h3>
-          <p>Tick any shortlisted programmes you want to keep in view. Their full checklists stay stacked below.</p>
+          <h3>Choisissez des programmes pour votre check-list</h3>
+          <p>Cochez les programmes que vous voulez garder sous les yeux. Leurs check-lists complètes restent affichées ci-dessous.</p>
         </div>
       </div>
       <div id="checklistProgrammePicker" class="checklist-picker"></div>
@@ -1107,19 +1107,19 @@
       <details class="cat-card" open>
         <summary class="cat-head">
           <span class="cat-num">01</span>
-          <div><h3>GMAT / GRE</h3><p>Find a test centre near you, plus where to study and who can tutor you.</p></div>
+          <div><h3>GMAT / GRE</h3><p>Trouvez un centre d'examen près de chez vous, où réviser et qui peut vous accompagner.</p></div>
           <span class="cat-chevron"><svg width="11" height="11" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg></span>
         </summary>
         <div class="cat-body">
           <div class="locator">
-            <label class="pfield"><span>Your location</span>
+            <label class="pfield"><span>Votre localisation</span>
               <input class="loc-search" id="gmatLocation" list="locationList" type="text" placeholder="Search for a city…" autocomplete="off" />
             </label>
-            <button class="btn primary" id="gmatFindBtn" type="button">Find test centres</button>
+            <button class="btn primary" id="gmatFindBtn" type="button">Trouver des centres</button>
           </div>
-          <p class="locator-privacy">Pressing this sends the place name you type to <a href="https://nominatim.openstreetmap.org/" target="_blank" rel="noopener noreferrer">OpenStreetMap's Nominatim</a> geocoder, and loads map tiles from OpenStreetMap. Nothing leaves your browser until you press it. <button type="button" class="linklike" data-page-jump="legal">How we handle data</button></p>
+          <p class="locator-privacy">Pressing this sends the place name you type to <a href="https://nominatim.openstreetmap.org/" target="_blank" rel="noopener noreferrer">OpenStreetMap's Nominatim</a> geocoder, and loads map tiles from OpenStreetMap. Nothing leaves your browser until you press it. <button type="button" class="linklike" data-page-jump="legal">Comment nous traitons les données</button></p>
           <div class="locator-results" id="gmatResults"></div>
-          <h4>Study resources &amp; tutors</h4>
+          <h4>Ressources et cours particuliers</h4>
           <ul class="resource-list">
             <li><a href="https://www.mba.com" target="_blank" rel="noopener noreferrer">GMAT Official Starter Kit &amp; Practice Exams (mba.com)</a> — free official practice tests straight from the test-maker.</li>
             <li><a href="https://www.ets.org/gre.html" target="_blank" rel="noopener noreferrer">ETS GRE Official Prep</a> — free official POWERPREP practice tests.</li>
@@ -1135,19 +1135,19 @@
       <details class="cat-card">
         <summary class="cat-head">
           <span class="cat-num">02</span>
-          <div><h3>TOEFL / IELTS / English test</h3><p>Locate nearby test centres, see approximate costs, and find prep material.</p></div>
+          <div><h3>TOEFL / IELTS / English test</h3><p>Repérez les centres proches, consultez les tarifs indicatifs et trouvez du matériel de préparation.</p></div>
           <span class="cat-chevron"><svg width="11" height="11" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg></span>
         </summary>
         <div class="cat-body">
           <div class="locator">
-            <label class="pfield"><span>Your location</span>
+            <label class="pfield"><span>Votre localisation</span>
               <input class="loc-search" id="toeflLocation" list="locationList" type="text" placeholder="Search for a city…" autocomplete="off" />
             </label>
-            <button class="btn primary" id="toeflFindBtn" type="button">Find test centres</button>
+            <button class="btn primary" id="toeflFindBtn" type="button">Trouver des centres</button>
           </div>
-          <p class="locator-privacy">Pressing this sends the place name you type to <a href="https://nominatim.openstreetmap.org/" target="_blank" rel="noopener noreferrer">OpenStreetMap's Nominatim</a> geocoder, and loads map tiles from OpenStreetMap. Nothing leaves your browser until you press it. <button type="button" class="linklike" data-page-jump="legal">How we handle data</button></p>
+          <p class="locator-privacy">Pressing this sends the place name you type to <a href="https://nominatim.openstreetmap.org/" target="_blank" rel="noopener noreferrer">OpenStreetMap's Nominatim</a> geocoder, and loads map tiles from OpenStreetMap. Nothing leaves your browser until you press it. <button type="button" class="linklike" data-page-jump="legal">Comment nous traitons les données</button></p>
           <div class="locator-results" id="toeflResults"></div>
-          <h4>Study resources</h4>
+          <h4>Ressources de révision</h4>
           <ul class="resource-list">
             <li><a href="https://www.ets.org/toefl.html" target="_blank" rel="noopener noreferrer">ETS TOEFL Official Prep</a> — free official practice questions and paid full-length tests.</li>
             <li><a href="https://www.ielts.org" target="_blank" rel="noopener noreferrer">IELTS.org Official Practice</a> — sample tests and preparation materials.</li>
@@ -1155,7 +1155,7 @@
             <li><a href="https://magoosh.com/toefl/" target="_blank" rel="noopener noreferrer">Magoosh TOEFL</a> — affordable video-based prep.</li>
             <li><a href="https://englishtest.duolingo.com" target="_blank" rel="noopener noreferrer">Duolingo English Test</a> — a cheaper, fully remote alternative accepted by a growing number of schools.</li>
           </ul>
-          <h4>Which test does your shortlist actually accept?</h4>
+          <h4>Quel test votre sélection accepte-t-elle réellement ?</h4>
           <p class="scholar-section-sub" style="margin-bottom:12px">Different schools accept different English tests. Add programmes to Compare on the results page, then check here — it's illustrative, always confirm on the school's own admissions page.</p>
           <div id="englishTestMatrix"></div>
         </div>
@@ -1164,25 +1164,25 @@
       <details class="cat-card">
         <summary class="cat-head">
           <span class="cat-num">03</span>
-          <div><h3>The practical stuff</h3><p>Transcripts, degree certificate, CV and proof of funding — straightforward, but start early.</p></div>
+          <div><h3>Le côté pratique</h3><p>Relevés de notes, diplôme, CV et justificatif de financement — simple, mais commencez tôt.</p></div>
           <span class="cat-chevron"><svg width="11" height="11" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg></span>
         </summary>
         <div class="cat-body">
           <div class="checklist-grid">
             <div class="checklist-item">
-              <h3>Academic transcripts</h3>
+              <h3>Relevés de notes</h3>
               <p>An official record of your bachelor's grades, ideally with an explanation of your university's grading scale for international readers.</p>
             </div>
             <div class="checklist-item">
-              <h3>Degree certificate</h3>
+              <h3>Diplôme</h3>
               <p>Or proof of expected graduation — most schools accept a letter from your university confirming your expected graduation date.</p>
             </div>
             <div class="checklist-item">
-              <h3>CV / résumé</h3>
+              <h3>CV</h3>
               <p>One to two pages. Even "0 years experience" programmes want to see internships, projects, and leadership activities.</p>
             </div>
             <div class="checklist-item">
-              <h3>Proof of funding</h3>
+              <h3>Justificatif de financement</h3>
               <p>Bank statements, a scholarship award letter, or a loan approval — most visa applications require evidence you can cover tuition and living costs.</p>
             </div>
           </div>
@@ -1192,11 +1192,11 @@
       <details class="cat-card">
         <summary class="cat-head">
           <span class="cat-num">04</span>
-          <div><h3>Statement of purpose / essays</h3><p>How to write yours, with tips, examples and further reading.</p></div>
+          <div><h3>Lettre de motivation et essais</h3><p>Comment écrire la vôtre, avec conseils, exemples et lectures complémentaires.</p></div>
           <span class="cat-chevron"><svg width="11" height="11" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg></span>
         </summary>
         <div class="cat-body">
-          <h4>Quick tips</h4>
+          <h4>Conseils rapides</h4>
           <ul class="tip-list">
             <li>Start 2–3 months out — the best essays go through 4–5 drafts, not one.</li>
             <li>Answer the actual question asked, not a generic "why an MBA" essay recycled for every school.</li>
@@ -1204,7 +1204,7 @@
             <li>Tailor each essay to that specific programme — name real courses, clubs, or professors where relevant.</li>
             <li>Get at least one outside read from someone who'll be honest, not just encouraging.</li>
           </ul>
-          <h4>Resources &amp; examples</h4>
+          <h4>Ressources et exemples</h4>
           <ul class="resource-list">
             <li><a href="https://poetsandquants.com" target="_blank" rel="noopener noreferrer">Poets&amp;Quants</a> — essay tips, admitted-student essay examples, and school-specific guidance.</li>
             <li><a href="https://clearadmit.com" target="_blank" rel="noopener noreferrer">Clear Admit</a> — essay analysis and admissions consultant directory.</li>
@@ -1217,11 +1217,11 @@
       <details class="cat-card">
         <summary class="cat-head">
           <span class="cat-num">05</span>
-          <div><h3>Letters of recommendation</h3><p>How to choose recommenders and set them up to write a strong letter.</p></div>
+          <div><h3>Lettres de recommandation</h3><p>Comment choisir vos référents et leur donner de quoi écrire une lettre solide.</p></div>
           <span class="cat-chevron"><svg width="11" height="11" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg></span>
         </summary>
         <div class="cat-body">
-          <h4>Quick tips</h4>
+          <h4>Conseils rapides</h4>
           <ul class="tip-list">
             <li>Pick recommenders who know your work closely — a direct manager beats a more senior name who barely knows you.</li>
             <li>Ask at least 4–6 weeks before the deadline, never less than two.</li>
@@ -1229,7 +1229,7 @@
             <li>At least one academic reference where possible, especially for fresh-graduate (MiM-style) programmes.</li>
             <li>Follow up a week before the deadline — a friendly reminder, not a nag.</li>
           </ul>
-          <h4>Resources &amp; examples</h4>
+          <h4>Ressources et exemples</h4>
           <ul class="resource-list">
             <li><a href="https://www.mba.com" target="_blank" rel="noopener noreferrer">mba.com Recommender Guidelines</a> — what most schools' recommendation forms actually ask.</li>
             <li><a href="https://poetsandquants.com" target="_blank" rel="noopener noreferrer">Poets&amp;Quants</a> — school-specific recommendation question examples.</li>
@@ -1250,32 +1250,32 @@
          ============================================================ -->
     <div id="testPrepHub" class="test-prep-hub">
       <div class="subpage-head" style="margin-top:8px">
-        <div class="eyebrow"><span class="dot"></span> Admissions tests</div>
-        <h2 class="prep-title">The GMAT and GRE, end to end.</h2>
+        <div class="eyebrow"><span class="dot"></span> Tests d'admission</div>
+        <h2 class="prep-title">Le GMAT et le GRE, de A à Z.</h2>
         <p class="lede">What each test actually is, how it is scored, how to choose between them, and a preparation plan that fits around a job. Figures here come from GMAC and ETS directly — each block links to the page it came from.</p>
       </div>
 
       <details class="cat-card" open>
         <summary class="cat-head"><span class="cat-num">A</span>
-          <div><h3>GMAT or GRE — which one?</h3><p>Almost every business school now takes both. The choice is about your own strengths, not about prestige.</p></div>
+          <div><h3>GMAT ou GRE — lequel choisir ?</h3><p>Presque toutes les business schools acceptent les deux. Le choix dépend de vos points forts, pas du prestige.</p></div>
           <span class="cat-chevron">⌄</span></summary>
         <div class="cat-body">
           <p class="scholar-section-sub">There is no longer a "better" test for admissions at the great majority of schools — they are treated as interchangeable and converted onto a common scale internally. What differs is what each rewards, so choose on fit and then commit; switching halfway is the single most expensive mistake here.</p>
-          <h4>Choose the GMAT if…</h4>
+          <h4>Choisissez le GMAT si…</h4>
           <ul class="tip-list">
             <li>You are aiming at an MBA or a management master's and want the test the admissions committee sees most often — GMAC states that more than 7 in 10 business-school test takers use it.</li>
             <li>You are comfortable with dense logic and data interpretation. <b>Data Insights</b> is a third of the exam and has no GRE equivalent.</li>
             <li>You like being able to <b>edit up to three answers</b> per section and to choose the order you sit them in.</li>
             <li>You want a score that is unambiguous to a business school with no conversion step.</li>
           </ul>
-          <h4>Choose the GRE if…</h4>
+          <h4>Choisissez le GRE si…</h4>
           <ul class="tip-list">
             <li>You are applying to a mix of business and non-business master's — engineering, policy, data science — where the GRE is often the only one accepted.</li>
             <li>Your vocabulary and reading are stronger than your data-handling. GRE Verbal rewards lexical range in a way GMAT Verbal does not.</li>
             <li>You want a shorter sitting: about <b>1 hour 58 minutes</b> against the GMAT's <b>2 hours 15 minutes</b>.</li>
             <li>You want an on-screen calculator throughout the quantitative sections.</li>
           </ul>
-          <h4>Before you decide</h4>
+          <h4>Avant de décider</h4>
           <ul class="tip-list">
             <li>Check each target programme's own page — a minority still state a preference, and some waive the test entirely for strong academic records or several years of work experience.</li>
             <li>Sit one free official practice test of each in the same week and compare percentiles, not raw scores. That comparison is worth more than any online quiz.</li>
@@ -1286,18 +1286,18 @@
 
       <details class="cat-card">
         <summary class="cat-head"><span class="cat-num">B</span>
-          <div><h3>GMAT structure and scoring</h3><p>Three sections, 2 h 15 m, 64 questions. Total score 205–805.</p></div>
+          <div><h3>Structure et notation du GMAT</h3><p>Three sections, 2 h 15 m, 64 questions. Total score 205–805.</p></div>
           <span class="cat-chevron">⌄</span></summary>
         <div class="cat-body">
           <div class="prep-table-wrap"><table class="prep-table">
-            <thead><tr><th>Section</th><th>Questions</th><th>Time</th><th>What it tests</th></tr></thead>
+            <thead><tr><th>Section</th><th>Questions</th><th>Temps</th><th>Ce qui est évalué</th></tr></thead>
             <tbody>
               <tr><td>Quantitative Reasoning</td><td>21</td><td>45 min</td><td>Problem solving in arithmetic and algebra. No calculator, and no geometry in the Focus Edition.</td></tr>
               <tr><td>Verbal Reasoning</td><td>23</td><td>45 min</td><td>Reading comprehension and critical reasoning. Sentence correction was removed in the Focus Edition.</td></tr>
               <tr><td>Data Insights</td><td>20</td><td>45 min</td><td>Data sufficiency, tables, graphs, multi-source reasoning and two-part analysis. Calculator provided here only.</td></tr>
             </tbody>
           </table></div>
-          <h4>How it is scored</h4>
+          <h4>Comment c'est noté</h4>
           <ul class="tip-list">
             <li><b>Total score 205–805</b>, in intervals of 10 — every valid total ends in a 5. All three sections are weighted equally.</li>
             <li><b>Section scores run 60–90</b>, in intervals of 1.</li>
@@ -1306,7 +1306,7 @@
             <li>You see unofficial section and total scores on screen immediately. You may not photograph or record them.</li>
             <li>Scores are valid five years, and GMAC's <b>Superscore</b> combines your best section scores across attempts.</li>
           </ul>
-          <h4>Test-day features worth rehearsing</h4>
+          <h4>Fonctions du jour J à répéter</h4>
           <ul class="tip-list">
             <li><b>Select Section Order</b>: you choose the order of the three sections. Practise in the order you intend to sit them.</li>
             <li><b>Question Review &amp; Edit</b>: bookmark as you go, then change up to <b>three</b> answers per section at the end — but only if time remains. Run out of time and the review screen is skipped entirely.</li>
@@ -1318,11 +1318,11 @@
 
       <details class="cat-card">
         <summary class="cat-head"><span class="cat-num">C</span>
-          <div><h3>GRE structure and scoring</h3><p>Five sections, about 1 h 58 m. Verbal and Quant each 130–170.</p></div>
+          <div><h3>Structure et notation du GRE</h3><p>Five sections, about 1 h 58 m. Verbal and Quant each 130–170.</p></div>
           <span class="cat-chevron">⌄</span></summary>
         <div class="cat-body">
           <div class="prep-table-wrap"><table class="prep-table">
-            <thead><tr><th>Section</th><th>Questions</th><th>Time</th><th>Notes</th></tr></thead>
+            <thead><tr><th>Section</th><th>Questions</th><th>Temps</th><th>Remarques</th></tr></thead>
             <tbody>
               <tr><td>Analytical Writing</td><td>One "Analyze an Issue" task</td><td>30 min</td><td>Always the first section.</td></tr>
               <tr><td>Verbal Reasoning — section 1</td><td>12</td><td>18 min</td><td rowspan="2">Verbal and Quant may appear in any order after the writing task.</td></tr>
@@ -1331,7 +1331,7 @@
               <tr><td>Quantitative Reasoning — section 2</td><td>15</td><td>26 min</td></tr>
             </tbody>
           </table></div>
-          <h4>How it is scored</h4>
+          <h4>Comment c'est noté</h4>
           <ul class="tip-list">
             <li><b>Verbal Reasoning 130–170</b> and <b>Quantitative Reasoning 130–170</b>, both in 1-point steps.</li>
             <li><b>Analytical Writing 0–6</b>, in half-point steps, reported separately. Most business and engineering programmes weight it lightly — but a very low score is noticed.</li>
@@ -1344,7 +1344,7 @@
 
       <details class="cat-card">
         <summary class="cat-head"><span class="cat-num">D</span>
-          <div><h3>An eight-week plan that survives a full-time job</h3><p>Roughly 8–10 hours a week. Longer if you are rebuilding maths from scratch.</p></div>
+          <div><h3>Un plan de huit semaines compatible avec un emploi à temps plein</h3><p>Roughly 8–10 hours a week. Longer if you are rebuilding maths from scratch.</p></div>
           <span class="cat-chevron">⌄</span></summary>
         <div class="cat-body">
           <p class="scholar-section-sub">The structure matters more than the hours. Almost everyone who under-performs did the same thing: solved hundreds of questions without ever analysing the ones they got wrong.</p>
@@ -1377,7 +1377,7 @@
 
       <details class="cat-card">
         <summary class="cat-head"><span class="cat-num">E</span>
-          <div><h3>Section tactics that actually move the score</h3><p>The handful of habits that separate a first attempt from a second.</p></div>
+          <div><h3>Des tactiques par section qui font vraiment bouger le score</h3><p>The handful of habits that separate a first attempt from a second.</p></div>
           <span class="cat-chevron">⌄</span></summary>
         <div class="cat-body">
           <h4>Quantitative (both tests)</h4>
@@ -1408,7 +1408,7 @@
 
       <details class="cat-card">
         <summary class="cat-head"><span class="cat-num">F</span>
-          <div><h3>Booking, test day and sending scores</h3><p>The logistics that quietly cost people a cycle.</p></div>
+          <div><h3>Réservation, jour J et envoi des scores</h3><p>The logistics that quietly cost people a cycle.</p></div>
           <span class="cat-chevron">⌄</span></summary>
         <div class="cat-body">
           <ul class="tip-list">
@@ -1419,7 +1419,7 @@
             <li>You see unofficial scores immediately on the GMAT and can then choose where they go; official reports follow by email.</li>
             <li>Send scores to more schools than you are certain about — adding recipients later usually costs extra.</li>
           </ul>
-          <h4>Common, avoidable mistakes</h4>
+          <h4>Erreurs courantes et évitables</h4>
           <ul class="tip-list">
             <li>Grinding questions without an error log, so the same mistake repeats for eight weeks.</li>
             <li>Practising untimed right up to test day, then meeting the clock for the first time on the day itself.</li>
@@ -1431,10 +1431,10 @@
 
       <details class="cat-card">
         <summary class="cat-head"><span class="cat-num">G</span>
-          <div><h3>Resources</h3><p>Official material first — it is the only source with real retired questions.</p></div>
+          <div><h3>Ressources</h3><p>Official material first — it is the only source with real retired questions.</p></div>
           <span class="cat-chevron">⌄</span></summary>
         <div class="cat-body">
-          <h4>Official — start here</h4>
+          <h4>Officiel — commencez ici</h4>
           <ul class="resource-list">
             <li><a href="https://www.mba.com/exams/gmat-exam/prepare-for-the-gmat-exam" target="_blank" rel="noopener noreferrer">GMAT Official Prep (GMAC)</a> — the official practice exams and question banks. Two free practice tests come with an mba.com account.</li>
             <li><a href="https://www.ets.org/gre/test-takers/general-test/prepare.html" target="_blank" rel="noopener noreferrer">GRE Official Prep (ETS)</a> — POWERPREP practice tests, free and paid, using retired questions.</li>
@@ -1442,7 +1442,7 @@
             <li><a href="https://www.ets.org/gre/test-takers/general-test/prepare/test-structure.html" target="_blank" rel="noopener noreferrer">GRE test structure</a> — section counts and timings.</li>
             <li><a href="https://www.ets.org/gre/test-takers/general-test/register/fees.html" target="_blank" rel="noopener noreferrer">GRE fees by country</a> — the fee genuinely varies by where you sit it.</li>
           </ul>
-          <h4>Community and third-party</h4>
+          <h4>Communauté et ressources tierces</h4>
           <ul class="resource-list">
             <li><a href="https://gmatclub.com" target="_blank" rel="noopener noreferrer">GMAT Club</a> — the largest question archive and error-log community, plus a free forum-run practice test.</li>
             <li><a href="https://www.manhattanprep.com" target="_blank" rel="noopener noreferrer">Manhattan Prep</a> — strategy guides and courses, strongest on Quant fundamentals.</li>
@@ -1493,14 +1493,14 @@
 
     <!-- Full funding directory: every scheme in the catalogue, not just the ones
          attached to a shortlisted programme -->
-    <h2 class="scholar-section-title">Full funding directory</h2>
+    <h2 class="scholar-section-title">Répertoire complet des financements</h2>
     <p class="scholar-section-sub" id="fundingDirIntro">Every scheme researched for this catalogue, on three axes: what your <em>home country</em> pays for, what your <em>destination country</em> pays for, and awards attached to the <em>programme itself</em> regardless of where you're from. Set your citizenship above to see which ones you can actually compete for.</p>
     <div class="fund-tabs" id="fundTabs" role="tablist">
-      <button class="chip" type="button" data-fund-tab="relevant" role="tab">Relevant to me</button>
-      <button class="chip" type="button" data-fund-tab="home" role="tab">🏠 From my country</button>
-      <button class="chip" type="button" data-fund-tab="dest" role="tab">🏛️ Destination country</button>
-      <button class="chip" type="button" data-fund-tab="global" role="tab">🌍 Programme-linked</button>
-      <button class="chip" type="button" data-fund-tab="all" role="tab">Everything (incl. ones you can't apply for)</button>
+      <button class="chip" type="button" data-fund-tab="relevant" role="tab">Pertinent pour moi</button>
+      <button class="chip" type="button" data-fund-tab="home" role="tab">🏠 Depuis mon pays</button>
+      <button class="chip" type="button" data-fund-tab="dest" role="tab">🏛️ Pays de destination</button>
+      <button class="chip" type="button" data-fund-tab="global" role="tab">🌍 Liée au programme</button>
+      <button class="chip" type="button" data-fund-tab="all" role="tab">Tout (y compris ce à quoi vous ne pouvez pas candidater)</button>
     </div>
     <div class="scholar-gov-grid" id="scholarGovGrid"></div>
 
@@ -1510,25 +1510,25 @@
 <section id="pageAbout" class="subpage" hidden>
   <div class="wrap">
     <div class="subpage-head">
-      <div class="eyebrow"><span class="dot"></span> Our mission</div>
-      <h1>Why we built Campus Atlas.</h1>
+      <div class="eyebrow"><span class="dot"></span> Notre mission</div>
+      <h1>Pourquoi nous avons créé Campus Atlas.</h1>
       <p class="lede">Choosing a master's abroad usually means fifteen browser tabs, a dozen PDFs, and no easy way to compare tuition, deadlines, or eligibility side by side. Campus Atlas puts all of it in one place.</p>
     </div>
     <div class="about-grid">
       <div class="about-block">
-        <h3>What we do</h3>
+        <h3>Ce que nous faisons</h3>
         <p>We map pre-experience and early-career master's programmes at leading universities worldwide — across business, engineering, science, humanities and more — pulling together tuition, duration, entry requirements, deadlines, and — increasingly rare to find in one place — realistic post-study work rights.</p>
       </div>
       <div class="about-block">
-        <h3>What we don't do</h3>
+        <h3>Ce que nous ne faisons pas</h3>
         <p>We're not an agency and we don't take commission from schools. Figures shown are indicative starting points, not official numbers — always confirm details on a school's own admissions page before applying.</p>
       </div>
       <div class="about-block">
-        <h3>Where this is headed</h3>
+        <h3>Où cela nous mène</h3>
         <p>More programmes, more countries, and sharper matching against your own academic background, so the list you see reflects where you actually stand a chance — not just where you'd like to go.</p>
       </div>
     </div>
-    <h2 class="scholar-section-title">Sources &amp; credits</h2>
+    <h2 class="scholar-section-title">Sources et crédits</h2>
     <p class="scholar-section-sub">Homepage banner: coloured-pencil illustration based on Stanford University aerial view by Mark Leschinsky, licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">CC BY 4.0</a>, from the <a href="https://commons.wikimedia.org/wiki/File:Stanford_University_Aerial_View.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">original on Wikimedia Commons</a>. Programme, tuition, and visa data throughout the site is illustrative and unverified — always confirm on the school's own page.</p>
   </div>
 </section>
@@ -1536,82 +1536,82 @@
 <section id="pageLegal" class="subpage" hidden>
   <div class="wrap">
     <div class="subpage-head">
-      <div class="eyebrow"><span class="dot"></span> Legal</div>
-      <h1>Terms, privacy and where the numbers come from.</h1>
-      <p class="lede">Short version: this is an information tool, not advice; every figure links to the official page it came from and you should check it there before you act on it; and we do not collect anything about you.</p>
+      <div class="eyebrow"><span class="dot"></span> Mentions légales</div>
+      <h1>Conditions, confidentialité et provenance des chiffres.</h1>
+      <p class="lede">En bref : c'est un outil d'information, pas un conseil ; chaque chiffre renvoie à la page officielle dont il provient et vous devez l'y vérifier avant d'agir ; et nous ne collectons rien à votre sujet.</p>
     </div>
 
-    <h2 class="scholar-section-title">Terms of use</h2>
+    <h2 class="scholar-section-title">Conditions d'utilisation</h2>
     <div class="about-grid">
       <div class="about-block">
-        <h3>What this is</h3>
+        <h3>Ce que c'est</h3>
         <p>Campus Atlas is a free comparison tool for postgraduate programmes and their funding. It is informational only. It is not educational, immigration, financial or legal advice, and it does not create any adviser relationship between us and you.</p>
       </div>
       <div class="about-block">
-        <h3>Accuracy, and its limits</h3>
+        <h3>L'exactitude, et ses limites</h3>
         <p>Tuition, deadlines, entry requirements, scholarship amounts and rankings are compiled from the institutions' and awarding bodies' own published pages, and each one carries a link to the page it came from. They change without notice — often mid-cycle. We make no warranty that any figure here is current, complete or correct, and the official page always overrides what you read here.</p>
       </div>
       <div class="about-block">
-        <h3>Decisions are yours</h3>
+        <h3>Les décisions vous appartiennent</h3>
         <p>Verify every figure on the source page before you rely on it — before paying a deposit, declining an offer, budgeting a year abroad or submitting an application. To the fullest extent the law allows, we accept no liability for loss arising from reliance on this site.</p>
       </div>
       <div class="about-block">
-        <h3>No affiliation, no commission</h3>
+        <h3>Aucune affiliation, aucune commission</h3>
         <p>We are not an agent for any institution and take no commission, referral fee or placement payment from any school, scholarship body or lender. Inclusion here is not an endorsement, and exclusion is not a judgement — usually it just means we have not researched it yet.</p>
       </div>
       <div class="about-block">
-        <h3>Third-party names and rankings</h3>
+        <h3>Noms de tiers et classements</h3>
         <p>University and programme names, logos and trademarks belong to their owners and are used descriptively to identify the programmes discussed. Ranking positions are attributed to their publisher (QS Quacquarelli Symonds, the Financial Times) and reproduced as short factual references; neither publisher endorses or is affiliated with this site.</p>
       </div>
       <div class="about-block">
-        <h3>Links out</h3>
+        <h3>Liens externes</h3>
         <p>Links to universities, ministries and awarding bodies are provided so you can check a figure at its source. We do not control those sites and are not responsible for their content, availability or their own privacy practices.</p>
       </div>
     </div>
 
-    <h2 class="scholar-section-title">Privacy</h2>
+    <h2 class="scholar-section-title">Confidentialité</h2>
     <p class="scholar-section-sub">We have deliberately built this so there is nothing to collect. There is no account, no sign-in, no analytics, no advertising and no tracking of any kind.</p>
     <div class="about-grid">
       <div class="about-block">
-        <h3>What stays on your device</h3>
+        <h3>Ce qui reste sur votre appareil</h3>
         <p>Your shortlist (the Compare list) is saved in your browser's own local storage under the key <code>ca_compare</code>, so it survives a refresh. Your situation answers — subject of your bachelor's, citizenship, work experience — are held in memory for the session only and are not saved anywhere. Clearing your browser data removes both. Neither ever reaches us: this page has no server to send them to.</p>
       </div>
       <div class="about-block">
-        <h3>No cookies, no analytics</h3>
+        <h3>Pas de cookies, pas d'analytics</h3>
         <p>The site sets no cookies, uses no analytics or tag manager, embeds no advertising or social pixels, and does not fingerprint your device. That is why you are not being asked to accept anything.</p>
       </div>
       <div class="about-block">
-        <h3>The one feature that contacts a third party</h3>
-        <p>The test-centre locator on the Checklist page. When — and only when — you press <em>Find test centres</em>, your browser sends the place name you typed to OpenStreetMap's Nominatim geocoding service, loads the map library from unpkg.com and map tiles from openstreetmap.org. Those services will see your IP address and your search term under their own privacy policies. Nothing is requested from them on page load, and never if you do not use that feature.</p>
+        <h3>La seule fonction qui contacte un tiers</h3>
+        <p>The test-centre locator on the Checklist page. When — and only when — you press <em>Trouver des centres</em>, your browser sends the place name you typed to OpenStreetMap's Nominatim geocoding service, loads the map library from unpkg.com and map tiles from openstreetmap.org. Those services will see your IP address and your search term under their own privacy policies. Nothing is requested from them on page load, and never if you do not use that feature.</p>
       </div>
       <div class="about-block">
-        <h3>Your rights</h3>
+        <h3>Vos droits</h3>
         <p>Because we hold no personal data, there is nothing for us to access, correct, export or erase on your behalf under the GDPR or comparable law. The data that exists is on your device and under your control. If that ever changes — an account system, a saved-search email — this section will change first and say so plainly.</p>
       </div>
     </div>
 
-    <h2 class="scholar-section-title">Where the numbers come from</h2>
+    <h2 class="scholar-section-title">D'où viennent les chiffres</h2>
     <p class="scholar-section-sub">Every tuition figure, deadline and scholarship amount in the catalogue is read from the institution's or awarding body's own page, and that page is the link on the entry — so you can always go from a number here to the number at source in one click. Rankings come from the ranking body's own site rather than a mirror.</p>
     <div class="about-grid">
       <div class="about-block">
-        <h3>Last checked</h3>
+        <h3>Dernière vérification</h3>
         <p>Figures carry the academic year they belong to (typically <b>2026-27</b>). The catalogue was last reviewed against source pages in <b id="legalCheckedDate">August 2026</b>. Anything published after that date will not be reflected here yet.</p>
       </div>
       <div class="about-block">
-        <h3>Why it is not live</h3>
+        <h3>Pourquoi ce n'est pas en temps réel</h3>
         <p>This is a single static page with no back end, and browsers block it from reading other sites directly, so it cannot re-read a university's fee page by itself. Updates are a manual re-check against the same source links. Where a figure is an estimate — a scholarship's value against a specific programme's fee — the arithmetic is shown so you can audit it rather than take it on trust.</p>
       </div>
       <div class="about-block">
-        <h3>What is explicitly not verified</h3>
+        <h3>Ce qui n'est explicitement pas vérifié</h3>
         <p>Living costs, visa outcomes, post-study work rights and admissions probabilities are indicative context, not guarantees. Scholarship selectivity is shown as a band with the evidence behind it; where an awarding body publishes no success rate, we say so instead of estimating one.</p>
       </div>
       <div class="about-block">
-        <h3>Report an error</h3>
+        <h3>Signaler une erreur</h3>
         <p>If a figure here disagrees with the official page, the official page is right and we want to know. Corrections are the fastest way to make this useful to the next person reading it.</p>
       </div>
     </div>
 
-    <h2 class="scholar-section-title">Credits</h2>
+    <h2 class="scholar-section-title">Crédits</h2>
     <p class="scholar-section-sub">Homepage banner: coloured-pencil illustration based on Stanford University aerial view by Mark Leschinsky, licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">CC BY 4.0</a>, from the <a href="https://commons.wikimedia.org/wiki/File:Stanford_University_Aerial_View.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">original on Wikimedia Commons</a>. Map data &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">OpenStreetMap</a> contributors.</p>
   </div>
 </section>
@@ -1626,13 +1626,13 @@
       <path d="M4.6 7.6C8 9.1 18 9.1 21.4 7.6" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
       <path d="M4.6 18.4C8 16.9 18 16.9 21.4 18.4" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
     </svg> Campus&nbsp;Atlas</div>
-      <p class="note"><strong>Always check the source.</strong> Tuition, deadlines, scholarship amounts and rankings are compiled from each institution's or awarding body's own published pages — every entry links to the page its figures came from — but they change without notice. Confirm on the official page before you act on anything here. <button type="button" class="footer-link inline" data-page-jump="legal">Terms, privacy &amp; sources</button></p>
+      <p class="note"><strong>Vérifiez toujours la source.</strong> Tuition, deadlines, scholarship amounts and rankings are compiled from each institution's or awarding body's own published pages — every entry links to the page its figures came from — but they change without notice. Confirm on the official page before you act on anything here. <button type="button" class="footer-link inline" data-page-jump="legal">Conditions, confidentialité et sources</button></p>
       <p class="note" style="margin-top:8px">Homepage banner: coloured-pencil illustration based on Stanford University aerial view, photo by Mark Leschinsky, licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">CC BY 4.0</a>, from the <a href="https://commons.wikimedia.org/wiki/File:Stanford_University_Aerial_View.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">original on Wikimedia Commons</a>.</p>
     </div>
     <div class="cols">
-      <div><strong>Explore</strong><span>By country</span><span>By field</span><span>By deadline</span></div>
-      <div><strong>Resources</strong><span>Funding guide</span><span>Visa basics</span><span>GMAT vs GRE</span></div>
-      <div><strong>Company</strong><button type="button" class="footer-link" data-page-jump="about">About</button><button type="button" class="footer-link" data-page-jump="legal">Terms &amp; privacy</button><button type="button" class="footer-link" data-page-jump="legal">Sources</button></div>
+      <div><strong>Explorer</strong><span>By country</span><span>By field</span><span>By deadline</span></div>
+      <div><strong>Ressources</strong><span>Funding guide</span><span>Visa basics</span><span>GMAT vs GRE</span></div>
+      <div><strong>Société</strong><button type="button" class="footer-link" data-page-jump="about">À propos</button><button type="button" class="footer-link" data-page-jump="legal">Conditions et confidentialité</button><button type="button" class="footer-link" data-page-jump="legal">Sources</button></div>
     </div>
   </div>
 </footer>
@@ -5694,7 +5694,7 @@ function backgroundAccepts(openFields, background) {
 function buildBackgroundSelect() {
   const sel = $("pField");
   if (!sel) return;
-  sel.innerHTML = `<option value="">Any / not sure</option>` + BACKGROUND_OPTIONS.map(g =>
+  sel.innerHTML = `<option value="">Peu importe / je ne sais pas</option>` + BACKGROUND_OPTIONS.map(g =>
     `<optgroup label="${escapeHTML(g.group)}">` +
     g.items.map(it => `<option value="${escapeHTML(it.value)}">${escapeHTML(it.value)}</option>`).join("") +
     `</optgroup>`).join("");
@@ -6299,7 +6299,7 @@ function buildFilterLists() {
     }));
 }
 
-const MATCH_LABEL = { eligible: "Good match", check: "Check requirements", mismatch: "Not ideal for you" };
+const MATCH_LABEL = { eligible: "Bonne correspondance", check: "Vérifiez les conditions", mismatch: "Pas idéal pour vous" };
 
 function matchBadge(p) {
   const e = eligibility(p);
@@ -6332,11 +6332,11 @@ function cardHTML(p, subjectOnlyMatch) {
     <div class="tags">
       ${p.fields.slice(0,2).map(f => `<span class="tag">${f}</span>`).join("")}
       ${!p.gmat ? `<span class="tag teal">No GMAT</span>` : ""}
-      ${p.scholar ? `<button class="tag accent tag-link" onclick="event.stopPropagation(); showPage('scholarships', null, ${p.id})">Scholarships</button>` : ""}
+      ${p.scholar ? `<button class="tag accent tag-link" onclick="event.stopPropagation(); showPage('scholarships', null, ${p.id})">Bourses</button>` : ""}
     </div>
     <div class="facts">
       <div class="fact"><span>Tuition</span><b>${tuitionDisplay(p)}</b></div>
-      <div class="fact"><span>Duration</span><b>${p.months} months</b></div>
+      <div class="fact"><span>Durée</span><b>${p.months} months</b></div>
       <div class="fact"><span>Starts</span><b>${p.intake}</b></div>
       <div class="fact"><span>Deadline</span><b>${p.deadline}</b></div>
     </div>
@@ -6456,16 +6456,16 @@ function openModal(id) {
         <span class="tag">${p.city}, ${p.country}</span>
         <span class="tag">${p.lang}-taught</span>
         ${!p.gmat ? `<span class="tag teal">No GMAT/GRE</span>` : ""}
-        ${p.scholar ? `<button class="tag accent tag-link" onclick="closeModal(); showPage('scholarships', null, ${p.id})">Scholarships available</button>` : ""}
+        ${p.scholar ? `<button class="tag accent tag-link" onclick="closeModal(); showPage('scholarships', null, ${p.id})">Bourses disponibles</button>` : ""}
       </div>
     </div>
     <div class="body">
       <div class="kv">
         <div class="fact"><span>Tuition (total)</span><b>${tuitionDisplay(p)}</b></div>
-        <div class="fact"><span>Duration</span><b>${p.months} months</b></div>
+        <div class="fact"><span>Durée</span><b>${p.months} months</b></div>
         <div class="fact"><span>Intake</span><b>${p.intake}</b></div>
         <div class="fact"><span>Next deadline</span><b>${p.deadline}</b></div>
-        <div class="fact"><span>Work experience</span><b>${p.work}</b></div>
+        <div class="fact"><span>Expérience professionnelle</span><b>${p.work}</b></div>
         <div class="fact"><span>GMAT / GRE</span><b>${p.gmat ? "Required" : "Not required"}</b></div>
         <div class="fact"><span>Work visa after graduation</span><b>${getVisa(p).label}</b></div>
       </div>
@@ -6510,20 +6510,20 @@ function closeModal() {
    ============================================================ */
 const COMPARE_ROWS = [
   { label: "Tuition (total)", get: p => `${tuitionDisplay(p)}${sourceLine(p.link, `${p.school}'s own programme page`)}`, raw: true },
-  { label: "Duration", get: p => `${p.months} months` },
-  { label: "Language", get: p => p.lang },
+  { label: "Durée", get: p => `${p.months} months` },
+  { label: "Langue", get: p => p.lang },
   { label: "Intake", get: p => p.intake },
   { label: "Next deadline", get: p => p.deadline },
-  { label: "Work experience", get: p => p.work },
+  { label: "Expérience professionnelle", get: p => p.work },
   { label: "GMAT / GRE", get: p => p.gmat ? "Required" : "Not required" },
   { label: "Admissions selectivity", raw: true, get: p => {
       const s = selectivityFor(p);
       if (!s) return `<span class="planner-status muted">Not published</span><span class="place">This school doesn't publish an admit rate for this programme — most non-MBA master's don't.</span>`;
       return `<span class="planner-status ${s.band ? s.band.tone : "muted"}">${s.band ? s.band.label : "Cohort size published"}</span><span class="place">${s.summary} · ${s.cohort}</span>`;
     } },
-  { label: "Region", get: p => p.region },
+  { label: "Région", get: p => p.region },
   { label: "Work visa after graduation", get: p => getVisa(p).label },
-  { label: "Fields", raw: true, get: p => `<div class="tags">${p.fields.map(f => `<span class="tag">${f}</span>`).join("")}${p.scholar ? `<span class="tag accent">Scholarships</span>` : ""}</div>` },
+  { label: "Fields", raw: true, get: p => `<div class="tags">${p.fields.map(f => `<span class="tag">${f}</span>`).join("")}${p.scholar ? `<span class="tag accent">Bourses</span>` : ""}</div>` },
   { label: "Official page", raw: true, get: p => `<a class="btn" href="${p.link}" target="_blank" rel="noopener noreferrer">Visit ↗</a>` },
 ];
 
@@ -6917,15 +6917,15 @@ const SCHOOL_CLEARADMIT = {
 function applicationChecklistCard(p) {
   const t = applicationTiming(p), suffix = p.id, engTestsList = getEnglishTests(p), engTests = engTestsList.join(" · "), strategy = applicationStrategyTips(p), essentials = PROGRAMME_ESSENTIALS[p.id];
   return `<div class="breakdown-card" data-checklist-card="${p.id}">
-    <div class="checklist-card-toolbar"><button class="btn secondary" data-download-checklist="${p.id}" type="button">Download PDF</button><button class="btn secondary checklist-card-remove" data-remove-checklist="${p.id}" type="button">Remove</button></div>
+    <div class="checklist-card-toolbar"><button class="btn secondary" data-download-checklist="${p.id}" type="button">Télécharger le PDF</button><button class="btn secondary checklist-card-remove" data-remove-checklist="${p.id}" type="button">Retirer</button></div>
     <div class="breakdown-head"><div class="breakdown-prog-meta"><span class="flag">${p.flag}</span><div><h3>${p.school} — ${p.program}</h3><p>${p.city}, ${p.country} · Taught in ${p.lang} · Target intake: ${p.intake} · Tuition: ${tuitionDisplay(p)}</p></div></div><div class="breakdown-summary-badge"><span class="total-support-label">Next application deadline</span><span class="total-support-val">${p.deadline} · verify live</span></div></div>
     <div class="programme-focus"><p><b>${t.label}.</b> ${t.detail}</p><p style="margin-top:9px"><a href="${p.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Open official application page ↗</a></p></div>
     <div class="checklist-cats">
-      <details class="cat-card" open><summary class="cat-head"><span class="cat-num">01</span><div><h3>GMAT / GRE</h3><p>${p.gmat ? "Required or expected in the catalogue record." : "Not required in the catalogue record."}</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">${p.gmat ? "Plan early and verify waiver and score requirements on the official portal." : "Focus on the other application steps unless the official portal says otherwise."}</p>${p.gmat ? gmatAvgNote(p) : ""}<div class="locator"><label class="pfield"><span>Find a test centre near you</span><input class="loc-search" id="focusGmatLocation${suffix}" list="locationList" placeholder="Any city or address…" autocomplete="off"></label><button class="btn primary" data-find-gmat="${suffix}" type="button">Find test centres</button></div><div class="locator-results" id="focusGmatResults${suffix}"></div><div class="prep-jump"><button type="button" class="btn primary" data-jump-prep>Full GMAT &amp; GRE guide — structure, scoring, 8-week plan ↓</button><span class="prep-jump-note">Test format, section tactics, booking and resources, at the bottom of this page.</span></div></div></details>
-      <details class="cat-card"><summary class="cat-head"><span class="cat-num">02</span><div><h3>English-language test</h3><p>Recorded accepted tests: ${engTests}.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">Confirm minimum score and exemption rules on ${p.school}'s official portal.</p><div class="locator"><label class="pfield"><span>Find an English-test centre near you</span><input class="loc-search" id="focusEnglishLocation${suffix}" list="locationList" placeholder="Any city or address…" autocomplete="off"></label><button class="btn primary" data-find-english="${suffix}" type="button">Find test centres</button></div><div class="locator-results" id="focusEnglishResults${suffix}"></div><h4>Preparation resources</h4><ul class="resource-list">${engTestsList.includes("TOEFL iBT") ? `<li><a href="https://www.ets.org/toefl.html" target="_blank" rel="noopener noreferrer">ETS TOEFL Official Prep</a></li>` : ""}${engTestsList.includes("IELTS Academic") ? `<li><a href="https://www.ielts.org" target="_blank" rel="noopener noreferrer">IELTS official practice</a></li>` : ""}${engTestsList.includes("Duolingo English Test") ? `<li><a href="https://englishtest.duolingo.com" target="_blank" rel="noopener noreferrer">Duolingo English Test</a> — remote option, accepted per this catalogue's regional record.</li>` : ""}${engTestsList.includes("PTE Academic") ? `<li><a href="https://www.pearsonpte.com" target="_blank" rel="noopener noreferrer">PTE Academic Official Prep</a></li>` : ""}</ul></div></details>
+      <details class="cat-card" open><summary class="cat-head"><span class="cat-num">01</span><div><h3>GMAT / GRE</h3><p>${p.gmat ? "Required or expected in the catalogue record." : "Not required in the catalogue record."}</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">${p.gmat ? "Plan early and verify waiver and score requirements on the official portal." : "Focus on the other application steps unless the official portal says otherwise."}</p>${p.gmat ? gmatAvgNote(p) : ""}<div class="locator"><label class="pfield"><span>Find a test centre near you</span><input class="loc-search" id="focusGmatLocation${suffix}" list="locationList" placeholder="Any city or address…" autocomplete="off"></label><button class="btn primary" data-find-gmat="${suffix}" type="button">Trouver des centres</button></div><div class="locator-results" id="focusGmatResults${suffix}"></div><div class="prep-jump"><button type="button" class="btn primary" data-jump-prep>Guide complet GMAT et GRE — structure, notation, plan de 8 semaines ↓</button><span class="prep-jump-note">Format du test, tactiques par section, réservation et ressources, en bas de cette page.</span></div></div></details>
+      <details class="cat-card"><summary class="cat-head"><span class="cat-num">02</span><div><h3>English-language test</h3><p>Recorded accepted tests: ${engTests}.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">Confirm minimum score and exemption rules on ${p.school}'s official portal.</p><div class="locator"><label class="pfield"><span>Find an English-test centre near you</span><input class="loc-search" id="focusEnglishLocation${suffix}" list="locationList" placeholder="Any city or address…" autocomplete="off"></label><button class="btn primary" data-find-english="${suffix}" type="button">Trouver des centres</button></div><div class="locator-results" id="focusEnglishResults${suffix}"></div><h4>Preparation resources</h4><ul class="resource-list">${engTestsList.includes("TOEFL iBT") ? `<li><a href="https://www.ets.org/toefl.html" target="_blank" rel="noopener noreferrer">ETS TOEFL Official Prep</a></li>` : ""}${engTestsList.includes("IELTS Academic") ? `<li><a href="https://www.ielts.org" target="_blank" rel="noopener noreferrer">IELTS official practice</a></li>` : ""}${engTestsList.includes("Duolingo English Test") ? `<li><a href="https://englishtest.duolingo.com" target="_blank" rel="noopener noreferrer">Duolingo English Test</a> — remote option, accepted per this catalogue's regional record.</li>` : ""}${engTestsList.includes("PTE Academic") ? `<li><a href="https://www.pearsonpte.com" target="_blank" rel="noopener noreferrer">PTE Academic Official Prep</a></li>` : ""}</ul></div></details>
       <details class="cat-card"><summary class="cat-head"><span class="cat-num">03</span><div><h3>Academic documents &amp; CV</h3><p>Transcript, degree certificate/expected-graduation proof and CV.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.docs}</div>` : ""}<ul class="tip-list"><li>Prepare official transcripts and certified English translations if needed.</li><li>Prepare your degree certificate or expected-graduation letter.</li><li>${strategy.cv}</li></ul></div></details>
-      <details class="cat-card"><summary class="cat-head"><span class="cat-num">04</span><div><h3>Statement of purpose / essays</h3><p>Programme-specific motivation and career goals.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.essays}</div>` : `<p class="scholar-section-sub">Not individually researched for this programme yet. As a general guide, most competitive masters/MBA essays run 400–650 words per prompt across 1–3 prompts, and cover: (1) why this programme specifically, not master's degrees in general, (2) your relevant story/evidence, (3) concrete short- and long-term goals it enables. Confirm the actual prompts and word limits on the official portal — they change most cycles.</p>`}<ul class="tip-list"><li>${strategy.sopField}</li><li>${strategy.sop}</li><li>Verify prompts, word count and submission format on the official portal.</li><li>Leave time for several revisions and an outside reader.</li></ul><h4>Widely-used essay resources</h4><ul class="resource-list"><li><a href="https://www.mbamission.com/blog/" target="_blank" rel="noopener noreferrer">mbaMission essay guides</a> — free, school-specific essay breakdowns updated each cycle.</li><li><a href="https://poetsandquants.com/" target="_blank" rel="noopener noreferrer">Poets&amp;Quants</a> — the most-read MBA admissions news site, with extensive essay and application-strategy coverage.</li>${SCHOOL_CLEARADMIT[p.school] ? `<li><a href="${SCHOOL_CLEARADMIT[p.school]}" target="_blank" rel="noopener noreferrer">${escapeHTML(p.school)} on Clear Admit</a> — real admit interviews and essay analysis for this specific school.</li>` : ""}</ul></div></details>
-      <details class="cat-card"><summary class="cat-head"><span class="cat-num">05</span><div><h3>Letters of recommendation</h3><p>Choose referees and give them time.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.recLetters}</div>` : ""}<ul class="tip-list"><li>${strategy.referees}</li><li>Structure guidance for your recommender: 1) how they know you and for how long, 2) one or two specific, evidenced examples of your impact or growth (not generic praise), 3) a direct comparison to peers if possible (e.g. "top 10% of the analysts I've managed"), 4) a closing statement of confident support for this specific programme.</li><li>Send your CV, goals and this programme's deadline at least 4–6 weeks early.</li><li>Verify the exact number and type of references directly in the application portal — it varies by programme and changes most cycles.</li></ul></div></details>
+      <details class="cat-card"><summary class="cat-head"><span class="cat-num">04</span><div><h3>Lettre de motivation et essais</h3><p>Programme-specific motivation and career goals.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.essays}</div>` : `<p class="scholar-section-sub">Not individually researched for this programme yet. As a general guide, most competitive masters/MBA essays run 400–650 words per prompt across 1–3 prompts, and cover: (1) why this programme specifically, not master's degrees in general, (2) your relevant story/evidence, (3) concrete short- and long-term goals it enables. Confirm the actual prompts and word limits on the official portal — they change most cycles.</p>`}<ul class="tip-list"><li>${strategy.sopField}</li><li>${strategy.sop}</li><li>Verify prompts, word count and submission format on the official portal.</li><li>Leave time for several revisions and an outside reader.</li></ul><h4>Widely-used essay resources</h4><ul class="resource-list"><li><a href="https://www.mbamission.com/blog/" target="_blank" rel="noopener noreferrer">mbaMission essay guides</a> — free, school-specific essay breakdowns updated each cycle.</li><li><a href="https://poetsandquants.com/" target="_blank" rel="noopener noreferrer">Poets&amp;Quants</a> — the most-read MBA admissions news site, with extensive essay and application-strategy coverage.</li>${SCHOOL_CLEARADMIT[p.school] ? `<li><a href="${SCHOOL_CLEARADMIT[p.school]}" target="_blank" rel="noopener noreferrer">${escapeHTML(p.school)} on Clear Admit</a> — real admit interviews and essay analysis for this specific school.</li>` : ""}</ul></div></details>
+      <details class="cat-card"><summary class="cat-head"><span class="cat-num">05</span><div><h3>Lettres de recommandation</h3><p>Choose referees and give them time.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.recLetters}</div>` : ""}<ul class="tip-list"><li>${strategy.referees}</li><li>Structure guidance for your recommender: 1) how they know you and for how long, 2) one or two specific, evidenced examples of your impact or growth (not generic praise), 3) a direct comparison to peers if possible (e.g. "top 10% of the analysts I've managed"), 4) a closing statement of confident support for this specific programme.</li><li>Send your CV, goals and this programme's deadline at least 4–6 weeks early.</li><li>Verify the exact number and type of references directly in the application portal — it varies by programme and changes most cycles.</li></ul></div></details>
       ${destinationRequirementsHTML(p)}
     </div></div>`;
 }
@@ -7167,7 +7167,7 @@ function renderSingleApplicationChecklist() {
   if (!board) return;
   if (planner) planner.style.display = "none";
   const list = PROGRAMS.filter(p => state.checklist.has(p.id) && state.compare.has(p.id));
-  board.innerHTML = list.length ? list.map(applicationChecklistCard).join("") : `<div class="planner-empty"><strong>Add a programme from your shortlist</strong>Each programme you add stays here as its own expandable checklist.</div>`;
+  board.innerHTML = list.length ? list.map(applicationChecklistCard).join("") : `<div class="planner-empty"><strong>Ajoutez un programme depuis votre sélection</strong>Chaque programme ajouté reste ici sous forme de check-list dépliable.</div>`;
   board.querySelectorAll("[data-find-gmat]").forEach(btn => btn.addEventListener("click", () => { const id = btn.dataset.findGmat; renderLocator("gmat", `focusGmatResults${id}`, `focusGmatLocation${id}`); }));
   board.querySelectorAll("[data-find-english]").forEach(btn => btn.addEventListener("click", () => { const id = btn.dataset.findEnglish; renderLocator("toefl", `focusEnglishResults${id}`, `focusEnglishLocation${id}`); }));
   board.querySelectorAll("[data-remove-checklist]").forEach(btn => btn.addEventListener("click", () => { state.checklist.delete(+btn.dataset.removeChecklist); renderApplicationChecklist(); }));
@@ -7368,11 +7368,11 @@ function sourceLine(url, label) {
 }
 
 const ODDS_BANDS = {
-  broad:       { label: "Good odds",        tone: "odds-good" },
-  moderate:    { label: "Realistic",        tone: "odds-ok" },
-  competitive: { label: "Competitive",      tone: "odds-warn" },
-  longshot:    { label: "Very competitive", tone: "odds-hard" },
-  unknown:     { label: "Odds not published", tone: "odds-unknown" },
+  broad:       { label: "Bonnes chances",        tone: "odds-good" },
+  moderate:    { label: "Réaliste",        tone: "odds-ok" },
+  competitive: { label: "Compétitif",      tone: "odds-warn" },
+  longshot:    { label: "Très compétitif", tone: "odds-hard" },
+  unknown:     { label: "Taux de réussite non publié", tone: "odds-unknown" },
 };
 
 function oddsChip(scheme) {
@@ -8116,7 +8116,7 @@ function openFundingModal(progId, type) {
         <div class="fact"><span>Total Tuition</span><b>${tuitionDisplay(p)}</b></div>
         <div class="fact"><span>Term Installments</span><b>Not verified</b></div>
         <div class="fact"><span>Interest Rate</span><b>Not verified</b></div>
-        <div class="fact"><span>Duration</span><b>${p.months} Months</b></div>
+        <div class="fact"><span>Durée</span><b>${p.months} Months</b></div>
       </div>
       <div class="elig elig-eligible">
         <div class="elig-head"><span class="dot"></span> Flexible Payment Structure</div>
@@ -8156,7 +8156,7 @@ function renderScholarshipBreakdown() {
     targetPrograms = PROGRAMS.filter(p => state.compare.has(p.id));
   }
   if (!targetPrograms.length) {
-    container.innerHTML = `<div class="planner-empty"><strong>Select a programme from your shortlist</strong>Funding options are only shown for programmes you have added to Compare, so the results stay specific to your application.</div>`;
+    container.innerHTML = `<div class="planner-empty"><strong>Choisissez un programme dans votre sélection</strong>Funding options are only shown for programmes you have added to Compare, so the results stay specific to your application.</div>`;
     return;
   }
   
@@ -8184,7 +8184,7 @@ function renderScholarshipBreakdown() {
             </div>
           </div>
           <div class="breakdown-summary-badge">
-            <span class="total-support-label">Best single award you could win here</span>
+            <span class="total-support-label">Meilleure bourse que vous pourriez obtenir ici</span>
             <span class="total-support-val">${bestAwardHeadline(p, data)}</span>
           </div>
         </div>
@@ -8368,7 +8368,7 @@ function renderFundingDirectory() {
 
   const empty = fundingDirTab === "home" && !citizenship
     ? `<div class="planner-empty" style="grid-column:1/-1"><strong>Set your country of citizenship above</strong>Home-country funding is the one axis that depends entirely on where you're from, so there's nothing to show until that's set.</div>`
-    : `<div class="planner-empty" style="grid-column:1/-1"><strong>Nothing matches this filter yet</strong>Add programmes to your shortlist, or set your citizenship, to see which schemes you can actually compete for.</div>`;
+    : `<div class="planner-empty" style="grid-column:1/-1"><strong>Rien ne correspond encore à ce filtre</strong>Add programmes to your shortlist, or set your citizenship, to see which schemes you can actually compete for.</div>`;
 
   grid.innerHTML = shown.length ? shown.map(g => `
     <div class="scholar-gov-card${g.ownCountry || g.verdict === "no" ? " scholar-gov-dim" : ""}">
@@ -8492,7 +8492,7 @@ Object.entries(PROFILE_INPUTS).forEach(([elId, key]) =>
     updateProfileBadge();
     syncScholarProfileInputs();
     $("profileApply").textContent = "Apply to programmes";
-    $("profileApplyNote").textContent = "Your changes are ready — press Apply to refresh the results.";
+    $("profileApplyNote").textContent = "Vos modifications sont prêtes — appuyez sur Appliquer pour actualiser les résultats.";
   }));
 
 // Scholarship & Checklist Situation wiring — selects stage a change, the Apply
@@ -8541,7 +8541,7 @@ $("profileReset").addEventListener("click", e => {
   Object.keys(PROFILE_INPUTS).forEach(id => { $(id).value = ""; });
   syncScholarProfileInputs();
   $("profileApply").textContent = "Apply to programmes";
-  $("profileApplyNote").textContent = "Set your criteria, then apply them to the results.";
+  $("profileApplyNote").textContent = "Définissez vos critères, puis appliquez-les aux résultats.";
   updateProfileBadge();
   render();
   if (state.page === "checklist") renderApplicationChecklist();
@@ -8561,7 +8561,7 @@ const statCountryCount = new Set(PROGRAMS.map(p => p.country)).size;
 const statContinentCount = new Set(PROGRAMS.map(p => p.region)).size;
 $("statPrograms").textContent = PROGRAMS.length;
 $("statCountries").textContent = statCountryCount;
-$("heroStats").textContent = `${PROGRAMS.length} programmes · ${statCountryCount} countries · ${statContinentCount} continents`;
+$("heroStats").textContent = `${PROGRAMS.length} programmes · ${statCountryCount} pays · ${statContinentCount} continents`;
 const eurK = n => n === 0 ? "€0" : `€${Math.round(n / 1000)}k`;
 $("statTuitionRange").textContent = `${eurK(Math.min(...PROGRAMS.map(p => p.tuition)))}–${eurK(Math.max(...PROGRAMS.map(p => p.tuition)))}`;
 $("statMonthsRange").textContent = `${Math.min(...PROGRAMS.map(p => p.months))}–${Math.max(...PROGRAMS.map(p => p.months))}`;
@@ -8570,7 +8570,7 @@ function buildCountrySelect(selectEl) {
   if (!selectEl) return;
   const rest = ALL_COUNTRIES.filter(c => !PINNED_COUNTRIES.includes(c)).sort((a, b) => a.localeCompare(b));
   const optionsHTML =
-    `<option value="">Any / not sure</option>` +
+    `<option value="">Peu importe / je ne sais pas</option>` +
     `<optgroup label="Popular">${PINNED_COUNTRIES.map(c => `<option>${c}</option>`).join("")}</optgroup>` +
     `<optgroup label="All countries">${rest.map(c => `<option>${c}</option>`).join("")}</optgroup>`;
   selectEl.insertAdjacentHTML("beforeend", optionsHTML);
