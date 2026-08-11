@@ -93,7 +93,7 @@ function setLangAttrs(html, lang) {
 
   // Rewrite both switchers so the current language is the active pill.
   html = html.replace(/class="lang-opt is-active" aria-current="true"/g, 'class="lang-opt"');
-  const marker = new RegExp(`(<a href="\\.\\./${lang.dir}/" hreflang="${lang.code}" )class="lang-opt"`, "g");
+  const marker = new RegExp(`(<a href="\\.\\./${lang.dir}/index\\.html" hreflang="${lang.code}" )class="lang-opt"`, "g");
   html = html.replace(marker, `$1class="lang-opt is-active" aria-current="true"`);
   return html;
 }
@@ -105,9 +105,9 @@ function setLangAttrs(html, lang) {
 function fixRelativePaths(html) {
   html = html.replace(/(src|href)="assets\//g, '$1="../assets/');
   // language switcher: from /nl/ or /fr/, English is one level up
-  html = html.replace(/<a href="\.\/" hreflang="en"/g, '<a href="../" hreflang="en"');
-  html = html.replace(/<a href="nl\/" hreflang="nl"/g, '<a href="../nl/" hreflang="nl"');
-  html = html.replace(/<a href="fr\/" hreflang="fr"/g, '<a href="../fr/" hreflang="fr"');
+  html = html.replace(/<a href="index\.html" hreflang="en"/g, '<a href="../index.html" hreflang="en"');
+  html = html.replace(/<a href="nl\/index\.html" hreflang="nl"/g, '<a href="../nl/index.html" hreflang="nl"');
+  html = html.replace(/<a href="fr\/index\.html" hreflang="fr"/g, '<a href="../fr/index.html" hreflang="fr"');
   return html;
 }
 

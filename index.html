@@ -126,7 +126,7 @@
   .mobile-menu-backdrop[hidden] { display: none; }
   .mobile-menu {
     position: absolute; top: calc(100% + 8px); left: 20px; right: 20px;
-    max-height: 55vh; overflow-y: auto; z-index: 70;
+    max-height: min(78vh, calc(100dvh - 90px)); overflow-y: auto; overscroll-behavior: contain; z-index: 70;
     background: var(--card); border: 1px solid var(--line); border-radius: 18px;
     box-shadow: var(--shadow); padding: 8px; display: flex; flex-direction: column; gap: 2px;
   }
@@ -882,9 +882,9 @@
       <!-- data-lang-switch is rewritten per build by build-i18n.js so the active
            language is marked and the hrefs stay correct from /, /nl/ and /fr/. -->
       <nav class="lang-switch" data-lang-switch aria-label="Language">
-        <a href="./" hreflang="en" class="lang-opt is-active" aria-current="true">EN</a>
-        <a href="nl/" hreflang="nl" class="lang-opt">NL</a>
-        <a href="fr/" hreflang="fr" class="lang-opt">FR</a>
+        <a href="index.html" hreflang="en" class="lang-opt is-active" aria-current="true">EN</a>
+        <a href="nl/index.html" hreflang="nl" class="lang-opt">NL</a>
+        <a href="fr/index.html" hreflang="fr" class="lang-opt">FR</a>
       </nav>
     </div>
     <button class="hamburger" id="navToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -909,9 +909,9 @@
     <div class="mm-divider"></div>
     <div class="mm-group-label">Language</div>
     <nav class="mm-lang" data-lang-switch aria-label="Language">
-      <a href="./" hreflang="en" class="lang-opt is-active" aria-current="true">English</a>
-      <a href="nl/" hreflang="nl" class="lang-opt">Nederlands</a>
-      <a href="fr/" hreflang="fr" class="lang-opt">Français</a>
+      <a href="index.html" hreflang="en" class="lang-opt is-active" aria-current="true">English</a>
+      <a href="nl/index.html" hreflang="nl" class="lang-opt">Nederlands</a>
+      <a href="fr/index.html" hreflang="fr" class="lang-opt">Français</a>
     </nav>
   </div>
 </header>
