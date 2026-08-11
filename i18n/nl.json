@@ -15,7 +15,7 @@
   "How to use your shortlist": "Zo gebruik je je shortlist",
   "Campus Atlas home": "Campus Atlas startpagina",
   "Open menu": "Menu openen",
-  "${PROGRAMS.length} programmes · ${statCountryCount} countries · ${statContinentCount} continents": "${PROGRAMS.length} opleidingen · ${statCountryCount} landen · ${statContinentCount} continenten",
+  "${PROGRAMS.length} programmes, ${statCountryCount} countries, ${statContinentCount} continents": "${PROGRAMS.length} opleidingen, ${statCountryCount} landen, ${statContinentCount} continenten",
   "The best master's degrees,": "De beste masteropleidingen,",
   "anywhere": "waar ook",
   "on earth.": "ter wereld.",

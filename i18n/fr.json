@@ -15,7 +15,7 @@
   "How to use your shortlist": "Comment utiliser votre sélection",
   "Campus Atlas home": "Accueil Campus Atlas",
   "Open menu": "Ouvrir le menu",
-  "${PROGRAMS.length} programmes · ${statCountryCount} countries · ${statContinentCount} continents": "${PROGRAMS.length} programmes · ${statCountryCount} pays · ${statContinentCount} continents",
+  "${PROGRAMS.length} programmes, ${statCountryCount} countries, ${statContinentCount} continents": "${PROGRAMS.length} programmes, ${statCountryCount} pays, ${statContinentCount} continents",
   "The best master's degrees,": "Les meilleurs masters,",
   "anywhere": "partout",
   "on earth.": "dans le monde.",

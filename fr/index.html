@@ -95,6 +95,8 @@
   .btn.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
   .btn.primary:hover { opacity: .88; }
   .header-tools { display: flex; align-items: center; gap: 9px; }
+  .shortlist-cluster { display: flex; align-items: center; gap: 8px; }
+  .shortlist-cluster-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); white-space: nowrap; }
   .header-tool-group { display: flex; align-items: center; padding: 3px; border: 1px solid var(--line-2); border-radius: 999px; background: var(--card); }
   .header-tool-group .btn { padding: 6px 10px; border: 0; background: transparent; }
   .header-tool-group .btn + .btn { border-left: 1px solid var(--line); border-radius: 0; }
@@ -858,7 +860,9 @@
     </nav>
     <span class="spacer"></span>
     <div class="header-tools">
-      <div class="header-tool-group">
+      <div class="shortlist-cluster">
+      <span class="shortlist-cluster-label">Sélection</span>
+      <div class="header-tool-group" aria-label="Your shortlist — applies to Compare, Application Checklist and Scholarships">
       <button class="btn" id="compareBtn">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 3v18M15 3v18M5 8h4M15 8h4M5 16h4M15 16h4"/></svg>
         <span class="label">Comparer</span>
@@ -878,6 +882,7 @@
           <span>Découvrez les bourses adaptées à votre situation.</span>
         </span>
       </span>
+      </div>
       </div>
       <!-- data-lang-switch is rewritten per build by build-i18n.js so the active
            language is marked and the hrefs stay correct from /, /nl/ and /fr/. -->
@@ -938,7 +943,7 @@
     <div class="hpl-wash"></div>
   </div>
   <div class="wrap">
-    <div class="eyebrow"><span class="dot"></span> <span id="heroStats">176 programmes · 34 countries · 5 continents</span></div>
+    <div class="eyebrow"><span class="dot"></span> <span id="heroStats">176 programmes, 34 countries, 5 continents</span></div>
     <h1>Les meilleurs masters, <em>partout</em> dans le monde.</h1>
     <p class="lede">Campus Atlas maps top-ranked master's programmes at the world's leading universities — business, engineering, science and more — so you can compare tuition, length, entry requirements and deadlines side by side, before you commit a year of your life.</p>
 
@@ -1268,7 +1273,7 @@
             <li><b>Question Review &amp; Edit</b>: bookmark as you go, then change up to <b>three</b> answers per section at the end — but only if time remains. Run out of time and the review screen is skipped entirely.</li>
             <li>One optional <b>10-minute break</b>, taken after either the first or the second section.</li>
           </ul>
-          <p class="source-line">Structure and scoring read from <a href="https://www.mba.com/exams/gmat-exam/about/exam-structure" target="_blank" rel="noopener noreferrer">GMAC's exam-structure page</a> and <a href="https://www.mba.com/exams/gmat-exam/scores" target="_blank" rel="noopener noreferrer">its scoring page</a> · confirm there before you rely on it</p>
+          <p class="source-line">Structure and scoring read from <a href="https://www.mba.com/exams/gmat-exam/about/exam-structure" target="_blank" rel="noopener noreferrer">GMAC's exam-structure page</a> and <a href="https://www.mba.com/exams/gmat-exam/scores" target="_blank" rel="noopener noreferrer">its scoring page</a>, confirm there before you rely on it</p>
         </div>
       </details>
 
@@ -1294,7 +1299,7 @@
             <li>The test is <b>section-level adaptive</b>: how you perform on the first Verbal or Quant section determines the difficulty of the second. Front-loaded accuracy therefore matters more than it looks.</li>
             <li>Scores are valid five years, and <b>ScoreSelect</b> lets you decide which sittings a school sees.</li>
           </ul>
-          <p class="source-line">Section counts and timings read from <a href="https://www.ets.org/gre/test-takers/general-test/prepare/test-structure.html" target="_blank" rel="noopener noreferrer">ETS's GRE test-structure page</a> · confirm there before you rely on it</p>
+          <p class="source-line">Section counts and timings read from <a href="https://www.ets.org/gre/test-takers/general-test/prepare/test-structure.html" target="_blank" rel="noopener noreferrer">ETS's GRE test-structure page</a>, confirm there before you rely on it</p>
         </div>
       </details>
 
@@ -1304,25 +1309,25 @@
           <span class="cat-chevron">⌄</span></summary>
         <div class="cat-body">
           <p class="scholar-section-sub">The structure matters more than the hours. Almost everyone who under-performs did the same thing: solved hundreds of questions without ever analysing the ones they got wrong.</p>
-          <h4>Weeks 1–2 · Diagnose, don't study</h4>
+          <h4>Weeks 1–2, Diagnose, don't study</h4>
           <ul class="tip-list">
             <li>Sit one full official practice test cold, timed, in one sitting. The number is not the point — the section and question-type breakdown is.</li>
             <li>Build an <b>error log</b> from day one: question, your answer, correct answer, and the real reason you missed it — concept gap, misread, or timing. This single habit separates a 40-point gain from a 100-point one.</li>
             <li>Relearn fundamentals before drilling. Doing 500 questions on a shaky foundation just practises the mistake.</li>
           </ul>
-          <h4>Weeks 3–5 · Build accuracy, ignore the clock</h4>
+          <h4>Weeks 3–5, Build accuracy, ignore the clock</h4>
           <ul class="tip-list">
             <li>Work untimed by question type until accuracy is above 80% in a type before you time it. Speed follows accuracy; it never leads it.</li>
             <li>Review every question you got right but were unsure about — those are the ones that will fail you under pressure.</li>
             <li>For GMAT Data Insights and GRE Quant, practise reading the question <em>before</em> the chart or table. Most of the time pressure here is self-inflicted.</li>
           </ul>
-          <h4>Weeks 6–7 · Timing and stamina</h4>
+          <h4>Weeks 6–7, Timing and stamina</h4>
           <ul class="tip-list">
             <li>Move to timed sets, then full sections, then a full test a week — at the same time of day as your real booking.</li>
             <li>Learn your abandon rule: decide in advance how long you will give any single question (about 2 minutes on GMAT Quant/Verbal) and practise letting go at that point.</li>
             <li>Rehearse the mechanics — GMAT section order and the three-answer edit, or the GRE's within-section navigation — so nothing on the day is new.</li>
           </ul>
-          <h4>Week 8 · Taper</h4>
+          <h4>Week 8, Taper</h4>
           <ul class="tip-list">
             <li>Last full practice test no later than five days before. After that, review your error log only.</li>
             <li>Do not learn new material in the final week. It displaces recall of what you already know.</li>
@@ -5256,6 +5261,12 @@ function escapeHTML(value) {
   return String(value).replace(/[&<>"]/g, char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[char]);
 }
 
+// School names are stored with an em-dash separating the institution from its named
+// school (e.g. "University of Cambridge — Judge"), and those exact strings are also
+// used as lookup keys (SCHOOL_SCHOLARSHIPS, SCHOOL_CLEARADMIT, …), so the data is left
+// untouched — the em-dash is only swapped for a comma at display time via this helper.
+const schoolName = value => String(value).replace(/\s*—\s*/g, ", ");
+
 async function geocodeLocation(query) {
   const normalized = query.trim().toLowerCase();
   const local = LOCATIONS.find(l => locationLabel(l).toLowerCase() === normalized)
@@ -5393,8 +5404,8 @@ async function renderLocator(kind, resultsElId, selectElId) {
     : `<p class="locator-placeholder">We couldn't place "${escapeHTML(query)}" on the map. Try a nearby city, or open one of the official booking pages below.</p>`;
 
   const costNote = kind === "gmat"
-    ? "Approximate cost: GMAT Focus ~$275 USD worldwide · GRE General Test ~$220 USD (varies slightly by country). Always check the exact local fee when you book."
-    : "Approximate cost: TOEFL iBT ~$245 USD · IELTS ~$225 USD · Duolingo English Test ~$65 USD (cheaper, fully remote). Fees vary by country — confirm when you book.";
+    ? "Approximate cost: GMAT Focus ~$275 USD worldwide, GRE General Test ~$220 USD (varies slightly by country). Always check the exact local fee when you book."
+    : "Approximate cost: TOEFL iBT ~$245 USD, IELTS ~$225 USD, Duolingo English Test ~$65 USD (cheaper, fully remote). Fees vary by country — confirm when you book.";
 
   box.innerHTML = `
     ${map}
@@ -5493,8 +5504,8 @@ function tuitionDisplay(p) {
    POST-STUDY WORK / VISA SPONSORSHIP
    Indicative post-study work rights by country — not legal advice,
    rules change often, always confirm with the school/embassy.
-   tier: "strong" (12+ months, clear route) · "moderate" (6–12 months)
-   · "limited" (little to no formal route without a fast employer sponsor)
+   tier: "strong" (12+ months, clear route), "moderate" (6–12 months)
+  , "limited" (little to no formal route without a fast employer sponsor)
    ============================================================ */
 const VISA_INFO = {
   "United States":     { label: "OPT — 12 months (36 with STEM extension)", tier: "strong" },
@@ -6048,7 +6059,7 @@ function selectivityFor(p) {
   return {
     ...s,
     band: s.rate != null ? selectivityBand(s.rate) : null,
-    summary: parts.join(" · "),
+    summary: parts.join(", "),
     caveat: s.basis === "published"
       ? `From the school's published ${s.cohort} class profile. Admit rates move by several points between cycles — confirm against the current profile.`
       : `Widely reported but not published by the school itself, so treat it as a rough indication rather than a fact.`,
@@ -6059,7 +6070,7 @@ function selectivityFor(p) {
 function selectivityShort(p) {
   const s = selectivityFor(p);
   if (!s) return `Not published`;
-  if (s.rate != null) return `${s.rate}% admitted${s.classSize ? ` · class of ${s.classSize}` : ""}`;
+  if (s.rate != null) return `${s.rate}% admitted${s.classSize ? `, class of ${s.classSize}` : ""}`;
   return `Class of ${s.classSize}`;
 }
 
@@ -6225,13 +6236,13 @@ function cardHTML(p, subjectOnlyMatch) {
       <div class="top">
         <span class="flag">${p.flag}</span>
         <div>
-          <div class="school">${p.school}</div>
+          <div class="school">${schoolName(p.school)}</div>
           <div class="place">${p.city}, ${p.country}</div>
         </div>
       </div>
       <label class="card-select${state.compare.has(p.id) ? " selected" : ""}" onclick="event.stopPropagation()">
         <input type="checkbox" data-compare="${p.id}" ${state.compare.has(p.id) ? "checked" : ""}>
-        ${state.compare.has(p.id) ? "Selected for compare" : "Add to compare"}
+        ${state.compare.has(p.id) ? "On your shortlist" : "Add to shortlist"}
       </label>
     </div>
     <h3>${p.program}</h3>
@@ -6353,7 +6364,7 @@ function modalEntryProfile(p) {
   const prereq = p.prereq ? `<div class="elig elig-check" style="margin-bottom:10px">
       <div class="elig-head"><span class="dot"></span> Prérequis — à lire avant de candidater</div>
       <p>${p.prereq}</p>
-      <p style="margin-top:6px"><a href="${p.link}" target="_blank" rel="noopener noreferrer">Check it on ${escapeHTML(p.school)}'s own admissions page ↗</a></p>
+      <p style="margin-top:6px"><a href="${p.link}" target="_blank" rel="noopener noreferrer">Check it on ${escapeHTML(schoolName(p.school))}'s own admissions page ↗</a></p>
     </div>` : "";
 
   return `${prereq}<div class="elig elig-eligible">
@@ -6371,7 +6382,7 @@ function openModal(id) {
       <button class="close" id="closeBtn" aria-label="Close">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
       </button>
-      <div class="school">${p.flag} &nbsp;${p.school}</div>
+      <div class="school">${p.flag} &nbsp;${schoolName(p.school)}</div>
       <h2>${p.program}</h2>
       ${p.extRank ? `<div class="ext-rank" style="margin-bottom:8px">${p.extRank}</div>` : ""}
       <div class="tags">
@@ -6391,11 +6402,11 @@ function openModal(id) {
         <div class="fact"><span>GMAT / GRE</span><b>${p.gmat ? "Required" : "Not required"}</b></div>
         <div class="fact"><span>Work visa after graduation</span><b>${getVisa(p).label}</b></div>
       </div>
-      ${sourceLine(p.link, `${p.school}'s own programme page`)}
+      ${sourceLine(p.link, `${schoolName(p.school)}'s own programme page`)}
       ${modalEntryProfile(p)}
       ${(() => {
         const s = selectivityFor(p);
-        if (!s) return `<h5>How hard is it to get in?</h5><p class="scholar-section-sub" style="margin-bottom:0">${p.school} doesn't publish an admit rate for this programme. That's normal outside the MBA world — most master's degrees never release one, so judge competitiveness from the entry bar instead: ${p.gmat ? "a GMAT/GRE is expected" : "no GMAT/GRE is required"}, ${p.work === "0 yrs" ? "no work experience is needed" : `${p.work} of work experience is expected`}${p.extRank ? `, and the programme sits at ${p.extRank}` : ""}.</p>`;
+        if (!s) return `<h5>How hard is it to get in?</h5><p class="scholar-section-sub" style="margin-bottom:0">${schoolName(p.school)} doesn't publish an admit rate for this programme. That's normal outside the MBA world — most master's degrees never release one, so judge competitiveness from the entry bar instead: ${p.gmat ? "a GMAT/GRE is expected" : "no GMAT/GRE is required"}, ${p.work === "0 yrs" ? "no work experience is needed" : `${p.work} of work experience is expected`}${p.extRank ? `, and the programme sits at ${p.extRank}` : ""}.</p>`;
         return `<h5>How hard is it to get in?</h5>
           <div class="elig elig-eligible">
             <div class="elig-head"><span class="dot"></span> ${s.band ? s.band.label : "Published cohort size"}${s.rate != null ? ` — ${s.rate}% of applicants admitted` : ""}</div>
@@ -6432,7 +6443,7 @@ function closeModal() {
    COMPARE PAGE
    ============================================================ */
 const COMPARE_ROWS = [
-  { label: "Tuition (total)", get: p => `${tuitionDisplay(p)}${sourceLine(p.link, `${p.school}'s own programme page`)}`, raw: true },
+  { label: "Tuition (total)", get: p => `${tuitionDisplay(p)}${sourceLine(p.link, `${schoolName(p.school)}'s own programme page`)}`, raw: true },
   { label: "Durée", get: p => `${p.months} months` },
   { label: "Langue", get: p => p.lang },
   { label: "Intake", get: p => p.intake },
@@ -6442,7 +6453,7 @@ const COMPARE_ROWS = [
   { label: "Admissions selectivity", raw: true, get: p => {
       const s = selectivityFor(p);
       if (!s) return `<span class="planner-status muted">Not published</span><span class="place">This school doesn't publish an admit rate for this programme — most non-MBA master's don't.</span>`;
-      return `<span class="planner-status ${s.band ? s.band.tone : "muted"}">${s.band ? s.band.label : "Cohort size published"}</span><span class="place">${s.summary} · ${s.cohort}</span>`;
+      return `<span class="planner-status ${s.band ? s.band.tone : "muted"}">${s.band ? s.band.label : "Cohort size published"}</span><span class="place">${s.summary}, ${s.cohort}</span>`;
     } },
   { label: "Région", get: p => p.region },
   { label: "Work visa after graduation", get: p => getVisa(p).label },
@@ -6462,7 +6473,7 @@ function compareGridHTML(list) {
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
         <span class="flag">${p.flag}</span>
-        <div class="school">${p.school}</div>
+        <div class="school">${schoolName(p.school)}</div>
         <div class="place">${p.city}, ${p.country}</div>
         <h3>${p.program}</h3>
       </div>`;
@@ -6573,7 +6584,7 @@ function renderEnglishTestMatrix() {
 
   let html = `<div class="compare-grid-wrap"><div class="test-matrix" style="grid-template-columns:200px repeat(${list.length}, minmax(140px,1fr))">`;
   html += `<div class="cg-cell cg-row-label cg-head">Test accepted?</div>`;
-  list.forEach(p => { html += `<div class="cg-cell cg-head"><span class="flag">${p.flag}</span><div class="school">${p.school}</div><div class="place">${p.program}</div></div>`; });
+  list.forEach(p => { html += `<div class="cg-cell cg-head"><span class="flag">${p.flag}</span><div class="school">${schoolName(p.school)}</div><div class="place">${p.program}</div></div>`; });
   ENGLISH_TESTS.forEach(test => {
     html += `<div class="cg-cell cg-row-label">${test}</div>`;
     list.forEach((p, i) => {
@@ -6666,13 +6677,13 @@ function applicationTiming(p) {
 function applicationFit(p) {
   const result = eligibility(p);
   if (result.status === "none") return `<span class="planner-status muted">Add your situation to see fit</span>`;
-  return `<span class="planner-status ${result.status === "eligible" ? "good" : "watch"}">${MATCH_LABEL[result.status]}${result.reasons.length ? ` · ${result.reasons[0]}` : ""}</span>`;
+  return `<span class="planner-status ${result.status === "eligible" ? "good" : "watch"}">${MATCH_LABEL[result.status]}${result.reasons.length ? `, ${result.reasons[0]}` : ""}</span>`;
 }
 
 const APPLICATION_ROWS = [
   { label:"Next intake & deadline", raw:true, get:p => { const t = applicationTiming(p); return `<span class="planner-status ${t.tone}">${t.label}</span><span class="place">${t.detail}</span>`; } },
   { label:"GMAT / GRE", raw:true, get:p => p.gmat ? `<span class="planner-status watch">Required / expected</span><span class="place">Book preparation early; confirm waiver policy.</span>` : `<span class="planner-status good">Not required in current record</span><span class="place">No test planning needed unless the official page changes.</span>` },
-  { label:"English language", raw:true, get:p => `<b>${getEnglishTests(p).join(" · ")}</b><span class="place">Confirm score threshold and waiver rules.</span>` },
+  { label:"English language", raw:true, get:p => `<b>${getEnglishTests(p).join(", ")}</b><span class="place">Confirm score threshold and waiver rules.</span>` },
   { label:"Academic documents", raw:true, get:p => `<b>Transcript + degree certificate</b><span class="place">Prepare certified translations or expected-graduation proof if needed.</span>` },
   { label:"CV / résumé", raw:true, get:p => `<b>1–2 page CV</b><span class="place">Emphasise internships, projects and evidence relevant to ${p.fields[0]}.</span>` },
   { label:"Essays & recommenders", raw:true, get:p => `<b>Prepare statement + references</b><span class="place">Confirm exact essay prompts and referee count on the application portal.</span>` },
@@ -6684,7 +6695,7 @@ function plannerGridHTML(list, rows) {
   const cols = `190px repeat(${list.length}, minmax(225px, 1fr))`;
   let html = `<div class="compare-grid-wrap"><div class="compare-grid" style="grid-template-columns:${cols}">`;
   html += `<div class="cg-cell cg-row-label cg-head">Programme</div>`;
-  list.forEach(p => { html += `<div class="cg-cell cg-head"><span class="flag">${p.flag}</span><div class="school">${p.school}</div><h3>${p.program}</h3><div class="place">${p.city}, ${p.country}</div></div>`; });
+  list.forEach(p => { html += `<div class="cg-cell cg-head"><span class="flag">${p.flag}</span><div class="school">${schoolName(p.school)}</div><h3>${p.program}</h3><div class="place">${p.city}, ${p.country}</div></div>`; });
   rows.forEach(row => {
     html += `<div class="cg-cell cg-row-label">${row.label}</div>`;
     list.forEach(p => { html += row.raw ? `<div class="cg-cell">${row.get(p)}</div>` : `<div class="cg-cell"><b>${row.get(p)}</b></div>`; });
@@ -6699,7 +6710,7 @@ function populateProgramDropdown(selectId) {
   const compareList = PROGRAMS.filter(p => state.compare.has(p.id));
   
   let html = compareList.length
-    ? `<option value="0">Choose a programme from your shortlist</option><optgroup label="Your Shortlist">${compareList.map(p => `<option value="${p.id}">${p.school} — ${p.program} (${p.flag} ${p.country})</option>`).join("")}</optgroup>`
+    ? `<option value="0">Choose a programme from your shortlist</option><optgroup label="Your Shortlist">${compareList.map(p => `<option value="${p.id}">${schoolName(p.school)}, ${p.program} (${p.flag} ${p.country})</option>`).join("")}</optgroup>`
     : `<option value="0">Add programmes to Compare first</option>`;
   
   sel.innerHTML = html;
@@ -6839,8 +6850,8 @@ function applicationStrategyTips(p) {
 
 function gmatAvgNote(p) {
   const avg = GMAT_AVG[p.id];
-  if (!avg) return `<div class="gmat-avg-note gmat-avg-unverified">Class-average score not verified for this specific programme in this catalogue — check ${p.school}'s official class profile before benchmarking yourself.</div>`;
-  const scores = [`${avg.legacy} on the legacy GMAT (10th edition)`, avg.focus ? `${avg.focus} on the GMAT Focus Edition` : null].filter(Boolean).join(" · ");
+  if (!avg) return `<div class="gmat-avg-note gmat-avg-unverified">Class-average score not verified for this specific programme in this catalogue — check ${schoolName(p.school)}'s official class profile before benchmarking yourself.</div>`;
+  const scores = [`${avg.legacy} on the legacy GMAT (10th edition)`, avg.focus ? `${avg.focus} on the GMAT Focus Edition` : null].filter(Boolean).join(", ");
   return `<div class="gmat-avg-note gmat-avg-verified"><b>Class average (${avg.cohort}):</b> ${scores}. Source: ${avg.note} Treat this as a benchmark, not a cutoff — schools admit meaningfully below and above it.</div>`;
 }
 
@@ -6994,18 +7005,18 @@ function outcomesHTML(p) {
   const o = PROGRAMME_OUTCOMES[p.id];
   if (!o) {
     return `<h5>Où finissent les diplômés</h5>
-      <p class="scholar-section-sub" style="margin-bottom:0">We haven't yet verified an employment report for this programme against ${escapeHTML(p.school)}'s own figures, so nothing is shown rather than an estimate. Most schools publish one — check the "careers" or "employment report" section of the <a href="${p.link}" target="_blank" rel="noopener noreferrer">official programme page</a>.</p>`;
+      <p class="scholar-section-sub" style="margin-bottom:0">We haven't yet verified an employment report for this programme against ${escapeHTML(schoolName(p.school))}'s own figures, so nothing is shown rather than an estimate. Most schools publish one — check the "careers" or "employment report" section of the <a href="${p.link}" target="_blank" rel="noopener noreferrer">official programme page</a>.</p>`;
   }
   const rows = [];
   if (o.employedRate != null) rows.push(`<li><b>${o.employedRate}%</b>${o.employedWindow ? " " + o.employedWindow : ""}</li>`);
   if (o.salary) rows.push(`<li>Reported salary: <b>${o.salary}</b></li>`);
-  if (o.sectors && o.sectors.length) rows.push(`<li>Top sectors: ${o.sectors.join(" · ")}</li>`);
-  if (o.employers && o.employers.length) rows.push(`<li>Recruiters include: ${o.employers.join(" · ")}</li>`);
+  if (o.sectors && o.sectors.length) rows.push(`<li>Top sectors: ${o.sectors.join(", ")}</li>`);
+  if (o.employers && o.employers.length) rows.push(`<li>Recruiters include: ${o.employers.join(", ")}</li>`);
   if (o.alumniCount) rows.push(`<li>Alumni network: <b>${o.alumniCount}</b>${o.alumniCountries ? ` across ${o.alumniCountries}` : ""}</li>`);
   if (o.note) rows.push(`<li>${o.note}</li>`);
   return `<h5>Où finissent les diplômés</h5>
     <div class="elig elig-eligible">
-      <div class="elig-head"><span class="dot"></span> ${o.classYear ? `From ${o.school || p.school}'s ${o.classYear}` : "Reported outcomes"}</div>
+      <div class="elig-head"><span class="dot"></span> ${o.classYear ? `From ${schoolName(o.school || p.school)}'s ${o.classYear}` : "Reported outcomes"}</div>
       <ul>${rows.join("")}</ul>
       <p style="margin-top:8px">Figures as published by the school; they are re-set each class year. ${o.source ? `Source: <a href="${o.source.url}" target="_blank" rel="noopener noreferrer">${escapeHTML(o.source.label)}</a>.` : ""}</p>
     </div>`;
@@ -7027,16 +7038,16 @@ const SCHOOL_CLEARADMIT = {
 };
 
 function applicationChecklistCard(p) {
-  const t = applicationTiming(p), suffix = p.id, engTestsList = getEnglishTests(p), engTests = engTestsList.join(" · "), strategy = applicationStrategyTips(p), essentials = PROGRAMME_ESSENTIALS[p.id];
+  const t = applicationTiming(p), suffix = p.id, engTestsList = getEnglishTests(p), engTests = engTestsList.join(", "), strategy = applicationStrategyTips(p), essentials = PROGRAMME_ESSENTIALS[p.id];
   return `<div class="breakdown-card" data-checklist-card="${p.id}">
     <div class="checklist-card-toolbar"><button class="btn secondary" data-download-checklist="${p.id}" type="button">Télécharger le PDF</button><button class="btn secondary checklist-card-remove" data-remove-checklist="${p.id}" type="button">Retirer</button></div>
-    <div class="breakdown-head"><div class="breakdown-prog-meta"><span class="flag">${p.flag}</span><div><h3>${p.school} — ${p.program}</h3><p>${p.city}, ${p.country} · Taught in ${p.lang} · Target intake: ${p.intake} · Tuition: ${tuitionDisplay(p)}</p></div></div><div class="breakdown-summary-badge"><span class="total-support-label">Next application deadline</span><span class="total-support-val">${p.deadline} · verify live</span></div></div>
+    <div class="breakdown-head"><div class="breakdown-prog-meta"><span class="flag">${p.flag}</span><div><h3>${schoolName(p.school)}, ${p.program}</h3><p>${p.city}, ${p.country}, Taught in ${p.lang}, Target intake: ${p.intake}, Tuition: ${tuitionDisplay(p)}</p></div></div><div class="breakdown-summary-badge"><span class="total-support-label">Next application deadline</span><span class="total-support-val">${p.deadline}, verify live</span></div></div>
     <div class="programme-focus"><p><b>${t.label}.</b> ${t.detail}</p><p style="margin-top:9px"><a href="${p.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Open official application page ↗</a></p></div>
     <div class="checklist-cats">
       <details class="cat-card" open><summary class="cat-head"><span class="cat-num">01</span><div><h3>GMAT / GRE</h3><p>${p.gmat ? "Required or expected in the catalogue record." : "Not required in the catalogue record."}</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">${p.gmat ? "Plan early and verify waiver and score requirements on the official portal." : "Focus on the other application steps unless the official portal says otherwise."}</p>${p.gmat ? gmatAvgNote(p) : ""}<div class="locator"><label class="pfield"><span>Find a test centre near you</span><input class="loc-search" id="focusGmatLocation${suffix}" list="locationList" placeholder="Any city or address…" autocomplete="off"></label><button class="btn primary" data-find-gmat="${suffix}" type="button">Trouver des centres</button></div><div class="locator-results" id="focusGmatResults${suffix}"></div><div class="prep-jump"><button type="button" class="btn primary" data-jump-prep>Guide complet GMAT et GRE — structure, notation, plan de 8 semaines ↓</button><span class="prep-jump-note">Format du test, tactiques par section, réservation et ressources, en bas de cette page.</span></div></div></details>
-      <details class="cat-card"><summary class="cat-head"><span class="cat-num">02</span><div><h3>English-language test</h3><p>Recorded accepted tests: ${engTests}.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">Confirm minimum score and exemption rules on ${p.school}'s official portal.</p><div class="locator"><label class="pfield"><span>Find an English-test centre near you</span><input class="loc-search" id="focusEnglishLocation${suffix}" list="locationList" placeholder="Any city or address…" autocomplete="off"></label><button class="btn primary" data-find-english="${suffix}" type="button">Trouver des centres</button></div><div class="locator-results" id="focusEnglishResults${suffix}"></div><h4>Preparation resources</h4><ul class="resource-list">${engTestsList.includes("TOEFL iBT") ? `<li><a href="https://www.ets.org/toefl.html" target="_blank" rel="noopener noreferrer">ETS TOEFL Official Prep</a></li>` : ""}${engTestsList.includes("IELTS Academic") ? `<li><a href="https://www.ielts.org" target="_blank" rel="noopener noreferrer">IELTS official practice</a></li>` : ""}${engTestsList.includes("Duolingo English Test") ? `<li><a href="https://englishtest.duolingo.com" target="_blank" rel="noopener noreferrer">Duolingo English Test</a> — remote option, accepted per this catalogue's regional record.</li>` : ""}${engTestsList.includes("PTE Academic") ? `<li><a href="https://www.pearsonpte.com" target="_blank" rel="noopener noreferrer">PTE Academic Official Prep</a></li>` : ""}</ul></div></details>
+      <details class="cat-card"><summary class="cat-head"><span class="cat-num">02</span><div><h3>English-language test</h3><p>Recorded accepted tests: ${engTests}.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">Confirm minimum score and exemption rules on ${schoolName(p.school)}'s official portal.</p><div class="locator"><label class="pfield"><span>Find an English-test centre near you</span><input class="loc-search" id="focusEnglishLocation${suffix}" list="locationList" placeholder="Any city or address…" autocomplete="off"></label><button class="btn primary" data-find-english="${suffix}" type="button">Trouver des centres</button></div><div class="locator-results" id="focusEnglishResults${suffix}"></div><h4>Preparation resources</h4><ul class="resource-list">${engTestsList.includes("TOEFL iBT") ? `<li><a href="https://www.ets.org/toefl.html" target="_blank" rel="noopener noreferrer">ETS TOEFL Official Prep</a></li>` : ""}${engTestsList.includes("IELTS Academic") ? `<li><a href="https://www.ielts.org" target="_blank" rel="noopener noreferrer">IELTS official practice</a></li>` : ""}${engTestsList.includes("Duolingo English Test") ? `<li><a href="https://englishtest.duolingo.com" target="_blank" rel="noopener noreferrer">Duolingo English Test</a> — remote option, accepted per this catalogue's regional record.</li>` : ""}${engTestsList.includes("PTE Academic") ? `<li><a href="https://www.pearsonpte.com" target="_blank" rel="noopener noreferrer">PTE Academic Official Prep</a></li>` : ""}</ul></div></details>
       <details class="cat-card"><summary class="cat-head"><span class="cat-num">03</span><div><h3>Academic documents &amp; CV</h3><p>Transcript, degree certificate/expected-graduation proof and CV.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.docs}</div>` : ""}<ul class="tip-list"><li>Prepare official transcripts and certified English translations if needed.</li><li>Prepare your degree certificate or expected-graduation letter.</li><li>${strategy.cv}</li></ul></div></details>
-      <details class="cat-card"><summary class="cat-head"><span class="cat-num">04</span><div><h3>Lettre de motivation et essais</h3><p>Programme-specific motivation and career goals.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.essays}</div>` : `<p class="scholar-section-sub">Not individually researched for this programme yet. As a general guide, most competitive masters/MBA essays run 400–650 words per prompt across 1–3 prompts, and cover: (1) why this programme specifically, not master's degrees in general, (2) your relevant story/evidence, (3) concrete short- and long-term goals it enables. Confirm the actual prompts and word limits on the official portal — they change most cycles.</p>`}<ul class="tip-list"><li>${strategy.sopField}</li><li>${strategy.sop}</li><li>Verify prompts, word count and submission format on the official portal.</li><li>Leave time for several revisions and an outside reader.</li></ul><h4>Widely-used essay resources</h4><ul class="resource-list"><li><a href="https://www.mbamission.com/blog/" target="_blank" rel="noopener noreferrer">mbaMission essay guides</a> — free, school-specific essay breakdowns updated each cycle.</li><li><a href="https://poetsandquants.com/" target="_blank" rel="noopener noreferrer">Poets&amp;Quants</a> — the most-read MBA admissions news site, with extensive essay and application-strategy coverage.</li>${SCHOOL_CLEARADMIT[p.school] ? `<li><a href="${SCHOOL_CLEARADMIT[p.school]}" target="_blank" rel="noopener noreferrer">${escapeHTML(p.school)} on Clear Admit</a> — real admit interviews and essay analysis for this specific school.</li>` : ""}</ul></div></details>
+      <details class="cat-card"><summary class="cat-head"><span class="cat-num">04</span><div><h3>Lettre de motivation et essais</h3><p>Programme-specific motivation and career goals.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.essays}</div>` : `<p class="scholar-section-sub">Not individually researched for this programme yet. As a general guide, most competitive masters/MBA essays run 400–650 words per prompt across 1–3 prompts, and cover: (1) why this programme specifically, not master's degrees in general, (2) your relevant story/evidence, (3) concrete short- and long-term goals it enables. Confirm the actual prompts and word limits on the official portal — they change most cycles.</p>`}<ul class="tip-list"><li>${strategy.sopField}</li><li>${strategy.sop}</li><li>Verify prompts, word count and submission format on the official portal.</li><li>Leave time for several revisions and an outside reader.</li></ul><h4>Widely-used essay resources</h4><ul class="resource-list"><li><a href="https://www.mbamission.com/blog/" target="_blank" rel="noopener noreferrer">mbaMission essay guides</a> — free, school-specific essay breakdowns updated each cycle.</li><li><a href="https://poetsandquants.com/" target="_blank" rel="noopener noreferrer">Poets&amp;Quants</a> — the most-read MBA admissions news site, with extensive essay and application-strategy coverage.</li>${SCHOOL_CLEARADMIT[p.school] ? `<li><a href="${SCHOOL_CLEARADMIT[p.school]}" target="_blank" rel="noopener noreferrer">${escapeHTML(schoolName(p.school))} on Clear Admit</a> — real admit interviews and essay analysis for this specific school.</li>` : ""}</ul></div></details>
       <details class="cat-card"><summary class="cat-head"><span class="cat-num">05</span><div><h3>Lettres de recommandation</h3><p>Choose referees and give them time.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.recLetters}</div>` : ""}<ul class="tip-list"><li>${strategy.referees}</li><li>Structure guidance for your recommender: 1) how they know you and for how long, 2) one or two specific, evidenced examples of your impact or growth (not generic praise), 3) a direct comparison to peers if possible (e.g. "top 10% of the analysts I've managed"), 4) a closing statement of confident support for this specific programme.</li><li>Send your CV, goals and this programme's deadline at least 4–6 weeks early.</li><li>Verify the exact number and type of references directly in the application portal — it varies by programme and changes most cycles.</li></ul></div></details>
       ${destinationRequirementsHTML(p)}
     </div></div>`;
@@ -7232,7 +7243,7 @@ function destinationRequirementsHTML(p) {
   const euCitizen = EU_EEA_COUNTRIES.includes(state.profile.citizenship);
   const euDestination = EU_EEA_COUNTRIES.includes(p.country);
 
-  return `<details class="cat-card"><summary class="cat-head"><span class="cat-num">06</span><div><h3>Country requirements &amp; visa</h3><p>${p.country} · ${d.visa}</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">
+  return `<details class="cat-card"><summary class="cat-head"><span class="cat-num">06</span><div><h3>Country requirements &amp; visa</h3><p>${p.country}, ${d.visa}</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">
     ${isHome ? `<div class="gmat-avg-note gmat-avg-verified"><b>You're applying at home.</b> As a ${p.country} citizen the visa and credential-recognition steps below don't apply to you — skip to the academic requirements. They're kept here because they decide the timeline for everyone else in your cohort.</div>`
       : euCitizen && euDestination ? `<div class="gmat-avg-note gmat-avg-verified"><b>Free movement applies.</b> As a ${state.profile.citizenship} citizen studying in ${p.country}, you don't need a student visa or proof of funds — you register locally instead. The document-recognition and translation steps below still apply, and so do the deadlines.</div>` : ""}
     <p class="scholar-section-sub">Recorded route: <b>${d.visa}</b>. After graduation: <b>${getVisa(p).label}</b>.</p>
@@ -7261,10 +7272,10 @@ function downloadChecklistPDF(progId) {
     .forEach(el => el.remove());
 
   const p = PROGRAMS.find(x => x.id === progId);
-  const title = p ? `${p.school} — ${p.program}` : "Application checklist";
+  const title = p ? `${schoolName(p.school)}, ${p.program}` : "Application checklist";
   area.innerHTML = `
     <h1>Campus Atlas — Application Checklist</h1>
-    <p class="print-meta">${escapeHTML(title)} · generated ${new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</p>`;
+    <p class="print-meta">${escapeHTML(title)}, generated ${new Date().toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</p>`;
   area.appendChild(clone);
 
   const prevTitle = document.title;
@@ -7439,7 +7450,7 @@ function awardHeadline(scheme, p) {
   const parts = [`≈${eur(est.total)} total`];
   if (est.tuitionPct !== null && est.tuitionCovered > 0) parts.push(`${est.tuitionPct}% of tuition`);
   else if (scheme.award.tuition === 0) parts.push("living costs only — tuition not covered");
-  return parts.join(" · ");
+  return parts.join(", ");
 }
 
 // The breakdown of how the headline number was reached, so the figure is
@@ -7476,7 +7487,7 @@ function sourceLine(url, label) {
   if (!url) return "";
   let host = "";
   try { host = new URL(url).hostname.replace(/^www\./, ""); } catch { host = "the official page"; }
-  return `<p class="source-line">Figures read from <a href="${url}" target="_blank" rel="noopener noreferrer">${escapeHTML(label || host)}</a> · last checked ${DATA_CHECKED} · confirm there before you rely on it</p>`;
+  return `<p class="source-line">Figures read from <a href="${url}" target="_blank" rel="noopener noreferrer">${escapeHTML(label || host)}</a>, last checked ${DATA_CHECKED}, confirm there before you rely on it</p>`;
 }
 
 const ODDS_BANDS = {
@@ -8136,16 +8147,16 @@ function scholarshipEligibility(p) {
     const anyMapped = GOV_SCHOLARSHIPS.some(g => g.country === p.country);
     return anyMapped
       ? `<span class="planner-status muted">No destination scheme open to you here</span><span class="place">${p.country}'s national schemes are mapped, but their published rules exclude ${citizenship || "your"} citizenship or this programme. The school's own award is the realistic route.</span>`
-      : `<span class="planner-status muted">No destination-government scheme mapped yet</span><span class="place">Check ${p.school}'s own scholarship directory.</span>`;
+      : `<span class="planner-status muted">No destination-government scheme mapped yet</span><span class="place">Check ${schoolName(p.school)}'s own scholarship directory.</span>`;
   }
   const more = schemes.length > 1 ? ` (+${schemes.length - 1} more mapped for ${p.country})` : "";
   const first = schemes[0];
   if (citizenship && citizenship === p.country) return `<span class="planner-status muted">Usually not for home-country citizens</span><span class="place">${first.name}: ${first.restriction}${more}</span>`;
-  return `<span class="planner-status good">${schemes.length} destination-country route${schemes.length > 1 ? "s" : ""} mapped</span><span class="place">${first.name} · ${first.restriction}${more}</span>`;
+  return `<span class="planner-status good">${schemes.length} destination-country route${schemes.length > 1 ? "s" : ""} mapped</span><span class="place">${first.name}, ${first.restriction}${more}</span>`;
 }
 
 const SCHOLARSHIP_ROWS = [
-  { label:"School funding", raw:true, get:p => p.scholar ? `<span class="planner-status good">Scholarship / fee reduction flagged</span><span class="place">Review ${p.school}'s award criteria and application route.</span>` : `<span class="planner-status muted">No award flag in this catalogue</span><span class="place">Still check the official programme page; funding changes often.</span>` },
+  { label:"School funding", raw:true, get:p => p.scholar ? `<span class="planner-status good">Scholarship / fee reduction flagged</span><span class="place">Review ${schoolName(p.school)}'s award criteria and application route.</span>` : `<span class="planner-status muted">No award flag in this catalogue</span><span class="place">Still check the official programme page; funding changes often.</span>` },
   { label:"Government opportunity", raw:true, get:scholarshipEligibility },
   { label:"Your citizenship signal", raw:true, get:p => state.profile.citizenship ? `<b>${state.profile.citizenship} citizen</b><span class="place">Funding rules can depend on citizenship, not where you studied.</span>` : `<span class="planner-status watch">Add citizenship to personalise this</span><span class="place">Government schemes often use it as the first eligibility check.</span>` },
   { label:"Target intake & school deadline", raw:true, get:p => { const t = applicationTiming(p); return `<span class="planner-status ${t.tone}">${t.label}</span><span class="place">${t.detail}</span>`; } },
@@ -8174,14 +8185,14 @@ function getProgrammeScholarshipData(p) {
     globalList: globalSchemesFor(p),
     homeList: homeSchemesFor(p),
     schoolScheme,
-    schoolAwardName: schoolScheme ? schoolScheme.name : `${p.school} scholarships / financial aid`,
+    schoolAwardName: schoolScheme ? schoolScheme.name : `${schoolName(p.school)} scholarships / financial aid`,
     schoolAwardAmount: schoolScheme
       ? awardHeadline(schoolScheme, p)
       : (p.scholar ? "Amount not published for this school — check the funding page" : "No school award mapped"),
     schoolAwardRange: "Not verified in this catalogue",
     schoolAwardDesc: schoolScheme
-      ? `${schoolScheme.desc} Exact amounts and criteria change year to year — confirm current terms on ${p.school}'s official funding page.`
-      : (p.scholar ? `This catalogue flags scholarship or fee-reduction availability for this programme. Award amount, criteria and deadline must be confirmed on ${p.school}'s official funding page.` : `No programme-specific award is currently mapped. Check ${p.school}'s official funding page before ruling it out.`),
+      ? `${schoolScheme.desc} Exact amounts and criteria change year to year — confirm current terms on ${schoolName(p.school)}'s official funding page.`
+      : (p.scholar ? `This catalogue flags scholarship or fee-reduction availability for this programme. Award amount, criteria and deadline must be confirmed on ${schoolName(p.school)}'s official funding page.` : `No programme-specific award is currently mapped. Check ${schoolName(p.school)}'s official funding page before ruling it out.`),
     schoolAwardLink: schoolScheme?.link || null,
     govName: govScheme.name,
     govSupport: govScheme.support || "Award amount varies — check official call",
@@ -8189,7 +8200,7 @@ function getProgrammeScholarshipData(p) {
     govDesc: govScheme.desc,
     govLink: govScheme.link,
     govRestriction: govScheme.restriction,
-    paymentPlanName: `${p.school} payment-plan information`,
+    paymentPlanName: `${schoolName(p.school)} payment-plan information`,
     paymentPlanDesc: `Payment-plan and loan availability have not been verified in this prototype. Open the official programme page to confirm instalments, deposits and partner lenders.`,
   };
 }
@@ -8204,7 +8215,7 @@ function openFundingModal(progId, type) {
   let body = "";
   
   if (type === "merit") {
-    title = `${data.schoolAwardName} — ${p.school}`;
+    title = `${data.schoolAwardName} — ${schoolName(p.school)}`;
     body = `
       <div class="kv">
         <div class="fact"><span>Programme</span><b>${p.program}</b></div>
@@ -8218,11 +8229,11 @@ function openFundingModal(progId, type) {
 
       </div>
       <div style="margin-top:20px;text-align:right;">
-        <a href="${data.schoolAwardLink || `https://www.google.com/search?q=${encodeURIComponent(`${p.school} ${data.schoolAwardName}`)}`}" target="_blank" rel="noopener noreferrer" class="btn btn-action">More information on that scholarship ↗</a>
+        <a href="${data.schoolAwardLink || `https://www.google.com/search?q=${encodeURIComponent(`${schoolName(p.school)} ${data.schoolAwardName}`)}`}" target="_blank" rel="noopener noreferrer" class="btn btn-action">More information on that scholarship ↗</a>
       </div>
     `;
   } else if (type === "flex") {
-    title = `${data.paymentPlanName} — ${p.school}`;
+    title = `${data.paymentPlanName} — ${schoolName(p.school)}`;
     body = `
       <div class="kv">
         <div class="fact"><span>Total Tuition</span><b>${tuitionDisplay(p)}</b></div>
@@ -8243,7 +8254,7 @@ function openFundingModal(progId, type) {
   
   m.innerHTML = `
     <div class="head">
-      <div class="school">${p.flag} ${p.school} · ${p.country}</div>
+      <div class="school">${p.flag} ${schoolName(p.school)}, ${p.country}</div>
       <h2>${title}</h2>
       <button class="close" onclick="closeModal()" aria-label="Close">✕</button>
     </div>
@@ -8289,9 +8300,9 @@ function renderScholarshipBreakdown() {
           <div class="breakdown-prog-meta">
             <span class="flag">${p.flag}</span>
             <div>
-              <h3>${p.school} — ${p.program}</h3>
-              <p>${p.city}, ${p.country} · Tuition: ${tuitionDisplay(p)} · Duration: ${p.months} mos</p>
-              ${sourceLine(p.link, `${p.school}'s own programme page`)}
+              <h3>${schoolName(p.school)}, ${p.program}</h3>
+              <p>${p.city}, ${p.country}, Tuition: ${tuitionDisplay(p)}, Duration: ${p.months} mos</p>
+              ${sourceLine(p.link, `${schoolName(p.school)}'s own programme page`)}
             </div>
           </div>
           <div class="breakdown-summary-badge">
@@ -8311,7 +8322,7 @@ function renderScholarshipBreakdown() {
               </div>
               <p class="row-desc">${data.schoolAwardDesc}</p>
               ${data.schoolScheme ? awardDetail(data.schoolScheme, p) : ""}
-              ${sourceLine(data.schoolAwardLink || p.link, data.schoolAwardLink ? `${p.school}'s funding page` : `${p.school}'s programme page`)}
+              ${sourceLine(data.schoolAwardLink || p.link, data.schoolAwardLink ? `${schoolName(p.school)}'s funding page` : `${schoolName(p.school)}'s programme page`)}
               <div class="row-meta">
                 <span class="elig-match-badge match-high">✓ ${matchTag}</span>
                 ${data.schoolScheme ? oddsChip(data.schoolScheme) : ""}
@@ -8337,7 +8348,7 @@ function renderScholarshipBreakdown() {
               <div class="row-meta">
                 <span class="elig-match-badge ${citizenshipVerdict(g, citizenship) === "yes" ? "match-high" : "match-info"}">${citizenshipVerdict(g, citizenship) === "yes" ? `✓ Your ${citizenship} citizenship is covered by the published rules` : (citizenship ? `Eligibility is set per call — confirm it covers ${citizenship}` : "Destination-country scheme for incoming international students")}</span>
                 ${oddsChip(g)}
-                <span class="deadline-note">${g.deadline || "Annual call — check official page"} · ${g.restriction}</span>
+                <span class="deadline-note">${g.deadline || "Annual call — check official page"}, ${g.restriction}</span>
               </div>
             </div>
             <div class="row-action">
@@ -8356,7 +8367,7 @@ function renderScholarshipBreakdown() {
               <p class="row-desc">${hf.desc}</p>
               ${sourceLine(hf.link, `${hf.name} — official page`)}
               <div class="row-meta">
-                <span class="elig-match-badge match-info">${goingAbroad ? "Based on where you're from, not where you're studying" : `Home funding for studying inside ${citizenship}`}${hf.deadline ? ` · ${hf.deadline}` : ""}</span>
+                <span class="elig-match-badge match-info">${goingAbroad ? "Based on where you're from, not where you're studying" : `Home funding for studying inside ${citizenship}`}${hf.deadline ? `, ${hf.deadline}` : ""}</span>
                 <span class="deadline-note">${hf.restriction}</span>
               </div>
             </div>
@@ -8379,7 +8390,7 @@ function renderScholarshipBreakdown() {
               <div class="row-meta">
                 <span class="elig-match-badge match-high">✓ Tied to the programme, not to your nationality</span>
                 ${oddsChip(gs)}
-                <span class="deadline-note">${gs.deadline ? gs.deadline + " · " : ""}${gs.restriction}</span>
+                <span class="deadline-note">${gs.deadline ? gs.deadline + ", " : ""}${gs.restriction}</span>
               </div>
             </div>
             <div class="row-action">
@@ -8424,7 +8435,7 @@ function fundingDirectoryEntries() {
 
   const home = (HOME_REGION_FUNDING[citizenship] || []).map(h => ({
     ...h, axis: "home", flag: "🏠",
-    axisLabel: `Home funding · ${citizenship}`,
+    axisLabel: `Home funding, ${citizenship}`,
     // home funding is by definition relevant once citizenship is known
     relevant: true,
   }));
@@ -8491,7 +8502,7 @@ function renderFundingDirectory() {
       <p>${g.desc}</p>
       ${g.deadline ? `<p class="scholar-gov-restriction"><b>Deadline:</b> ${g.deadline}</p>` : ""}
       <p class="scholar-gov-restriction">${g.restriction}</p>
-      <a href="${g.link}" target="_blank" rel="noopener noreferrer">${g.axisLabel} · Visit official page ↗</a>
+      <a href="${g.link}" target="_blank" rel="noopener noreferrer">${g.axisLabel}, Visit official page ↗</a>
     </div>`).join("") : empty;
 
   const intro = $("fundingDirIntro");
@@ -8633,7 +8644,7 @@ const statCountryCount = new Set(PROGRAMS.map(p => p.country)).size;
 const statContinentCount = new Set(PROGRAMS.map(p => p.region)).size;
 $("statPrograms").textContent = PROGRAMS.length;
 $("statCountries").textContent = statCountryCount;
-$("heroStats").textContent = `${PROGRAMS.length} programmes · ${statCountryCount} pays · ${statContinentCount} continents`;
+$("heroStats").textContent = `${PROGRAMS.length} programmes, ${statCountryCount} pays, ${statContinentCount} continents`;
 const eurK = n => n === 0 ? "€0" : `€${Math.round(n / 1000)}k`;
 $("statTuitionRange").textContent = `${eurK(Math.min(...PROGRAMS.map(p => p.tuition)))}–${eurK(Math.max(...PROGRAMS.map(p => p.tuition)))}`;
 $("statMonthsRange").textContent = `${Math.min(...PROGRAMS.map(p => p.months))}–${Math.max(...PROGRAMS.map(p => p.months))}`;
