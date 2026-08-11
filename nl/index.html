@@ -6605,36 +6605,62 @@ const monthFromText = text => {
 // Rolling programmes rarely publish a hard cutoff, but seats and funding still run out.
 // This is a general rule-of-thumb estimate (~7 weeks before the intake starts), not a
 // school-reported date — always labelled and hedged as such.
-function estimatedRollingCutoff(startMonth, startYear) {
+function estimatedRollingCutoffDate(startMonth, startYear) {
   const d = new Date(startYear, startMonth, 1);
   d.setDate(d.getDate() - 49);
-  return d.toLocaleString("en", { month: "long", year: "numeric" });
+  return d;
+}
+
+const intakeLabel = (month, year) => new Date(year, month, 1).toLocaleString("en", { month:"short", year:"numeric" });
+
+function parseIntakeMonths(text) {
+  return [...String(text).matchAll(/jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|jun(?:e)?|jul(?:y)?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?/gi)]
+    .map(match => monthFromText(match[0])).filter(m => m !== null);
 }
 
 function nextIntake(p, now) {
-  const intakeMonths = [...String(p.intake).matchAll(/jan(?:uary)?|feb(?:ruary)?|mar(?:ch)?|apr(?:il)?|may|jun(?:e)?|jul(?:y)?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|nov(?:ember)?|dec(?:ember)?/gi)]
-    .map(match => monthFromText(match[0])).filter(m => m !== null);
+  const intakeMonths = parseIntakeMonths(p.intake);
   if (!intakeMonths.length) return null;
   const startMonth = intakeMonths.find(m => m >= now.getMonth()) ?? intakeMonths[0];
   const startYear = startMonth >= now.getMonth() ? now.getFullYear() : now.getFullYear() + 1;
-  return { startMonth, startYear, name: new Date(startYear, startMonth, 1).toLocaleString("en", { month:"short", year:"numeric" }) };
+  return { startMonth, startYear, name: intakeLabel(startMonth, startYear) };
 }
 
 function applicationTiming(p) {
   const now = new Date();
   const intake = nextIntake(p, now);
   if (/rolling/i.test(p.deadline)) {
-    if (!intake) return { tone:"watch", label:"Rolling — check availability now", detail:"The next available intake can close without a fixed public date." };
-    const cutoffEstimate = estimatedRollingCutoff(intake.startMonth, intake.startYear);
-    return { tone:"watch", label:`Rolling — aim to apply by ${cutoffEstimate}`, detail:`No fixed public deadline for the ${intake.name} intake, but rolling cohorts fill as seats and funding run out — most schools stop taking applications in the final 4–8 weeks before the intake starts. Treat ${cutoffEstimate} as a rough last-call estimate, not an official date, and verify live status on the portal.` };
+    const months = parseIntakeMonths(p.intake);
+    if (!months.length) return { tone:"watch", label:"Rolling — check availability now", detail:"The next available intake can close without a fixed public date. Confirm the current status on the official application page." };
+    // Across every intake this programme runs (a school may list "Sept / Jan"),
+    // pick the one whose estimated last-call is soonest but still ahead of us —
+    // so we recommend the nearest cycle you can actually still make, never a past one.
+    let best = null;
+    for (let y = now.getFullYear(); y <= now.getFullYear() + 2; y++) {
+      for (const m of months) {
+        const c = estimatedRollingCutoffDate(m, y);
+        if (c >= now && (!best || c < best.cutoff)) best = { cutoff:c, month:m, year:y };
+      }
+    }
+    const intakeName = intakeLabel(best.month, best.year);
+    const cutoffEstimate = best.cutoff.toLocaleString("en", { month:"long", year:"numeric" });
+    return { tone:"watch", label:`Rolling — aim to apply by ${cutoffEstimate}`, detail:`No fixed public deadline for the ${intakeName} intake, but rolling cohorts fill as seats and funding run out — most schools stop taking applications in the final 4–8 weeks before the intake starts. Treat ${cutoffEstimate} as a rough last-call estimate, not an official date, and confirm the live round on the official application page.` };
   }
   const deadlineMonth = monthFromText(p.deadline);
-  if (deadlineMonth === null || !intake) return { tone:"muted", label:`Recorded deadline: ${p.deadline}`, detail:"Check the official page for the applicable round." };
-  const deadlineYear = deadlineMonth > intake.startMonth ? intake.startYear - 1 : intake.startYear;
+  if (deadlineMonth === null || !intake) return { tone:"muted", label:`Recorded deadline: ${p.deadline}`, detail:"Check the official application page for the applicable round and its exact date." };
   const day = +(String(p.deadline).match(/\d{1,2}/)?.[0] || 1);
-  const deadline = new Date(deadlineYear, deadlineMonth, day, 23, 59, 59);
-  if (deadline < now) return { tone:"watch", label:`Likely closed for ${intake.name}`, detail:`Recorded deadline was ${p.deadline}; prepare for the next cycle and verify directly.` };
-  return { tone:"good", label:`Open planning window for ${intake.name}`, detail:`Recorded deadline: ${p.deadline} — verify the live application round.` };
+  let intakeMonth = intake.startMonth, intakeYear = intake.startYear;
+  let deadlineYear = deadlineMonth > intakeMonth ? intakeYear - 1 : intakeYear;
+  let deadline = new Date(deadlineYear, deadlineMonth, day, 23, 59, 59);
+  // If the nearest cycle's recorded deadline has already passed, advance to the
+  // next intake cycle so the date shown to plan against is always in the future.
+  const advanced = deadline < now;
+  while (deadline < now) { intakeYear += 1; deadlineYear += 1; deadline = new Date(deadlineYear, deadlineMonth, day, 23, 59, 59); }
+  const intakeName = intakeLabel(intakeMonth, intakeYear);
+  const deadlineText = `${p.deadline}${/\d{4}/.test(p.deadline) ? "" : " " + deadlineYear}`;
+  return { tone: advanced ? "watch" : "good",
+    label: `Open planning window for ${intakeName}`,
+    detail: `Recorded deadline: ${deadlineText}${advanced ? " (next cycle — the nearest one has already passed)" : ""} — verify the live application round on the official page.` };
 }
 
 function applicationFit(p) {
