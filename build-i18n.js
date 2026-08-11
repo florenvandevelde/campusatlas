@@ -50,12 +50,28 @@ function loadDict(code) {
 //
 // Anything shorter than 30 characters therefore never touches script data; it can only
 // be replaced where it is already sitting in the markup as visible text.
-const JS_LITERAL_MIN = 30;
+const JS_LITERAL_MIN = 20;
+
+// A length threshold alone is a heuristic. This is the actual guarantee: a key is
+// never substituted inside a JS string literal if it is also a value the catalogue
+// uses in its own data (a FIELDS tag, an openFields bucket, a region). Those are the
+// strings that would break behaviour rather than just read oddly.
+function protectedValues(html) {
+  const grab = re => { const m = html.match(re); return m ? new Set(JSON.parse(m[1].replace(/,\s*\]/, "]"))) : new Set(); };
+  const out = new Set();
+  for (const re of [/const FIELDS\s*=\s*(\[[\s\S]*?\]);/, /const REGIONS\s*=\s*(\[[\s\S]*?\]);/]) {
+    try { grab(re).forEach(v => out.add(v)); } catch { /* comment-laden array: fall back to the length rule */ }
+  }
+  ["Any", "Business & Economics", "STEM & Engineering", "Computer Science", "Social Sciences & Humanities"]
+    .forEach(v => out.add(v));
+  return out;
+}
 
 function escapeRe(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
 
 // Longest first, so a long sentence is replaced before a short phrase inside it.
 function applyDict(html, dict) {
+  const guarded = protectedValues(html);
   const keys = Object.keys(dict).filter(k => k !== "_comment").sort((a, b) => b.length - a.length);
   const unused = [];
   let replaced = 0;
@@ -76,7 +92,7 @@ function applyDict(html, dict) {
       // allow surrounding whitespace: markup often reads ">\n      Key\n    <"
       sub(new RegExp(">(\\s*)" + k + "(\\s*)<", "g"), (m, a, b2) => ">" + a + value + b2 + "<");
       sub(new RegExp('(placeholder|aria-label|title)="' + k + '"', "g"), (m, attr) => `${attr}="${value}"`);
-      if (key.length >= JS_LITERAL_MIN) sub(new RegExp('"' + k + '"', "g"), () => `"${value}"`);
+      if (key.length >= JS_LITERAL_MIN && !guarded.has(key)) sub(new RegExp('"' + k + '"', "g"), () => `"${value}"`);
       // Short UI labels that live in a JS lookup rather than in markup — the odds
       // bands and the eligibility badges. Anchoring on the property name keeps this
       // away from catalogue data, which never uses these keys.
