@@ -38,7 +38,26 @@ Hold that line — it is the whole product's credibility.
    the trigger case was Vlerick: *you need a master's already to do a Vlerick master's if
    you studied in Belgium*, quoted from their admissions page.
 7. **Alumni outcomes** (commit this session): `PROGRAMME_OUTCOMES` table + a "Where
-   graduates end up" modal block. **Only one entry so far (LBS MiM, id 2), verified.**
+   graduates end up" modal block. **9 entries now, all verified against the school's
+   own employment report (see session 7 note below).**
+
+### SESSION 7 — Feature A populated to 9 entries (all from the school's own report)
+Added 8 Full-Time MBA outcome entries, each figure read from the school's own
+employment report (MBA CSEA standard = 3 months after graduation) and linked:
+Wharton (197), MIT Sloan (199), Columbia (201), Kellogg (202, Class of 2025 —
+its live page had rolled to '25), Booth (203), Berkeley Haas (204), Yale SOM (448),
+Duke Fuqua (449). Method that worked: **the school's own employment-report PDF/page
+is the primary source** — curl the PDF with a browser UA and parse with pypdf (needs
+`cryptography` installed for AES-encrypted PDFs like Haas's), or curl the HTML report
+page (som.yale.edu, kellogg career-outcomes both curl-fetchable; Booth via WebFetch).
+`.edu` career *landing* pages 403 both WebFetch and curl (Ross, Columbia HTML) — but
+their **report PDFs** on the same domain serve fine, so link the PDF. All 8 source
+URLs 200-checked. Render tweak: dropped the hardcoded "employed" word from
+`outcomesHTML` so each entry's `employedWindow` carries its own verb ("received a job
+offer…", "accepted…", "employed…") — accurate for offer-rate vs acceptance-rate figures.
+Still unpopulated and worth doing next (same method): the European MBAs (INSEAD 444,
+LBS MBA 442, HEC 441, IESE 447, Cambridge Judge 443, Oxford Saïd 446) and the MiM
+entries. INSEAD/LBS/HEC publish employment-report PDFs on their own domains.
 
 ### ⚠️ HALF-BUILT FEATURE A — Alumni outcomes (user step 2 of 4)
 `PROGRAMME_OUTCOMES` in index.html is keyed by programme id. Fields (all optional):
