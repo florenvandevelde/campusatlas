@@ -959,50 +959,6 @@
       <button class="chip" data-q="data science">Data Science &amp; AI</button>
     </div>
 
-    <details class="profile-panel" id="profilePanel">
-      <summary class="profile-head">
-        <span class="profile-chevron">
-          <svg width="11" height="11" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
-        </span>
-        <div>
-          <h3>Your situation <span class="profile-badge" id="profileBadge" hidden></span></h3>
-          <p>Answer a few questions and every programme below is flagged as a match for you — nothing here is submitted anywhere.</p>
-        </div>
-        <button class="profile-reset" id="profileReset" type="button">Clear</button>
-      </summary>
-      <div class="profile-grid">
-        <label class="pfield">
-          <span>Subject of your bachelor's</span>
-          <!-- Options are built from BACKGROUND_OPTIONS so the list, the roll-up to
-               the broad buckets programmes are tagged with, and the wording stay in
-               one place. -->
-          <select id="pField"></select>
-        </label>
-        <label class="pfield">
-          <span>Already hold a master's?</span>
-          <select id="pMaster">
-            <option value="">Not sure</option>
-            <option value="no">No — this would be my first</option>
-            <option value="yes">Yes, I already have one</option>
-          </select>
-        </label>
-        <label class="pfield">
-          <span>Work experience</span>
-          <select id="pWork">
-            <option value="">Not sure</option>
-            <option value="0">None yet</option>
-            <option value="1">Up to 2 years</option>
-            <option value="2">2–3 years</option>
-            <option value="4">3–5 years</option>
-            <option value="6">5+ years</option>
-          </select>
-        </label>
-      </div>
-      <div class="profile-actions">
-        <button class="btn primary" id="profileApply" type="button">Apply to programmes</button>
-        <span class="profile-apply-note" id="profileApplyNote">Set your criteria, then apply them to the results.</span>
-      </div>
-    </details>
 
     <div class="stats">
       <div class="stat"><b id="statPrograms">62</b><span>PROGRAMMES</span></div>
@@ -1784,7 +1740,7 @@ const PROGRAMS = [
 
   { id:20, school:"Vlerick Business School", program:"Masters in General Management", city:"Ghent / Brussels", country:"Belgium", flag:"🇧🇪", region:"Europe",
     fields:["Management","Entrepreneurship"], months:12, lang:"English", tuition:20950, intake:"September", deadline:"30 Apr", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.vlerick.com/en/programmes/masters-programmes/masters-in-general-management/", extRank:"FT Global MiM #14 (2025)", rank:26,
-    openFields:["Any"], freshGradOnly:true,
+    openFields:["Any"], prereq:"Vlerick states it plainly and it catches Belgian applicants out: <b>candidates studying in Belgium need a master's degree already</b> from a recognised institution. Candidates from outside Belgium can apply with either a master's or a 3–4 year bachelor's. The cohort is built for young graduates — average age 23, little to no work experience.", freshGradOnly:true,
     blurb:"Practice-first Belgian school with tight links to companies in Brussels and Ghent, and a strong record placing graduates locally.",
     highlights:["In-company project each term","Brussels EU-institution proximity","Small cohorts, applied teaching","No GMAT required"] },
 
@@ -2048,7 +2004,7 @@ const PROGRAMS = [
 
   { id:64, school:"UCLA Anderson", program:"Master of Financial Engineering", city:"Los Angeles, CA", country:"United States", flag:"🇺🇸", region:"North America",
     fields:["Finance","Analytics"], months:15, lang:"English", tuition:104000, intake:"March", deadline:"Rolling", work:"0–2 yrs", gmat:true, scholar:true, link:"https://www.anderson.ucla.edu/degrees/master-of-financial-engineering", extRank:"QS Masters in Finance #9 (2026)", rank:47,
-    openFields:["STEM & Engineering","Computer Science","Business & Economics"], freshGradOnly:false,
+    openFields:["STEM & Engineering","Computer Science","Business & Economics"], prereq:"Expects <b>demonstrated proficiency in multivariable calculus, linear algebra, probability and programming</b>. Applicants without that coursework on a transcript are routinely rejected regardless of overall grades.", freshGradOnly:false,
     blurb:"Ranked among the top quant finance degrees in the US, with a business-school framing of financial engineering rather than a pure-engineering approach.",
     highlights:["Ranked #4 in the US (QS)","100% employment for recent cohorts","LA quant trading and fintech ties","4:1 student-faculty ratio"] },
 
@@ -3531,7 +3487,7 @@ const PROGRAMS = [
 
   { id:414, school:"King's College London — Dickson Poon School of Law", program:"LLM (Master of Laws)", city:"London", country:"United Kingdom", flag:"🇬🇧", region:"Europe",
     fields:["Law"], months:12, lang:"English", tuition:45000, intake:"September", deadline:"25 Jul", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.kcl.ac.uk/study/postgraduate-taught/courses/master-of-laws-llm", extRank:"One of the world's leading law schools", rank:404,
-    openFields:["Any"], freshGradOnly:false, blurb:"One of London's leading law faculties, offering a choice of nine specialist LLM pathways or a general qualification, with deep connections into the City's legal market.", highlights:["9 specialist pathways or general LLM","Central London legal-market access","No GMAT/GRE required","Strong international/qualified-lawyer cohort"] },
+    openFields:["Any"], prereq:"An LLM normally requires a <b>first degree in law</b>, or a degree with substantial legal content. Non-law graduates should look at conversion routes instead.", freshGradOnly:false, blurb:"One of London's leading law faculties, offering a choice of nine specialist LLM pathways or a general qualification, with deep connections into the City's legal market.", highlights:["9 specialist pathways or general LLM","Central London legal-market access","No GMAT/GRE required","Strong international/qualified-lawyer cohort"] },
 
   { id:415, school:"University of Toronto — OISE", program:"MEd (Master of Education)", city:"Toronto", country:"Canada", flag:"🇨🇦", region:"North America",
     fields:["Education"], months:18, lang:"English", tuition:48800, intake:"September", deadline:"Rolling", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.oise.utoronto.ca/", extRank:"QS Education #10 (2026)", rank:405,
@@ -3562,7 +3518,7 @@ const PROGRAMS = [
 
   { id:420, school:"KU Leuven", program:"Master of Statistics and Data Science", city:"Leuven", country:"Belgium", flag:"🇧🇪", region:"Europe",
     fields:["Analytics"], months:24, lang:"English", tuition:9500, intake:"September", deadline:"1 March", work:"0 yrs", gmat:false, scholar:true, link:"https://www.kuleuven.be/programmes/master-statistics-data-science", extRank:"QS World University Rankings #59 (2026)", rank:410,
-    openFields:["STEM & Engineering","Business & Economics"], freshGradOnly:true,
+    openFields:["STEM & Engineering","Business & Economics"], prereq:"The QASS specialisation of this programme is an <b>advanced master's and requires a master's degree already</b>; the general track admits bachelor's graduates. KU Leuven's scholarship pages exclude QASS candidates on that basis, so check which track you are applying to before assuming you qualify.", freshGradOnly:true,
     blurb:"A genuinely statistical data-science degree rather than a repackaged CS one — built around KU Leuven's biostatistics and quantitative-methods tradition, with tracks spanning bioinformatics, business and social-science analytics.",
     highlights:["Statistics-first, not CS-first","Two years (120 ECTS)","Bio-, business and social-analytics tracks","Non-EEA deadline 1 March"] },
 
@@ -4351,7 +4307,7 @@ const PROGRAMS = [
 
   { id:548, school:"University College London", program:"LLM (Master of Laws)", city:"London", country:"United Kingdom", flag:"🇬🇧", region:"Europe",
     fields:["Law"], months:10, lang:"English", tuition:46000, intake:"September", deadline:"26 Jun", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.ucl.ac.uk/laws/study/master-laws-llm-courses/master-laws-llm", extRank:"QS Law #13 (2026)", rank:538,
-    openFields:["Social Sciences & Humanities"], freshGradOnly:false,
+    openFields:["Social Sciences & Humanities"], prereq:"An LLM is a <b>postgraduate law degree</b>: UCL Laws normally requires a qualifying first degree in law (or a degree with substantial law content). Non-law graduates are generally not admitted to the LLM.", freshGradOnly:false,
     blurb:"One of the broadest LLM menus anywhere — UCL Laws lets you build the degree from a very large list of modules rather than following a fixed specialism, and the ten-month format keeps it shorter than most US equivalents.",
     highlights:["QS Law #13 (2026)","£39,200 overseas, ten months","Build your own specialism from a wide module list","Visa applicants: 26 June deadline"] },
 
@@ -4575,7 +4531,7 @@ const PROGRAMS = [
 
   { id:584, school:"University College London", program:"MSc Financial Risk Management", city:"London", country:"United Kingdom", flag:"🇬🇧", region:"Europe",
     fields:["Finance","Analytics"], months:12, lang:"English", tuition:59500, intake:"September", deadline:"27 Mar", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/financial-risk-management-msc", extRank:"QS Accounting & Finance #44 (2026)", rank:574,
-    openFields:["Business & Economics","STEM & Engineering"], freshGradOnly:false,
+    openFields:["Business & Economics","STEM & Engineering"], prereq:"Expects a <b>strongly quantitative first degree</b> — mathematics, statistics, engineering, physics, economics or computer science. UCL assesses the mathematical content of your transcript, not just the subject title.", freshGradOnly:false,
     blurb:"Market, credit and operational risk taught for the City's risk and quant functions — one of UCL's most expensive taught master's degrees at £50,600 for 2026/27.",
     highlights:["Risk-function recruiting focus","Quantitative entry bar","Earlier March deadline than most UCL degrees","Overseas fee £50,600 for 2026/27"] },
 
@@ -4641,7 +4597,7 @@ const PROGRAMS = [
 
   { id:595, school:"University College London", program:"MArch Architectural Design", city:"London", country:"United Kingdom", flag:"🇬🇧", region:"Europe",
     fields:["Architecture"], months:12, lang:"English", tuition:50200, intake:"September", deadline:"26 Jun", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.ucl.ac.uk/prospective-students/graduate/taught-degrees/architectural-design", extRank:"QS Architecture & Built Environment #1 (2026)", rank:585,
-    openFields:["STEM & Engineering","Social Sciences & Humanities"], freshGradOnly:false,
+    openFields:["STEM & Engineering","Social Sciences & Humanities"], prereq:"Expects a <b>first degree in architecture</b> or closely related design discipline, and admission is <b>portfolio-driven</b> — the portfolio typically carries more weight than the transcript.", freshGradOnly:false,
     blurb:"The Bartlett's experimental design master's — computational and material research-led, and the reason UCL tops the built-environment table. Portfolio matters more than grades here.",
     highlights:["World #1 for built environment (QS 2026)","Portfolio-driven admission","~10 contact hours/week, studio-based","Overseas fee £42,700 for 2026/27"] },
 
@@ -4737,7 +4693,7 @@ const PROGRAMS = [
 
   { id:611, school:"KU Leuven", program:"Master of Biomedical Sciences", city:"Leuven", country:"Belgium", flag:"🇧🇪", region:"Europe",
     fields:["Life Sciences","Public Health","Biochemistry"], months:24, lang:"English", tuition:9500, intake:"September", deadline:"1 March", work:"0 yrs", gmat:false, scholar:true, link:"https://www.kuleuven.be/programmes/master-biomedical-sciences", extRank:"QS Medicine #35 (2026)", rank:601,
-    openFields:["Pharmacy & Biomedical Sciences","Biology & Life Sciences","STEM & Engineering"], freshGradOnly:false,
+    openFields:["Pharmacy & Biomedical Sciences","Biology & Life Sciences","STEM & Engineering"], prereq:"Requires a <b>bachelor's in biomedical sciences or a closely related life-science discipline</b>. It is a research degree, not a clinical qualification, and does not lead to a licence to practise.", freshGradOnly:false,
     blurb:"Laboratory-based biomedical research at one of continental Europe's largest university hospitals — a non-clinical route into translational medicine.",
     highlights:["UZ Leuven, a major European teaching hospital","Non-clinical: research rather than practice","120 ECTS over two years","€9,493.92/yr top non-EEA tariff (2026-27)"] },
 
@@ -4767,7 +4723,7 @@ const PROGRAMS = [
 
   { id:616, school:"KU Leuven", program:"Master of Architecture", city:"Leuven / Ghent / Brussels", country:"Belgium", flag:"🇧🇪", region:"Europe",
     fields:["Architecture","Sustainability"], months:24, lang:"English", tuition:9500, intake:"September", deadline:"1 March", work:"0 yrs", gmat:false, scholar:true, link:"https://www.kuleuven.be/programmes/master-architecture", extRank:"QS Architecture & Built Environment #47 (2026)", rank:606,
-    openFields:["Architecture & Design","STEM & Engineering"], freshGradOnly:false,
+    openFields:["Architecture & Design","STEM & Engineering"], prereq:"Requires a <b>bachelor's in architecture</b> (or an equivalent recognised elsewhere). Applicants from other disciplines are normally directed to a preparatory programme first, and a portfolio is part of the assessment.", freshGradOnly:false,
     blurb:"Taught across three campuses by the Faculty of Architecture, with design studios that run alongside a serious technical and urban-research core.",
     highlights:["World top-50 for built environment","Studios in Leuven, Ghent and Brussels","120 ECTS over two years","€9,493.92/yr top non-EEA tariff (2026-27)"] },
 
@@ -4785,7 +4741,7 @@ const PROGRAMS = [
 
   { id:619, school:"KU Leuven", program:"Master of Psychology: Theory and Research", city:"Leuven", country:"Belgium", flag:"🇧🇪", region:"Europe",
     fields:["Psychology","Life Sciences"], months:24, lang:"English", tuition:9500, intake:"September", deadline:"1 March", work:"0 yrs", gmat:false, scholar:true, link:"https://www.kuleuven.be/programmes/master-psychology-theory-research", extRank:"QS Psychology #24 (2026)", rank:609,
-    openFields:["Psychology","Social Sciences & Humanities"], freshGradOnly:false,
+    openFields:["Psychology","Social Sciences & Humanities"], prereq:"Requires a <b>bachelor's in psychology</b>. This is the research track and does <b>not</b> lead to the regulated clinical title — if practice is the goal, this is the wrong programme.", freshGradOnly:false,
     blurb:"Ranked 24th in the world for psychology. This is the research track rather than the clinical one — the intended destination is a PhD, not practice.",
     highlights:["World top-25 for psychology","Research track, not a clinical licence","120 ECTS over two years","€9,493.92/yr top non-EEA tariff (2026-27)"] },
 
@@ -4809,19 +4765,19 @@ const PROGRAMS = [
 
   { id:623, school:"KU Leuven", program:"Master of Water Resources Engineering", city:"Leuven / Brussels", country:"Belgium", flag:"🇧🇪", region:"Europe",
     fields:["Engineering","Sustainability","Earth Sciences"], months:24, lang:"English", tuition:9500, intake:"September", deadline:"1 March", work:"0 yrs", gmat:false, scholar:true, link:"https://www.kuleuven.be/programmes/master-water-resources-engineering", extRank:"QS Environmental Sciences #54 (2026)", rank:613,
-    openFields:["Civil & Environmental Engineering","Earth & Environmental Sciences","STEM & Engineering"], freshGradOnly:false,
+    openFields:["Civil & Environmental Engineering","Earth & Environmental Sciences","STEM & Engineering"], prereq:"An interuniversity advanced programme aimed at applicants with a <b>degree in engineering, bioscience engineering or a closely related quantitative field</b>; general science backgrounds are usually asked for additional coursework.", freshGradOnly:false,
     blurb:"An interuniversity programme with a long development-cooperation tradition — hydrology, irrigation and water management, often with fieldwork in partner countries.",
     highlights:["Interuniversity (KU Leuven + VUB)","Development-cooperation heritage","VLIR-UOS scholarships historically attached","€9,493.92/yr top non-EEA tariff (2026-27)"] },
 
   { id:624, school:"KU Leuven", program:"Master of Nuclear Engineering", city:"Leuven / Brussels / Ghent", country:"Belgium", flag:"🇧🇪", region:"Europe",
     fields:["Engineering","Energy","Physics"], months:12, lang:"English", tuition:9500, intake:"September", deadline:"1 March", work:"0 yrs", gmat:false, scholar:true, link:"https://www.kuleuven.be/programmes/master-nuclear-engineering", extRank:"QS World University Rankings #59 (2026)", rank:614,
-    openFields:["Mechanical & Aerospace Engineering","Physics & Astronomy","Chemical & Materials Engineering","STEM & Engineering"], freshGradOnly:false,
+    openFields:["Mechanical & Aerospace Engineering","Physics & Astronomy","Chemical & Materials Engineering","STEM & Engineering"], prereq:"Run by the Belgian Nuclear higher Education Network, and open to <b>graduates who already hold a master's in engineering or physical sciences</b> — it is an advanced master's built on top of an engineering degree, not an entry-level one.", freshGradOnly:false,
     blurb:"The Belgian Nuclear higher Education Network programme, taught with SCK CEN at Mol — one of very few English-taught nuclear master's degrees in Europe.",
     highlights:["Taught with SCK CEN, Belgium's nuclear research centre","Rare English-taught nuclear degree","60 ECTS in one year","€9,493.92/yr top non-EEA tariff (2026-27)"] },
 
   { id:625, school:"KU Leuven", program:"Master of Space Studies", city:"Leuven / Ghent", country:"Belgium", flag:"🇧🇪", region:"Europe",
     fields:["Physics","Engineering","Public Policy"], months:12, lang:"English", tuition:9500, intake:"September", deadline:"1 March", work:"0 yrs", gmat:false, scholar:true, link:"https://www.kuleuven.be/programmes/master-space-studies", extRank:"QS World University Rankings #59 (2026)", rank:615,
-    openFields:["Physics & Astronomy","Mechanical & Aerospace Engineering","Law","STEM & Engineering"], freshGradOnly:false,
+    openFields:["Physics & Astronomy","Mechanical & Aerospace Engineering","Law","STEM & Engineering"], prereq:"An advanced master's: applicants are normally expected to <b>hold a master's degree already</b> in science, engineering, law, economics or a related field, which is what makes the cross-disciplinary cohort work.", freshGradOnly:false,
     blurb:"Deliberately cross-disciplinary — space science, engineering, law and policy in one year — and open to law and policy graduates as well as physicists.",
     highlights:["Science, engineering, law and policy together","Open to non-STEM backgrounds","60 ECTS in one year","€9,493.92/yr top non-EEA tariff (2026-27)"] },
 
@@ -4845,37 +4801,37 @@ const PROGRAMS = [
 
   { id:629, school:"KU Leuven", program:"Master of Safety Engineering", city:"Leuven", country:"Belgium", flag:"🇧🇪", region:"Europe",
     fields:["Engineering","Management"], months:12, lang:"English", tuition:9500, intake:"September", deadline:"1 March", work:"0 yrs", gmat:false, scholar:true, link:"https://www.kuleuven.be/programmes/master-safety-engineering", extRank:"QS World University Rankings #59 (2026)", rank:619,
-    openFields:["Chemical & Materials Engineering","Industrial & Systems Engineering","STEM & Engineering"], freshGradOnly:false,
+    openFields:["Chemical & Materials Engineering","Industrial & Systems Engineering","STEM & Engineering"], prereq:"An advanced master's for applicants who <b>already hold a master's degree</b>, typically in engineering or applied science — it builds on a first engineering qualification rather than replacing one.", freshGradOnly:false,
     blurb:"Process safety, risk analysis and Seveso-directive compliance — a niche degree that maps directly onto jobs in the Antwerp chemical port.",
     highlights:["Process-safety and risk engineering","Maps to Seveso-regulated industry roles","60 ECTS in one year","€9,493.92/yr top non-EEA tariff (2026-27)"] },
 
   { id:630, school:"Vlerick Business School", program:"Masters in Financial Management", city:"Ghent / Brussels", country:"Belgium", flag:"🇧🇪", region:"Europe",
     fields:["Finance","Analytics","Management"], months:12, lang:"English", tuition:22950, intake:"September", deadline:"30 Apr", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.vlerick.com/en/programmes/masters-programmes/masters-in-financial-management/", rank:620,
-    openFields:["Finance & Accounting","Economics","Business & Management","Business & Economics","STEM & Engineering"], freshGradOnly:true,
+    openFields:["Finance & Accounting","Economics","Business & Management","Business & Economics","STEM & Engineering"], prereq:"Vlerick states it plainly and it catches Belgian applicants out: <b>candidates studying in Belgium need a master's degree already</b> from a recognised institution. Candidates from outside Belgium can apply with either a master's or a 3–4 year bachelor's. The cohort is built for young graduates — average age 23, little to no work experience.", freshGradOnly:true,
     blurb:"Vlerick's pre-experience finance master's, built around London and Amsterdam study tours and a two-month live finance consulting assignment rather than a dissertation.",
     highlights:["London and Amsterdam study tours included","Two-month in-company finance project","Optional internship of up to 6 months","€22,950 tuition, 30 April non-EU deadline"] },
 
   { id:631, school:"Vlerick Business School", program:"Masters in International Management and Strategy", city:"Brussels / Ghent", country:"Belgium", flag:"🇧🇪", region:"Europe",
     fields:["Management","Strategy"], months:12, lang:"English", tuition:22950, intake:"September", deadline:"30 Apr", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.vlerick.com/en/programmes/masters-programmes/masters-in-international-management-and-strategy/", rank:621,
-    openFields:["Any"], freshGradOnly:true,
+    openFields:["Any"], prereq:"Vlerick states it plainly and it catches Belgian applicants out: <b>candidates studying in Belgium need a master's degree already</b> from a recognised institution. Candidates from outside Belgium can apply with either a master's or a 3–4 year bachelor's. The cohort is built for young graduates — average age 23, little to no work experience.", freshGradOnly:true,
     blurb:"The strategy-consulting track at Belgium's top-ranked business school, with an international module you travel to yourself — budget roughly €800 on top of tuition for flights and visa.",
     highlights:["Strategy-consulting recruiting focus","International module (≈€800 travel, not included)","Two-month live strategy project","€22,950 tuition, 30 April non-EU deadline"] },
 
   { id:632, school:"Vlerick Business School", program:"Masters in Innovation and Entrepreneurship", city:"Ghent / Leuven", country:"Belgium", flag:"🇧🇪", region:"Europe",
     fields:["Entrepreneurship","Management","Strategy"], months:12, lang:"English", tuition:20950, intake:"September", deadline:"30 Apr", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.vlerick.com/en/programmes/masters-programmes/masters-in-innovation-and-entrepreneurship/", rank:622,
-    openFields:["Any"], freshGradOnly:true,
+    openFields:["Any"], prereq:"Vlerick states it plainly and it catches Belgian applicants out: <b>candidates studying in Belgium need a master's degree already</b> from a recognised institution. Candidates from outside Belgium can apply with either a master's or a 3–4 year bachelor's. The cohort is built for young graduates — average age 23, little to no work experience.", freshGradOnly:true,
     blurb:"Ends with two months on either a real innovation project inside a company or your own venture — the choice is yours, and both are assessed the same way.",
     highlights:["Choose a corporate innovation project or your own venture","96% employed within three months (school figure)","Leuven and Ghent startup ecosystems","€20,950 tuition, 30 April non-EU deadline"] },
 
   { id:633, school:"Vlerick Business School", program:"Masters in Marketing Strategy", city:"Ghent", country:"Belgium", flag:"🇧🇪", region:"Europe",
     fields:["Marketing","Strategy","Analytics"], months:12, lang:"English", tuition:20950, intake:"September", deadline:"30 Apr", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.vlerick.com/en/programmes/masters-programmes/masters-in-marketing-strategy/", rank:623,
-    openFields:["Any"], freshGradOnly:true,
+    openFields:["Any"], prereq:"Vlerick states it plainly and it catches Belgian applicants out: <b>candidates studying in Belgium need a master's degree already</b> from a recognised institution. Candidates from outside Belgium can apply with either a master's or a 3–4 year bachelor's. The cohort is built for young graduates — average age 23, little to no work experience.", freshGradOnly:true,
     blurb:"Marketing taught as a strategic and analytical discipline rather than communications, with a Dublin study tour and company visits built into the fee.",
     highlights:["Dublin study tour included in the fee","Analytics-led rather than communications-led","Optional internship of up to 6 months","€20,950 tuition, 30 April non-EU deadline"] },
 
   { id:634, school:"Vlerick Business School", program:"Masters in Business Analytics & AI", city:"Leuven / Ghent", country:"Belgium", flag:"🇧🇪", region:"Europe",
     fields:["Analytics","AI","Management"], months:12, lang:"English", tuition:20950, intake:"September", deadline:"30 Apr", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.vlerick.com/en/programmes/masters-programmes/masters-in-business-analytics-and-ai/", rank:624,
-    openFields:["Business & Economics","Computer Science","STEM & Engineering","Mathematics & Statistics"], freshGradOnly:true,
+    openFields:["Business & Economics","Computer Science","STEM & Engineering","Mathematics & Statistics"], prereq:"Vlerick states it plainly and it catches Belgian applicants out: <b>candidates studying in Belgium need a master's degree already</b> from a recognised institution. Candidates from outside Belgium can apply with either a master's or a 3–4 year bachelor's. The cohort is built for young graduates — average age 23, little to no work experience.", freshGradOnly:true,
     blurb:"The business-school route into analytics: enough technique to build models, taught alongside the commercial judgement to know which ones a company should actually deploy.",
     highlights:["Amsterdam AI study tour included","Business framing, not a CS degree","Open to business and technical backgrounds","€20,950 tuition, 30 April non-EU deadline"] },
 
@@ -4977,7 +4933,7 @@ const PROGRAMS = [
 
   { id:651, school:"Université libre de Bruxelles", program:"Master in Architecture", city:"Brussels", country:"Belgium", flag:"🇧🇪", region:"Europe",
     fields:["Architecture","Sustainability"], months:24, lang:"French / English", tuition:5400, intake:"September", deadline:"30 Apr", work:"0 yrs", gmat:false, scholar:true, link:"https://www.ulb.be/en/programme/MA-ARCH", extRank:"QS World University Rankings #248 (2027)", rank:641,
-    openFields:["Architecture & Design","STEM & Engineering"], freshGradOnly:false,
+    openFields:["Architecture & Design","STEM & Engineering"], prereq:"Requires a <b>bachelor's in architecture</b>; the faculty assesses a portfolio alongside the academic file, and applicants from other backgrounds are usually routed through a preparatory year.", freshGradOnly:false,
     blurb:"Taught at the Faculty of Architecture La Cambre-Horta, which carries the name of two of the most consequential figures in Belgian architecture and design.",
     highlights:["La Cambre-Horta faculty","Studio-based, portfolio matters","120 ECTS over two years","€1,194 EU / ≈€5,369 non-EU per year (2026-27)"] },
 
@@ -4989,7 +4945,7 @@ const PROGRAMS = [
 
   { id:653, school:"Université libre de Bruxelles", program:"Master in Psychology", city:"Brussels", country:"Belgium", flag:"🇧🇪", region:"Europe",
     fields:["Psychology","Life Sciences"], months:24, lang:"French", tuition:5400, intake:"September", deadline:"30 Apr", work:"0 yrs", gmat:false, scholar:true, link:"https://www.ulb.be/en/programme/MA-PSYC", extRank:"QS World University Rankings #248 (2027)", rank:643,
-    openFields:["Psychology","Social Sciences & Humanities"], freshGradOnly:false,
+    openFields:["Psychology","Social Sciences & Humanities"], prereq:"This is the route to the <b>regulated Belgian psychologist title</b>, so it requires a bachelor's in psychology and is <b>taught in French</b> — a B2/C1 level is needed in practice, whatever the formal rule says.", freshGradOnly:false,
     blurb:"A French-taught clinical and research psychology degree — included here because it leads to the regulated Belgian psychologist title, which English-taught programmes generally do not.",
     highlights:["Route to the regulated Belgian title","French-taught: B2/C1 needed","120 ECTS over two years","€1,194 EU / ≈€5,369 non-EU per year (2026-27)"] },
 
@@ -5465,8 +5421,9 @@ const state = {
   compare: new Set(JSON.parse(localStorage.getItem("ca_compare") || "[]")),
   checklist: new Set(),
   shortlistOnly: false,
-  profile: { bachelor:"", field:"", master:"", country:"", citizenship:"", work:"" },
-  eligibleOnly: false,
+  // Only citizenship survives from the old "Your situation" panel: it is the one answer
+  // that genuinely changes what is shown, because scholarship eligibility turns on it.
+  profile: { citizenship:"" },
 };
 
 const eur = n => "€" + n.toLocaleString("en-US");
@@ -5531,9 +5488,6 @@ function tuitionDisplay(p) {
    an official eligibility check — always verify on the school's
    own page before applying.
    ============================================================ */
-function profileIsEmpty() {
-  return Object.values(state.profile).every(v => !v);
-}
 
 /* ============================================================
    POST-STUDY WORK / VISA SPONSORSHIP
@@ -5691,38 +5645,7 @@ function backgroundAccepts(openFields, background) {
   return openFields.some(f => ok.has(f));
 }
 
-function buildBackgroundSelect() {
-  const sel = $("pField");
-  if (!sel) return;
-  sel.innerHTML = `<option value="">Any / not sure</option>` + BACKGROUND_OPTIONS.map(g =>
-    `<optgroup label="${escapeHTML(g.group)}">` +
-    g.items.map(it => `<option value="${escapeHTML(it.value)}">${escapeHTML(it.value)}</option>`).join("") +
-    `</optgroup>`).join("");
-}
 
-function eligibility(p) {
-  if (profileIsEmpty()) return { status: "none", reasons: [] };
-  const reasons = [];
-  let hardFail = false;
-
-  if (state.profile.master === "yes" && p.freshGradOnly) {
-    reasons.push("Usually aimed at first-time master's students — confirm whether a second master's is accepted");
-  }
-  if (state.profile.work) {
-    const userYears = +state.profile.work; // 0 = none, 1/2/4/6 = proxy midpoints for the 0–2/2–3/3–5/5+ brackets
-    const [min] = workRange(p.work);
-    if (userYears === 0 && min >= 1) {
-      hardFail = true;
-      reasons.push(`Expects at least ${min} year${min === 1 ? "" : "s"} of work experience`);
-    }
-  }
-  if (state.profile.field && !backgroundAccepts(p.openFields, state.profile.field)) {
-    reasons.push(`Prefers applicants from ${p.openFields.join(" or ")} backgrounds — yours is ${state.profile.field}`);
-  }
-  if (hardFail) return { status: "mismatch", reasons };
-  if (reasons.length) return { status: "check", reasons };
-  return { status: "eligible", reasons: [] };
-}
 
 /* ============================================================
    FILTER + SORT
@@ -6060,7 +5983,6 @@ function matches(p) {
   if (state.noWork   && !p.work.startsWith("0")) return false;
   if (state.english  && p.lang !== "English") return false;
   if (state.scholar  && !p.scholar) return false;
-  if (state.eligibleOnly && eligibility(p).status === "mismatch") return false;
   return true;
 }
 
@@ -6141,7 +6063,6 @@ function selectivityShort(p) {
   return `Class of ${s.classSize}`;
 }
 
-const MATCH_RANK = { eligible: 0, check: 1, none: 2, mismatch: 3 };
 
 function prestigeScore(p) {
   const label = p.extRank || "";
@@ -6258,11 +6179,6 @@ function sorted(list) {
     default:            c.sort((a,b) =>
       (queryRelevance(a)*40 + queryAwarePrestige(a)) - (queryRelevance(b)*40 + queryAwarePrestige(b)) || a.rank - b.rank);
   }
-  // once the visitor has told us anything about themselves, pull good/possible
-  // matches to the front so filling in the form visibly changes the list
-  if (!profileIsEmpty()) {
-    c.sort((a, b) => MATCH_RANK[eligibility(a).status] - MATCH_RANK[eligibility(b).status]);
-  }
   return c;
 }
 
@@ -6299,18 +6215,11 @@ function buildFilterLists() {
     }));
 }
 
-const MATCH_LABEL = { eligible: "Good match", check: "Check requirements", mismatch: "Not ideal for you" };
 
-function matchBadge(p) {
-  const e = eligibility(p);
-  if (e.status === "none") return "";
-  return `<span class="match match-${e.status}"><span class="dot"></span>${MATCH_LABEL[e.status]}</span>`;
-}
 
 function cardHTML(p, subjectOnlyMatch) {
-  const dim = !profileIsEmpty() && eligibility(p).status === "mismatch" ? " card-dim" : "";
   return `
-  <article class="card${dim}" data-id="${p.id}" tabindex="0">
+  <article class="card" data-id="${p.id}" tabindex="0">
     ${p.rank <= 5 ? `<div class="rank">TOP ${p.rank}</div>` : ""}
     <div class="card-head">
       <div class="top">
@@ -6326,7 +6235,6 @@ function cardHTML(p, subjectOnlyMatch) {
       </label>
     </div>
     <h3>${p.program}</h3>
-    ${matchBadge(p)}
     ${p.extRank ? `<div class="ext-rank">${p.extRank}</div>` : ""}
     ${subjectOnlyMatch ? `<div class="subject-match-note" title="This programme matched on subject area rather than on its degree name.">Subject-area match</div>` : ""}
     <div class="tags">
@@ -6368,8 +6276,7 @@ function render() {
        </div>`;
 
   $("resTitle").textContent = state.shortlistOnly ? "Your shortlist" : (state.q ? `Results for “${state.q}”` : "All programmes");
-  $("resSub").textContent = `${list.length} programme${list.length === 1 ? "" : "s"}`
-    + (profileIsEmpty() ? "" : " · sorted for your profile");
+  $("resSub").textContent = `${list.length} programme${list.length === 1 ? "" : "s"}`;
   updateSelectionCounts();
 
   $("grid").querySelectorAll("[data-compare]").forEach(cb =>
@@ -6422,22 +6329,37 @@ function updateSelectionCounts() {
 /* ============================================================
    MODAL
    ============================================================ */
-function modalEligibility(p) {
-  const e = eligibility(p);
-  if (e.status === "none") {
-    return `<div class="elig elig-none">
-      <strong>Fill in "Your situation" above the search bar</strong> to see whether this programme is a good match for your profile.
-    </div>`;
-  }
-  const copy = {
-    eligible: "Based on what you told us, this programme looks like a good match.",
-    check: "This could work, but double-check a couple of things before you apply:",
-    mismatch: "This programme probably isn't the best fit right now:",
-  }[e.status];
-  return `<div class="elig elig-${e.status}">
-    <div class="elig-head"><span class="dot"></span>${MATCH_LABEL[e.status]}</div>
-    <p>${copy}</p>
-    ${e.reasons.length ? `<ul>${e.reasons.map(r => `<li>${r}</li>`).join("")}</ul>` : ""}
+// "Your situation" used to drive a per-card match badge. It was dropped because it
+// asked for three answers and, for almost everyone, changed nothing about the result
+// set — it only decorated cards. What was genuinely useful in it was the programme's
+// own entry pattern, so that is now shown directly, with no questions asked.
+function modalEntryProfile(p) {
+  const openTo = p.openFields.includes("Any")
+    ? "Any bachelor's discipline."
+    : `Typically expects a background in ${p.openFields.join(", ")}.`;
+  const bits = [
+    openTo,
+    p.freshGradOnly
+      ? "Built for recent graduates — significant work experience is not expected, and some schools treat it as a poor fit."
+      : `Work experience expected: ${p.work}.`,
+    p.gmat ? "A GMAT or GRE score is expected." : "No GMAT/GRE required.",
+  ];
+
+  // A hard prerequisite is the single most expensive thing to discover late: at
+  // several Belgian and French schools you need a master's degree *already* before
+  // you can start what is still called a master's. Where the school states such a
+  // rule on its own page it is recorded verbatim in `prereq` and shown first, above
+  // the softer pattern below it.
+  const prereq = p.prereq ? `<div class="elig elig-check" style="margin-bottom:10px">
+      <div class="elig-head"><span class="dot"></span> Prerequisite — read this before applying</div>
+      <p>${p.prereq}</p>
+      <p style="margin-top:6px"><a href="${p.link}" target="_blank" rel="noopener noreferrer">Check it on ${escapeHTML(p.school)}'s own admissions page ↗</a></p>
+    </div>` : "";
+
+  return `${prereq}<div class="elig elig-eligible">
+    <div class="elig-head"><span class="dot"></span> Who this programme is built for</div>
+    <ul>${bits.map(x => `<li>${x}</li>`).join("")}</ul>
+    <p style="margin-top:8px">This is the pattern the catalogue records, not an eligibility decision — the school's admissions page is what counts.</p>
   </div>`;
 }
 
@@ -6470,7 +6392,7 @@ function openModal(id) {
         <div class="fact"><span>Work visa after graduation</span><b>${getVisa(p).label}</b></div>
       </div>
       ${sourceLine(p.link, `${p.school}'s own programme page`)}
-      ${modalEligibility(p)}
+      ${modalEntryProfile(p)}
       ${(() => {
         const s = selectivityFor(p);
         if (!s) return `<h5>How hard is it to get in?</h5><p class="scholar-section-sub" style="margin-bottom:0">${p.school} doesn't publish an admit rate for this programme. That's normal outside the MBA world — most master's degrees never release one, so judge competitiveness from the entry bar instead: ${p.gmat ? "a GMAT/GRE is expected" : "no GMAT/GRE is required"}, ${p.work === "0 yrs" ? "no work experience is needed" : `${p.work} of work experience is expected`}${p.extRank ? `, and the programme sits at ${p.extRank}` : ""}.</p>`;
@@ -8103,7 +8025,7 @@ function openFundingModal(progId, type) {
       <div class="elig elig-eligible">
         <div class="elig-head"><span class="dot"></span> How to Apply</div>
         <p>${data.schoolAwardDesc}</p>
-        <p style="margin-top:8px;"><strong>Academic background:</strong> ${state.profile.field || "Not set"}. This can matter for merit awards, but the official criteria decide eligibility.</p>
+
       </div>
       <div style="margin-top:20px;text-align:right;">
         <a href="${data.schoolAwardLink || `https://www.google.com/search?q=${encodeURIComponent(`${p.school} ${data.schoolAwardName}`)}`}" target="_blank" rel="noopener noreferrer" class="btn btn-action">More information on that scholarship ↗</a>
@@ -8146,7 +8068,6 @@ function renderScholarshipBreakdown() {
   
   const progId = +($("sTargetProgramme")?.value || 0);
   const citizenship = state.profile.citizenship;
-  const userField = state.profile.field;
   
   let targetPrograms = [];
   if (progId > 0) {
@@ -8165,7 +8086,7 @@ function renderScholarshipBreakdown() {
   targetPrograms.forEach(p => {
     const data = getProgrammeScholarshipData(p);
     const isCitizenMatch = citizenship && citizenship === p.country;
-    const matchTag = userField ? `High Match for ${userField}` : `Open to All Academic Backgrounds`;
+    const matchTag = p.openFields.includes("Any") ? "Open to any academic background" : `Aimed at ${p.openFields[0]} backgrounds`;
     
     const showMerit = true;
     const showFlex = false;
@@ -8484,16 +8405,6 @@ $("fTuition").max = TUITION_CEILING;
 $("fTuition").value = TUITION_CEILING;
 
 // "Your situation" profile panel (Programmes page — collapsible)
-const PROFILE_INPUTS = { pField:"field", pMaster:"master", pWork:"work" };
-Object.entries(PROFILE_INPUTS).forEach(([elId, key]) =>
-  $(elId).addEventListener("change", e => {
-    state.profile[key] = e.target.value;
-    state.eligibleOnly = false;
-    updateProfileBadge();
-    syncScholarProfileInputs();
-    $("profileApply").textContent = "Apply to programmes";
-    $("profileApplyNote").textContent = "Your changes are ready — press Apply to refresh the results.";
-  }));
 
 // Scholarship & Checklist Situation wiring — selects stage a change, the Apply
 // button commits it, so it's never ambiguous whether a pick is reflected below.
@@ -8523,37 +8434,8 @@ $("scholarshipApply").addEventListener("click", () => {
   $("scholarshipBreakdown").scrollIntoView({ behavior: "smooth", block: "start" });
 });
 
-$("profileApply").addEventListener("click", e => {
-  e.preventDefault();
-  state.eligibleOnly = true;
-  render();
-  if (state.page === "checklist") renderApplicationChecklist();
-  if (state.page === "scholarships") renderScholarships();
-  $("profileApply").textContent = "✓ Criteria applied";
-  $("profileApplyNote").textContent = "Showing programmes that fit your criteria. Change an input to update them.";
-  $("explore").scrollIntoView({ behavior:"smooth", block:"start" });
-});
 
-$("profileReset").addEventListener("click", e => {
-  e.preventDefault(); // don't toggle the <details> panel
-  state.profile = { bachelor:"", field:"", master:"", country:"", citizenship:"", work:"" };
-  state.eligibleOnly = false;
-  Object.keys(PROFILE_INPUTS).forEach(id => { $(id).value = ""; });
-  syncScholarProfileInputs();
-  $("profileApply").textContent = "Apply to programmes";
-  $("profileApplyNote").textContent = "Set your criteria, then apply them to the results.";
-  updateProfileBadge();
-  render();
-  if (state.page === "checklist") renderApplicationChecklist();
-  if (state.page === "scholarships") renderScholarships();
-});
 
-function updateProfileBadge() {
-  const n = Object.values(PROFILE_INPUTS).filter(key => state.profile[key]).length;
-  const badge = $("profileBadge");
-  badge.hidden = n === 0;
-  badge.textContent = `${n} of 3 set`;
-}
 
 // header stats derived from the data — keep the hero eyebrow and the footer
 // stat tiles reading from the same PROGRAMS array so they can't drift apart.
@@ -8643,7 +8525,6 @@ $("toeflLocation").addEventListener("keydown", e => { if (e.key === "Enter") { e
 // because someone pressed "Find test centres".
 renderEnglishTestMatrix();
 
-buildBackgroundSelect();
 buildFilterLists();
 render();
 showPage("programmes");
