@@ -6921,6 +6921,36 @@ const PROGRAMME_OUTCOMES = {
     classYear: "Class of 2024",
     source: { url: "https://www.fuqua.duke.edu/sites/default/files/daytime_mba_emp_report_2024.pdf", label: "Duke Fuqua Daytime MBA Employment Report 2024" },
   },
+
+  // ---- European MBAs, from each school's own employment statistics ----
+
+  // HEC Paris MBA. HEC's own MBA employment-statistics page, Class of 2025.
+  // The page publishes placement rate, mobility and top sectors but not a
+  // base-salary figure, so none is shown.
+  441: {
+    employedRate: 75, employedWindow: "accepted a job offer within 3 months of graduation",
+    sectors: ["Technology", "Finance", "Consulting"],
+    note: "64% took a role outside their home country; placements: Europe 52%, Asia & Oceania 25%, North America 11%.",
+    classYear: "Class of 2025",
+    source: { url: "https://www.hec.edu/en/mba-executive-mba/mba/careers/employment-statistics", label: "HEC Paris MBA employment statistics" },
+  },
+  // INSEAD MBA. INSEAD's own employment-statistics site (December 2024 + July 2025 classes).
+  444: {
+    employedRate: 81, employedWindow: "received a job offer within 3 months of graduation",
+    salary: "€100,000 median annual salary (plus €28,900 median sign-on bonus)",
+    sectors: ["Management consulting (23%)", "Technology / media / telecoms (16%)", "Financial services (11%)"],
+    classYear: "December 2024 & July 2025 classes",
+    source: { url: "https://intheknow.insead.edu/employment-statistics/full-time-jobs", label: "INSEAD MBA employment statistics" },
+  },
+  // IESE Business School MBA. IESE's own Class of 2025 employment report.
+  // The report publishes the placement rate and sector split but not a
+  // base-salary figure, so none is shown.
+  447: {
+    employedRate: 80, employedWindow: "had secured employment within 3 months of graduation",
+    sectors: ["Consulting (41%)", "Finance (16%)", "Technology (9%)"],
+    classYear: "Class of 2025",
+    source: { url: "https://www.iese.edu/stories/iese-mba-career-impact/", label: "IESE MBA Class of 2025 employment report" },
+  },
 };
 
 function outcomesHTML(p) {

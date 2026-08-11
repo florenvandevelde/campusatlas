@@ -38,7 +38,7 @@ Hold that line — it is the whole product's credibility.
    the trigger case was Vlerick: *you need a master's already to do a Vlerick master's if
    you studied in Belgium*, quoted from their admissions page.
 7. **Alumni outcomes** (commit this session): `PROGRAMME_OUTCOMES` table + a "Where
-   graduates end up" modal block. **9 entries now, all verified against the school's
+   graduates end up" modal block. **12 entries now, all verified against the school's
    own employment report (see session 7 note below).**
 
 ### SESSION 7 — Feature A populated to 9 entries (all from the school's own report)
@@ -55,9 +55,14 @@ their **report PDFs** on the same domain serve fine, so link the PDF. All 8 sour
 URLs 200-checked. Render tweak: dropped the hardcoded "employed" word from
 `outcomesHTML` so each entry's `employedWindow` carries its own verb ("received a job
 offer…", "accepted…", "employed…") — accurate for offer-rate vs acceptance-rate figures.
-Still unpopulated and worth doing next (same method): the European MBAs (INSEAD 444,
-LBS MBA 442, HEC 441, IESE 447, Cambridge Judge 443, Oxford Saïd 446) and the MiM
-entries. INSEAD/LBS/HEC publish employment-report PDFs on their own domains.
+Second batch added three European flagships from their own employment pages: HEC
+Paris (441, Class of 2025 — page gives placement rate + sectors but no salary, so
+salary left blank), INSEAD (444, Dec-2024 + Jul-2025 classes), IESE (447, Class of
+2025 — placement + sectors, no salary). Note `intheknow.insead.edu` 403s curl but
+WebFetch reaches it and it works in a browser (documented INSEAD Cloudflare block).
+Still unpopulated and worth doing next (same method): LBS MBA (442), IE (445),
+Cambridge Judge (443), Oxford Saïd (446), and the MiM entries. LBS publishes an MBA
+employment-report PDF on assets.london.edu; Cambridge/Oxford publish theirs too.
 
 ### ⚠️ HALF-BUILT FEATURE A — Alumni outcomes (user step 2 of 4)
 `PROGRAMME_OUTCOMES` in index.html is keyed by programme id. Fields (all optional):
