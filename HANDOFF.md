@@ -41,6 +41,23 @@ Hold that line — it is the whole product's credibility.
    graduates end up" modal block. **13 entries now, all verified against the school's
    own employment report (see session 7 note below).**
 
+### SESSION 7 — Dual/joint degrees added to the catalogue (668 → 673)
+User asked for dual programmes ("MBA and a Master in Science"). Added five two-year
+joint degrees, each linked to the school's own page: **MIT LGO (691)** MBA+MS
+Engineering, **Kellogg MMM (692)** MBA+MS Design Innovation, **Wharton Lauder (693)**
+MBA+MA International Studies, **Harvard MS/MBA Engineering Sciences (694)**, **Berkeley
+MBA/MEng (695)**. Key decisions: (1) **No `extRank`** — joint programmes carry no
+standalone QS/FT number and the ranking-hygiene rule forbids borrowing the parent
+MBA's, so they sort by `500 + rank` (rank 40–44). (2) **Tuition** stored in EUR =
+official per-year figure × programme years ÷ 1.08 (US rate) — MIT $91,892/yr, Kellogg
+$86,370/yr, Wharton $92,820/yr tuition+fees; Harvard & Berkeley are two-year duals
+paying the parent MBA tuition, so they reuse the catalogue's verified HBS/Haas total
+(EUR 160000). (3) **Skipped on the tuition rule:** Yale MBA/MEM, Stanford duals, Booth
+joint MPCS — all 3-year or MBA+separate-MS-fee structures with no single official
+figure to store (blank beats wrong). Remaining clean 2-year-MBA-tuition duals for a
+future pass are thin; the well-known flagships are now in. All schema-validated
+(fields against FIELDS, no dup id/school+program), URLs 200-checked, NL/FR rebuilt.
+
 ### SESSION 7 — Feature A populated to 9 entries (all from the school's own report)
 Added 8 Full-Time MBA outcome entries, each figure read from the school's own
 employment report (MBA CSEA standard = 3 months after graduation) and linked:
