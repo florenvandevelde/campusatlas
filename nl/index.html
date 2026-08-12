@@ -7328,6 +7328,18 @@ const PROGRAMME_OUTCOMES = {
     classYear: "Class of 2025",
     source: { url: "https://www.wbs.ac.uk/courses/mba/full-time/careers/", label: "Warwick Business School MBA careers page" },
   },
+  // HKUST Full-Time MBA. HKUST's own Graduate Employment Survey 2024, which reports
+  // the MBA cohort separately from the university's other master's programmes. Note
+  // the small sample (44 respondents, 32 reporting a sector), stated honestly.
+  500: {
+    employedRate: 77, employedWindow: "were full-time employed as of the 2024 survey (44 respondents)",
+    salary: "HK$56,073 median gross monthly income (≈HK$673,000/year)",
+    sectors: ["Commerce & Business (68.8%)", "Engineering & Industry (25.0%)"],
+    sectorMix: [["Commerce & Business",68.8],["Engineering & Industry",25.0],["Education",3.1],["Government",3.1]],
+    note: "Based on a small cohort, 32 of the 44 respondents reported a sector.",
+    classYear: "2024 Graduate Employment Survey",
+    source: { url: "https://career.hkust.edu.hk/web/public/documents/SurveyFindings_TPG_2024.pdf", label: "HKUST Graduate Employment Survey 2024 (MBA section)" },
+  },
 };
 
 // Donut chart of the industries a class went into. `mix` is [[label, pct], …];
