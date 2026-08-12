@@ -160,5 +160,22 @@
   "Any bachelor's discipline.": "Elke bacheloropleiding.",
   "A GMAT or GRE score is expected.": "Een GMAT- of GRE-score wordt verwacht.",
   "No GMAT/GRE required.": "Geen GMAT/GRE vereist.",
-  "Where graduates end up": "Waar afgestudeerden terechtkomen"
+  "Where graduates end up": "Waar afgestudeerden terechtkomen",
+  "Tuition": "Collegegeld",
+  "Deadline": "Deadline",
+  "Intake": "Instroom",
+  "Starts": "Start",
+  "Work visa after graduation": "Werkvisum na afstuderen",
+  "Admissions selectivity": "Selectiviteit van toelating",
+  "Add to shortlist": "Toevoegen aan shortlist",
+  "On your shortlist": "Op je shortlist",
+  "Industries the class went into": "Sectoren waarin de lichting terechtkwam",
+  "Reported salary:": "Gerapporteerd salaris:",
+  "<li>Top sectors: ${o.sectors.join(\", \")}</li>": "<li>Topsectoren: ${o.sectors.join(\", \")}</li>",
+  "<li>Recruiters include: ${o.employers.join(\", \")}</li>": "<li>Recruiters onder meer: ${o.employers.join(\", \")}</li>",
+  "From ${schoolName(o.school || p.school)}'s ${o.classYear}": "Van ${schoolName(o.school || p.school)}, ${o.classYear}",
+  "Rolling, aim to apply by ${cutoffEstimate}": "Doorlopende toelating, streef ernaar te solliciteren vóór ${cutoffEstimate}",
+  "Open planning window for ${intakeName}": "Planningsvenster open voor ${intakeName}",
+  "Rolling, check availability now": "Doorlopende toelating, controleer nu de beschikbaarheid",
+  "No fixed public deadline for the ${intakeName} intake, but rolling cohorts fill as seats and funding run out, most schools stop taking applications in the final 4–8 weeks before the intake starts. Treat ${cutoffEstimate} as a rough last-call estimate, not an official date, and confirm the live round on the official application page.": "Geen vaste publieke deadline voor de instroom van ${intakeName}, maar doorlopende lichtingen raken vol naarmate plaatsen en financiering opraken, de meeste scholen stoppen met aanvragen in de laatste 4–8 weken vóór de start. Beschouw ${cutoffEstimate} als een ruwe laatste-kans-schatting, geen officiële datum, en bevestig de actuele ronde op de officiële aanvraagpagina."
 }

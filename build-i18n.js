@@ -97,6 +97,13 @@ function applyDict(html, dict) {
       // bands and the eligibility badges. Anchoring on the property name keeps this
       // away from catalogue data, which never uses these keys.
       sub(new RegExp('(label|eligible|check|mismatch): "' + k + '"', "g"), (m, prop) => `${prop}: "${value}"`);
+      // Display strings chosen inside a ternary or after an object-literal property,
+      // e.g. `${flag ? "On your shortlist" : "Add to shortlist"}`. These are often
+      // under the 20-char JS-literal threshold, so the rules above can't reach them.
+      // Only ever fires on curated dictionary phrases, and protectedValues still
+      // shields catalogue values, so class-name/attribute ternaries ("selected",
+      // "checked", "") — which are never in the dictionary — stay untouched.
+      if (!guarded.has(key)) sub(new RegExp('([?:]\\s+)"' + k + '"', "g"), (m, pre) => `${pre}"${value}"`);
     }
 
     if (!hits) unused.push(key); else replaced += hits;

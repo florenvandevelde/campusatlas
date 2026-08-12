@@ -6278,7 +6278,7 @@ function cardHTML(p, subjectOnlyMatch) {
       </div>
       <label class="card-select${state.compare.has(p.id) ? " selected" : ""}" onclick="event.stopPropagation()">
         <input type="checkbox" data-compare="${p.id}" ${state.compare.has(p.id) ? "checked" : ""}>
-        ${state.compare.has(p.id) ? "On your shortlist" : "Add to shortlist"}
+        ${state.compare.has(p.id) ? "Op je shortlist" : "Toevoegen aan shortlist"}
       </label>
     </div>
     <h3>${p.program}</h3>
@@ -6290,13 +6290,13 @@ function cardHTML(p, subjectOnlyMatch) {
       ${p.scholar ? `<button class="tag accent tag-link" onclick="event.stopPropagation(); showPage('scholarships', null, ${p.id})">Beurzen</button>` : ""}
     </div>
     <div class="facts">
-      <div class="fact"><span>Tuition</span><b>${tuitionDisplay(p)}</b></div>
+      <div class="fact"><span>Collegegeld</span><b>${tuitionDisplay(p)}</b></div>
       <div class="fact"><span>Duur</span><b>${p.months} months</b></div>
-      <div class="fact"><span>Starts</span><b>${p.intake}</b></div>
+      <div class="fact"><span>Start</span><b>${p.intake}</b></div>
       <div class="fact"><span>Deadline</span><b>${p.deadline}</b></div>
     </div>
-    ${SELECTIVITY[p.id] ? `<div class="fact visa-fact"><span>Admissions selectivity</span><b>${selectivityShort(p)}</b></div>` : ""}
-    <div class="fact visa-fact"><span>Work visa after graduation</span><b>${getVisa(p).label}</b></div>
+    ${SELECTIVITY[p.id] ? `<div class="fact visa-fact"><span>Selectiviteit van toelating</span><b>${selectivityShort(p)}</b></div>` : ""}
+    <div class="fact visa-fact"><span>Werkvisum na afstuderen</span><b>${getVisa(p).label}</b></div>
   </article>`;
 }
 
@@ -6322,7 +6322,7 @@ function render() {
          <p>Try widening the tuition range or clearing a region.</p>
        </div>`;
 
-  $("resTitle").textContent = state.shortlistOnly ? "Your shortlist" : (state.q ? `Results for “${state.q}”` : "All programmes");
+  $("resTitle").textContent = state.shortlistOnly ? "Your shortlist" : (state.q ? `Results for “${state.q}”` : "Alle opleidingen");
   $("resSub").textContent = `${list.length} programme${list.length === 1 ? "" : "s"}`;
   updateSelectionCounts();
 
@@ -6432,11 +6432,11 @@ function openModal(id) {
       <div class="kv">
         <div class="fact"><span>Tuition (total)</span><b>${tuitionDisplay(p)}</b></div>
         <div class="fact"><span>Duur</span><b>${p.months} months</b></div>
-        <div class="fact"><span>Intake</span><b>${p.intake}</b></div>
+        <div class="fact"><span>Instroom</span><b>${p.intake}</b></div>
         <div class="fact"><span>Next deadline</span><b>${p.deadline}</b></div>
         <div class="fact"><span>Werkervaring</span><b>${p.work}</b></div>
         <div class="fact"><span>GMAT / GRE</span><b>${p.gmat ? "Required" : "Not required"}</b></div>
-        <div class="fact"><span>Work visa after graduation</span><b>${getVisa(p).label}</b></div>
+        <div class="fact"><span>Werkvisum na afstuderen</span><b>${getVisa(p).label}</b></div>
       </div>
       ${sourceLine(p.link, `${schoolName(p.school)}'s own programme page`)}
       ${modalEntryProfile(p)}
@@ -6482,17 +6482,17 @@ const COMPARE_ROWS = [
   { label: "Tuition (total)", get: p => `${tuitionDisplay(p)}${sourceLine(p.link, `${schoolName(p.school)}'s own programme page`)}`, raw: true },
   { label: "Duur", get: p => `${p.months} months` },
   { label: "Taal", get: p => p.lang },
-  { label: "Intake", get: p => p.intake },
+  { label: "Instroom", get: p => p.intake },
   { label: "Next deadline", get: p => p.deadline },
   { label: "Werkervaring", get: p => p.work },
   { label: "GMAT / GRE", get: p => p.gmat ? "Required" : "Not required" },
-  { label: "Admissions selectivity", raw: true, get: p => {
+  { label: "Selectiviteit van toelating", raw: true, get: p => {
       const s = selectivityFor(p);
       if (!s) return `<span class="planner-status muted">Not published</span><span class="place">This school doesn't publish an admit rate for this programme, most non-MBA master's don't.</span>`;
       return `<span class="planner-status ${s.band ? s.band.tone : "muted"}">${s.band ? s.band.label : "Cohort size published"}</span><span class="place">${s.summary}, ${s.cohort}</span>`;
     } },
   { label: "Regio", get: p => p.region },
-  { label: "Work visa after graduation", get: p => getVisa(p).label },
+  { label: "Werkvisum na afstuderen", get: p => getVisa(p).label },
   { label: "Fields", raw: true, get: p => `<div class="tags">${p.fields.map(f => `<span class="tag">${f}</span>`).join("")}${p.scholar ? `<span class="tag accent">Beurzen</span>` : ""}</div>` },
   { label: "Official page", raw: true, get: p => `<a class="btn" href="${p.link}" target="_blank" rel="noopener noreferrer">Visit ↗</a>` },
 ];
@@ -6678,7 +6678,7 @@ function applicationTiming(p) {
   const intake = nextIntake(p, now);
   if (/rolling/i.test(p.deadline)) {
     const months = parseIntakeMonths(p.intake);
-    if (!months.length) return { tone:"watch", label:"Rolling, check availability now", detail:"The next available intake can close without a fixed public date. Confirm the current status on the official application page." };
+    if (!months.length) return { tone:"watch", label:"Doorlopende toelating, controleer nu de beschikbaarheid", detail:"The next available intake can close without a fixed public date. Confirm the current status on the official application page." };
     // Across every intake this programme runs (a school may list "Sept / Jan"),
     // pick the one whose estimated last-call is soonest but still ahead of us, // so we recommend the nearest cycle you can actually still make, never a past one.
     let best = null;
@@ -6690,7 +6690,7 @@ function applicationTiming(p) {
     }
     const intakeName = intakeLabel(best.month, best.year);
     const cutoffEstimate = best.cutoff.toLocaleString("en", { month:"long", year:"numeric" });
-    return { tone:"watch", label:`Rolling, aim to apply by ${cutoffEstimate}`, detail:`No fixed public deadline for the ${intakeName} intake, but rolling cohorts fill as seats and funding run out, most schools stop taking applications in the final 4–8 weeks before the intake starts. Treat ${cutoffEstimate} as a rough last-call estimate, not an official date, and confirm the live round on the official application page.` };
+    return { tone:"watch", label:`Doorlopende toelating, streef ernaar te solliciteren vóór ${cutoffEstimate}`, detail:`Geen vaste publieke deadline voor de instroom van ${intakeName}, maar doorlopende lichtingen raken vol naarmate plaatsen en financiering opraken, de meeste scholen stoppen met aanvragen in de laatste 4–8 weken vóór de start. Beschouw ${cutoffEstimate} als een ruwe laatste-kans-schatting, geen officiële datum, en bevestig de actuele ronde op de officiële aanvraagpagina.` };
   }
   const deadlineMonth = monthFromText(p.deadline);
   if (deadlineMonth === null || !intake) return { tone:"muted", label:`Recorded deadline: ${p.deadline}`, detail:"Check the official application page for the applicable round and its exact date." };
@@ -6705,7 +6705,7 @@ function applicationTiming(p) {
   const intakeName = intakeLabel(intakeMonth, intakeYear);
   const deadlineText = `${p.deadline}${/\d{4}/.test(p.deadline) ? "" : " " + deadlineYear}`;
   return { tone: advanced ? "watch" : "good",
-    label: `Open planning window for ${intakeName}`,
+    label: `Planningsvenster open voor ${intakeName}`,
     detail: `Recorded deadline: ${deadlineText}${advanced ? " (next cycle, the nearest one has already passed)" : ""}, verify the live application round on the official page.` };
 }
 
@@ -7087,17 +7087,17 @@ function outcomesHTML(p) {
   }
   const rows = [];
   if (o.employedRate != null) rows.push(`<li><b>${o.employedRate}%</b>${o.employedWindow ? " " + o.employedWindow : ""}</li>`);
-  if (o.salary) rows.push(`<li>Reported salary: <b>${o.salary}</b></li>`);
-  if (!o.sectorMix && o.sectors && o.sectors.length) rows.push(`<li>Top sectors: ${o.sectors.join(", ")}</li>`);
-  if (o.employers && o.employers.length) rows.push(`<li>Recruiters include: ${o.employers.join(", ")}</li>`);
+  if (o.salary) rows.push(`<li>Gerapporteerd salaris: <b>${o.salary}</b></li>`);
+  if (!o.sectorMix && o.sectors && o.sectors.length) rows.push(`<li>Topsectoren: ${o.sectors.join(", ")}</li>`);
+  if (o.employers && o.employers.length) rows.push(`<li>Recruiters onder meer: ${o.employers.join(", ")}</li>`);
   if (o.alumniCount) rows.push(`<li>Alumni network: <b>${o.alumniCount}</b>${o.alumniCountries ? ` across ${o.alumniCountries}` : ""}</li>`);
   if (o.note) rows.push(`<li>${o.note}</li>`);
   const chart = o.sectorMix && o.sectorMix.length
-    ? `<p class="sector-chart-title">Industries the class went into</p>${sectorChartHTML(o.sectorMix)}`
+    ? `<p class="sector-chart-title">Sectoren waarin de lichting terechtkwam</p>${sectorChartHTML(o.sectorMix)}`
     : "";
   return `<h5>Waar afgestudeerden terechtkomen</h5>
     <div class="elig elig-eligible">
-      <div class="elig-head"><span class="dot"></span> ${o.classYear ? `From ${schoolName(o.school || p.school)}'s ${o.classYear}` : "Reported outcomes"}</div>
+      <div class="elig-head"><span class="dot"></span> ${o.classYear ? `Van ${schoolName(o.school || p.school)}, ${o.classYear}` : "Reported outcomes"}</div>
       <ul>${rows.join("")}</ul>
       ${chart}
       <p style="margin-top:8px">Figures as published by the school; they are re-set each class year. ${o.source ? `Source: <a href="${o.source.url}" target="_blank" rel="noopener noreferrer">${escapeHTML(o.source.label)}</a>.` : ""}</p>

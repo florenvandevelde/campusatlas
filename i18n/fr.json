@@ -160,5 +160,22 @@
   "Any bachelor's discipline.": "Toute discipline de licence.",
   "A GMAT or GRE score is expected.": "Un score GMAT ou GRE est attendu.",
   "No GMAT/GRE required.": "Pas de GMAT/GRE exigé.",
-  "Where graduates end up": "Où finissent les diplômés"
+  "Where graduates end up": "Où finissent les diplômés",
+  "Tuition": "Frais de scolarité",
+  "Deadline": "Date limite",
+  "Intake": "Rentrée",
+  "Starts": "Début",
+  "Work visa after graduation": "Visa de travail après le diplôme",
+  "Admissions selectivity": "Sélectivité des admissions",
+  "Add to shortlist": "Ajouter à la sélection",
+  "On your shortlist": "Dans votre sélection",
+  "Industries the class went into": "Secteurs rejoints par la promotion",
+  "Reported salary:": "Salaire déclaré :",
+  "<li>Top sectors: ${o.sectors.join(\", \")}</li>": "<li>Principaux secteurs : ${o.sectors.join(\", \")}</li>",
+  "<li>Recruiters include: ${o.employers.join(\", \")}</li>": "<li>Recruteurs notamment : ${o.employers.join(\", \")}</li>",
+  "From ${schoolName(o.school || p.school)}'s ${o.classYear}": "${schoolName(o.school || p.school)}, ${o.classYear}",
+  "Rolling, aim to apply by ${cutoffEstimate}": "Admissions continues, visez à postuler avant ${cutoffEstimate}",
+  "Open planning window for ${intakeName}": "Fenêtre de planification ouverte pour ${intakeName}",
+  "Rolling, check availability now": "Admissions continues, vérifiez la disponibilité maintenant",
+  "No fixed public deadline for the ${intakeName} intake, but rolling cohorts fill as seats and funding run out, most schools stop taking applications in the final 4–8 weeks before the intake starts. Treat ${cutoffEstimate} as a rough last-call estimate, not an official date, and confirm the live round on the official application page.": "Pas de date limite publique fixe pour la rentrée de ${intakeName}, mais les promotions à admissions continues se remplissent à mesure que les places et les financements s'épuisent, la plupart des écoles cessent d'accepter les candidatures dans les 4 à 8 dernières semaines avant la rentrée. Considérez ${cutoffEstimate} comme une estimation approximative de dernier délai, pas une date officielle, et confirmez la session en cours sur la page de candidature officielle."
 }
