@@ -517,6 +517,24 @@
   .center-item .note { font-size: 11.5px; color: var(--ink-3); flex: none; white-space: nowrap; }
   .cost-note { font-size: 12.5px; color: var(--ink-3); background: var(--paper-2); border-radius: var(--radius-sm); padding: 10px 14px; }
   .locator-placeholder { font-size: 13px; color: var(--ink-3); font-style: italic; }
+  .events-controls { display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+  .events-search-field { min-width: 260px; flex: 1 1 260px; }
+  .events-kind { display: inline-flex; gap: 6px; background: var(--paper-2); border-radius: 999px; padding: 4px; }
+  .events-kind-btn { border: none; background: none; padding: 7px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 600; color: var(--ink-3); cursor: pointer; transition: .15s; }
+  .events-kind-btn.is-active { background: var(--accent); color: #fff; }
+  .events-freshness { font-size: 12px; color: var(--ink-3); margin: 10px 0 26px; max-width: 68ch; }
+  .events-section-title { font-family: var(--serif); font-weight: 400; font-size: 19px; margin: 30px 0 14px; }
+  .events-section-title:first-child { margin-top: 0; }
+  .events-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; margin-bottom: 6px; }
+  .event-card { display: flex; flex-direction: column; gap: 6px; border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 16px; background: var(--paper); text-decoration: none; color: inherit; transition: border-color .15s, transform .15s; }
+  .event-card:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .event-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 11px; }
+  .event-kind { font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--accent-ink); }
+  .event-series { color: var(--ink-3); }
+  .event-card h3 { font-family: var(--serif); font-weight: 400; font-size: 17px; margin: 2px 0 0; }
+  .event-card p { font-size: 12.5px; color: var(--ink-2); line-height: 1.45; margin: 0; flex: 1 1 auto; }
+  .event-go { font-size: 12.5px; font-weight: 700; color: var(--accent-ink); margin-top: 4px; }
+  .events-hint { font-size: 13px; color: var(--ink-3); max-width: 68ch; }
   .gmat-avg-note { font-size: 12.5px; line-height: 1.5; border-radius: var(--radius-sm); padding: 10px 14px; margin: 10px 0 4px; }
   .gmat-avg-verified { background: var(--accent-soft); color: var(--ink-2); }
   .gmat-avg-verified b { color: var(--ink); }
@@ -863,7 +881,8 @@
     </svg> Campus&nbsp;Atlas</button>
     <nav class="main" id="mainNav">
       <button class="navlink" data-page="programmes">Programmes</button>
-      <button class="navlink" data-page="about">About Campus Atlas</button>
+      <button class="navlink" data-page="events">Events</button>
+      <button class="navlink" data-page="about">About</button>
     </nav>
     <span class="spacer"></span>
     <div class="header-tools">
@@ -912,7 +931,8 @@
       <path d="M4.6 18.4C8 16.9 18 16.9 21.4 18.4" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
     </svg> Campus&nbsp;Atlas</button>
     <button class="mm-item mm-navlink" data-page="programmes" type="button">Programmes</button>
-    <button class="mm-item mm-navlink" data-page="about" type="button">About Campus Atlas</button>
+    <button class="mm-item mm-navlink" data-page="events" type="button">Events</button>
+    <button class="mm-item mm-navlink" data-page="about" type="button">About</button>
     <div class="mm-divider"></div>
     <div class="mm-group-label">Your shortlist, <b id="mmShortlistCount">0</b> applies below</div>
     <button class="mm-item mm-action" id="mmCompare" type="button">Compare <span class="pill-count" id="mmCompareCount">0</span></button>
@@ -1046,6 +1066,30 @@
   </div>
 </div>
 </div>
+
+<section id="pageEvents" class="subpage" hidden>
+  <div class="wrap">
+    <div class="subpage-head">
+      <div class="eyebrow"><span class="dot"></span> Meet the schools</div>
+      <h1>Events &amp; info sessions.</h1>
+      <p class="lede">Recruitment fairs, campus open days and virtual information sessions from the schools in this catalogue. Enter your location to find in-person events near you. Dates and registration live on each organiser's own page, they change often, so always confirm there.</p>
+    </div>
+    <div class="events-controls">
+      <label class="pfield events-search-field">
+        <span>Your location, to find in-person events near you</span>
+        <input class="loc-search" id="eventsLocation" list="locationList" placeholder="Enter a city or country, e.g. London, Germany…" autocomplete="off">
+      </label>
+      <button class="btn primary" id="eventsFindBtn" type="button">Find events near me</button>
+      <div class="events-kind">
+        <button class="events-kind-btn is-active" data-events-kind="all" type="button">All</button>
+        <button class="events-kind-btn" data-events-kind="in-person" type="button">In person</button>
+        <button class="events-kind-btn" data-events-kind="virtual" type="button">Virtual</button>
+      </div>
+    </div>
+    <p class="events-freshness" id="eventsFreshness"></p>
+    <div id="eventsResults"></div>
+  </div>
+</section>
 
 <section id="pageChecklist" class="subpage" hidden>
   <div class="wrap">
@@ -6457,6 +6501,7 @@ function openModal(id) {
       ${outcomesHTML(p)}
       <div class="actions">
         <a class="btn" href="${p.link}" target="_blank" rel="noopener noreferrer">Official programme page ↗</a>
+        <button class="btn" id="modalEvents">Explore events to meet ${escapeHTML(schoolName(p.school))}</button>
         <button class="btn primary" id="modalCompare">
           ${isComparing ? "✓ Added to compare" : "+ Add to compare"}
         </button>
@@ -6465,6 +6510,7 @@ function openModal(id) {
   $("scrim").classList.add("open");
   document.body.style.overflow = "hidden";
   $("closeBtn").addEventListener("click", closeModal);
+  $("modalEvents").addEventListener("click", () => { closeModal(); showPage("events", null, p.school); });
   $("modalCompare").addEventListener("click", () => {
     toggleCompare(p.id);
     render(); openModal(p.id);
@@ -6562,6 +6608,7 @@ function closeCompare() {
    ============================================================ */
 const PAGES = {
   programmes: "pageProgrammes",
+  events: "pageEvents",
   checklist: "pageChecklist",
   scholarships: "pageScholarships",
   about: "pageAbout",
@@ -6597,6 +6644,7 @@ function showPage(page, scrollTarget, progId) {
     }
   }
   if (page === "checklist") renderApplicationChecklist();
+  if (page === "events") renderEvents(progId);
   // Re-render so card checkboxes reflect state.compare, it can change while
   // this page isn't visible (e.g. the Scholarships shortcut adds a programme),
   // and stale checkbox DOM otherwise desyncs from the real selection state.
@@ -6605,6 +6653,125 @@ function showPage(page, scrollTarget, progId) {
   const target = scrollTarget && document.getElementById(scrollTarget);
   if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
   else window.scrollTo({ top: 0, behavior: "instant" in document.documentElement.style ? "instant" : "auto" });
+}
+
+/* ============================================================
+   EVENTS — fairs, open days and virtual info sessions
+
+   Recruitment-fair organisers and schools publish live, rolling schedules; hard-coding
+   specific dates would rot within weeks, so every entry links to the organiser's or
+   school's own page where the current dates and registration actually live. Schools
+   without a verified stable events URL fall back to a scoped search on their own site,
+   never a guessed link that could 404. This keeps the page correct and current by
+   construction rather than by re-checking a hundred dates.
+   ============================================================ */
+const EVENTS_LAST_CHECKED = "August 2026";
+const RECRUITMENT_FAIRS = [
+  { name: "Access Masters", kind: "both", where: "In-person fairs and online one-to-one events for pre-experience master's candidates, dozens of cities each season.", url: "https://www.accessmasterstour.com/events" },
+  { name: "Access MBA", kind: "both", where: "One-to-one MBA meetings, in person across Europe, the Americas, Asia and the Middle East, and online.", url: "https://www.accessmba.com/events" },
+  { name: "The MBA Tour", kind: "both", where: "MBA connect events and school fairs across the Americas, Europe and Asia.", url: "https://thembatour.com/events/" },
+  { name: "QS World Grad School Tour", kind: "in-person", where: "Master's and MBA fairs in 100+ cities worldwide; meet admissions teams face to face.", url: "https://www.topuniversities.com/events" },
+];
+// Schools with a verified, stable events page, each one hand-checked rather than
+// guessed from a URL pattern (a guessed scholarship/events URL has a track record of
+// 404ing in this codebase). Every other school falls back to a scoped search of its
+// own site, so nothing here can point at a dead link.
+const SCHOOL_EVENTS = {
+  "HEC Paris": { url: "https://www.hec.edu/en/events", note: "HEC's own events hub: open days, virtual info sessions and admissions webinars." },
+};
+function schoolEventsUrl(school) {
+  return (SCHOOL_EVENTS[school] && SCHOOL_EVENTS[school].url) ||
+    `https://www.google.com/search?q=${encodeURIComponent(schoolName(school) + " admissions information session webinar open day")}`;
+}
+
+let eventsKind = "all";
+function eventKindMatches(k) { return eventsKind === "all" || k === "both" || k === eventsKind; }
+let eventsLoc = null; // last successfully geocoded search location, {lat, lon, label}
+
+async function findEventsNearMe() {
+  const input = $("eventsLocation"), btn = $("eventsFindBtn");
+  const q = input.value.trim();
+  if (!q) { eventsLoc = null; renderEvents(); return; }
+  btn.disabled = true; btn.textContent = "Locating…";
+  try { eventsLoc = await geocodeLocation(q); }
+  catch { eventsLoc = null; }
+  btn.disabled = false; btn.textContent = "Find events near me";
+  renderEvents();
+}
+
+function renderEvents(focusSchool) {
+  const box = $("eventsResults");
+  if (!box) return;
+  if (focusSchool) { $("eventsLocation").value = ""; eventsLoc = null; }
+
+  $("eventsFreshness").textContent =
+    `Each card links to the organiser's or school's own page, where the live dates and registration actually are, they change often, so confirm there. Links last checked ${EVENTS_LAST_CHECKED}.`;
+
+  const focusCard = focusSchool ? `
+    <h2 class="events-section-title">Meet ${escapeHTML(schoolName(focusSchool))}</h2>
+    <div class="events-grid">
+      <a class="event-card" href="${schoolEventsUrl(focusSchool)}" target="_blank" rel="noopener noreferrer">
+        <div class="event-top"><span class="event-kind both">In person + virtual</span><span class="event-series">${SCHOOL_EVENTS[focusSchool] ? "Official events page" : "Find on their site"}</span></div>
+        <h3>${escapeHTML(schoolName(focusSchool))}</h3>
+        <p>${SCHOOL_EVENTS[focusSchool] ? SCHOOL_EVENTS[focusSchool].note : "Opens a search of the school's own site for its current open days, admissions webinars and virtual info sessions."}</p>
+        <span class="event-go">${SCHOOL_EVENTS[focusSchool] ? "Open events page ↗" : "Find upcoming sessions ↗"}</span>
+      </a>
+    </div>
+    <p class="events-hint">Recruitment fairs below are another way to meet ${escapeHTML(schoolName(focusSchool))} alongside other schools.</p>` : "";
+
+  // Recruitment-fair series: the practical way to find something near almost any
+  // city, since these run in dozens of locations a season on the organiser's own
+  // rolling schedule.
+  const fairs = RECRUITMENT_FAIRS.filter(f => eventKindMatches(f.kind));
+  const fairCards = fairs.map(f => `
+    <a class="event-card" href="${f.url}" target="_blank" rel="noopener noreferrer">
+      <div class="event-top"><span class="event-kind ${f.kind}">${f.kind === "both" ? "In person + virtual" : "In person"}</span><span class="event-series">Fair series, many schools</span></div>
+      <h3>${f.name}</h3>
+      <p>${f.where}${eventsLoc ? ` See the live schedule for a stop near ${escapeHTML(eventsLoc.label || eventsLoc.city)}.` : ""}</p>
+      <span class="event-go">See the live schedule ↗</span>
+    </a>`).join("");
+
+  // Verified single-school events (their own open days, campus visits and virtual
+  // info sessions), shown whenever available and matched against "virtual".
+  const verifiedCards = eventKindMatches("virtual") || eventKindMatches("in-person")
+    ? Object.entries(SCHOOL_EVENTS).map(([school, v]) => `
+      <a class="event-card" href="${v.url}" target="_blank" rel="noopener noreferrer">
+        <div class="event-top"><span class="event-kind both">In person + virtual</span><span class="event-series">Official events page</span></div>
+        <h3>${escapeHTML(schoolName(school))}</h3>
+        <p>${v.note}</p>
+        <span class="event-go">Open events page ↗</span>
+      </a>`).join("")
+    : "";
+
+  // Proximity to a school's own campus, real haversine distance from the location you
+  // typed to the school's own city. This is a distance to the campus, not a specific
+  // dated event, most schools' open days happen there, so it's an honest, useful
+  // stand-in for "in-person events near me" without inventing a date that doesn't exist.
+  let nearCards = "", nearNote = "";
+  if (eventsLoc && eventKindMatches("in-person")) {
+    const schools = [...new Map(PROGRAMS.map(p => [p.school, p])).values()];
+    const withDist = schools.map(p => {
+      const loc = LOCATIONS.find(l => l.city === p.city && l.country === p.country);
+      if (!loc) return null;
+      return { p, km: haversineKm(eventsLoc.lat, eventsLoc.lon, loc.lat, loc.lon) };
+    }).filter(Boolean).filter(x => x.km <= 800).sort((a, b) => a.km - b.km).slice(0, 12);
+    nearCards = withDist.map(({ p, km }) => `
+      <a class="event-card" href="${schoolEventsUrl(p.school)}" target="_blank" rel="noopener noreferrer">
+        <div class="event-top"><span class="event-kind in-person">≈${Math.round(km)} km away</span><span class="event-series">${p.city}, ${p.country}</span></div>
+        <h3>${escapeHTML(schoolName(p.school))}</h3>
+        <p>Distance to the school's own campus in ${p.city}, most schools run their own open days and admissions events there, check their events page for current dates.</p>
+        <span class="event-go">${SCHOOL_EVENTS[p.school] ? "Open events page ↗" : "Find upcoming sessions ↗"}</span>
+      </a>`).join("");
+    if (!withDist.length) nearNote = `<p class="locator-placeholder">No catalogued school campus within 800 km of ${escapeHTML(eventsLoc.label || eventsLoc.city)}, the recruitment fairs above are the more realistic route for that location.</p>`;
+  }
+
+  let html = focusCard;
+  if (fairCards) html += `<h2 class="events-section-title">Recruitment fairs, meet many schools at once</h2><div class="events-grid">${fairCards}</div>`;
+  if (verifiedCards) html += `<h2 class="events-section-title">Single-school events</h2><div class="events-grid">${verifiedCards}</div>`;
+  if (nearCards) html += `<h2 class="events-section-title">Schools with a campus near ${escapeHTML(eventsLoc.label || eventsLoc.city)}</h2><div class="events-grid">${nearCards}</div>`;
+  else if (nearNote) html += nearNote;
+  else if (!eventsLoc) html += `<p class="events-hint">Tip: enter a location above and press <b>Find events near me</b> to see which schools have a campus nearby, or open any programme and use <b>Explore events to meet</b> that school.</p>`;
+  box.innerHTML = html || `<p class="locator-placeholder">Nothing matches that filter right now.</p>`;
 }
 
 function renderEnglishTestMatrix() {
@@ -8814,6 +8981,16 @@ buildCountrySelect($("sCitizenship"));
 
 $("mainNav").querySelectorAll(".navlink").forEach(btn =>
   btn.addEventListener("click", () => showPage(btn.dataset.page, btn.dataset.page === "programmes" ? "explore" : null)));
+
+// Events page controls
+$("eventsFindBtn").addEventListener("click", findEventsNearMe);
+$("eventsLocation").addEventListener("keydown", e => { if (e.key === "Enter") findEventsNearMe(); });
+document.querySelectorAll(".events-kind-btn").forEach(btn =>
+  btn.addEventListener("click", () => {
+    eventsKind = btn.dataset.eventsKind;
+    document.querySelectorAll(".events-kind-btn").forEach(b => b.classList.toggle("is-active", b === btn));
+    renderEvents();
+  }));
 
 // Direct bindings keep the selected-programme tools reliable even if the
 // main navigation is visually collapsed at a smaller viewport.
