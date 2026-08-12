@@ -86,8 +86,17 @@ bypass); its employment-report PDF (sbs.ox.ac.uk/.../mba-employment-report-25.pd
 opens fine in a human browser, so read it there next time. IE (445) — its career-report
 PDF's headline "95% within 3 months" is a school-wide "master's graduates" claim, not
 IMBA-specific, and it carries no parseable salary, so it fails the degree-match rule.
-Still unpopulated (same method): LBS MBA (442, PDF on assets.london.edu), Oxford (446,
-human browser), IE (445, needs an IMBA-specific figure), and the MiM entries.
+Fourth batch: **LBS MBA (442)** added from LBS's own MBA employment report PDF on
+assets.london.edu (87% offer / 86% accept within 3 months, £92,228 mean base — LBS
+reports a mean; Consulting 42% / Finance 26% / Tech 21%). Outcomes now **14 entries**.
+Tried and **skipped on the source rule** (data is well-known but not readable from the
+school's own page here — bot-block / JS / 404, same standard as Oxford): **Cornell
+Johnson (450)**, **Michigan Ross (491)**, **NYU Stern (488)** — their johnson.cornell.edu
+/ michiganross.umich.edu pages 404/403 to curl+WebFetch and the Stern news page is a
+stub; their MBA-CSEA PDFs need a human browser or a located PDF URL. Also still
+unpopulated: Oxford (446, human browser), IE (445, needs an IMBA-specific figure), and
+the MiM entries (LBS MiM report PDF is at assets.london.edu/.../mim_employment_report.pdf
+if you want to enrich id 2 beyond its current london.edu MiM-page source).
 
 ### ⚠️ HALF-BUILT FEATURE A — Alumni outcomes (user step 2 of 4)
 `PROGRAMME_OUTCOMES` in index.html is keyed by programme id. Fields (all optional):

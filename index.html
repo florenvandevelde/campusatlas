@@ -688,6 +688,14 @@
   .elig-eligible .elig-head .dot { background: #4c9a6b; }
   .elig-check .elig-head .dot { background: #c98a2c; }
   .elig-mismatch .elig-head .dot { background: #b4553f; }
+  .sector-chart-title { font-size: 13px; font-weight: 700; margin: 12px 0 6px; }
+  .sector-chart { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; margin: 4px 0 2px; }
+  .sector-chart svg { flex: 0 0 auto; }
+  .sector-legend { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; font-size: 13.5px; min-width: 190px; }
+  .sector-legend li { display: flex; align-items: center; gap: 8px; }
+  .sector-legend .sector-name { flex: 1 1 auto; }
+  .sector-legend b { font-variant-numeric: tabular-nums; }
+  .sector-swatch { width: 12px; height: 12px; border-radius: 3px; flex: 0 0 auto; }
   @media (prefers-color-scheme: dark) {
     .elig-eligible .elig-head .dot { background: #6fbf8f; }
     .elig-check .elig-head .dot { background: #d9a34f; }
@@ -6939,6 +6947,7 @@ const PROGRAMME_OUTCOMES = {
     employedRate: 85, employedWindow: "received a job offer within 3 months of graduation (77% accepted)",
     salary: "US$169,550 median base",
     sectors: ["Consulting", "Finance", "Technology"],
+    sectorMix: [["Consulting",32.1],["Finance",25.3],["Technology",19.0],["Healthcare",6.8],["Other",16.8]],
     employers: ["Boston Consulting Group", "McKinsey", "Amazon", "Bain", "Goldman Sachs"],
     classYear: "Class of 2024",
     source: { url: "https://mitsloan.mit.edu/sites/default/files/2024-12/MBA-Employment-Report-2024-2025.pdf", label: "MIT Sloan MBA Employment Report 2024–2025" },
@@ -6948,6 +6957,7 @@ const PROGRAMME_OUTCOMES = {
     employedRate: 89, employedWindow: "received a job offer within 3 months of graduation (86% accepted)",
     salary: "US$175,000 median base (plus US$30,000 median signing bonus)",
     sectors: ["Financial services (36%)", "Consulting (31%)"],
+    sectorMix: [["Financial services",35.9],["Consulting",30.6],["Other",33.5]],
     classYear: "Class of 2024",
     source: { url: "https://business.columbia.edu/sites/default/files-efs/imce-uploads/CMC/cmc-employment-report-2024-final.pdf", label: "Columbia Business School 2024 Employment Report" },
   },
@@ -6956,6 +6966,7 @@ const PROGRAMME_OUTCOMES = {
     employedRate: 90, employedWindow: "accepted a job offer within 6 months of graduation",
     salary: "US$205,000 median total compensation (base + signing bonus)",
     sectors: ["Consulting (38%)", "Financial services (21%)", "Technology (19%)"],
+    sectorMix: [["Consulting",38],["Financial services",21],["Technology",19],["Other",22]],
     employers: ["McKinsey", "Bain", "BCG", "Deloitte", "Accenture"],
     classYear: "Class of 2025",
     source: { url: "https://www.kellogg.northwestern.edu/programs/full-time-mba/career-services/career-outcomes/", label: "Kellogg Full-Time MBA career outcomes" },
@@ -6964,6 +6975,7 @@ const PROGRAMME_OUTCOMES = {
   203: {
     salary: "US$175,000 median base (plus US$31,000 median signing bonus)",
     sectors: ["Consulting (33.8%)", "Technology (14.8%)", "Financial services (11.4%)"],
+    sectorMix: [["Consulting",33.8],["Technology",14.8],["Financial services",11.4],["Investment banking",9.4],["Private equity",6.4],["Other",24.2]],
     note: "Nearly 9 in 10 job-seekers secured a role by three months after graduation.",
     classYear: "Class of 2024",
     source: { url: "https://www.chicagobooth.edu/why-booth/stories/class-of-2024-full-time-employment-report-data", label: "Chicago Booth Class of 2024 employment data" },
@@ -6973,6 +6985,7 @@ const PROGRAMME_OUTCOMES = {
     employedRate: 86, employedWindow: "received a job offer within 3 months of graduation (84% accepted)",
     salary: "US$160,000 median base",
     sectors: ["Consulting", "Technology", "Finance"],
+    sectorMix: [["Consulting",25.4],["Technology",24.3],["Other",50.3]],
     classYear: "Class of 2024",
     source: { url: "https://newsroom.haas.berkeley.edu/2024-mba-grads-land-impressive-positions-in-tough-employment-market/", label: "Berkeley Haas 2024 MBA employment report" },
   },
@@ -6990,6 +7003,7 @@ const PROGRAMME_OUTCOMES = {
     employedRate: 85, employedWindow: "received a job offer within 3 months of graduation (82% accepted)",
     salary: "US$175,000 median base (plus US$30,000 median signing bonus)",
     sectors: ["Consulting (39%)", "Financial services (25%)", "Technology (12%)"],
+    sectorMix: [["Consulting",39],["Financial services",25],["Technology",12],["Health care",7],["Consumer goods",7],["Other",10]],
     classYear: "Class of 2024",
     source: { url: "https://www.fuqua.duke.edu/sites/default/files/daytime_mba_emp_report_2024.pdf", label: "Duke Fuqua Daytime MBA Employment Report 2024" },
   },
@@ -7011,6 +7025,7 @@ const PROGRAMME_OUTCOMES = {
     employedRate: 81, employedWindow: "received a job offer within 3 months of graduation",
     salary: "€100,000 median annual salary (plus €28,900 median sign-on bonus)",
     sectors: ["Management consulting (23%)", "Technology / media / telecoms (16%)", "Financial services (11%)"],
+    sectorMix: [["Consulting",23],["Technology & media",16],["Corporate",14],["Financial services",11],["Other",36]],
     classYear: "December 2024 & July 2025 classes",
     source: { url: "https://intheknow.insead.edu/employment-statistics/full-time-jobs", label: "INSEAD MBA employment statistics" },
   },
@@ -7020,6 +7035,7 @@ const PROGRAMME_OUTCOMES = {
   447: {
     employedRate: 80, employedWindow: "had secured employment within 3 months of graduation",
     sectors: ["Consulting (41%)", "Finance (16%)", "Technology (9%)"],
+    sectorMix: [["Consulting",41],["Diversified industries",33],["Finance",16],["Technology",9],["Other",1]],
     classYear: "Class of 2025",
     source: { url: "https://www.iese.edu/stories/iese-mba-career-impact/", label: "IESE MBA Class of 2025 employment report" },
   },
@@ -7040,28 +7056,58 @@ const PROGRAMME_OUTCOMES = {
     employedRate: 87, employedWindow: "received a job offer within 3 months of graduation (86% accepted)",
     salary: "£92,228 mean base salary",
     sectors: ["Consulting (42%)", "Finance (26%)", "Technology (21%)"],
+    sectorMix: [["Consulting",42],["Finance",26],["Technology",21],["Other",11]],
     classYear: "Class of 2024",
     source: { url: "https://assets.london.edu/hxo16fanegqh/3AUIB9h2HJvzgh89cXjwdt/de8d9073204c90e38d80c6d033d5a2cf/mba_employment_report.pdf", label: "LBS MBA employment report 2024" },
   },
 };
 
+// Donut chart of the industries a class went into. `mix` is [[label, pct], …];
+// a slice labelled "Other" is drawn in grey as the unnamed remainder to 100%.
+const SECTOR_COLORS = ["#4f6bed", "#18a999", "#e8a13a", "#d1495b", "#8a5cf6", "#3aa0e8"];
+const OTHER_COLOR = "#c2c8d2";
+function sectorChartHTML(mix) {
+  const total = mix.reduce((s, m) => s + m[1], 0) || 1;
+  const cx = 66, cy = 66, R = 60, r = 38;
+  let acc = 0, paths = "", legend = "";
+  mix.forEach((m, i) => {
+    const label = m[0], pct = m[1], frac = pct / total;
+    const a0 = acc * 2 * Math.PI - Math.PI / 2;
+    acc += frac;
+    const a1 = acc * 2 * Math.PI - Math.PI / 2;
+    const large = frac > 0.5 ? 1 : 0;
+    const color = label === "Other" ? OTHER_COLOR : SECTOR_COLORS[i % SECTOR_COLORS.length];
+    const x0 = (cx + R * Math.cos(a0)).toFixed(2), y0 = (cy + R * Math.sin(a0)).toFixed(2);
+    const x1 = (cx + R * Math.cos(a1)).toFixed(2), y1 = (cy + R * Math.sin(a1)).toFixed(2);
+    const xi1 = (cx + r * Math.cos(a1)).toFixed(2), yi1 = (cy + r * Math.sin(a1)).toFixed(2);
+    const xi0 = (cx + r * Math.cos(a0)).toFixed(2), yi0 = (cy + r * Math.sin(a0)).toFixed(2);
+    paths += `<path d="M${x0} ${y0} A${R} ${R} 0 ${large} 1 ${x1} ${y1} L${xi1} ${yi1} A${r} ${r} 0 ${large} 0 ${xi0} ${yi0} Z" fill="${color}"><title>${escapeHTML(label)}: ${pct}%</title></path>`;
+    legend += `<li><span class="sector-swatch" style="background:${color}"></span><span class="sector-name">${escapeHTML(label)}</span><b>${pct}%</b></li>`;
+  });
+  return `<div class="sector-chart"><svg viewBox="0 0 132 132" width="128" height="128" role="img" aria-label="Industry breakdown of where graduates went">${paths}</svg><ul class="sector-legend">${legend}</ul></div>`;
+}
+
 function outcomesHTML(p) {
   const o = PROGRAMME_OUTCOMES[p.id];
   if (!o) {
     return `<h5>Where graduates end up</h5>
-      <p class="scholar-section-sub" style="margin-bottom:0">We haven't yet verified an employment report for this programme against ${escapeHTML(schoolName(p.school))}'s own figures, so nothing is shown rather than an estimate. Most schools publish one — check the "careers" or "employment report" section of the <a href="${p.link}" target="_blank" rel="noopener noreferrer">official programme page</a>.</p>`;
+      <p class="scholar-section-sub" style="margin-bottom:0">We haven't yet verified an employment report for this programme against ${escapeHTML(schoolName(p.school))}'s own figures, so nothing is shown rather than an estimate. Most schools publish one, so check the "careers" or "employment report" section of the <a href="${p.link}" target="_blank" rel="noopener noreferrer">official programme page</a>.</p>`;
   }
   const rows = [];
   if (o.employedRate != null) rows.push(`<li><b>${o.employedRate}%</b>${o.employedWindow ? " " + o.employedWindow : ""}</li>`);
   if (o.salary) rows.push(`<li>Reported salary: <b>${o.salary}</b></li>`);
-  if (o.sectors && o.sectors.length) rows.push(`<li>Top sectors: ${o.sectors.join(", ")}</li>`);
+  if (!o.sectorMix && o.sectors && o.sectors.length) rows.push(`<li>Top sectors: ${o.sectors.join(", ")}</li>`);
   if (o.employers && o.employers.length) rows.push(`<li>Recruiters include: ${o.employers.join(", ")}</li>`);
   if (o.alumniCount) rows.push(`<li>Alumni network: <b>${o.alumniCount}</b>${o.alumniCountries ? ` across ${o.alumniCountries}` : ""}</li>`);
   if (o.note) rows.push(`<li>${o.note}</li>`);
+  const chart = o.sectorMix && o.sectorMix.length
+    ? `<p class="sector-chart-title">Industries the class went into</p>${sectorChartHTML(o.sectorMix)}`
+    : "";
   return `<h5>Where graduates end up</h5>
     <div class="elig elig-eligible">
       <div class="elig-head"><span class="dot"></span> ${o.classYear ? `From ${schoolName(o.school || p.school)}'s ${o.classYear}` : "Reported outcomes"}</div>
       <ul>${rows.join("")}</ul>
+      ${chart}
       <p style="margin-top:8px">Figures as published by the school; they are re-set each class year. ${o.source ? `Source: <a href="${o.source.url}" target="_blank" rel="noopener noreferrer">${escapeHTML(o.source.label)}</a>.` : ""}</p>
     </div>`;
 }
