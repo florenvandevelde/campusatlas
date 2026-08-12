@@ -5171,6 +5171,28 @@ const PROGRAMS = [
     blurb:"Engineering biology at the department that helped establish the field in the UK — modelling and lab work in roughly equal measure, and cheaper than Imperial's MSc route.",
     highlights:["Research-led MRes format","Modelling plus wet-lab work","Cheaper than the taught MSc route","£40,500 Overseas for 2026 entry"] },
 
+  // ---- Dual / joint degrees (two degrees from one programme). No standalone QS/FT
+  // ranking exists for these, so no extRank (the ranking-hygiene rule forbids
+  // borrowing the parent MBA's number). Tuition stored in EUR = official per-year
+  // figure x programme years / 1.08 US rate; each figure links to the school's own page.
+  // MIT MBA tuition $91,892/yr (2026-27, MIT Sloan financing page); Kellogg $86,370/yr
+  // (2025-26 Two-Year MBA); Wharton $92,820/yr tuition+fees (2025-26). ----
+  { id:691, school:"MIT Sloan School of Management", program:"Leaders for Global Operations (MBA + MS Engineering)", city:"Cambridge, MA", country:"United States", flag:"🇺🇸", region:"North America",
+    fields:["Management","Strategy","Engineering"], months:24, lang:"English", tuition:170000, intake:"June", deadline:"Rolling", work:"2+ yrs", gmat:true, scholar:true, link:"https://lgo.mit.edu/", rank:40,
+    openFields:["STEM & Engineering"], freshGradOnly:false,
+    blurb:"A 24-month dual degree awarding both the MIT Sloan MBA and an MIT School of Engineering SM, built around operations, manufacturing and supply-chain leadership with a six-month industry internship.",
+    highlights:["Two MIT degrees: MBA + engineering SM","Operations & manufacturing focus","Industry internship with partner firms","Fellowships from MIT partner companies"] },
+  { id:692, school:"Northwestern University — Kellogg", program:"MMM (MBA + MS in Design Innovation)", city:"Evanston, IL", country:"United States", flag:"🇺🇸", region:"North America",
+    fields:["Management","Strategy","Entrepreneurship"], months:24, lang:"English", tuition:160000, intake:"June", deadline:"Rolling", work:"2+ yrs", gmat:true, scholar:true, link:"https://www.kellogg.northwestern.edu/programs/full-time-mba/mmm-program/", rank:41,
+    openFields:["Any"], freshGradOnly:false,
+    blurb:"A two-year dual degree pairing the Kellogg MBA with an MS in Design Innovation from Northwestern's Segal Design Institute — strategy and finance at Kellogg, human-centred design and prototyping at McCormick engineering.",
+    highlights:["Kellogg MBA + MS Design Innovation","Business, technology and design","Same tuition as the Two-Year MBA","Starts in June, one intake a year"] },
+  { id:693, school:"University of Pennsylvania — Wharton", program:"MBA / MA International Studies (Lauder)", city:"Philadelphia, PA", country:"United States", flag:"🇺🇸", region:"North America",
+    fields:["Management","Strategy","Economics"], months:24, lang:"English", tuition:172000, intake:"May", deadline:"Rolling", work:"2+ yrs", gmat:true, scholar:true, link:"https://lauder.wharton.upenn.edu/", rank:42,
+    openFields:["Any"], freshGradOnly:false,
+    blurb:"A 24-month joint degree combining the Wharton MBA with a Penn MA in International Studies through the Lauder Institute — an immersion abroad plus advanced proficiency in a second language for globally focused careers.",
+    highlights:["Wharton MBA + Penn MA International Studies","Region immersion abroad","Second-language proficiency required","Starts in May, cohort-based"] },
+
 ];
 
 const FIELDS  = ["Management","Finance","Analytics","Strategy","Marketing","Entrepreneurship","Economics","Sustainability",
