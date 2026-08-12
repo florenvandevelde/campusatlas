@@ -730,13 +730,16 @@
   .modal .actions { display: flex; gap: 10px; margin-top: 26px; flex-wrap: wrap; }
 
   /* ---------- compare page ---------- */
-  .compare-page { position: fixed; inset: 0; z-index: 90; background: var(--paper); overflow-y: auto; overflow-x: hidden; }
-  .compare-head { position: sticky; top: 0; left: 0; right: 0; z-index: 10; width: 100%; background: var(--paper); border-bottom: 1px solid var(--line); }
-  .compare-head-inner { display: flex; align-items: center; gap: 20px; padding: 18px 0; flex-wrap: wrap; }
-  .compare-title h2 { font-family: var(--serif); font-weight: 400; font-size: 21px; letter-spacing: -.015em; }
-  .compare-title p { font-size: 12.5px; color: var(--ink-3); margin-top: 2px; }
-  .compare-head-inner .clear { margin-left: auto; }
-  .compare-body { padding: 28px 0 60px; min-width: 0; }
+  .compare-body { padding: 8px 0 60px; min-width: 0; }
+  .shortlist-switcher { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 4px 0 18px; }
+  .shortlist-switcher-btn {
+    display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 999px;
+    border: 1px solid var(--line); background: var(--paper); color: var(--ink-2); font-size: 12.5px; font-weight: 700;
+    cursor: pointer; transition: .15s;
+  }
+  .shortlist-switcher-btn:hover { border-color: var(--accent); color: var(--accent-ink); }
+  .shortlist-switcher-label { font-size: 12px; color: var(--ink-3); text-align: center; font-weight: 600; letter-spacing: .01em; }
+  .shortlist-switcher-label b { color: var(--ink); }
   .compare-empty {
     max-width: 460px; margin: 60px auto; text-align: center; color: var(--ink-3);
   }
@@ -772,7 +775,7 @@
     color: var(--ink-3); font-size: 12.5px; padding: 16px; grid-row: 1 / -1;
   }
   @media (max-width: 620px) {
-    .compare-head-inner { padding: 14px 0; }
+    .shortlist-switcher-btn .switcher-label-text { display: none; }
   }
 
   /* ---------- footer ---------- */
@@ -1096,6 +1099,7 @@
 
 <section id="pageChecklist" class="subpage" hidden>
   <div class="wrap">
+    <div id="checklistSwitcher" data-shortlist-switcher="checklist"></div>
     <div class="subpage-head">
       <div class="eyebrow"><span class="dot"></span> Voor je aanmeldt</div>
       <h1>Je aanvraagchecklist en tijdlijn</h1>
@@ -1472,6 +1476,7 @@
 
 <section id="pageScholarships" class="subpage" hidden>
   <div class="wrap">
+    <div id="scholarshipsSwitcher" data-shortlist-switcher="scholarships"></div>
     <div class="subpage-head">
       <div class="eyebrow"><span class="dot"></span> Funding your degree</div>
       <h1>Scholarships &amp; Financial Support</h1>
@@ -1655,22 +1660,17 @@
   <div class="modal" role="dialog" aria-modal="true" id="modal"></div>
 </div>
 
-<div class="compare-page" id="comparePage" hidden>
-  <div class="compare-head">
-    <div class="wrap compare-head-inner">
-      <button class="btn" id="compareBack">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-        Back to results
-      </button>
-      <div class="compare-title">
-        <h2>Comparing <span id="compareHeadCount">0</span> programme<span id="comparePlural">s</span></h2>
-        <p>Scroll sideways to see them all side by side. Up to 10 at a time.</p>
-      </div>
-      <button class="clear" id="compareClearAll">Clear all</button>
+<section id="pageCompare" class="subpage" hidden>
+  <div class="wrap">
+    <div id="compareSwitcher" data-shortlist-switcher="compare"></div>
+    <div class="subpage-head">
+      <div class="eyebrow"><span class="dot"></span> Your shortlist</div>
+      <h1>Comparing <span id="compareHeadCount">0</span> programme<span id="comparePlural">s</span></h1>
+      <p class="lede">Scroll sideways to see them all side by side, up to 10 at a time. <button class="linklike" id="compareClearAll" type="button">Clear all</button></p>
     </div>
+    <div class="compare-body" id="compareBody"></div>
   </div>
-  <div class="wrap"><div class="compare-body" id="compareBody"></div></div>
-</div>
+</section>
 
 <div class="print-area" id="printArea"></div>
 
@@ -6596,15 +6596,6 @@ function renderCompare() {
     }));
 }
 
-function openCompare() {
-  renderCompare();
-  $("comparePage").hidden = false;
-  document.body.style.overflow = "hidden";
-}
-function closeCompare() {
-  $("comparePage").hidden = true;
-  document.body.style.overflow = "";
-}
 
 /* ============================================================
    PAGE NAVIGATION (Programmes / Checklist / Scholarships / About)
@@ -6612,20 +6603,55 @@ function closeCompare() {
 const PAGES = {
   programmes: "pageProgrammes",
   events: "pageEvents",
+  compare: "pageCompare",
   checklist: "pageChecklist",
   scholarships: "pageScholarships",
   about: "pageAbout",
   legal: "pageLegal",
 };
 
+// Compare / Checklist / Scholarships are three views onto the same shortlist, so each
+// carries a switcher (arrows top-left/top-right) to cycle between the other two without
+// going back through Programmes. The label makes the shared shortlist explicit.
+const SHORTLIST_PAGES = [
+  { key: "compare", label: "Vergelijk" },
+  { key: "checklist", label: "Aanvraagchecklist" },
+  { key: "scholarships", label: "Beurzen" },
+];
+function renderShortlistSwitchers() {
+  document.querySelectorAll("[data-shortlist-switcher]").forEach(box => {
+    const current = box.dataset.shortlistSwitcher;
+    const i = SHORTLIST_PAGES.findIndex(p => p.key === current);
+    if (i < 0) return;
+    const prev = SHORTLIST_PAGES[(i - 1 + SHORTLIST_PAGES.length) % SHORTLIST_PAGES.length];
+    const next = SHORTLIST_PAGES[(i + 1) % SHORTLIST_PAGES.length];
+    const count = state.compare.size;
+    box.className = "shortlist-switcher";
+    box.innerHTML = `
+      <button class="shortlist-switcher-btn" data-shortlist-go="${prev.key}" type="button">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        <span class="switcher-label-text">${escapeHTML(prev.label)}</span>
+      </button>
+      <span class="shortlist-switcher-label">Your shortlist &middot; <b>${count} programme${count === 1 ? "" : "s"}</b> &middot; ${escapeHTML(SHORTLIST_PAGES[i].label)}</span>
+      <button class="shortlist-switcher-btn" data-shortlist-go="${next.key}" type="button">
+        <span class="switcher-label-text">${escapeHTML(next.label)}</span>
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+      </button>`;
+  });
+}
+
 function showPage(page, scrollTarget, progId) {
   state.page = page;
+  localStorage.setItem("ca_page", page);
   Object.entries(PAGES).forEach(([key, id]) => { $(id).hidden = key !== page; });
   $("mainNav").querySelectorAll(".navlink").forEach(btn =>
     btn.classList.toggle("active", btn.dataset.page === page));
 
   document.querySelectorAll("[data-page-action]").forEach(btn =>
     btn.classList.toggle("active", btn.dataset.pageAction === page));
+
+  if (SHORTLIST_PAGES.some(p => p.key === page)) renderShortlistSwitchers();
+  if (page === "compare") renderCompare();
 
   if (page === "scholarships") {
     // Jumping here from a specific programme's "Scholarships" tag should show
@@ -9067,16 +9093,19 @@ $("clearShortlistBtn").addEventListener("click", () => {
   if (state.page === "scholarships") renderScholarships();
 });
 
-$("compareBtn").addEventListener("click", openCompare);
-$("compareBack").addEventListener("click", closeCompare);
+$("compareBtn").addEventListener("click", () => showPage("compare"));
 $("compareClearAll").addEventListener("click", () => {
   state.compare.clear();
   state.checklist.clear();
   localStorage.setItem("ca_compare", JSON.stringify([]));
   renderCompare();
+  renderShortlistSwitchers();
   render();
 });
-document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("comparePage").hidden) closeCompare(); });
+document.addEventListener("click", e => {
+  const nav = e.target.closest("[data-shortlist-go]");
+  if (nav) showPage(nav.dataset.shortlistGo);
+});
 
 $("clearBtn").addEventListener("click", () => {
   Object.assign(state, {
@@ -9203,7 +9232,7 @@ $("mobileMenu").querySelectorAll(".mm-navlink").forEach(btn =>
     showPage(btn.dataset.page, btn.dataset.page === "programmes" ? "explore" : null);
   }));
 $("mmHome").addEventListener("click", () => { setMobileMenu(false); showPage("programmes"); });
-$("mmCompare").addEventListener("click", () => { setMobileMenu(false); openCompare(); });
+$("mmCompare").addEventListener("click", () => { setMobileMenu(false); showPage("compare"); });
 $("mmChecklist").addEventListener("click", () => { setMobileMenu(false); showPage("checklist"); });
 $("mmScholarships").addEventListener("click", () => { setMobileMenu(false); showPage("scholarships"); });
 
@@ -9236,7 +9265,10 @@ renderEnglishTestMatrix();
 
 buildFilterLists();
 render();
-showPage("programmes");
+// Resume wherever you left off (a refresh should not silently drop you back onto
+// Programmes); only trust the saved value if it is still a real page.
+const savedPage = localStorage.getItem("ca_page");
+showPage(savedPage && PAGES[savedPage] ? savedPage : "programmes");
 </script>
 </body>
 </html>
