@@ -7052,6 +7052,34 @@ const PROGRAMME_OUTCOMES = {
     classYear: "Class of 2024",
     source: { url: "https://assets.london.edu/hxo16fanegqh/3AUIB9h2HJvzgh89cXjwdt/de8d9073204c90e38d80c6d033d5a2cf/mba_employment_report.pdf", label: "LBS MBA employment report 2024" },
   },
+  // Dartmouth Tuck MBA. Tuck's own 2024 employment article.
+  205: {
+    employedRate: 91, employedWindow: "received a job offer within 3 months of graduation (89% accepted)",
+    salary: "US$175,000 median base (plus US$30,000 median signing bonus)",
+    sectors: ["Consulting (44%)", "Financial services (24%)", "Technology (10%)"],
+    sectorMix: [["Consulting",44],["Financial services",24],["Technology",10],["Health care",8],["Other",14]],
+    classYear: "Class of 2024",
+    source: { url: "https://tuck.dartmouth.edu/news/articles/2024-mba-employment-data-highlights-determination-talent-of-tuck-graduates", label: "Tuck MBA 2024 employment data" },
+  },
+  // University of Michigan Ross MBA. Ross's own 2024 career report release.
+  491: {
+    employedRate: 85, employedWindow: "received a job offer within 3 months of graduation (91% by six months)",
+    salary: "US$170,000 median base (plus US$30,000 median signing bonus)",
+    sectors: ["Consulting (36%)", "Financial services (17.6%)", "Technology (15.1%)"],
+    sectorMix: [["Consulting",36],["Financial services",17.6],["Technology",15.1],["Other",31.3]],
+    employers: ["McKinsey", "BCG", "Deloitte", "Bain"],
+    classYear: "Class of 2024",
+    source: { url: "https://michiganross.umich.edu/news/michigan-ross-releases-2024-career-report-full-time-mba-grads-received-offers-top-companies", label: "Michigan Ross 2024 career report" },
+  },
+  // NYU Stern MBA. Stern's own employment-reports page (Class of 2025). The page
+  // publishes salary but not the industry split (that sits in the linked report),
+  // so no sector chart is shown.
+  488: {
+    salary: "US$175,000 median base (US$202,705 average total compensation)",
+    note: "Full industry breakdown is in Stern's linked 2-year employment report.",
+    classYear: "Class of 2025",
+    source: { url: "https://www.stern.nyu.edu/business-partnerships/employment-reports", label: "NYU Stern employment reports" },
+  },
 };
 
 // Donut chart of the industries a class went into. `mix` is [[label, pct], …];
