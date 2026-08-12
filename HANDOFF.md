@@ -38,7 +38,7 @@ Hold that line — it is the whole product's credibility.
    the trigger case was Vlerick: *you need a master's already to do a Vlerick master's if
    you studied in Belgium*, quoted from their admissions page.
 7. **Alumni outcomes** (commit this session): `PROGRAMME_OUTCOMES` table + a "Where
-   graduates end up" modal block. **13 entries now, all verified against the school's
+   graduates end up" modal block. **14 entries now, all verified against the school's
    own employment report (see session 7 note below).**
 
 ### SESSION 7 — Dual/joint degrees added to the catalogue (668 → 673)
