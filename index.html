@@ -376,7 +376,7 @@
      the toggle on its own row above the school name with a gap of dead space */
   .card-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
   .card-select {
-    flex: none; display: inline-flex; align-items: center; gap: 7px;
+    flex: none; align-self: flex-start; margin-top: 10px; display: inline-flex; align-items: center; gap: 7px;
     padding: 7px 10px; border-radius: 999px;
     border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--line));
     background: var(--accent-soft); color: var(--accent-ink); font-size: 12px;
@@ -6276,12 +6276,12 @@ function cardHTML(p, subjectOnlyMatch) {
           <div class="place">${p.city}, ${p.country}</div>
         </div>
       </div>
-      <label class="card-select${state.compare.has(p.id) ? " selected" : ""}" onclick="event.stopPropagation()">
-        <input type="checkbox" data-compare="${p.id}" ${state.compare.has(p.id) ? "checked" : ""}>
-        ${state.compare.has(p.id) ? "On your shortlist" : "Add to shortlist"}
-      </label>
     </div>
     <h3>${p.program}</h3>
+    <label class="card-select${state.compare.has(p.id) ? " selected" : ""}" onclick="event.stopPropagation()">
+      <input type="checkbox" data-compare="${p.id}" ${state.compare.has(p.id) ? "checked" : ""}>
+      ${state.compare.has(p.id) ? "On your shortlist" : "Add to shortlist"}
+    </label>
     ${p.extRank ? `<div class="ext-rank">${p.extRank}</div>` : ""}
     ${subjectOnlyMatch ? `<div class="subject-match-note" title="This programme matched on subject area rather than on its degree name.">Subject-area match</div>` : ""}
     <div class="tags">
