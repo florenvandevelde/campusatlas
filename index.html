@@ -1079,6 +1079,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
       <button class="chip" data-q="finance">Finance</button>
       <button class="chip" data-q="analytics">Business analytics</button>
       <button class="chip" data-q="management">Management (MiM)</button>
+      <button class="chip" data-q="economics">Economics</button>
       <button class="chip" data-q="mba">MBA</button>
       <button class="chip" data-q="engineering">Engineering</button>
       <button class="chip" data-q="sustainability">Sustainability</button>
@@ -3447,45 +3448,47 @@ function eventCityCoords(city, country) { return EVENT_CITY_COORDS[`${city},${co
 // [fair, city, country, ISO date, region-schedule URL]. "Access MBA" fits any MBA
 // entry in this catalogue; "Access Masters" fits pre-experience master's entries.
 const EVENTS_CALENDAR = (() => {
-  const AMBA_EU = "https://www.accessmba.com/events/region/europe", AMBA_ASIA = "https://www.accessmba.com/events/region/asia", AMBA_NA = "https://www.accessmba.com/events/region/north-america";
-  const AM_EU = "https://www.accessmasterstour.com/events/region/europe";
+  // Each row links to its OWN event registration page (verified live, Aug 2026), not a
+  // generic regional listing. Access regenerates the trailing event id every season, so
+  // these are refreshed weekly by the scheduled updater and stamped in EVENTS_LAST_CHECKED.
+  const MBA = "https://www.accessmba.com", MAS = "https://www.accessmasterstour.com";
   const rows = [
-    ["Access MBA", "London", "United Kingdom", "2026-09-17", AMBA_EU], ["Access MBA", "Milan", "Italy", "2026-09-19", AMBA_EU],
-    ["Access MBA", "Lisbon", "Portugal", "2026-09-24", AMBA_EU], ["Access MBA", "Geneva", "Switzerland", "2026-09-26", AMBA_EU],
-    ["Access MBA", "Zurich", "Switzerland", "2026-09-28", AMBA_EU], ["Access MBA", "Rotterdam", "Netherlands", "2026-09-30", AMBA_EU],
-    ["Access MBA", "Paris", "France", "2026-10-03", AMBA_EU], ["Access MBA", "Hamburg", "Germany", "2026-10-06", AMBA_EU],
-    ["Access MBA", "Munich", "Germany", "2026-10-10", AMBA_EU], ["Access MBA", "Warsaw", "Poland", "2026-11-21", AMBA_EU],
-    ["Access MBA", "Budapest", "Hungary", "2026-11-24", AMBA_EU], ["Access MBA", "Bucharest", "Romania", "2026-11-26", AMBA_EU],
-    ["Access MBA", "Sofia", "Bulgaria", "2026-11-28", AMBA_EU], ["Access MBA", "Belgrade", "Serbia", "2026-11-30", AMBA_EU],
-    ["Access MBA", "Athens", "Greece", "2026-12-03", AMBA_EU], ["Access MBA", "Istanbul", "Türkiye", "2026-12-05", AMBA_EU],
-    ["Access MBA", "Tokyo", "Japan", "2026-09-05", AMBA_ASIA], ["Access MBA", "Seoul", "South Korea", "2026-09-06", AMBA_ASIA],
-    ["Access MBA", "Beijing", "China", "2026-09-08", AMBA_ASIA], ["Access MBA", "Shanghai", "China", "2026-09-10", AMBA_ASIA],
-    ["Access MBA", "Guangzhou", "China", "2026-09-12", AMBA_ASIA], ["Access MBA", "Hong Kong", "Hong Kong SAR", "2026-09-14", AMBA_ASIA],
-    ["Access MBA", "Taipei", "Taiwan", "2026-09-15", AMBA_ASIA], ["Access MBA", "New Delhi", "India", "2026-09-22", AMBA_ASIA],
-    ["Access MBA", "Hyderabad", "India", "2026-09-24", AMBA_ASIA], ["Access MBA", "Mumbai", "India", "2026-09-26", AMBA_ASIA],
-    ["Access MBA", "Bangalore", "India", "2026-09-29", AMBA_ASIA], ["Access MBA", "Ho Chi Minh City", "Vietnam", "2026-10-29", AMBA_ASIA],
-    ["Access MBA", "Bangkok", "Thailand", "2026-10-31", AMBA_ASIA], ["Access MBA", "Singapore", "Singapore", "2026-11-02", AMBA_ASIA],
-    ["Access MBA", "Kuala Lumpur", "Malaysia", "2026-11-05", AMBA_ASIA], ["Access MBA", "Jakarta", "Indonesia", "2026-11-07", AMBA_ASIA],
-    ["Access MBA", "Manila", "Philippines", "2026-11-10", AMBA_ASIA], ["Access MBA", "Denver", "United States", "2026-09-10", AMBA_NA],
-    ["Access MBA", "Salt Lake City", "United States", "2026-09-12", AMBA_NA], ["Access MBA", "Seattle", "United States", "2026-09-14", AMBA_NA],
-    ["Access MBA", "San Jose", "United States", "2026-09-16", AMBA_NA], ["Access MBA", "San Francisco", "United States", "2026-09-17", AMBA_NA],
-    ["Access MBA", "Los Angeles", "United States", "2026-09-19", AMBA_NA], ["Access MBA", "Phoenix", "United States", "2026-09-21", AMBA_NA],
-    ["Access MBA", "Houston", "United States", "2026-09-23", AMBA_NA], ["Access MBA", "Dallas", "United States", "2026-09-24", AMBA_NA],
-    ["Access MBA", "Atlanta", "United States", "2026-09-26", AMBA_NA], ["Access MBA", "Charlotte", "United States", "2026-09-28", AMBA_NA],
-    ["Access MBA", "Washington DC", "United States", "2026-09-30", AMBA_NA], ["Access MBA", "Philadelphia", "United States", "2026-10-01", AMBA_NA],
-    ["Access MBA", "New York City", "United States", "2026-10-03", AMBA_NA], ["Access MBA", "Boston", "United States", "2026-10-05", AMBA_NA],
-    ["Access MBA", "Chicago", "United States", "2026-10-08", AMBA_NA], ["Access MBA", "Columbus", "United States", "2026-10-14", AMBA_NA],
-    ["Access MBA", "Montreal", "Canada", "2026-11-14", AMBA_NA], ["Access MBA", "Ottawa", "Canada", "2026-11-16", AMBA_NA],
-    ["Access MBA", "Toronto", "Canada", "2026-11-17", AMBA_NA], ["Access MBA", "Calgary", "Canada", "2026-11-19", AMBA_NA],
-    ["Access MBA", "Vancouver", "Canada", "2026-11-21", AMBA_NA],
-    ["Access Masters", "London", "United Kingdom", "2026-09-16", AM_EU], ["Access Masters", "Milan", "Italy", "2026-09-20", AM_EU],
-    ["Access Masters", "Brussels", "Belgium", "2026-09-22", AM_EU], ["Access Masters", "Lisbon", "Portugal", "2026-09-24", AM_EU],
-    ["Access Masters", "Paris", "France", "2026-10-02", AM_EU], ["Access Masters", "Düsseldorf", "Germany", "2026-10-05", AM_EU],
-    ["Access Masters", "Hamburg", "Germany", "2026-10-07", AM_EU], ["Access Masters", "Munich", "Germany", "2026-10-09", AM_EU],
-    ["Access Masters", "Warsaw", "Poland", "2026-11-20", AM_EU], ["Access Masters", "Budapest", "Hungary", "2026-11-23", AM_EU],
-    ["Access Masters", "Bucharest", "Romania", "2026-11-25", AM_EU], ["Access Masters", "Sofia", "Bulgaria", "2026-11-29", AM_EU],
-    ["Access Masters", "Belgrade", "Serbia", "2026-12-01", AM_EU], ["Access Masters", "Athens", "Greece", "2026-12-03", AM_EU],
-    ["Access Masters", "Istanbul", "Türkiye", "2026-12-06", AM_EU],
+    ["Access MBA", "London", "United Kingdom", "2026-09-17", MBA+"/registration/mba/london/19303"], ["Access MBA", "Milan", "Italy", "2026-09-19", MBA+"/registration/mba/milan/19147"],
+    ["Access MBA", "Lisbon", "Portugal", "2026-09-24", MBA+"/registration/mba/lisbon/19161"], ["Access MBA", "Geneva", "Switzerland", "2026-09-26", MBA+"/registration/mba/geneva/19165"],
+    ["Access MBA", "Zurich", "Switzerland", "2026-09-28", MBA+"/registration/mba/zurich/19169"], ["Access MBA", "Rotterdam", "Netherlands", "2026-09-30", MBA+"/registration/mba/rotterdam/19301"],
+    ["Access MBA", "Paris", "France", "2026-10-03", MBA+"/registration/mba/paris/19314"], ["Access MBA", "Hamburg", "Germany", "2026-10-06", MBA+"/registration/mba/hamburg/19603"],
+    ["Access MBA", "Munich", "Germany", "2026-10-10", MBA+"/registration/mba/munich/19171"], ["Access MBA", "Warsaw", "Poland", "2026-11-21", MBA+"/registration/mba/warsaw/19403"],
+    ["Access MBA", "Budapest", "Hungary", "2026-11-24", MBA+"/registration/mba/budapest/19404"], ["Access MBA", "Bucharest", "Romania", "2026-11-26", MBA+"/registration/mba/bucharest/19405"],
+    ["Access MBA", "Sofia", "Bulgaria", "2026-11-28", MBA+"/registration/mba/sofia/19407"], ["Access MBA", "Belgrade", "Serbia", "2026-11-30", MBA+"/registration/mba/belgrade/19929"],
+    ["Access MBA", "Athens", "Greece", "2026-12-03", MBA+"/registration/mba/athens/19174"], ["Access MBA", "Istanbul", "Türkiye", "2026-12-05", MBA+"/registration/mba/istanbul/19381"],
+    ["Access MBA", "Tokyo", "Japan", "2026-09-05", MBA+"/registration/mba/tokyo/19136"], ["Access MBA", "Seoul", "South Korea", "2026-09-06", MBA+"/registration/mba/seoul/19137"],
+    ["Access MBA", "Beijing", "China", "2026-09-08", MBA+"/registration/mba/beijing/19141"], ["Access MBA", "Shanghai", "China", "2026-09-10", MBA+"/registration/mba/shanghai/19143"],
+    ["Access MBA", "Guangzhou", "China", "2026-09-12", MBA+"/registration/mba/guangzhou/19144"], ["Access MBA", "Hong Kong", "Hong Kong SAR", "2026-09-14", MBA+"/registration/mba/hong-kong/19152"],
+    ["Access MBA", "Taipei", "Taiwan", "2026-09-15", MBA+"/registration/mba/taipei/19157"], ["Access MBA", "New Delhi", "India", "2026-09-22", MBA+"/registration/mba/new-delhi/19181"],
+    ["Access MBA", "Hyderabad", "India", "2026-09-24", MBA+"/registration/mba/hyderabad/19189"], ["Access MBA", "Mumbai", "India", "2026-09-26", MBA+"/registration/mba/mumbai/19176"],
+    ["Access MBA", "Bangalore", "India", "2026-09-29", MBA+"/registration/mba/bangalore/19186"], ["Access MBA", "Ho Chi Minh City", "Vietnam", "2026-10-29", MBA+"/registration/mba/ho-chi-minh/19297"],
+    ["Access MBA", "Bangkok", "Thailand", "2026-10-31", MBA+"/registration/mba/bangkok/19260"], ["Access MBA", "Singapore", "Singapore", "2026-11-02", MBA+"/registration/mba/singapore/19315"],
+    ["Access MBA", "Kuala Lumpur", "Malaysia", "2026-11-05", MBA+"/registration/mba/kuala-lumpur/19287"], ["Access MBA", "Jakarta", "Indonesia", "2026-11-07", MBA+"/registration/mba/jakarta/19264"],
+    ["Access MBA", "Manila", "Philippines", "2026-11-10", MBA+"/registration/mba/manila/19226"], ["Access MBA", "Denver", "United States", "2026-09-10", MBA+"/registration/mba/denver/19199"],
+    ["Access MBA", "Salt Lake City", "United States", "2026-09-12", MBA+"/registration/mba/salt-lake-city/19203"], ["Access MBA", "Seattle", "United States", "2026-09-14", MBA+"/registration/mba/seattle/19217"],
+    ["Access MBA", "San Jose", "United States", "2026-09-16", MBA+"/registration/mba/san-jose/19219"], ["Access MBA", "San Francisco", "United States", "2026-09-17", MBA+"/registration/mba/san-francisco/19223"],
+    ["Access MBA", "Los Angeles", "United States", "2026-09-19", MBA+"/registration/mba/los-angeles/19225"], ["Access MBA", "Phoenix", "United States", "2026-09-21", MBA+"/registration/mba/phoenix/19256"],
+    ["Access MBA", "Houston", "United States", "2026-09-23", MBA+"/registration/mba/houston/19229"], ["Access MBA", "Dallas", "United States", "2026-09-24", MBA+"/registration/mba/dallas/19237"],
+    ["Access MBA", "Atlanta", "United States", "2026-09-26", MBA+"/registration/mba/atlanta/19247"], ["Access MBA", "Charlotte", "United States", "2026-09-28", MBA+"/registration/mba/charlotte/19216"],
+    ["Access MBA", "Washington DC", "United States", "2026-09-30", MBA+"/registration/mba/washington/19263"], ["Access MBA", "Philadelphia", "United States", "2026-10-01", MBA+"/registration/mba/philadelphia/19265"],
+    ["Access MBA", "New York City", "United States", "2026-10-03", MBA+"/registration/mba/new-york/19276"], ["Access MBA", "Boston", "United States", "2026-10-05", MBA+"/registration/mba/boston/19282"],
+    ["Access MBA", "Chicago", "United States", "2026-10-08", MBA+"/registration/mba/chicago/19292"], ["Access MBA", "Columbus", "United States", "2026-10-14", MBA+"/registration/mba/columbus/19926"],
+    ["Access MBA", "Montreal", "Canada", "2026-11-14", MBA+"/registration/mba/montreal/19230"], ["Access MBA", "Ottawa", "Canada", "2026-11-16", MBA+"/registration/mba/ottawa/19325"],
+    ["Access MBA", "Toronto", "Canada", "2026-11-17", MBA+"/registration/mba/toronto/19320"], ["Access MBA", "Calgary", "Canada", "2026-11-19", MBA+"/registration/mba/calgary/19327"],
+    ["Access MBA", "Vancouver", "Canada", "2026-11-21", MBA+"/registration/mba/vancouver/19331"],
+    ["Access Masters", "London", "United Kingdom", "2026-09-16", MAS+"/registration/masters/london/19384"], ["Access Masters", "Milan", "Italy", "2026-09-20", MAS+"/registration/masters/milan/19483"],
+    ["Access Masters", "Brussels", "Belgium", "2026-09-22", MAS+"/registration/masters/brussels/19453"], ["Access Masters", "Lisbon", "Portugal", "2026-09-24", MAS+"/registration/masters/lisbon/19488"],
+    ["Access Masters", "Paris", "France", "2026-10-02", MAS+"/registration/masters/paris/19480"], ["Access Masters", "Düsseldorf", "Germany", "2026-10-05", MAS+"/registration/masters/dusseldorf/19497"],
+    ["Access Masters", "Hamburg", "Germany", "2026-10-07", MAS+"/registration/masters/hamburg/19493"], ["Access Masters", "Munich", "Germany", "2026-10-09", MAS+"/registration/masters/munich/19406"],
+    ["Access Masters", "Warsaw", "Poland", "2026-11-20", MAS+"/registration/masters/warsaw/19454"], ["Access Masters", "Budapest", "Hungary", "2026-11-23", MAS+"/registration/masters/budapest/19461"],
+    ["Access Masters", "Bucharest", "Romania", "2026-11-25", MAS+"/registration/masters/bucharest/19464"], ["Access Masters", "Sofia", "Bulgaria", "2026-11-29", MAS+"/registration/masters/sofia/19467"],
+    ["Access Masters", "Belgrade", "Serbia", "2026-12-01", MAS+"/registration/masters/belgrade/19469"], ["Access Masters", "Athens", "Greece", "2026-12-03", MAS+"/registration/masters/athens/19410"],
+    ["Access Masters", "Istanbul", "Türkiye", "2026-12-06", MAS+"/registration/masters/istanbul/19450"],
   ];
   // QS's own schedule page (events.qs.com/schedule) was deliberately left out: reading
   // it directly shows it is a B2B booking page for universities/schools ("build your
@@ -3507,6 +3510,10 @@ const EVENTS_CALENDAR = (() => {
 // own site, so nothing here can point at a dead link.
 const SCHOOL_EVENTS = {
   "HEC Paris": { url: "https://www.hec.edu/en/events", note: "HEC's own live, dated events calendar (verified real specific dates, not a generic info page), filterable by category; check it for whichever admissions or open-day sessions are currently scheduled." },
+  "London School of Economics": { url: "https://www.lse.ac.uk/study-at-lse/Graduate/Prospective-students/Virtual-Graduate-Open-Events", note: "LSE's Virtual Graduate Open Events: free live online sessions run by academic departments and the Graduate Admissions team, plus on-demand recordings. Fully virtual, no travel needed." },
+  "Bocconi University": { url: "https://www.unibocconi.it/en/events/graduate-open-days", note: "Bocconi's Graduate Open Days: live online MSc sessions with programme directors and the admissions team, run in the evening (CEST). Fully virtual, registration required." },
+  "INSEAD": { url: "https://www.insead.edu/master-programmes/dp-master-programmes-events", note: "INSEAD's master-programmes events hub: 400+ open days, coffee chats, info sessions and meet-the-faculty webinars a year, online and on campus. Filter by programme, location and format." },
+  "London Business School": { url: "https://www.london.edu/masters-degrees/events-for-prospective-students", note: "LBS's events for prospective masters students: information sessions, coffee chats and webinars, held in London, around the world and online. Register for whichever session is scheduled." },
 };
 function schoolEventsUrl(school) {
   return (SCHOOL_EVENTS[school] && SCHOOL_EVENTS[school].url) ||
@@ -4118,6 +4125,7 @@ const PROGRAMME_OUTCOMES = {
     salary: "US$175,000 median base",
     sectors: ["Consulting", "Investment banking", "Private equity / VC"],
     employers: ["McKinsey", "BCG", "Bain", "Goldman Sachs", "Amazon"],
+    rankingSalary: "US$246,813 weighted alumni salary three years after graduation (FT Global MBA 2026)",
     classYear: "Class of 2024",
     source: { url: "https://statistics.mbacareers.wharton.upenn.edu/wp-content/uploads/2024/12/2024-Career-Report-FINAL.pdf", label: "Wharton MBA Career Report 2024" },
   },
@@ -4165,6 +4173,7 @@ const PROGRAMME_OUTCOMES = {
     salary: "US$160,000 median base",
     sectors: ["Consulting", "Technology", "Finance"],
     sectorMix: [["Consulting",25.4],["Technology",24.3],["Other",50.3]],
+    rankingSalary: "US$220,903 weighted alumni salary three years after graduation (FT Global MBA 2026)",
     classYear: "Class of 2024",
     source: { url: "https://newsroom.haas.berkeley.edu/2024-mba-grads-land-impressive-positions-in-tough-employment-market/", label: "Berkeley Haas 2024 MBA employment report" },
   },
@@ -4196,6 +4205,7 @@ const PROGRAMME_OUTCOMES = {
     employedRate: 75, employedWindow: "accepted a job offer within 3 months of graduation",
     sectors: ["Technology", "Finance", "Consulting"],
     note: "64% took a role outside their home country; placements: Europe 52%, Asia & Oceania 25%, North America 11%.",
+    rankingSalary: "US$200,984 weighted alumni salary three years after graduation (FT Global MBA 2026)",
     classYear: "Class of 2025",
     source: { url: "https://www.hec.edu/en/mba-executive-mba/mba/careers/employment-statistics", label: "HEC Paris MBA employment statistics" },
   },
@@ -4203,6 +4213,7 @@ const PROGRAMME_OUTCOMES = {
   444: {
     employedRate: 81, employedWindow: "received a job offer within 3 months of graduation",
     salary: "€100,000 median annual salary (plus €28,900 median sign-on bonus)",
+    rankingSalary: "US$217,822 weighted alumni salary three years after graduation (FT Global MBA 2026)",
     sectors: ["Management consulting (23%)", "Technology / media / telecoms (16%)", "Financial services (11%)"],
     sectorMix: [["Consulting",23],["Technology & media",16],["Corporate",14],["Financial services",11],["Other",36]],
     classYear: "December 2024 & July 2025 classes",
@@ -4215,6 +4226,7 @@ const PROGRAMME_OUTCOMES = {
     employedRate: 80, employedWindow: "had secured employment within 3 months of graduation",
     sectors: ["Consulting (41%)", "Finance (16%)", "Technology (9%)"],
     sectorMix: [["Consulting",41],["Diversified industries",33],["Finance",16],["Technology",9],["Other",1]],
+    rankingSalary: "US$196,560 weighted alumni salary three years after graduation (FT Global MBA 2026)",
     classYear: "Class of 2025",
     source: { url: "https://www.iese.edu/stories/iese-mba-career-impact/", label: "IESE MBA Class of 2025 employment report" },
   },
@@ -4234,6 +4246,7 @@ const PROGRAMME_OUTCOMES = {
   442: {
     employedRate: 87, employedWindow: "received a job offer within 3 months of graduation (86% accepted)",
     salary: "£92,228 mean base salary",
+    rankingSalary: "US$217,389 weighted alumni salary three years after graduation (FT Global MBA 2026)",
     sectors: ["Consulting (42%)", "Finance (26%)", "Technology (21%)"],
     sectorMix: [["Consulting",42],["Finance",26],["Technology",21],["Other",11]],
     classYear: "Class of 2024",
@@ -4309,6 +4322,7 @@ const PROGRAMME_OUTCOMES = {
   198: {
     employedRate: 94, employedWindow: "of job-seekers had received an offer as of the latest count (90% at the 3-month mark)",
     note: "Graduates continue to land roles in technology, consulting, venture capital and private equity; about 150 started their own venture.",
+    rankingSalary: "US$259,874 weighted alumni salary three years after graduation (FT Global MBA 2026)",
     classYear: "Class of 2025",
     source: { url: "https://www.hbs.edu/mba/blog/class-of-2025-employment-report", label: "HBS Class of 2025 employment report" },
   },
