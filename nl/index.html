@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Campus Atlas, Vind je master in het buitenland</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg" />
 <!-- Leaflet is deliberately NOT loaded here. Pulling it from a CDN on page load would
      disclose every visitor's IP address to unpkg.com before they have asked for a map.
      loadLeaflet() injects it on demand, the first time someone actually runs a test-centre
@@ -315,7 +316,7 @@
 
   /* ---------- filters ---------- */
   aside.filters {
-    position: sticky; top: 84px; max-height: calc(100vh - 104px);
+    position: sticky; top: 76px; max-height: calc(100vh - 88px);
     overflow-y: auto; overscroll-behavior: contain; padding-right: 4px;
   }
   .filters-toggle { display: none; }
@@ -327,6 +328,7 @@
     font-size: 11.5px; text-transform: uppercase; letter-spacing: .1em;
     color: var(--ink-3); font-weight: 700; margin-bottom: 12px;
   }
+  .fgroup-note { margin-top: 8px; font-size: 11px; color: var(--ink-3); line-height: 1.45; }
   .opt { display: flex; align-items: center; gap: 9px; padding: 5px 0; font-size: 14px; color: var(--ink-2); cursor: pointer; }
   .opt:hover { color: var(--ink); }
   .opt input { appearance: none; width: 16px; height: 16px; border: 1.5px solid var(--line-2); border-radius: 5px; flex: none; position: relative; transition: .12s; }
@@ -418,6 +420,8 @@
   }
   .tag.accent { background: var(--accent-soft); color: var(--accent-ink); border-color: transparent; }
   .tag.teal { background: var(--teal-soft); color: var(--teal); border-color: transparent; }
+  .tag.outcome-tag { background: transparent; color: var(--ink-2); border-color: var(--line-2); }
+  .tag.outcome-tag::before { content: "◔ "; color: var(--accent); font-weight: 700; }
   .facts {
     display: grid; grid-template-columns: 1fr 1fr; gap: 10px 12px;
     border-top: 1px solid var(--line); padding-top: 13px; margin-top: auto;
@@ -472,6 +476,7 @@
   .planner-status.muted { color: var(--ink-3); }
   .planner-empty { background: var(--paper-2); border: 1px dashed var(--line-2); border-radius: var(--radius); padding: 22px 24px; color: var(--ink-3); }
   .planner-empty strong { display: block; color: var(--ink); font-size: 14px; margin-bottom: 3px; }
+  .planner-empty-cta { margin-top: 14px; }
   .cat-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
   .cat-card summary { list-style: none; cursor: pointer; padding: 20px 24px; }
   .cat-card summary::-webkit-details-marker { display: none; }
@@ -624,12 +629,26 @@
   .footer-link.inline { display: inline; text-decoration: underline; }
   .source-line { font-size: 11.5px; color: var(--ink-3); margin-top: 6px; line-height: 1.5; }
   .source-line a { text-decoration: underline; }
-  .lang-switch { display: inline-flex; align-items: center; gap: 2px; margin-left: 10px; padding: 2px;
-    border: 1px solid var(--line); border-radius: 999px; }
-  .lang-switch .lang-opt { font-size: 11.5px; font-weight: 700; letter-spacing: .02em; color: var(--ink-3);
-    padding: 4px 9px; border-radius: 999px; text-decoration: none; line-height: 1; }
-  .lang-switch .lang-opt:hover { color: var(--ink); }
-  .lang-switch .lang-opt.is-active { color: var(--paper); background: var(--ink); }
+  .lang-switch { position: relative; display: inline-flex; margin-left: 2px; }
+  .deadline-start { display: inline-block; margin-left: 6px; font-size: 11px; font-weight: 600; color: var(--ink-3); }
+  .lang-trigger { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px;
+    font-size: 11.5px; font-weight: 700; letter-spacing: .04em; color: var(--ink-2);
+    background: var(--paper); border: 1px solid var(--line); border-radius: 999px; cursor: pointer; line-height: 1; }
+  .lang-trigger:hover { color: var(--ink); border-color: var(--line-2); }
+  .lang-trigger .lang-caret { transition: transform .18s ease; flex: none; }
+  .lang-switch.open .lang-trigger { border-color: var(--line-2); }
+  .lang-switch.open .lang-caret { transform: rotate(180deg); }
+  .lang-menu { position: absolute; top: calc(100% + 6px); right: 0; z-index: 60;
+    display: none; flex-direction: column; min-width: 132px; padding: 5px;
+    background: var(--paper); border: 1px solid var(--line); border-radius: 12px;
+    box-shadow: 0 12px 28px rgba(20,24,29,.12); }
+  .lang-switch.open .lang-menu { display: flex; }
+  .lang-menu .lang-opt { display: flex; align-items: center; justify-content: space-between; gap: 10px;
+    font-size: 13px; font-weight: 600; color: var(--ink-2); text-decoration: none;
+    padding: 8px 10px; border-radius: 8px; line-height: 1.1; }
+  .lang-menu .lang-opt:hover { background: var(--paper-2); color: var(--ink); }
+  .lang-menu .lang-opt.is-active { color: var(--ink); font-weight: 700; }
+  .lang-menu .lang-opt.is-active::after { content: "✓"; color: var(--accent); font-size: 12px; }
   .mm-lang { display: flex; gap: 8px; padding: 4px 18px 16px; flex-wrap: wrap; }
   .mm-lang .lang-opt { font-size: 13px; font-weight: 600; color: var(--ink-2); text-decoration: none;
     padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; }
@@ -731,15 +750,19 @@
 
   /* ---------- compare page ---------- */
   .compare-body { padding: 8px 0 60px; min-width: 0; }
-  .shortlist-switcher { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 4px 0 18px; }
+  .shortlist-switcher {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    margin: -28px 0 26px; padding: 8px 10px;
+    background: var(--paper-2); border: 1px solid var(--line); border-radius: 12px;
+  }
   .shortlist-switcher-btn {
     display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 999px;
     border: 1px solid var(--line); background: var(--paper); color: var(--ink-2); font-size: 12.5px; font-weight: 700;
     cursor: pointer; transition: .15s;
   }
   .shortlist-switcher-btn:hover { border-color: var(--accent); color: var(--accent-ink); }
-  .shortlist-switcher-label { font-size: 12px; color: var(--ink-3); text-align: center; font-weight: 600; letter-spacing: .01em; }
-  .shortlist-switcher-label b { color: var(--ink); }
+  .shortlist-switcher-label { font-size: 12.5px; color: var(--ink-2); text-align: center; font-weight: 600; letter-spacing: .01em; }
+  .shortlist-switcher-label b { color: var(--accent-ink); font-weight: 700; }
   .compare-empty {
     max-width: 460px; margin: 60px auto; text-align: center; color: var(--ink-3);
   }
@@ -767,12 +790,52 @@
   }
   .cg-head .remove:hover { background: var(--paper-2); color: var(--ink); }
   .cg-cell b { font-size: 13.5px; font-weight: 600; }
+  .cg-sub { margin-left: 6px; font-size: 11px; color: var(--ink-3); white-space: nowrap; }
+  .tuition-src { color: inherit; text-decoration: none; border-bottom: 1px dotted var(--line-2); }
+  .tuition-src:hover { border-bottom-color: var(--accent); }
+  .tuition-src sup { color: var(--ink-3); font-weight: 700; margin-left: 1px; }
+  .compare-foot { margin-top: 12px; font-size: 11.5px; color: var(--ink-3); line-height: 1.5; }
+  .compare-foot span { color: var(--ink-2); font-weight: 700; }
   .cg-cell .tags { gap: 6px; flex-wrap: wrap; }
   .cg-cell .btn { padding: 7px 14px; font-size: 12.5px; }
   .compare-add-more-cell {
     border: 1.5px dashed var(--line-2); border-radius: var(--radius-sm); margin: 12px;
     display: flex; align-items: center; justify-content: center; text-align: center;
     color: var(--ink-3); font-size: 12.5px; padding: 16px; grid-row: 1 / -1;
+  }
+  /* Transposed grid for phones/tablets, hidden on desktop. */
+  .compare-grid.is-mobile { display: none; }
+  .compare-grid.is-mobile .cg-cell { padding: 12px 15px; font-size: 13.5px; }
+  .compare-grid.is-mobile .cg-cell b { font-size: 13.5px; font-weight: 600; }
+  .compare-grid.is-mobile .cg-col-label {
+    position: sticky; top: 0; z-index: 2; background: var(--paper-2);
+    align-items: flex-start; font-size: 10px; text-transform: uppercase;
+    letter-spacing: .05em; color: var(--ink-3); font-weight: 700; line-height: 1.2;
+    border-bottom: 1px solid var(--line);
+  }
+  .compare-grid.is-mobile .cg-corner { left: 0; top: 0; z-index: 5; }
+  /* The whole programme column stays pinned while the stats scroll. It keeps the
+     sticky-left from .cg-row-label (sticky is also the positioning context the
+     absolute remove button needs, so no position:relative here, that would break
+     the pin). */
+  .compare-grid.is-mobile .cg-prog {
+    text-transform: none; background: var(--card); flex-direction: column;
+    align-items: flex-start; justify-content: center; gap: 3px; left: 0; z-index: 3;
+  }
+  .compare-grid.is-mobile .cg-prog .flag { font-size: 15px; }
+  .compare-grid.is-mobile .cg-prog .school { font-size: 10.5px; font-weight: 600; color: var(--ink-2); line-height: 1.2; }
+  .compare-grid.is-mobile .cg-prog h3 {
+    font-family: var(--serif); font-weight: 400; font-size: 12.5px; line-height: 1.2;
+    padding-right: 16px; color: var(--ink); margin: 0;
+  }
+  .compare-grid.is-mobile .cg-prog .remove {
+    position: absolute; top: 6px; right: 6px; width: 20px; height: 20px; border-radius: 50%;
+    display: grid; place-items: center; color: var(--ink-3);
+  }
+  .compare-grid.is-mobile .cg-cell .btn { padding: 6px 11px; font-size: 11.5px; }
+  @media (max-width: 900px) {
+    .compare-grid.is-desktop { display: none; }
+    .compare-grid.is-mobile { display: grid; }
   }
   @media (max-width: 620px) {
     .shortlist-switcher-btn .switcher-label-text { display: none; }
@@ -873,6 +936,10 @@
     .print-area .cat-chevron { display: none; }
   }
 </style>
+<script>
+window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -918,11 +985,17 @@
       </div>
       <!-- data-lang-switch is rewritten per build by build-i18n.js so the active
            language is marked and the hrefs stay correct from /, /nl/ and /fr/. -->
-      <nav class="lang-switch" data-lang-switch aria-label="Taal">
-        <a href="../index.html" hreflang="en" class="lang-opt">EN</a>
-        <a href="../nl/index.html" hreflang="nl" class="lang-opt is-active" aria-current="true">NL</a>
-        <a href="../fr/index.html" hreflang="fr" class="lang-opt">FR</a>
-      </nav>
+      <div class="lang-switch" data-lang-switch id="langSwitch">
+        <button class="lang-trigger" type="button" id="langTrigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Change language">
+          <span id="langTriggerLabel">EN</span>
+          <svg class="lang-caret" width="9" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
+        </button>
+        <div class="lang-menu" role="listbox" aria-label="Taal">
+          <a href="../index.html" hreflang="en" data-code="EN" class="lang-opt">English</a>
+          <a href="../nl/index.html" hreflang="nl" data-code="NL" class="lang-opt">Nederlands</a>
+          <a href="../fr/index.html" hreflang="fr" data-code="FR" class="lang-opt">Français</a>
+        </div>
+      </div>
     </div>
     <button class="hamburger" id="navToggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="mobileMenu">
       <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><line x1="2" y1="5" x2="16" y2="5"/><line x1="2" y1="9" x2="16" y2="9"/><line x1="2" y1="13" x2="16" y2="13"/></svg>
@@ -995,6 +1068,7 @@
       <button class="chip" data-q="engineering">Engineering</button>
       <button class="chip" data-q="sustainability">Sustainability</button>
       <button class="chip" data-q="data science">Data Science &amp; AI</button>
+      <button class="chip" data-q="law">Law</button>
     </div>
 
 
@@ -1030,6 +1104,11 @@
         <label class="opt"><input type="radio" name="dur" value="short"> 12 maanden of minder</label>
         <label class="opt"><input type="radio" name="dur" value="mid"> 13–18 maanden</label>
         <label class="opt"><input type="radio" name="dur" value="long"> 19 maanden of meer</label>
+      </div>
+      <div class="fgroup">
+        <h4>Intake you can still catch</h4>
+        <div id="fIntake"></div>
+        <p class="fgroup-note">Grouped by when the programme starts. Deadlines are indicative, always confirm on the school's page.</p>
       </div>
       <div class="fgroup">
         <h4>Collegegeld (max)</h4>
@@ -1094,6 +1173,18 @@
     </div>
     <p class="events-freshness" id="eventsFreshness"></p>
     <div id="eventsResults"></div>
+  </div>
+</section>
+
+<section id="pageCompare" class="subpage" hidden>
+  <div class="wrap">
+    <div id="compareSwitcher" data-shortlist-switcher="compare"></div>
+    <div class="subpage-head">
+      <div class="eyebrow"><span class="dot"></span> Your shortlist</div>
+      <h1>Comparing <span id="compareHeadCount">0</span> programme<span id="comparePlural">s</span></h1>
+      <p class="lede">Scroll sideways to see them all side by side, up to 10 at a time. <button class="linklike" id="compareClearAll" type="button">Clear all</button></p>
+    </div>
+    <div class="compare-body" id="compareBody"></div>
   </div>
 </section>
 
@@ -1660,17 +1751,6 @@
   <div class="modal" role="dialog" aria-modal="true" id="modal"></div>
 </div>
 
-<section id="pageCompare" class="subpage" hidden>
-  <div class="wrap">
-    <div id="compareSwitcher" data-shortlist-switcher="compare"></div>
-    <div class="subpage-head">
-      <div class="eyebrow"><span class="dot"></span> Your shortlist</div>
-      <h1>Comparing <span id="compareHeadCount">0</span> programme<span id="comparePlural">s</span></h1>
-      <p class="lede">Scroll sideways to see them all side by side, up to 10 at a time. <button class="linklike" id="compareClearAll" type="button">Clear all</button></p>
-    </div>
-    <div class="compare-body" id="compareBody"></div>
-  </div>
-</section>
 
 <div class="print-area" id="printArea"></div>
 
@@ -3131,9 +3211,9 @@ const PROGRAMS = [
     fields:["Law"], months:9, lang:"English", tuition:74000, intake:"August", deadline:"1 Dec", work:"2+ yrs", gmat:false, scholar:true, link:"https://law.yale.edu/", extRank:"QS Law #4 (2026)", rank:300,
     openFields:["Any"], freshGradOnly:false, blurb:"An extremely small, research-oriented LLM at the law school most consistently ranked #1 in the US, admitting roughly 25 students a year.", highlights:["~25 students admitted per year","Consistently the #1 US law school","Research-intensive, seminar-based teaching","Need-based fellowships available"] },
 
-  { id:311, school:"University of Oxford", program:"Bachelor of Civil Law (BCL)", city:"Oxford", country:"United Kingdom", flag:"🇬🇧", region:"Europe",
-    fields:["Law"], months:9, lang:"English", tuition:38000, intake:"October", deadline:"19 Jan", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.law.ox.ac.uk/", extRank:"QS Law #2 (2026)", rank:301,
-    openFields:["Any"], freshGradOnly:false, blurb:"Despite the historic name, this is Oxford's flagship postgraduate law degree, widely regarded as the most prestigious advanced common-law qualification in the world.", highlights:["World's most prestigious common-law masters","Oxford college membership","Extremely rigorous exam-based assessment","Merit and need-based scholarships"] },
+  { id:311, school:"University of Oxford", program:"MSc in Law and Finance (MLF)", city:"Oxford", country:"United Kingdom", flag:"🇬🇧", region:"Europe",
+    fields:["Law","Finance"], months:10, lang:"English", tuition:47000, intake:"October", deadline:"19 Jan", work:"0–2 yrs", gmat:false, scholar:true, link:"https://www.law.ox.ac.uk/admissions/graduate/msc-law-and-finance", extRank:"QS Law #2 (2026)", rank:301,
+    openFields:["Business & Economics","STEM & Engineering","Any"], freshGradOnly:false, blurb:"A rigorous taught master's run jointly by Oxford's Law Faculty and the Saïd Business School, bridging financial regulation, corporate law and quantitative finance for careers in law firms, banks and regulators.", highlights:["Joint Law Faculty and Saïd Business School degree","Finance tutorials pitched at practitioner level","Oxford college membership","Merit and need-based scholarships"] },
 
   { id:312, school:"Columbia Law School", program:"LLM (Master of Laws)", city:"New York, NY", country:"United States", flag:"🇺🇸", region:"North America",
     fields:["Law"], months:9, lang:"English", tuition:78000, intake:"August", deadline:"1 Dec", work:"0–3 yrs", gmat:false, scholar:true, link:"https://www.law.columbia.edu/", extRank:"QS Law #8 (2026)", rank:302,
@@ -5514,7 +5594,7 @@ const MAX_COMPARE = 10;
 
 const state = {
   page: "programmes",
-  q: "", regions: new Set(), fields: new Set(), dur: "any",
+  q: "", regions: new Set(), fields: new Set(), dur: "any", intakes: new Set(),
   maxTuition: TUITION_CEILING, noGmat: false, noWork: false, english: false, scholar: false,
   sort: "rec",
   compare: new Set(JSON.parse(localStorage.getItem("ca_compare") || "[]")),
@@ -6069,6 +6149,7 @@ function matches(p) {
   }
   if (state.regions.size && !state.regions.has(p.region)) return false;
   if (state.fields.size && !p.fields.some(f => state.fields.has(f))) return false;
+  if (state.intakes.size) { const seasons = intakeSeasons(p); if (![...state.intakes].some(s => seasons.has(s))) return false; }
 
   if (state.dur === "short" && p.months > 12) return false;
   if (state.dur === "mid"   && (p.months < 13 || p.months > 18)) return false;
@@ -6191,10 +6272,18 @@ function prestigeScore(p) {
      3, matched only on blurb / city / country text                            */
 function queryRelevance(p) {
   if (!state.q) return 0;
-  const terms = state.q.toLowerCase().split(/\s+/).filter(Boolean);
-  const allIn = hay => terms.every(t => termMatches(t, hay));
+  const intent = state.parsedFor === state.q ? state.parsed : parseQuery(state.q);
+  // Relevance measures how directly a programme answers the *subject* asked for.
+  // The subject is the leftover free-text terms plus the names of any recognised
+  // fields, never the raw query string, a raw `includes("us")` matches inside
+  // "business" and wrongly makes every analytics degree a title hit for a plain
+  // "US" search. A pure place/constraint query has no subject at all, so every
+  // match is equally relevant and prestige alone decides the order.
+  const subjectTerms = [...intent.terms, ...[...intent.fields].map(f => f.toLowerCase())];
+  if (!subjectTerms.length) return 0;
+  const allIn = hay => subjectTerms.every(t => termMatches(t, hay));
   const title = p.program.toLowerCase();
-  if (title.includes(state.q.toLowerCase()) || allIn(title)) return 0;
+  if (allIn(title)) return 0;
   // A subject ranking naming the searched subject is as strong a signal as the
   // title carrying the word, MIT's "SM in Aeronautics and Astronautics" is an
   // aerospace degree ranked #1 in aerospace, and was sorting below a #9 purely
@@ -6252,9 +6341,20 @@ const RANK_SUBJECT_HINTS = {
 function queryAwarePrestige(p) {
   const base = prestigeScore(p);
   const intent = state.parsedFor === state.q ? state.parsed : null;
-  if (!intent || !intent.fields.size || !p.extRank) return base;
+  // The subject the user is narrowing to can come from the typed query and/or the
+  // sidebar "Field of study" checkboxes, treat both the same way.
+  const askedFields = new Set([...(intent ? intent.fields : []), ...state.fields]);
+  // A query that named a place/term but no subject (e.g. just "US"): order by the
+  // curated catalogue-wide rank so the genuinely best programmes lead, not a niche
+  // subject #2 that only looks like an overall #2.
+  if (intent && !askedFields.size) return 500 + p.rank;
+  if (!askedFields.size || !p.extRank) return base;
+  // A subject is in play: a ranking only counts at face value when it is a ranking
+  // in one of those subjects. Otherwise the programme is pushed below the ranked
+  // ones, so a "QS Global MBA #1" that happens to be tagged Finance can't sit
+  // between Finance #1 and Finance #2 when the Finance field is selected.
   const label = p.extRank.toLowerCase();
-  const relevant = [...intent.fields].some(f =>
+  const relevant = [...askedFields].some(f =>
     (RANK_SUBJECT_HINTS[f] || []).some(hint => label.includes(hint)));
   return relevant ? base : base + 200;
 }
@@ -6281,6 +6381,52 @@ function sorted(list) {
    ============================================================ */
 function countFor(pred) { return PROGRAMS.filter(pred).length; }
 
+/* ============================================================
+   INTAKE TIMING
+   Deadlines in the catalogue are indicative and mostly yearless, so rather than
+   pretend to know exact cut-offs we classify each programme by the half of the
+   year it starts and surface the next real start date relative to today. Every
+   label is computed from the current date, so "Spring 2027 / Fall 2027" stay
+   correct as time passes without any data edits.
+   ============================================================ */
+const MONTH_ABBR = { jan:1, feb:2, mar:3, apr:4, may:5, jun:6, jul:7, aug:8, sep:9, oct:10, nov:11, dec:12 };
+const MONTH_LABEL = ["", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+function intakeMonths(p) {
+  return [...new Set((p.intake.toLowerCase().match(/[a-z]+/g) || [])
+    .map(w => MONTH_ABBR[w.slice(0, 3)]).filter(Boolean))];
+}
+// Next occurrence of a calendar month that is still far enough out to realistically
+// apply to. A master's application closes months before the intake, so an intake
+// less than ~2 months away is treated as already gone and rolls to the next year.
+function nextOccurrence(m, from = new Date()) {
+  const LEAD_MONTHS = 2;
+  const cutoff = new Date(from.getFullYear(), from.getMonth() + LEAD_MONTHS, 1);
+  let y = from.getFullYear();
+  if (new Date(y, m - 1, 1) < cutoff) y++;
+  return new Date(y, m - 1, 1);
+}
+// Earliest upcoming start date for a programme, e.g. { label: "Sep 2027" }.
+function nextStart(p) {
+  const months = intakeMonths(p);
+  if (!months.length) return null;
+  const dates = months.map(m => ({ m, d: nextOccurrence(m) })).sort((a, b) => a.d - b.d);
+  const first = dates[0];
+  return { month: first.m, year: first.d.getFullYear(), label: `${MONTH_LABEL[first.m]} ${first.d.getFullYear()}` };
+}
+// H1 (Jan–Jun) reads as a spring intake, H2 (Jul–Dec) as a fall intake.
+function intakeSeasons(p) {
+  const s = new Set();
+  intakeMonths(p).forEach(m => s.add(m <= 6 ? "spring" : "fall"));
+  return s;
+}
+const INTAKE_SEASONS = ["spring", "fall"];
+function seasonLabel(season) {
+  // Anchor the year on the season's typical intake month (Feb / Sep) rather than
+  // the min across all six, so a rare edge month can't drag the label a year off.
+  const canonical = season === "spring" ? 2 : 9;
+  return `${season === "spring" ? "Spring" : "Fall"} ${nextOccurrence(canonical).getFullYear()}`;
+}
+
 function buildFilterLists() {
   $("fRegion").innerHTML = REGIONS.map(r => `
     <label class="opt">
@@ -6305,6 +6451,19 @@ function buildFilterLists() {
     el.addEventListener("change", e => {
       const f = e.target.dataset.field;
       e.target.checked ? state.fields.add(f) : state.fields.delete(f);
+      render();
+    }));
+
+  $("fIntake").innerHTML = INTAKE_SEASONS.map(s => `
+    <label class="opt">
+      <input type="checkbox" data-intake="${s}" ${state.intakes.has(s) ? "checked" : ""}>
+      ${seasonLabel(s)} <span class="n">${countFor(p => intakeSeasons(p).has(s))}</span>
+    </label>`).join("");
+
+  $("fIntake").querySelectorAll("input").forEach(el =>
+    el.addEventListener("change", e => {
+      const s = e.target.dataset.intake;
+      e.target.checked ? state.intakes.add(s) : state.intakes.delete(s);
       render();
     }));
 }
@@ -6335,6 +6494,7 @@ function cardHTML(p, subjectOnlyMatch) {
       ${p.fields.slice(0,2).map(f => `<span class="tag">${f}</span>`).join("")}
       ${!p.gmat ? `<span class="tag teal">No GMAT</span>` : ""}
       ${p.scholar ? `<button class="tag accent tag-link" onclick="event.stopPropagation(); showPage('scholarships', null, ${p.id})">Beurzen</button>` : ""}
+      ${PROGRAMME_OUTCOMES[p.id] ? `<span class="tag outcome-tag" title="Open this programme to see where its alumni end up">Alumni outcomes</span>` : ""}
     </div>
     <div class="facts">
       <div class="fact"><span>Collegegeld</span><b>${tuitionDisplay(p)}</b></div>
@@ -6480,7 +6640,7 @@ function openModal(id) {
         <div class="fact"><span>Tuition (total)</span><b>${tuitionDisplay(p)}</b></div>
         <div class="fact"><span>Duur</span><b>${p.months} months</b></div>
         <div class="fact"><span>Instroom</span><b>${p.intake}</b></div>
-        <div class="fact"><span>Next deadline</span><b>${p.deadline}</b></div>
+        <div class="fact"><span>Next deadline</span><b>${p.deadline}${nextStart(p) ? ` <span class="deadline-start">→ ${nextStart(p).label} start</span>` : ""}</b></div>
         <div class="fact"><span>Werkervaring</span><b>${p.work}</b></div>
         <div class="fact"><span>GMAT / GRE</span><b>${p.gmat ? "Required" : "Not required"}</b></div>
         <div class="fact"><span>Werkvisum na afstuderen</span><b>${getVisa(p).label}</b></div>
@@ -6528,17 +6688,17 @@ function closeModal() {
    COMPARE PAGE
    ============================================================ */
 const COMPARE_ROWS = [
-  { label: "Tuition (total)", get: p => `${tuitionDisplay(p)}${sourceLine(p.link, `${schoolName(p.school)}'s own programme page`)}`, raw: true },
+  { label: "Tuition (total)", raw: true, get: p => `<a class="tuition-src" href="${p.link}" target="_blank" rel="noopener noreferrer" title="Read from ${escapeHTML(schoolName(p.school))}'s own programme page, checked ${DATA_CHECKED}. Confirm there before you rely on it."><b>${tuitionDisplay(p)}</b><sup>*</sup></a>` },
   { label: "Duur", get: p => `${p.months} months` },
   { label: "Taal", get: p => p.lang },
   { label: "Instroom", get: p => p.intake },
-  { label: "Next deadline", get: p => p.deadline },
+  { label: "Next deadline", raw: true, get: p => `<b>${p.deadline}</b>${nextStart(p) ? `<span class="deadline-start">→ ${nextStart(p).label} start</span>` : ""}` },
   { label: "Werkervaring", get: p => p.work },
   { label: "GMAT / GRE", get: p => p.gmat ? "Required" : "Not required" },
   { label: "Selectiviteit van toelating", raw: true, get: p => {
       const s = selectivityFor(p);
-      if (!s) return `<span class="planner-status muted">Not published</span><span class="place">This school doesn't publish an admit rate for this programme, most non-MBA master's don't.</span>`;
-      return `<span class="planner-status ${s.band ? s.band.tone : "muted"}">${s.band ? s.band.label : "Cohort size published"}</span><span class="place">${s.summary}, ${s.cohort}</span>`;
+      if (!s) return `<span class="planner-status muted" title="This school doesn't publish an admit rate for this programme, most non-MBA master's don't.">Not published</span>`;
+      return `<span class="planner-status ${s.band ? s.band.tone : "muted"}">${s.band ? s.band.label : "Published"}</span>${s.rate != null ? `<span class="cg-sub">${s.rate}% admitted</span>` : ""}`;
     } },
   { label: "Regio", get: p => p.region },
   { label: "Werkvisum na afstuderen", get: p => getVisa(p).label },
@@ -6548,7 +6708,7 @@ const COMPARE_ROWS = [
 
 function compareGridHTML(list) {
   const cols = `190px repeat(${list.length}, minmax(200px, 1fr))`;
-  let html = `<div class="compare-grid" style="grid-template-columns:${cols}">`;
+  let html = `<div class="compare-grid is-desktop" style="grid-template-columns:${cols}">`;
 
   html += `<div class="cg-cell cg-row-label cg-head">Programme</div>`;
   list.forEach(p => {
@@ -6575,14 +6735,47 @@ function compareGridHTML(list) {
   return html;
 }
 
+// Mobile/tablet transpose: programmes become rows and the parameters become the
+// (horizontally scrolling) columns, so every shortlisted programme is visible at
+// once down the page instead of hidden off the side. The programme name is a
+// narrow sticky first column; parameter labels are a sticky header row.
+function compareGridMobileHTML(list) {
+  const cols = `104px repeat(${COMPARE_ROWS.length}, minmax(96px, max-content))`;
+  let html = `<div class="compare-grid is-mobile" style="grid-template-columns:${cols}">`;
+
+  html += `<div class="cg-cell cg-row-label cg-head cg-corner">Programme</div>`;
+  COMPARE_ROWS.forEach(row => {
+    html += `<div class="cg-cell cg-col-label">${row.label}</div>`;
+  });
+
+  list.forEach(p => {
+    html += `
+      <div class="cg-cell cg-row-label cg-prog" data-id="${p.id}">
+        <button class="remove" data-uncompare="${p.id}" aria-label="Remove from comparison">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <span class="flag">${p.flag}</span>
+        <div class="school">${schoolName(p.school)}</div>
+        <h3>${p.program}</h3>
+      </div>`;
+    COMPARE_ROWS.forEach(row => {
+      html += row.raw ? `<div class="cg-cell">${row.get(p)}</div>` : `<div class="cg-cell"><b>${row.get(p)}</b></div>`;
+    });
+  });
+
+  html += `</div>`;
+  return html;
+}
+
 function renderCompare() {
   const list = PROGRAMS.filter(p => state.compare.has(p.id));
   $("compareHeadCount").textContent = list.length;
   $("comparePlural").textContent = list.length === 1 ? "" : "s";
 
   $("compareBody").innerHTML = list.length
-    ? `<div class="compare-grid-wrap">${compareGridHTML(list)}</div>`
-    + (list.length < MAX_COMPARE ? `<p class="locator-placeholder" style="margin-top:14px">Head back to results to add up to ${MAX_COMPARE - list.length} more.</p>` : "")
+    ? `<div class="compare-grid-wrap">${compareGridHTML(list)}${compareGridMobileHTML(list)}</div>`
+    + `<p class="compare-foot"><span>*</span> Tuition figures are read from each school's own programme page (checked ${DATA_CHECKED}). Confirm there before you rely on them.</p>`
+    + (list.length < MAX_COMPARE ? `<p class="locator-placeholder" style="margin-top:6px">Head back to results to add up to ${MAX_COMPARE - list.length} more.</p>` : "")
     : `<div class="compare-empty">
          <h3>Nothing to compare yet</h3>
          <p>Tick "Add to compare" on any programme card, up to ${MAX_COMPARE} at a time, then come back here to see them side by side.</p>
@@ -6614,9 +6807,9 @@ const PAGES = {
 // carries a switcher (arrows top-left/top-right) to cycle between the other two without
 // going back through Programmes. The label makes the shared shortlist explicit.
 const SHORTLIST_PAGES = [
-  { key: "compare", label: "Vergelijk" },
-  { key: "checklist", label: "Aanvraagchecklist" },
-  { key: "scholarships", label: "Beurzen" },
+  { key: "compare", label: "Vergelijk", short: "Vergelijk" },
+  { key: "checklist", label: "Aanvraagchecklist", short: "Checklist" },
+  { key: "scholarships", label: "Beurzen", short: "Beurzen" },
 ];
 function renderShortlistSwitchers() {
   document.querySelectorAll("[data-shortlist-switcher]").forEach(box => {
@@ -6630,11 +6823,11 @@ function renderShortlistSwitchers() {
     box.innerHTML = `
       <button class="shortlist-switcher-btn" data-shortlist-go="${prev.key}" type="button">
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-        <span class="switcher-label-text">${escapeHTML(prev.label)}</span>
+        <span class="switcher-label-text">${escapeHTML(prev.short || prev.label)}</span>
       </button>
-      <span class="shortlist-switcher-label">Your shortlist &middot; <b>${count} programme${count === 1 ? "" : "s"}</b> &middot; ${escapeHTML(SHORTLIST_PAGES[i].label)}</span>
+      <span class="shortlist-switcher-label"><b>${count} programme${count === 1 ? "" : "s"}</b> &middot; ${escapeHTML(SHORTLIST_PAGES[i].short || SHORTLIST_PAGES[i].label)}</span>
       <button class="shortlist-switcher-btn" data-shortlist-go="${next.key}" type="button">
-        <span class="switcher-label-text">${escapeHTML(next.label)}</span>
+        <span class="switcher-label-text">${escapeHTML(next.short || next.label)}</span>
         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
       </button>`;
   });
@@ -7037,7 +7230,7 @@ function populateProgramDropdown(selectId) {
   const compareList = PROGRAMS.filter(p => state.compare.has(p.id));
   
   let html = compareList.length
-    ? `<option value="0">Choose a programme from your shortlist</option><optgroup label="Your Shortlist">${compareList.map(p => `<option value="${p.id}">${schoolName(p.school)}, ${p.program} (${p.flag} ${p.country})</option>`).join("")}</optgroup>`
+    ? `<option value="0">Choose a programme</option><optgroup label="Your Shortlist">${compareList.map(p => `<option value="${p.id}">${schoolName(p.school)}, ${p.program} (${p.flag} ${p.country})</option>`).join("")}</optgroup>`
     : `<option value="0">Add programmes to Compare first</option>`;
   
   sel.innerHTML = html;
@@ -7210,6 +7403,63 @@ const PROGRAMME_OUTCOMES = {
     sectors: ["Consulting", "Financial services", "Technology"],
     classYear: "most recent reported class",
     source: { url: "https://www.london.edu/masters-degrees/masters-in-management", label: "LBS Masters in Management page" },
+  },
+
+  // HEC Paris, Grande École Master in Management. Consulting/finance-led sector
+  // split from HEC's published MiM employment reporting; confirm the current
+  // figures on HEC's own programme page. Verified Aug 2026.
+  4: {
+    employedRate: 99, employedWindow: "employed within 3 months of graduation",
+    sectors: ["Consulting", "Financial services", "Technology"],
+    sectorMix: [["Consulting",37],["Financial services",28],["Technology",11],["Consumer goods",7],["Other",17]],
+    classYear: "recent reported class",
+    source: { url: "https://www.hec.edu/en/master-s-programs/master-management", label: "HEC Paris Master in Management page" },
+  },
+
+  // Università Bocconi, MSc International Management. Sector split from Bocconi's
+  // published placement reporting; confirm the current figures on Bocconi's own
+  // programme placement page. Verified Aug 2026.
+  6: {
+    employedRate: 95, employedWindow: "employed within 12 months of graduation (78% within 3 months)",
+    sectors: ["Consulting", "Finance", "Technology"],
+    sectorMix: [["Consulting",29],["Finance",21],["Technology",8],["FMCG & luxury",8],["Healthcare",6],["Other",28]],
+    employers: ["McKinsey", "Bain", "BCG", "J.P. Morgan", "Amazon", "L'Oréal"],
+    classYear: "recent reported class",
+    source: { url: "https://www.unibocconi.it/en/programs/master-science/international-management/program-placement", label: "Bocconi MSc International Management placement page" },
+  },
+
+  // IE Business School, Master in Management. Sector split from IE's own published
+  // Career Report. Verified Aug 2026.
+  7: {
+    employedRate: 88, employedWindow: "employed within 3 months of graduation",
+    salary: "US$95,000 median",
+    sectors: ["Technology", "Consulting", "Finance"],
+    sectorMix: [["Technology",22],["Consulting",21],["Finance",20],["Other",37]],
+    employers: ["Deloitte", "Amazon", "Accenture", "McKinsey", "BCG"],
+    classYear: "Class of 2024",
+    source: { url: "https://docs.ie.edu/career-report/business-school/IE-Master-in-Management-Career-Report.pdf", label: "IE Master in Management Career Report 2024" },
+  },
+
+  // ESSEC Business School, Master in Management. Consulting/finance/tech-led split
+  // from ESSEC's published MiM employment reporting; confirm on ESSEC's own page.
+  // Verified Aug 2026.
+  5: {
+    employedRate: 94, employedWindow: "employed within 6 months of graduation",
+    sectors: ["Consulting", "Finance", "Technology"],
+    sectorMix: [["Consulting",28],["Finance",23],["Technology",18],["Other",31]],
+    classYear: "recent reported class",
+    source: { url: "https://www.essec.edu/en/pages/mim-master-in-management/", label: "ESSEC Master in Management page" },
+  },
+
+  // Esade Business School, MSc International Management. Sector split from Esade's
+  // published placement reporting; confirm on Esade's own careers page. Verified
+  // Aug 2026.
+  9: {
+    employedRate: 93, employedWindow: "employed within 3 months of graduation",
+    sectors: ["Manufacturing & FMCG", "Consulting", "Technology"],
+    sectorMix: [["Manufacturing & FMCG",30],["Consulting",25],["Technology",19],["Financial services",15],["Communications",6],["Other",5]],
+    classYear: "recent reported class",
+    source: { url: "https://www.esade.edu/master-of-science/en/career-services", label: "Esade MSc career services page" },
   },
 
   // ---- Full-Time MBA outcomes, each read from the school's own employment
@@ -7807,7 +8057,7 @@ function renderApplicationChecklist() {
   const shortlist = PROGRAMS.filter(p => state.compare.has(p.id));
   picker.innerHTML = shortlist.length
     ? shortlist.map(p => '<label class="checklist-picker-item"><input type="checkbox" value="' + p.id + '" ' + (state.checklist.has(p.id) ? "checked" : "") + '><span><strong>' + p.flag + ' ' + p.school + '</strong><small>' + p.program + '</small></span></label>').join("")
-    : '<div class="planner-empty"><strong>Your shortlist is empty</strong>Add programmes from the results page, then choose which application plans to view here.</div>';
+    : '<div class="planner-empty"><strong>Your shortlist is empty</strong>Add programmes from the results page, then choose which application plans to view here.<button class="btn primary planner-empty-cta" data-page-jump="programmes" type="button">Browse programmes</button></div>';
   picker.querySelectorAll("input").forEach(input => input.addEventListener("change", () => {
     const id = +input.value;
     input.checked ? state.checklist.add(id) : state.checklist.delete(id);
@@ -9109,7 +9359,7 @@ document.addEventListener("click", e => {
 
 $("clearBtn").addEventListener("click", () => {
   Object.assign(state, {
-    q:"", regions:new Set(), fields:new Set(), dur:"any", maxTuition:TUITION_CEILING,
+    q:"", regions:new Set(), fields:new Set(), dur:"any", intakes:new Set(), maxTuition:TUITION_CEILING,
     noGmat:false, noWork:false, english:false, scholar:false
   });
   $("q").value = ""; $("fTuition").value = TUITION_CEILING; $("tuitionOut").textContent = "Any";
@@ -9206,6 +9456,23 @@ $("applicationChecklistBtn").addEventListener("click", () => showPage("checklist
 $("scholarshipsBtn").addEventListener("click", () => showPage("scholarships"));
 
 $("logoHome").addEventListener("click", () => showPage("programmes"));
+
+// ---------- desktop language dropdown ----------
+// The active language is marked on one .lang-opt by the build step; the trigger
+// simply mirrors that anchor's short code, so adding a language later only means
+// adding one more <a> to the menu.
+(function () {
+  const sw = document.getElementById("langSwitch");
+  if (!sw) return;
+  const trigger = document.getElementById("langTrigger");
+  const label = document.getElementById("langTriggerLabel");
+  const active = sw.querySelector(".lang-opt.is-active");
+  if (active && active.dataset.code) label.textContent = active.dataset.code;
+  const setOpen = open => { sw.classList.toggle("open", open); trigger.setAttribute("aria-expanded", String(open)); };
+  trigger.addEventListener("click", e => { e.stopPropagation(); setOpen(!sw.classList.contains("open")); });
+  document.addEventListener("click", e => { if (!sw.contains(e.target)) setOpen(false); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") setOpen(false); });
+})();
 
 // Any control anywhere can jump to a page with data-page-jump="<key>", so the
 // footer, the locator privacy notes and the funding cards all route the same way.
