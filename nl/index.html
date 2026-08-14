@@ -315,9 +315,11 @@
   .board { display: grid; grid-template-columns: 236px 1fr; gap: 40px; padding: 44px 0 90px; align-items: start; }
 
   /* ---------- filters ---------- */
+  /* Filters flow with the page at their full natural height (no internal scroll box),
+     so scrolling the results list reveals the whole filter set rather than pinning a
+     short, separately-scrolling panel. align-self:start keeps the column top-aligned. */
   aside.filters {
-    position: sticky; top: 76px; max-height: calc(100vh - 88px);
-    overflow-y: auto; overscroll-behavior: contain; padding-right: 4px;
+    align-self: start; padding-right: 6px; padding-bottom: 24px;
   }
   .filters-toggle { display: none; }
   aside.filters::-webkit-scrollbar { width: 6px; }
@@ -982,7 +984,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
         <span class="label">Vergelijk</span>
       </button>
       <button class="btn header-action" id="applicationChecklistBtn" data-page-action="checklist" type="button">
-        <span class="label">Aanvraagchecklist</span>
+        <span class="label">Checklist</span>
       </button>
       <button class="btn header-action" id="scholarshipsBtn" data-page-action="scholarships" type="button">
         <span class="label">Beurzen</span>
@@ -1001,7 +1003,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
       <!-- data-lang-switch is rewritten per build by build-i18n.js so the active
            language is marked and the hrefs stay correct from /, /nl/ and /fr/. -->
       <div class="lang-switch" data-lang-switch id="langSwitch">
-        <button class="lang-trigger" type="button" id="langTrigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Change language">
+        <button class="lang-trigger" type="button" id="langTrigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Taal wijzigen">
           <span id="langTriggerLabel">EN</span>
           <svg class="lang-caret" width="9" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg>
         </button>
@@ -1030,7 +1032,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
     <div class="mm-divider"></div>
     <div class="mm-group-label">Jouw shortlist, <b id="mmShortlistCount">0</b> aanvragen hieronder</div>
     <button class="mm-item mm-action" id="mmCompare" type="button">Vergelijk <span class="pill-count" id="mmCompareCount">0</span></button>
-    <button class="mm-item mm-action" id="mmChecklist" type="button">Aanvraagchecklist <span class="pill-count" id="mmChecklistCount">0</span></button>
+    <button class="mm-item mm-action" id="mmChecklist" type="button">Checklist <span class="pill-count" id="mmChecklistCount">0</span></button>
     <button class="mm-item mm-action" id="mmScholarships" type="button">Beurzen <span class="pill-count" id="mmScholarshipsCount">0</span></button>
     <div class="mm-divider"></div>
     <div class="mm-group-label">Taal</div>
@@ -1122,7 +1124,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
         <label class="opt"><input type="radio" name="dur" value="long"> 19 maanden of meer</label>
       </div>
       <div class="fgroup">
-        <h4>Intake you can still catch</h4>
+        <h4>Instroommoment dat je nog kan halen</h4>
         <div id="fIntake"></div>
         <p class="fgroup-note">Grouped by when the programme starts. Deadlines are indicative, always confirm on the school's page.</p>
       </div>
@@ -1184,7 +1186,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
       <button class="btn primary" id="eventsFindBtn" type="button">Zoek evenementen bij mij in de buurt</button>
       <div class="events-kind">
         <button class="events-kind-btn is-active" data-events-kind="all" type="button">All</button>
-        <button class="events-kind-btn" data-events-kind="in-person" type="button">In person</button>
+        <button class="events-kind-btn" data-events-kind="in-person" type="button">Ter plaatse</button>
         <button class="events-kind-btn" data-events-kind="virtual" type="button">Virtual</button>
       </div>
     </div>
@@ -1197,9 +1199,9 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
   <div class="wrap">
     <div id="compareSwitcher" data-shortlist-switcher="compare"></div>
     <div class="subpage-head">
-      <div class="eyebrow"><span class="dot"></span> Your shortlist</div>
+      <div class="eyebrow"><span class="dot"></span> Je shortlist</div>
       <h1>Comparing <span id="compareHeadCount">0</span> programme<span id="comparePlural">s</span></h1>
-      <p class="lede">Scroll sideways to see them all side by side, up to 10 at a time. <button class="linklike" id="compareClearAll" type="button">Clear all</button></p>
+      <p class="lede">Scroll sideways to see them all side by side, up to 10 at a time. <button class="linklike" id="compareClearAll" type="button">Alles wissen</button></p>
     </div>
     <div class="compare-body" id="compareBody"></div>
   </div>
@@ -1210,7 +1212,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
     <div id="checklistSwitcher" data-shortlist-switcher="checklist"></div>
     <div class="subpage-head">
       <div class="eyebrow"><span class="dot"></span> Voor je aanmeldt</div>
-      <h1>Je aanvraagchecklist en tijdlijn</h1>
+      <h1>Je checklist en tijdlijn</h1>
       <p class="lede">Kies hieronder een opleiding uit je shortlist om de aanmeldrondes, instroommomenten, testvereisten, documentenlijst en de officiële aanmeldpagina te zien.</p>
     </div>
 
@@ -1260,7 +1262,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
         <div class="cat-body">
           <div class="locator">
             <label class="pfield"><span>Jouw locatie</span>
-              <input class="loc-search" id="toeflLocation" list="locationList" type="text" placeholder="Search for a city…" autocomplete="off" />
+              <input class="loc-search" id="toeflLocation" list="locationList" type="text" placeholder="Zoek een stad…" autocomplete="off" />
             </label>
             <button class="btn primary" id="toeflFindBtn" type="button">Zoek testcentra</button>
           </div>
@@ -1488,7 +1490,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
           <ul class="tip-list">
             <li>Laatste volledige proeftoets uiterlijk vijf dagen van tevoren. Bekijk daarna alleen nog je foutenlogboek.</li>
             <li>Leer in de laatste week geen nieuwe stof. Het verdringt het ophalen van wat je al weet.</li>
-            <li>Book the real test <em>before</em> je klaar bent. Open voorbereiding zet uit om de tijd te vullen en verbetert de score zelden.</li>
+            <li>Boek de echte test <em>before</em> je klaar bent. Open voorbereiding zet uit om de tijd te vullen en verbetert de score zelden.</li>
           </ul>
         </div>
       </details>
@@ -1530,8 +1532,8 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
           <span class="cat-chevron">⌄</span></summary>
         <div class="cat-body">
           <ul class="tip-list">
-            <li><b>Book early.</b> Centre slots in smaller cities go weeks ahead, and rescheduling close to the date costs a fee.</li>
-            <li><b>Leave room for a retake.</b> Plan your first sitting at least 8–10 weeks before your earliest deadline. Almost nobody peaks first time, and a retake needs a gap of several weeks.</li>
+            <li><b>Boek op tijd.</b> Centre slots in smaller cities go weeks ahead, and rescheduling close to the date costs a fee.</li>
+            <li><b>Laat ruimte voor een herkansing.</b> Plan your first sitting at least 8–10 weeks before your earliest deadline. Almost nobody peaks first time, and a retake needs a gap of several weeks.</li>
             <li><b>ID must match your registration exactly</b>, the name on your passport, in the same order. Mismatches turn people away at the door.</li>
             <li>Both tests can be taken <b>at home</b> as well as at a centre. At-home sittings need a clear room, a supported machine and a system check done in advance, not on the day.</li>
             <li>You see unofficial scores immediately on the GMAT and can then choose where they go; official reports follow by email.</li>
@@ -1578,8 +1580,8 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
   <div class="wrap">
     <div id="scholarshipsSwitcher" data-shortlist-switcher="scholarships"></div>
     <div class="subpage-head">
-      <div class="eyebrow"><span class="dot"></span> Funding your degree</div>
-      <h1>Scholarships &amp; Financial Support</h1>
+      <div class="eyebrow"><span class="dot"></span> Je opleiding financieren</div>
+      <h1>Beurzen &amp; financiële steun</h1>
       <p class="lede">See only the funding routes relevant to the programmes you selected: school awards and destination-country scholarships, filtered by citizenship and academic background.</p>
     </div>
 
@@ -1592,18 +1594,18 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
         </div>
       </div>
       <div class="profile-grid scholarship-checklist-grid">
-        <label class="pfield pfield-target-prog"><span>Target Programme</span>
+        <label class="pfield pfield-target-prog"><span>Doelopleiding</span>
           <select id="sTargetProgramme">
             <option value="0">All Programmes / Compare Shortlist</option>
           </select>
         </label>
-        <label class="pfield"><span>Country of citizenship</span>
+        <label class="pfield"><span>Land van nationaliteit</span>
           <select id="sCitizenship"></select>
         </label>
       </div>
       <div class="profile-actions">
-        <button class="btn primary" id="scholarshipApply" type="button">Apply to scholarships</button>
-        <span class="profile-apply-note" id="scholarshipApplyNote">Set your criteria, then apply them to the funding options below.</span>
+        <button class="btn primary" id="scholarshipApply" type="button">Beurzen aanvragen</button>
+        <span class="profile-apply-note" id="scholarshipApplyNote">Stel je criteria in en pas ze toe op de financieringsopties hieronder.</span>
       </div>
     </div>
 
@@ -1749,8 +1751,8 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
       <p class="note" style="margin-top:8px">Homepage banner: coloured-pencil illustration based on Stanford University aerial view, photo by Mark Leschinsky, licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">CC BY 4.0</a>, from the <a href="https://commons.wikimedia.org/wiki/File:Stanford_University_Aerial_View.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">original on Wikimedia Commons</a>.</p>
     </div>
     <div class="cols">
-      <div><strong>Ontdekken</strong><span>By country</span><span>By field</span><span>By deadline</span></div>
-      <div><strong>Bronnen</strong><span>Funding guide</span><span>Visa basics</span><span>GMAT vs GRE</span></div>
+      <div><strong>Ontdekken</strong><span>Op land</span><span>Op vakgebied</span><span>Op deadline</span></div>
+      <div><strong>Bronnen</strong><span>Financieringsgids</span><span>Visumbasis</span><span>GMAT vs GRE</span></div>
       <div><strong>Bedrijf</strong><button type="button" class="footer-link" data-page-jump="about">Over ons</button><button type="button" class="footer-link" data-page-jump="legal">Voorwaarden en privacy</button><button type="button" class="footer-link" data-page-jump="legal">Bronnen</button></div>
     </div>
   </div>
@@ -1851,9 +1853,9 @@ function showCatalogueStatus(status) {
   if (status === "ready") { box.hidden = true; box.innerHTML = ""; return; }
   box.hidden = false;
   box.innerHTML = status === "loading"
-    ? `<p class="catalogue-status-msg">Loading the programme catalogue…</p>`
-    : `<p class="catalogue-status-msg"><b>The catalogue could not be loaded.</b> This needs a connection to our database. Check your connection and try again.</p>
-       <button class="btn" type="button" id="catalogueRetry">Try again</button>`;
+    ? `<p class="catalogue-status-msg">De opleidingencatalogus laden…</p>`
+    : `<p class="catalogue-status-msg"><b>De catalogus kon niet geladen worden.</b> Hiervoor is een verbinding met onze database nodig. Controleer je verbinding en probeer opnieuw.</p>
+       <button class="btn" type="button" id="catalogueRetry">Probeer opnieuw</button>`;
   const retry = document.getElementById("catalogueRetry");
   if (retry) retry.addEventListener("click", () => boot());
 }
@@ -2021,7 +2023,7 @@ function loadLeaflet() {
 async function renderLocatorMap(containerId, loc, centres) {
   const el = document.getElementById(containerId);
   if (!el) return;
-  try { await loadLeaflet(); } catch { el.innerHTML = `<p class="locator-placeholder">The map library could not be loaded. The list of centres above is unaffected.</p>`; return; }
+  try { await loadLeaflet(); } catch { el.innerHTML = `<p class="locator-placeholder">De kaartbibliotheek kon niet geladen worden. De lijst met centra hierboven blijft ongewijzigd.</p>`; return; }
   if (typeof L === "undefined") return;
   if (LOCATOR_MAPS[containerId]) { LOCATOR_MAPS[containerId].remove(); delete LOCATOR_MAPS[containerId]; }
 
@@ -2995,12 +2997,12 @@ function cardHTML(p, subjectOnlyMatch) {
       ${state.compare.has(p.id) ? "Op je shortlist" : "Toevoegen aan shortlist"}
     </label>
     ${p.extRank ? `<div class="ext-rank">${p.extRank}</div>` : ""}
-    ${subjectOnlyMatch ? `<div class="subject-match-note" title="This programme matched on subject area rather than on its degree name.">Subject-area match</div>` : ""}
+    ${subjectOnlyMatch ? `<div class="subject-match-note" title="Deze opleiding kwam overeen op vakgebied in plaats van op de naam van het diploma.">Match op vakgebied</div>` : ""}
     <div class="tags">
       ${p.fields.slice(0,2).map(f => `<span class="tag">${f}</span>`).join("")}
-      ${!p.gmat ? `<span class="tag teal">No GMAT</span>` : ""}
+      ${!p.gmat ? `<span class="tag teal">Geen GMAT</span>` : ""}
       ${p.scholar ? `<button class="tag accent tag-link" onclick="event.stopPropagation(); showPage('scholarships', null, ${p.id})">Beurzen</button>` : ""}
-      ${PROGRAMME_OUTCOMES[p.id] ? `<span class="tag outcome-tag" title="Open this programme to see where its alumni end up">Alumni outcomes</span>` : ""}
+      ${PROGRAMME_OUTCOMES[p.id] ? `<span class="tag outcome-tag" title="Open deze opleiding om te zien waar de alumni terechtkomen">Alumni-resultaten</span>` : ""}
     </div>
     <div class="facts">
       <div class="fact"><span>Collegegeld</span><b>${tuitionDisplay(p)}</b></div>
@@ -3031,11 +3033,11 @@ function render() {
   $("grid").innerHTML = list.length
     ? html
     : `<div class="empty" style="grid-column:1/-1">
-         <h3>Nothing matches those filters</h3>
-         <p>Try widening the tuition range or clearing a region.</p>
+         <h3>Niets komt overeen met die filters</h3>
+         <p>Probeer het studiegeldbereik te verbreden of een regio te wissen.</p>
        </div>`;
 
-  $("resTitle").textContent = state.shortlistOnly ? "Your shortlist" : (state.q ? `Results for “${state.q}”` : "Alle opleidingen");
+  $("resTitle").textContent = state.shortlistOnly ? "Je shortlist" : (state.q ? `Results for “${state.q}”` : "Alle opleidingen");
   $("resSub").textContent = `${list.length} programme${list.length === 1 ? "" : "s"}`;
   updateSelectionCounts();
 
@@ -3137,16 +3139,16 @@ function openModal(id) {
       <div class="tags">
         <span class="tag">${p.city}, ${p.country}</span>
         <span class="tag">${p.lang}-taught</span>
-        ${!p.gmat ? `<span class="tag teal">No GMAT/GRE</span>` : ""}
+        ${!p.gmat ? `<span class="tag teal">Geen GMAT/GRE</span>` : ""}
         ${p.scholar ? `<button class="tag accent tag-link" onclick="closeModal(); showPage('scholarships', null, ${p.id})">Beurzen beschikbaar</button>` : ""}
       </div>
     </div>
     <div class="body">
       <div class="kv">
-        <div class="fact"><span>Tuition (total)</span><b>${tuitionDisplay(p)}</b></div>
+        <div class="fact"><span>Studiegeld (totaal)</span><b>${tuitionDisplay(p)}</b></div>
         <div class="fact"><span>Duur</span><b>${p.months} months</b></div>
         <div class="fact"><span>Instroom</span><b>${p.intake}</b></div>
-        <div class="fact"><span>Next deadline</span><b>${p.deadline}${deadlineIntakeLabel(p) ? `<span class="deadline-start">for ${deadlineIntakeLabel(p)} start</span>` : ""}</b></div>
+        <div class="fact"><span>Volgende deadline</span><b>${p.deadline}${deadlineIntakeLabel(p) ? `<span class="deadline-start">for ${deadlineIntakeLabel(p)} start</span>` : ""}</b></div>
         <div class="fact"><span>Werkervaring</span><b>${p.work}</b></div>
         <div class="fact"><span>GMAT / GRE</span><b>${p.gmat ? "Required" : "Not required"}</b></div>
         <div class="fact"><span>Werkvisum na afstuderen</span><b>${getVisa(p).label}</b></div>
@@ -3155,21 +3157,21 @@ function openModal(id) {
       ${modalEntryProfile(p)}
       ${(() => {
         const s = selectivityFor(p);
-        if (!s) return `<h5>How hard is it to get in?</h5><p class="scholar-section-sub" style="margin-bottom:0">${schoolName(p.school)} doesn't publish an admit rate for this programme. That's normal outside the MBA world, most master's degrees never release one, so judge competitiveness from the entry bar instead: ${p.gmat ? "a GMAT/GRE is expected" : "no GMAT/GRE is required"}, ${p.work === "0 yrs" ? "no work experience is needed" : `${p.work} of work experience is expected`}${p.extRank ? `, and the programme sits at ${p.extRank}` : ""}.</p>`;
-        return `<h5>How hard is it to get in?</h5>
+        if (!s) return `<h5>Hoe moeilijk is het om toegelaten te worden?</h5><p class="scholar-section-sub" style="margin-bottom:0">${schoolName(p.school)} doesn't publish an admit rate for this programme. That's normal outside the MBA world, most master's degrees never release one, so judge competitiveness from the entry bar instead: ${p.gmat ? "a GMAT/GRE is expected" : "no GMAT/GRE is required"}, ${p.work === "0 yrs" ? "no work experience is needed" : `${p.work} of work experience is expected`}${p.extRank ? `, and the programme sits at ${p.extRank}` : ""}.</p>`;
+        return `<h5>Hoe moeilijk is het om toegelaten te worden?</h5>
           <div class="elig elig-eligible">
             <div class="elig-head"><span class="dot"></span> ${s.band ? s.band.label : "Published cohort size"}${s.rate != null ? `, ${s.rate}% of applicants admitted` : ""}</div>
             <p>${s.summary} (${s.cohort}).${s.note ? ` ${s.note}` : ""}</p>
             <p style="margin-top:8px;">${s.caveat}</p>
           </div>`;
       })()}
-      <h5>Why this programme</h5>
+      <h5>Waarom deze opleiding</h5>
       <p>${p.blurb}</p>
-      <h5>What stands out</h5>
+      <h5>Wat opvalt</h5>
       <ul>${p.highlights.map(h => `<li>${h}</li>`).join("")}</ul>
       ${outcomesHTML(p)}
       <div class="actions">
-        <a class="btn" href="${p.link}" target="_blank" rel="noopener noreferrer">Official programme page ↗</a>
+        <a class="btn" href="${p.link}" target="_blank" rel="noopener noreferrer">Officiële opleidingspagina ↗</a>
         <button class="btn" id="modalEvents">Explore events to meet ${escapeHTML(schoolName(p.school))}</button>
         <button class="btn primary" id="modalCompare">
           ${isComparing ? "✓ Added to compare" : "+ Add to compare"}
@@ -3194,22 +3196,22 @@ function closeModal() {
    COMPARE PAGE
    ============================================================ */
 const COMPARE_ROWS = [
-  { label: "Tuition (total)", raw: true, get: p => `<a class="tuition-src" href="${p.link}" target="_blank" rel="noopener noreferrer" title="Read from ${escapeHTML(schoolName(p.school))}'s own programme page, checked ${DATA_CHECKED}. Confirm there before you rely on it."><b>${tuitionDisplay(p)}</b><sup>*</sup></a>` },
+  { label: "Studiegeld (totaal)", raw: true, get: p => `<a class="tuition-src" href="${p.link}" target="_blank" rel="noopener noreferrer" title="Read from ${escapeHTML(schoolName(p.school))}'s own programme page, checked ${DATA_CHECKED}. Confirm there before you rely on it."><b>${tuitionDisplay(p)}</b><sup>*</sup></a>` },
   { label: "Duur", get: p => `${p.months} months` },
   { label: "Taal", get: p => p.lang },
   { label: "Instroom", get: p => p.intake },
-  { label: "Next deadline", raw: true, get: p => `<b>${p.deadline}</b>${deadlineIntakeLabel(p) ? `<span class="deadline-start">for ${deadlineIntakeLabel(p)} start</span>` : ""}` },
+  { label: "Volgende deadline", raw: true, get: p => `<b>${p.deadline}</b>${deadlineIntakeLabel(p) ? `<span class="deadline-start">for ${deadlineIntakeLabel(p)} start</span>` : ""}` },
   { label: "Werkervaring", get: p => p.work },
   { label: "GMAT / GRE", get: p => p.gmat ? "Required" : "Not required" },
   { label: "Selectiviteit van toelating", raw: true, get: p => {
       const s = selectivityFor(p);
-      if (!s) return `<span class="planner-status muted" title="This school doesn't publish an admit rate for this programme, most non-MBA master's don't.">Not published</span>`;
+      if (!s) return `<span class="planner-status muted" title="Deze school publiceert geen toelatingspercentage voor deze opleiding; de meeste niet-MBA-masters doen dat niet.">Niet gepubliceerd</span>`;
       return `<span class="planner-status ${s.band ? s.band.tone : "muted"}">${s.band ? s.band.label : "Published"}</span>${s.rate != null ? `<span class="cg-sub">${s.rate}% admitted</span>` : ""}`;
     } },
   { label: "Regio", get: p => p.region },
   { label: "Werkvisum na afstuderen", get: p => getVisa(p).label },
   { label: "Fields", raw: true, get: p => `<div class="tags">${p.fields.map(f => `<span class="tag">${f}</span>`).join("")}${p.scholar ? `<span class="tag accent">Beurzen</span>` : ""}</div>` },
-  { label: "Official page", raw: true, get: p => `<a class="btn" href="${p.link}" target="_blank" rel="noopener noreferrer">Visit ↗</a>` },
+  { label: "Official page", raw: true, get: p => `<a class="btn" href="${p.link}" target="_blank" rel="noopener noreferrer">Bezoeken ↗</a>` },
 ];
 
 function compareGridHTML(list) {
@@ -3220,7 +3222,7 @@ function compareGridHTML(list) {
   list.forEach(p => {
     html += `
       <div class="cg-cell cg-head" data-id="${p.id}">
-        <button class="remove" data-uncompare="${p.id}" aria-label="Remove from comparison">
+        <button class="remove" data-uncompare="${p.id}" aria-label="Uit vergelijking verwijderen">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
         <span class="flag">${p.flag}</span>
@@ -3257,7 +3259,7 @@ function compareGridMobileHTML(list) {
   list.forEach(p => {
     html += `
       <div class="cg-cell cg-row-label cg-prog" data-id="${p.id}">
-        <button class="remove" data-uncompare="${p.id}" aria-label="Remove from comparison">
+        <button class="remove" data-uncompare="${p.id}" aria-label="Uit vergelijking verwijderen">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
         <span class="flag">${p.flag}</span>
@@ -3283,7 +3285,7 @@ function renderCompare() {
     + `<p class="compare-foot"><span>*</span> Tuition figures are read from each school's own programme page (checked ${DATA_CHECKED}). Confirm there before you rely on them.</p>`
     + (list.length < MAX_COMPARE ? `<p class="locator-placeholder" style="margin-top:6px">Head back to results to add up to ${MAX_COMPARE - list.length} more.</p>` : "")
     : `<div class="compare-empty">
-         <h3>Nothing to compare yet</h3>
+         <h3>Nog niets om te vergelijken</h3>
          <p>Tick "Add to compare" on any programme card, up to ${MAX_COMPARE} at a time, then come back here to see them side by side.</p>
        </div>`;
 
@@ -3314,7 +3316,7 @@ const PAGES = {
 // going back through Programmes. The label makes the shared shortlist explicit.
 const SHORTLIST_PAGES = [
   { key: "compare", label: "Vergelijk", short: "Vergelijk" },
-  { key: "checklist", label: "Aanvraagchecklist", short: "Checklist" },
+  { key: "checklist", label: "Checklist", short: "Checklist" },
   { key: "scholarships", label: "Beurzen", short: "Beurzen" },
 ];
 function renderShortlistSwitchers() {
@@ -3731,7 +3733,7 @@ function renderEvents(focusSchool) {
         <div class="event-top"><span class="event-kind in-person">📍 ${escapeHTML(e.city)}, ${escapeHTML(e.country)}</span><span class="event-series">≈${Math.round(km)} km away</span></div>
         <h3>${e.fair}</h3>
         <p class="event-date">📅 ${formatEventDate(e.date)}</p>
-        <span class="event-go">See details &amp; register ↗</span>
+        <span class="event-go">Bekijk details &amp; schrijf je in ↗</span>
       </a>`).join("");
     const heading = close.length
       ? `In-person events near ${escapeHTML(eventsLoc.label || eventsLoc.city)}`
@@ -3748,18 +3750,18 @@ function renderEvents(focusSchool) {
   const virtualCards = eventKindMatches("virtual")
     ? Object.entries(SCHOOL_EVENTS).map(([school, v]) => `
       <a class="event-card" href="${v.url}" target="_blank" rel="noopener noreferrer">
-        <div class="event-top"><span class="event-kind both">Official calendar</span><span class="event-series">${escapeHTML(schoolName(school))}</span></div>
+        <div class="event-top"><span class="event-kind both">Officiële kalender</span><span class="event-series">${escapeHTML(schoolName(school))}</span></div>
         <h3>${escapeHTML(schoolName(school))} events</h3>
         <p>${v.note}</p>
-        <span class="event-go">See the live calendar ↗</span>
+        <span class="event-go">Bekijk de live kalender ↗</span>
       </a>`).join("")
     : "";
 
   let html = focusCard + nearHTML;
-  if (virtualCards) html += `<h2 class="events-section-title">School events &amp; info sessions</h2><div class="events-grid">${virtualCards}</div>`;
+  if (virtualCards) html += `<h2 class="events-section-title">Schoolevenementen &amp; infosessies</h2><div class="events-grid">${virtualCards}</div>`;
   else if (eventKindMatches("virtual") && !eventKindMatches("in-person")) html += `<p class="locator-placeholder">No organiser checked publishes a genuine dated virtual calendar right now (Access Online and GMAC Tours turned out to be informational pages, not bookable sessions, so they're not listed here), only ${Object.keys(SCHOOL_EVENTS).length ? "the school pages above" : "in-person fairs are covered so far"}.</p>`;
   if (!eventsLoc && eventKindMatches("in-person")) html += `<p class="events-hint">Tip: voer hierboven een locatie in om gedateerde in-persoon beursstops in je buurt te zien (bijgewerkt terwijl je typt), of open een opleiding en gebruik <b>Ontdek evenementen om te ontmoeten</b> that school.</p>`;
-  box.innerHTML = html || `<p class="locator-placeholder">Nothing matches that filter right now.</p>`;
+  box.innerHTML = html || `<p class="locator-placeholder">Er komt nu niets overeen met die filter.</p>`;
 }
 
 function renderEnglishTestMatrix() {
@@ -3767,14 +3769,14 @@ function renderEnglishTestMatrix() {
   if (!box) return;
   const list = PROGRAMS.filter(p => state.compare.has(p.id));
   if (!list.length) {
-    box.innerHTML = `<p class="locator-placeholder">Nothing in Compare yet, add a few programmes from the results page to see this table.</p>`;
+    box.innerHTML = `<p class="locator-placeholder">Nog niets in Vergelijken, voeg een paar opleidingen toe vanaf de resultatenpagina om deze tabel te zien.</p>`;
     return;
   }
   const accepted = list.map(getEnglishTests);
   const universal = ENGLISH_TESTS.filter((_, i) => accepted.every(a => a.includes(ENGLISH_TESTS[i])));
 
   let html = `<div class="compare-grid-wrap"><div class="test-matrix" style="grid-template-columns:200px repeat(${list.length}, minmax(140px,1fr))">`;
-  html += `<div class="cg-cell cg-row-label cg-head">Test accepted?</div>`;
+  html += `<div class="cg-cell cg-row-label cg-head">Test geaccepteerd?</div>`;
   list.forEach(p => { html += `<div class="cg-cell cg-head"><span class="flag">${p.flag}</span><div class="school">${schoolName(p.school)}</div><div class="place">${p.program}</div></div>`; });
   ENGLISH_TESTS.forEach(test => {
     html += `<div class="cg-cell cg-row-label">${test}</div>`;
@@ -3904,11 +3906,11 @@ function applicationFit(p) {
 
 const APPLICATION_ROWS = [
   { label:"Next intake & deadline", raw:true, get:p => { const t = applicationTiming(p); return `<span class="planner-status ${t.tone}">${t.label}</span><span class="place">${t.detail}</span>`; } },
-  { label:"GMAT / GRE", raw:true, get:p => p.gmat ? `<span class="planner-status watch">Required / expected</span><span class="place">Book preparation early; confirm waiver policy.</span>` : `<span class="planner-status good">Not required in current record</span><span class="place">No test planning needed unless the official page changes.</span>` },
+  { label:"GMAT / GRE", raw:true, get:p => p.gmat ? `<span class="planner-status watch">Vereist / verwacht</span><span class="place">Book preparation early; confirm waiver policy.</span>` : `<span class="planner-status good">Niet vereist in de huidige gegevens</span><span class="place">No test planning needed unless the official page changes.</span>` },
   { label:"English language", raw:true, get:p => `<b>${getEnglishTests(p).join(", ")}</b><span class="place">Confirm score threshold and waiver rules.</span>` },
-  { label:"Academic documents", raw:true, get:p => `<b>Transcript + degree certificate</b><span class="place">Prepare certified translations or expected-graduation proof if needed.</span>` },
+  { label:"Academic documents", raw:true, get:p => `<b>Cijferlijst + diploma</b><span class="place">Prepare certified translations or expected-graduation proof if needed.</span>` },
   { label:"CV / résumé", raw:true, get:p => `<b>1–2 page CV</b><span class="place">Emphasise internships, projects and evidence relevant to ${p.fields[0]}.</span>` },
-  { label:"Essays & recommenders", raw:true, get:p => `<b>Prepare statement + references</b><span class="place">Confirm exact essay prompts and referee count on the application portal.</span>` },
+  { label:"Essays & recommenders", raw:true, get:p => `<b>Bereid motivatiebrief + referenties voor</b><span class="place">Confirm exact essay prompts and referee count on the application portal.</span>` },
   { label:"Funding & visa", raw:true, get:p => `<b>${tuitionDisplay(p)} tuition</b><span class="place">${getVisa(p).label}. Build proof-of-funds plan early.</span>` },
   { label:"Profile fit", raw:true, get:applicationFit },
 ];
@@ -3932,7 +3934,7 @@ function populateProgramDropdown(selectId) {
   const compareList = PROGRAMS.filter(p => state.compare.has(p.id));
   
   let html = compareList.length
-    ? `<option value="0">Choose a programme</option><optgroup label="Your Shortlist">${compareList.map(p => `<option value="${p.id}">${schoolName(p.school)}, ${p.program} (${p.flag} ${p.country})</option>`).join("")}</optgroup>`
+    ? `<option value="0">Kies een opleiding</option><optgroup label="Your Shortlist">${compareList.map(p => `<option value="${p.id}">${schoolName(p.school)}, ${p.program} (${p.flag} ${p.country})</option>`).join("")}</optgroup>`
     : `<option value="0">Add programmes to Compare first</option>`;
   
   sel.innerHTML = html;
@@ -4787,7 +4789,7 @@ function sectorChartHTML(mix) {
     paths += `<path d="M${x0} ${y0} A${R} ${R} 0 ${large} 1 ${x1} ${y1} L${xi1} ${yi1} A${r} ${r} 0 ${large} 0 ${xi0} ${yi0} Z" fill="${color}"><title>${escapeHTML(label)}: ${pct}%</title></path>`;
     legend += `<li><span class="sector-swatch" style="background:${color}"></span><span class="sector-name">${escapeHTML(label)}</span><b>${pct}%</b></li>`;
   });
-  return `<div class="sector-chart"><svg viewBox="0 0 132 132" width="128" height="128" role="img" aria-label="Industry breakdown of where graduates went">${paths}</svg><ul class="sector-legend">${legend}</ul></div>`;
+  return `<div class="sector-chart"><svg viewBox="0 0 132 132" width="128" height="128" role="img" aria-label="Sectorverdeling van waar afgestudeerden terechtkwamen">${paths}</svg><ul class="sector-legend">${legend}</ul></div>`;
 }
 
 function outcomesHTML(p) {
@@ -4802,7 +4804,7 @@ function outcomesHTML(p) {
   if (o.rankingSalary) rows.push(`<li>${o.rankingSalary}</li>`);
   if (!o.sectorMix && o.sectors && o.sectors.length) rows.push(`<li>Topsectoren: ${o.sectors.join(", ")}</li>`);
   if (o.employers && o.employers.length) rows.push(`<li>Recruiters onder meer: ${o.employers.join(", ")}</li>`);
-  if (o.alumniCount) rows.push(`<li>Alumni network: <b>${o.alumniCount}</b>${o.alumniCountries ? ` across ${o.alumniCountries}` : ""}</li>`);
+  if (o.alumniCount) rows.push(`<li>Alumninetwerk: <b>${o.alumniCount}</b>${o.alumniCountries ? ` across ${o.alumniCountries}` : ""}</li>`);
   if (o.note) rows.push(`<li>${o.note}</li>`);
   const chart = o.sectorMix && o.sectorMix.length
     ? `<p class="sector-chart-title">Sectoren waarin de lichting terechtkwam</p>${sectorChartHTML(o.sectorMix)}`
@@ -4835,14 +4837,14 @@ function applicationChecklistCard(p) {
   const t = applicationTiming(p), suffix = p.id, engTestsList = getEnglishTests(p), engTests = engTestsList.join(", "), strategy = applicationStrategyTips(p), essentials = PROGRAMME_ESSENTIALS[p.id];
   return `<div class="breakdown-card" data-checklist-card="${p.id}">
     <div class="checklist-card-toolbar"><button class="btn secondary" data-download-checklist="${p.id}" type="button">Download pdf</button><button class="btn secondary checklist-card-remove" data-remove-checklist="${p.id}" type="button">Verwijderen</button></div>
-    <div class="breakdown-head"><div class="breakdown-prog-meta"><span class="flag">${p.flag}</span><div><h3>${schoolName(p.school)}, ${p.program}</h3><p>${p.city}, ${p.country}, Taught in ${p.lang}, Target intake: ${p.intake}, Tuition: ${tuitionDisplay(p)}</p></div></div><div class="breakdown-summary-badge"><span class="total-support-label">Next application deadline</span><span class="total-support-val">${p.deadline}${deadlineIntakeLabel(p) ? ` for ${deadlineIntakeLabel(p)} start` : ""}, verify live</span></div></div>
-    <div class="programme-focus"><p><b>${t.label}.</b> ${t.detail}</p><p style="margin-top:9px"><a href="${p.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Open official application page ↗</a></p></div>
+    <div class="breakdown-head"><div class="breakdown-prog-meta"><span class="flag">${p.flag}</span><div><h3>${schoolName(p.school)}, ${p.program}</h3><p>${p.city}, ${p.country}, Taught in ${p.lang}, Target intake: ${p.intake}, Tuition: ${tuitionDisplay(p)}</p></div></div><div class="breakdown-summary-badge"><span class="total-support-label">Volgende aanmelddeadline</span><span class="total-support-val">${p.deadline}${deadlineIntakeLabel(p) ? ` for ${deadlineIntakeLabel(p)} start` : ""}, verify live</span></div></div>
+    <div class="programme-focus"><p><b>${t.label}.</b> ${t.detail}</p><p style="margin-top:9px"><a href="${p.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Open de officiële aanmeldpagina ↗</a></p></div>
     <div class="checklist-cats">
       <details class="cat-card" open><summary class="cat-head"><span class="cat-num">01</span><div><h3>GMAT / GRE</h3><p>${p.gmat ? "Required or expected in the catalogue record." : "Not required in the catalogue record."}</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">${p.gmat ? "Plan early and verify waiver and score requirements on the official portal." : "Focus on the other application steps unless the official portal says otherwise."}</p>${p.gmat ? gmatAvgNote(p) : ""}<div class="prep-jump"><button type="button" class="btn primary" data-jump-prep>Volledige GMAT- en GRE-gids, opbouw, scores, achtwekenplan ↓</button><span class="prep-jump-note">Testformaat, tactieken per onderdeel, reserveren en bronnen, onderaan deze pagina.</span></div></div></details>
-      <details class="cat-card"><summary class="cat-head"><span class="cat-num">02</span><div><h3>English-language test</h3><p>Recorded accepted tests: ${engTests}.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">Confirm minimum score and exemption rules on ${schoolName(p.school)}'s official portal.</p><div class="locator"><label class="pfield"><span>Find an English-test centre near you</span><input class="loc-search" id="focusEnglishLocation${suffix}" list="locationList" placeholder="Any city or address…" autocomplete="off"></label><button class="btn primary" data-find-english="${suffix}" type="button">Zoek testcentra</button></div><div class="locator-results" id="focusEnglishResults${suffix}"></div><h4>Preparation resources</h4><ul class="resource-list">${engTestsList.includes("TOEFL iBT") ? `<li><a href="https://www.ets.org/toefl.html" target="_blank" rel="noopener noreferrer">ETS TOEFL Official Prep</a></li>` : ""}${engTestsList.includes("IELTS Academic") ? `<li><a href="https://www.ielts.org" target="_blank" rel="noopener noreferrer">IELTS official practice</a></li>` : ""}${engTestsList.includes("Duolingo English Test") ? `<li><a href="https://englishtest.duolingo.com" target="_blank" rel="noopener noreferrer">Duolingo English Test</a>, remote option, accepted per this catalogue's regional record.</li>` : ""}${engTestsList.includes("PTE Academic") ? `<li><a href="https://www.pearsonpte.com" target="_blank" rel="noopener noreferrer">PTE Academic Official Prep</a></li>` : ""}</ul></div></details>
-      <details class="cat-card"><summary class="cat-head"><span class="cat-num">03</span><div><h3>Academic documents &amp; CV</h3><p>Transcript, degree certificate/expected-graduation proof and CV.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.docs}</div>` : ""}<ul class="tip-list"><li>Prepare official transcripts and certified English translations if needed.</li><li>Prepare your degree certificate or expected-graduation letter.</li><li>${strategy.cv}</li></ul></div></details>
-      <details class="cat-card"><summary class="cat-head"><span class="cat-num">04</span><div><h3>Motivatiebrief en essays</h3><p>Programme-specific motivation and career goals.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.essays}</div>` : `<p class="scholar-section-sub">Not individually researched for this programme yet. As a general guide, most competitive masters/MBA essays run 400–650 words per prompt across 1–3 prompts, and cover: (1) why this programme specifically, not master's degrees in general, (2) your relevant story/evidence, (3) concrete short- and long-term goals it enables. Confirm the actual prompts and word limits on the official portal, they change most cycles.</p>`}<ul class="tip-list"><li>${strategy.sopField}</li><li>${strategy.sop}</li><li>Verify prompts, word count and submission format on the official portal.</li><li>Leave time for several revisions and an outside reader.</li></ul><h4>Widely-used essay resources</h4><ul class="resource-list"><li><a href="https://www.mbamission.com/blog/" target="_blank" rel="noopener noreferrer">mbaMission essay guides</a>, free, school-specific essay breakdowns updated each cycle.</li><li><a href="https://poetsandquants.com/" target="_blank" rel="noopener noreferrer">Poets&amp;Quants</a>, the most-read MBA admissions news site, with extensive essay and application-strategy coverage.</li>${SCHOOL_CLEARADMIT[p.school] ? `<li><a href="${SCHOOL_CLEARADMIT[p.school]}" target="_blank" rel="noopener noreferrer">${escapeHTML(schoolName(p.school))} on Clear Admit</a>, real admit interviews and essay analysis for this specific school.</li>` : ""}</ul></div></details>
-      <details class="cat-card"><summary class="cat-head"><span class="cat-num">05</span><div><h3>Aanbevelingsbrieven</h3><p>Choose referees and give them time.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.recLetters}</div>` : ""}<ul class="tip-list"><li>${strategy.referees}</li><li>Structure guidance for your recommender: 1) how they know you and for how long, 2) one or two specific, evidenced examples of your impact or growth (not generic praise), 3) a direct comparison to peers if possible (e.g. "top 10% of the analysts I've managed"), 4) a closing statement of confident support for this specific programme.</li><li>Send your CV, goals and this programme's deadline at least 4–6 weeks early.</li><li>Verify the exact number and type of references directly in the application portal, it varies by programme and changes most cycles.</li></ul></div></details>
+      <details class="cat-card"><summary class="cat-head"><span class="cat-num">02</span><div><h3>Engelse taaltest</h3><p>Recorded accepted tests: ${engTests}.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">Confirm minimum score and exemption rules on ${schoolName(p.school)}'s official portal.</p><div class="locator"><label class="pfield"><span>Vind een Engels-testcentrum in je buurt</span><input class="loc-search" id="focusEnglishLocation${suffix}" list="locationList" placeholder="Elke stad of adres…" autocomplete="off"></label><button class="btn primary" data-find-english="${suffix}" type="button">Zoek testcentra</button></div><div class="locator-results" id="focusEnglishResults${suffix}"></div><h4>Voorbereidingsmateriaal</h4><ul class="resource-list">${engTestsList.includes("TOEFL iBT") ? `<li><a href="https://www.ets.org/toefl.html" target="_blank" rel="noopener noreferrer">ETS TOEFL Official Prep</a></li>` : ""}${engTestsList.includes("IELTS Academic") ? `<li><a href="https://www.ielts.org" target="_blank" rel="noopener noreferrer">IELTS official practice</a></li>` : ""}${engTestsList.includes("Duolingo English Test") ? `<li><a href="https://englishtest.duolingo.com" target="_blank" rel="noopener noreferrer">Duolingo English Test</a>, remote option, accepted per this catalogue's regional record.</li>` : ""}${engTestsList.includes("PTE Academic") ? `<li><a href="https://www.pearsonpte.com" target="_blank" rel="noopener noreferrer">PTE Academic Official Prep</a></li>` : ""}</ul></div></details>
+      <details class="cat-card"><summary class="cat-head"><span class="cat-num">03</span><div><h3>Academic documents &amp; CV</h3><p>Transcript, degree certificate/expected-graduation proof and CV.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Onderzocht voor deze opleiding:</b> ${essentials.docs}</div>` : ""}<ul class="tip-list"><li>Bereid officiële cijferlijsten en beëdigde Engelse vertalingen voor indien nodig.</li><li>Bereid je diploma of verwachte-afstudeerbrief voor.</li><li>${strategy.cv}</li></ul></div></details>
+      <details class="cat-card"><summary class="cat-head"><span class="cat-num">04</span><div><h3>Motivatiebrief en essays</h3><p>Opleidingsspecifieke motivatie en carrièredoelen.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Onderzocht voor deze opleiding:</b> ${essentials.essays}</div>` : `<p class="scholar-section-sub">Not individually researched for this programme yet. As a general guide, most competitive masters/MBA essays run 400–650 words per prompt across 1–3 prompts, and cover: (1) why this programme specifically, not master's degrees in general, (2) your relevant story/evidence, (3) concrete short- and long-term goals it enables. Confirm the actual prompts and word limits on the official portal, they change most cycles.</p>`}<ul class="tip-list"><li>${strategy.sopField}</li><li>${strategy.sop}</li><li>Verify prompts, word count and submission format on the official portal.</li><li>Leave time for several revisions and an outside reader.</li></ul><h4>Veelgebruikte essaybronnen</h4><ul class="resource-list"><li><a href="https://www.mbamission.com/blog/" target="_blank" rel="noopener noreferrer">mbaMission essay guides</a>, free, school-specific essay breakdowns updated each cycle.</li><li><a href="https://poetsandquants.com/" target="_blank" rel="noopener noreferrer">Poets&amp;Quants</a>, the most-read MBA admissions news site, with extensive essay and application-strategy coverage.</li>${SCHOOL_CLEARADMIT[p.school] ? `<li><a href="${SCHOOL_CLEARADMIT[p.school]}" target="_blank" rel="noopener noreferrer">${escapeHTML(schoolName(p.school))} on Clear Admit</a>, real admit interviews and essay analysis for this specific school.</li>` : ""}</ul></div></details>
+      <details class="cat-card"><summary class="cat-head"><span class="cat-num">05</span><div><h3>Aanbevelingsbrieven</h3><p>Kies referenten en geef ze tijd.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Onderzocht voor deze opleiding:</b> ${essentials.recLetters}</div>` : ""}<ul class="tip-list"><li>${strategy.referees}</li><li>Structure guidance for your recommender: 1) how they know you and for how long, 2) one or two specific, evidenced examples of your impact or growth (not generic praise), 3) a direct comparison to peers if possible (e.g. "top 10% of the analysts I've managed"), 4) a closing statement of confident support for this specific programme.</li><li>Send your CV, goals and this programme's deadline at least 4–6 weeks early.</li><li>Verify the exact number and type of references directly in the application portal, it varies by programme and changes most cycles.</li></ul></div></details>
       ${destinationRequirementsHTML(p)}
     </div></div>`;
 }
@@ -5028,7 +5030,7 @@ const DESTINATION_REQUIREMENTS = {
 function destinationRequirementsHTML(p) {
   const d = DESTINATION_REQUIREMENTS[p.country];
   if (!d) {
-    return `<details class="cat-card"><summary class="cat-head"><span class="cat-num">06</span><div><h3>Country requirements &amp; visa</h3><p>${p.country}, not individually mapped yet.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">
+    return `<details class="cat-card"><summary class="cat-head"><span class="cat-num">06</span><div><h3>Landvereisten &amp; visum</h3><p>${p.country}, not individually mapped yet.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">
       <p class="scholar-section-sub">The country-level steps for ${p.country} haven't been individually researched for this catalogue yet, so nothing specific is claimed here. What applies to every destination: confirm whether your degree needs formal recognition or a credential evaluation, what proof of funds the consulate wants and for how long it must have been held, and how long the visa appointment queue is in your own country, that queue, not the application, is usually what decides whether you make the intake.</p>
       <p class="scholar-section-sub" style="margin-top:8px"><b>Recorded post-study route:</b> ${getVisa(p).label}.</p></div></details>`;
   }
@@ -5037,7 +5039,7 @@ function destinationRequirementsHTML(p) {
   const euCitizen = EU_EEA_COUNTRIES.includes(state.profile.citizenship);
   const euDestination = EU_EEA_COUNTRIES.includes(p.country);
 
-  return `<details class="cat-card"><summary class="cat-head"><span class="cat-num">06</span><div><h3>Country requirements &amp; visa</h3><p>${p.country}, ${d.visa}</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">
+  return `<details class="cat-card"><summary class="cat-head"><span class="cat-num">06</span><div><h3>Landvereisten &amp; visum</h3><p>${p.country}, ${d.visa}</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">
     ${isHome ? `<div class="gmat-avg-note gmat-avg-verified"><b>You're applying at home.</b> As a ${p.country} citizen the visa and credential-recognition steps below don't apply to you, skip to the academic requirements. They're kept here because they decide the timeline for everyone else in your cohort.</div>`
       : euCitizen && euDestination ? `<div class="gmat-avg-note gmat-avg-verified"><b>Free movement applies.</b> As a ${state.profile.citizenship} citizen studying in ${p.country}, you don't need a student visa or proof of funds, you register locally instead. The document-recognition and translation steps below still apply, and so do the deadlines.</div>` : ""}
     <p class="scholar-section-sub">Recorded route: <b>${d.visa}</b>. After graduation: <b>${getVisa(p).label}</b>.</p>
@@ -5105,7 +5107,7 @@ function renderApplicationChecklist() {
   const shortlist = PROGRAMS.filter(p => state.compare.has(p.id));
   picker.innerHTML = shortlist.length
     ? shortlist.map(p => '<label class="checklist-picker-item"><input type="checkbox" value="' + p.id + '" ' + (state.checklist.has(p.id) ? "checked" : "") + '><span><strong>' + p.flag + ' ' + p.school + '</strong><small>' + p.program + '</small></span></label>').join("")
-    : '<div class="planner-empty"><strong>Your shortlist is empty</strong>Add programmes from the results page, then choose which application plans to view here.<button class="btn primary planner-empty-cta" data-page-jump="programmes" type="button">Browse programmes</button></div>';
+    : '<div class="planner-empty"><strong>Je shortlist is leeg</strong>Add programmes from the results page, then choose which application plans to view here.<button class="btn primary planner-empty-cta" data-page-jump="programmes" type="button">Opleidingen bekijken</button></div>';
   picker.querySelectorAll("input").forEach(input => input.addEventListener("change", () => {
     const id = +input.value;
     input.checked ? state.checklist.add(id) : state.checklist.delete(id);
@@ -5832,9 +5834,9 @@ function scholarshipEligibility(p) {
 }
 
 const SCHOLARSHIP_ROWS = [
-  { label:"School funding", raw:true, get:p => p.scholar ? `<span class="planner-status good">Scholarship / fee reduction flagged</span><span class="place">Review ${schoolName(p.school)}'s award criteria and application route.</span>` : `<span class="planner-status muted">No award flag in this catalogue</span><span class="place">Still check the official programme page; funding changes often.</span>` },
+  { label:"School funding", raw:true, get:p => p.scholar ? `<span class="planner-status good">Beurs / vermindering van studiegeld aangegeven</span><span class="place">Review ${schoolName(p.school)}'s award criteria and application route.</span>` : `<span class="planner-status muted">No award flag in this catalogue</span><span class="place">Still check the official programme page; funding changes often.</span>` },
   { label:"Government opportunity", raw:true, get:scholarshipEligibility },
-  { label:"Your citizenship signal", raw:true, get:p => state.profile.citizenship ? `<b>${state.profile.citizenship} citizen</b><span class="place">Funding rules can depend on citizenship, not where you studied.</span>` : `<span class="planner-status watch">Add citizenship to personalise this</span><span class="place">Government schemes often use it as the first eligibility check.</span>` },
+  { label:"Your citizenship signal", raw:true, get:p => state.profile.citizenship ? `<b>${state.profile.citizenship} citizen</b><span class="place">Financieringsregels kunnen afhangen van je nationaliteit, niet van waar je gestudeerd hebt.</span>` : `<span class="planner-status watch">Add citizenship to personalise this</span><span class="place">Government schemes often use it as the first eligibility check.</span>` },
   { label:"Target intake & school deadline", raw:true, get:p => { const t = applicationTiming(p); return `<span class="planner-status ${t.tone}">${t.label}</span><span class="place">${t.detail}</span>`; } },
   { label:"Funding preparation", raw:true, get:p => `<b>Plan for ${tuitionDisplay(p)} + living costs</b><span class="place">Prepare proof of funds, scholarship essays and referee support before the school deadline.</span>` },
 ];
@@ -5895,26 +5897,26 @@ function openFundingModal(progId, type) {
     body = `
       <div class="kv">
         <div class="fact"><span>Programme</span><b>${p.program}</b></div>
-        <div class="fact"><span>School Tuition</span><b>${tuitionDisplay(p)}</b></div>
+        <div class="fact"><span>Studiegeld school</span><b>${tuitionDisplay(p)}</b></div>
         <div class="fact"><span>Potential Support</span><b>${data.schoolAwardAmount}</b></div>
-        <div class="fact"><span>Application Deadline</span><b>${p.deadline}${deadlineIntakeLabel(p) ? `<span class="deadline-start">for ${deadlineIntakeLabel(p)} start</span>` : ""}</b></div>
+        <div class="fact"><span>Aanmelddeadline</span><b>${p.deadline}${deadlineIntakeLabel(p) ? `<span class="deadline-start">for ${deadlineIntakeLabel(p)} start</span>` : ""}</b></div>
       </div>
       <div class="elig elig-eligible">
-        <div class="elig-head"><span class="dot"></span> How to Apply</div>
+        <div class="elig-head"><span class="dot"></span> Hoe aanmelden</div>
         <p>${data.schoolAwardDesc}</p>
 
       </div>
       <div style="margin-top:20px;text-align:right;">
-        <a href="${data.schoolAwardLink || `https://www.google.com/search?q=${encodeURIComponent(`${schoolName(p.school)} ${data.schoolAwardName}`)}`}" target="_blank" rel="noopener noreferrer" class="btn btn-action">More information on that scholarship ↗</a>
+        <a href="${data.schoolAwardLink || `https://www.google.com/search?q=${encodeURIComponent(`${schoolName(p.school)} ${data.schoolAwardName}`)}`}" target="_blank" rel="noopener noreferrer" class="btn btn-action">Meer informatie over die beurs ↗</a>
       </div>
     `;
   } else if (type === "flex") {
     title = `${data.paymentPlanName}, ${schoolName(p.school)}`;
     body = `
       <div class="kv">
-        <div class="fact"><span>Total Tuition</span><b>${tuitionDisplay(p)}</b></div>
-        <div class="fact"><span>Term Installments</span><b>Not verified</b></div>
-        <div class="fact"><span>Interest Rate</span><b>Not verified</b></div>
+        <div class="fact"><span>Totaal studiegeld</span><b>${tuitionDisplay(p)}</b></div>
+        <div class="fact"><span>Term Installments</span><b>Niet geverifieerd</b></div>
+        <div class="fact"><span>Interest Rate</span><b>Niet geverifieerd</b></div>
         <div class="fact"><span>Duur</span><b>${p.months} Months</b></div>
       </div>
       <div class="elig elig-eligible">
@@ -5923,7 +5925,7 @@ function openFundingModal(progId, type) {
         <p style="margin-top:8px;">Confirm any deposit, instalment or lender option with the school before making a funding decision.</p>
       </div>
       <div style="margin-top:20px;text-align:right;">
-        <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="btn btn-action">Official Financial Aid Details ↗</a>
+        <a href="${p.link}" target="_blank" rel="noopener noreferrer" class="btn btn-action">Officiële financiële-steun-details ↗</a>
       </div>
     `;
   }
@@ -5954,7 +5956,7 @@ function renderScholarshipBreakdown() {
     targetPrograms = PROGRAMS.filter(p => state.compare.has(p.id));
   }
   if (!targetPrograms.length) {
-    container.innerHTML = `<div class="planner-empty"><strong>Kies een opleiding uit je shortlist</strong>Funding options are only shown for programmes you have added to Compare, so the results stay specific to your application.</div>`;
+    container.innerHTML = `<div class="planner-empty"><strong>Kies een opleiding uit je shortlist</strong>Financieringsopties worden alleen getoond voor opleidingen die je aan Vergelijken hebt toegevoegd, zodat de resultaten specifiek voor jouw aanmelding blijven.</div>`;
     return;
   }
   
@@ -6006,7 +6008,7 @@ function renderScholarshipBreakdown() {
               </div>
             </div>
             <div class="row-action">
-              <button class="btn btn-sm action-btn" onclick="openFundingModal(${p.id}, 'merit')">View Award &amp; Apply</button>
+              <button class="btn btn-sm action-btn" onclick="openFundingModal(${p.id}, 'merit')">Bekijk beurs &amp; aanvragen</button>
             </div>
           </div>` : ""}
 
@@ -6028,7 +6030,7 @@ function renderScholarshipBreakdown() {
               </div>
             </div>
             <div class="row-action">
-              <a href="${g.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Official Grant Portal ↗</a>
+              <a href="${g.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Officieel beurzenportaal ↗</a>
             </div>
           </div>`).join("")}
 
@@ -6048,7 +6050,7 @@ function renderScholarshipBreakdown() {
               </div>
             </div>
             <div class="row-action">
-              <a href="${hf.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Official Portal ↗</a>
+              <a href="${hf.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Officieel portaal ↗</a>
             </div>
           </div>`).join("")}
 
@@ -6070,7 +6072,7 @@ function renderScholarshipBreakdown() {
               </div>
             </div>
             <div class="row-action">
-              <a href="${gs.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Official Portal ↗</a>
+              <a href="${gs.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Officieel portaal ↗</a>
             </div>
           </div>`).join("")}
 
@@ -6165,13 +6167,13 @@ function renderFundingDirectory() {
     c.setAttribute("aria-selected", String(c.dataset.fundTab === fundingDirTab)));
 
   const empty = fundingDirTab === "home" && !citizenship
-    ? `<div class="planner-empty" style="grid-column:1/-1"><strong>Set your country of citizenship above</strong>Home-country funding is the one axis that depends entirely on where you're from, so there's nothing to show until that's set.</div>`
+    ? `<div class="planner-empty" style="grid-column:1/-1"><strong>Stel hierboven je land van nationaliteit in</strong>Home-country funding is the one axis that depends entirely on where you're from, so there's nothing to show until that's set.</div>`
     : `<div class="planner-empty" style="grid-column:1/-1"><strong>Nog niets dat aan dit filter voldoet</strong>Add programmes to your shortlist, or set your citizenship, to see which schemes you can actually compete for.</div>`;
 
   grid.innerHTML = shown.length ? shown.map(g => `
     <div class="scholar-gov-card${g.ownCountry || g.verdict === "no" ? " scholar-gov-dim" : ""}">
       ${g.verdict === "no" ? `<span class="tag" style="margin-bottom:6px;display:inline-block">Not open to ${citizenship} citizens</span>` : ""}
-      ${g.matchesShortlist ? `<span class="tag accent" style="margin-bottom:6px;display:inline-block">Matches your shortlist</span>` : ""}
+      ${g.matchesShortlist ? `<span class="tag accent" style="margin-bottom:6px;display:inline-block">Komt overeen met je shortlist</span>` : ""}
       <span class="flag">${g.flag || "🌍"}</span>
       <h4>${g.name}</h4>
       ${g.support ? `<p class="scholar-gov-support">${g.support}</p>` : ""}
@@ -6291,7 +6293,7 @@ document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal()
   if (el) {
     el.addEventListener("change", e => {
       if (id === "sCitizenship") state.profile.citizenship = e.target.value;
-      $("scholarshipApply").textContent = "Apply to scholarships";
+      $("scholarshipApply").textContent = "Beurzen aanvragen";
       $("scholarshipApplyNote").textContent = "Your changes are ready, press Apply to refresh the funding options.";
     });
   }

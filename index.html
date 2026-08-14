@@ -315,9 +315,11 @@
   .board { display: grid; grid-template-columns: 236px 1fr; gap: 40px; padding: 44px 0 90px; align-items: start; }
 
   /* ---------- filters ---------- */
+  /* Filters flow with the page at their full natural height (no internal scroll box),
+     so scrolling the results list reveals the whole filter set rather than pinning a
+     short, separately-scrolling panel. align-self:start keeps the column top-aligned. */
   aside.filters {
-    position: sticky; top: 76px; max-height: calc(100vh - 88px);
-    overflow-y: auto; overscroll-behavior: contain; padding-right: 4px;
+    align-self: start; padding-right: 6px; padding-bottom: 24px;
   }
   .filters-toggle { display: none; }
   aside.filters::-webkit-scrollbar { width: 6px; }
