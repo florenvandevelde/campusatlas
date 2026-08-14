@@ -1234,18 +1234,10 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
       <details class="cat-card" open>
         <summary class="cat-head">
           <span class="cat-num">01</span>
-          <div><h3>GMAT / GRE</h3><p>Trouvez un centre d'examen près de chez vous, où réviser et qui peut vous accompagner.</p></div>
+          <div><h3>GMAT / GRE</h3><p>Where to study and who can tutor you.</p></div>
           <span class="cat-chevron"><svg width="11" height="11" viewBox="0 0 10 6"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round"/></svg></span>
         </summary>
         <div class="cat-body">
-          <div class="locator">
-            <label class="pfield"><span>Votre localisation</span>
-              <input class="loc-search" id="gmatLocation" list="locationList" type="text" placeholder="Search for a city…" autocomplete="off" />
-            </label>
-            <button class="btn primary" id="gmatFindBtn" type="button">Trouver des centres</button>
-          </div>
-          <p class="locator-privacy">Pressing this sends the place name you type to <a href="https://nominatim.openstreetmap.org/" target="_blank" rel="noopener noreferrer">OpenStreetMap's Nominatim</a> géocodeur, et charge les tuiles de carte depuis OpenStreetMap. Rien ne quitte votre navigateur tant que vous n'appuyez pas. <button type="button" class="linklike" data-page-jump="legal">Comment nous traitons les données</button></p>
-          <div class="locator-results" id="gmatResults"></div>
           <h4>Ressources et cours particuliers</h4>
           <ul class="resource-list">
             <li><a href="https://www.mba.com" target="_blank" rel="noopener noreferrer">GMAT Official Starter Kit &amp; Practice Exams (mba.com)</a>, des tests blancs officiels gratuits directement de l'organisateur.</li>
@@ -1272,7 +1264,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
             </label>
             <button class="btn primary" id="toeflFindBtn" type="button">Trouver des centres</button>
           </div>
-          <p class="locator-privacy">Pressing this sends the place name you type to <a href="https://nominatim.openstreetmap.org/" target="_blank" rel="noopener noreferrer">OpenStreetMap's Nominatim</a> géocodeur, et charge les tuiles de carte depuis OpenStreetMap. Rien ne quitte votre navigateur tant que vous n'appuyez pas. <button type="button" class="linklike" data-page-jump="legal">Comment nous traitons les données</button></p>
+          <p class="locator-privacy">Pressing this sends the place name you type to <a href="https://nominatim.openstreetmap.org/" target="_blank" rel="noopener noreferrer">OpenStreetMap's Nominatim</a> geocoder to place your search. Nothing leaves your browser until you press it. <button type="button" class="linklike" data-page-jump="legal">Comment nous traitons les données</button></p>
           <div class="locator-results" id="toeflResults"></div>
           <h4>Ressources de révision</h4>
           <ul class="resource-list">
@@ -2068,8 +2060,6 @@ async function renderLocator(kind, resultsElId, selectElId) {
   let loc = null;
   try { loc = await geocodeLocation(query); } catch (_) { /* live Maps search links below still work without geocoding */ }
 
-  const mapId = `${resultsElId}-map`;
-  const map = loc ? `<div id="${mapId}" class="locator-map"></div>` : "";
   const place = loc ? loc.label.split(",").slice(0, 2).map(x => x.trim()).filter(Boolean).join(", ") : query;
 
   // Two actions, both anchored to the place that was actually geocoded: one that shows
@@ -2093,20 +2083,17 @@ async function renderLocator(kind, resultsElId, selectElId) {
     .map(([label, href]) => `<a class="btn secondary" target="_blank" rel="noopener noreferrer" href="${href}">${escapeHTML(label)} ↗</a>`).join("");
 
   const centreList = loc
-    ? `<p class="locator-placeholder">Map centred on <b>${escapeHTML(place)}</b>. We don't keep our own centre directory, no open dataset covers these operators reliably, and a list that's empty where you live is worse than none. The buttons below open live, always-current centre listings already centred on this place.</p>`
-    : `<p class="locator-placeholder">We couldn't place "${escapeHTML(query)}" on the map. Try a nearby city, or open one of the official booking pages below.</p>`;
+    ? `<p class="locator-placeholder">Showing live centre listings for <b>${escapeHTML(place)}</b>. We don't keep our own centre directory, no open dataset covers these operators reliably, and a list that's empty where you live is worse than none. The buttons below open live, always-current centre listings already centred on this place.</p>`
+    : `<p class="locator-placeholder">We couldn't place "${escapeHTML(query)}". Try a nearby city, or open one of the official booking pages below.</p>`;
 
   const costNote = kind === "gmat"
     ? "Approximate cost: GMAT Focus ~$275 USD worldwide, GRE General Test ~$220 USD (varies slightly by country). Always check the exact local fee when you book."
     : "Approximate cost: TOEFL iBT ~$245 USD, IELTS ~$225 USD, Duolingo English Test ~$65 USD (cheaper, fully remote). Fees vary by country, confirm when you book.";
 
   box.innerHTML = `
-    ${map}
     ${centreList}
     <div class="live-map-links">${links}</div>
     <div class="cost-note">${costNote}</div>`;
-
-  if (loc) renderLocatorMap(mapId, loc, []);
 }
 
 /* ============================================================
@@ -3422,6 +3409,7 @@ const EVENT_CITY_COORDS = {
   "Sofia,Bulgaria": [42.6977, 23.3219], "Belgrade,Serbia": [44.7866, 20.4489],
   "Athens,Greece": [37.9838, 23.7275], "Istanbul,Türkiye": [41.0082, 28.9784],
   "Brussels,Belgium": [50.8503, 4.3517], "Düsseldorf,Germany": [51.2277, 6.7735],
+  "Leuven,Belgium": [50.8798, 4.7005], "Ghent,Belgium": [51.0543, 3.7174],
   "Tokyo,Japan": [35.6762, 139.6503], "Seoul,South Korea": [37.5665, 126.9780],
   "Beijing,China": [39.9042, 116.4074], "Shanghai,China": [31.2304, 121.4737],
   "Guangzhou,China": [23.1291, 113.2644], "Hong Kong,Hong Kong SAR": [22.3193, 114.1694],
@@ -3489,6 +3477,11 @@ const EVENTS_CALENDAR = (() => {
     ["Access Masters", "Bucharest", "Romania", "2026-11-25", MAS+"/registration/masters/bucharest/19464"], ["Access Masters", "Sofia", "Bulgaria", "2026-11-29", MAS+"/registration/masters/sofia/19467"],
     ["Access Masters", "Belgrade", "Serbia", "2026-12-01", MAS+"/registration/masters/belgrade/19469"], ["Access Masters", "Athens", "Greece", "2026-12-03", MAS+"/registration/masters/athens/19410"],
     ["Access Masters", "Istanbul", "Türkiye", "2026-12-06", MAS+"/registration/masters/istanbul/19450"],
+    // student.be's "My Business School Event": a free business-school fair (1-on-1 info
+    // sessions + live presentations + open fair) in Belgium. Dates/year read off the
+    // organiser's own page (© 2026, "mybs_2026" banner): Leuven 5 Nov, Ghent 6 Nov 2026.
+    ["My Business School Event", "Leuven", "Belgium", "2026-11-05", "https://www.student.be/en/mybusinessschoolevent/"],
+    ["My Business School Event", "Ghent", "Belgium", "2026-11-06", "https://www.student.be/en/mybusinessschoolevent/"],
   ];
   // QS's own schedule page (events.qs.com/schedule) was deliberately left out: reading
   // it directly shows it is a B2B booking page for universities/schools ("build your
@@ -4845,7 +4838,7 @@ function applicationChecklistCard(p) {
     <div class="breakdown-head"><div class="breakdown-prog-meta"><span class="flag">${p.flag}</span><div><h3>${schoolName(p.school)}, ${p.program}</h3><p>${p.city}, ${p.country}, Taught in ${p.lang}, Target intake: ${p.intake}, Tuition: ${tuitionDisplay(p)}</p></div></div><div class="breakdown-summary-badge"><span class="total-support-label">Next application deadline</span><span class="total-support-val">${p.deadline}${deadlineIntakeLabel(p) ? ` for ${deadlineIntakeLabel(p)} start` : ""}, verify live</span></div></div>
     <div class="programme-focus"><p><b>${t.label}.</b> ${t.detail}</p><p style="margin-top:9px"><a href="${p.link}" target="_blank" rel="noopener noreferrer" class="btn btn-sm action-btn">Open official application page ↗</a></p></div>
     <div class="checklist-cats">
-      <details class="cat-card" open><summary class="cat-head"><span class="cat-num">01</span><div><h3>GMAT / GRE</h3><p>${p.gmat ? "Required or expected in the catalogue record." : "Not required in the catalogue record."}</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">${p.gmat ? "Plan early and verify waiver and score requirements on the official portal." : "Focus on the other application steps unless the official portal says otherwise."}</p>${p.gmat ? gmatAvgNote(p) : ""}<div class="locator"><label class="pfield"><span>Find a test centre near you</span><input class="loc-search" id="focusGmatLocation${suffix}" list="locationList" placeholder="Any city or address…" autocomplete="off"></label><button class="btn primary" data-find-gmat="${suffix}" type="button">Trouver des centres</button></div><div class="locator-results" id="focusGmatResults${suffix}"></div><div class="prep-jump"><button type="button" class="btn primary" data-jump-prep>Guide complet GMAT et GRE, structure, notation, plan de 8 semaines ↓</button><span class="prep-jump-note">Format du test, tactiques par section, réservation et ressources, en bas de cette page.</span></div></div></details>
+      <details class="cat-card" open><summary class="cat-head"><span class="cat-num">01</span><div><h3>GMAT / GRE</h3><p>${p.gmat ? "Required or expected in the catalogue record." : "Not required in the catalogue record."}</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">${p.gmat ? "Plan early and verify waiver and score requirements on the official portal." : "Focus on the other application steps unless the official portal says otherwise."}</p>${p.gmat ? gmatAvgNote(p) : ""}<div class="prep-jump"><button type="button" class="btn primary" data-jump-prep>Guide complet GMAT et GRE, structure, notation, plan de 8 semaines ↓</button><span class="prep-jump-note">Format du test, tactiques par section, réservation et ressources, en bas de cette page.</span></div></div></details>
       <details class="cat-card"><summary class="cat-head"><span class="cat-num">02</span><div><h3>English-language test</h3><p>Recorded accepted tests: ${engTests}.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body"><p class="scholar-section-sub">Confirm minimum score and exemption rules on ${schoolName(p.school)}'s official portal.</p><div class="locator"><label class="pfield"><span>Find an English-test centre near you</span><input class="loc-search" id="focusEnglishLocation${suffix}" list="locationList" placeholder="Any city or address…" autocomplete="off"></label><button class="btn primary" data-find-english="${suffix}" type="button">Trouver des centres</button></div><div class="locator-results" id="focusEnglishResults${suffix}"></div><h4>Preparation resources</h4><ul class="resource-list">${engTestsList.includes("TOEFL iBT") ? `<li><a href="https://www.ets.org/toefl.html" target="_blank" rel="noopener noreferrer">ETS TOEFL Official Prep</a></li>` : ""}${engTestsList.includes("IELTS Academic") ? `<li><a href="https://www.ielts.org" target="_blank" rel="noopener noreferrer">IELTS official practice</a></li>` : ""}${engTestsList.includes("Duolingo English Test") ? `<li><a href="https://englishtest.duolingo.com" target="_blank" rel="noopener noreferrer">Duolingo English Test</a>, remote option, accepted per this catalogue's regional record.</li>` : ""}${engTestsList.includes("PTE Academic") ? `<li><a href="https://www.pearsonpte.com" target="_blank" rel="noopener noreferrer">PTE Academic Official Prep</a></li>` : ""}</ul></div></details>
       <details class="cat-card"><summary class="cat-head"><span class="cat-num">03</span><div><h3>Academic documents &amp; CV</h3><p>Transcript, degree certificate/expected-graduation proof and CV.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.docs}</div>` : ""}<ul class="tip-list"><li>Prepare official transcripts and certified English translations if needed.</li><li>Prepare your degree certificate or expected-graduation letter.</li><li>${strategy.cv}</li></ul></div></details>
       <details class="cat-card"><summary class="cat-head"><span class="cat-num">04</span><div><h3>Lettre de motivation et essais</h3><p>Programme-specific motivation and career goals.</p></div><span class="cat-chevron">⌄</span></summary><div class="cat-body">${essentials ? `<div class="gmat-avg-note gmat-avg-verified"><b>Researched for this programme:</b> ${essentials.essays}</div>` : `<p class="scholar-section-sub">Not individually researched for this programme yet. As a general guide, most competitive masters/MBA essays run 400–650 words per prompt across 1–3 prompts, and cover: (1) why this programme specifically, not master's degrees in general, (2) your relevant story/evidence, (3) concrete short- and long-term goals it enables. Confirm the actual prompts and word limits on the official portal, they change most cycles.</p>`}<ul class="tip-list"><li>${strategy.sopField}</li><li>${strategy.sop}</li><li>Verify prompts, word count and submission format on the official portal.</li><li>Leave time for several revisions and an outside reader.</li></ul><h4>Widely-used essay resources</h4><ul class="resource-list"><li><a href="https://www.mbamission.com/blog/" target="_blank" rel="noopener noreferrer">mbaMission essay guides</a>, free, school-specific essay breakdowns updated each cycle.</li><li><a href="https://poetsandquants.com/" target="_blank" rel="noopener noreferrer">Poets&amp;Quants</a>, the most-read MBA admissions news site, with extensive essay and application-strategy coverage.</li>${SCHOOL_CLEARADMIT[p.school] ? `<li><a href="${SCHOOL_CLEARADMIT[p.school]}" target="_blank" rel="noopener noreferrer">${escapeHTML(schoolName(p.school))} on Clear Admit</a>, real admit interviews and essay analysis for this specific school.</li>` : ""}</ul></div></details>
@@ -5092,7 +5085,6 @@ function renderSingleApplicationChecklist() {
   if (planner) planner.style.display = "none";
   const list = PROGRAMS.filter(p => state.checklist.has(p.id) && state.compare.has(p.id));
   board.innerHTML = list.length ? list.map(applicationChecklistCard).join("") : `<div class="planner-empty"><strong>Ajoutez un programme depuis votre sélection</strong>Chaque programme ajouté reste ici sous forme de check-list dépliable.</div>`;
-  board.querySelectorAll("[data-find-gmat]").forEach(btn => btn.addEventListener("click", () => { const id = btn.dataset.findGmat; renderLocator("gmat", `focusGmatResults${id}`, `focusGmatLocation${id}`); }));
   board.querySelectorAll("[data-find-english]").forEach(btn => btn.addEventListener("click", () => { const id = btn.dataset.findEnglish; renderLocator("toefl", `focusEnglishResults${id}`, `focusEnglishLocation${id}`); }));
   board.querySelectorAll("[data-remove-checklist]").forEach(btn => btn.addEventListener("click", () => { state.checklist.delete(+btn.dataset.removeChecklist); renderApplicationChecklist(); }));
   board.querySelectorAll("[data-download-checklist]").forEach(btn => btn.addEventListener("click", () => downloadChecklistPDF(+btn.dataset.downloadChecklist)));
@@ -6445,9 +6437,7 @@ updateSearchPlaceholder();
 window.addEventListener("resize", updateSearchPlaceholder);
 
 buildLocationDatalist();
-$("gmatFindBtn").addEventListener("click", () => renderLocator("gmat", "gmatResults", "gmatLocation"));
 $("toeflFindBtn").addEventListener("click", () => renderLocator("toefl", "toeflResults", "toeflLocation"));
-$("gmatLocation").addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); $("gmatFindBtn").click(); } });
 $("toeflLocation").addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); $("toeflFindBtn").click(); } });
 // Deliberately not run on load: renderLocator() sends the typed place name to
 // OpenStreetMap's Nominatim geocoder, and that request should only ever happen
