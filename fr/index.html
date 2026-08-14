@@ -4580,6 +4580,62 @@ const PROGRAMME_OUTCOMES = {
     classYear: "2024 report (five-year average outcomes)",
     source: { url: "https://goizueta.emory.edu/documents/msbaemploymentreport.pdf", label: "Emory Goizueta MSBA 2024 Employment Report" },
   },
+  // University of Toronto, Rotman — Master of Management Analytics. Rotman's own MMA
+  // career-impact page. It publishes the placement rate (Class of 2025) and an average
+  // starting salary including bonuses (Class of 2024) and names employers, but not an
+  // industry-percentage split, so no chart is shown. Salary is in Canadian dollars.
+  27: {
+    employedRate: 92, employedWindow: "employed within 6 months of graduation",
+    salary: "CA$83,727 average starting salary including bonuses",
+    employers: ["Google", "Deloitte", "TD", "RBC", "Scotiabank", "Bell", "Wealthsimple", "Manulife", "EY"],
+    note: "Placement rate is the Class of 2025; the salary figure is the Class of 2024. Rotman's MMA is ranked #1 in Canada in QS Business Analytics.",
+    classYear: "Class of 2025 (placement) / 2024 (salary)",
+    source: { url: "https://www.rotman.utoronto.ca/programs/specialized-programs/master-of-management-analytics/career-impact/", label: "Rotman Master of Management Analytics career impact" },
+  },
+
+  // ---- FT Masters in Management 2025 top-10 schools: the FT-published weighted
+  // salary (average alumni salary three years after graduation) plus, where the
+  // school states it, its own placement rate. Weighted-salary figures verified
+  // against the Poets&Quants FT MiM 2025 table. ----
+
+  // Nova SBE, International Master's in Management (FT MiM #4). Placement rate and
+  // international-career share from Nova's own programme page.
+  482: {
+    employedRate: 94, employedWindow: "working within six months of graduation",
+    rankingSalary: "US$123,485 average alumni salary three years after graduation (FT Masters in Management 2025)",
+    note: "84% of graduates take an international career. Nova shares #4 in the FT Masters in Management 2025.",
+    classYear: "recent reported class; FT Masters in Management 2025 (#4)",
+    source: { url: "https://www.novasbe.unl.pt/en/programs/masters/international-masters-in-management", label: "Nova SBE International Master's in Management" },
+  },
+  // Tsinghua SEM, Master in Management (FT MiM #4).
+  37: {
+    rankingSalary: "US$115,495 average alumni salary three years after graduation (FT Masters in Management 2025)",
+    note: "Tsinghua SEM's Master in Management shares #4 in the FT Masters in Management 2025; the school publishes no industry breakdown, so no sector chart is shown.",
+    classYear: "FT Masters in Management 2025 (#4)",
+    source: { url: "https://poetsandquants.com/2025/09/07/financial-times-mim-ranking-st-gallen-captures-its-14th-no-1-ranking/", label: "FT Masters in Management 2025 ranking (as reported by Poets&Quants)" },
+  },
+  // Shanghai Jiao Tong University, Antai — Master of International Business (FT MiM #6).
+  84: {
+    rankingSalary: "US$128,449 average alumni salary three years after graduation (FT Masters in Management 2025)",
+    note: "Antai's Master of International Business is ranked #6 in the FT Masters in Management 2025.",
+    classYear: "FT Masters in Management 2025 (#6)",
+    source: { url: "https://poetsandquants.com/2025/09/07/financial-times-mim-ranking-st-gallen-captures-its-14th-no-1-ranking/", label: "FT Masters in Management 2025 ranking (as reported by Poets&Quants)" },
+  },
+  // Tongji University, SEM — Master of Global Management (FT MiM #8). Carries the
+  // highest weighted salary in the 2025 top 10.
+  700: {
+    rankingSalary: "US$160,163 average alumni salary three years after graduation (FT Masters in Management 2025)",
+    note: "Tongji SEM's Master of Global Management is #8 in the FT Masters in Management 2025 — the highest weighted salary in the 2025 top 10.",
+    classYear: "FT Masters in Management 2025 (#8)",
+    source: { url: "https://poetsandquants.com/2025/09/07/financial-times-mim-ranking-st-gallen-captures-its-14th-no-1-ranking/", label: "FT Masters in Management 2025 ranking (as reported by Poets&Quants)" },
+  },
+  // Stockholm School of Economics — MSc in International Business (FT MiM #9).
+  483: {
+    rankingSalary: "US$109,343 average alumni salary three years after graduation (FT Masters in Management 2025)",
+    note: "SSE's MSc in International Business is ranked #9 in the FT Masters in Management 2025; SSE publishes no industry breakdown, so no sector chart is shown.",
+    classYear: "FT Masters in Management 2025 (#9)",
+    source: { url: "https://poetsandquants.com/2025/09/07/financial-times-mim-ranking-st-gallen-captures-its-14th-no-1-ranking/", label: "FT Masters in Management 2025 ranking (as reported by Poets&Quants)" },
+  },
 };
 
 // Donut chart of the industries a class went into. `mix` is [[label, pct], …];
