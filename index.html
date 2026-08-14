@@ -4553,6 +4553,33 @@ const PROGRAMME_OUTCOMES = {
     classYear: "reported as of 1 April 2026",
     source: { url: "https://simon.rochester.edu/programs/full-time-ms-in-business-analytics/academics/career-paths", label: "Simon Full-Time MS in Business Analytics career paths" },
   },
+  // University of Minnesota, Carlson — MS in Business Analytics. Carlson's own MSBA
+  // employment-statistics page, a three-year average of the 2023–2026 graduating
+  // classes. The named industries are the top four the page lists; "Other" is the
+  // residual to 100%.
+  351: {
+    employedRate: 73, employedWindow: "accepted an offer within 6 months of graduation (76% received one)",
+    salary: "US$103,051 mean base salary (plus US$8,881 mean signing bonus)",
+    sectors: ["Financial services", "Consulting", "Technology", "Healthcare"],
+    sectorMix: [["Financial services",34],["Consulting",16],["Technology",15],["Healthcare",13],["Other",22]],
+    employers: ["Capital One", "Amazon", "Target", "Walmart", "Google"],
+    note: "Figures are a three-year average of the 2023–2026 graduating classes; \"Data Scientist\" is the most common first job title.",
+    classYear: "2023–2026 classes (three-year average)",
+    source: { url: "https://carlsonschool.umn.edu/graduate/masters/business-analytics/careers/employment-statistics", label: "Minnesota Carlson MSBA employment statistics" },
+  },
+  // Emory University, Goizueta — MS in Business Analytics. Goizueta's own 2024 MSBA
+  // employment report (five-year average outcomes). The headline placement and salary
+  // figures are read directly from the report; its industry chart could not be parsed
+  // to reliable percentages, so the top sectors are named without a chart.
+  67: {
+    employedRate: 90, employedWindow: "accepted a job offer within 6 months of graduation (92% received one; five-year average)",
+    salary: "US$95,258 mean base salary (plus US$13,018 mean signing bonus)",
+    sectors: ["Technology", "Consulting", "Healthcare"],
+    employers: ["Amazon", "Capital One", "EY", "JPMorgan Chase", "The Home Depot", "TikTok", "Visa", "Vanguard"],
+    note: "81% of graduates reported salary information.",
+    classYear: "2024 report (five-year average outcomes)",
+    source: { url: "https://goizueta.emory.edu/documents/msbaemploymentreport.pdf", label: "Emory Goizueta MSBA 2024 Employment Report" },
+  },
 };
 
 // Donut chart of the industries a class went into. `mix` is [[label, pct], …];
