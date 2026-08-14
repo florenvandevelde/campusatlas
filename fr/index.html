@@ -3748,7 +3748,9 @@ function renderEvents(focusSchool) {
   // they are deliberately not listed. Only school-run pages verified to show an actual
   // dated calendar (not a "book anytime" claim) are included here.
   const virtualCards = eventKindMatches("virtual")
-    ? Object.entries(SCHOOL_EVENTS).map(([school, v]) => `
+    ? Object.entries(SCHOOL_EVENTS)
+      .sort((a, b) => schoolName(a[0]).localeCompare(schoolName(b[0])))
+      .map(([school, v]) => `
       <a class="event-card" href="${v.url}" target="_blank" rel="noopener noreferrer">
         <div class="event-top"><span class="event-kind both">Official calendar</span><span class="event-series">${escapeHTML(schoolName(school))}</span></div>
         <h3>${escapeHTML(schoolName(school))} events</h3>
