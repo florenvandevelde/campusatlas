@@ -4745,6 +4745,29 @@ const PROGRAMME_OUTCOMES = {
     classYear: "Class of 2024",
     source: { url: "https://www.rhsmith.umd.edu/programs/business-masters/academics/business-analytics-ai-person", label: "Maryland Smith MS Business Analytics & AI outcomes" },
   },
+  // University of Oxford, Saïd — MBA. From Saïd's own MBA Employment Report 2024-25
+  // (read from the school's employment-reports page; the site sits behind a Cloudflare
+  // challenge that the in-app browser cleared). The page describes sector momentum
+  // qualitatively — financial services strongest, consulting recovering, global-industry
+  // roles rising — rather than a percentage split, so sectors are named without a chart.
+  446: {
+    employedRate: 75, employedWindow: "received an offer within 90 days of graduation",
+    salary: "£81,466 average salary",
+    sectors: ["Financial services", "Consulting", "Global industry", "Technology"],
+    note: "88% switched sector, country or location; graduates took roles across 61 cities; about 1 in 12 launched their own venture. Reporting rate 87%.",
+    classYear: "Class of 2024-25",
+    source: { url: "https://www.sbs.ox.ac.uk/oxford-experience/career-development/employment-reports", label: "Oxford Saïd MBA Employment Report 2024-25" },
+  },
+  // University of Oxford, Saïd — MSc Financial Economics (MFE). From Saïd's own MFE
+  // Employment Report 2024-25 (same employment-reports page). QS Masters in Finance #2.
+  17: {
+    employedRate: 95, employedWindow: "accepted a job within six months of graduation",
+    salary: "£64,600 average salary (£63,779 average in finance)",
+    sectors: ["Finance", "Consulting"],
+    note: "82% secured a job in finance; 58% took roles in the UK and Europe, with London and Hong Kong the leading hubs.",
+    classYear: "Class of 2024-25",
+    source: { url: "https://www.sbs.ox.ac.uk/oxford-experience/career-development/employment-reports", label: "Oxford Saïd MSc Financial Economics Employment Report 2024-25" },
+  },
 };
 
 // Donut chart of the industries a class went into. `mix` is [[label, pct], …];
