@@ -118,7 +118,8 @@ function setLangAttrs(html, lang) {
   html = html.replace(/class="lang-opt is-active" aria-current="true"/g, 'class="lang-opt"');
   // [^>]*? allows optional attributes (e.g. data-code) between hreflang and class,
   // so both the desktop dropdown anchors and the mobile pill anchors get marked.
-  const marker = new RegExp(`(<a href="\\.\\./${lang.dir}/index\\.html" hreflang="${lang.code}"[^>]*?)class="lang-opt"`, "g");
+  // The switcher uses clean absolute URLs ("/", "/nl", "/fr"), the same on every page.
+  const marker = new RegExp(`(<a href="/${lang.dir}" hreflang="${lang.code}"[^>]*?)class="lang-opt"`, "g");
   html = html.replace(marker, `$1class="lang-opt is-active" aria-current="true"`);
   return html;
 }
@@ -128,11 +129,12 @@ function setLangAttrs(html, lang) {
 // (e.g. GitHub Pages at /campusatlas/), so "../" is used instead — that works whether
 // the site is served from a domain root or a subpath.
 function fixRelativePaths(html) {
+  // Relative asset refs (e.g. the hero image src="assets/…") have to climb one level
+  // out on the /nl and /fr pages. Favicon links use absolute "/assets/…" and "/favicon.ico"
+  // on purpose, so they are left untouched and resolve from the domain root on every page.
+  // The language switcher now uses clean absolute URLs ("/", "/nl", "/fr"), identical on
+  // every page, so there is nothing to rewrite there any more.
   html = html.replace(/(src|href)="assets\//g, '$1="../assets/');
-  // language switcher: from /nl/ or /fr/, English is one level up
-  html = html.replace(/<a href="index\.html" hreflang="en"/g, '<a href="../index.html" hreflang="en"');
-  html = html.replace(/<a href="nl\/index\.html" hreflang="nl"/g, '<a href="../nl/index.html" hreflang="nl"');
-  html = html.replace(/<a href="fr\/index\.html" hreflang="fr"/g, '<a href="../fr/index.html" hreflang="fr"');
   return html;
 }
 
