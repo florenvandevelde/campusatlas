@@ -116,7 +116,9 @@ function setLangAttrs(html, lang) {
 
   // Rewrite both switchers so the current language is the active pill.
   html = html.replace(/class="lang-opt is-active" aria-current="true"/g, 'class="lang-opt"');
-  const marker = new RegExp(`(<a href="\\.\\./${lang.dir}/index\\.html" hreflang="${lang.code}" )class="lang-opt"`, "g");
+  // [^>]*? allows optional attributes (e.g. data-code) between hreflang and class,
+  // so both the desktop dropdown anchors and the mobile pill anchors get marked.
+  const marker = new RegExp(`(<a href="\\.\\./${lang.dir}/index\\.html" hreflang="${lang.code}"[^>]*?)class="lang-opt"`, "g");
   html = html.replace(marker, `$1class="lang-opt is-active" aria-current="true"`);
   return html;
 }
