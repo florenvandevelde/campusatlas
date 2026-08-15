@@ -479,7 +479,7 @@
   .planner-status.good { color: #26734b; font-weight: 600; }
   .planner-status.watch { color: var(--accent-ink); font-weight: 600; }
   .planner-status.muted { color: var(--ink-3); }
-  .planner-empty { background: var(--paper-2); border: 1px dashed var(--line-2); border-radius: var(--radius); padding: 22px 24px; color: var(--ink-3); }
+  .planner-empty { background: var(--paper-2); border: 1px dashed var(--line-2); border-radius: var(--radius); padding: 22px 24px; color: var(--ink-3); display: flex; flex-direction: column; align-items: flex-start; }
   .planner-empty strong { display: block; color: var(--ink); font-size: 14px; margin-bottom: 3px; }
   .planner-empty-cta { margin-top: 14px; }
   .cat-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
@@ -787,6 +787,7 @@
     max-width: 460px; margin: 60px auto; text-align: center; color: var(--ink-3);
   }
   .compare-empty h3 { font-family: var(--serif); font-weight: 400; font-size: 24px; color: var(--ink); margin-bottom: 8px; }
+  .compare-empty-cta { margin-top: 18px; }
 
   /* the grid: a sticky label column on the left, then one column per
      programme, every row lines up horizontally across all of them */
@@ -3290,6 +3291,7 @@ function renderCompare() {
     : `<div class="compare-empty">
          <h3>Rien à comparer pour l'instant</h3>
          <p>Tick "Add to compare" on any programme card, up to ${MAX_COMPARE} at a time, then come back here to see them side by side.</p>
+         <button class="btn primary compare-empty-cta" data-page-jump="programmes" type="button">Parcourir les programmes</button>
        </div>`;
 
   $("compareBody").querySelectorAll("[data-uncompare]").forEach(b =>
@@ -6074,7 +6076,7 @@ function renderScholarshipBreakdown() {
     targetPrograms = PROGRAMS.filter(p => state.compare.has(p.id));
   }
   if (!targetPrograms.length) {
-    container.innerHTML = `<div class="planner-empty"><strong>Choisissez un programme dans votre sélection</strong>Les options de financement ne s'affichent que pour les programmes ajoutés à Comparer, afin que les résultats restent adaptés à votre candidature.</div>`;
+    container.innerHTML = `<div class="planner-empty"><strong>Choisissez un programme dans votre sélection</strong>Les options de financement ne s'affichent que pour les programmes ajoutés à Comparer, afin que les résultats restent adaptés à votre candidature.<button class="btn primary planner-empty-cta" data-page-jump="programmes" type="button">Parcourir les programmes</button></div>`;
     return;
   }
   
