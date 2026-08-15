@@ -4,6 +4,22 @@ _Last updated: 2026-08-14. Written for an agent starting cold. Read this top to 
 
 ---
 
+## SESSION 2026-08-15 — read this first (latest; supersedes earlier sections where they conflict)
+
+**Standing task continued: data enrichment + full NL/FR parity.** Everything below was committed directly to `main` and pushed after each batch (per the 2026-08-14 etiquette — commit to main, `git push origin main`, don't ask). Working tree is CLEAN as of this session's end. ⚠️ remote URL still has a plaintext PAT — tell the user to rotate it; never echo it.
+
+**What shipped this session (all on main):**
+- **`public.scholarships` 166 → 197** — 31 verified master's scholarships added, closing **every** prestige gap (the `select … where s.school is null and p.ext_rank ~ '#[1-9]'` query now returns **0**). Schools: Maastricht, UvA, McGill, Mannheim, Princeton, Northwestern, Babson, Sydney, Queensland, ANU, UBC, Seoul National, KAIST, Tokyo, Toronto OISE, GIBS, Peking Guanghua, CUHK, HHL, Oxford Dept of Education, NHH, Cape Town GSB, City U HK, Bath, EADA, Lancaster, IIM Calcutta, UC3M, HKU (law), BI Norwegian, LSHTM. Same row shape/rules as before (see 2026-08-14 section). Where funding is thin/unquantifiable, `award`+`odds` set to null with an honest description (Princeton, GIBS, NHH).
+- **`SCHOOL_EVENTS` 159 → 242** (inline in `index.html`, ~line 3521) — **83 verified events/info-session pages added** across 7 committed batches. Method + quality bar unchanged (see §4): domain-scoped WebSearch → verify a real events/webinar page (never guess), key MUST exactly match the catalogue `school` string, note calls out the **online/virtual** sessions. Clusters covered: business schools worldwide, public-policy schools, law schools (LLM), public-health schools (MPH), education schools, iSchools, and research-university central grad-admissions webinar hubs. **Skipped (no verified events page — quality bar) so the Google fallback stays:** Peking Univ, Technion, Caltech, Corvinus (search returned a same-name investment firm), Universidad de Chile + del Pacífico (faculty/URL unconfirmed), USP, Fudan, Charles Univ (CERGE-EI ≠ the catalogue's IES econ programme), Illinois, Maryland generic (ML faculty ambiguous), Chicago generic (Physical-Sciences events ≠ its MA Economics), UCT School of Public Health.
+- **Data-integrity fix:** `programmes` id 174 school string `"University of Tokyo"` → `"The University of Tokyo"` (deduped a split-institution entry so the Tokyo scholarship row matches all its programmes).
+- **NL + FR rebuilt after every batch** — still 432 dict entries / **477 replacements** each, in perfect parity (0 key mismatches). SCHOOL_EVENTS `note` text is DATA (like scholarship descriptions), not chrome, so it stays English in nl/fr — consistent with the original 159.
+
+**Integration recipe used (repeatable):** collect verified `{school:{url,note}}` in a scratch JSON → a tiny node script emits index.html-style lines (`"School": { url: "…", note: "…" },`, unquoted url/note) → splice right after `const SCHOOL_EVENTS = {\n` → validate (count, all-https, distinct, **phantom-key check against the DB school list**) → `node build-i18n.js` → commit + push.
+
+**Remaining SCHOOL_EVENTS gaps (~106 schools)** are mostly regional/smaller institutions or ones without a clean public events page; yield is now lower (more skips). Fine to keep extending — verified URLs only.
+
+---
+
 ## SESSION 2026-08-14 — read this first (supersedes §0 where they conflict)
 
 **Git etiquette this session changed:** the user explicitly and repeatedly asked to **commit directly to `main` and push after every batch** ("push to the git", "don't ask me stupid questions"). So §0's "branch first / ask before committing" no longer applies — commit to `main` and `git push origin main`. The repo is live at **campusatlas.eu** (Vercel, auto-deploys on push to main). ⚠️ The git remote URL has a **GitHub PAT embedded in plain text** — tell the user to rotate it; never echo it.
