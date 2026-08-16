@@ -2628,7 +2628,7 @@ function parseQuery(q) {
   return intent;
 }
 
-function matches(p) {
+function matches(p, skip = {}) {
 
   if (state.shortlistOnly && !state.compare.has(p.id)) return false;
 
@@ -2667,9 +2667,9 @@ function matches(p) {
     // filler, e.g. "the best programmes") should show everything, prestige
     // first, rather than nothing.
   }
-  if (state.regions.size && !state.regions.has(p.region)) return false;
-  if (state.fields.size && !p.fields.some(f => state.fields.has(f))) return false;
-  if (state.intakes.size) { const seasons = intakeSeasons(p); if (![...state.intakes].some(s => seasons.has(s))) return false; }
+  if (!skip.regions && state.regions.size && !state.regions.has(p.region)) return false;
+  if (!skip.fields && state.fields.size && !p.fields.some(f => state.fields.has(f))) return false;
+  if (!skip.intakes && state.intakes.size) { const seasons = intakeSeasons(p); if (![...state.intakes].some(s => seasons.has(s))) return false; }
 
   if (state.dur === "short" && p.months > 12) return false;
   if (state.dur === "mid"   && (p.months < 13 || p.months > 18)) return false;
@@ -2978,6 +2978,31 @@ function buildFilterLists() {
       e.target.checked ? state.intakes.add(s) : state.intakes.delete(s);
       render();
     }));
+
+  refreshFilterCounts();
+}
+
+// Faceted counts: the number beside each filter option reflects every OTHER
+// active filter (query, intake, tuition, …), so once you narrow the results each
+// option shows how many programmes it would really match, not the global total.
+// A group's own ticked options are excluded from its own counts, so you can still
+// see what the alternatives within that group would give you.
+function facetCount(pred, skip) { return PROGRAMS.filter(p => matches(p, skip) && pred(p)).length; }
+function refreshFilterCounts() {
+  const fR = $("fRegion"), fF = $("fField"), fI = $("fIntake");
+  if (!fR || !fF || !fI) return;
+  fR.querySelectorAll("label.opt").forEach(l => {
+    const r = l.querySelector("input").dataset.region, n = l.querySelector(".n");
+    if (n) n.textContent = facetCount(p => p.region === r, { regions: true });
+  });
+  fF.querySelectorAll("label.opt").forEach(l => {
+    const f = l.querySelector("input").dataset.field, n = l.querySelector(".n");
+    if (n) n.textContent = facetCount(p => p.fields.includes(f), { fields: true });
+  });
+  fI.querySelectorAll("label.opt").forEach(l => {
+    const s = l.querySelector("input").dataset.intake, n = l.querySelector(".n");
+    if (n) n.textContent = facetCount(p => intakeSeasons(p).has(s), { intakes: true });
+  });
 }
 
 
@@ -3044,6 +3069,7 @@ function render() {
   $("resTitle").textContent = state.shortlistOnly ? "Votre sélection" : (state.q ? `Results for “${state.q}”` : "Tous les programmes");
   $("resSub").textContent = `${list.length} programme${list.length === 1 ? "" : "s"}`;
   updateSelectionCounts();
+  refreshFilterCounts();
 
   $("grid").querySelectorAll("[data-compare]").forEach(cb =>
     cb.addEventListener("change", e => {
