@@ -27,6 +27,23 @@ _Last updated: 2026-08-14. Written for an agent starting cold. Read this top to 
 
 ---
 
+## SESSION 2026-08-16 — 5 languages + catalogue i18n engine (read this first)
+
+**Two big things shipped (all committed + pushed to `main`):**
+
+1. **German (`/de`) and Spanish (`/es`) site versions added** — full 432-key interface + editorial translation, same pattern as NL/FR. New `i18n/de.json` + `i18n/es.json`; both wired into `build-i18n.js` `LANGS` and both language switchers (desktop dropdown ~line 1015 + mobile `.mm-lang` ~line 1044). **All four dictionaries are at 432 keys with identical key sets** — keep them in lockstep: any new UI string must be added to nl/fr/de/es together, then `node build-i18n.js`. (3 German values legitimately equal English: "Region", "Credits", "August 2026".)
+
+2. **Catalogue i18n engine — programme/scholarship DB text is now translatable per language.** The catalogue is fetched from Supabase at runtime, so the build-time dictionary can't reach it. New mechanism:
+   - **Schema:** `public.programmes.i18n jsonb` and `public.scholarships.i18n jsonb` (nullable). Shape: `{ "nl": {...}, "fr": {...}, "de": {...}, "es": {...} }`. For programmes each lang holds `{blurb, highlights[]}`; for scholarships `{description, evidence}`.
+   - **Runtime:** `index.html` has `CAT_LANG` (from `document.documentElement.lang`, e.g. "de", else "en") and `rowI18n(r)`. `mapProgrammeRow` picks `t.blurb || r.blurb` and translated `highlights`; the scholarship hydration picks `t.description` and overrides `odds.evidence`. **English is the fallback**, so untranslated rows just stay English. `select=*` already fetches the new column — no fetch change needed.
+   - **What is NOT translated (deliberate):** programme/school names, city/country, all figures (tuition/deadline/salary), links, and `ext_rank` ranking-source citations. Only the descriptive free-text.
+   - **Batch recipe (repeatable):** `select id, program, blurb, highlights from public.programmes order by rank limit N offset …` → hand-translate into nl/fr/de/es → build a Node script that emits **dollar-quoted** `update … set i18n = $j$<JSON>$j$::jsonb where id=…;` (dollar-quoting avoids single-quote escaping — French/Spanish are full of apostrophes) → `apply_migration`. Verify by loading `de/index.html` and reading `PROGRAMS.find(p=>p.id===N).blurb` in the console. Scratchpad has `tr_batch1.js` as a template.
+   - **Progress:** programmes **8 / 705** translated (ids 1,2,3,4,10,17,21,22 — top by rank). Scholarships **0 / 197**. **This is the big remaining grind** — ~900 free-text rows × 4 langs. Keep going by rank/visibility order. The user explicitly wants the whole catalogue translated ("translate everything").
+
+---
+
+## SESSION 2026-08-15 — (previous session, still valid)
+
 ## SESSION 2026-08-14 — read this first (supersedes §0 where they conflict)
 
 **Git etiquette this session changed:** the user explicitly and repeatedly asked to **commit directly to `main` and push after every batch** ("push to the git", "don't ask me stupid questions"). So §0's "branch first / ask before committing" no longer applies — commit to `main` and `git push origin main`. The repo is live at **campusatlas.eu** (Vercel, auto-deploys on push to main). ⚠️ The git remote URL has a **GitHub PAT embedded in plain text** — tell the user to rotate it; never echo it.
