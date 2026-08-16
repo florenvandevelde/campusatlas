@@ -28,6 +28,8 @@ const SRC = path.join(ROOT, "index.html");
 const LANGS = [
   { code: "nl", dir: "nl", label: "Nederlands", htmlLang: "nl" },
   { code: "fr", dir: "fr", label: "Français", htmlLang: "fr" },
+  { code: "de", dir: "de", label: "Deutsch", htmlLang: "de" },
+  { code: "es", dir: "es", label: "Español", htmlLang: "es" },
 ];
 
 function loadDict(code) {
