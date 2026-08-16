@@ -1817,14 +1817,25 @@ async function fetchCatalogueTable(table) {
   }
 }
 
+// The catalogue text (blurbs, highlights, scholarship descriptions) lives in the DB,
+// so it can't be reached by the build-time dictionary. Instead each row carries an
+// optional `i18n` jsonb, {nl|fr|de|es: {…translated fields…}}, and we pick the current
+// page's language here with an English fallback. The page language is whatever
+// build-i18n stamped on <html lang> ("nl"/"fr"/"de"/"es"), or "en" on the source.
+// Names, figures, links and ranking-source citations are deliberately NOT translated.
+const CAT_LANG = ((typeof document !== "undefined" && document.documentElement.lang) || "en").slice(0, 2);
+function rowI18n(r) { return (CAT_LANG !== "en" && r && r.i18n && r.i18n[CAT_LANG]) || null; }
+
 function mapProgrammeRow(r) {
+  const t = rowI18n(r) || {};
   const p = {
     id: r.id, school: r.school, program: r.program, city: r.city, country: r.country,
     flag: r.flag, region: r.region, fields: r.fields || [], months: r.months,
     lang: r.lang, tuition: r.tuition, intake: r.intake, deadline: r.deadline,
     work: r.work, gmat: r.gmat, scholar: r.scholar, link: r.link, rank: r.rank,
     openFields: r.open_fields || [], freshGradOnly: r.fresh_grad_only,
-    blurb: r.blurb, highlights: r.highlights || [],
+    blurb: t.blurb || r.blurb,
+    highlights: (Array.isArray(t.highlights) && t.highlights.length ? t.highlights : r.highlights) || [],
   };
   // extRank and prereq are legitimately absent on most rows and the UI branches on
   // their presence, so they stay off the object entirely rather than becoming null.
@@ -1846,9 +1857,10 @@ async function loadCatalogue() {
 
   SCHOOL_SCHOLARSHIPS = {};
   for (const r of scholRows) {
-    const entry = { name: r.name, desc: r.description, link: r.link };
+    const t = rowI18n(r) || {};
+    const entry = { name: r.name, desc: t.description || r.description, link: r.link };
     if (r.award) entry.award = r.award;
-    if (r.odds) entry.odds = r.odds;
+    if (r.odds) entry.odds = (t.evidence && r.odds) ? { ...r.odds, evidence: t.evidence } : r.odds;
     SCHOOL_SCHOLARSHIPS[r.school] = entry;
   }
 }
