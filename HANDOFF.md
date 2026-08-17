@@ -1,6 +1,24 @@
 # Campus Atlas — Handoff for the next agent
 
-_Last updated: 2026-08-14. Written for an agent starting cold. Read this top to bottom before touching anything._
+_Last updated: 2026-08-16. Written for an agent starting cold. Read this top to bottom before touching anything._
+
+---
+
+## ⭐ RESUME HERE — the active task (2026-08-16)
+
+**The current, ongoing job: translate the whole catalogue into NL/FR/DE/ES.** The user said "translate everything… don't stop", so keep grinding programme by programme, committing after each batch (direct to `main`, `git push` — no asking; the repo etiquette this whole effort is "commit to main and push after every batch"). ⚠️ the git remote URL has a plaintext PAT — tell the user to rotate it; never echo it.
+
+**Progress: 152 / 705 programmes translated** (top 152 by rank). Scholarships: **0 / 197**. The mechanism is fully built and proven (see the "Catalogue i18n engine" section below). To continue, repeat this loop:
+
+1. `select id, program, blurb, highlights from public.programmes where i18n is null order by rank asc limit 12;` (Supabase MCP `execute_sql`, project `szcpglatyxyilohenbar`).
+2. Hand-translate each row's **blurb** + **highlights[]** into nl/fr/de/es. Keep proper nouns / school names / cities / figures / rankings / acronyms (GMAT, STEM, OPT, CFA, QS, FT, CEMS…) **as-is**; only translate the prose.
+3. Drop the translations into a Node script that emits **dollar-quoted** SQL — `update public.programmes set i18n = $j$<JSON>$j$::jsonb where id=<id>;` — one line per row. Dollar-quoting (`$j$…$j$`) is essential: FR/ES/NL are full of apostrophes and `$j$` avoids all single-quote escaping. The scratchpad has `tr_batch1.js … tr_batch13.js` as ready templates — copy one, swap the rows, run `node`, paste the printed SQL into `apply_migration`.
+4. Apply via Supabase MCP `apply_migration` (elevated; bypasses anon RLS). **No code change, no git commit needed for the data** — it's live in Postgres and the site reads it at boot. The only thing to commit is the progress-marker bump in this file.
+5. Bump the "152 / 705" number in this file, commit + push (keeps it resumable).
+
+Verify any time by loading `de/index.html` in the in-app browser and reading `PROGRAMS.find(p=>p.id===N).blurb` in the console — untranslated rows correctly fall back to English.
+
+**After programmes, do the 197 scholarships** the same way: `select school, description, odds from public.scholarships where i18n is null;` → translate `description` and `odds.evidence` → `update public.scholarships set i18n = $j${nl/fr/de/es:{description, evidence}}$j$::jsonb where school='…';`. The runtime layer already reads scholarship `i18n` (`t.description` / `odds.evidence`).
 
 ---
 
@@ -38,7 +56,7 @@ _Last updated: 2026-08-14. Written for an agent starting cold. Read this top to 
    - **Runtime:** `index.html` has `CAT_LANG` (from `document.documentElement.lang`, e.g. "de", else "en") and `rowI18n(r)`. `mapProgrammeRow` picks `t.blurb || r.blurb` and translated `highlights`; the scholarship hydration picks `t.description` and overrides `odds.evidence`. **English is the fallback**, so untranslated rows just stay English. `select=*` already fetches the new column — no fetch change needed.
    - **What is NOT translated (deliberate):** programme/school names, city/country, all figures (tuition/deadline/salary), links, and `ext_rank` ranking-source citations. Only the descriptive free-text.
    - **Batch recipe (repeatable):** `select id, program, blurb, highlights from public.programmes order by rank limit N offset …` → hand-translate into nl/fr/de/es → build a Node script that emits **dollar-quoted** `update … set i18n = $j$<JSON>$j$::jsonb where id=…;` (dollar-quoting avoids single-quote escaping — French/Spanish are full of apostrophes) → `apply_migration`. Verify by loading `de/index.html` and reading `PROGRAMS.find(p=>p.id===N).blurb` in the console. Scratchpad has `tr_batch1.js` as a template.
-   - **Progress:** programmes **140 / 705** translated (top 140 by rank, batches 1–12 in scratchpad `tr_batch{1..12}.js`). Scholarships **0 / 197**. **This is the big remaining grind** — ~900 free-text rows × 4 langs. Keep going by rank/visibility order (`select id, program, blurb, highlights from public.programmes where i18n is null order by rank limit 12`). The user explicitly wants the whole catalogue translated ("translate everything", "don't stop").
+   - **Progress:** programmes **152 / 705** translated (top 152 by rank, batches 1–13 this session). Scholarships **0 / 197**. **This is the big remaining grind** — ~900 free-text rows × 4 langs. Keep going by rank/visibility order (`select id, program, blurb, highlights from public.programmes where i18n is null order by rank limit 12`). The user explicitly wants the whole catalogue translated ("translate everything", "don't stop").
 
 ---
 
