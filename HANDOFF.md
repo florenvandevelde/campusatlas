@@ -8,7 +8,7 @@ _Last updated: 2026-08-16. Written for an agent starting cold. Read this top to 
 
 **The current, ongoing job: translate the whole catalogue into NL/FR/DE/ES.** The user said "translate everything… don't stop", so keep grinding programme by programme, committing after each batch (direct to `main`, `git push` — no asking; the repo etiquette this whole effort is "commit to main and push after every batch"). ⚠️ the git remote URL has a plaintext PAT — tell the user to rotate it; never echo it.
 
-**Progress: 248 / 705 programmes translated** (top 248 by rank). Scholarships: **0 / 197**. The mechanism is fully built and proven (see the "Catalogue i18n engine" section below). To continue, repeat this loop:
+**Progress: 260 / 705 programmes translated** (top 260 by rank). Scholarships: **0 / 197**. The mechanism is fully built and proven (see the "Catalogue i18n engine" section below). To continue, repeat this loop:
 
 1. `select id, program, blurb, highlights from public.programmes where i18n is null order by rank asc limit 12;` (Supabase MCP `execute_sql`, project `szcpglatyxyilohenbar`).
 2. Hand-translate each row's **blurb** + **highlights[]** into nl/fr/de/es. Keep proper nouns / school names / cities / figures / rankings / acronyms (GMAT, STEM, OPT, CFA, QS, FT, CEMS…) **as-is**; only translate the prose.
@@ -56,7 +56,7 @@ Verify any time by loading `de/index.html` in the in-app browser and reading `PR
    - **Runtime:** `index.html` has `CAT_LANG` (from `document.documentElement.lang`, e.g. "de", else "en") and `rowI18n(r)`. `mapProgrammeRow` picks `t.blurb || r.blurb` and translated `highlights`; the scholarship hydration picks `t.description` and overrides `odds.evidence`. **English is the fallback**, so untranslated rows just stay English. `select=*` already fetches the new column — no fetch change needed.
    - **What is NOT translated (deliberate):** programme/school names, city/country, all figures (tuition/deadline/salary), links, and `ext_rank` ranking-source citations. Only the descriptive free-text.
    - **Batch recipe (repeatable):** `select id, program, blurb, highlights from public.programmes order by rank limit N offset …` → hand-translate into nl/fr/de/es → build a Node script that emits **dollar-quoted** `update … set i18n = $j$<JSON>$j$::jsonb where id=…;` (dollar-quoting avoids single-quote escaping — French/Spanish are full of apostrophes) → `apply_migration`. Verify by loading `de/index.html` and reading `PROGRAMS.find(p=>p.id===N).blurb` in the console. Scratchpad has `tr_batch1.js` as a template.
-   - **Progress:** programmes **248 / 705** translated (top 248 by rank, batches 1–21 this session). Scholarships **0 / 197**. **This is the big remaining grind** — ~900 free-text rows × 4 langs. Keep going by rank/visibility order (`select id, program, blurb, highlights from public.programmes where i18n is null order by rank limit 12`). The user explicitly wants the whole catalogue translated ("translate everything", "don't stop").
+   - **Progress:** programmes **260 / 705** translated (top 260 by rank, batches 1–22 this session). Scholarships **0 / 197**. **This is the big remaining grind** — ~900 free-text rows × 4 langs. Keep going by rank/visibility order (`select id, program, blurb, highlights from public.programmes where i18n is null order by rank limit 12`). The user explicitly wants the whole catalogue translated ("translate everything", "don't stop").
 
 ---
 
