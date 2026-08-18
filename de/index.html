@@ -3026,7 +3026,6 @@ function refreshFilterCounts() {
 function cardHTML(p, subjectOnlyMatch) {
   return `
   <article class="card" data-id="${p.id}" tabindex="0">
-    ${p.rank <= 5 ? `<div class="rank">TOP ${p.rank}</div>` : ""}
     <div class="card-head">
       <div class="top">
         <span class="flag">${p.flag}</span>
