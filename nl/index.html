@@ -3458,6 +3458,10 @@ const EVENT_CITY_COORDS = {
   "Athens,Greece": [37.9838, 23.7275], "Istanbul,Türkiye": [41.0082, 28.9784],
   "Brussels,Belgium": [50.8503, 4.3517], "Düsseldorf,Germany": [51.2277, 6.7735],
   "Leuven,Belgium": [50.8798, 4.7005], "Ghent,Belgium": [51.0543, 3.7174],
+  "Cologne,Germany": [50.9375, 6.9603], "Stuttgart,Germany": [48.7758, 9.1829],
+  "Frankfurt,Germany": [50.1109, 8.6821], "Berlin,Germany": [52.5200, 13.4050],
+  "Münster,Germany": [51.9607, 7.6261], "Nuremberg,Germany": [49.4521, 11.0767],
+  "Hanover,Germany": [52.3759, 9.7320], "Madrid,Spain": [40.4168, -3.7038],
   "Tokyo,Japan": [35.6762, 139.6503], "Seoul,South Korea": [37.5665, 126.9780],
   "Beijing,China": [39.9042, 116.4074], "Shanghai,China": [31.2304, 121.4737],
   "Guangzhou,China": [23.1291, 113.2644], "Hong Kong,Hong Kong SAR": [22.3193, 114.1694],
@@ -3549,6 +3553,28 @@ const EVENTS_CALENDAR = (() => {
     // Mon 15 Mar 2027 (mid-March Monday, 52 weeks on) as a placeholder — refine once BLASE
     // publishes the precise date.
     ["BLASE Business School Fair", "Leuven", "Belgium", "2027-03-15", "https://www.blaseleuven.com/business-school-fair"],
+    // MASTER AND MORE (Germany) — the country's main in-person master's fair series
+    // ("Das Event zum Masterstudium"): free, in person, exhibitors present their master's
+    // programmes with 1-on-1 talks and lectures. Every city + date below read off the
+    // organiser's own schedule (mastermessen.de/master-and-more.de, © 2026), each row
+    // links to that city's own event page. Austrian stops (Wien, Graz) left out; these
+    // are the German cities only.
+    ["MASTER AND MORE", "Cologne", "Germany", "2026-11-06", "https://www.mastermessen.de/koeln"],
+    ["MASTER AND MORE", "Stuttgart", "Germany", "2026-11-20", "https://www.mastermessen.de/stuttgart"],
+    ["MASTER AND MORE", "Frankfurt", "Germany", "2026-11-27", "https://www.mastermessen.de/frankfurt"],
+    ["MASTER AND MORE", "Berlin", "Germany", "2026-12-02", "https://www.mastermessen.de/berlin"],
+    ["MASTER AND MORE", "Hamburg", "Germany", "2026-12-04", "https://www.mastermessen.de/hamburg"],
+    ["MASTER AND MORE", "Münster", "Germany", "2027-03-12", "https://www.mastermessen.de/muenster"],
+    ["MASTER AND MORE", "Nuremberg", "Germany", "2027-04-09", "https://www.mastermessen.de/nuernberg"],
+    ["MASTER AND MORE", "Munich", "Germany", "2027-04-16", "https://www.mastermessen.de/muenchen"],
+    ["MASTER AND MORE", "Düsseldorf", "Germany", "2027-04-23", "https://www.mastermessen.de/duesseldorf"],
+    ["MASTER AND MORE", "Hanover", "Germany", "2027-11-03", "https://www.mastermessen.de/hannover"],
+    // FIEP — Feria Internacional de Estudios de Postgrado (Círculo Formación), Spain's
+    // main in-person postgraduate fair. Free, in person. Date read off the organiser's own
+    // "Próximos eventos" page (fiep.es, EUROPA 2026): Madrid, Mon 23 Nov 2026. Only the
+    // Madrid stop is published for the coming European season so far; add more as FIEP
+    // announces the rest of its Spanish cities.
+    ["FIEP Postgraduate Fair", "Madrid", "Spain", "2026-11-23", "https://fiep.es/eventos/madridii"],
   ];
   // QS's own schedule page (events.qs.com/schedule) was deliberately left out: reading
   // it directly shows it is a B2B booking page for universities/schools ("build your
