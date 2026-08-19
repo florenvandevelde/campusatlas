@@ -23,9 +23,12 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **751**
-- Next free `rank` tiebreaker: **710**
-- Programmes now **728 rows** (+3 pharmacy); id max 750. Target 1000+.
+- Next free `id`: **754**
+- Next free `rank` tiebreaker: **713**
+- Programmes now **731 rows** (+6 pharmacy total); id max 753. Target 1000+.
+- Pharmacy batch 2 (ids 751–753, translated ✅): UCL MSc Drug Discovery & Pharma Management £39,800 #3;
+  Nottingham MSc Drug Discovery £28,600 #8; Copenhagen MSc Pharmaceutical Sciences €16,000 #21 (from
+  DKK 250k/2yr). Uppsala #24 still deferred (fee ambiguous). Pharmacy field now 0 → 6.
 
 ### Pharmacy / Pharmaceutical Sciences — QS 2026 Pharmacy & Pharmacology (NEW field, was 0)
 Global ranks (xuanxiao): Monash #2, UCL #3, Nottingham #8, Copenhagen #21, Leiden #23, Uppsala #24,
