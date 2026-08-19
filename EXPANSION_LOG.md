@@ -23,9 +23,22 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **757**
-- Next free `rank` tiebreaker: **716**
-- Programmes now **734 rows** (+3 architecture); id max 756. Target 1000+.
+- Next free `id`: **762**
+- Next free `rank` tiebreaker: **721**
+- Programmes now **739 rows** (+5 bio/psych/agri); id max 761. Target 1000+.
+
+### Biology / Psychology / Agriculture — QS 2026 (added ids 757–761, translated ✅)
+Ranks (xuanxiao): **Agri&Forestry** Wageningen #1, SLU #3, ETH #8, Ghent #9, NMBU #10, Hohenheim #17,
+Reading #19, Göttingen #21, Copenhagen #24, KU Leuven #34, Helsinki #38. **Psychology** Cambridge #2,
+Oxford #3, UCL #5, UvA #9, KCL #15, Edinburgh #23, KU Leuven #24 (covered), Utrecht #28, VU #38.
+**Biology** Oxford #3, Cambridge #5, UCL #9, ETH #14, Edinburgh #19, Karolinska #25, Copenhagen #33,
+Wageningen #42, KU Leuven #45 (covered).
+**Added:** 757 Wageningen MSc Plant Sciences €21,700 (Agri #1); 758 Wageningen MSc Animal Sciences €21,700
+(Agri #1); 759 Utrecht MSc Social, Health & Organisational Psychology €21,342 verified (Psych #28, 1-yr);
+760 ETH MSc Biology €2,500 (Bio #14); 761 Wageningen MSc Biology €21,700 (Bio #42).
+UvA psychology (#9) deferred — exact non-EU fee not cleanly published. To add next: UCL/Edinburgh/Cambridge
+psychology (£), SLU #3 / Copenhagen #24 agriculture, Karolinska #25 / Copenhagen #33 biology, microbiology
+& stem-cell specifics (ETH/KU Leuven/Karolinska).
 
 ### Architecture — QS 2026 Architecture & Built Environment (was 8, now 11; translated ✅)
 Global ranks (xuanxiao): UCL #1, Delft #3, ETH #4, Manchester #5, PoliMi #6, EPFL #11, Cambridge #13,
