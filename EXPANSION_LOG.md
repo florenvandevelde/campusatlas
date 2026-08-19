@@ -23,9 +23,9 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **740**
-- Next free `rank` tiebreaker: **699**
-- Programmes: was 727 before expansion.
+- Next free `id`: **742**
+- Next free `rank` tiebreaker: **701**
+- Programmes: was 727 before expansion; now 742 rows (id max 741).
 
 ## Currency / fee-storage basis (how the catalogue already stores `tuition`, an int)
 - **US** rows store the USD figure directly (Stanford 78000, Harvard 64000).
@@ -72,8 +72,10 @@ Already present: LSE #6, Oxford #8, UCL #17, Bocconi #18, + publics (Carlos III,
 KU Leuven, UCLouvain, Solvay).
 **Added (ids 736–739):** Cambridge MPhil Economics £40,098 #10; Warwick MSc Economics £26,600 #25;
 Bonn MSc Economics ~€400 (tuition-free) #50; Barcelona School of Economics — Master in Economics €16,500.
-To add next (verify fee): Paris School of Economics #40 (APE), Toulouse SE, Mannheim #19(EU-order),
-Erasmus Rotterdam, Univ Amsterdam, Tinbergen Institute (Amsterdam).
+**Added (ids 740–741):** Mannheim MSc Economics €3,000/yr (€1,500/sem); Erasmus School of Economics
+MSc Economics & Business Economics €21,000 non-EU.
+To add next (verify fee): Paris School of Economics #40 (APE), Toulouse SE, Univ Amsterdam (UvA fee not
+cleanly found), Tinbergen Institute (Amsterdam), Zurich #? .
 
 ## Untranslated new ids (pending i18n nl/fr/de/es)
-728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739
+728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741
