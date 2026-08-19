@@ -277,7 +277,6 @@
   "Official events page": "Page officielle des événements",
   "Explore events to meet": "Découvrez les événements pour rencontrer",
   "Recruitment fairs, campus open days and virtual information sessions from the schools in this catalogue. Enter your location to find in-person events near you. Dates and registration live on each organiser's own page, they change often, so always confirm there.": "Salons de recrutement, journées portes ouvertes et séances d'information virtuelles des écoles de ce catalogue. Indiquez votre position pour trouver des événements en personne près de vous. Les dates et l'inscription se trouvent sur la page de chaque organisateur, elles changent souvent, vérifiez donc toujours là-bas.",
-  "Tip: enter a location above to see dated in-person fair stops near you (updates as you type), or open any programme and use ": "Astuce : indiquez un lieu ci-dessus pour voir les dates des salons en présentiel près de chez vous (mis à jour pendant que vous tapez), ou ouvrez un programme et utilisez ",
   "Alumni outcomes": "Débouchés des diplômés",
   "Alumni network:": "Réseau des anciens :",
   "Application Deadline": "Date limite de candidature",
@@ -430,5 +429,8 @@
   "Practising untimed right up to test day, then meeting the clock for the first time on the day itself.": "S'entraîner sans chronomètre jusqu'au jour du test, puis affronter le chrono pour la première fois le jour même.",
   "Grinding questions without an error log, so the same mistake repeats for eight weeks.": "Enchaîner les questions sans journal d'erreurs, si bien que la même erreur se répète pendant huit semaines.",
   "Chasing a 20-point improvement that sits inside the test's own margin of error.": "Courir après une amélioration de 20 points qui se situe dans la marge d'erreur du test lui-même.",
-  "Concede a counter-argument explicitly and answer it. That single move lifts more essays than better prose does.": "Concédez explicitement un contre-argument et répondez-y. Ce seul geste améliore plus d'essais qu'une meilleure prose."
+  "Concede a counter-argument explicitly and answer it. That single move lifts more essays than better prose does.": "Concédez explicitement un contre-argument et répondez-y. Ce seul geste améliore plus d'essais qu'une meilleure prose.",
+  "Upcoming in-person events": "Événements en personne à venir",
+  "Free, and staying free": "Gratuit, et ça le reste",
+  "Tip: upcoming in-person events are listed by date. Enter a location above to re-sort them by distance (updates as you type), or open any programme and use ": "Astuce : les événements en présentiel à venir sont classés par date. Indiquez un lieu ci-dessus pour les trier par distance (mis à jour pendant que vous tapez), ou ouvrez un programme et utilisez "
 }

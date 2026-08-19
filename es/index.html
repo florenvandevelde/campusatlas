@@ -1657,6 +1657,10 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
         <h3>Hacia dónde va esto</h3>
         <p>More programmes, more countries, and sharper matching against your own academic background, so the list you see reflects where you actually stand a chance, not just where you'd like to go.</p>
       </div>
+      <div class="about-block">
+        <h3>Gratis, y seguirá siéndolo</h3>
+        <p>This information should not sit behind a paywall. Comparing programmes, tuition, deadlines and funding is free here and will stay free, no account, no fee, no upsell, because the easiest way to compare should be within reach of every student, whatever they can pay.</p>
+      </div>
     </div>
     <h2 class="scholar-section-title">Fuentes y créditos</h2>
     <p class="scholar-section-sub">Homepage banner: coloured-pencil illustration based on Stanford University aerial view by Mark Leschinsky, licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">CC BY 4.0</a>, from the <a href="https://commons.wikimedia.org/wiki/File:Stanford_University_Aerial_View.jpg" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">original on Wikimedia Commons</a>. Programme, tuition, and visa data throughout the site is illustrative and unverified, always confirm on the school's own page.</p>
@@ -3944,26 +3948,42 @@ function renderEvents(focusSchool) {
   // answer to "find in-person events near me" and always renders first, above every
   // other section, with each card showing its date and its city plainly.
   let nearHTML = "";
-  if (eventsLoc && eventKindMatches("in-person")) {
+  if (eventKindMatches("in-person")) {
     const now = new Date(new Date().toDateString());
-    const withDist = EVENTS_CALENDAR
-      .filter(e => new Date(e.date + "T00:00:00") >= now)
-      .map(e => ({ e, km: haversineKm(eventsLoc.lat, eventsLoc.lon, e.lat, e.lon) }))
-      .sort((a, b) => a.km - b.km);
-    const close = withDist.filter(x => x.km <= 700).slice(0, 10);
-    const shown = close.length ? close : withDist.slice(0, 5);
-    const cards = shown.map(({ e, km }) => `
+    const upcoming = EVENTS_CALENDAR.filter(e => new Date(e.date + "T00:00:00") >= now);
+    if (!upcoming.length) {
+      nearHTML = `<p class="locator-placeholder">Ahora mismo no hay ninguna parada de feria con fecha en esta lista, prueba los enlaces de ferias de abajo para el calendario completo del organizador.</p>`;
+    } else if (eventsLoc) {
+      // A location is set: sort by relevance to it, i.e. nearest first.
+      const withDist = upcoming
+        .map(e => ({ e, km: haversineKm(eventsLoc.lat, eventsLoc.lon, e.lat, e.lon) }))
+        .sort((a, b) => a.km - b.km);
+      const close = withDist.filter(x => x.km <= 700).slice(0, 12);
+      const shown = close.length ? close : withDist.slice(0, 6);
+      const cards = shown.map(({ e, km }) => `
       <a class="event-card event-card-dated" href="${e.url}" target="_blank" rel="noopener noreferrer">
         <div class="event-top"><span class="event-kind in-person">📍 ${escapeHTML(e.city)}, ${escapeHTML(e.country)}</span><span class="event-series">≈${Math.round(km)} km away</span></div>
-        <h3>${e.fair}</h3>
+        <h3>${escapeHTML(e.fair)}</h3>
         <p class="event-date">📅 ${formatEventDate(e.date)}</p>
         <span class="event-go">Ver detalles e inscribirse ↗</span>
       </a>`).join("");
-    const heading = close.length
-      ? `In-person events near ${escapeHTML(eventsLoc.label || eventsLoc.city)}`
-      : `No stop within 700 km, closest dated events to ${escapeHTML(eventsLoc.label || eventsLoc.city)}`;
-    nearHTML = shown.length ? `<h2 class="events-section-title">${heading}</h2><div class="events-grid">${cards}</div>` : "";
-    if (!withDist.length) nearHTML = `<p class="locator-placeholder">Ahora mismo no hay ninguna parada de feria con fecha en esta lista, prueba los enlaces de ferias de abajo para el calendario completo del organizador.</p>`;
+      const heading = close.length
+        ? `In-person events near ${escapeHTML(eventsLoc.label || eventsLoc.city)}`
+        : `No stop within 700 km, closest dated events to ${escapeHTML(eventsLoc.label || eventsLoc.city)}`;
+      nearHTML = `<h2 class="events-section-title">${heading}</h2><div class="events-grid">${cards}</div>`;
+    } else {
+      // No location typed: just list every upcoming stop in date order, soonest first,
+      // regardless of school. The organiser/fair name is highlighted on each card.
+      const shown = upcoming.slice().sort((a, b) => a.date < b.date ? -1 : a.date > b.date ? 1 : 0).slice(0, 15);
+      const cards = shown.map(e => `
+      <a class="event-card event-card-dated" href="${e.url}" target="_blank" rel="noopener noreferrer">
+        <div class="event-top"><span class="event-kind in-person">📍 ${escapeHTML(e.city)}, ${escapeHTML(e.country)}</span><span class="event-series">${escapeHTML(e.fair)}</span></div>
+        <h3>${escapeHTML(e.fair)}</h3>
+        <p class="event-date">📅 ${formatEventDate(e.date)}</p>
+        <span class="event-go">Ver detalles e inscribirse ↗</span>
+      </a>`).join("");
+      nearHTML = `<h2 class="events-section-title">Próximos eventos presenciales</h2><div class="events-grid">${cards}</div>`;
+    }
   }
 
   // Virtual: Access Online and GMAC Tours' "virtual" pages were checked directly (not
@@ -3986,7 +4006,7 @@ function renderEvents(focusSchool) {
   let html = focusCard + nearHTML;
   if (virtualCards) html += `<h2 class="events-section-title">Eventos de la escuela y sesiones informativas</h2><div class="events-grid">${virtualCards}</div>`;
   else if (eventKindMatches("virtual") && !eventKindMatches("in-person")) html += `<p class="locator-placeholder">No organiser checked publishes a genuine dated virtual calendar right now (Access Online and GMAC Tours turned out to be informational pages, not bookable sessions, so they're not listed here), only ${Object.keys(SCHOOL_EVENTS).length ? "the school pages above" : "in-person fairs are covered so far"}.</p>`;
-  if (!eventsLoc && eventKindMatches("in-person")) html += `<p class="events-hint">Consejo: introduce arriba una ubicación para ver paradas de ferias presenciales con fecha cerca de ti (se actualiza mientras escribes), o abre un programa y usa <b>Explora eventos para conocer</b> that school.</p>`;
+  if (!eventsLoc && eventKindMatches("in-person")) html += `<p class="events-hint">Consejo: los próximos eventos presenciales están ordenados por fecha. Introduce arriba una ubicación para ordenarlos por distancia (se actualiza mientras escribes), o abre un programa y usa <b>Explora eventos para conocer</b> that school.</p>`;
   box.innerHTML = html || `<p class="locator-placeholder">Ahora mismo nada coincide con ese filtro.</p>`;
 }
 
