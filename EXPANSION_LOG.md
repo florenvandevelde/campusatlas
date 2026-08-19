@@ -52,17 +52,17 @@ RWTH #29, KU Leuven #39, PoliMi #48. Added at schools whose non-EU fee is alread
 To add next (verify English-taught + name): Manchester #17, KTH done, KIT #26 (likely German-taught → check),
 RWTH #29 (check language), Chalmers, Aalto, DTU, NUS/NTU/Cambridge (non-EU fees known).
 
-## ⏭️ PENDING FRONT-END / CONTENT REQUESTS (not yet done — need index.html UI work + build-i18n.js)
-1. **Events — chronological list view:** show upcoming events (BOTH virtual `SCHOOL_EVENTS` and in-person
-   `EVENTS_CALENDAR`) stacked one above the other, sorted by date of occurrence, regardless of school;
-   **highlight/show the school prominently in each event's description**.
-2. **Events — location-relevance sort:** user types their location, then events (virtual + in-person) sort
-   by relevance (proximity + date). Ties into `EVENT_CITY_COORDS` / `eventCityCoords`.
-3. **About CampusAtlas section:** add/emphasise the mission — the catalogue is **free**, this information
-   **should not be charged for**, and it should let students **compare programmes in the easiest way**.
-   (Text edit → will need build-i18n.js + translations to keep locale parity.)
-Note: `SCHOOL_EVENTS` currently has no dates (they're standing info-session pages); a pure date-sort needs
-either scraped session dates or treating them as "ongoing/rolling". Confirm desired handling when building #1.
+## ✅ FRONT-END / CONTENT REQUESTS — DONE (2026-08-19, verified in browser)
+1. **Events — date-sorted default list:** `renderEvents()` now lists all upcoming `EVENTS_CALENDAR` stops
+   in date order (soonest first, top 15) with NO location typed; the standing/virtual `SCHOOL_EVENTS`
+   ("School events & info sessions") render BELOW them (user chose "ongoing at the bottom"). Fair/organiser
+   highlighted as the card `<h3>`. Verified: titles ["Upcoming in-person events","School events & info
+   sessions"], 15 dated cards sorted Sep 5→… ascending.
+2. **Events — location-relevance sort:** with a location typed, in-person stops sort by proximity (nearest
+   first, ≤700 km, top 12); virtual stay at the bottom. (Virtual are online/standing → no geo-sort by design.)
+3. **About — "Free, and staying free" block** added to the mission grid (free, no paywall, no fee, easiest
+   way to compare for every student). Added dict phrases "Upcoming in-person events" + "Free, and staying
+   free" to all 4 i18n JSONs (now 434 keys) and swapped the events tip key; build-i18n.js clean, no stale.
 
 ## Currency / fee-storage basis (how the catalogue already stores `tuition`, an int)
 - **US** rows store the USD figure directly (Stanford 78000, Harvard 64000).
