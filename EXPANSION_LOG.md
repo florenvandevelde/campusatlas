@@ -23,8 +23,8 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **734**
-- Next free `rank` tiebreaker: **693**
+- Next free `id`: **736**
+- Next free `rank` tiebreaker: **695**
 - Programmes: was 727 before expansion.
 
 ## Currency / fee-storage basis (how the catalogue already stores `tuition`, an int)
@@ -61,9 +61,10 @@ Mechanical Engineering: European top-60 now essentially complete.
 
 ### Fashion (business-of-fashion; no QS ranking → descriptive ext_rank; BoF is the reference)
 Already present: IFM Paris, SDA Bocconi MAFED, Antwerp IFM.
-**Added (id 733):** Polimoda (Florence) — Master in Fashion Brand Management — €26,000.
-To add next (verify fee first): Istituto Marangoni (Milan/Paris) fashion-business master, IED Milan,
-Domus Academy, LCF/CSM (UAL) fashion-business MA, Parsons Paris, Aalto MA Fashion.
+**Added:** 733 Polimoda (Florence) Fashion Brand Management €26,000; 734 Istituto Marangoni (Milan)
+Fashion & Luxury Brand Management €33,500 non-EU; 735 IED Milan Fashion Marketing €20,300.
+Domus Academy skipped (non-EU fee not cleanly verified). To broaden geography next: Marangoni/Parsons
+Paris, IED Madrid/Barcelona, LCF/CSM London (verify fee first).
 
 ## Untranslated new ids (pending i18n nl/fr/de/es)
-728, 729, 730, 731, 732, 733
+728, 729, 730, 731, 732, 733, 734, 735
