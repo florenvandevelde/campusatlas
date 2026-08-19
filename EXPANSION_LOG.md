@@ -23,9 +23,30 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **742**
-- Next free `rank` tiebreaker: **701**
-- Programmes: was 727 before expansion; now 742 rows (id max 741).
+- Next free `id`: **748**
+- Next free `rank` tiebreaker: **707**
+- Programmes now **725 rows** (719 + 6 materials); id max 747. Target 1000+.
+
+### Materials Science — QS 2026 (added ids 742–747, translated ✅)
+Global QS Materials ranks (xuanxiao): ETH #10, EPFL #13, Delft #14, Manchester #17, KTH #24, KIT #26,
+RWTH #29, KU Leuven #39, PoliMi #48. Added at schools whose non-EU fee is already vetted in-catalogue
+(reused): 742 ETH €2,500 #10; 743 EPFL €1,600 #13; 744 Delft €20,000 #14; 745 KTH €18,000 #24;
+746 KU Leuven €9,500 #39; 747 PoliMi €4,000 #48. Field tags used: ['Engineering','Chemistry'(,'Physics')]
++ open_fields ['Chemical & Materials Engineering','STEM & Engineering'] (no 'Materials' field tag exists).
+To add next (verify English-taught + name): Manchester #17, KTH done, KIT #26 (likely German-taught → check),
+RWTH #29 (check language), Chalmers, Aalto, DTU, NUS/NTU/Cambridge (non-EU fees known).
+
+## ⏭️ PENDING FRONT-END / CONTENT REQUESTS (not yet done — need index.html UI work + build-i18n.js)
+1. **Events — chronological list view:** show upcoming events (BOTH virtual `SCHOOL_EVENTS` and in-person
+   `EVENTS_CALENDAR`) stacked one above the other, sorted by date of occurrence, regardless of school;
+   **highlight/show the school prominently in each event's description**.
+2. **Events — location-relevance sort:** user types their location, then events (virtual + in-person) sort
+   by relevance (proximity + date). Ties into `EVENT_CITY_COORDS` / `eventCityCoords`.
+3. **About CampusAtlas section:** add/emphasise the mission — the catalogue is **free**, this information
+   **should not be charged for**, and it should let students **compare programmes in the easiest way**.
+   (Text edit → will need build-i18n.js + translations to keep locale parity.)
+Note: `SCHOOL_EVENTS` currently has no dates (they're standing info-session pages); a pure date-sort needs
+either scraped session dates or treating them as "ongoing/rolling". Confirm desired handling when building #1.
 
 ## Currency / fee-storage basis (how the catalogue already stores `tuition`, an int)
 - **US** rows store the USD figure directly (Stanford 78000, Harvard 64000).
@@ -131,6 +152,6 @@ Seam largely exhausted (see [[alumni-sector-charts]] memory). This session confi
 CBS Full-Time MBA (494), ESSEC Global MBA (496) — none publishes a text-extractable own-site split.
 Retry candidate: IE International MBA (445) own PDF via in-app browser PDF render.
 
-## Translation status — 100% COVERAGE RESTORED ✅
-All 14 new programme rows (728–741) translated nl/fr/de/es (blurb + highlights). All 5 new scholarships
-translated. Verified: **programmes 719/719**, **scholarships 202/202**. No untranslated rows pending.
+## Translation status — 100% COVERAGE MAINTAINED ✅
+Programme rows 728–741 (14) and 742–747 (6 materials) all translated nl/fr/de/es. All 5 new scholarships
+translated. Coverage: programmes 725/725, scholarships 202/202. No untranslated rows pending.
