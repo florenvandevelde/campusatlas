@@ -23,9 +23,18 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **754**
-- Next free `rank` tiebreaker: **713**
-- Programmes now **731 rows** (+6 pharmacy total); id max 753. Target 1000+.
+- Next free `id`: **757**
+- Next free `rank` tiebreaker: **716**
+- Programmes now **734 rows** (+3 architecture); id max 756. Target 1000+.
+
+### Architecture — QS 2026 Architecture & Built Environment (was 8, now 11; translated ✅)
+Global ranks (xuanxiao): UCL #1, Delft #3, ETH #4, Manchester #5, PoliMi #6, EPFL #11, Cambridge #13,
+PoliTo #18, TUM #25, Aalto #36, KTH #44, KU Leuven #47. Already had: UCL#1, TUM#25, KU Leuven#47, ULB.
+**Added (ids 754–756):** Delft MSc Architecture, Urbanism & Building Sciences €20,000 #3; PoliMi MSc
+Architecture–Built Environment–Interiors (English BEI track) €4,000 #6; Aalto MSc Architecture €20,000 #36
+(Aalto arch fee is €20k, NOT the €15k Aalto CS fee — per-programme verify again paid off).
+Skipped: ETH #4 / EPFL #11 (arch masters German/French-taught); PoliTo #18 (only partly English + income-based
+fee). To add next (verify English + fee): Manchester School of Architecture MArch #5, Cambridge MPhil #13, KTH #44.
 - Pharmacy batch 2 (ids 751–753, translated ✅): UCL MSc Drug Discovery & Pharma Management £39,800 #3;
   Nottingham MSc Drug Discovery £28,600 #8; Copenhagen MSc Pharmaceutical Sciences €16,000 #21 (from
   DKK 250k/2yr). Uppsala #24 still deferred (fee ambiguous). Pharmacy field now 0 → 6.
