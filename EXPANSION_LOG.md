@@ -102,5 +102,6 @@ cleanly found), Tinbergen Institute (Amsterdam), Zurich #? .
    EVENTS_CALENDAR + EVENT_CITY_COORDS, then run `node build-i18n.js`. Needs verified autumn-2026 fair dates.
 5. **Translate** all untranslated new ids below (blurb + highlights → nl/fr/de/es).
 
-## Untranslated new ids (pending i18n nl/fr/de/es)
-728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739, 740, 741
+## Translation status — 100% COVERAGE RESTORED ✅
+All 14 new programme rows (728–741) translated nl/fr/de/es (blurb + highlights). All 5 new scholarships
+translated. Verified: **programmes 719/719**, **scholarships 202/202**. No untranslated rows pending.
