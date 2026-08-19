@@ -23,9 +23,23 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **762**
-- Next free `rank` tiebreaker: **721**
-- Programmes now **739 rows** (+5 bio/psych/agri); id max 761. Target 1000+.
+- Next free `id`: **772**
+- Next free `rank` tiebreaker: **731**
+- Programmes now **749 rows**; id max 771. Target 1000+.
+
+## 🚀 VOLUME PUSH to 1000 (user: "keep going down the rankings and hit 1000")
+Strategy: bulk-add at **fee-uniform powerhouse universities** (one known non-EU fee covers all their English
+MSc), verifying programme NAMES from the school's own list, then add every not-yet-listed one. To keep
+throughput high, new bulk rows are inserted **English-only (i18n=null)** and translated in periodic PASSES
+(like the original scholarship loop) — runtime falls back to English meanwhile. Track untranslated ids below.
+Known uniform fees: ETH €2,500 · Wageningen €21,700 · KU Leuven €9,500 · TU Delft €20,000 · KTH €18,000 ·
+PoliMi €4,000 · TUM €24,000 (€16,000 life-sci) · TU Berlin/LMU/Bonn €400 · Uppsala/Lund €18,000.
+**Batch 1 (ids 762–771, English-only, NEED i18n):** ETH MSc Physics/Chemistry/Mathematics/Statistics (€2,500);
+Wageningen MSc Biotechnology/Molecular Life Sciences/Food Technology/Nutrition and Health/Food Safety/
+Earth System Sciences (€21,700).
+
+## ⏳ UNTRANSLATED programme ids (need i18n nl/fr/de/es — run translation pass)
+762, 763, 764, 765, 766, 767, 768, 769, 770, 771
 
 ### Biology / Psychology / Agriculture — QS 2026 (added ids 757–761, translated ✅)
 Ranks (xuanxiao): **Agri&Forestry** Wageningen #1, SLU #3, ETH #8, Ghent #9, NMBU #10, Hohenheim #17,
