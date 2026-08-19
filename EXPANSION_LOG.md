@@ -102,6 +102,35 @@ cleanly found), Tinbergen Institute (Amsterdam), Zurich #? .
    EVENTS_CALENDAR + EVENT_CITY_COORDS, then run `node build-i18n.js`. Needs verified autumn-2026 fair dates.
 5. **Translate** all untranslated new ids below (blurb + highlights → nl/fr/de/es).
 
+## 🎯 STANDING TARGET (user, 2026-08-19): grow catalogue to **1000+ programmes** (currently 719).
+Keep going continuously across context windows. Verified data only (see HARD RULES). Translate every new
+row (blurb+highlights → nl/fr/de/es) and add a scholarship row per new school where verifiable.
+
+### Field coverage audit (2026-08-19) — where to focus for the 1000+ push
+REAL GAPS to build out (verified, mostly European public unis w/ documented fees):
+- **Materials Science** — only 1 programme. QS Materials Science ranking; strong EU publics: TU Delft,
+  RWTH, KIT, KU Leuven, EPFL, ETH, TU Eindhoven, Manchester, Politecnico Milano, Chalmers, DTU, Aalto.
+- **Pharmacy / Pharmaceutical Sciences** — 0 programmes. QS Pharmacy & Pharmacology; EU: Leiden, Uppsala,
+  Copenhagen, Groningen, ETH, Nottingham, UCL, Munich, Utrecht.
+- **Architecture** — 8 (thin for demand). QS Architecture & Built Environment; many EU publics.
+- **Biology / Microbiology / Stem-cell & regenerative** — Life Sciences 44 but biology/micro/stem-cell
+  specifically thin; QS Biological Sciences; EU: ETH, KU Leuven, Wageningen, Karolinska, Lund, Utrecht.
+- **Psychology** — only 5 field-tagged. QS Psychology; EU: Amsterdam, KU Leuven, UCL, Groningen.
+- **Agriculture** — "Agriculture & Food" only 3. QS Agriculture; EU: Wageningen, KU Leuven, ETH, Copenhagen.
+WELL-COVERED (don't over-invest): Physics 27, Chemistry 18, Earth Sciences 18, Life Sciences 44,
+Public Health 15 / MPH 22, Biochemistry 10 — plus CS/DS/Sustainability/Economics/Management already saturated.
+
+### Events progress (2026-08-19)
+Added 4 verified `SCHOOL_EVENTS` (per-school info-session pages, hand-checked): Chalmers, KTH, TU Eindhoven,
+Barcelona School of Economics. Ran build-i18n.js (dict stays 432 — event notes are data, copied verbatim).
+EVENTS_CALENDAR (dated map-pin fairs) rule is STRICT: only add a date read off the organiser's own schedule
+page. ES/FR city gaps (Barcelona, Lyon) need verified organiser dates before adding.
+
+### Alumni sector-charts (2026-08-19)
+Seam largely exhausted (see [[alumni-sector-charts]] memory). This session confirmed dry: ESCP MBA (493),
+CBS Full-Time MBA (494), ESSEC Global MBA (496) — none publishes a text-extractable own-site split.
+Retry candidate: IE International MBA (445) own PDF via in-app browser PDF render.
+
 ## Translation status — 100% COVERAGE RESTORED ✅
 All 14 new programme rows (728–741) translated nl/fr/de/es (blurb + highlights). All 5 new scholarships
 translated. Verified: **programmes 719/719**, **scholarships 202/202**. No untranslated rows pending.
