@@ -23,13 +23,27 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **732**
-- Next free `rank` tiebreaker: **691**
+- Next free `id`: **734**
+- Next free `rank` tiebreaker: **693**
 - Programmes: was 727 before expansion.
 
-## Currency conversion basis (for consistency with existing rows)
-- Sweden (SEK): catalogue uses ~10 SEK/€ rounding. KTH SEK 180k/yr → €18,000; Chalmers SEK 160k/yr → €16,000.
-- Denmark (DKK/EUR): DTU publishes €7,500/semester → €15,000/yr.
+## Currency / fee-storage basis (how the catalogue already stores `tuition`, an int)
+- **US** rows store the USD figure directly (Stanford 78000, Harvard 64000).
+- **UK** rows store the GBP figure directly (Imperial 44–54k, UCL 50200, Manchester 38400).
+- **Sweden** stores an approx EUR-equivalent (~10 SEK/€): KTH €18,000, Chalmers SEK 160k/yr → €16,000.
+- **Denmark** DTU publishes €7,500/semester → €15,000/yr (native EUR).
+- Rule: store the school's **local-currency figure** as the int; only Nordic/non-symbol currencies get an
+  EUR-equivalent. Never invent — always from an official/reliable fee page.
+
+## Field vocabulary (use ONLY these — no new tags)
+`fields`: Management, Analytics, Strategy, Engineering, Computer Science, Finance, AI, Sustainability,
+Economics, Life Sciences, Entrepreneurship, Public Policy, Marketing, Physics, Energy, Social Sciences,
+Law, Earth Sciences, Chemistry, Public Health, Mathematics, Information Science, Education, Biochemistry,
+Architecture, Psychology, Mechanical Engineering, History, Humanities, Agriculture & Food, Media & Communication.
+(No "Fashion"/"Design" tag exists → fashion-business masters use ['Management','Marketing','Strategy'].)
+`open_fields`: STEM & Engineering, Any, Business & Economics, Computer Science, Social Sciences & Humanities,
+Mathematics & Statistics, Physics & Astronomy, Biology & Life Sciences, Mechanical & Aerospace Engineering,
+Electrical & Electronic Engineering, Economics, Architecture & Design, Arts Media & Journalism, Law, etc.
 
 ## Progress by field
 ### Mechanical Engineering — QS 2026 (Mech/Aero/Manufacturing)
@@ -41,7 +55,15 @@ TUM#19, RWTH#25, KIT#32, KU Leuven#34, Cranfield#55, UCL#57. Intentionally absen
 - 729 KTH — MSc Engineering Mechanics — €18,000 — QS #20
 - 730 TU Eindhoven — MSc Mechanical Engineering — €21,700 — QS #60
 - 731 Chalmers — MSc Applied Mechanics — €16,000 — QS #57
-Still to check: Manchester #27, TU Berlin #42 (verify a real English taught MSc + fee first).
+**Added (id 732):** Manchester — MSc Mechanical Engineering Design — £38,400 — QS #27.
+TU Berlin #42 mechanical is German-taught → skipped (catalogue is English-taught).
+Mechanical Engineering: European top-60 now essentially complete.
+
+### Fashion (business-of-fashion; no QS ranking → descriptive ext_rank; BoF is the reference)
+Already present: IFM Paris, SDA Bocconi MAFED, Antwerp IFM.
+**Added (id 733):** Polimoda (Florence) — Master in Fashion Brand Management — €26,000.
+To add next (verify fee first): Istituto Marangoni (Milan/Paris) fashion-business master, IED Milan,
+Domus Academy, LCF/CSM (UAL) fashion-business MA, Parsons Paris, Aalto MA Fashion.
 
 ## Untranslated new ids (pending i18n nl/fr/de/es)
-728, 729, 730, 731
+728, 729, 730, 731, 732, 733
