@@ -23,9 +23,22 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **748**
-- Next free `rank` tiebreaker: **707**
-- Programmes now **725 rows** (719 + 6 materials); id max 747. Target 1000+.
+- Next free `id`: **751**
+- Next free `rank` tiebreaker: **710**
+- Programmes now **728 rows** (+3 pharmacy); id max 750. Target 1000+.
+
+### Pharmacy / Pharmaceutical Sciences — QS 2026 Pharmacy & Pharmacology (NEW field, was 0)
+Global ranks (xuanxiao): Monash #2, UCL #3, Nottingham #8, Copenhagen #21, Leiden #23, Uppsala #24,
+KU Leuven #30, ETH #35, Utrecht #37. Field tags: ['Life Sciences','Biochemistry'] +
+open_fields ['Pharmacy & Biomedical Sciences','Biology & Life Sciences'(,'STEM & Engineering')].
+**Added (ids 748–750, translated ✅):** 748 ETH MSc Pharmaceutical Sciences €2,500 #35 (ETH fee uniform,
+reuse safe); 749 Leiden MSc Bio-Pharmaceutical Sciences €22,500 #23 (verified official); 750 Utrecht MSc
+Drug Innovation €25,306 #37 (verified official — reuse of the €18k Utrecht CS fee would've UNDERSTATED,
+Utrecht life-sci fee is higher; ALWAYS verify per-programme for Dutch unis).
+Skipped: KU Leuven #30 (entry-level Master of Pharmaceutical Sciences is Dutch-taught; only the niche
+English "Advanced Master of Pharmacometrics" exists). To add next (verify fee/name): UCL #3, Nottingham #8,
+Copenhagen #21, Uppsala #24 (its SEK 290k figure is ambiguous year-vs-total — check uu.se fee page),
+Monash #2 (Australia, non-EU fee known-ish), Groningen.
 
 ### Materials Science — QS 2026 (added ids 742–747, translated ✅)
 Global QS Materials ranks (xuanxiao): ETH #10, EPFL #13, Delft #14, Manchester #17, KTH #24, KIT #26,
