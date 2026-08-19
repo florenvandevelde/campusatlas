@@ -23,8 +23,8 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **736**
-- Next free `rank` tiebreaker: **695**
+- Next free `id`: **740**
+- Next free `rank` tiebreaker: **699**
 - Programmes: was 727 before expansion.
 
 ## Currency / fee-storage basis (how the catalogue already stores `tuition`, an int)
@@ -66,5 +66,14 @@ Fashion & Luxury Brand Management €33,500 non-EU; 735 IED Milan Fashion Market
 Domus Academy skipped (non-EU fee not cleanly verified). To broaden geography next: Marangoni/Parsons
 Paris, IED Madrid/Barcelona, LCF/CSM London (verify fee first).
 
+### Economics — QS 2026 Economics & Econometrics (GLOBAL ranks; smapse list is Europe-ordering — don't reuse)
+Global ranks confirmed via xuanxiao: Cambridge #10, Warwick #25, Pompeu Fabra #31, Paris SE #40, Bonn #50.
+Already present: LSE #6, Oxford #8, UCL #17, Bocconi #18, + publics (Carlos III, Bologna, LMU #58, Vienna,
+KU Leuven, UCLouvain, Solvay).
+**Added (ids 736–739):** Cambridge MPhil Economics £40,098 #10; Warwick MSc Economics £26,600 #25;
+Bonn MSc Economics ~€400 (tuition-free) #50; Barcelona School of Economics — Master in Economics €16,500.
+To add next (verify fee): Paris School of Economics #40 (APE), Toulouse SE, Mannheim #19(EU-order),
+Erasmus Rotterdam, Univ Amsterdam, Tinbergen Institute (Amsterdam).
+
 ## Untranslated new ids (pending i18n nl/fr/de/es)
-728, 729, 730, 731, 732, 733, 734, 735
+728, 729, 730, 731, 732, 733, 734, 735, 736, 737, 738, 739
