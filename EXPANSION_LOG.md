@@ -23,9 +23,15 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **772**
-- Next free `rank` tiebreaker: **731**
-- Programmes now **746 rows** (after removing 3 dupes: 746/762/763); id max 771. Target 1000+.
+- Next free `id`: **783**
+- Next free `rank` tiebreaker: **742**
+- Programmes now **757 rows**; id max 782. Target 1000+ → **243 to go**.
+- Wageningen bulk batch 2 (ids 772–782, English-only): Aquaculture & Marine Resource Mgmt, Biobased Sciences,
+  Bioinformatics & Systems Biology, Biosystems Engineering, Communication/Health/Life Sciences, Consumer
+  Studies, Data Science for Food & Health, Development & Rural Innovation, Economics of Sustainability, Food
+  Quality Management, Forest & Nature Conservation — all €21,700. Wageningen page 2 (~20 more) still available:
+  e.g. Geo-Information Science, International Development Studies, Landscape Architecture & Planning,
+  Management/Economics, Organic Agriculture, Plant Biotechnology, Tourism, Urban Environmental Mgmt, Water Tech.
 
 ## 🚀 VOLUME PUSH to 1000 (user: "keep going down the rankings and hit 1000")
 Strategy: bulk-add at **fee-uniform powerhouse universities** (one known non-EU fee covers all their English
@@ -47,7 +53,7 @@ programmes are lower, so verify KU Leuven fees per-programme rather than reusing
 Verified-clean uniform seams: **Wageningen €21,700** (30 English MSc) and **ETH €2,500** are safest.
 
 ## ⏳ UNTRANSLATED programme ids (need i18n nl/fr/de/es — run translation pass)
-764, 765, 766, 767, 768, 769, 770, 771
+764, 765, 766, 767, 768, 769, 770, 771, 772, 773, 774, 775, 776, 777, 778, 779, 780, 781, 782
 
 ### Biology / Psychology / Agriculture — QS 2026 (added ids 757–761, translated ✅)
 Ranks (xuanxiao): **Agri&Forestry** Wageningen #1, SLU #3, ETH #8, Ghent #9, NMBU #10, Hohenheim #17,
