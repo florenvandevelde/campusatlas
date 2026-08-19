@@ -85,12 +85,17 @@ cleanly found), Tinbergen Institute (Amsterdam), Zurich #? .
   Imperial #11, Delft #12, UCL #23, Utrecht top-25, + energy (KTH, NTNU, DTU Wind, TUM, Mines Paris).
 - (Intentional absences noted per field: Cambridge/Oxford standalone taught mechanical MSc, etc.)
 
+## Scholarships added for new schools (WITH full i18n nl/fr/de/es)
+- Eindhoven University of Technology — Amandus H. Lundqvist (ALSP) & Holland Scholarship
+- Chalmers University of Technology — IPOET & Avancez Scholarships
+- University of Bonn — No tuition + Deutschlandstipendium & DAAD
+- Barcelona School of Economics — BSE Master Scholarships
+- University of Warwick — Warwick Economics & Chancellor's International Scholarships
+(All `school` values match the corresponding programme.school exactly, so they link.)
+
 ## QUEUED next steps (verify before inserting; keep committing per small batch)
-1. **Scholarships for new schools** lacking a row (scholarships PK = `school`, must match programme.school):
-   Eindhoven University of Technology, Chalmers University of Technology, University of Bonn,
-   Barcelona School of Economics, Polimoda, Istituto Marangoni, Istituto Europeo di Design,
-   "University of Warwick" (existing sch row is "Warwick Business School" — name mismatch), Manchester,
-   KTH (check). New scholarship rows also need i18n (nl/fr/de/es: description [+ evidence if odds not null]).
+1. Scholarships still to add: Polimoda, Istituto Marangoni, Istituto Europeo di Design (verify schemes),
+   Manchester, KTH, DTU (DTU already has one). Need i18n too.
 2. **Economics remainder:** Paris School of Economics #40, Toulouse SE, University of Amsterdam / Tinbergen.
 3. **Fashion geography:** Paris (Marangoni/Parsons), Madrid/Barcelona (IED), London (LCF/CSM) — verify fees.
 4. **Events:** in-person recruitment-fair stops across ES/FR/DE/NL/BE cities → edit index.html
