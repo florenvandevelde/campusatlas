@@ -23,10 +23,21 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **798**
-- Next free `rank` tiebreaker: **757**
-- Programmes now **772 rows** (+2 online: 796/797); id max 797. Target 1000+ → **228 to go**.
+- Next free `id`: **802**
+- Next free `rank` tiebreaker: **762**
+- Programmes now **776 rows** (+4 humanities: 798–801); id max 801. Target 1000+ → **224 to go**.
 - NEW schema column: `online boolean not null default false` (for the delivery-mode filter).
+
+### Humanities — QS 2026 (was thin, now +4, translated ✅)
+Ranks: **History** Oxford #2, Cambridge #3, Leiden #13(added), Sorbonne #15, UCL #20(added), Edinburgh #22,
+Amsterdam #42. **Philosophy** Oxford #3, Cambridge #7, LSE #8, St Andrews #12, LMU #11, Humboldt #14,
+Edinburgh #24(added), KU Leuven #29, Amsterdam #32, Sorbonne #35. **Modern Languages** Oxford #1,
+Cambridge #2, Edinburgh #12, UCL #13, Sorbonne #27.
+**Added:** 798 UCL MA History £35,400 (#20); 799 Leiden MA History €22,300 (#13); 800 Sciences Po Master
+in History €20,640; 801 Edinburgh MSc Philosophy £33,200 (#24). Oxford/Cambridge/LSE/St Andrews History
+& Philosophy already present via earlier batches — verify before re-adding.
+To add next: Modern Languages (Oxford/Cambridge/UCL/Sorbonne), more Philosophy (Oxford/Cambridge/LSE/
+St Andrews/LMU/Humboldt), Linguistics, Politics/IR expansion, Law expansion.
 - Delft bulk batch 1 (ids 783–795, English-only, €20,000): Applied Mathematics, Applied Physics, Computer
   Science, Data Science & AI Technology, BioMedical Engineering, Environmental Engineering, Robotics,
   Systems & Control, Quantum Information Science & Technology, Nanobiology, Life Science and Technology,
