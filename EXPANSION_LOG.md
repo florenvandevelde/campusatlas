@@ -266,13 +266,26 @@ RWTH #29 (check language), Chalmers, Aalto, DTU, NUS/NTU/Cambridge (non-EU fees 
    way to compare for every student). Added dict phrases "Upcoming in-person events" + "Free, and staying
    free" to all 4 i18n JSONs (now 434 keys) and swapped the events tip key; build-i18n.js clean, no stale.
 
-## Currency / fee-storage basis (how the catalogue already stores `tuition`, an int)
-- **US** rows store the USD figure directly (Stanford 78000, Harvard 64000).
-- **UK** rows store the GBP figure directly (Imperial 44–54k, UCL 50200, Manchester 38400).
-- **Sweden** stores an approx EUR-equivalent (~10 SEK/€): KTH €18,000, Chalmers SEK 160k/yr → €16,000.
-- **Denmark** DTU publishes €7,500/semester → €15,000/yr (native EUR).
-- Rule: store the school's **local-currency figure** as the int; only Nordic/non-symbol currencies get an
-  EUR-equivalent. Never invent — always from an official/reliable fee page.
+## ⚠️ Currency / fee-storage basis — CORRECTED 2026-08-20 (earlier guidance in this file was WRONG)
+**`tuition` is ALWAYS stored in EUR, for every country, no exceptions.** `tuitionDisplay(p)` in index.html
+converts to local currency for display via `local = tuition * CURRENCY_BY_COUNTRY[country].rate` (rate =
+local units per 1 EUR, e.g. GBP 0.85, USD 1.08, JPY 165, SGD 1.46). This was confirmed both by reading the
+display code directly and by an old project memory's worked example (NTU S$63,220 → stored as 43300, since
+43300×1.46≈63,218 ✓).
+**Bug found and fixed 2026-08-20:** the earlier (wrong) guidance above led United Kingdom (149 rows) and
+United States (157 rows) — including several added by me this session — to store the RAW LOCAL figure
+instead of EUR, so cards were silently showing wrong tuition (Imperial College London showed "£37,400"
+when the real fee is £44,000; Stanford showed "US$84,200" for a real ~$78,000 fee). **Fixed via migration
+`fix_uk_us_tuition_currency_convention`**: `update programmes set tuition = round(tuition/0.85/100)*100
+where country='United Kingdom'` and the equivalent for `United States` (÷1.08). Verified after the fix:
+Imperial → "£44,000 (~€51,800)" ✓, Stanford → "US$78,000 (~€72,200)" ✓, Georgia Tech OMSCS → "US$7,000
+(~€6,500)" ✓. All other countries were already correctly EUR-stored (verified Japan, Singapore, Hong Kong,
+China, Korea, Sweden, Denmark — their averages only make sense as EUR figures).
+**Going forward — the ONLY correct rule:** when you have a school's real local-currency fee `L` and country
+`C`, compute `tuition = round(L / CURRENCY_BY_COUNTRY[C].rate)` before inserting (for Eurozone countries,
+`tuition = L` directly since rate is 1). Never store a raw non-EUR local figure directly — that is exactly
+the bug that was just fixed. Verify with `tuitionDisplay` mentally: stored_eur × rate should reproduce the
+real local fee you researched.
 
 ## Field vocabulary (use ONLY these — no new tags)
 `fields`: Management, Analytics, Strategy, Engineering, Computer Science, Finance, AI, Sustainability,
