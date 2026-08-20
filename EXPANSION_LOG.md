@@ -23,10 +23,27 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **950**
-- Next free `rank` tiebreaker: **918**
-- Programmes now **924 rows** (+8 more PoliTo: 942–949, translated ✅); id max 949.
-  Target 1000+ → **76 to go**.
+- Next free `id`: **956**
+- Next free `rank` tiebreaker: **925**
+- Programmes now **930 rows** (+6 Aalto: 950–955, translated ✅); id max 955. Target 1000+ → **70 to go**.
+- Aalto has 111 study options total (many joint/double-degree/bachelor-combined, excluded). Non-EU fee is
+  PER-PROGRAMME (€15k–20k range, confirmed via official per-programme fee tags on aalto.fi/en/study-options),
+  NOT uniform like Wageningen/ETH/Delft/TU-e — always read the fee off each programme's own listing.
+  6 single-institution English MSc added (Water & Environmental Eng, Signal Processing & Data Science,
+  Hydrogen & Electric Systems, Geoengineering, Geoinformatics, Acoustics & Audio Technology), all €17,000.
+
+## 🎯 STRATEGY PIVOT (user, 2026-08-20): "top 50 of all these different programmes mapped globally"
+Shift from "harvest every programme at a fee-uniform university" to **systematically auditing each QS
+subject ranking's top 50 and filling the specific missing schools** — a ranking-first, not university-first,
+sweep. Method: pull the QS top-50 for a subject (global ranks, not the EU-only smapse lists), cross-check
+against `select school, ext_rank from programmes where 'X'=any(fields)`, then research+add the verified-fee
+gaps only (skip PhD-only US departments — noted per field in earlier ledger sections). Keep translating
+every batch immediately to hold 100% coverage. Already-audited-and-filled-to-a-good-depth: CS/AI, Data
+Science, Sustainability, Economics, Management, Business, Mechanical Eng, Materials Science, Pharmacy,
+Architecture, Psychology, Agriculture, Biology, Humanities (History/Philosophy/Linguistics/Politics), Law
+(21, decent). NEXT: re-audit each of these against the FULL top-50 (not just top-10/20 as originally done)
+and fill remaining gaps — start with Mechanical Engineering (only checked to ~top 60 EU-ordered list
+earlier) and Materials Science (only checked to top 48).
 - **PoliTo is now essentially COMPLETE** — 25 English-taught programmes catalogued (Architecture Construction
   City, Architecture for Heritage, Architecture for Sustainability, Building Eng, Chemical & Sustainable
   Processes Eng, Digital Skills for Sustainable Societal Transitions, Environmental & Land Eng, Geography &
