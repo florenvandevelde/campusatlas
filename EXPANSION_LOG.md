@@ -74,8 +74,7 @@ Verified-clean uniform seams: **Wageningen €21,700** (30 English MSc) and **ET
   (GT OMS Analytics/Cybersecurity, Illinois online MCS, Imperial Global Online MBA, Wageningen online) so
   the filter has more content — verify each fee. New online rows 796/797 also NEED i18n.
 
-## ⏳ UNTRANSLATED programme ids (need i18n nl/fr/de/es — run translation pass)
-764–782, 783–795, 796, 797
+## ⏳ UNTRANSLATED programme ids — NONE. Translation pass complete 2026-08-20, verified 772/772. ✅
 
 ### Biology / Psychology / Agriculture — QS 2026 (added ids 757–761, translated ✅)
 Ranks (xuanxiao): **Agri&Forestry** Wageningen #1, SLU #3, ETH #8, Ghent #9, NMBU #10, Hohenheim #17,
