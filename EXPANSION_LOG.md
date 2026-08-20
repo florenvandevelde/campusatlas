@@ -23,9 +23,16 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **802**
-- Next free `rank` tiebreaker: **762**
-- Programmes now **776 rows** (+4 humanities: 798–801); id max 801. Target 1000+ → **224 to go**.
+- Next free `id`: **816**
+- Next free `rank` tiebreaker: **776**
+- Programmes now **790 rows** (+14 Delft batch 2: 802–815, translated ✅); id max 815. Target 1000+ → **210 to go**.
+- **Delft is now COMPLETE** — every English-taught MSc from TU Delft's own programme list is in the catalogue
+  (aerospace/mech/civil/electrical/chemical/materials/architecture/computer science/applied math&physics/
+  biomedical/environmental/robotics/systems&control/quantum/nanobiology/life science&tech/mgmt of tech/
+  marine tech/geophysics/complex systems/embedded systems/construction mgmt/design for interaction/earth
+  climate&tech/engineering&policy/geomatics/industrial ecology/integrated&strategic product design/
+  metropolitan ADE/science education/transport infra&logistics). Do not re-add Delft without re-checking
+  the school's list for NEW programmes only.
 - NEW schema column: `online boolean not null default false` (for the delivery-mode filter).
 
 ### Humanities — QS 2026 (was thin, now +4, translated ✅)
