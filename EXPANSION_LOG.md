@@ -23,9 +23,23 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **956**
-- Next free `rank` tiebreaker: **925**
-- Programmes now **930 rows** (+6 Aalto: 950–955, translated ✅); id max 955. Target 1000+ → **70 to go**.
+- Next free `id`: **960**
+- Next free `rank` tiebreaker: **930**
+- Programmes now **934 rows** (+4 CS top-50 gaps: 956–959, translated ✅); id max 959.
+  Target 1000+ → **66 to go**.
+
+### CS top-50 audit (QS Computer Science & Information Systems 2026, global ranks)
+Full top-50 pulled from xuanxiao. Cross-checked against catalogue; **added:** Yale #21 ($101,800 total,
+24mo, MS CS), Columbia #22 ($81,000 total, ~18mo, MS CS), UPenn #36 ($88,250 total = 10 course units ×
+$8,825, 18mo, MSE CIS), KCL (#46-tier, £31,080, 1yr, MSc Advanced Computing) — all EUR-converted per the
+corrected currency rule. **Skipped:** NYU (Courant fee sources conflicted $37,875–$52,480/yr, no clean
+total — verify on cs.nyu.edu before adding). **Still to check:** HKU #27(tied), Sydney #38, SJTU #30,
+HKUST #33, Zhejiang #34, CUHK #37, Caltech #40, UCSD #42, IIT Bombay #44, IIT Delhi #45 (some likely PhD-
+only or non-English — verify each). Already covered (no action needed): MIT, Stanford, CMU, NUS, Oxford,
+Berkeley, Cambridge, NTU, ETH, Tsinghua, Imperial, Toronto, Princeton(no CS, has Finance—intentional PhD-
+only gap per econ precedent), EPFL, Peking, Cornell(Tech), Institute of Science Tokyo(as Tokyo Tech),
+UCLA, UCL, Edinburgh(via AI), U Washington, TUM, UBC, Waterloo, Melbourne, UIUC, Georgia Tech, U Tokyo,
+McGill, SNU, ANU, Fudan, Delft, UT Austin.
 - Aalto has 111 study options total (many joint/double-degree/bachelor-combined, excluded). Non-EU fee is
   PER-PROGRAMME (€15k–20k range, confirmed via official per-programme fee tags on aalto.fi/en/study-options),
   NOT uniform like Wageningen/ETH/Delft/TU-e — always read the fee off each programme's own listing.
