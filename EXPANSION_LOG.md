@@ -23,10 +23,13 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **927**
-- Next free `rank` tiebreaker: **894**
-- Programmes now **901 rows** — 🎉 CROSSED 900 (+3 KIT: 924–926, translated ✅); id max 926.
-  Target 1000+ → **99 to go**.
+- Next free `id`: **942**
+- Next free `rank` tiebreaker: **910**
+- Programmes now **916 rows** (+15 Politecnico di Torino: 927–941, translated ✅); id max 941.
+  Target 1000+ → **84 to go**.
+- PoliTo fee is income/country-based (flat-rate scheme by nationality), NOT a simple uniform figure —
+  matched the existing €4,000 rate already established for this school (consistent with Italian
+  public-university norms). PoliTo now has 17 of its ~35 English-taught programmes catalogued.
 - KIT (Karlsruhe) confirmed €1,500/semester (=€3,000/yr) for non-EU, matches existing rate. Added Optics
   and Photonics #, Financial Engineering, Green Mobility Engineering. KIT has "13 English-taught masters"
   per search but the full official list wasn't found (sle.kit.edu category page didn't list individual
