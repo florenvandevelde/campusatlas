@@ -23,9 +23,22 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **816**
-- Next free `rank` tiebreaker: **776**
-- Programmes now **790 rows** (+14 Delft batch 2: 802–815, translated ✅); id max 815. Target 1000+ → **210 to go**.
+- Next free `id`: **823**
+- Next free `rank` tiebreaker: **783**
+- Programmes now **797 rows** (+7 humanities: 816–822, translated ✅); id max 822. Target 1000+ → **203 to go**.
+
+### Humanities round 2 — Linguistics/Modern Languages/Politics (2026-08-20, translated ✅)
+Ranks: **Modern Languages** Oxford #1, Cambridge #2, Edinburgh #12, UCL #13, Sorbonne #27. **Linguistics**
+Cambridge #3, Oxford #4, Edinburgh #11, UCL #13(tied), Leiden #22, KU Leuven #37, Amsterdam #44. **Politics**
+Harvard #1, Oxford #2, Sciences Po #3, LSE #5(covered), Cambridge #7, Leiden #15, UCL #20(covered),
+Edinburgh #27.
+**Added:** 816 Oxford MSt Modern Languages £27,460 (#1 ML); 817 Cambridge MPhil Linguistics £31,860 (#3
+Ling); 818 UCL MA Linguistics £35,400 (#13 Ling); 819 Edinburgh MSc Linguistics £25,100 (#11 Ling);
+820 Oxford MPhil International Relations £37,100 (#2 Politics); 821 Sciences Po Master in International
+Security €19,670 (#3 Politics); 822 Cambridge MPhil Politics & International Studies £37,296 (#7 Politics).
+Edinburgh MSc International Relations SKIPPED — fee sources conflicted (£28,800 vs £32,000), verify on
+study.ed.ac.uk before adding. To add next: Leiden Politics #15, Sorbonne Modern Languages #27, KU Leuven/
+Amsterdam Linguistics, more Law (was 21, decent but could grow), Sociology/Anthropology expansion.
 - **Delft is now COMPLETE** — every English-taught MSc from TU Delft's own programme list is in the catalogue
   (aerospace/mech/civil/electrical/chemical/materials/architecture/computer science/applied math&physics/
   biomedical/environmental/robotics/systems&control/quantum/nanobiology/life science&tech/mgmt of tech/
