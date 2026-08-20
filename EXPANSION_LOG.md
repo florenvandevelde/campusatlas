@@ -23,9 +23,22 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **864**
-- Next free `rank` tiebreaker: **825**
-- Programmes now **838 rows** (+11 more KTH: 853–863, translated ✅); id max 863. Target 1000+ → **162 to go**.
+- Next free `id`: **879**
+- Next free `rank` tiebreaker: **841**
+- Programmes now **853 rows** (+15 PoliMi: 864–878, translated ✅); id max 878. Target 1000+ → **147 to go**.
+- PoliMi has 45 English MSc total (full list read via browser at polimi.it/en/education/laurea-magistrale-
+  programmes); 20 now catalogued (5 pre-existing + 15 new: Aeronautical, Automation & Control, Biomedical,
+  Chemical, Civil, Electrical, Electronics, Energy, Engineering Physics, Geoinformatics, HPC Engineering,
+  Mathematical Engineering, Mobility, Space, Telecommunication). ~25 remain, some "Partner University"
+  joint programmes (Bioinformatics for Computational Genomics, Cyber Risk Strategy & Governance, Health
+  Informatics, Transformative Sustainability — verify fee before adding) and design-school ones (Design &
+  Engineering, Communication Design, Digital and Interaction Design, Fashion System, Interior/Spatial
+  Design, Product Service System Design, Integrated Product Design — check if design-school fee differs
+  from engineering €4,000) and remaining architecture/planning (Architectural Design & History, Architectural
+  Engineering, Building Engineering for Sustainability, Civil Eng for Risk Mitigation, Environmental & Land
+  Planning Eng, Food Engineering, Industrial Safety & Risk Eng, Landscape Architecture, Management of Built
+  Environment, Music and Acoustic Eng, Nuclear Eng, Sustainable Architecture & Landscape Design, Urban
+  Planning & Policy Design).
 - **KTH is now essentially COMPLETE** (45 of 60 catalogued). Only remaining ~15 are "Joint" consortium
   degrees (InnoEnergy/EIT Digital/Erasmus+/other-uni partnerships) — these likely have DIFFERENT fee
   structures than KTH's standard €18,000 and need individual verification before adding. Do not bulk-add
