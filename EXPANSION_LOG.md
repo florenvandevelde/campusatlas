@@ -23,9 +23,10 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **796**
-- Next free `rank` tiebreaker: **755**
-- Programmes now **770 rows**; id max 795. Target 1000+ → **230 to go**.
+- Next free `id`: **798**
+- Next free `rank` tiebreaker: **757**
+- Programmes now **772 rows** (+2 online: 796/797); id max 797. Target 1000+ → **228 to go**.
+- NEW schema column: `online boolean not null default false` (for the delivery-mode filter).
 - Delft bulk batch 1 (ids 783–795, English-only, €20,000): Applied Mathematics, Applied Physics, Computer
   Science, Data Science & AI Technology, BioMedical Engineering, Environmental Engineering, Robotics,
   Systems & Control, Quantum Information Science & Technology, Nanobiology, Life Science and Technology,
@@ -64,14 +65,17 @@ Verified-clean uniform seams: **Wageningen €21,700** (30 English MSc) and **ET
 - **Humanities-focused programmes lack** — build out History (4), Humanities (4), Social Sciences, Law,
   Languages, Philosophy, Politics/IR. QS subjects: History, Philosophy, Linguistics, Modern Languages,
   Law, Politics. EU targets: Oxbridge, UCL, KU Leuven, Leiden, Amsterdam, Sciences Po, Sorbonne, Bologna.
-- **Remote/online masters filter** — add a delivery-mode filter option (On campus / Online) to the filters.
-  NOTE: schema has `lang` (language) but NO delivery-mode column. Need to add e.g. a boolean `online` or a
-  `mode` text column to public.programmes, tag online programmes (Wageningen has online Food Technology,
-  Plant Breeding, Nutritional Epidemiology; IE, imperial, etc. have online), then add the filter UI in
-  index.html (+ build-i18n.js for the new filter label). Confirm approach before the schema change.
+- **Remote/online masters filter — ✅ DONE (2026-08-20, verified in browser).** Added `online boolean not
+  null default false` column to public.programmes; mapped `online:!!r.online` in mapProgrammeRow; added
+  `state.online` + "Online / remote" checkbox (#fOnline) in the filters panel, wired change+reset handlers,
+  filter logic `if (state.online && !p.online) return false;`, and an "Online" card tag. Dict phrase
+  "Online / remote" added to all 4 i18n JSONs (435 keys). Seeded with 2 verified online masters (ids
+  796 Georgia Tech OMSCS ~$7,000, 797 Illinois Gies iMBA $27,288). **TODO: tag/add more online masters**
+  (GT OMS Analytics/Cybersecurity, Illinois online MCS, Imperial Global Online MBA, Wageningen online) so
+  the filter has more content — verify each fee. New online rows 796/797 also NEED i18n.
 
 ## ⏳ UNTRANSLATED programme ids (need i18n nl/fr/de/es — run translation pass)
-764–782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795
+764–782, 783–795, 796, 797
 
 ### Biology / Psychology / Agriculture — QS 2026 (added ids 757–761, translated ✅)
 Ranks (xuanxiao): **Agri&Forestry** Wageningen #1, SLU #3, ETH #8, Ghent #9, NMBU #10, Hohenheim #17,

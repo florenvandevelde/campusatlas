@@ -1148,6 +1148,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
         <label class="opt"><input type="checkbox" id="fNoWork"> Aucune expérience requise</label>
         <label class="opt"><input type="checkbox" id="fEnglish"> Entièrement en anglais</label>
         <label class="opt"><input type="checkbox" id="fScholar"> Bourses disponibles</label>
+        <label class="opt"><input type="checkbox" id="fOnline"> En ligne / à distance</label>
       </div>
       <button class="clear" id="clearBtn">Réinitialiser les filtres</button>
       </div>
@@ -1839,6 +1840,7 @@ function mapProgrammeRow(r) {
     lang: r.lang, tuition: r.tuition, intake: r.intake, deadline: r.deadline,
     work: r.work, gmat: r.gmat, scholar: r.scholar, link: r.link, rank: r.rank,
     openFields: r.open_fields || [], freshGradOnly: r.fresh_grad_only,
+    online: !!r.online,
     blurb: t.blurb || r.blurb,
     highlights: (Array.isArray(t.highlights) && t.highlights.length ? t.highlights : r.highlights) || [],
   };
@@ -2136,7 +2138,7 @@ const MAX_COMPARE = 10;
 const state = {
   page: "programmes",
   q: "", regions: new Set(), fields: new Set(), dur: "any", intakes: new Set(),
-  maxTuition: Infinity, noGmat: false, noWork: false, english: false, scholar: false,
+  maxTuition: Infinity, noGmat: false, noWork: false, english: false, scholar: false, online: false,
   sort: "rec",
   compare: new Set(JSON.parse(localStorage.getItem("ca_compare") || "[]")),
   checklist: new Set(),
@@ -2701,6 +2703,7 @@ function matches(p, skip = {}) {
   if (state.noWork   && !p.work.startsWith("0")) return false;
   if (state.english  && p.lang !== "English") return false;
   if (state.scholar  && !p.scholar) return false;
+  if (state.online   && !p.online) return false;
   return true;
 }
 
@@ -3049,6 +3052,7 @@ function cardHTML(p, subjectOnlyMatch) {
     ${subjectOnlyMatch ? `<div class="subject-match-note" title="Ce programme correspond par domaine plutôt que par le nom du diplôme.">Correspondance par domaine</div>` : ""}
     <div class="tags">
       ${p.fields.slice(0,2).map(f => `<span class="tag">${f}</span>`).join("")}
+      ${p.online ? `<span class="tag teal">Online</span>` : ""}
       ${!p.gmat ? `<span class="tag teal">Pas de GMAT</span>` : ""}
       ${p.scholar ? `<button class="tag accent tag-link" onclick="event.stopPropagation(); showPage('scholarships', null, ${p.id})">Bourses</button>` : ""}
       ${PROGRAMME_OUTCOMES[p.id] ? `<span class="tag outcome-tag" title="Ouvrez ce programme pour voir où atterrissent ses diplômés">Débouchés des diplômés</span>` : ""}
@@ -6478,8 +6482,8 @@ $("fTuition").addEventListener("input", e => {
   render();
 });
 
-["fNoGmat","fNoWork","fEnglish","fScholar"].forEach(id => {
-  const key = { fNoGmat:"noGmat", fNoWork:"noWork", fEnglish:"english", fScholar:"scholar" }[id];
+["fNoGmat","fNoWork","fEnglish","fScholar","fOnline"].forEach(id => {
+  const key = { fNoGmat:"noGmat", fNoWork:"noWork", fEnglish:"english", fScholar:"scholar", fOnline:"online" }[id];
   $(id).addEventListener("change", e => { state[key] = e.target.checked; render(); });
 });
 
@@ -6516,11 +6520,11 @@ document.addEventListener("click", e => {
 $("clearBtn").addEventListener("click", () => {
   Object.assign(state, {
     q:"", regions:new Set(), fields:new Set(), dur:"any", intakes:new Set(), maxTuition:TUITION_CEILING,
-    noGmat:false, noWork:false, english:false, scholar:false
+    noGmat:false, noWork:false, english:false, scholar:false, online:false
   });
   $("q").value = ""; $("fTuition").value = TUITION_CEILING; $("tuitionOut").textContent = "Any";
   document.querySelector('input[name="dur"][value="any"]').checked = true;
-  ["fNoGmat","fNoWork","fEnglish","fScholar"].forEach(i => $(i).checked = false);
+  ["fNoGmat","fNoWork","fEnglish","fScholar","fOnline"].forEach(i => $(i).checked = false);
   document.querySelectorAll(".quick .chip").forEach(x => x.setAttribute("aria-pressed","false"));
   buildFilterLists(); render();
 });
