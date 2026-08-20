@@ -23,9 +23,17 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **905**
-- Next free `rank` tiebreaker: **869**
-- Programmes now **879 rows** (+13 RWTH Aachen: 892–904, translated ✅); id max 904. Target 1000+ → **121 to go**.
+- Next free `id`: **918**
+- Next free `rank` tiebreaker: **883**
+- Programmes now **892 rows** (+13 TU Eindhoven: 905–917, translated ✅); id max 917. Target 1000+ → **108 to go**.
+- Uppsala and Lund fees are NOT uniform (SEK varies 80k–300k+/yr by field) — deprioritized for bulk-adding,
+  same caution as other Swedish/Dutch unis with per-programme fees.
+- TU/e now has 14 of ~20+ graduate programs catalogued (added Applied Physics, Nuclear Fusion, Automotive
+  Technology, Biomedical Eng, Medical Eng, Architecture/Building/Planning, Construction Mgmt, Chemical Eng,
+  Computer Science & Eng, Data Science & AI, Embedded Systems, Electrical Eng, AI & Engineering Systems).
+  Page had more sections not yet read (Industrial Design, Industrial Engineering, Mathematics, remaining
+  Mechanical Eng tracks, Sustainable Energy) — browse tue.nl/en/education/tue-graduate-school/masters-
+  programs further (has "Next" pagination) for the rest.
 - RWTH is tuition-free even for non-EU (~€650/yr semester fee only, confirmed on rwth-aachen.de). 13 of its
   ~20 non-tuition-based English MSc catalogued (Automotive Eng, Data Science, Biomedical Eng, Civil Eng,
   EE/IT/Computer Eng, Materials Eng, Media Informatics, Physics, Software Systems Eng, Simulation Sciences,
