@@ -23,9 +23,19 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **823**
-- Next free `rank` tiebreaker: **783**
-- Programmes now **797 rows** (+7 humanities: 816–822, translated ✅); id max 822. Target 1000+ → **203 to go**.
+- Next free `id`: **838**
+- Next free `rank` tiebreaker: **798**
+- Programmes now **812 rows** (+15 KTH: 823–837, translated ✅); id max 837. Target 1000+ → **188 to go**.
+- KTH has 60 English MSc total; 19 now catalogued (4 pre-existing + 15 new: Architecture, Computer Science,
+  Cybersecurity, Aerospace Eng, Naval Architecture, Nuclear Energy Eng, Vehicle Eng, Nanotechnology,
+  Industrial Management, Mechatronics, Sustainable Urban Planning & Design, Data-driven Health, Molecular
+  Science & Engineering, Applied & Computational Mathematics, Technology-based Entrepreneurship). ~41 more
+  available at KTH (fee €18,000 uniform) — full department list read via browser at kth.se/.../list-of-
+  master-s-programmes; remaining depts to mine: Electrical Eng & CS (ICT Innovation, Embedded Systems,
+  Info & Comm Eng, Interactive Media Tech, Scalable Computing, Electric Power Eng...), Chemistry/Biotech/
+  Health (Medical Engineering, Medical Biotechnology, Sports Technology...), more Architecture/Built Env
+  (Real Estate & Construction Mgmt, Transport & Geoinformation Tech...).
+- TUM already saturated (24 programmes) — do not re-mine without checking for genuinely new titles first.
 
 ### Humanities round 2 — Linguistics/Modern Languages/Politics (2026-08-20, translated ✅)
 Ranks: **Modern Languages** Oxford #1, Cambridge #2, Edinburgh #12, UCL #13, Sorbonne #27. **Linguistics**
