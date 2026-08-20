@@ -23,9 +23,19 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **838**
-- Next free `rank` tiebreaker: **798**
-- Programmes now **812 rows** (+15 KTH: 823–837, translated ✅); id max 837. Target 1000+ → **188 to go**.
+- Next free `id`: **853**
+- Next free `rank` tiebreaker: **814**
+- Programmes now **827 rows** (+15 more KTH: 838–852, translated ✅); id max 852. Target 1000+ → **173 to go**.
+- KTH now has 34 of its 60 English MSc catalogued. ~26 remain: Architectural Lighting Design, Civil and
+  Architectural Engineering, Environmental Engineering and Sustainable Infrastructure, Real Estate and
+  Construction Management, Sustainable Technology, Transport and Geoinformation Technology, Electromagnetics
+  Fusion and Space Engineering, Chemical Engineering for Energy and Environment, Macromolecular Materials,
+  Molecular Techniques in Life Science (Joint), Technology Work and Health, Biostatistics and Data Science
+  (Joint), Computer Simulations for Science and Engineering (Joint), Mathematics (Joint), Decentralized
+  Smart Energy Systems (Joint), Machine Design, Advanced Energy Systems and AI (Joint InnoEnergy), ICT
+  Innovation (x2 joint variants), Cybersecurity and Assurance (Joint), Nuclear/Renewable/Smart Energy
+  (Joint InnoEnergy variants). NOTE: "Joint" programmes (InnoEnergy/EIT Digital/Erasmus+ consortia) likely
+  have DIFFERENT fee structures — verify each before assuming €18,000.
 - KTH has 60 English MSc total; 19 now catalogued (4 pre-existing + 15 new: Architecture, Computer Science,
   Cybersecurity, Aerospace Eng, Naval Architecture, Nuclear Energy Eng, Vehicle Eng, Nanotechnology,
   Industrial Management, Mechatronics, Sustainable Urban Planning & Design, Data-driven Health, Molecular
