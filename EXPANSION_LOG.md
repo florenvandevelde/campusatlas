@@ -23,10 +23,14 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **960**
-- Next free `rank` tiebreaker: **930**
-- Programmes now **934 rows** (+4 CS top-50 gaps: 956–959, translated ✅); id max 959.
-  Target 1000+ → **66 to go**.
+- Next free `id`: **962**
+- Next free `rank` tiebreaker: **933**
+- Programmes now **936 rows** (+2 more CS gaps: 960–961, translated ✅); id max 961.
+  Target 1000+ → **64 to go**.
+- Added HKU MSc CS (HK$334,800 total, #27) and Sydney Master of CS (A$53,000/yr ×2, #38).
+- **CS top-50 is now essentially COMPLETE.** Remaining unchecked: SJTU #30, HKUST #33, Zhejiang #34,
+  CUHK #37, Caltech #40, UCSD #42, IIT Bombay #44, IIT Delhi #45 — lower priority (likely Chinese-taught
+  or BTech-integrated structures needing individual verification); revisit if time allows.
 
 ### CS top-50 audit (QS Computer Science & Information Systems 2026, global ranks)
 Full top-50 pulled from xuanxiao. Cross-checked against catalogue; **added:** Yale #21 ($101,800 total,
