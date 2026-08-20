@@ -23,10 +23,22 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **962**
-- Next free `rank` tiebreaker: **933**
-- Programmes now **936 rows** (+2 more CS gaps: 960–961, translated ✅); id max 961.
-  Target 1000+ → **64 to go**.
+- Next free `id`: **964**
+- Next free `rank` tiebreaker: **935**
+- Programmes now **938 rows** (+2 Mech Eng top-50 gaps: 962–963, translated ✅); id max 963.
+  Target 1000+ → **62 to go**.
+
+### Mechanical Engineering top-50 audit (QS Mech/Aero/Manufacturing 2026, global ranks)
+Full top-50 pulled. Cross-checked by program-name (not just field tag, since many older rows use generic
+'Engineering'). Already covered: MIT#1, Stanford#2, NUS#3, NTU#5, ETH#6, Delft#9, Imperial#9, Berkeley#11,
+EPFL#13, PoliMi#14, TUM#19, RWTH#25, Manchester#27, PoliTo#30, KIT#32, KU Leuven#34, DTU#37, Melbourne#45.
+Cambridge#4/Oxford#7 correctly absent (integrated MEng only, no standalone taught MSc). **Added:** Georgia
+Tech #16 ($28,700, reused verified GT engineering-department rate), Michigan #21 ($33,300, reused verified
+Michigan engineering-department rate). **Deferred (fee sources too noisy/conflicting this pass — verify on
+official pages before adding):** Caltech#17, SJTU#18, KTH#20(has Engineering Mechanics ≠ pure Mech Eng —
+check if distinct), Purdue#21, Tokyo#23, SNU#24, Peking#26, UCLA#28, UT Austin#29, Texas A&M#30, UIUC#33,
+McGill#35, Toronto#35, Princeton#38(likely PhD-only), Harbin#39(Chinese-taught, skip), Zhejiang#40,
+HKUST#41, PSU#42, TU Berlin#42, IIT Delhi#44, Cornell#46, UNSW#46, IIT Madras#48, HKU#49, UBC#50.
 - Added HKU MSc CS (HK$334,800 total, #27) and Sydney Master of CS (A$53,000/yr ×2, #38).
 - **CS top-50 is now essentially COMPLETE.** Remaining unchecked: SJTU #30, HKUST #33, Zhejiang #34,
   CUHK #37, Caltech #40, UCSD #42, IIT Bombay #44, IIT Delhi #45 — lower priority (likely Chinese-taught
