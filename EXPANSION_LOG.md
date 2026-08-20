@@ -23,9 +23,15 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **853**
-- Next free `rank` tiebreaker: **814**
-- Programmes now **827 rows** (+15 more KTH: 838–852, translated ✅); id max 852. Target 1000+ → **173 to go**.
+- Next free `id`: **864**
+- Next free `rank` tiebreaker: **825**
+- Programmes now **838 rows** (+11 more KTH: 853–863, translated ✅); id max 863. Target 1000+ → **162 to go**.
+- **KTH is now essentially COMPLETE** (45 of 60 catalogued). Only remaining ~15 are "Joint" consortium
+  degrees (InnoEnergy/EIT Digital/Erasmus+/other-uni partnerships) — these likely have DIFFERENT fee
+  structures than KTH's standard €18,000 and need individual verification before adding. Do not bulk-add
+  them at €18,000 without checking each consortium's own fee page first.
+- Lund University fee is NOT uniform (SEK 100k–290k/yr varies by programme) — any Lund additions need
+  per-programme fee verification, same caution as Dutch/Finnish unis. Deprioritized for bulk-adding.
 - KTH now has 34 of its 60 English MSc catalogued. ~26 remain: Architectural Lighting Design, Civil and
   Architectural Engineering, Environmental Engineering and Sustainable Infrastructure, Real Estate and
   Construction Management, Sustainable Technology, Transport and Geoinformation Technology, Electromagnetics
