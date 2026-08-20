@@ -23,9 +23,24 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **892**
-- Next free `rank` tiebreaker: **855**
-- Programmes now **866 rows** (+13 more PoliMi: 879–891, translated ✅); id max 891. Target 1000+ → **134 to go**.
+- Next free `id`: **905**
+- Next free `rank` tiebreaker: **869**
+- Programmes now **879 rows** (+13 RWTH Aachen: 892–904, translated ✅); id max 904. Target 1000+ → **121 to go**.
+- RWTH is tuition-free even for non-EU (~€650/yr semester fee only, confirmed on rwth-aachen.de). 13 of its
+  ~20 non-tuition-based English MSc catalogued (Automotive Eng, Data Science, Biomedical Eng, Civil Eng,
+  EE/IT/Computer Eng, Materials Eng, Media Informatics, Physics, Software Systems Eng, Simulation Sciences,
+  Sustainable Management, Transport Eng & Mobility, Engineering Geohazards). Remaining: Applied Geophysics
+  (joint w/ Delft+ETH, likely different fee), Battery Science & Technology, Cognitive/Digital/Empirical
+  English Studies MA — plus a separate "Tuition-Based" track via RWTH International Academy/Business School
+  (Battery Systems Eng, Robotic Systems Eng, Smart Production Eng, Textile Eng, Sustainability Mgmt MSc,
+  Data Analytics & Decision Science MSc, etc.) — these have PROGRAM-SPECIFIC fees, verify each before adding.
+
+### 2026-08-20: "62 programmes" user report — investigated, backend confirmed correct
+User reported the live page showing only 62 programmes. Verified: direct curl to the exact anon REST
+endpoint (`/rest/v1/programmes?select=id` with the publishable key) returned the full 879-row
+`content-range: 0-878/*` correctly; no pagination cap, hardcoded fallback array, or render-limit slice
+exists in index.html's fetch/render code. Root cause is very likely a stale browser/CDN cache on the
+user's end, not a data or code bug — asked user which URL (production vs preview) they're viewing.
 - **PoliMi is now essentially COMPLETE** — 33 of 45 English MSc catalogued (all non-joint programmes done).
   Remaining ~12 are either "Partner University" joint degrees (Bioinformatics for Computational Genomics,
   Cyber Risk Strategy & Governance, Health Informatics, Transformative Sustainability) or PoliMi's
