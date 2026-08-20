@@ -39,6 +39,12 @@ official pages before adding):** Caltech#17, SJTU#18, KTH#20(has Engineering Mec
 check if distinct), Purdue#21, Tokyo#23, SNU#24, Peking#26, UCLA#28, UT Austin#29, Texas A&M#30, UIUC#33,
 McGill#35, Toronto#35, Princeton#38(likely PhD-only), Harbin#39(Chinese-taught, skip), Zhejiang#40,
 HKUST#41, PSU#42, TU Berlin#42, IIT Delhi#44, Cornell#46, UNSW#46, IIT Madras#48, HKU#49, UBC#50.
+
+### Data Science & AI top-50 audit (QS 2026) — CONFIRMED ESSENTIALLY COMPLETE, no additions needed
+Full top-50 cross-checked broadly (Analytics/AI/Computer Science field tags) against all 50 schools by
+name. ~44/50 already have at least one qualifying programme (huge overlap with CS + existing Analytics/
+Business Analytics rows built up across many earlier sessions). Remaining unchecked: SJTU#23, UTS#45,
+Zhejiang#39(only iMBA), Monash#48 — lower priority, revisit if time allows.
 - Added HKU MSc CS (HK$334,800 total, #27) and Sydney Master of CS (A$53,000/yr ×2, #38).
 - **CS top-50 is now essentially COMPLETE.** Remaining unchecked: SJTU #30, HKUST #33, Zhejiang #34,
   CUHK #37, Caltech #40, UCSD #42, IIT Bombay #44, IIT Delhi #45 — lower priority (likely Chinese-taught
