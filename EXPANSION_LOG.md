@@ -23,9 +23,17 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **783**
-- Next free `rank` tiebreaker: **742**
-- Programmes now **757 rows**; id max 782. Target 1000+ → **243 to go**.
+- Next free `id`: **796**
+- Next free `rank` tiebreaker: **755**
+- Programmes now **770 rows**; id max 795. Target 1000+ → **230 to go**.
+- Delft bulk batch 1 (ids 783–795, English-only, €20,000): Applied Mathematics, Applied Physics, Computer
+  Science, Data Science & AI Technology, BioMedical Engineering, Environmental Engineering, Robotics,
+  Systems & Control, Quantum Information Science & Technology, Nanobiology, Life Science and Technology,
+  Management of Technology, Marine Technology. Delft still has ~15 more English MSc (Applied Geophysics,
+  Complex Systems Eng & Mgmt, Computer & Embedded Systems, Construction Mgmt, Design for Interaction,
+  Earth Climate & Technology, Engineering & Policy Analysis, Geomatics, GIMA, Integrated/Strategic Product
+  Design, Metropolitan ADE, Science Education & Communication, Transport Infra & Logistics). Delft fee is
+  uniform €20,000 (Chemical Eng is the €22,300 exception).
 - Wageningen bulk batch 2 (ids 772–782, English-only): Aquaculture & Marine Resource Mgmt, Biobased Sciences,
   Bioinformatics & Systems Biology, Biosystems Engineering, Communication/Health/Life Sciences, Consumer
   Studies, Data Science for Food & Health, Development & Rural Innovation, Economics of Sustainability, Food
@@ -52,8 +60,18 @@ and skip anything already present. Also KU Leuven fee is NOT uniform — €9,50
 programmes are lower, so verify KU Leuven fees per-programme rather than reusing €9,500 blindly.
 Verified-clean uniform seams: **Wageningen €21,700** (30 English MSc) and **ETH €2,500** are safest.
 
+## ⏭️ MORE QUEUED REQUESTS (user, during volume push)
+- **Humanities-focused programmes lack** — build out History (4), Humanities (4), Social Sciences, Law,
+  Languages, Philosophy, Politics/IR. QS subjects: History, Philosophy, Linguistics, Modern Languages,
+  Law, Politics. EU targets: Oxbridge, UCL, KU Leuven, Leiden, Amsterdam, Sciences Po, Sorbonne, Bologna.
+- **Remote/online masters filter** — add a delivery-mode filter option (On campus / Online) to the filters.
+  NOTE: schema has `lang` (language) but NO delivery-mode column. Need to add e.g. a boolean `online` or a
+  `mode` text column to public.programmes, tag online programmes (Wageningen has online Food Technology,
+  Plant Breeding, Nutritional Epidemiology; IE, imperial, etc. have online), then add the filter UI in
+  index.html (+ build-i18n.js for the new filter label). Confirm approach before the schema change.
+
 ## ⏳ UNTRANSLATED programme ids (need i18n nl/fr/de/es — run translation pass)
-764, 765, 766, 767, 768, 769, 770, 771, 772, 773, 774, 775, 776, 777, 778, 779, 780, 781, 782
+764–782, 783, 784, 785, 786, 787, 788, 789, 790, 791, 792, 793, 794, 795
 
 ### Biology / Psychology / Agriculture — QS 2026 (added ids 757–761, translated ✅)
 Ranks (xuanxiao): **Agri&Forestry** Wageningen #1, SLU #3, ETH #8, Ghent #9, NMBU #10, Hohenheim #17,
