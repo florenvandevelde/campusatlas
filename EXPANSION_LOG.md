@@ -23,9 +23,15 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **924**
-- Next free `rank` tiebreaker: **890**
-- Programmes now **898 rows** (+6 more TU/e: 918–923, translated ✅); id max 923. Target 1000+ → **102 to go**.
+- Next free `id`: **927**
+- Next free `rank` tiebreaker: **894**
+- Programmes now **901 rows** — 🎉 CROSSED 900 (+3 KIT: 924–926, translated ✅); id max 926.
+  Target 1000+ → **99 to go**.
+- KIT (Karlsruhe) confirmed €1,500/semester (=€3,000/yr) for non-EU, matches existing rate. Added Optics
+  and Photonics #, Financial Engineering, Green Mobility Engineering. KIT has "13 English-taught masters"
+  per search but the full official list wasn't found (sle.kit.edu category page didn't list individual
+  programmes in fetchable text) — 4 of ~13 now catalogued (Mechanical Eng pre-existing + 3 new). Materials
+  Science was mentioned as English-taught too — verify name/link before adding next.
 - **TU/e is now essentially COMPLETE** — 20 graduate programs catalogued (Mechanical Eng pre-existing +
   19 new: Applied Physics, Nuclear Fusion, Automotive Tech, Biomedical Eng, Medical Eng, Architecture/
   Building/Planning, Construction Mgmt, Chemical Eng, CS & Eng, Data Science & AI, Embedded Systems,
