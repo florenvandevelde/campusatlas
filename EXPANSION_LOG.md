@@ -23,9 +23,16 @@ windows — the user explicitly wants this to resume after every max-out.
    Track untranslated ids below.
 
 ## Counters
-- Next free `id`: **879**
-- Next free `rank` tiebreaker: **841**
-- Programmes now **853 rows** (+15 PoliMi: 864–878, translated ✅); id max 878. Target 1000+ → **147 to go**.
+- Next free `id`: **892**
+- Next free `rank` tiebreaker: **855**
+- Programmes now **866 rows** (+13 more PoliMi: 879–891, translated ✅); id max 891. Target 1000+ → **134 to go**.
+- **PoliMi is now essentially COMPLETE** — 33 of 45 English MSc catalogued (all non-joint programmes done).
+  Remaining ~12 are either "Partner University" joint degrees (Bioinformatics for Computational Genomics,
+  Cyber Risk Strategy & Governance, Health Informatics, Transformative Sustainability) or PoliMi's
+  Design School (Communication Design, Design & Engineering, Design for the Fashion System, Digital and
+  Interaction Design, Integrated Product Design, Interior and Spatial Design, Product Service System
+  Design) — the Design School may have a DIFFERENT fee than the €4,000 engineering rate, verify before
+  adding.
 - PoliMi has 45 English MSc total (full list read via browser at polimi.it/en/education/laurea-magistrale-
   programmes); 20 now catalogued (5 pre-existing + 15 new: Aeronautical, Automation & Control, Biomedical,
   Chemical, Civil, Electrical, Electronics, Energy, Engineering Physics, Geoinformatics, HPC Engineering,
