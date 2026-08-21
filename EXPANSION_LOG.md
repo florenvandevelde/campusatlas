@@ -709,5 +709,28 @@ SJTU #27, Waterloo #29, Yale #31, Cornell #32, Fudan #32, UT Austin #32, Sydney 
 Tokyo #37, PoliMi (already present via Mathematical Engineering, not core-Math-tagged) #38, UBC #40, CUHK
 #41, UNSW #42, Melbourne #44, Penn #45, Moscow State #46, Seoul National #46, Zhejiang #46, Georgia Tech #49.
 
+## Mechanical Engineering — filled 3 of the deferred non-EU gaps (2026-08-21, ids 1002–1004, translated ✅)
+The handoff explicitly deferred Caltech/Purdue/UCLA/Toronto/McGill/HKU/UBC from an earlier session because
+their fee sources conflicted across aggregators, with an instruction to verify each on the school's own
+official page before adding. Did that this pass, 3 for 3 (McGill's fee is genuinely locked in a PDF that
+resisted extraction, still deferred):
+- 1002 Purdue University — MS Mechanical Engineering — US$30,318/yr → €28,072 — QS #21 — Rolling. Confirmed
+  directly on purdue.edu's own 2026-2027 graduate fee-rate table (non-resident Engineering rate).
+- 1003 University of Toronto — MEng Mechanical and Industrial Engineering — CAD $63,378.65 total for the
+  1-yr option → €42,823 (rate 1.48 CAD/EUR) — QS #35 — Rolling. Confirmed directly on mie.utoronto.ca's own
+  programme page, which also offers a 2-yr extended option at CAD $33,178.65/yr — used the 1-yr total since
+  that's the standard full-time route.
+- 1004 University of California, Los Angeles — Master of Engineering (Mechanical Engineering track) —
+  US$52,920 total (UCLA states this is the same for domestic and international students) → €48,999 — QS #28
+  — Rolling. Confirmed directly on meng.ucla.edu's own FAQ page — discarded a conflicting $26,802 aggregator
+  figure that didn't match the official source.
+Still deferred (fee not cleanly confirmed on an official page this pass either): McGill (PDF-only fee
+tables), Caltech, HKU, UBC — good next-session targets, in that order of ease based on what's typically
+resolvable. Note: the broader Mechanical Engineering "already essentially complete" claim from the earlier
+session (ETH#6, Delft#9, Imperial#9, EPFL#13, PoliMi#14, TUM#19, RWTH#25, KIT#32, KU Leuven#34, Cranfield#55,
+UCL#57) is accurate but those rows are tagged under the generic `Engineering` field, not
+`Mechanical Engineering` specifically — that's a tagging nuance, not a real content gap, and explains why
+this session's `fields`-filtered query didn't surface them.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-21)
-Programmes: 976/976 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 979/979 total, all translated. Scholarships: 202/202. No untranslated rows pending.
