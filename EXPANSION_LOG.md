@@ -511,5 +511,31 @@ Dublin #50 (fee range too wide, €21,640–€37,300, not programme-specific). 
 Hopkins, HKU, Cornell, Kyoto, UNAM, NTU, UBC, McGill, Fudan, UT Austin, Sydney, Wisconsin, Seoul National,
 Melbourne, Brown) are untouched — good next-session targets if this field is revisited.
 
+## Education — QS 2026 Education & Training (audited 2026-08-21, ids 981–983, translated ✅)
+Pre-audit coverage of the very top was already excellent: UCL #1, Harvard #2, Stanford #3, Oxford #3,
+Toronto #10, Melbourne, Penn #50, Vanderbilt #21, KU Leuven #46 all present. Full QS top-50 pulled via
+xuanxiao (UCL #1 ... Penn #50). **Added (verified official fee pages):**
+- 981 King's College London — MA Education in Arts and Cultural Settings — £32,100 → €37,765 — QS #16 —
+  Rolling (kcl.ac.uk official fees page for this exact programme).
+- 982 Utrecht University — MSc Youth, Education and Society — €21,342 non-EEA — QS #32 — deadline 1 April
+  (uu.nl official tuition-fee page, 2026/27 figure confirmed directly).
+- 983 University of Helsinki — MA Changing Education — €18,000/yr (€36,000 for the 2-yr programme, tuition
+  column stores programme-total per this catalogue's convention, confirmed against existing 2-yr MBA rows
+  which store total not annual) — QS #30 — deadline 19 January (helsinki.fi official programme page,
+  confirmed directly). New school for the catalogue — first Finnish entry outside Aalto.
+**Bug caught+fixed in the same session (again):** id 982's French `highlights[3]` had a leftover
+copy-paste fragment ("22 355 € — non, 21 342 €...") from the previous UvA Psychology translation — same
+failure mode as id 967/980 earlier this session (editing i18n JSON by hand across many parallel tool calls
+risks cross-contamination between blocks). Fixed via `jsonb_set`. **Worth double-checking every i18n block
+for stray leftover text before considering a batch done, especially when translating many rows in one
+parallel tool-call round.**
+Not added this pass (fee/language not confirmed cleanly in time available): Cambridge #6 (no clean overseas
+fee found despite trying), Edinburgh #9 (fee page never surfaced a figure — same problem as the History and
+Media & Comm batches this session, Edinburgh's fee tables are consistently hard to scrape), Birmingham #43,
+Bristol #44 (both had only vague fee ranges, no programme-specific figure). Non-EU global names untouched:
+Hong Kong #5, Ed U Hong Kong #7, NTU #8, Berkeley #11, Beijing Normal #12, Michigan State #13, UCLA #17,
+Monash #18, Peking #19, Wisconsin #20, UBC #22, Michigan #22, CUHK #24, Sydney #25, Johns Hopkins #26,
+McGill #28, Auckland #29, Manchester #35 (only Mech Eng & History added so far, not Education specifically).
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-21)
-Programmes: 955/955 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 958/958 total, all translated. Scholarships: 202/202. No untranslated rows pending.
