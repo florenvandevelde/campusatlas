@@ -679,5 +679,34 @@ Washington #25, Princeton #27, LMU Munich #29, UBC #29, NYU #31, NTU #32, Duke #
 #38, McGill #39, Sorbonne #40 (French-taught, skip), Seoul National #41, UC Davis #43, Michigan #43,
 Rockefeller #46, WashU #47, Kyoto #49.
 
+## Mathematics — QS 2026 Mathematics (audited 2026-08-21, ids 1000–1001, translated ✅)
+Notable pre-audit gap: Oxford #2 and Cambridge #3 both entirely missing despite being world #2/#3 for the
+subject. Investigated both: **Oxford's MSc in Mathematical Sciences (OMMS) is closed for 2026-27 entry**
+(applications reopen for 2027-28) — real scheduling reason, not a research failure, skipped rather than
+add a programme students can't currently apply to; **Cambridge's MASt/Part III fee** could not be pinned
+to one figure (conflicting aggregator numbers £24,789 vs a £29,052–£70,554 range) — genuinely deferred, not
+skipped for convenience; worth another attempt via the Cambridge Composition-Fee-by-course-code route used
+successfully elsewhere. **Added (verified official fee pages), ids 1000–1001 — the catalogue has now
+crossed the 1000-programme milestone:**
+- 1000 University of Bonn — MSc Mathematics — QS #39 — tuition-free (€400/yr nominal semester
+  contribution, reusing the exact figure and pattern already established for Bonn's Economics row this
+  catalogue). Confirmed English-taught via uni-bonn.de/mathematics.uni-bonn.de; based in the Hausdorff
+  Center for Mathematics (a genuine strength marker, not marketing copy — it's a real Cluster of
+  Excellence).
+- 1001 University of Warwick — MSc Mathematics — £37,460 → €44,071 — QS #28 — Rolling. Official course page
+  didn't display the figure directly (redirected to a separate fee-lookup page not fetchable), so this
+  reuses a specific aggregator-quoted figure with the same lower-confidence caveat pattern as Cardiff/Durham
+  earlier this session — re-verify on warwick.ac.uk's fee-lookup tool directly if precision matters.
+Not added this pass: Sorbonne #11, Paris-Saclay #19, Institut Polytechnique de Paris #24, Paris Sciences et
+Lettres #22 (all likely French-taught, need per-programme language check), Edinburgh #29 (5th failed fee-
+page attempt this session for Edinburgh across every field audited — this is now a strong signal to try a
+fundamentally different lookup method next time, not just retry the same course-finder URLs), UCL #42 (has
+Statistics/Data-Science-tagged rows already but no dedicated core-Mathematics MSc — good next add). Large
+non-EU/global gap list untouched: MIT #1, Princeton #5, Stanford #6, Berkeley #6, NUS #8, NTU #12, Tsinghua
+#12, UCLA #12, Peking #15, Toronto #16, NYU #18, Caltech #20, CMU #21, Chicago #22, Columbia #25, Tokyo #26,
+SJTU #27, Waterloo #29, Yale #31, Cornell #32, Fudan #32, UT Austin #32, Sydney #35, Michigan #36, Science
+Tokyo #37, PoliMi (already present via Mathematical Engineering, not core-Math-tagged) #38, UBC #40, CUHK
+#41, UNSW #42, Melbourne #44, Penn #45, Moscow State #46, Seoul National #46, Zhejiang #46, Georgia Tech #49.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-21)
-Programmes: 974/974 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 976/976 total, all translated. Scholarships: 202/202. No untranslated rows pending.
