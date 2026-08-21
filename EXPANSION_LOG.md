@@ -537,5 +537,38 @@ Hong Kong #5, Ed U Hong Kong #7, NTU #8, Berkeley #11, Beijing Normal #12, Michi
 Monash #18, Peking #19, Wisconsin #20, UBC #22, Michigan #22, CUHK #24, Sydney #25, Johns Hopkins #26,
 McGill #28, Auckland #29, Manchester #35 (only Mech Eng & History added so far, not Education specifically).
 
+## Information Science — QS 2026 Library & Information Management (audited 2026-08-21, ids 984–987, translated ✅)
+Pre-audit already had Washington #2, Toronto #13, Michigan #17, Syracuse #25, Cornell #39, KU Leuven #37
+(plus UCL Information Security, adjacent but not core LIS). Full QS top-50 pulled via xuanxiao (Sheffield #1
+... National Taiwan #50). **Added (verified official fee pages):**
+- 984 University of Strathclyde — MSc Information and Library Studies — £30,300 → €35,647 — QS #16 — Rolling
+  (strath.ac.uk course page, confirmed directly).
+- 985 University of Glasgow — MSc Archives, Records and Information Management — £27,720 → €32,612 — QS #44
+  — Rolling (gla.ac.uk course page, confirmed directly; note the QS-ranking-era name was "Information
+  Management and Preservation," current official course name is "Archives, Records and Information
+  Management" — used the current name). New school for the catalogue.
+- 986 University College Dublin — MSc Information Systems (W267) — €24,700 non-EU — QS #40 — deadline 31
+  August (figure corroborated by UCD's own hub.ucd.ie programme-code lookup tool, not just aggregators —
+  high confidence despite the main fees page 403ing on direct fetch). New school for the catalogue.
+- 987 University of Amsterdam — MSc Information Studies: Information Systems track — €27,170 non-EEA — QS
+  #30 — deadline 31 January. Note: UvA's "Information Studies" master has no single fee/track name — it
+  splits into Information Systems, Data Science, and Human-Computer Interaction tracks; picked Information
+  Systems as most representative of the LIS ranking. Fee sourced from an aggregator quoting the specific
+  programme page (not the general faculty rate reused elsewhere) — slightly lower confidence than the
+  Psychology/Communication Science UvA rows this session, re-verify against uva.nl directly if precision
+  matters.
+- Sheffield #1 (the actual QS #1 school!) attempted but NOT added — its fee lookup tool requires a course-
+  code search that never resolved to a number despite 2 attempts (both the course page and the fee-lookup
+  tool redirect chain). Real gap, worth another pass next session — this is the single highest-value miss
+  in this field.
+Not added this pass: NUS #5(dup with other-field NTU already used elsewhere, this is National University of
+Singapore not NTU — different school, untouched), UIUC #6, Indiana #7, UBC #8, Rutgers #9, Wuhan #10,
+McGill #11, Tampere #12 (Finland, worth checking — English-taught info-science masters exist there),
+HKU #15, Maryland #18, CMU #19, Tsukuba #20, Humboldt Berlin #21 (check language), Manchester #23 (only
+Mech Eng/History added so far, not an Information Science-tagged programme), Pittsburgh #24, Georgia
+Tech #25, Copenhagen #25 (fee page never surfaced a specific figure), USP #28, RMIT #29, Sydney #31,
+Granada #32, Montreal #36, Barcelona #41, Malaya #42, Wellington #43, VU Amsterdam #46, OsloMet #48,
+QUT #49.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-21)
-Programmes: 958/958 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 962/962 total, all translated. Scholarships: 202/202. No untranslated rows pending.
