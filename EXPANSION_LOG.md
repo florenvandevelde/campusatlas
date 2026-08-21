@@ -480,5 +480,36 @@ Toronto #21, Melbourne #22, Michigan State #23, LMU Munich #24 (check language),
 (check language), Leeds #34, UCL #35, Edinburgh #36 (fee page didn't resolve), Complutense Madrid #45
 (likely Spanish-taught, check). Good next-session targets.
 
+## History — QS 2026 (audited 2026-08-21, ids 975–980, translated ✅)
+Was next-thinnest field (7 rows) but pre-audit coverage of the very top was already strong: Oxford #2,
+Cambridge #3, LSE #10 (as Economic History), Leiden #13, UCL #20 all present pre-audit. Full QS History 2026
+top-50 pulled via xuanxiao (Harvard #1 ... Trinity College Dublin #50). **Added (verified official/near-
+official fee pages):**
+- 975 King's College London — MA Modern World History — £32,100 → €37,765 — QS #21 — Rolling (kcl.ac.uk fees
+  page for this exact programme).
+- 976 SOAS University of London — MA History — £25,320 → €29,788 — QS #36 — Rolling (soas.ac.uk PGT fees
+  page, Band 1 rate — new school for the catalogue, unique for its Asia/Africa/Middle-East-only focus).
+- 977 University of Manchester — MA History — £28,400 → €33,412 — QS #39 — Rolling (manchester.ac.uk course
+  page, confirmed directly).
+- 978 Durham University — MA History — £28,500 → €33,529 — QS #44 — Rolling (new school for the catalogue;
+  official durham.ac.uk page 403'd on direct fetch, figure corroborated by an aggregator quoting the course
+  page verbatim — same caveat pattern as Cardiff in the Media & Communication batch, re-verify if precision
+  matters).
+- 979 University of St Andrews — MLitt Modern History — £33,250 → €39,118 — QS #45 — Rolling (st-andrews.ac.uk
+  Faculty of Arts rate, confirmed).
+- 980 University of Amsterdam — MA Holocaust and Genocide Studies (History) — €25,900 — QS #42 — deadline 1
+  May. UvA offers no generic "MA History" — only two English-taught History-discipline tracks exist
+  (American Studies (History), and this one); picked this one as the more distinctive/less-fungible-with-
+  existing-catalogue-rows option. Fee is the confirmed Faculty of Humanities one-year institutional rate.
+Not added this pass (fee/language not cleanly confirmed): Paris 1 Panthéon-Sorbonne #15, EHESS #26, FU
+Berlin #24, Humboldt #31, LMU Munich #38 (all likely French/German-taught, need per-programme language
+check — don't assume), Edinburgh #22 (fee page never resolved a figure despite 4 attempts — genuinely hard
+to find, not just unlucky search terms), Warwick #47 (fee figures conflicted €22,340 MA vs £18,800 MA-by-
+Research across sources — needs the actual current MA History page, not aggregators), Trinity College
+Dublin #50 (fee range too wide, €21,640–€37,300, not programme-specific). All the non-EU global names
+(Yale, Columbia, Berkeley, Princeton, NUS, Chicago, Peking, Toronto, ANU, Tokyo, Michigan, Penn, NYU, Johns
+Hopkins, HKU, Cornell, Kyoto, UNAM, NTU, UBC, McGill, Fudan, UT Austin, Sydney, Wisconsin, Seoul National,
+Melbourne, Brown) are untouched — good next-session targets if this field is revisited.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-21)
-Programmes: 949/949 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 955/955 total, all translated. Scholarships: 202/202. No untranslated rows pending.
