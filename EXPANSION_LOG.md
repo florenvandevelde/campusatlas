@@ -422,3 +422,27 @@ Retry candidate: IE International MBA (445) own PDF via in-app browser PDF rende
 ## Translation status — 100% COVERAGE MAINTAINED ✅
 Programme rows 728–741 (14) and 742–747 (6 materials) all translated nl/fr/de/es. All 5 new scholarships
 translated. Coverage: programmes 725/725, scholarships 202/202. No untranslated rows pending.
+
+## Psychology — QS 2026 (audited 2026-08-21, ids 964–968, translated ✅)
+Field was thinnest in the whole catalogue (6 rows) alongside Media & Communication. Full QS Psychology 2026
+global top-50 pulled via xuanxiao (Harvard #1 ... Erasmus Rotterdam #49). Already present pre-audit: KU
+Leuven #24, Utrecht #28 (core psych), UCL Neuroscience #5-adjacent, Imperial Translational Neuroscience
+(not core-ranked), ULB, Antwerp Management School (People & Change, HR-adjacent).
+**Added (verified official fee + deadline pages, not aggregators):**
+- 964 UCL — MSc Psychological Sciences — £39,200 → €46,118 — QS #5 — Rolling deadline (UCL official fees page)
+- 965 King's College London — MSc Health Psychology — £40,450 → €47,588 — QS #15 — Rolling (KCL official fees page)
+- 966 University of Amsterdam — MSc Psychology — €22,355 non-EEA institutional — QS #9 — deadline 1 March
+  (uva.nl official tuition-fees table, Faculty of Social & Behavioural Sciences rate)
+- 967 Erasmus University Rotterdam — MSc Psychology of the Digital Media — €21,000 non-EEA institutional —
+  QS #49 — deadline 1 May (eur.nl official facts&figures page, confirmed 2026/27 rate; note the general ESSB
+  non-EEA rate found on the main EUR fee page also read €21,000, consistent). fields tagged
+  ['Psychology','Media & Communication'] since it's a genuine media-psych crossover.
+- 968 University of Groningen — MSc Psychology — €22,200 non-EEA (rug.nl official Faculty of Behavioural &
+  Social Sciences fee table, 2026-27 row) — QS #36 — deadline 1 May (non-selective track; selective tracks
+  close 1 March, used the safer/general date per rug.nl's own wording).
+scholar flag: true only for UCL/KCL/Amsterdam (existing `scholarships` table rows already cover these
+schools); false for Erasmus/Groningen (no scholarship row exists yet for either — real gap, not yet filled).
+Not added this pass (fee/deadline not cleanly confirmed on an official page in the time available): Yale #6,
+Columbia #7, Toronto #8, KCL is done, LSE #19, Edinburgh #23, NUS #15, Melbourne #20, McGill #22, VU
+Amsterdam #38 (found a fee PDF link but not the actual figure), LMU Munich #41 (likely German-taught, needs
+language check), Peking #41, HKU #35, CUHK #43. Good next-session targets if returning to this field.
