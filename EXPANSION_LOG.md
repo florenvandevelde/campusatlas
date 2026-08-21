@@ -655,5 +655,29 @@ Tsinghua #29, McGill #30, UCLA #31, Monash #32, Buenos Aires #34, O.P. Jindal #3
 (check language), Michigan #42, Duke #44, Seoul National #44, Virginia #47, Chile #48, Durham #49 (already
 in the catalogue for History — a Law LLM there is a good next-session add), Los Andes #49.
 
+## Biochemistry — QS 2026 Biological Sciences (audited 2026-08-21, ids 998–999, translated ✅)
+Pre-audit already covered Oxford #3, Cambridge #5, Imperial #7, UCL #9, ETH #14, KCL #33, Copenhagen #33,
+Wageningen #42, KU Leuven #45, Heidelberg #28. Full QS top-50 pulled via xuanxiao (Harvard #1 ... Uppsala
+#50). **Added (verified official fee pages):**
+- 998 University of Manchester — MSc Biological Sciences — £37,800 → €44,471 — QS #48 — Rolling
+  (manchester.ac.uk course page, confirmed directly).
+- 999 EPFL — MSc Life Sciences Engineering — CHF 730/semester (EPFL's standard uniform fee, does not
+  differ by nationality — confirmed via search and cross-checked against 7 existing EPFL rows in the
+  catalogue, all storing €1,300–1,600 for 2-yr programmes) → €1,300 total, reusing the exact figure and
+  "15 Dec" deadline pattern already established for EPFL's other engineering masters — QS #37, English-
+  taught (confirmed on epfl.ch).
+Not added this pass: Edinburgh #19 — 4th failed attempt this session at pulling a specific fee figure from
+study.ed.ac.uk / registryservices.ed.ac.uk (History, Media & Comm, Education, and now this field all hit
+the same wall — Edinburgh's fee pages consistently resist both WebFetch and WebSearch; worth trying a
+different approach next time, e.g. searching for a specific fee PDF rather than the course page). Uppsala
+#50 — same "SEK 90,000-135,000 per programme, range too wide without a specific programme page" problem
+flagged for SLU/Uppsala earlier this session, skipped rather than guess. Karolinska #25 already has a
+Biomedicine row in the catalogue (pre-existing) so no action needed there. Large non-EU/global gap list
+untouched: MIT #2, Stanford #4, Berkeley #6, Yale #7, UCSD #9, UCSF #11, Cornell #12, NUS #13, UCLA #15,
+Toronto #16, Johns Hopkins #17, Columbia #18, Caltech #20, Penn #20, Tsinghua #22, Tokyo #23, Peking #24,
+Washington #25, Princeton #27, LMU Munich #29, UBC #29, NYU #31, NTU #32, Duke #33, Chicago #36, Melbourne
+#38, McGill #39, Sorbonne #40 (French-taught, skip), Seoul National #41, UC Davis #43, Michigan #43,
+Rockefeller #46, WashU #47, Kyoto #49.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-21)
-Programmes: 972/972 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 974/974 total, all translated. Scholarships: 202/202. No untranslated rows pending.
