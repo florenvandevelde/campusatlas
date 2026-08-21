@@ -446,3 +446,39 @@ Not added this pass (fee/deadline not cleanly confirmed on an official page in t
 Columbia #7, Toronto #8, KCL is done, LSE #19, Edinburgh #23, NUS #15, Melbourne #20, McGill #22, VU
 Amsterdam #38 (found a fee PDF link but not the actual figure), LMU Munich #41 (likely German-taught, needs
 language check), Peking #41, HKU #35, CUHK #43. Good next-session targets if returning to this field.
+
+## Media & Communication — QS 2026 Communication & Media Studies (audited 2026-08-21, ids 969–974, translated ✅)
+Was tied for thinnest field (6 rows, mostly tech/media-adjacent programmes, not core comm-studies). Full QS
+2026 top-50 pulled via xuanxiao (Amsterdam #1 ... City U Hong Kong/PUC Chile #49). **Added (verified official
+fee pages):**
+- 969 University of Amsterdam — MSc Communication Science — €22,355 non-EEA — QS #1 — deadline 1 March.
+  Fee reused from the Faculty of Social & Behavioural Sciences institutional rate verified for [[Psychology
+  batch1]] (Communication Science/ASCoR sits in the same UvA faculty as Psychology — same official rate).
+- 970 LSE — MSc Media and Communications — £30,400 → €35,765 — QS #6 — Rolling (lse.ac.uk official page,
+  confirmed 2026/27 figure directly).
+- 971 Goldsmiths, University of London — MA Media & Communications — £23,000 → €27,059 — QS #18 — Rolling
+  (gold.ac.uk official fees page).
+- 972 University of Vienna — MA Communication Science — €1,453/yr — QS #13 — deadline 7 April. Confirmed
+  English-taught (no German required) via univie.ac.at; confirmed via studieren.univie.ac.at that the
+  standard Austrian non-EU/EEA public tuition (€726.72/semester) applies — no programme-specific surcharge
+  found, so used the standard public rate directly.
+- 973 King's College London — MA Global Media Industries — £32,100 → €37,765 — QS #19 — Rolling (kcl.ac.uk
+  official fees page for this specific programme).
+- 974 Cardiff University — MA Journalism, Media and Communications (JOMEC) — £24,950 → €29,353 — QS #37 —
+  deadline 31 August. Official cardiff.ac.uk course page 403'd for direct fetch; figure corroborated by
+  multiple independent aggregators (hotcoursesabroad, whatuni) quoting the same £24,950 2026-entry figure
+  verbatim from the course page — accepted with this caveat noted, re-verify directly if precision matters.
+**Bug caught+fixed in the same session:** id 967 (Erasmus Psychology of Digital Media, added in the
+Psychology batch just before this one) had `open_fields` typo'd as `'Arts Media & Journalism'` (missing the
+comma) instead of the catalogue's actual tag `'Arts, Media & Journalism'` (confirmed against the `OPEN_FIELD_OPTIONS`
+list in index.html) — this would have silently excluded it from that filter bucket. Fixed via migration
+`fix_id967_open_fields_typo`. **Always grep index.html's open_fields option list for the exact string before
+typing one from memory — commas matter.**
+Not added this pass (fee/language/deadline not cleanly confirmed yet): Harvard #3, UT Austin #4, Stanford #5,
+Penn #7, USC #8, Columbia #9, NUS #10, NYU #10, Cambridge #12 (no standalone comms master found), CUHK #16,
+Toronto #21, Melbourne #22, Michigan State #23, LMU Munich #24 (check language), Zurich #27, FU Berlin #30
+(check language), Leeds #34, UCL #35, Edinburgh #36 (fee page didn't resolve), Complutense Madrid #45
+(likely Spanish-taught, check). Good next-session targets.
+
+## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-21)
+Programmes: 949/949 total, all translated. Scholarships: 202/202. No untranslated rows pending.
