@@ -1,13 +1,13 @@
 # Campus Atlas — Handoff for the next agent
 
-_Last updated: 2026-08-20. Written for an agent starting cold. Read this top to bottom before touching
+_Last updated: 2026-08-21. Written for an agent starting cold. Read this top to bottom before touching
 anything. This file supersedes everything below the "OLD SESSIONS ARCHIVE" divider — that material is
 from an earlier, now-completed phase of work (translating the pre-expansion catalogue) and is kept only
 for historical context, not as current instructions._
 
 ---
 
-## ⭐ RESUME HERE — the active task (2026-08-20)
+## ⭐ RESUME HERE — the active task (2026-08-21)
 
 **Standing task: grow the master's-programme catalogue to 1000+ programmes**, verified data only, translated
 into nl/fr/de/es as you go. The user's instructions across this effort: "translate everything… don't stop",
@@ -15,10 +15,18 @@ into nl/fr/de/es as you go. The user's instructions across this effort: "transla
 globally". Treat this as continuous, self-directed work — commit + push to `main` after every batch, no
 need to ask.
 
-**Current state (verified live in Supabase just now):**
-- **Programmes: 938 / 1000 target**, **938/938 translated** (nl/fr/de/es blurb + highlights). Max `id` 963,
-  max `rank` 934 — use the next free integers above these when inserting.
+**Current state (verified live in Supabase just now, 2026-08-21 session):**
+- **Programmes: 965 / 1000 target**, **965/965 translated** (nl/fr/de/es blurb + highlights). Max `id` 990,
+  max `rank` 961 — use the next free integers above these when inserting.
 - **Scholarships: 202, all 202 translated.**
+- This session's batches (all in EXPANSION_LOG.md, most recent first): Agriculture & Food +3, Information
+  Science +4, Education +3, History +6, Media & Communication +6, Psychology +5 — thinnest-field-first
+  strategy (see below), all QS-top-50-audited with officially-verified fees.
+- **Two open_fields bugs caught and fixed this session** — `open_fields` uses a DIFFERENT vocabulary than
+  `fields`. Before typing an open_fields value from memory, grep index.html's `BACKGROUND_OPTIONS` array
+  (~line 2303) for the exact `.value` string. `'Information Science'` and `'Sustainability'` are NOT valid
+  open_fields values even though they look plausible — see EXPANSION_LOG.md's Agriculture & Food section
+  for the full list of what IS valid.
 - Full history of every batch, every field-ranking audit, every currency-basis note, and every skip/defer
   reason lives in **[`EXPANSION_LOG.md`](EXPANSION_LOG.md)** (424 lines) — read that file's "Counters" and
   "🎯 STRATEGY PIVOT" sections before adding anything. It is the single source of truth for what's been
@@ -53,12 +61,37 @@ universities. Current audit status (see EXPANSION_LOG.md for the full per-school
   school's own official fee page before adding** — don't reuse the noisy aggregator numbers found so far.
 - ✅ **Data Science & AI** (QS top 50) — audited, found already essentially complete via existing
   Analytics/AI/CS-tagged rows from earlier sessions. No action needed (4 low-priority schools unchecked).
-- ⏭️ **Not yet re-audited against the full top 50** (only checked to varying shallower depths earlier):
-  Sustainability, Fashion, Economics, Management, Business, Materials Science, Pharmacy, Architecture,
-  Psychology, Agriculture, Biology, Humanities (History/Philosophy/Linguistics/Politics), Law. Some of these
-  (Sustainability, CS-adjacent fields, Economics, Management/Business) were flagged in earlier passes as
-  "already saturated at the top" — re-verify against the actual QS top-50 list rather than trusting that
-  note blindly, since the bar has moved to "full top 50" not "top 10–20".
+- ✅ **Psychology** (QS top 50) — audited 2026-08-21, +5 (UCL, KCL, Amsterdam, Erasmus Rotterdam, Groningen).
+- ✅ **Media & Communication** (QS top 50) — audited 2026-08-21, +6 (Amsterdam, LSE, Goldsmiths, Vienna, KCL,
+  Cardiff).
+- ✅ **History** (QS top 50) — audited 2026-08-21, +6 (KCL, SOAS, Manchester, Durham, St Andrews, Amsterdam).
+- ✅ **Education** (QS top 50) — audited 2026-08-21, +3 (KCL, Utrecht, Helsinki). Sheffield (the actual QS
+  #1 school) attempted but not added — its fee lookup tool never resolved a figure, worth another try.
+- ✅ **Information Science** (QS top 50, "Library & Information Management") — audited 2026-08-21, +4
+  (Strathclyde, Glasgow, UCD, Amsterdam). Sheffield is QS #1 here too and was also un-resolvable.
+- ✅ **Agriculture & Food** (QS top 50, "Agriculture & Forestry") — audited 2026-08-21, +3 (Reading, NMBU,
+  BOKU). SLU Sweden, Ghent, Copenhagen attempted but skipped — fee figures too ambiguous/conflicting to
+  trust (see EXPANSION_LOG.md for specifics).
+- ⏭️ **Not yet re-audited against the full top 50**: Fashion, Economics, Management, Business, Materials
+  Science, Pharmacy, Architecture, Biology, Humanities (Linguistics/Politics/Sociology — History is now
+  done, see above), Law, Mechanical Engineering (partially done, see below), Mathematics, Biochemistry,
+  Public Health. Some of these were flagged in earlier passes as "already saturated at the top" — re-verify
+  against the actual QS top-50 list rather than trusting that note blindly, since the bar has moved to
+  "full top 50" not "top 10–20". **2026-08-21 strategy note: this session worked thinnest-fields-first**
+  (checked `select unnest(fields), count(*) from programmes group by 1 order by 2` and started from the
+  bottom) rather than picking fields arbitrarily — Media & Communication and Psychology were tied at 6 rows
+  each, the whole catalogue's thinnest, so they went first. Recommend continuing this way: re-run that
+  query, the next-thinnest untouched fields are roughly Biochemistry/Law/Mathematics territory (~21-22 rows)
+  — but Fashion/Architecture/Pharmacy/Materials Science were flagged thin in absolute terms even earlier and
+  may be thinner than the raw count suggests once you check what's actually QS-top-50 vs padding.
+- 🐛 **Recurring mistake this session, now fixed twice**: `open_fields` is a DIFFERENT vocabulary from
+  `fields`. Always grep index.html's `BACKGROUND_OPTIONS` array (~line 2303) for the exact `.value` string
+  before typing one from memory — `'Information Science'` and `'Sustainability'` both look plausible but do
+  not exist in that array (correct equivalents: `'Information Systems'`, `'Earth & Environmental Sciences'`).
+  A second, unrelated slip also happened twice: i18n JSON blocks written in parallel tool calls can get
+  copy-paste-contaminated from a previous block (stray fragments landed in ids 967, 980, 982's French
+  highlights) — spot-check every i18n block after a multi-row parallel translation round, don't just trust
+  the "success":true response.
 
 **How to audit a field:** pull the QS 2026 subject ranking's global top 50 (a WebFetch of
 `https://xuanxiao.org/en/rankings/qs/subject/<slug>` has worked reliably and returns clean rank+school+
