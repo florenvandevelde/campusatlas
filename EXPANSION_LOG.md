@@ -628,5 +628,32 @@ Also untouched within the broader Humanities bucket: Linguistics beyond the exis
 Edinburgh), Modern Languages beyond Oxford, Sociology/Anthropology (barely exists per the 2026-08-19 note
 in this log), Politics.
 
+## Law — QS 2026 Law & Legal Studies (audited 2026-08-21, ids 994–997, translated ✅)
+Top-20 was already essentially fully covered pre-audit (Harvard, Oxford, Cambridge, Yale, Stanford, NUS,
+NYU, Columbia, LSE, Berkeley, Melbourne, Chicago, UNSW, UCL, Edinburgh, KCL, Sydney, Toronto, HKU — every
+single one present). Public Health has no standalone QS 2026 subject ranking (confirmed — xuanxiao 404'd
+and topuniversities didn't list it separately either; it's folded into Medicine), so skipped that field for
+this session and moved to Law instead, auditing ranks 21-50 for gaps. Full QS top-50 pulled via xuanxiao.
+**Added (verified official fee pages), Queen Mary is a new school for the catalogue:**
+- 994 KU Leuven — LLM International and European Law — €9,494/yr — QS #46 — deadline 1 June. Confirmed
+  English-taught, 1-year, via kuleuven.be official redirect page; fee matches KU Leuven's established
+  fee-uniform pattern used extensively elsewhere in this catalogue.
+- 995 Leiden University — LLM European Law — €22,300 non-EU/EEA — QS #23 — deadline 1 April. Confirmed
+  directly on universiteitleiden.nl's own tuition-fees page for this exact programme.
+- 996 Queen Mary University of London — LLM Laws — £33,000 total (1-yr programme, NOT per-year — QMUL's own
+  page states the full-time total explicitly) → €38,824 — QS #33 — Rolling. Confirmed directly on
+  qmul.ac.uk's own course-finder page; an earlier per-annum-over-2-years figure (£18,975) found via search
+  was a different LLM variant/page and was discarded in favour of this direct confirmation.
+- 997 University of Amsterdam — LLM International Trade and Investment Law — €21,560 non-EEA — QS #36 —
+  deadline 1 June (final deadline; earlier dates exist for scholarship/visa/housing purposes). Confirmed
+  directly on the programme's own uva.nl tuition-fees page — more precise than the general ~€25,900
+  aggregator estimate for "an Amsterdam LLM" found earlier in the search, since UvA's different LLM tracks
+  have genuinely different fees.
+Not added this pass: Georgetown #21, Penn #22, Tokyo #24, ANU #25, Cornell #26, UBC #26, Peking #28,
+Tsinghua #29, McGill #30, UCLA #31, Monash #32, Buenos Aires #34, O.P. Jindal #35, Humboldt Berlin #37
+(check language), Católica Chile #38, UNAM #38, Bologna #40 (check language), CityU HK #41, LMU Munich #42
+(check language), Michigan #42, Duke #44, Seoul National #44, Virginia #47, Chile #48, Durham #49 (already
+in the catalogue for History — a Law LLM there is a good next-session add), Los Andes #49.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-21)
-Programmes: 968/968 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 972/972 total, all translated. Scholarships: 202/202. No untranslated rows pending.
