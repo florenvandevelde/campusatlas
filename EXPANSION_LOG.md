@@ -686,8 +686,9 @@ subject. Investigated both: **Oxford's MSc in Mathematical Sciences (OMMS) is cl
 add a programme students can't currently apply to; **Cambridge's MASt/Part III fee** could not be pinned
 to one figure (conflicting aggregator numbers £24,789 vs a £29,052–£70,554 range) — genuinely deferred, not
 skipped for convenience; worth another attempt via the Cambridge Composition-Fee-by-course-code route used
-successfully elsewhere. **Added (verified official fee pages), ids 1000–1001 — the catalogue has now
-crossed the 1000-programme milestone:**
+successfully elsewhere. **Added (verified official fee pages), ids 1000–1001** — note `id` is a manually-
+assigned sequence with historical gaps, so `id=1000` does NOT mean the catalogue has reached 1000 rows;
+actual count is tracked separately below (976 after this batch):
 - 1000 University of Bonn — MSc Mathematics — QS #39 — tuition-free (€400/yr nominal semester
   contribution, reusing the exact figure and pattern already established for Bonn's Economics row this
   catalogue). Confirmed English-taught via uni-bonn.de/mathematics.uni-bonn.de; based in the Hausdorff
