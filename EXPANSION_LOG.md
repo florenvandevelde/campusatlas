@@ -570,5 +570,38 @@ Tech #25, Copenhagen #25 (fee page never surfaced a specific figure), USP #28, R
 Granada #32, Montreal #36, Barcelona #41, Malaya #42, Wellington #43, VU Amsterdam #46, OsloMet #48,
 QUT #49.
 
+## Agriculture & Food — QS 2026 Agriculture & Forestry (audited 2026-08-21, ids 988–990, translated ✅)
+Wageningen already dominates this field (#1, 9 programmes) plus KU Leuven #34, TUM #43. Full QS top-50
+pulled via xuanxiao (Wageningen #1 ... Kansas State #50). **Added (verified official fee pages), all 3 new
+schools for the catalogue:**
+- 988 University of Reading — MSc Agriculture and Development — £26,450 → €31,118 — QS #19 — Rolling
+  (reading.ac.uk course page, confirmed directly).
+- 989 Norwegian University of Life Sciences (NMBU) — MSc Agroecology — NOK 80,000/yr → NOK 160,000 total
+  for the 2-yr programme → €13,675 (rate 11.7 NOK/EUR) — QS #10 — deadline 1 December. First Norwegian
+  entry in the catalogue. Fee cross-validated two ways: nmbu.no's official "per-credit NOK 1,333" rate ×
+  60 ECTS/yr = NOK 79,980 ≈ the officially-confirmed NOK 80,000/yr for English-taught master's; a
+  conflicting NOK 150,000 aggregator figure was discarded as unreliable.
+- 990 BOKU University (Vienna) — MSc Mountain Forestry — nominal Austrian public fee (€726.72/semester × 4
+  semesters = €2,907 total for the 2-yr programme) — QS #30 — deadline 5 September. Confirmed English-
+  taught (2-yr, MScMF degree) via boku.ac.at; same standard-Austrian-fee pattern as Vienna's Communication
+  Science master added earlier this session.
+**Skipped after real verification attempts (fee too ambiguous/conflicting to trust):** Swedish University
+of Agricultural Sciences #3 (same "SEK 290k, year-vs-total unclear" problem already flagged for Uppsala in
+an earlier session — official slu.se page didn't disclose a figure either), Ghent University #9 (Bioscience
+Engineering non-EEA fee conflicted across per-credit tracks — "standard" vs "higher tuition" bands weren't
+distinguishable from official sources), University of Copenhagen #24 (redirect chain never surfaced a
+figure). ETH Zurich #8 is already in the catalogue but not Agriculture-tagged (its existing rows are
+Engineering/CS) — could retag or add an ETH agriculture-specific master next time.
+**Bug caught+fixed in the same session: invalid `open_fields` values slipped into TWO batches.** (1) ids
+984–987 (Information Science batch) all used `'Information Science'` as an open_fields entry — that string
+is a `fields` tag, not a valid open_fields/background value; the correct value is `'Information Systems'`
+(confirmed against the `BACKGROUND_OPTIONS` array in index.html, ~line 2313). (2) ids 989–990 (this batch)
+used `'Sustainability'` as an open_fields entry — no such value exists in `BACKGROUND_OPTIONS` at all;
+replaced with `'Earth & Environmental Sciences'`. Both fixed via migration. **`open_fields` is NOT the same
+vocabulary as `fields` — before typing an open_fields value from memory, grep index.html's
+`BACKGROUND_OPTIONS` array for the exact `.value` string (not the `FIELDS` array, not `OPEN_FIELD_OPTIONS`
+assumptions from an earlier session) — this is now the second and third open_fields mistakes caught this
+session alone, worth a standing verification step before considering any batch done.**
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-21)
-Programmes: 962/962 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 965/965 total, all translated. Scholarships: 202/202. No untranslated rows pending.
