@@ -603,5 +603,30 @@ vocabulary as `fields` — before typing an open_fields value from memory, grep 
 assumptions from an earlier session) — this is now the second and third open_fields mistakes caught this
 session alone, worth a standing verification step before considering any batch done.**
 
+## Humanities (Philosophy) — QS 2026 Philosophy (audited 2026-08-21, ids 991–993, translated ✅)
+The generic `Humanities` field tag is a grab-bag covering History/Philosophy/Linguistics/Modern
+Languages/Cultural Studies rows; picked Philosophy as the sub-audit since it was thinnest within it
+(only KU Leuven #29, Edinburgh #24 pre-existing) and has a clean QS ranking. Full QS Philosophy top-50
+pulled via xuanxiao (NYU #1 ... Copenhagen #50). **Added (all reused already-verified-this-session fee
+rates for the same school/faculty — high confidence, no new fee research needed):**
+- 991 King's College London — MA Philosophy — £32,100 → €37,765 — QS #14 — Rolling. Reused the £32,100 KCL
+  rate confirmed 3× already this session (Global Media Industries, Education in Arts & Cultural Settings) —
+  looks like a standard KCL Arts & Humanities faculty rate; confirmed directly on this exact course's fees
+  page too, so not just an assumption.
+- 992 University of Amsterdam — MA Philosophy — €25,900 — QS #32 — deadline 15 May. Reused the confirmed
+  Faculty of Humanities one-year institutional rate (same as the History batch's id 980) — Philosophy sits
+  in the same UvA faculty.
+- 993 University of Vienna — MA Philosophy and Economics — €1,453/yr — QS #49 — deadline 7 April. Vienna's
+  standalone "Philosophy" master is German-taught (verified) so this English-taught cross-disciplinary
+  track was used instead — same standard Austrian public non-EU fee already confirmed for Vienna's
+  Communication Science master this session.
+Not added this pass: LSE #8 (fee page never surfaced a specific figure for Philosophy specifically), St
+Andrews #12 / Durham #39 (both already in the catalogue for History — a second Philosophy-specific
+programme at each is a good next-session add, their Faculty of Arts rates are already known from the
+History batch), Warwick #38, Bristol #41, Southampton #44, Leeds #46 (none attempted yet — untouched).
+Also untouched within the broader Humanities bucket: Linguistics beyond the existing 3 (Cambridge, UCL,
+Edinburgh), Modern Languages beyond Oxford, Sociology/Anthropology (barely exists per the 2026-08-19 note
+in this log), Politics.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-21)
-Programmes: 965/965 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 968/968 total, all translated. Scholarships: 202/202. No untranslated rows pending.
