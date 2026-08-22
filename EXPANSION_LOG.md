@@ -732,5 +732,40 @@ UCL#57) is accurate but those rows are tagged under the generic `Engineering` fi
 `Mechanical Engineering` specifically — that's a tagging nuance, not a real content gap, and explains why
 this session's `fields`-filtered query didn't surface them.
 
-## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-21)
-Programmes: 979/979 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+## ⚠️ MAJOR CORRECTION: ETH Zurich + EPFL tuition was stale for ALL 24 rows (2026-08-22)
+While researching an Architecture programme at ETH, discovered that **since autumn semester 2025, both ETH
+Zurich and EPFL triple tuition for new international students** (those who move to Switzerland to study,
+i.e. the population this catalogue serves): CHF 730/semester → **CHF 2,190/semester (CHF 4,380/yr)**. This
+applies to Bachelor's AND Master's students starting new degree programmes from autumn 2025 onward, with
+only narrow exemptions (prior CH/Liechtenstein residency, or EU/EFTA citizenship + qualifying work/family
+permit). Confirmed independently on both ethz.ch/staffnet and epfl.ch's own rules-and-procedures pages —
+this is real, not a rumour: "Two Leading Swiss Universities to Triple Fees for International Students" was
+independently reported by SWI swissinfo.ch and others.
+
+Every ETH/EPFL row already in the catalogue (all 24 of them, all 2-year Master's) was still showing the OLD
+pre-2025 rate (€1,300–2,500) with highlight/blurb text explicitly claiming "near-zero tuition," "same fee
+for every nationality," "very low ETH/EPFL public tuition" — all now **false** for the vast majority of the
+catalogue's actual international-student readers. This is the same class of bug as the 2026-08-20 UK/US
+currency-storage fix, but self-inflicted by a real-world policy change rather than a stored-value error.
+
+**Fixed for all 24 rows** (ids 140,144,166,241,251,255,272,275,305,342,520,521,522,552,564,714,719,742,743,
+748,760,764,765,999):
+1. `tuition` set to 9319 (= CHF 8,760 total for a 2-yr programme ÷ 0.94 CHF/EUR rate) for every row.
+2. English `highlights` — every variant of the false claim ("Near-zero Swiss tuition," "Public-university
+   tuition," "~CHF 1,266/year, same fee for every nationality," "Very low ETH/EPFL public tuition," etc.)
+   replaced with "CHF 4,380/yr international tuition (tripled since autumn 2025)".
+3. English `blurb` — 13 blurbs that asserted low/near-zero tuition as a selling point rewritten to remove
+   the now-false claim (e.g. "at public-university tuition" → "at a public Swiss university").
+4. **All 4 i18n languages (nl/fr/de/es)** — both `highlights` and `blurb` fixed to match, via `jsonb_set` +
+   `array_replace` grouped by exact phrase per language. Verified with a broad ilike sweep across all 4
+   languages afterward (only false-positive matches remained, e.g. "bas carbone"/low-carbon construction —
+   confirmed unrelated to tuition).
+**Standing implication for future ETH/EPFL additions**: any NEW ETH or EPFL row added to this catalogue
+going forward must use tuition≈9319 (2-yr) or 4660 (1-yr, if any such programme exists) — do NOT reuse the
+old ~€1,300–2,500 figures from memory or from older EXPANSION_LOG entries in this same file; those are now
+stale. This note supersedes the "reuse EPFL/ETH's pattern" guidance used earlier in today's session (id 999,
+Biochemistry batch — that row's tuition/highlights were included in this fix).
+
+## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
+Programmes: 979/979 total, all translated. Scholarships: 202/202. No untranslated rows pending. (Row count
+unchanged by the ETH/EPFL fix above — it corrected existing data, added zero new rows.)

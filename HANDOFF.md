@@ -32,6 +32,15 @@ need to ask.
   "🎯 STRATEGY PIVOT" sections before adding anything. It is the single source of truth for what's been
   done and what's queued next; this handoff only summarizes it.
 
+### ⚠️ ETH Zurich / EPFL tuition tripled for internationals since autumn 2025 — use CHF 4,380/yr, not the old ~€1,300–2,500
+Confirmed on ethz.ch/staffnet and epfl.ch's own pages: since autumn 2025, both schools charge new
+international students (anyone without prior CH/Liechtenstein residency or qualifying EU/EFTA status) CHF
+2,190/semester instead of the old CHF 730/semester — a genuine tripling, applying to Bachelor's AND Master's
+students. All 24 pre-existing ETH/EPFL rows were fixed on 2026-08-22 (tuition set to 9319 EUR for 2-yr
+programmes; highlights/blurbs in all 5 languages that claimed "near-zero"/"same fee for every nationality"
+corrected). **Any new ETH or EPFL row must use this new rate** — see EXPANSION_LOG.md's "MAJOR CORRECTION"
+entry for the full list of fixed ids and the exact replacement text used, so new additions stay consistent.
+
 ### The one rule that has already bitten this project once — read before inserting a `tuition` value
 
 **`programmes.tuition` is ALWAYS stored in EUR, for every country, no exceptions.** The site's
