@@ -804,5 +804,17 @@ where the standing "no fabrication" rule extends to not fabricating accessibilit
 McGill: fee tables are PDF-only and resisted extraction again (same pattern as the Mechanical Engineering
 batch's McGill miss) — deferred, not skipped for convenience.
 
+## Media & Communication batch 2 — filling deferred gaps (2026-08-22, id 1008, translated ✅)
+- 1008 UCL — MA Digital Media: Critical Studies — £39,200 → €46,118 — QS #35 — Rolling. Confirmed directly
+  on ucl.ac.uk's own course page (matches the same £39,200 rate seen for UCL's Psychological Sciences MSc
+  earlier — looks like a standard UCL humanities/social-science faculty rate).
+University of Zurich investigated (MA Kommunikationswissenschaft und Medienforschung) but NOT added — its
+own official fee (CHF 820/semester, confirmed on uzh.ch, unaffected by the ETH/EPFL tripling since UZH is a
+cantonal not federal institution) looked promising, but the programme's own official page never confirmed
+English as the language of instruction (German name, bilingual page) — skipped rather than risk mislabelling
+a German-taught programme as English-taught. Leeds MA Communication and Media attempted — fee figures
+conflicted wildly across sources (£21,500 / £29,500 / £34,250) with no single official confirmation, same
+unreliable-aggregator pattern flagged elsewhere this session — skipped.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 982/982 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 983/983 total, all translated. Scholarships: 202/202. No untranslated rows pending.
