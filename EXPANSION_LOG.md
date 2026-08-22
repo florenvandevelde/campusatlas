@@ -872,5 +872,22 @@ jsonb_set, then did a full 4-language sweep of the 3-row batch to confirm nothin
 Still ~60-70 TUM English-taught programmes unchecked — worth another pass, browsing further pages of the
 tum.de degree-program search (pagination wasn't fully explored this round).
 
+## Fee-uniform-school harvest, round 3: KIT (2026-08-22, ids 1015–1019, translated ✅)
+KIT had only 4 rows despite ~13+ English-taught master's. Confirmed uniform international rate directly on
+official pages (intl.kit.edu/sle.kit.edu): €1,500/semester (€3,000/yr) for all non-EU master's students,
+consistent with the 4 already-catalogued KIT rows — a genuinely uniform-fee school, unlike TUM.
+**Added:**
+- 1015 MSc Water Science and Engineering — hydrology & integrated water-resource management
+- 1016 MSc Meteorology and Climate Physics — atmospheric science, clouds to climate change
+- 1017 MSc Electrical Engineering and Information Technology — one of 3 programmes KIT newly added to its
+  English offering starting 2025 per a KIT news item found this session
+- 1018 MSc Computer Science — also one of the 3 newly English-taught 2025 additions
+- 1019 MSc Materials Science and Engineering — confirmed offered in English (as well as German/dual)
+All five confirmed English-taught via official kit.edu subdomains (imk-tro, sle, mach, iwg). **Chemical and
+Process Engineering investigated and correctly NOT added**: its own ciw.kit.edu page explicitly requires
+German C1 — no English track exists, unlike the similarly-named Materials Science programme next to it in
+search results. **Civil Engineering** — could not confirm an English-taught standalone KIT master this pass
+(search only surfaced the Mechanical/Chemical program pages); worth one more targeted look next time.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 989/989 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 994/994 total, all translated. Scholarships: 202/202. No untranslated rows pending.
