@@ -766,6 +766,26 @@ old ~€1,300–2,500 figures from memory or from older EXPANSION_LOG entries in
 stale. This note supersedes the "reuse EPFL/ETH's pattern" guidance used earlier in today's session (id 999,
 Biochemistry batch — that row's tuition/highlights were included in this fix).
 
+## Architecture — QS 2026 Architecture & Built Environment (2026-08-22, ids 1005–1006, translated ✅)
+This is what led to discovering the ETH/EPFL tuition bug above: researching ETH's Architecture programme
+(QS #4, previously entirely missing from the catalogue) surfaced the tripled-fee policy change. Also added:
+- 1005 ETH Zurich — MSc Architecture — QS #4 — CHF 4,380/yr (new correct rate, €9,319 total for 2yr) —
+  deadline 30 November, September intake, confirmed via ethz.ch/arch.ethz.ch official pages.
+- 1006 TU Wien — Master in Architecture — QS #44 — nominal Austrian public fee (€727/semester × 4 = €2,908
+  total for 2yr, same pattern as BOKU/Vienna Comm Sci/Philosophy earlier this session) — deadline 5
+  September. New school for the catalogue. Confirmed English-taught, 4-semester programme via tuwien.at.
+Not added this pass: Cambridge #13 (5th failed fee-page attempt this session across every field — Cambridge
+joins Edinburgh as a school whose fee pages this session's tooling consistently cannot extract a number
+from; worth trying the Cambridge Composition-Fee-by-course-code approach that worked for other Cambridge
+programmes in earlier sessions, rather than the postgraduate.study.cam.ac.uk finance-tab route tried here).
+MIT #2, Manchester School of Architecture #5 (distinct from University of Manchester, not yet in catalogue
+at all), Harvard #7, NUS #7, Tsinghua #9, Berkeley #10, EPFL #11 (would reuse the same corrected CHF
+4,380/yr rate if added), Tongji #12, HKU #14, RMIT #15, Columbia #16, Tokyo #17, Cornell #19, UPC Barcelona
+#19, HK PolyU #21, UPM Madrid #21, Melbourne #23, TU Berlin #24, Sheffield #26, NTU #27, Georgia Tech #28,
+Stanford #28, Sydney #28, Seoul National #31, UCLA #32, UNSW #33, Católica Chile #34, Penn #34, Aalto
+(already in catalogue for Architecture, #36), Yale #36, Science Tokyo #38, Princeton #39, Iuav Venezia #40,
+Toronto #44 (already in catalogue for other fields), São Paulo #48, Michigan #49, Cardiff (already in
+catalogue for Media & Comm) #50.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 979/979 total, all translated. Scholarships: 202/202. No untranslated rows pending. (Row count
-unchanged by the ETH/EPFL fix above — it corrected existing data, added zero new rows.)
+Programmes: 981/981 total, all translated. Scholarships: 202/202. No untranslated rows pending.
