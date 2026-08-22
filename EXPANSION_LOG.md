@@ -787,5 +787,22 @@ Stanford #28, Sydney #28, Seoul National #31, UCLA #32, UNSW #33, Católica Chil
 Toronto #44 (already in catalogue for other fields), São Paulo #48, Michigan #49, Cardiff (already in
 catalogue for Media & Comm) #50.
 
+## Psychology batch 2 — filling deferred gaps (2026-08-22, id 1007, translated ✅)
+Psychology was still the single thinnest field after batch 1 (added-to but other fields also grew), so
+returned to the deferred-gap list from earlier: Yale, Columbia, Toronto, LSE, Edinburgh, NUS, Melbourne,
+McGill, VU Amsterdam, LMU Munich, Peking, HKU, CUHK.
+- 1007 LSE — MSc Social and Cultural Psychology — £30,400 → €35,765 — QS #19 — Rolling. Confirmed directly
+  on lse.ac.uk's own course page (2026/27 figure explicit).
+**Toronto investigated and deliberately NOT added**: search results claimed "OISE does not accept
+international students at the MA level" for Psychology. This is a real risk worth flagging — OISE (Ontario
+Institute for Studies in Education) is a *different* graduate unit from the actual Department of Psychology
+(Faculty of Arts & Science), and conflating them could mean adding a programme international students
+literally cannot apply to. Attempted to verify against psych.utoronto.ca directly but hit a bot-verification
+wall. **Do not add a Toronto Psychology row without first resolving which unit (OISE vs. Dept of Psychology)
+actually houses an internationally-open MA/MSc, and confirming eligibility explicitly** — this is a case
+where the standing "no fabrication" rule extends to not fabricating accessibility, not just fees.
+McGill: fee tables are PDF-only and resisted extraction again (same pattern as the Mechanical Engineering
+batch's McGill miss) — deferred, not skipped for convenience.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 981/981 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 982/982 total, all translated. Scholarships: 202/202. No untranslated rows pending.
