@@ -889,5 +889,25 @@ German C1 — no English track exists, unlike the similarly-named Materials Scie
 search results. **Civil Engineering** — could not confirm an English-taught standalone KIT master this pass
 (search only surfaced the Mechanical/Chemical program pages); worth one more targeted look next time.
 
+## Fee-uniform-school harvest, round 4: RWTH Aachen (2026-08-22, ids 1020–1023, translated ✅)
+Got the full official list via rwth-aachen.de's own international-master's-programmes page (17 "regular"
+uniform-fee programmes + 11 separately-priced RWTH International Academy/Business School professional
+programmes). 14 of the 17 regular programmes were already in the catalogue; added the 4 genuine gaps, all
+confirmed English-taught and at the standard €1,500/semester rate:
+- 1020 MSc Applied Geophysics — a genuine 3-way joint degree with TU Delft and ETH Zurich — QS/Earth
+  Sciences field — deadline 1 Sep.
+- 1021 MSc Battery Science and Technology in Engineering — Energy field — deadline 15 Jul.
+- 1022 MA Cognitive, Digital and Empirical English Studies — a real Humanities gap-filler, computational
+  linguistics angle — deadline Rolling (no clean official date found, several third-party sources
+  disagreed).
+- 1023 MSc Transforming City Regions — Architecture field, European territorial-development focus —
+  deadline 1 Mar.
+**Not added — the 11 RWTH International Academy / Business School programmes** (Battery Systems
+Engineering, the Management-and-Engineering variants, Textile Engineering, European Studies MPA-ES, Applied
+Health Informatics and Digital Medicine, Periodontology, Data Analytics & Decision Science, Sustainability
+Management) all carry their OWN separate professional-programme tuition — explicitly NOT the €1,500/semester
+uniform rate — so none were blindly added; each would need individual fee verification, a good next-session
+target (Periodontology and Applied Health Informatics look like real Public-Health-adjacent gap-fillers).
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 994/994 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 998/998 total, all translated. Scholarships: 202/202. No untranslated rows pending.
