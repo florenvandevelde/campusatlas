@@ -816,5 +816,35 @@ a German-taught programme as English-taught. Leeds MA Communication and Media at
 conflicted wildly across sources (£21,500 / £29,500 / £34,250) with no single official confirmation, same
 unreliable-aggregator pattern flagged elsewhere this session — skipped.
 
+## 🎯 STANDING TARGET RAISED: user asked to keep going toward **1100** (2026-08-22), was 1000
+Same rules apply: verified data only, translate every batch, thinnest-field-first where practical, but also
+now using a second efficient strategy — pull a fee-uniform school's full English-taught programme list
+(KU Leuven, Bonn, LMU Munich, TUM, RWTH, KIT, PoliMi/PoliTo, KTH, Wageningen, EPFL/ETH-corrected, Vienna/
+BOKU/TU Wien) and add whichever genuinely-missing programmes exist there, since the fee is already known
+and verified — this is much faster than fresh per-programme fee research and was explicitly how earlier
+sessions built out KTH/TU Delft/PoliMi/PoliTo/Wageningen/RWTH/KIT/Aalto ("essentially complete").
+
+## Fee-uniform-school harvest, round 1 (2026-08-22, ids 1009–1011, translated ✅)
+- 1009 LMU Munich — MSc Psychology: Learning Sciences — Psychology field — tuition-free (€400/yr nominal,
+  same convention as Bonn) — QS Psychology #41 — deadline 1 March. Confirmed English-taught via
+  en.mcls.uni-muenchen.de.
+- 1010 KU Leuven — Master of Criminology — Law field — €9,500/yr (reused KU Leuven's confirmed uniform
+  rate) — deadline 1 June. Confirmed English-taught via the official onderwijsaanbod.kuleuven.be redirect
+  page for this exact programme.
+- 1011 KU Leuven — Master of Theology and Religious Studies — Humanities field — €9,500/yr (same reuse) —
+  deadline 1 March. Confirmed English-taught (est. 1432, one of Europe's oldest theology faculties) via the
+  same official redirect-page pattern.
+**KU Leuven Pharmaceutical Sciences investigated and confirmed NOT addable**: the entry-level Master of
+Pharmaceutical Sciences is Dutch-taught (only some optional courses in English) — this matches a prior
+session's note in this same log, now independently reconfirmed via pharm.kuleuven.be. The only English
+option remains the niche joint "Advanced Master of Pharmacometrics" (with UCLouvain), whose fee wasn't
+cleanly confirmed this pass — still a gap, not yet added.
+Downloaded and read KU Leuven's own English-taught-programmes brochure (PDF) — confirms 76 master's + 23
+advanced master's taught in English total, organized by subject category rather than a flat list, so it
+doesn't give a quick add-list directly; individual programme names still need one search each. Categories
+worth checking next for KU Leuven gaps not yet in the catalogue: Movement and Rehabilitation, Religion
+(beyond the Theology MA just added), People/Behaviour/Society (beyond Psychology/Anthropology already
+present), Living Environment and Sustainable Development.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 983/983 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 986/986 total, all translated. Scholarships: 202/202. No untranslated rows pending.
