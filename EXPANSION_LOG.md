@@ -846,5 +846,31 @@ worth checking next for KU Leuven gaps not yet in the catalogue: Movement and Re
 (beyond the Theology MA just added), People/Behaviour/Society (beyond Psychology/Anthropology already
 present), Living Environment and Sustainable Development.
 
+## Fee-uniform-school harvest, round 2: TUM (2026-08-22, ids 1012–1014, translated ✅)
+TUM has ~70-94 English-taught master's total; only 24 were in the catalogue. Used the official
+tum.de/en/studies/degree-programs search (language=English, degree=master filter) to browse new names, then
+verified each individually — TUM tiers fees by programme, not uniformly, so each still needed its own
+check (not a blind reuse like KU Leuven/Bonn).
+- 1012 MSc Agricultural Biosciences — €2,000/semester → €8,000 total (2yr) — TUM School of Life Sciences
+  (Weihenstephan). Confirmed officially on ls.tum.de — this is a LOWER tier than TUM's usual €16k/€24k,
+  worth remembering: don't assume all TUM programmes share one of the two already-known tiers.
+- 1013 MSc AgriFood Economics, Policy and Regulation — €4,000/semester → €16,000 total (2yr) — same School
+  of Life Sciences, but a different (higher) tier than 1012 — confirmed via a second independent search
+  after the general fee page's "4,000 or 6,000/semester" master's range flagged that assuming the Agri
+  Biosciences rate would apply here too was risky. Good instance of not extrapolating one confirmed TUM fee
+  to a neighbouring programme without checking.
+- 1014 MSc AI in Society — €4,000/semester → €16,000 total (2yr) — TUM School of Social Sciences and
+  Technology. Confirmed officially.
+**Agrosystem Sciences investigated and correctly NOT added**: its own official ls.tum.de page states the
+language of instruction is **German**, not English — this would have been an easy mistake since it's in the
+same School of Life Sciences and sits right next to Agricultural Biosciences/AgriFood Economics in search
+results. Always check the specific programme's own language field, not just its neighbours'.
+**Bug caught+fixed in the same session (again)**: id 1012's French highlight said "4 000 €/semestre"
+(copied from the id-1013 block written in the same parallel round) instead of the correct "2 000
+€/semestre" — same cross-contamination failure mode flagged 4 times already this session. Fixed via
+jsonb_set, then did a full 4-language sweep of the 3-row batch to confirm nothing else slipped.
+Still ~60-70 TUM English-taught programmes unchecked — worth another pass, browsing further pages of the
+tum.de degree-program search (pagination wasn't fully explored this round).
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 986/986 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 989/989 total, all translated. Scholarships: 202/202. No untranslated rows pending.
