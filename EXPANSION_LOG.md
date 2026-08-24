@@ -1153,5 +1153,17 @@ European Competition Law, International Tax Law, Forensic Science, Museum Studie
 Jewish Studies, and many more) — the faculty-fee table above makes pricing any of them fast, good
 next-session target.
 
+## Fee-uniform-school harvest, round 14b: UvA continued (2026-08-22, ids 1084–1086, translated ✅)
+Continued using the faculty-fee table from round 14. Added 3 more, each with duration/language confirmed
+individually since UvA fees are faculty-specific, not university-wide:
+- 1084 MSc Data Science and Business Analytics — Amsterdam School of Economics — €21,800
+- 1085 MSc Actuarial Science and Mathematical Finance — Amsterdam School of Economics — €21,800
+- 1086 MA Comparative Literature — Humanities 1yr — €25,900
+**MSc Artificial Intelligence investigated but NOT added**: could not confirm whether it falls under the
+general Science 2yr rate (€26,000) or the Computer-Science-adjacent named exception (€24,150) — both are
+plausible and guessing the wrong one would misprice it, so deferred rather than guess. Good next-session
+target: fetch the programme's own tuition-fee subpage directly (this search round only surfaced the URL,
+not its content) to resolve which tier applies.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1058/1058 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1061/1061 total, all translated. Scholarships: 202/202. No untranslated rows pending.
