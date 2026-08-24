@@ -1240,5 +1240,21 @@ Global Relations, International Business & Marketing, Fine Art all had separate 
 lookup — double check each against the "Selected Programs with Separate Fees" list before assuming Category
 1/2 applies).
 
+## Fee-uniform-school harvest, round 18: University of Vienna (2026-08-22, ids 1100–1102, translated ✅)
+University of Vienna had only 3 rows despite being Austria's largest university. Reused the confirmed
+€1,453/yr nominal Austrian rate (matching the pre-existing Communication Science row's own convention —
+University of Vienna stores ANNUAL not total, unlike TU Wien which stores total, another cross-school
+tuition-basis data point for the audit flagged earlier).
+**Added:**
+- 1100 MSc Data Science — AI field
+- 1101 MSc Cognitive Science (MEi:CogSci) — genuinely unusual Middle-European joint interdisciplinary
+  programme spanning psychology/linguistics/CS/philosophy
+- 1102 MA English Language and Linguistics — Humanities field gap-filler
+University of Vienna's full English-taught programme list wasn't obtainable as a clean single page this
+round (studieren.univie.ac.at's admission-guide page doesn't enumerate titles); each addition required an
+individual search. Good next-session target — try the univie.ac.at subject-area landing pages directly
+(informatik.univie.ac.at, anglistik/philosophy department pages, etc.) rather than the general admissions
+portal.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1074/1074 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1077/1077 total, all translated. Scholarships: 202/202. No untranslated rows pending.
