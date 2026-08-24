@@ -928,5 +928,21 @@ Design for the Fashion System directly on its own polimi.it page; the rest share
 admission/fee structure per PoliMi's own site structure). Rolling deadline, September intake — same as
 every other PoliMi row in the catalogue.
 
+## Fee-uniform-school harvest, round 6: Politecnico di Torino (2026-08-22, ids 1031–1036, translated ✅)
+PoliTo had 25 rows (largely Engineering) but its official master's-programmes page (polito.it) surfaced 6
+genuine gaps across Design, Architecture, Math/Physics and Aerospace — all English-taught, all at PoliTo's
+established €4,000/yr uniform rate:
+- 1031 MSc Aerospace Engineering — 5 specialist tracks incl. propulsion & space
+- 1032 MSc Mathematical Engineering — applied maths for complex systems (Mathematics field gap-filler)
+- 1033 MSc Physics of Complex Systems — international double-degree track with SISSA/ICTP Trieste + a Paris
+  university consortium, confirmed English-taught
+- 1034 MSc Systemic Design — open design, digital production, UX (PoliTo's Design-adjacent offering,
+  smaller than PoliMi's full Design school but a real gap)
+- 1035 MSc Landscape Architecture — Architecture, Design and Planning campus
+- 1036 MSc Urban and Regional Planning — urban/territorial planning + global urban agenda tracks
+**Not added**: "Design for Arts" — a 2nd-level specializing master (different tier/fee structure from
+standard MSc programmes), would need separate fee verification, skipped rather than assume the standard
+uniform rate applies to a different programme tier.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1005/1005 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1011/1011 total, all translated. Scholarships: 202/202. No untranslated rows pending.
