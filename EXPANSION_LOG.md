@@ -1302,5 +1302,10 @@ search) — good next-session target, all tuition-free.
 - 1113 MSc Statistics and Data Science — Department of Statistics, deadline 15 July
 Both tuition-free, confirmed English-taught.
 
+## Fee-uniform-school harvest, round 24: Bonn continued (2026-08-22, ids 1114–1115, translated ✅)
+- 1114 MA Applied Linguistics — deadline Rolling
+- 1115 MA Strategy and International Security — deadline 15 July
+Both tuition-free, confirmed English-taught.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1088/1088 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1090/1090 total, all translated. Scholarships: 202/202. No untranslated rows pending.
