@@ -1313,5 +1313,11 @@ Both tuition-free, confirmed English-taught.
 - 1117 MSc Molecular Cell Biology — deadline Rolling
 Both tuition-free, confirmed English-taught.
 
+## Fee-uniform-school harvest, round 26: Bonn continued (2026-08-22, ids 1118–1119, translated ✅)
+- 1118 MA Dependency and Slavery Studies — run by the Bonn Center for Dependency and Slavery Studies
+  (BCDSS), deadline 15 September
+- 1119 MA English Literatures and Cultures — deadline 15 September
+Both tuition-free, confirmed English-taught. **6 rows away from the 1100 target.**
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1092/1092 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1094/1094 total, all translated. Scholarships: 202/202. No untranslated rows pending.
