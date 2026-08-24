@@ -909,5 +909,24 @@ Management) all carry their OWN separate professional-programme tuition — expl
 uniform rate — so none were blindly added; each would need individual fee verification, a good next-session
 target (Periodontology and Applied Health Informatics look like real Public-Health-adjacent gap-fillers).
 
+## Fee-uniform-school harvest, round 5: PoliMi School of Design (2026-08-22, ids 1024–1030, translated ✅)
+**The catalogue has now genuinely crossed 1000 total programme rows (1005 after this batch)** — unlike the
+earlier false alarm where `id=1000` was mistaken for row count, this is the actual `count(*)`.
+PoliMi's Engineering/Architecture programmes (33 rows) were already near-complete, but the entire **School
+of Design** — a distinct PoliMi faculty — had zero rows. Found via polimi.it's own programme pages:
+- 1024 MSc Design & Engineering — design culture + technical-engineering approach
+- 1025 MSc Digital and Interaction Design — interactive systems, digital transformation
+- 1026 MSc Design for the Fashion System — design as strategic tool in fashion (genuine Fashion-field
+  gap-filler, tagged ['Management','Marketing','Strategy'] per this catalogue's established fashion-tagging
+  convention)
+- 1027 MSc Communication Design — visual/digital communication systems
+- 1028 MSc Product Service System Design — product to service-system/spatial design scale
+- 1029 MSc Integrated Product Design — systemic product design (technical+business+user value)
+- 1030 MSc Interior and Spatial Design — adaptive reuse & spatial redefinition
+All 7 confirmed English-taught, 2-year, at PoliMi's already-established uniform €4,000/yr rate (spot-checked
+Design for the Fashion System directly on its own polimi.it page; the rest share the same School-of-Design
+admission/fee structure per PoliMi's own site structure). Rolling deadline, September intake — same as
+every other PoliMi row in the catalogue.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 998/998 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1005/1005 total, all translated. Scholarships: 202/202. No untranslated rows pending.
