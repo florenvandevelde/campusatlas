@@ -1267,5 +1267,20 @@ Environment and Sustainable Development). Both confirmed English-taught at the s
 "Master of Religious Studies" searched for but doesn't appear to exist as a standalone KU Leuven programme
 (a "Master of Society, Law and Religion" was surfaced instead but not verified/added this round).
 
+## Fee-uniform-school harvest, round 20: Bonn revisited (2026-08-22, ids 1105–1107, translated ✅)
+Bonn has ~64 English-taught master's, only 1 was in the catalogue (Economics). Reused the confirmed
+tuition-free convention (€400/yr nominal, matching Bonn Economics and Bonn Mathematics from earlier rounds).
+**Added, all confirmed English-taught via uni-bonn.de's own degree-programs A-Z page:**
+- 1105 MSc Astrophysics — run by the Bonn-Cologne Graduate School of Physics and Astronomy — deadline 1 May
+- 1106 MSc Computer Science — deadline Rolling (no fixed date found, matches Bonn's stated
+  no-uniform-deadline policy)
+- 1107 MSc Biochemistry — deadline Rolling
+Got the full aggregate list via mastersportal. ~58 more Bonn programmes remain unadded (Chemistry,
+Mathematics variants, Molecular Cell Biology, Life Science Informatics, Applied Linguistics, Biblical
+Studies, English/English Literatures, North American Studies, Strategy and International Security,
+Agricultural and Food Economics, Geography of Environmental Risks and Human Security, Plant Sciences,
+Immunobiology, Medical Immunosciences, Geodetic Engineering, and more) — all tuition-free, good
+next-session target since verification is now just a language/existence check, not a fee lookup.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1079/1079 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1082/1082 total, all translated. Scholarships: 202/202. No untranslated rows pending.
