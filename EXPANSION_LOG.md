@@ -1054,5 +1054,31 @@ Sustainable Fisheries and Aquaculture, Biomaterial Engineering for Medicine, plu
 programmes: Business Administration and Bioentrepreneurship, Quantum Information Science, Health and
 Informatics) — all at the same confirmed €15,000/yr rate, good next-session target.
 
+## Fee-uniform-school harvest, round 11: University of Copenhagen (2026-08-22, ids 1061–1065, translated ✅)
+UCPH had only 2 rows despite ~50 English-taught master's. ku.dk's own pages are JS-driven and didn't yield
+fee figures directly via WebFetch — pivoted to mastersportal.com's programme pages, which display each
+programme's fee explicitly, and cross-checked 4 different Science/Social-Science-faculty programmes
+(Actuarial Mathematics, Bioinformatics, Landscape Architecture, Agricultural Economics) that all
+independently confirmed the exact same **DKK 62,500/semester = DKK 125,000/yr** rate → €16,756/yr at the
+site's DKK rate (7.46), reasonably close to the pre-existing Pharmaceutical Sciences row's €16,000, giving
+confidence this is genuinely UCPH's standard non-EU science/social-science fee tier.
+**Added:**
+- 1061 MSc Actuarial Mathematics — Mathematics field gap-filler, direct route into the actuarial profession
+- 1062 MSc Bioinformatics — computational methods for genomic/biological data
+- 1063 MSc Landscape Architecture — Architecture field gap-filler
+- 1064 MSc Agricultural Economics — economics of agriculture/food systems and rural development
+- 1065 MSc Global Health — Public Health field gap-filler
+Got the full programme list via mastersportal's aggregate UCPH page (55 masters, grouped by subject) —
+~45 more remain unadded, spanning Biology, Biosolutions, Biotechnology, Chemistry, Geology, Advanced
+Migration Studies, African Studies, Anthropology, Applied Cultural Analysis, Cognition and Communication,
+Economics, Environmental and Natural Resource Economics, Climate Change, Environment and Development,
+Environmental Science, Forest and Nature Management, Food Innovation and Health, Human Biology, Human
+Nutrition, Immunology and Inflammation, Integrated Food Studies, Medicinal Chemistry, Molecular Biomedicine,
+Computer Science, Geography and Geoinformatics, IT and Cognition, Quantum Information Science, Social Data
+Science, Agriculture, Food Science and Technology, Global Forestry, Sustainable Forest and Nature
+Management, Disaster Management, Security Risk Management, The Religious Roots of Europe — good
+next-session target, all should share the same confirmed DKK 125,000/yr rate for the Science/Social Science
+faculties at least (Humanities/Theology may differ, not yet checked).
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1035/1035 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1040/1040 total, all translated. Scholarships: 202/202. No untranslated rows pending.
