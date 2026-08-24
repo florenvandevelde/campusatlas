@@ -1165,5 +1165,28 @@ plausible and guessing the wrong one would misprice it, so deferred rather than 
 target: fetch the programme's own tuition-fee subpage directly (this search round only surfaced the URL,
 not its content) to resolve which tier applies.
 
+## Fee-uniform-school harvest, round 15: TU Wien (2026-08-22, ids 1087–1091, translated ✅)
+TU Wien had only 1 row despite 19 English-taught master's. Reused the confirmed Austrian public tuition
+(€726.72/semester, same national rate confirmed for University of Vienna earlier this session) — the
+pre-existing Architecture row already stored the correct total (€2,908 for a 24-month/4-semester programme),
+so TU Wien follows the "total" convention (like TUM), not the "annual" convention (like KIT/Wageningen) —
+another data point for the tuition-basis audit flagged earlier.
+**Added, all confirmed English-taught via tuwien.at's own master-programmes page:**
+- 1087 MSc Data Science, 1088 MSc Interdisciplinary Mathematics (Mathematics field gap-filler), 1089 MSc
+  Biomedical Engineering, 1090 MSc Aeronautical Engineering (Mechanical Engineering field), 1091 MSc
+  Technical Physics
+VU Amsterdam attempted this round too (only 1 row) but NOT added: fee pages resisted every fetch attempt
+(mirrors the Edinburgh pattern from earlier in the session) and aggregator figures conflicted sharply by
+programme (Communication Science ~€16,830/yr vs. Computer Science ~€24,150/yr from different faculties) —
+skipped rather than guess a per-programme rate. Good next-session target: try VU's own PDF fee-overview
+document directly (linked from vu.nl/en/education/more-about/tuition-fee-rates-masters) rather than
+individual programme pages.
+14 more TU Wien programmes remain unadded (Technical Chemistry, Business Informatics, Logic and Artificial
+Intelligence, Visual Computing, Media and Human-Centered Computing, Software Engineering & Internet
+Computing, Information and Communication Engineering, Embedded Computing Systems, Quantum Information
+Science and Technology, Manufacturing and Robotics, Geodesy and Geoinformation, Statistics - Probability -
+Mathematics in Economics, Physical Energy and Measurement Engineering, Computational Science and
+Engineering) — all should share the same confirmed nominal Austrian fee.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1061/1061 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1066/1066 total, all translated. Scholarships: 202/202. No untranslated rows pending.
