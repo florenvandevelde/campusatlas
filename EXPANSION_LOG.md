@@ -1201,5 +1201,44 @@ European Forestry and other joint programmes in BOKU's list were NOT added this 
 verifying their individual fee tier, since some Erasmus Mundus programmes elsewhere do charge a
 participation fee well above the standard Austrian rate. Good next-session target, verify each individually.
 
+## ⚠️ MAJOR CORRECTION — Norway introduced tuition fees for non-EU/EEA students in 2023; NTNU row was stale
+Same failure mode as the ETH/EPFL discovery earlier this session. Norway's public universities were 100%
+tuition-free for ALL nationalities historically, but the government introduced fees for non-EU/EEA students
+starting 2023 — confirmed officially on ntnu.edu/studies/tuition-fee: **Category 1** (Humanities/Social
+Sciences/Business) NOK 176,300/yr, **Category 2** (Natural Sciences/Technology/Health) NOK 205,600/yr,
+**Category 3** (Medicine/Dentistry/Veterinary) NOK 528,650/yr, plus several individually-priced named
+programmes. The one pre-existing NTNU row (id 257, MSc Energy and Environmental Engineering) was still
+storing tuition=0 with a blurb/highlights explicitly claiming "tuition-free (all nationalities)" — now
+FIXED: tuition set to 17,573 EUR (NOK 205,600 Category 2 ÷ 11.7 site rate), blurb and all 4 i18n languages'
+blurb+highlights corrected to remove the false free-tuition claim and cite the real 2023-introduced fee.
+**Any future Norwegian public-university row (NTNU, Oslo, Bergen, etc.) must verify current fee status —
+do NOT assume tuition-free.**
+
+## Fee-uniform-school harvest, round 17: NTNU (2026-08-22, ids 1094–1099, translated ✅)
+Added 6 new NTNU rows using the now-correctly-understood category fee structure — the 33-programme official
+list came from ntnu.edu/studies/international/master, which also separately lists 7 Erasmus Mundus joint
+programmes (not touched, likely different EMJMD-set fees) and 1 Nordic joint master (Cold Climate
+Engineering, also not touched).
+- 1094 MSc Mathematical Sciences — Category 2 (€17,573) — Mathematics field gap-filler
+- 1095 MSc Materials Science and Chemical Engineering — Category 2 (€17,573) — Materials Science gap-filler
+- 1096 MSc Molecular Medicine — Category 2 (€17,573)
+- 1097 MPhil Childhood Studies — NOT Category 1: caught and fixed a self-inflicted error where the batch
+  insert used the general €15,068 rate before the named-exception rate (NOK 26,445/yr → €2,260) was applied;
+  corrected in the same session, including all 4 i18n highlights
+- 1098 MA European Studies — Category 1 (€15,068), not in the named-exceptions list
+- 1099 MFA Fine Art — NOT Category 1: same error pattern, corrected to its actual named-exception rate
+  (NOK 30,840/yr → €2,636), genuine Arts/Humanities gap-filler
+~25 more NTNU international programmes remain unadded (Biology and Sustainability, Biotechnology, Chemistry
+and Ecotoxicology, Creative Music Technology, Digital Infrastructure and Cyber Security, Electric Power
+Engineering, Geotechnics and Geohazards, Global Manufacturing Management, Hydropower Development, Industrial
+Ecology, Informatics, Information Security, International Business and Marketing (named separate fee),
+Management of Innovation and Sustainable Business Development, Marine Technology, Mechatronics and
+Automation, Music Performance, Neuroscience, Ocean Resources, Physics, Project Management, RAMS, Sound and
+Vibration, Subsea Technology, Sustainable Architecture, Sustainable Energy) — good next-session target, all
+map cleanly to Category 1 or 2 above except the individually-priced named exceptions (Childhood Studies &
+Global Relations, International Business & Marketing, Fine Art all had separate lower rates per the initial
+lookup — double check each against the "Selected Programs with Separate Fees" list before assuming Category
+1/2 applies).
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1068/1068 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1074/1074 total, all translated. Scholarships: 202/202. No untranslated rows pending.
