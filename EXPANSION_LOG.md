@@ -1188,5 +1188,18 @@ Science and Technology, Manufacturing and Robotics, Geodesy and Geoinformation, 
 Mathematics in Economics, Physical Energy and Measurement Engineering, Computational Science and
 Engineering) — all should share the same confirmed nominal Austrian fee.
 
+## Fee-uniform-school harvest, round 16: BOKU University (2026-08-22, ids 1092–1093, translated ✅)
+BOKU had only 1 row despite ~25 master's, half English-taught. Note many of BOKU's English programmes are
+Erasmus Mundus/joint-degree programmes which often carry a different (EMJMD-set) fee structure — checked
+each individually rather than assuming the standard nominal Austrian rate applied automatically.
+**Added, both individually confirmed at the standard €726.72/semester nominal rate despite being joint
+degrees:**
+- 1092 MSc Natural Resources Management and Ecological Engineering (NARMEE) — joint with Czech University
+  of Life Sciences Prague
+- 1093 MSc Applied Limnology — streams/rivers/lakes/wetlands, English-taught
+European Forestry and other joint programmes in BOKU's list were NOT added this round — didn't get to
+verifying their individual fee tier, since some Erasmus Mundus programmes elsewhere do charge a
+participation fee well above the standard Austrian rate. Good next-session target, verify each individually.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1066/1066 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1068/1068 total, all translated. Scholarships: 202/202. No untranslated rows pending.
