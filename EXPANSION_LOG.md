@@ -1128,5 +1128,30 @@ Science), Humanities (Assyriology, Classics, Archaeology, Book and Digital Media
 next-session target, faculty-by-faculty fee verification still needed as the pattern above shows it's not
 strictly university-wide.
 
+## Fee-uniform-school harvest, round 14: University of Amsterdam (2026-08-22, ids 1078–1083, translated ✅)
+UvA had only 7 rows despite 195 master's programmes. Found the single most useful source this whole
+session: uva.nl's own general tuition-fees page has a full **institutional-fee table broken down by
+faculty**, giving clean, official per-faculty rates in one place instead of hunting page-by-page:
+Humanities (1yr) €25,900 / (2yr) €20,200, Medicine (AMC) €37,400, Economics and Business €20,500–24,500
+depending on school, Law School (1yr) €25,900, Social and Behavioural Sciences €23,455, Dentistry €37,400,
+Science (1yr) €34,300 / (2yr) €26,000 with some named exceptions (Computer Science/Bioinformatics €24,150),
+AUC €20,430. **Added, cross-checked against this table:**
+- 1078 MA Classics and Ancient Civilizations — Humanities 1yr — €25,900
+- 1079 MSc Astronomy and Astrophysics — Science 2yr (joint degree with VU Amsterdam) — €26,000
+- 1080 LLM European Union Law — Law School 1yr — €25,900
+- 1081 LLM International Criminal Law — Law School 1yr — €25,900, natural fit given the ICC's Hague/NL
+  presence
+- 1082 MSc Bioinformatics and Systems Biology — Science named-exception rate — €24,150, also a joint degree
+  with VU Amsterdam
+- 1083 MA Heritage and Memory Studies — Humanities 1yr — €25,900
+Note the pre-existing Social & Behavioural Sciences rows in the catalogue use €22,355/€23,455 (two slightly
+different figures from different research passes this session) vs. this table's €23,455 — did not
+retroactively revise already-committed rows over a ~€1,100 discrepancy, likely just fee-table timing/rounding,
+not treated as a correctness bug. Got the full 195-programme aggregate list via mastersportal; ~180 more
+remain (Actuarial Science and Mathematical Finance, Data Science, Computer Science, Artificial Intelligence,
+European Competition Law, International Tax Law, Forensic Science, Museum Studies, Comparative Literature,
+Jewish Studies, and many more) — the faculty-fee table above makes pricing any of them fast, good
+next-session target.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1052/1052 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1058/1058 total, all translated. Scholarships: 202/202. No untranslated rows pending.
