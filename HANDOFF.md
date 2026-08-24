@@ -1,36 +1,69 @@
 # Campus Atlas — Handoff for the next agent
 
-_Last updated: 2026-08-21. Written for an agent starting cold. Read this top to bottom before touching
+_Last updated: 2026-08-22. Written for an agent starting cold. Read this top to bottom before touching
 anything. This file supersedes everything below the "OLD SESSIONS ARCHIVE" divider — that material is
 from an earlier, now-completed phase of work (translating the pre-expansion catalogue) and is kept only
 for historical context, not as current instructions._
 
 ---
 
-## ⭐ RESUME HERE — the active task (2026-08-21)
+## ⭐ RESUME HERE — the active task (2026-08-22)
 
-**Standing task: grow the master's-programme catalogue to 1000+ programmes**, verified data only, translated
-into nl/fr/de/es as you go. The user's instructions across this effort: "translate everything… don't stop",
-"keep going down the rankings and hit 1000", "I want the top 50 of all these different programmes mapped
-globally". Treat this as continuous, self-directed work — commit + push to `main` after every batch, no
-need to ask.
+**Standing task: grow the master's-programme catalogue to 1100+ programmes** (raised from 1000 on
+2026-08-22 once 1000 was passed — check chat/EXPANSION_LOG for the latest number the user has asked for,
+it may have moved again), verified data only, translated into nl/fr/de/es as you go. The user's instructions
+across this effort: "translate everything… don't stop", "keep going down the rankings", "keep going toward
+1100" — treat this as continuous, self-directed work — commit + push to `main` after every batch, no need
+to ask.
 
-**Current state (verified live in Supabase just now, 2026-08-21 session):**
-- **Programmes: 965 / 1000 target**, **965/965 translated** (nl/fr/de/es blurb + highlights). Max `id` 990,
-  max `rank` 961 — use the next free integers above these when inserting.
+**Current state (verified live in Supabase just now, 2026-08-22 session):**
+- **Programmes: 1023 / 1100 target**, **1023/1023 translated** (nl/fr/de/es blurb + highlights). Max `id`
+  1048, max `rank` 1019 — use the next free integers above these when inserting.
 - **Scholarships: 202, all 202 translated.**
-- This session's batches (all in EXPANSION_LOG.md, most recent first): Agriculture & Food +3, Information
-  Science +4, Education +3, History +6, Media & Communication +6, Psychology +5 — thinnest-field-first
-  strategy (see below), all QS-top-50-audited with officially-verified fees.
-- **Two open_fields bugs caught and fixed this session** — `open_fields` uses a DIFFERENT vocabulary than
-  `fields`. Before typing an open_fields value from memory, grep index.html's `BACKGROUND_OPTIONS` array
-  (~line 2303) for the exact `.value` string. `'Information Science'` and `'Sustainability'` are NOT valid
-  open_fields values even though they look plausible — see EXPANSION_LOG.md's Agriculture & Food section
-  for the full list of what IS valid.
+- This session (2026-08-22) switched from pure QS-ranking-per-field audits to a second, faster strategy:
+  **fee-uniform-school harvesting** — pick a school with an already-confirmed uniform/tiered fee (KU Leuven,
+  Bonn, LMU Munich, TUM, KIT, RWTH Aachen, PoliMi, PoliTo, Wageningen, Chalmers, ETH/EPFL) and add whichever
+  of its English-taught programmes are genuinely missing, since the fee research is already done. 8 harvest
+  rounds this session added 45 rows total — see EXPANSION_LOG.md's "Fee-uniform-school harvest" sections for
+  the full per-school breakdown of what was added and what's still missing at each (several schools have
+  20-70 more English-taught programmes not yet checked — TUM, RWTH's Academy/Business-School tier, and
+  Chalmers especially, per their own logged notes).
 - Full history of every batch, every field-ranking audit, every currency-basis note, and every skip/defer
-  reason lives in **[`EXPANSION_LOG.md`](EXPANSION_LOG.md)** (424 lines) — read that file's "Counters" and
-  "🎯 STRATEGY PIVOT" sections before adding anything. It is the single source of truth for what's been
-  done and what's queued next; this handoff only summarizes it.
+  reason lives in **[`EXPANSION_LOG.md`](EXPANSION_LOG.md)** — read that file bottom-up (newest entries are
+  appended at the end) before adding anything. It is the single source of truth for what's been done and
+  what's queued next; this handoff only summarizes it.
+
+### ⚠️⚠️ MAJOR OPEN ISSUE — `tuition` basis is inconsistent ACROSS schools (annual fee vs full-programme-total)
+Discovered 2026-08-22 while pricing new Chalmers rows. The UI labels the field "Tuition (total)" (shown
+right next to "Duration: X months" in index.html), implying it should be the full multi-year programme cost.
+But checking real, confirmed fees against what's actually stored shows **the convention differs by school**:
+- **TUM**: stored value = confirmed semester-rate × 4 semesters = genuinely the FULL 2-YEAR TOTAL. Matches
+  the "(total)" label.
+- **KIT, Wageningen, Chalmers** (and probably most other 24-month-programme schools): stored value = the
+  ANNUAL fee (semester-rate × 2), NOT the 2-year total. Contradicts the "(total)" label — e.g. Wageningen's
+  €21,700 matches WUR's well-documented real ANNUAL fee, not a ~€43,400 2-year total.
+This split predates this session and was NOT introduced by it — it's a systemic issue built up across many
+past sessions. **Not fixed this session** because a proper fix means auditing every 24-month-programme school
+(dozens of them) one at a time against an official source to determine which convention it actually used,
+then correcting potentially hundreds of rows — far beyond a routine expansion batch, and getting the
+direction wrong on any row makes things worse, not better. **This session's mitigation**: for every school
+touched, matched whatever convention that specific school's own pre-existing rows already used, so
+within-school comparisons stay internally correct even though cross-school comparisons may not be. **This is
+the single highest-value non-expansion task for whoever picks this up next**: pick one school, verify its
+real fee basis officially, normalize, repeat — and update the UI label from "Tuition (total)" to "Tuition
+(per year)" once the underlying data actually is annual everywhere (or vice versa, if "total" turns out to
+be the better target convention — that's a product decision, not just a data one).
+
+### ⚠️ ETH Zurich / EPFL tuition tripled for internationals since autumn 2025 — use CHF 4,380/yr (€9,319 total for 2yr programmes), not the old ~€1,300–2,500
+Confirmed on ethz.ch/staffnet and epfl.ch's own pages: since autumn 2025, both schools charge new
+international students (anyone without prior CH/Liechtenstein residency or qualifying EU/EFTA status) CHF
+2,190/semester instead of the old CHF 730/semester — a genuine tripling, applying to Bachelor's AND Master's
+students. All 24 pre-existing (at the time) ETH/EPFL rows were fixed on 2026-08-22 (tuition set to 9319 EUR
+for 2-yr programmes; highlights/blurbs in all 5 languages that claimed "near-zero"/"same fee for every
+nationality" corrected). **Any new ETH or EPFL row must use this new rate** — see EXPANSION_LOG.md's "MAJOR
+CORRECTION" entry for the full list of fixed ids and the exact replacement text used, so new additions stay
+consistent. Note this fee is stored as the 2-yr TOTAL (€9,319), following the pre-existing ETH/EPFL rows'
+own convention — see the tuition-basis issue above for why that differs from KIT/Wageningen/Chalmers.
 
 ### ⚠️ ETH Zurich / EPFL tuition tripled for internationals since autumn 2025 — use CHF 4,380/yr, not the old ~€1,300–2,500
 Confirmed on ethz.ch/staffnet and epfl.ch's own pages: since autumn 2025, both schools charge new

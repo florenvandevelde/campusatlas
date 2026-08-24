@@ -957,5 +957,57 @@ Wageningen offers ~30 English-taught master's; 22 were already catalogued. Found
 programme (search suggested it may have been merged into/renamed as Development and Rural Innovation, which
 is already in the catalogue) — not added rather than guess.
 
+## ⚠️ IMPORTANT DISCOVERY — `tuition` basis is inconsistent ACROSS schools (per-year vs full-programme-total)
+While pricing new Chalmers rows, found the UI labels the field "Tuition (total)" (index.html ~line 3202,
+shown right next to "Duration: X months") — implying `tuition` should be the TOTAL cost for the whole
+programme. But checking real-world confirmed fees against existing stored values shows **this is NOT
+consistently what's stored**:
+- **TUM** (existing + this session's 1012-1014): stored value = confirmed semester-rate × 4 semesters =
+  genuinely the FULL 2-YEAR TOTAL. Matches the "(total)" label.
+- **KIT** (existing rows + this session's 1015-1019): stored value = confirmed semester-rate × 2 = the
+  ANNUAL fee, NOT the 2-year total (which would be double). Contradicts the "(total)" label.
+- **Wageningen** (22 existing rows + this session's 1037-1040): stored €21,700 matches WUR's well-documented
+  real ANNUAL non-EU fee, not a ~€43,400 2-year total. Also contradicts the label.
+- **Chalmers**: the one pre-existing row (Applied Mechanics, €16,000) is close to the confirmed ANNUAL rate
+  (~€14,159 at the official SEK 160,000/yr rate), not a 2-year total (~€28,319) — so Chalmers follows the
+  "annual" convention too.
+**This means the catalogue is internally split**: most 24-month-programme schools store ANNUAL fee, but TUM
+specifically stores the 2-YEAR TOTAL — for the same UI field, same label, same `months=24`. This was not
+introduced this session; it's a pre-existing, systemic inconsistency across many rows built up over the
+whole project. **Did not attempt a mass-fix** — that would mean auditing every 24-month-programme school
+(dozens of them) to determine which convention each used and correcting potentially hundreds of rows, far
+outside a routine expansion batch's scope, and getting the direction wrong on any row would make things
+worse, not better. **What this session did instead**: for every school, matched whatever convention that
+specific school's own pre-existing rows already used (so within-school comparisons stay correct); flagged
+this here explicitly as a **dedicated future audit target** — pick one school at a time, confirm its actual
+real-world fee basis via official source, and normalize to one convention (annual is recommended, matching
+the majority of schools and being the more standard way people discuss tuition) with a matching UI-copy
+change from "Tuition (total)" to "Tuition (per year)" once the underlying data is fixed.
+
+## Fee-uniform-school harvest, round 8: Chalmers (2026-08-22, ids 1041–1048, translated ✅)
+Chalmers had only 1 row (Applied Mechanics) despite ~40 English-taught master's programmes. Confirmed
+official annual rate twice independently: SEK 160,000/yr (SEK 80,000/semester × 2) for standard programmes,
+SEK 210,000/yr (SEK 105,000/semester × 2) for the Architecture tier — converted at the site's SEK rate
+(11.3) to €14,159/yr and €18,584/yr respectively, matching the "annual" convention already used by the
+existing Chalmers row (see the tuition-basis note above).
+**Added:**
+- 1041 MSc Biomedical Engineering — engineering + medical technology
+- 1042 MSc Materials Chemistry — synthesis to characterisation (Materials Science gap-filler)
+- 1043 MSc Architecture and Urban Design — Architecture-tier fee
+- 1044 MSc Engineering Mathematics and Computational Science — Mathematics field gap-filler
+- 1045 MSc Entrepreneurship and Business Design — run through the well-known Chalmers School of
+  Entrepreneurship
+- 1046 MSc Supply Chain Management
+- 1047 MSc Industrial Ecology — material/energy flows, resource loops
+- 1048 MSc Data Science and AI
+Still ~30 Chalmers programmes unadded (found via mastersportal's aggregate listing): Embedded Electronics
+System Design, Industrial and Environmental Engineering variants, Innovative and Sustainable Chemical
+Engineering, Design and Construction Project Management, Management and Economics of Innovation, Maritime
+Management, Product Development, Quality and Operations Management, Computer Science - Algorithms/Languages/
+Logic, Computer Systems and Networks, High-Performance Computer Systems, Interaction Design and
+Technologies, Software Engineering and Technology, Biotechnology, Complex Adaptive Systems, Nanotechnology,
+Physics, Industrial Design Engineering, Mobility Engineering, Sound and Vibration. Good next-session target
+— all should share the same confirmed SEK 160,000/yr (or 210,000 if Architecture-adjacent) rate.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1015/1015 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1023/1023 total, all translated. Scholarships: 202/202. No untranslated rows pending.
