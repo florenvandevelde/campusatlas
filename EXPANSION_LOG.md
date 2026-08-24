@@ -1080,5 +1080,31 @@ Management, Disaster Management, Security Risk Management, The Religious Roots o
 next-session target, all should share the same confirmed DKK 125,000/yr rate for the Science/Social Science
 faculties at least (Humanities/Theology may differ, not yet checked).
 
+## Fee-uniform-school harvest, round 12: Utrecht University (2026-08-22, ids 1066–1071, translated ✅)
+Utrecht had only 4 rows despite 108 English-taught master's. Cross-checked 3 official uu.nl programme fee
+pages spanning 3 different faculties (Clinical Psychology - Social Sciences, European Law - Law, Art
+History - Humanities) — all independently confirmed the exact same €21,342 non-EU/EEA 2026/27 rate, matching
+the pre-existing Youth/Education/Society and Social-Health-Organisational-Psychology rows exactly. **Note
+this is specifically the Humanities/Social-Sciences/Law rate — the earlier session's caution stands for
+Natural Sciences/Life Sciences programmes at Utrecht, which price higher (Drug Innovation is €25,306) — only
+added Humanities/Social-Science/Law rows this round, all verified individually rather than assumed.**
+**Added:**
+- 1066 MSc Clinical Psychology — evidence-based assessment & treatment
+- 1067 MSc Clinical Child and Adolescent Psychology
+- 1068 MSc Applied Cognitive Psychology — cognitive psychology in real-world settings
+- 1069 MSc European Law
+- 1070 MSc Public International Law
+- 1071 MA Art History
+Got the full 108-programme list via mastersportal's aggregate page. ~100 more remain, spanning Natural
+Sciences (Bioinformatics and Biocomplexity, Cancer/Stem Cells/Developmental Biology, Climate Physics, Earth
+Life and Climate, Environmental Biology, Experimental Physics), Medicine (Cardiovascular Health, Epidemiology,
+Infection and Immunity, Medical Imaging), Business (Banking and Finance, Innovation Sciences, International
+Management), CS (Applied Data Science, Artificial Intelligence, Business Informatics, Computing Science,
+Data Science, Game and Media Technology, GIMA), Arts (Applied Musicology, Film and Television Cultures, New
+Media and Digital Culture), more Law (Global Criminology, Law and Economics, Law and Technology in Europe),
+Engineering (Biofabrication, Energy Science, Nanomaterials Science, Regenerative Medicine and Technology,
+Spatial Planning), and Marine Sciences — good next-session target, but each faculty needs its own fee check
+per the note above.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1040/1040 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1046/1046 total, all translated. Scholarships: 202/202. No untranslated rows pending.
