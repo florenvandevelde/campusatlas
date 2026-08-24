@@ -1287,5 +1287,15 @@ next-session target since verification is now just a language/existence check, n
 - 1109 MA North American Studies — deadline Rolling
 Both tuition-free (€400/yr nominal), confirmed English-taught officially.
 
+## Fee-uniform-school harvest, round 22: LMU Munich (2026-08-22, ids 1110–1111, translated ✅)
+LMU had only 3 rows despite ~53 English-taught master's. Reused the confirmed tuition-free convention
+(€400/yr nominal, matching the pre-existing Data Science row).
+- 1110 MSc Biochemistry — run at LMU's Gene Center, deadline 15 July, selective with an entrance exam
+- 1111 MSc Astrophysics — run through the Universitäts-Sternwarte München (university observatory),
+  deadline 15 July
+~48 more LMU programmes remain (Statistics and Data Science, Quantitative Economics, Theoretical and
+Mathematical Physics, Educational Research, Political Science, American History, and more per the initial
+search) — good next-session target, all tuition-free.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1084/1084 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1086/1086 total, all translated. Scholarships: 202/202. No untranslated rows pending.
