@@ -944,5 +944,18 @@ established €4,000/yr uniform rate:
 standard MSc programmes), would need separate fee verification, skipped rather than assume the standard
 uniform rate applies to a different programme tier.
 
+## Fee-uniform-school harvest, round 7: Wageningen (2026-08-22, ids 1037–1040, translated ✅)
+Wageningen offers ~30 English-taught master's; 22 were already catalogued. Found 4 genuine gaps via search
+(each confirmed on its own official wur.nl page), all at Wageningen's established €21,700/yr uniform rate,
+2 years, 1 April deadline:
+- 1037 MSc Geo-Information Science — geo-info science & earth observation (Information Science gap-filler)
+- 1038 MSc Tourism, Society and Environment — tourism's social/economic/environmental dimensions
+- 1039 MSc Urban Environmental Management — urban ecology, environmental governance, compulsory external
+  internship
+- 1040 MSc International Land and Water Management — sustainable land use & integrated water management
+"International Development Studies" was searched for but could not be confirmed as a distinct current WUR
+programme (search suggested it may have been merged into/renamed as Development and Rural Innovation, which
+is already in the catalogue) — not added rather than guess.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1011/1011 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1015/1015 total, all translated. Scholarships: 202/202. No untranslated rows pending.
