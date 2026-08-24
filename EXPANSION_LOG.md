@@ -1297,5 +1297,10 @@ LMU had only 3 rows despite ~53 English-taught master's. Reused the confirmed tu
 Mathematical Physics, Educational Research, Political Science, American History, and more per the initial
 search) — good next-session target, all tuition-free.
 
+## Fee-uniform-school harvest, round 23: LMU Munich continued (2026-08-22, ids 1112–1113, translated ✅)
+- 1112 MA Political Science — Geschwister Scholl Institute of Political Science, deadline 15 July
+- 1113 MSc Statistics and Data Science — Department of Statistics, deadline 15 July
+Both tuition-free, confirmed English-taught.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1086/1086 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1088/1088 total, all translated. Scholarships: 202/202. No untranslated rows pending.
