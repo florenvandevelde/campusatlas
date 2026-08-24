@@ -1009,5 +1009,26 @@ Technologies, Software Engineering and Technology, Biotechnology, Complex Adapti
 Physics, Industrial Design Engineering, Mobility Engineering, Sound and Vibration. Good next-session target
 — all should share the same confirmed SEK 160,000/yr (or 210,000 if Architecture-adjacent) rate.
 
+## Fee-uniform-school harvest, round 9: Aalto University (2026-08-22, ids 1049–1052, translated ✅)
+Aalto had only 8 rows despite 90+ English-taught master's. Unlike KIT/Wageningen/Chalmers, **Aalto is NOT
+uniformly priced** — fees vary genuinely by programme (€12k–€20k/yr seen across different schools), so each
+one needed individual verification rather than a blind reuse:
+- 1049 MA Fashion, Clothing and Textile Design — €20,000/yr — genuine Fashion-field gap-filler, Nordic
+  design + sustainability angle (School of Arts, Design and Architecture)
+- 1050 MSc Mathematics and Operations Research — €17,000/yr — Mathematics field gap-filler, has a
+  double-degree option
+- 1051 MSc Economics — €15,000/yr — housed in Aalto School of Business
+- 1052 MSc/MA Creative Sustainability — €17,000/yr — genuinely cross-disciplinary (design+business+tech
+  degrees all under one sustainability-themed programme)
+All 4 confirmed directly on their own aalto.fi study-option pages. **Human-Computer Interaction skipped**:
+it's a specialisation track inside the existing "Computer, Communication and Information Sciences" master's
+(which the catalogue already has as "MSc in Computer Science"), not a standalone programme — adding it would
+have created a near-duplicate. Aalto still has ~80 more English-taught programmes unchecked (Engineering:
+Additive Manufacturing, several Advanced Energy Solutions tracks, Automation and Electrical Engineering,
+Space Science and Technology; Business: Accounting, Business Analytics, Finance, Global Management; CS:
+Human-Computer Interaction as its own admission track if one exists, Game Design and Production; Arts:
+Animation, Contemporary Design, several Film/TV tracks) — good next-session target, but each needs its own
+fee check since Aalto isn't fee-uniform.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1023/1023 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1027/1027 total, all translated. Scholarships: 202/202. No untranslated rows pending.
