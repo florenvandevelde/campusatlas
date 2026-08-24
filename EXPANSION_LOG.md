@@ -1256,5 +1256,16 @@ individual search. Good next-session target — try the univie.ac.at subject-are
 (informatik.univie.ac.at, anglistik/philosophy department pages, etc.) rather than the general admissions
 portal.
 
+## Fee-uniform-school harvest, round 19: KU Leuven revisited (2026-08-22, ids 1103–1104, translated ✅)
+Went back to KU Leuven's unchecked categories flagged in round 1 (Movement and Rehabilitation, Living
+Environment and Sustainable Development). Both confirmed English-taught at the standard €9,500/yr rate:
+- 1103 Master of Rehabilitation Sciences and Physiotherapy — Public Health field, 5 specialisation tracks
+  (musculoskeletal, neurological, paediatric, internal-disorder, mental-health rehabilitation), housed in a
+  dedicated Faculty of Movement and Rehabilitation Sciences
+- 1104 Master of Sustainable Development — Sustainability field, Space & Society or Ecology specialisations,
+  with a built-in Global South field trip
+"Master of Religious Studies" searched for but doesn't appear to exist as a standalone KU Leuven programme
+(a "Master of Society, Law and Religion" was surfaced instead but not verified/added this round).
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1077/1077 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1079/1079 total, all translated. Scholarships: 202/202. No untranslated rows pending.
