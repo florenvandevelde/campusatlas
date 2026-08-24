@@ -1307,5 +1307,11 @@ Both tuition-free, confirmed English-taught.
 - 1115 MA Strategy and International Security — deadline 15 July
 Both tuition-free, confirmed English-taught.
 
+## Fee-uniform-school harvest, round 25: Bonn continued (2026-08-22, ids 1116–1117, translated ✅)
+- 1116 MSc Geography of Environmental Risks and Human Security — joint degree with UN University's Institute
+  for Environment and Human Security (UNU-EHS), deadline 31 October
+- 1117 MSc Molecular Cell Biology — deadline Rolling
+Both tuition-free, confirmed English-taught.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1090/1090 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1092/1092 total, all translated. Scholarships: 202/202. No untranslated rows pending.
