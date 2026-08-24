@@ -1106,5 +1106,27 @@ Engineering (Biofabrication, Energy Science, Nanomaterials Science, Regenerative
 Spatial Planning), and Marine Sciences — good next-session target, but each faculty needs its own fee check
 per the note above.
 
+## Fee-uniform-school harvest, round 13: Leiden University (2026-08-22, ids 1072–1077, translated ✅)
+Leiden had only 4 rows despite 80 master's/198 specialisations. Confirmed €22,300 non-EU/EEA 2026/27 rate
+directly on the official Applied Cognitive Psychology tuition-fees subpage, matching the pre-existing LLM
+European Law and MA History rows exactly — a genuinely uniform Humanities/Social-Science/Law rate at Leiden
+(note MSc International Relations is stored at €17,000, a different rate — so, as with Utrecht, this is a
+faculty-level rate, not university-wide; only added rows from faculties confirmed at €22,300).
+**Added:**
+- 1072 MSc Applied Cognitive Psychology, 1073 MSc Child and Adolescent Psychology, 1074 MSc Economic and
+  Consumer Psychology — three genuine Psychology-field gap-fillers
+- 1075 LLM Air and Space Law — a globally unique specialisation (Leiden's Institute of Air and Space Law is
+  one of very few in the world), taught at the university's The Hague campus
+- 1076 MA Art History and Museum Studies — Humanities gap-filler, art history + practical museum training
+- 1077 MA Ancient History — History field, ancient Mediterranean/Near East focus
+Got the full aggregate listing via mastersportal. Many more Leiden programmes remain unadded across Natural
+Sciences (Astronomy variants, Algebra/Geometry/Number Theory, Applied Mathematics), Medicine (BioTherapeutics,
+Biomedical Sciences variants), Law (Comparative Criminal Justice, Crime and Criminal Justice, European and
+International Business/Human Rights Law advanced LLMs, Governance of Migration and Diversity), CS
+(Advanced Computing and Systems, Applied Data Science, Artificial Intelligence, Bioinformatics, Computer
+Science), Humanities (Assyriology, Classics, Archaeology, Book and Digital Media Studies), and more — good
+next-session target, faculty-by-faculty fee verification still needed as the pattern above shows it's not
+strictly university-wide.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1046/1046 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1052/1052 total, all translated. Scholarships: 202/202. No untranslated rows pending.
