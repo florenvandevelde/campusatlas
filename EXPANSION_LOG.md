@@ -1030,5 +1030,29 @@ Human-Computer Interaction as its own admission track if one exists, Game Design
 Animation, Contemporary Design, several Film/TV tracks) — good next-session target, but each needs its own
 fee check since Aalto isn't fee-uniform.
 
+## Fee-uniform-school harvest, round 10: DTU (2026-08-22, ids 1053–1060, translated ✅)
+DTU had only 3 rows (2 of which were oddly stored at tuition=0, not touched) despite 35 MSc programmes.
+Confirmed uniform rate officially: €7,500/semester = €15,000/yr, matching the pre-existing Mechanical
+Engineering row exactly. Got the full official programme list via dtu.dk/english/education/graduate/
+msc-programmes. **Added 8, prioritising thin-field fits:**
+- 1053 MSc Bioinformatics — computational methods for biological data
+- 1054 MSc Biomedical Engineering — engineering + medical technology/devices
+- 1055 MSc Pharmaceutical Design and Engineering — a genuine Pharmacy-field gap-filler, rare
+  engineering-school take on pharmacy (drug design, formulation, manufacturing)
+- 1056 MSc Mathematical Modelling and Computation — Mathematics field gap-filler
+- 1057 MSc Human-Centered Artificial Intelligence — AI designed around human needs/ethics, not pure
+  algorithmic performance
+- 1058 MSc Technology Entrepreneurship — deep-tech venture creation for engineers
+- 1059 MSc Architectural Engineering — architecture + structural/building-services engineering
+- 1060 MSc Food Technology — Agriculture & Food field gap-filler
+Still ~24 DTU programmes unadded (Applied Chemistry, Autonomous Systems, Business Analytics, Chemical and
+Biochemical Engineering, Civil Engineering, Communication Technologies and System Design, Design and
+Innovation, Earth and Space Physics and Engineering, Electrical Engineering, Engineering Acoustics,
+Engineering Light, Engineering Physics, Environmental Engineering, Industrial Engineering and Management,
+Materials and Manufacturing Engineering, Ocean Engineering, Sustainable Energy Systems/Technologies,
+Sustainable Fisheries and Aquaculture, Biomaterial Engineering for Medicine, plus 3 joint national
+programmes: Business Administration and Bioentrepreneurship, Quantum Information Science, Health and
+Informatics) — all at the same confirmed €15,000/yr rate, good next-session target.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1027/1027 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1035/1035 total, all translated. Scholarships: 202/202. No untranslated rows pending.
