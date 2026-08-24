@@ -1282,5 +1282,10 @@ Agricultural and Food Economics, Geography of Environmental Risks and Human Secu
 Immunobiology, Medical Immunosciences, Geodetic Engineering, and more) — all tuition-free, good
 next-session target since verification is now just a language/existence check, not a fee lookup.
 
+## Fee-uniform-school harvest, round 21: Bonn continued (2026-08-22, ids 1108–1109, translated ✅)
+- 1108 MSc Chemistry — deadline 1 July (confirmed exact application window on chemie.uni-bonn.de)
+- 1109 MA North American Studies — deadline Rolling
+Both tuition-free (€400/yr nominal), confirmed English-taught officially.
+
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1082/1082 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+Programmes: 1084/1084 total, all translated. Scholarships: 202/202. No untranslated rows pending.
