@@ -1646,7 +1646,23 @@ higher rate ≈£43,300): Artificial Intelligence MSc, Data Science MSc, High Pe
 Science MSc — skipped this round only because AI (103 rows) and Computer Science (154 rows) are already
 thick fields, lower priority than the thin ones targeted this session.
 
-**Running total after these 23 rounds: 1160 programmes (1100 → 1160, +60), max id 1185, max rank 1156.**
+**Round 24 — Sports-related Subjects, a genuinely new field for this catalogue (ids 1186-1188, translated
+✅):** zero pre-existing rows matched `program ilike '%sport%'` in a sports-*science* sense (the few hits
+were transport/logistics programmes, a false-positive substring match) — this QS subject had **no
+representation at all** before this round, same situation as Development Studies in round 22. No catalogue
+`fields` tag exists for it; used `["Life Sciences"]` / `open_fields: ["Biology & Life Sciences","Medicine &
+Health Sciences"]` as the best approximation.
+- 1186 University of British Columbia — MSc Kinesiology: QS Sports-related Subjects #4, 11th confirmed UBC
+  low-tuition row — CA$20,164 total
+- 1187 University of Toronto — MSc Kinesiology: QS Sports-related Subjects #6, **guaranteed 2-year funding
+  for every international student** (confirmed on kpe.utoronto.ca) — another funded-department exception
+  like Linguistics and Materials Science, reinforcing that Toronto funding is genuinely department-specific
+- 1188 University of Edinburgh — MSc Strength and Conditioning: QS Sports-related Subjects #20, sourced via
+  the registryservices.ed.ac.uk table (found "Sport and Performance Psychology", "Strength and
+  Conditioning", and "Physical Activity for Health" all at the same Moray House £30,500 rate — any of the
+  three would work equally well as a future addition), £32,000 (2026/27 est.)
+
+**Running total after these 24 rounds: 1163 programmes (1100 → 1163, +63), max id 1188, max rank 1159.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
