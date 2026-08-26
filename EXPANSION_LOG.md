@@ -1427,6 +1427,42 @@ hybrid/online-leaning with a confusing per-semester cost structure, didn't fit c
   total for 18 months, confirmed on llm.uzh.ch). **Don't assume all UZH programmes share one fee** — check
   which specific UZH degree you're pricing.
 
-**Running total after these 7 rounds: 1118 programmes (1100 → 1118, +18), max id 1143, max rank 1114.**
-All 18 new rows translated (nl/fr/de/es) at insert time — translation coverage should still read 100%
+**Round 8 — Biological Sciences/Biochemistry, extending past the earlier top-50 stop (ids 1144-1146,
+translated ✅):**
+- 1144 University of Zurich — MSc Biology: QS Biological Sciences #53, same low tuition structure as UZH's
+  Psychology row (1137) — CHF 720/semester × 4 = CHF 2,880 total, ~€3,100
+- 1145 University of Vienna — Master Molecular Biology: not QS-top-100 itself but a strong Austrian option,
+  reused the confirmed €1,453/yr nominal Austrian rate × 2yr = €2,906 (see the Vienna tuition-basis note
+  earlier in this file — Vienna stores ANNUAL not total, this row follows that same convention × 2)
+- 1146 University of Toronto — MSc Cell and Systems Biology: not QS-top-100 itself, added for its funded
+  first-year cohort (domestic+international alike) and 16mo duration, CA$31,870 first-year tuition only
+  (**uncertain total for the full 16mo** — the aggregator figure is explicitly "first-year", the programme
+  runs a few months into year 2; treat this tuition figure as a lower bound, re-verify before relying on it
+  for a tuition-ceiling calculation)
+
+**Round 9 — Agriculture & Food, extending past the earlier top-50 stop (ids 1147-1149, translated ✅):**
+- 1147 Ghent University — MSc Food Technology: QS Agriculture & Forestry #9, first Ghent row in the
+  catalogue (previously 0 Ghent programmes despite Ghent's Faculty of Bioscience Engineering being QS-top-10
+  in this subject and having one of Europe's deepest English-taught ag-science catalogues — Aquaculture,
+  Environmental Science & Technology, Food Technology, Nutrition and Food Systems, Pharmaceutical
+  Engineering, plus 4 Erasmus Mundus joint degrees — good next-session target). Tuition confirmed on
+  ugent.be's own 2026-27 tuition page: Bioscience Engineering falls under "Tuition Fee B" (€7,079.40/60
+  credits) × 2yr = €14,159 total, non-EEA rate.
+- 1148 University of British Columbia — MSc Integrated Studies in Land and Food Systems: same low
+  research-MA-style tuition structure as UBC's History (1130) and confirms this is a genuine UBC-wide
+  pattern for Faculty-of-Arts/Land-and-Food-Systems-style thesis programs, not a one-off — CA$10,081.65/yr
+  ×2 = CA$20,164 total
+- 1149 University of Melbourne — Master of Agricultural Sciences: QS Agriculture & Forestry #60, accelerated
+  1-1.5yr track, A$54,976/yr × 1.5 = A$82,464 total
+
+**Running total after these 9 rounds: 1124 programmes (1100 → 1124, +24), max id 1149, max rank 1120.**
+All 24 new rows translated (nl/fr/de/es) at insert time — translation coverage should still read 100%
 once this session's rows are counted; re-run the coverage query below before ending the session to confirm.
+
+**Pattern worth flagging for whoever continues this push**: several Canadian public universities (Toronto,
+UBC, Waterloo excepted — Waterloo's MMath is the more expensive professional-track fee) run genuinely
+low-tuition, thesis-based research master's (History, Psychology-adjacent, Land & Food Systems) at roughly
+CA$10k/yr for internationals, funded via TA/RA work — this is NOT a data-entry mistake, it's really how
+Canadian research master's are priced, confirmed independently across 3 different UBC programmes and one
+Toronto program this session. Don't "correct" these to match the much higher US or UK figures nearby in the
+catalogue.
