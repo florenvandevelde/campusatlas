@@ -1566,7 +1566,17 @@ the existing `["Public Policy","Social Sciences"]` pairing per id 820/822), firs
   UBC's low-tuition research-master's pattern — CA$20,164 total (avg. 1.7yr actual completion time)
 - 1173 University of Zurich — MA Political Science: QS Politics #47, same modest UZH rate — CHF 2,880 total
 
-**Running total after these 18 rounds: 1148 programmes (1100 → 1148, +48), max id 1173, max rank 1144.**
+**Round 19 — Linguistics, first pass this session (ids 1174-1176, translated ✅):** no distinct catalogue
+`fields` tag either, reused `["Humanities","Social Sciences"]` per id 817-819.
+- 1174 University of British Columbia — MA Linguistics: QS Linguistics #12 (Canada's top-ranked dept),
+  guaranteed CA$30,000/yr + tuition funding — CA$20,164 total tuition, 9th confirmed UBC low-tuition row
+- 1175 University of Toronto — MA Linguistics: QS Linguistics #21, **fully funded via a tuition award for
+  every admit** (confirmed on linguistics.utoronto.ca) — a genuine, welcome exception to Toronto's usual
+  unfunded Arts & Science MA pattern (History 1129, Political Science 1171). Toronto funding really does
+  vary department by department; check each one, don't assume from a sibling department's page.
+- 1176 University of Zurich — MA Linguistics: QS Linguistics #52, same modest UZH rate — CHF 2,880 total
+
+**Running total after these 19 rounds: 1151 programmes (1100 → 1151, +51), max id 1176, max rank 1147.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
