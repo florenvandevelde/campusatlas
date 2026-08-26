@@ -11,8 +11,8 @@ for historical context, not as current instructions._
 
 **Standing target is now 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1113 programmes, max id 1138, max rank
-1109** (verified live in Supabase). All 13 rows added this session are translated (nl/fr/de/es) — re-run the
+wider net than the earlier top-50-only audits). **Current state: 1135 programmes, max id 1160, max rank
+1131** (verified live in Supabase). All 35 rows added this session are translated (nl/fr/de/es) — re-run the
 translation-coverage query before ending any session to confirm nothing slipped through untranslated.
 
 **Method this push (see EXPANSION_LOG.md's "New push toward 1300" section for full round-by-round detail):**
@@ -21,21 +21,40 @@ add `?page=2` for ranks 51-100), cross-check against the catalogue by both `fiel
 `ILIKE`, then verify + add genuinely missing schools' programmes — official fee page preferred, a
 well-corroborated WebSearch figure when the official page won't resolve, always cross-checked against how
 that *same school's* other existing rows store `tuition` (annual vs total — see the still-unresolved MAJOR
-OPEN ISSUE below) so within-school comparisons stay consistent. 5 rounds done so far this session:
-Media & Communication (+3), History (+2), Education (+3), Information Science (+2), Psychology (+3). The
+OPEN ISSUE below) so within-school comparisons stay consistent. 13 rounds done so far this session (+35
+rows total): Media & Communication (+3), History (+2), Education (+3), Information Science (+2),
+Psychology (+3), Mathematics (+2), Law (+3), Biological Sciences/Biochemistry (+3), Agriculture & Food
+(+3), Chemistry (+3), Physics & Astronomy (+3), Mechanical Engineering (+3), Architecture (+2). The
 fee-uniform-school harvest strategy (Bonn ~58 unadded, TUM ~70, Utrecht ~108, Leiden ~80, University of
 Amsterdam ~195, Chalmers ~40 — see the 2026-08-22 section below) is still available as a faster fallback if
 a field's QS top-100 gaps dry up or become hard to verify, but the user's explicit ask this session is
 rankings-first — prefer that method going forward unless told otherwise.
 
 **Fields covered by a QS top-100 pass so far** (this session, extending past the old top-50 stops):
-Media & Communication, History, Education, Information Science, Psychology. **Not yet done to top-100**:
-Law, Biochemistry, Mathematics (previously only audited to top-50, see the 2026-08-21 section below),
-plus everything in the "Not yet re-audited" list further down — Agriculture & Food, Fashion, Economics,
-Management, Business, Materials Science, Pharmacy, Architecture, Biology, Sociology, Politics, Linguistics,
-Public Health, Mechanical Engineering (partial). Good next targets, roughly in thinness order (re-run
-`select unnest(fields), count(*) from programmes group by 1 order by 2` to get the current bottom of the
-list — it will have shifted since the 2026-08-22 numbers below).
+Media & Communication, History, Education, Information Science, Psychology, Mathematics, Law, Biological
+Sciences/Biochemistry, Agriculture & Food, Chemistry, Physics & Astronomy, Mechanical Engineering,
+Architecture. **Not yet done to top-100**: Fashion, Economics, Management, Business, Materials Science,
+Pharmacy, Sociology, Politics, Linguistics, Public Health, Earth Sciences, Energy. Good next targets, roughly
+in thinness order (re-run `select unnest(fields), count(*) from programmes group by 1 order by 2` to get the
+current bottom of the list — it shifts every round). **Two dead ends found this session, don't re-try them
+the same way**: QS does not publish a standalone "Public Health" or "Sociology" subject ranking (both 404
+on xuanxiao.org) — Public Health needs a different sourcing approach (school-by-school), and there's no
+distinct `Sociology` catalogue `fields` tag either (everything sits under the generic `Social Sciences` tag
+with politics/IR/linguistics). Also: the QS Mechanical Engineering slug is
+`mechanical-aeronautical-manufacturing-engineering`, NOT `mechanical-engineering` (that 404s).
+
+**A genuine, repeatedly-confirmed pattern from this session, not a data bug**: several Canadian public
+universities (UBC confirmed across History/Psychology-adjacent/Ag&Food/Chemistry/Physics — 5 programmes
+now; Toronto's funded-cohort programmes similarly) charge research-based thesis master's students only
+~CA$10,000/yr internationally, heavily subsidized via guaranteed TA/RA funding. This is NOT the same as
+UBC's *professional* degrees (MArch, business master's etc.), which charge normal North American rates
+(~CA$50k+/yr) — check which category a UBC/Toronto programme falls into before pricing it.
+
+**Sourcing-reliability note**: several rows this session used a school's own aggregate/first-year tuition
+figure as a stand-in for a multi-year total because the official multi-year fee schedule didn't resolve in
+one search/fetch pass (flagged individually in EXPANSION_LOG.md — search for "first-year only" and "lower
+bound"). These are honest best-effort figures, not guesses, but are more likely to need a correction pass
+than the rest of the catalogue if this data is ever audited end-to-end.
 
 ---
 
