@@ -1455,8 +1455,22 @@ translated ✅):**
 - 1149 University of Melbourne — Master of Agricultural Sciences: QS Agriculture & Forestry #60, accelerated
   1-1.5yr track, A$54,976/yr × 1.5 = A$82,464 total
 
-**Running total after these 9 rounds: 1124 programmes (1100 → 1124, +24), max id 1149, max rank 1120.**
-All 24 new rows translated (nl/fr/de/es) at insert time — translation coverage should still read 100%
+**Round 10 — Chemistry, extending past the earlier top-50 stop (ids 1150-1152, translated ✅):**
+- 1150 University of British Columbia — MSc Chemistry: QS Chemistry #35, third confirmed instance of UBC's
+  low-tuition research-MSc pattern (see the flagged pattern note above) — CA$10,081.65/yr × 2 = CA$20,164
+- 1151 University College London — Sustainable Chemistry MSc: QS Chemistry #24, taught at UCL East, £42,700
+  official 2026/27 rate confirmed on ucl.ac.uk
+- 1152 The University of Manchester — MSc Chemistry: QS Chemistry #23, £36,800 for 2026/27 confirmed via
+  search of manchester.ac.uk's own course page (not independently re-verified via browser this round —
+  flag for re-confirmation if this row is ever audited)
+
+**Running total after these 10 rounds: 1127 programmes (1100 → 1127, +27), max id 1152, max rank 1123.**
+Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
+tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
+not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
+`fields` value either (everything sociological currently sits under the generic `Social Sciences` tag
+alongside politics/IR/linguistics — see the query in this section for what that tag actually contains).
+All 27 new rows translated (nl/fr/de/es) at insert time — translation coverage should still read 100%
 once this session's rows are counted; re-run the coverage query below before ending the session to confirm.
 
 **Pattern worth flagging for whoever continues this push**: several Canadian public universities (Toronto,
