@@ -1556,7 +1556,17 @@ Skipped: University of Toronto MA Economics (QS #21, a strong gap) — official 
 number, and it's unclear whether it follows the Faculty of Arts & Science's general rate (~CA$34,900/yr,
 like the History row 1129) or something else; re-verify via ask.utoronto.ca before adding.
 
-**Running total after these 17 rounds: 1145 programmes (1100 → 1145, +45), max id 1170, max rank 1141.**
+**Round 18 — Politics (QS slug `politics`, singular — no standalone catalogue `fields` tag either, these use
+the existing `["Public Policy","Social Sciences"]` pairing per id 820/822), first pass this session (ids
+1171-1173, translated ✅):**
+- 1171 University of Toronto — MA Political Science: QS Politics #22, same Faculty-of-Arts-&-Science
+  CA$34,900/yr rate as the History row (1129) — confirms this is Toronto's general Arts & Science humanities
+  rate, not something History-specific
+- 1172 University of British Columbia — MA in Political Science: QS Politics #33, 8th confirmed instance of
+  UBC's low-tuition research-master's pattern — CA$20,164 total (avg. 1.7yr actual completion time)
+- 1173 University of Zurich — MA Political Science: QS Politics #47, same modest UZH rate — CHF 2,880 total
+
+**Running total after these 18 rounds: 1148 programmes (1100 → 1148, +48), max id 1173, max rank 1144.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
