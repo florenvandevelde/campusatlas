@@ -1528,7 +1528,22 @@ STEM subjects), first pass this session (ids 1164-1166, translated ✅):** the c
   unfunded Earth Sciences row (1162) added last round: Toronto funding varies department by department,
   don't generalize either way without checking the specific department's own funding page.
 
-**Running total after these 15 rounds: 1141 programmes (1100 → 1141, +41), max id 1166, max rank 1137.**
+**Round 16 — Pharmacy & Pharmacology, first pass this session (ids 1167-1168, translated ✅):**
+- 1167 King's College London — MSc Pharmaceutical Analysis, Technology and Biopharmaceuticals: QS Pharmacy
+  & Pharmacology #17, £40,450 confirmed official (same rate as KCL's Physics row 1154 — this school appears
+  to charge a flat £40,450 across several of its science MSc programmes, worth checking if that holds for
+  future KCL additions too)
+- 1168 University of Toronto — MSc Pharmaceutical Sciences: QS Pharmacy & Pharmacology #12, **international
+  applicants must secure a supervisor commitment before applying** (confirmed on pharmacy.utoronto.ca) —
+  flagged in the blurb since it materially changes how "applyable" this programme is compared to a normal
+  taught master's. CA$31,870 first-year only, funding status unconfirmed so `scholar` left false (unlike the
+  Materials Science row which had explicit funding language).
+Skipped: University of Nottingham (QS #8, a strong gap) — only a vague £19k-£30k range surfaced, no clean
+single figure; University of Manchester — its only clearly-priced pharmacy programme found was MSc Clinical
+Pharmacy, which is a part-time professional-development degree for practising pharmacists (£9,800→£12,400
+across 3 part-time years), not a fit for this catalogue's full-time-international-student pattern.
+
+**Running total after these 16 rounds: 1143 programmes (1100 → 1143, +43), max id 1168, max rank 1139.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
