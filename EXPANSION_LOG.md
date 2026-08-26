@@ -1662,7 +1662,18 @@ Health Sciences"]` as the best approximation.
   Conditioning", and "Physical Activity for Health" all at the same Moray House £30,500 rate — any of the
   three would work equally well as a future addition), £32,000 (2026/27 est.)
 
-**Running total after these 24 rounds: 1163 programmes (1100 → 1163, +63), max id 1188, max rank 1159.**
+**Round 25 — Nursing, a third genuinely new field this session (ids 1189-1191, translated ✅):** zero
+pre-existing rows before this round. Reused `["Life Sciences"]` / `open_fields: ["Biology & Life Sciences",
+"Medicine & Health Sciences"]`, same tagging as the new Sports-related-Subjects rows.
+- 1189 University of British Columbia — MSc Nursing: QS Nursing #22, 12th confirmed UBC low-tuition row —
+  CA$20,164 total
+- 1190 University of Toronto — Master of Nursing: QS Nursing #4 (world top-5!), explicitly self-funded
+  (confirmed via search of nursing.utoronto.ca material) — CA$38,290 first-year only, the most expensive
+  Toronto row added this session
+- 1191 University of Edinburgh — MSc Advanced Nursing: QS Nursing #44, sourced via the registryservices.ed.ac.uk
+  table (School of Health in Social Science, £30,500 2025-26 rate) — £32,000 (2026/27 est.)
+
+**Running total after these 25 rounds: 1166 programmes (1100 → 1166, +66), max id 1191, max rank 1162.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
