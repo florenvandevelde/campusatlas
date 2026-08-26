@@ -1,21 +1,48 @@
 # Campus Atlas — Handoff for the next agent
 
-_Last updated: 2026-08-22. Written for an agent starting cold. Read this top to bottom before touching
+_Last updated: 2026-08-26. Written for an agent starting cold. Read this top to bottom before touching
 anything. This file supersedes everything below the "OLD SESSIONS ARCHIVE" divider — that material is
 from an earlier, now-completed phase of work (translating the pre-expansion catalogue) and is kept only
 for historical context, not as current instructions._
 
 ---
 
-## 🎯 1100 TARGET REACHED (2026-08-22) — read this before deciding what to do next
+## 🚧 IN PROGRESS: pushing from 1100 → 1300 (started 2026-08-26) — read this before deciding what to do next
+
+**Standing target is now 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
+"through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
+wider net than the earlier top-50-only audits). **Current state: 1113 programmes, max id 1138, max rank
+1109** (verified live in Supabase). All 13 rows added this session are translated (nl/fr/de/es) — re-run the
+translation-coverage query before ending any session to confirm nothing slipped through untranslated.
+
+**Method this push (see EXPANSION_LOG.md's "New push toward 1300" section for full round-by-round detail):**
+ranking-first, not university-first. Fetch a QS 2026 subject ranking's full top 100 (`xuanxiao.org/en/rankings/qs/subject/<slug>`,
+add `?page=2` for ranks 51-100), cross-check against the catalogue by both `fields` tag and program-name
+`ILIKE`, then verify + add genuinely missing schools' programmes — official fee page preferred, a
+well-corroborated WebSearch figure when the official page won't resolve, always cross-checked against how
+that *same school's* other existing rows store `tuition` (annual vs total — see the still-unresolved MAJOR
+OPEN ISSUE below) so within-school comparisons stay consistent. 5 rounds done so far this session:
+Media & Communication (+3), History (+2), Education (+3), Information Science (+2), Psychology (+3). The
+fee-uniform-school harvest strategy (Bonn ~58 unadded, TUM ~70, Utrecht ~108, Leiden ~80, University of
+Amsterdam ~195, Chalmers ~40 — see the 2026-08-22 section below) is still available as a faster fallback if
+a field's QS top-100 gaps dry up or become hard to verify, but the user's explicit ask this session is
+rankings-first — prefer that method going forward unless told otherwise.
+
+**Fields covered by a QS top-100 pass so far** (this session, extending past the old top-50 stops):
+Media & Communication, History, Education, Information Science, Psychology. **Not yet done to top-100**:
+Law, Biochemistry, Mathematics (previously only audited to top-50, see the 2026-08-21 section below),
+plus everything in the "Not yet re-audited" list further down — Agriculture & Food, Fashion, Economics,
+Management, Business, Materials Science, Pharmacy, Architecture, Biology, Sociology, Politics, Linguistics,
+Public Health, Mechanical Engineering (partial). Good next targets, roughly in thinness order (re-run
+`select unnest(fields), count(*) from programmes group by 1 order by 2` to get the current bottom of the
+list — it will have shifted since the 2026-08-22 numbers below).
+
+---
+
+## 🎯 1100 TARGET REACHED (2026-08-22) — historical, target has since moved to 1300 (see above)
 
 **The standing target of 1100 programmes was hit this session: `count(*) from public.programmes` = exactly
-1100, 1100/1100 translated.** Do NOT assume more expansion is automatically wanted — check with the user
-first for a new number, or ask what to focus on next (more expansion vs. the tuition-basis cleanup below vs.
-something else entirely). If they do say "keep going," treat whatever number they give as the new target and
-resume the fee-uniform-school harvest strategy described below — it's still the fastest method and dozens of
-schools have 10-80 more English-taught programmes each still unadded (see EXPANSION_LOG.md's round-by-round
-notes for exactly which schools and which programmes are queued).
+1100, 1100/1100 translated.** (Superseded 2026-08-26 — target is now 1300, see the section above.)
 
 **Current state (verified live in Supabase just now, 2026-08-22 session, end of session):**
 - **Programmes: 1100 / 1100 target — MET.** 1100/1100 translated (nl/fr/de/es blurb + highlights). Max `id`

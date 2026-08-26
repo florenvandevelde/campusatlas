@@ -1341,3 +1341,73 @@ does cleanup work instead of further expansion.
 
 ## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22) — 🎯 1100/1100
 Programmes: 1100/1100 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+
+## New push toward 1300 — ranking-first, top 50→100 (2026-08-26)
+User asked to keep going toward **1300** programmes, continuing the ranking-first method but extending
+coverage from QS top-50 to **QS top-100** per subject. Method per round: fetch a QS 2026 subject ranking's
+full top 100 (via `xuanxiao.org/en/rankings/qs/subject/<slug>`, page 2 for ranks 51-100), cross-check against
+the catalogue by both `fields` tag and program-name `ILIKE`, then verify+add genuinely missing schools'
+programmes (official fee page or a well-corroborated WebSearch figure, cross-checked against how that
+school's *other* existing rows store `tuition` — annual vs total — to stay internally consistent per the
+"MAJOR OPEN ISSUE" note above, which is still unresolved). All rows fully translated (nl/fr/de/es) same as
+before.
+
+**Round 1 — Media & Communication (QS Communication & Media Studies, ids 1126-1128, translated ✅):**
+- 1126 Northwestern University, Medill — MS in Journalism (MSJ): not itself QS-ranked in this subject, added
+  anyway for its global journalism prestige (STEM-designated, 1yr, $75,676 direct costs/2026-27)
+- 1127 USC, Annenberg — Master of Communication Management: QS Comm & Media #8, on-campus 300-student
+  cohort (not the online MCM), 16mo, $81,248 for 32 units
+- 1128 University of Melbourne — Master of Global Media Communication: QS Comm & Media #22, 18mo accelerated
+  track for related-degree holders, A$73,500 total
+Skipped this round: Columbia Journalism (not on this QS ranking at all + its cost-of-attendance page kept
+404ing/403ing to both WebFetch and the in-app browser — official numbers unconfirmed, don't add without
+verifying), University of Toronto (no clean standalone comm/media master's found, Faculty of Info doesn't
+map cleanly).
+
+**Round 2 — History (QS History, ids 1129-1130, translated ✅):**
+- 1129 University of Toronto — MA History: QS History #16, 1yr intensive, unfunded, CA$34,900/yr
+- 1130 University of British Columbia — MA History: QS History #33, research MA (coursework+thesis, avg 2.3
+  yrs), CA$10,082/yr first-year tuition (most students funded via TA/RA — genuinely cheap, not a data bug)
+Skipped: NYU MA History (GSAS per-credit rate not resolvable after several search/fetch attempts — official
+bursar page requires an interactive lookup tool, not static text), Melbourne (no standalone "MA History";
+its history master's runs through the general "Master of Arts" umbrella degree with major selection, fee
+page for that specific configuration not found this round).
+
+**Round 3 — Education (QS Education & Training, ids 1131-1133, translated ✅):**
+- 1131 University of Edinburgh — MSc Education: QS Education #9, Moray House School of Education, 1yr,
+  £32,000/2026-27
+- 1132 University of Hong Kong — Master of Education: QS Education #5, 1yr, HK$234,000 composition fee
+  (excl. IB-related specialisms, which cost more — see HKU's own tuition-and-fees page for that split)
+- 1133 University of Sydney — Master of Education: QS Education #25, general degree w/ leadership & inclusive-ed
+  specialisations, 18mo, A$51,500/yr × 1.5 = A$77,250 total
+
+**Round 4 — Information Science (QS Library & Information Management, ids 1134-1135, translated ✅):**
+- 1134 University of Maryland — Master of Information Management (MIM): QS Library & Info Mgmt #18,
+  STEM-certified, cybersecurity/data-science tracks, 2yr/4 semesters, US$72,000 for 36 credits (self-funded,
+  no scholarships per the iSchool's own FAQ)
+- 1135 University of Pittsburgh — MS in Information Science (MSIS): not QS-top-50 in this subject but a
+  well-known US iSchool, 36 credits, GRE/GMAT optional. **Tuition figure has real uncertainty**: official
+  Pitt tuition.pitt.edu page gives an out-of-state "Full-time per Year" rate of $51,810 covering 3 terms, but
+  the programme's own page says "2 to 4 years to complete" without pinning down the full-time track exactly
+  — used 2 years × annual rate + 2yr mandatory fees ≈ $107,632 as the total, but this could plausibly be
+  overstated if full-time students actually finish faster within one "year" cycle. **Re-verify with Pitt
+  admissions directly before treating this figure as gospel for any downstream use** (e.g. tuition-slider
+  ceiling).
+Skipped: Sheffield (QS #1 in this subject — HANDOFF's Education/Info-Science sections both note its fee page
+has never resolved across multiple sessions, still true), Rutgers (its "Master of Information" is
+hybrid/online-leaning with a confusing per-semester cost structure, didn't fit cleanly this round).
+
+**Round 5 — Psychology, extending past the earlier top-50 pass (ids 1136-1138, translated ✅):**
+- 1136 Maastricht University — MSc Psychology: Health and Social Psychology: not QS-top-100 itself but a
+  well-regarded Dutch problem-based-learning programme, 1yr, €21,500 non-EU/EEA 2026/27
+- 1137 University of Zurich — MSc Psychology: genuinely NOT subject to the ETH/EPFL Swiss fee hike (UZH
+  charges the same low rate to Swiss and international students, confirmed on uzh.ch and independently via
+  mastersportal — CHF 720/semester × 4 = CHF 2,880 total, ~€3,100). **Do not confuse UZH with ETH Zurich when
+  pricing future Zurich rows** — they are different institutions with very different international fee
+  policies (see the ETH/EPFL warning earlier in this file).
+- 1138 University of Melbourne — Master of Psychology (Educational and Developmental): QS Psychology #20,
+  APAC-accredited professional degree, 2yr, A$56,000/yr × 2 = A$112,000 total
+
+**Running total after these 5 rounds: 1113 programmes (1100 → 1113, +13), max id 1138, max rank 1109.**
+All 13 new rows translated (nl/fr/de/es) at insert time — translation coverage should still read 100%
+once this session's rows are counted; re-run the coverage query below before ending the session to confirm.
