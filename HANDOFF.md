@@ -11,9 +11,10 @@ for historical context, not as current instructions._
 
 **Standing target is now 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1153 programmes, max id 1178, max rank
-1149** (verified live in Supabase). All 53 rows added this session are translated (nl/fr/de/es) — re-run the
-translation-coverage query before ending any session to confirm nothing slipped through untranslated.
+wider net than the earlier top-50-only audits). **Current state: 1163 programmes, max id 1188, max rank
+1159** (verified live in Supabase, 0 untranslated). All 63 rows added this session are translated
+(nl/fr/de/es) — re-run the translation-coverage query before ending any session to confirm nothing slipped
+through untranslated.
 
 **Method this push (see EXPANSION_LOG.md's "New push toward 1300" section for full round-by-round detail):**
 ranking-first, not university-first. Fetch a QS 2026 subject ranking's full top 100 (`xuanxiao.org/en/rankings/qs/subject/<slug>`,
