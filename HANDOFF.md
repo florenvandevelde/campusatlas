@@ -11,8 +11,8 @@ for historical context, not as current instructions._
 
 **Standing target is now 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1135 programmes, max id 1160, max rank
-1131** (verified live in Supabase). All 35 rows added this session are translated (nl/fr/de/es) — re-run the
+wider net than the earlier top-50-only audits). **Current state: 1153 programmes, max id 1178, max rank
+1149** (verified live in Supabase). All 53 rows added this session are translated (nl/fr/de/es) — re-run the
 translation-coverage query before ending any session to confirm nothing slipped through untranslated.
 
 **Method this push (see EXPANSION_LOG.md's "New push toward 1300" section for full round-by-round detail):**
@@ -21,27 +21,44 @@ add `?page=2` for ranks 51-100), cross-check against the catalogue by both `fiel
 `ILIKE`, then verify + add genuinely missing schools' programmes — official fee page preferred, a
 well-corroborated WebSearch figure when the official page won't resolve, always cross-checked against how
 that *same school's* other existing rows store `tuition` (annual vs total — see the still-unresolved MAJOR
-OPEN ISSUE below) so within-school comparisons stay consistent. 13 rounds done so far this session (+35
+OPEN ISSUE below) so within-school comparisons stay consistent. 20 rounds done so far this session (+53
 rows total): Media & Communication (+3), History (+2), Education (+3), Information Science (+2),
 Psychology (+3), Mathematics (+2), Law (+3), Biological Sciences/Biochemistry (+3), Agriculture & Food
-(+3), Chemistry (+3), Physics & Astronomy (+3), Mechanical Engineering (+3), Architecture (+2). The
-fee-uniform-school harvest strategy (Bonn ~58 unadded, TUM ~70, Utrecht ~108, Leiden ~80, University of
-Amsterdam ~195, Chalmers ~40 — see the 2026-08-22 section below) is still available as a faster fallback if
-a field's QS top-100 gaps dry up or become hard to verify, but the user's explicit ask this session is
-rankings-first — prefer that method going forward unless told otherwise.
+(+3), Chemistry (+3), Physics & Astronomy (+3), Mechanical Engineering (+3), Architecture (+2), Earth &
+Marine Sciences (+3), Materials Sciences (+3), Pharmacy & Pharmacology (+2), Economics & Econometrics (+2),
+Politics (+3), Linguistics (+3), Anthropology (+2). The fee-uniform-school harvest strategy (Bonn ~58
+unadded, TUM ~70, Utrecht ~108, Leiden ~80, University of Amsterdam ~195, Chalmers ~40 — see the 2026-08-22
+section below) is still available as a faster fallback if a field's QS top-100 gaps dry up or become hard to
+verify, but the user's explicit ask this session is rankings-first — prefer that method going forward unless
+told otherwise.
 
 **Fields covered by a QS top-100 pass so far** (this session, extending past the old top-50 stops):
 Media & Communication, History, Education, Information Science, Psychology, Mathematics, Law, Biological
 Sciences/Biochemistry, Agriculture & Food, Chemistry, Physics & Astronomy, Mechanical Engineering,
-Architecture. **Not yet done to top-100**: Fashion, Economics, Management, Business, Materials Science,
-Pharmacy, Sociology, Politics, Linguistics, Public Health, Earth Sciences, Energy. Good next targets, roughly
-in thinness order (re-run `select unnest(fields), count(*) from programmes group by 1 order by 2` to get the
-current bottom of the list — it shifts every round). **Two dead ends found this session, don't re-try them
-the same way**: QS does not publish a standalone "Public Health" or "Sociology" subject ranking (both 404
-on xuanxiao.org) — Public Health needs a different sourcing approach (school-by-school), and there's no
+Architecture, Earth & Marine Sciences, Materials Sciences, Pharmacy & Pharmacology, Economics &
+Econometrics, Politics, Linguistics, Anthropology. **Not yet done**: Fashion, Management, Business (huge,
+248 rows already — low priority), Sociology (no distinct catalogue tag or QS ranking, see below), Energy
+(not a standalone QS subject either — check what ranking, if any, actually backs this catalogue tag before
+treating it as QS-auditable), Development Studies, Statistics & Operational Research, Accounting & Finance,
+Art & Design, Performing Arts, Theology/Religious Studies, Sports Science, Nursing, Veterinary Science,
+Dentistry — QS does publish standalone rankings for several of these, worth checking each slug individually
+next session. Re-run `select unnest(fields), count(*) from programmes group by 1 order by 2` to get the
+current thinnest fields — it shifts every round. **Dead ends found this session, don't re-try them the same
+way**: QS does not publish a standalone "Public Health" or "Sociology" subject ranking (both 404 on
+xuanxiao.org) — Public Health needs a different sourcing approach (school-by-school), and there's no
 distinct `Sociology` catalogue `fields` tag either (everything sits under the generic `Social Sciences` tag
-with politics/IR/linguistics). Also: the QS Mechanical Engineering slug is
-`mechanical-aeronautical-manufacturing-engineering`, NOT `mechanical-engineering` (that 404s).
+with politics/IR/linguistics/anthropology). Slug gotchas: QS Mechanical Engineering is
+`mechanical-aeronautical-manufacturing-engineering` NOT `mechanical-engineering`; QS Materials Science is
+`materials-sciences` (plural) not singular; QS Politics is `politics` (singular, no "international-studies"
+suffix despite the ranking's full name).
+
+**A second recurring pattern this session, beyond the Canadian low-tuition one**: University of Zurich (not
+ETH!) runs almost all its taught master's at the same nominal CHF 720/semester rate for every nationality —
+confirmed independently across Psychology, Biology, Economics, Politics and Linguistics rows added this
+session (all ≈€3,000-3,100 total for a 2-year programme). This is now a reliable pattern, not a one-off — a
+new UZH master's programme can be assumed to follow it unless it's explicitly a separate professional/exec
+degree (the LLM International Business Law row 1143 was the one exception found, priced completely
+differently at CHF 34,800).
 
 **A genuine, repeatedly-confirmed pattern from this session, not a data bug**: several Canadian public
 universities (UBC confirmed across History/Psychology-adjacent/Ag&Food/Chemistry/Physics — 5 programmes
