@@ -1408,6 +1408,25 @@ hybrid/online-leaning with a confusing per-semester cost structure, didn't fit c
 - 1138 University of Melbourne — Master of Psychology (Educational and Developmental): QS Psychology #20,
   APAC-accredited professional degree, 2yr, A$56,000/yr × 2 = A$112,000 total
 
-**Running total after these 5 rounds: 1113 programmes (1100 → 1113, +13), max id 1138, max rank 1109.**
-All 13 new rows translated (nl/fr/de/es) at insert time — translation coverage should still read 100%
+**Round 6 — Mathematics, extending past the earlier top-50 stop (ids 1139-1140, translated ✅):**
+- 1139 University of Edinburgh — MSc Computational Applied Mathematics: QS Mathematics #29, 1yr, £25,100
+  (note: there's no standalone "MSc Applied Mathematics" at Edinburgh — the actual programme in this space
+  is Computational Applied Mathematics; don't add a generic "Applied Mathematics" row for Edinburgh, it
+  doesn't exist as a taught degree)
+- 1140 University of Waterloo — Master of Mathematics (Applied Mathematics): QS Mathematics #29 (tied w/
+  Edinburgh), world's largest maths faculty, 2yr MMath (thesis or coursework), CA$23,088/yr × 2 = CA$46,176
+
+**Round 7 — Law, extending past the earlier top-50 stop (ids 1141-1143, translated ✅):**
+- 1141 Georgetown University, Law Center — LLM: QS Law #21, 9mo, US$86,294 (2025-26 official PDF figure —
+  2026-27 rate not yet published at time of writing)
+- 1142 UCLA, School of Law — LLM: QS Law #31, 9mo, US$79,843 confirmed on law.ucla.edu's own tuition page for
+  2026-27, identical rate for domestic/international (explicitly stated on that page)
+- 1143 University of Zurich — LL.M. International Business Law: **NOT the same low-fee track as UZH's other
+  rows** (Psychology id 1137, general MLaw) — this is a separate professional/executive-style full-time LLM
+  with its own tuition (CHF 720/semester is the *general* UZH rate; this specific LLM charges CHF 34,800
+  total for 18 months, confirmed on llm.uzh.ch). **Don't assume all UZH programmes share one fee** — check
+  which specific UZH degree you're pricing.
+
+**Running total after these 7 rounds: 1118 programmes (1100 → 1118, +18), max id 1143, max rank 1114.**
+All 18 new rows translated (nl/fr/de/es) at insert time — translation coverage should still read 100%
 once this session's rows are counted; re-run the coverage query below before ending the session to confirm.
