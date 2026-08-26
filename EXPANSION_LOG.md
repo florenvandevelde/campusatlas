@@ -1585,7 +1585,19 @@ Skipped: University of Vienna (only found German + one-other-language instructio
 pattern this catalogue requires); University of Melbourne (research-only MA, no clean fee figure found this
 round — Melbourne's coursework masters have resolved cleanly all session, but thesis-only ones haven't).
 
-**Running total after these 20 rounds: 1153 programmes (1100 → 1153, +53), max id 1178, max rank 1149.**
+**Round 21 — Statistics & Operational Research, first pass this session (ids 1179-1180, translated ✅):**
+tagged `fields: ["Mathematics"]` / `open_fields: ["Mathematics & Statistics"]`, matching the existing Math
+rows — no separate Statistics catalogue tag exists.
+- 1179 University of Toronto — MSc Statistics: QS Statistics & OR #16, CA$31,870 first-year only (same
+  lower-bound caveat as other Toronto rows)
+- 1180 University of British Columbia — MSc Statistics: QS Statistics & OR #39, 10th confirmed instance of
+  UBC's low-tuition research-master's pattern — CA$20,164 total
+Skipped: University of Edinburgh MSc Statistics with Data Science — aggregators disagreed sharply (£33,200
+vs £26,300) and the official study.ed.ac.uk fee panel again didn't render as static text (same JS-tab issue
+that blocked the Theoretical Physics row earlier); worth a dedicated retry with the page rendered/waited on
+rather than read immediately after navigation.
+
+**Running total after these 21 rounds: 1155 programmes (1100 → 1155, +55), max id 1180, max rank 1151.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
