@@ -7,27 +7,35 @@ for historical context, not as current instructions._
 
 ---
 
-## ⭐ RESUME HERE — the active task (2026-08-22)
+## 🎯 1100 TARGET REACHED (2026-08-22) — read this before deciding what to do next
 
-**Standing task: grow the master's-programme catalogue to 1100+ programmes** (raised from 1000 on
-2026-08-22 once 1000 was passed — check chat/EXPANSION_LOG for the latest number the user has asked for,
-it may have moved again), verified data only, translated into nl/fr/de/es as you go. The user's instructions
-across this effort: "translate everything… don't stop", "keep going down the rankings", "keep going toward
-1100" — treat this as continuous, self-directed work — commit + push to `main` after every batch, no need
-to ask.
+**The standing target of 1100 programmes was hit this session: `count(*) from public.programmes` = exactly
+1100, 1100/1100 translated.** Do NOT assume more expansion is automatically wanted — check with the user
+first for a new number, or ask what to focus on next (more expansion vs. the tuition-basis cleanup below vs.
+something else entirely). If they do say "keep going," treat whatever number they give as the new target and
+resume the fee-uniform-school harvest strategy described below — it's still the fastest method and dozens of
+schools have 10-80 more English-taught programmes each still unadded (see EXPANSION_LOG.md's round-by-round
+notes for exactly which schools and which programmes are queued).
 
-**Current state (verified live in Supabase just now, 2026-08-22 session):**
-- **Programmes: 1023 / 1100 target**, **1023/1023 translated** (nl/fr/de/es blurb + highlights). Max `id`
-  1048, max `rank` 1019 — use the next free integers above these when inserting.
+**Current state (verified live in Supabase just now, 2026-08-22 session, end of session):**
+- **Programmes: 1100 / 1100 target — MET.** 1100/1100 translated (nl/fr/de/es blurb + highlights). Max `id`
+  1125, max `rank` 1096 — use the next free integers above these when inserting.
 - **Scholarships: 202, all 202 translated.**
 - This session (2026-08-22) switched from pure QS-ranking-per-field audits to a second, faster strategy:
-  **fee-uniform-school harvesting** — pick a school with an already-confirmed uniform/tiered fee (KU Leuven,
-  Bonn, LMU Munich, TUM, KIT, RWTH Aachen, PoliMi, PoliTo, Wageningen, Chalmers, ETH/EPFL) and add whichever
-  of its English-taught programmes are genuinely missing, since the fee research is already done. 8 harvest
-  rounds this session added 45 rows total — see EXPANSION_LOG.md's "Fee-uniform-school harvest" sections for
-  the full per-school breakdown of what was added and what's still missing at each (several schools have
-  20-70 more English-taught programmes not yet checked — TUM, RWTH's Academy/Business-School tier, and
-  Chalmers especially, per their own logged notes).
+  **fee-uniform-school harvesting** — pick a school with an already-confirmed uniform/tiered fee and add
+  whichever of its English-taught programmes are genuinely missing, since the fee research is already done.
+  27 harvest rounds this session added ~120 rows total across ETH/EPFL, KU Leuven, Bonn, LMU Munich, TUM,
+  KIT, RWTH Aachen, PoliMi, PoliTo, Wageningen, Chalmers, DTU, University of Copenhagen, Utrecht, Leiden,
+  University of Amsterdam, TU Wien, BOKU, NTNU, and University of Vienna — see EXPANSION_LOG.md's
+  "Fee-uniform-school harvest" sections (rounds 1–27) for the full per-school breakdown of what was added and
+  what's still missing at each. Many schools (Bonn especially — ~64 English programmes, ~30 still unadded;
+  TUM ~70, RWTH's Academy/Business-School tier, Chalmers ~40, University of Amsterdam ~195, Utrecht ~108,
+  Leiden ~80) have substantial remaining inventory if the target rises again.
+- **Three currency/fee-basis bugs found and fixed this session** (on top of the UK/US one from an earlier
+  session): ETH Zurich/EPFL tripled fees for internationals since autumn 2025 (24 rows fixed), Norway
+  (NTNU) introduced non-EU/EEA fees in 2023 (1 row fixed, was showing false "tuition-free"). **Before adding
+  any new row for a Swiss or Norwegian public university, verify current fee policy — do not assume old
+  "cheap/free" reputations still hold.**
 - Full history of every batch, every field-ranking audit, every currency-basis note, and every skip/defer
   reason lives in **[`EXPANSION_LOG.md`](EXPANSION_LOG.md)** — read that file bottom-up (newest entries are
   appended at the end) before adding anything. It is the single source of truth for what's been done and

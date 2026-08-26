@@ -1319,5 +1319,25 @@ Both tuition-free, confirmed English-taught.
 - 1119 MA English Literatures and Cultures — deadline 15 September
 Both tuition-free, confirmed English-taught. **6 rows away from the 1100 target.**
 
-## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22)
-Programmes: 1094/1094 total, all translated. Scholarships: 202/202. No untranslated rows pending.
+## Fee-uniform-school harvest, round 27: Bonn — 🎯 1100 TARGET REACHED (2026-08-22, ids 1120–1125, translated ✅)
+- 1120 MSc Plant Sciences — plant physiology, biochemistry, biotechnology & ecology
+- 1121 MSc Immunobiology (From Molecules to Integrative Systems)
+- 1122 MSc Agricultural Sciences and Resource Management in the Tropics and Subtropics — Agriculture & Food
+- 1123 MSc Medical Immunosciences and Infection
+- 1124 MSc Life Science Informatics — run at b-it (Bonn-Aachen International Center for IT), deadline 1 March
+- 1125 MA Ecumenical Studies — 1-year variant (Extended Ecumenical Studies is the 2-year version, not added
+  this round), €200/yr nominal fee (lower than the usual €400 since it's a 1-year not 2-year semester
+  contribution), deadline 1 July
+All confirmed English-taught, tuition-free (German public university convention).
+**`count(*) from public.programmes` = exactly 1100.** The user's standing target for this multi-session
+effort (raised from 1000 → 1100 mid-way through 2026-08-22) is now met. 27 harvest rounds this session
+alone added well over 100 rows across ETH/EPFL (fee-corrected), KU Leuven, Bonn, LMU Munich, TUM, KIT, RWTH
+Aachen, PoliMi, PoliTo, Wageningen, Chalmers, DTU, University of Copenhagen, Utrecht, Leiden, University of
+Amsterdam, TU Wien, BOKU, NTNU (tuition-bug-fixed), and University of Vienna — plus 5 QS-top-50 field audits
+(Psychology, Media & Communication, Law, Biochemistry, Mathematics) and 3 major currency/fee-basis
+corrections (UK/US from an earlier session, ETH/EPFL, NTNU). See the "MAJOR OPEN ISSUE" note above (the
+annual-vs-total tuition-basis inconsistency) as the top priority if a next session continues past 1100 or
+does cleanup work instead of further expansion.
+
+## Translation status — 100% COVERAGE MAINTAINED ✅ (2026-08-22) — 🎯 1100/1100
+Programmes: 1100/1100 total, all translated. Scholarships: 202/202. No untranslated rows pending.
