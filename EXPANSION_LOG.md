@@ -1597,7 +1597,23 @@ vs £26,300) and the official study.ed.ac.uk fee panel again didn't render as st
 that blocked the Theoretical Physics row earlier); worth a dedicated retry with the page rendered/waited on
 rather than read immediately after navigation.
 
-**Running total after these 21 rounds: 1155 programmes (1100 → 1155, +55), max id 1180, max rank 1151.**
+**Round 22 — Development Studies, a genuinely new field for this catalogue (ids 1181-1182, translated ✅):**
+zero pre-existing rows matched `program ilike '%development stud%'` or `%international development%` —
+this QS subject had **no representation at all** before this round. No catalogue `fields` tag exists for it
+either; used `["Public Policy","Sustainability"]` / `open_fields: ["Politics & International Relations",
+"Social Sciences & Humanities"]` as the best available approximation — reconsider if a next session finds a
+better-fitting combination once more Development Studies rows accumulate.
+- 1181 The University of Manchester — MSc Global Development: QS Development Studies #5 (Global Development
+  Institute), £30,500 for 2026/27
+- 1182 SOAS University of London — MSc Global Development: QS Development Studies #2. **Naming note**: SOAS
+  renamed this from "MSc Development Studies"/"MSc International Development" to "MSc Global Development"
+  effective Sept 2026 intake — the old names may still surface in search/aggregators, don't get confused.
+  £25,320 for 2026/27, confirmed on the SOAS course page itself.
+Skipped: University of Edinburgh MSc International Development (QS #30) — repeated JS-rendering issue on
+its fees tab (same problem hit twice before, on Physics and Statistics rows) meant no fee number resolved,
+and the page additionally showed "not currently open for applications" for this cycle.
+
+**Running total after these 22 rounds: 1157 programmes (1100 → 1157, +57), max id 1182, max rank 1153.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
