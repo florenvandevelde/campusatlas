@@ -1504,7 +1504,19 @@ Skipped: University of Toronto MArch — three different aggregators gave three 
 (CAD 52,930 / 56,160 / 64,584) with no official confirmation found this round; re-verify against
 daniels.utoronto.ca directly before adding.
 
-**Running total after these 13 rounds: 1135 programmes (1100 → 1135, +35), max id 1160, max rank 1131.**
+**Round 14 — Earth & Marine Sciences, first pass this session (ids 1161-1163, translated ✅):**
+- 1161 University of British Columbia — MSc Geological Sciences: QS Earth & Marine Sciences #13 (very high —
+  UBC was a genuine, high-value gap here), same low-tuition research-MSc pattern confirmed for a 6th UBC
+  programme this session — CA$20,164 total
+- 1162 University of Toronto — MSc Earth Sciences: QS Earth & Marine Sciences #42, **department explicitly
+  does not fund international master's students** (confirmed on es.utoronto.ca's own tuition-and-funding
+  page) — this is a real, notable difference from Toronto's funded Cell & Systems Biology cohort (1146),
+  not an oversight; the blurb/prereq should keep flagging this so it doesn't read as a funded programme.
+  CA$30,350 first-year only (same lower-bound caveat as other Toronto rows).
+- 1163 University of Melbourne — Master of Science (Earth Sciences): QS Earth & Marine Sciences #38, 2yr,
+  A$44,256/yr × 2 = A$88,512 total
+
+**Running total after these 14 rounds: 1138 programmes (1100 → 1138, +38), max id 1163, max rank 1134.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
