@@ -1464,7 +1464,20 @@ translated ✅):**
   search of manchester.ac.uk's own course page (not independently re-verified via browser this round —
   flag for re-confirmation if this row is ever audited)
 
-**Running total after these 10 rounds: 1127 programmes (1100 → 1127, +27), max id 1152, max rank 1123.**
+**Round 11 — Physics & Astronomy, extending past the earlier top-50 stop (ids 1153-1155, translated ✅):**
+- 1153 University of British Columbia — MSc Physics: QS Physics & Astronomy #50, fourth confirmed instance
+  of UBC's low-tuition research-MSc pattern — CA$10,081.65/yr × 2 = CA$20,164
+- 1154 King's College London — MSc Physics: QS Physics & Astronomy #81, £40,450/yr confirmed on kcl.ac.uk's
+  own fees page, 1yr
+- 1155 University of Toronto — MSc Physics: QS Physics & Astronomy #29, 16mo, CA$31,870 **first-year only**
+  (same aggregator-sourced, lower-bound caveat as the Cell and Systems Biology row 1146 — Toronto's real
+  16-month total is likely somewhat higher; don't treat this as a confirmed total without re-checking against
+  physics.utoronto.ca's own fee page)
+Skipped: University of Edinburgh MSc Theoretical/Mathematical Physics — official fee hidden behind an
+expandable JS tab that didn't render as text via the in-app browser this round, and no clean aggregator
+number surfaced either. Worth another try with a JS-rendering wait or a different entry page.
+
+**Running total after these 11 rounds: 1130 programmes (1100 → 1130, +30), max id 1155, max rank 1126.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
