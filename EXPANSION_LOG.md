@@ -1516,7 +1516,19 @@ daniels.utoronto.ca directly before adding.
 - 1163 University of Melbourne — Master of Science (Earth Sciences): QS Earth & Marine Sciences #38, 2yr,
   A$44,256/yr × 2 = A$88,512 total
 
-**Running total after these 14 rounds: 1138 programmes (1100 → 1138, +38), max id 1163, max rank 1134.**
+**Round 15 — Materials Science (QS slug `materials-sciences`, plural — not the singular used for other
+STEM subjects), first pass this session (ids 1164-1166, translated ✅):** the catalogue has no distinct
+`Materials Science` `fields` tag — existing rows use `["Engineering","Chemistry"]` with
+`open_fields: ["Chemical & Materials Engineering","STEM & Engineering"]`, followed here too.
+- 1164 The University of Manchester — MSc Advanced Engineering Materials: QS Materials Science #17, £36,800
+- 1165 University of British Columbia — MASc Materials Engineering: QS Materials Science #39, 7th confirmed
+  instance of UBC's low-tuition research-master's pattern — CA$20,164 total
+- 1166 University of Toronto — MASc Materials Science and Engineering: QS Materials Science #38, **funded**
+  (guaranteed min. CA$20,000/yr + tuition, confirmed on mse.utoronto.ca) — a useful contrast with the
+  unfunded Earth Sciences row (1162) added last round: Toronto funding varies department by department,
+  don't generalize either way without checking the specific department's own funding page.
+
+**Running total after these 15 rounds: 1141 programmes (1100 → 1141, +41), max id 1166, max rank 1137.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
