@@ -1576,7 +1576,16 @@ the existing `["Public Policy","Social Sciences"]` pairing per id 820/822), firs
   vary department by department; check each one, don't assume from a sibling department's page.
 - 1176 University of Zurich — MA Linguistics: QS Linguistics #52, same modest UZH rate — CHF 2,880 total
 
-**Running total after these 19 rounds: 1151 programmes (1100 → 1151, +51), max id 1176, max rank 1147.**
+**Round 20 — Anthropology, first pass this session (ids 1177-1178, translated ✅), deliberately using
+different schools than the UBC/Toronto/Zurich trio to keep the catalogue's school mix from over-indexing on
+those three:**
+- 1177 University of Amsterdam — MSc Cultural and Social Anthropology: QS Anthropology #15, €22,355 non-EU
+- 1178 University of Edinburgh — MSc Social Anthropology: QS Anthropology #17, £28,800/2026-27
+Skipped: University of Vienna (only found German + one-other-language instruction, not the English-taught
+pattern this catalogue requires); University of Melbourne (research-only MA, no clean fee figure found this
+round — Melbourne's coursework masters have resolved cleanly all session, but thesis-only ones haven't).
+
+**Running total after these 20 rounds: 1153 programmes (1100 → 1153, +53), max id 1178, max rank 1149.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
