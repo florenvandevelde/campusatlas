@@ -1491,7 +1491,20 @@ already in the catalogue (ids 1004, 1003), added in an earlier session not refle
   for non-cognate entrants, unlike Melbourne's Ag Sciences/Global Media rows earlier this session) —
   A$62,976/yr × 3 = A$188,928 total, by far the most expensive row added this session
 
-**Running total after these 12 rounds: 1133 programmes (1100 → 1133, +33), max id 1158, max rank 1129.**
+**Round 13 — Architecture, first pass this session (ids 1159-1160, translated ✅):**
+- 1159 University of Melbourne — Master of Architecture: QS Architecture #23, used the 2-year accelerated
+  track for architecture-background applicants (A$56,992/yr × 2 = A$113,984 total) rather than the standard
+  3-year track, since the 2-year figure is the one that resolved cleanly
+- 1160 University of British Columbia — Master of Architecture: **NOT the same low-fee pattern as UBC's
+  other rows this session** — MArch is a professional degree (3.5yr, 119 credits) with its own tuition
+  track, CA$51,996 confirmed as **first-year only** (same lower-bound caveat as the Toronto physics/biology
+  rows — a 3.5yr full total was not confirmed, don't assume it's ~4x the first-year figure without checking
+  for a fee schedule)
+Skipped: University of Toronto MArch — three different aggregators gave three different first-year figures
+(CAD 52,930 / 56,160 / 64,584) with no official confirmation found this round; re-verify against
+daniels.utoronto.ca directly before adding.
+
+**Running total after these 13 rounds: 1135 programmes (1100 → 1135, +35), max id 1160, max rank 1131.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
