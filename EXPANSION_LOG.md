@@ -1543,7 +1543,20 @@ single figure; University of Manchester — its only clearly-priced pharmacy pro
 Pharmacy, which is a part-time professional-development degree for practising pharmacists (£9,800→£12,400
 across 3 part-time years), not a fit for this catalogue's full-time-international-student pattern.
 
-**Running total after these 16 rounds: 1143 programmes (1100 → 1143, +43), max id 1168, max rank 1139.**
+**Round 17 — Economics & Econometrics, first pass this session (ids 1169-1170, translated ✅):**
+- 1169 University of British Columbia — MA in Economics: QS Economics #22. **Important exception to the
+  UBC low-tuition pattern** — confirmed official CA$32,393.73/yr (1yr programme), NOT the ~CA$10k pattern
+  seen in UBC's 7 other rows this session (History, Physics, Chemistry, Biology, Geology, Materials, Ag&Food).
+  The Vancouver School of Economics MA is priced like a professional programme, not a funded research
+  thesis MA — **check the specific UBC programme's own grad.ubc.ca page every time, never assume the cheap
+  rate carries over by department.**
+- 1170 University of Zurich — MA Management and Economics: QS Economics #38, same modest UZH-wide rate —
+  CHF 700/semester × 4 = CHF 2,800 total
+Skipped: University of Toronto MA Economics (QS #21, a strong gap) — official department page had no fee
+number, and it's unclear whether it follows the Faculty of Arts & Science's general rate (~CA$34,900/yr,
+like the History row 1129) or something else; re-verify via ask.utoronto.ca before adding.
+
+**Running total after these 17 rounds: 1145 programmes (1100 → 1145, +45), max id 1170, max rank 1141.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
