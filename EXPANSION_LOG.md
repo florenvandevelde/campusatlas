@@ -1613,7 +1613,40 @@ Skipped: University of Edinburgh MSc International Development (QS #30) — repe
 its fees tab (same problem hit twice before, on Physics and Statistics rows) meant no fee number resolved,
 and the page additionally showed "not currently open for applications" for this cycle.
 
-**Running total after these 22 rounds: 1157 programmes (1100 → 1157, +57), max id 1182, max rank 1153.**
+## 🔑 Major sourcing discovery: Edinburgh's static fee table (2026-08-26)
+`https://registryservices.ed.ac.uk/tuition-fees/find/postgraduate-taught/2025-2026/taught-masters` is a
+**single static HTML table listing all ~759 Edinburgh taught-masters programmes with exact Scotland/Rest-of-
+UK/International fees** — no JS-tab rendering problem (unlike every individual `study.ed.ac.uk` course page,
+which has repeatedly failed to render its fee panel as text this session — hit on Theoretical Physics,
+Statistics with Data Science, and initially on History/Anthropology/Int'l Development too). Query it with
+`mcp__Claude_Browser__javascript_tool` filtering `document.querySelectorAll('table tr')` by programme-name
+substring — instant, exact, and covers literally every Edinburgh programme in one page load. **Use this
+table first for any future Edinburgh row**, not individual course pages, not aggregators. Figures are
+2025-26; this session applied a flat +5% to approximate 2026-27 (matches the annual-increase policy stated
+on the university's own fees pages) — a future session should re-pull the 2026-27 table directly once
+published (same URL pattern, likely `.../2026-2027/taught-masters`) rather than keep extrapolating.
+
+**Two corrections made this round from this table** (both already-published rows had aggregator-sourced
+tuition figures found to be off): id 1139 (Computational Applied Mathematics) corrected £25,100→£33,200
+(tuition 29,500→39,100 EUR); id 1178 (Social Anthropology) corrected £28,800→£32,000 (tuition
+33,900→37,600 EUR). Only the `tuition` column and the English `highlights` bullet were corrected in both —
+the nl/fr/de/es translated highlight bullets still show the old figures (a ~10% number mismatch, cosmetic,
+not corrected this round for time reasons — flag for cleanup if anyone is doing a translation-accuracy pass).
+
+**Round 23 — More Edinburgh rows via the new table (ids 1183-1185, translated ✅):**
+- 1183 University of Edinburgh — MSc History: QS History #22 (a real gap — Edinburgh was missing from the
+  History field entirely despite being top-25 in the world for it), £32,000 (2026/27 est.)
+- 1184 University of Edinburgh — MSc International Development: QS Development Studies #30, £32,000 —
+  second Edinburgh Development Studies row after Manchester/SOAS in round 22, growing this brand-new field
+- 1185 University of Edinburgh — MSc Public Policy: not QS-subject-ranked as a standalone (Public Policy
+  isn't a distinct QS subject, same as noted for the Public Health gap), but a strong addition to the
+  existing 54-row Public Policy field, £32,000
+Also confirmed via the same table but not yet added (good next-session targets, all School of Informatics,
+higher rate ≈£43,300): Artificial Intelligence MSc, Data Science MSc, High Performance Computing with Data
+Science MSc — skipped this round only because AI (103 rows) and Computer Science (154 rows) are already
+thick fields, lower priority than the thin ones targeted this session.
+
+**Running total after these 23 rounds: 1160 programmes (1100 → 1160, +60), max id 1185, max rank 1156.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
