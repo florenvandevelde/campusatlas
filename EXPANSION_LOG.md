@@ -1477,7 +1477,21 @@ Skipped: University of Edinburgh MSc Theoretical/Mathematical Physics — offici
 expandable JS tab that didn't render as text via the in-app browser this round, and no clean aggregator
 number surfaced either. Worth another try with a JS-rendering wait or a different entry page.
 
-**Running total after these 11 rounds: 1130 programmes (1100 → 1130, +30), max id 1155, max rank 1126.**
+**Round 12 — Mechanical Engineering, continuing the partially-done earlier pass (ids 1156-1158, translated
+✅):** the QS "Mechanical Engineering" slug on xuanxiao.org 404'd this round — correct slug is
+`mechanical-aeronautical-manufacturing-engineering`, not `mechanical-engineering`. Note this for future
+sessions so the earlier 404 doesn't get repeated. Also: the HANDOFF's old "deferred gaps" list for this
+field (Caltech, Purdue, UCLA, Toronto, McGill, HKU, UBC) is now **stale** — UCLA and Toronto are both
+already in the catalogue (ids 1004, 1003), added in an earlier session not reflected in that note.
+- 1156 Imperial College London — MSc Advanced Mechanical Engineering: QS Mech Eng #9, Imperial's ONLY
+  taught mechanical eng MSc (small, selective, 40 students), £45,000/yr confirmed via search of imperial.ac.uk
+- 1157 University College London — MSc Mechanical Engineering: QS Mech Eng #57, £39,800/2026-27
+- 1158 University of Melbourne — Master of Mechanical Engineering: QS Mech Eng #45, confirmed on
+  study.unimelb.edu.au as a straight **3-year** professional-accreditation pathway (no shorter track offered
+  for non-cognate entrants, unlike Melbourne's Ag Sciences/Global Media rows earlier this session) —
+  A$62,976/yr × 3 = A$188,928 total, by far the most expensive row added this session
+
+**Running total after these 12 rounds: 1133 programmes (1100 → 1133, +33), max id 1158, max rank 1129.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
