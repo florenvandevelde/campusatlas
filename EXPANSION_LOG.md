@@ -2203,3 +2203,14 @@ DOM interaction next time. Pivoted to Loughborough instead, reusing the school f
   1yr = £21,300 total ÷ 0.85 = €25,059.
 
 **Running total: 1229 programmes (1228 → 1229, +1 this round), max id 1254, max rank 1225.**
+
+**Round 59 — Public Health, second pass via Sheffield's fee tool (id 1255, translated ✅):**
+- 1255 University of Sheffield — Master of Public Health (MPH): School of Medicine and Population Health,
+  home to ScHARR (School of Health and Related Research), one of the UK's leading public health research
+  groups (a well-documented, real institutional credential — no QS subject ranking exists for this field, so
+  followed the same institutional-credit fallback convention as the round-53 Edinburgh MPH row rather than
+  citing a rank). Confirmed £30,625 (SMPT016, full-time, Overseas) ÷ 0.85 = €36,029. Also available with
+  Health Services Research or Management and Leadership specialisms at the identical rate, noted as future
+  options.
+
+**Running total: 1230 programmes (1229 → 1230, +1 this round). Clean milestone: 1230/1300, 70 to go.**
