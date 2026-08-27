@@ -1074,7 +1074,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
     <div class="hpl-wash"></div>
   </div>
   <div class="wrap">
-    <div class="eyebrow"><span class="dot"></span> <span id="heroStats">176 programmes, 34 countries, 5 continents</span></div>
+    <div class="eyebrow"><span class="dot"></span> <span id="heroStats">1173 programmes, 46 countries, 7 continents</span></div>
     <h1>Los mejores másteres, <em>en cualquier lugar</em> del mundo.</h1>
     <p class="lede">Campus Atlas cartografía los másteres mejor clasificados de las principales universidades del mundo, negocios, ingeniería, ciencia y más, para que puedas comparar matrícula, duración, requisitos de acceso y fechas límite en paralelo, antes de comprometer un año de tu vida.</p>
 
@@ -1099,11 +1099,13 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
     </div>
 
 
+    <!-- Static fallback shown until hydrateFromCatalogue() overwrites it post-fetch; keep
+         roughly current so a slow connection never flashes a wildly stale number. -->
     <div class="stats">
-      <div class="stat"><b id="statPrograms">62</b><span>PROGRAMAS</span></div>
-      <div class="stat"><b id="statCountries">27</b><span>PAÍSES</span></div>
-      <div class="stat"><b id="statTuitionRange">€0–€104k</b><span>MATRÍCULA</span></div>
-      <div class="stat"><b id="statMonthsRange">9–24</b><span>MESES</span></div>
+      <div class="stat"><b id="statPrograms">1173</b><span>PROGRAMAS</span></div>
+      <div class="stat"><b id="statCountries">46</b><span>PAÍSES</span></div>
+      <div class="stat"><b id="statTuitionRange">€0–€172k</b><span>MATRÍCULA</span></div>
+      <div class="stat"><b id="statMonthsRange">9–42</b><span>MESES</span></div>
     </div>
   </div>
 </section>
@@ -1806,8 +1808,7 @@ async function fetchCatalogueTable(table) {
   // Paged explicitly rather than trusting a single request to return everything:
   // PostgREST caps a response at its own row limit, so a catalogue that grows past
   // that cap would otherwise silently lose its tail with no error to notice.
-  const rows = [];
-  for (let from = 0; ; from += CATALOGUE_PAGE_SIZE) {
+  async function fetchPage(from) {
     const res = await fetch(`${SUPABASE_URL}/rest/v1/${table}?select=*`, {
       headers: {
         apikey: SUPABASE_PUBLISHABLE_KEY,
@@ -1817,10 +1818,25 @@ async function fetchCatalogueTable(table) {
       },
     });
     if (!res.ok) throw new Error(`${table}: HTTP ${res.status} ${await res.text()}`);
-    const page = await res.json();
-    rows.push(...page);
-    if (page.length < CATALOGUE_PAGE_SIZE) return rows;
+    return res.json();
   }
+
+  // The programmes table alone has been past one page's worth of rows for a while now,
+  // so fetching page 0, waiting for it, then only *starting* page 1 doubled the load's
+  // network round trips for every visitor. Firing the first two pages in parallel
+  // collapses that back to one round trip in the common case; further pages (needed
+  // once a table passes 2000 rows) still have to wait on the previous one, since we
+  // can't know a page is needed until the one before it comes back full.
+  const rows = [];
+  let [pageA, pageB] = await Promise.all([fetchPage(0), fetchPage(CATALOGUE_PAGE_SIZE)]);
+  rows.push(...pageA, ...pageB);
+  let from = CATALOGUE_PAGE_SIZE * 2;
+  while (pageB.length === CATALOGUE_PAGE_SIZE) {
+    pageB = await fetchPage(from);
+    rows.push(...pageB);
+    from += CATALOGUE_PAGE_SIZE;
+  }
+  return rows;
 }
 
 // The catalogue text (blurbs, highlights, scholarship descriptions) lives in the DB,
