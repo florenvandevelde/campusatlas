@@ -1699,7 +1699,22 @@ if a future session wants to start using the `prereq` field more aggressively fo
   1171) — no official fee page found for this specific department, so this figure is inferred from the
   established Toronto SGS pattern rather than independently confirmed; flag for verification if audited.
 
-**Running total after these 27 rounds: 1170 programmes (1100 → 1170, +70), max id 1195, max rank 1166.**
+**Round 28 — Hospitality & Leisure Management, a sixth genuinely new field this session (ids 1196-1197,
+translated ✅):** only one loosely-related pre-existing row (Wageningen tourism-and-society programme).
+This QS ranking is dominated by specialist Swiss hospitality schools (EHL, Les Roches, Glion etc.) — a real,
+well-known international-student vertical, not a niche curiosity — but their fee structures are published
+only as downloadable PDFs (EHL's official tuition sheet triggered a forced file-download in the browser
+rather than rendering, and was not pursued further this round). Picked the two clean, mainstream-university
+options instead:
+- 1196 Cornell University, Nolan School — Master of Management in Hospitality (MMH): QS Hospitality &
+  Leisure Management #16, the flagship US hospitality master's, US$106,899 for 2025-26 (3 semesters,
+  $35,633/semester) — 2026-27 rate not yet published per Cornell's own site
+- 1197 University of Surrey — MSc International Hotel Management: QS #18, £19,900 for 2026/27, one of the
+  original UK hospitality business schools (School of Hospitality and Tourism Management)
+Used `fields: ["Management"]` / `open_fields: ["Business & Economics"]`, matching the existing Wageningen
+tourism row's tagging convention (no dedicated Hospitality tag exists).
+
+**Running total after these 28 rounds: 1172 programmes (1100 → 1172, +72), max id 1197, max rank 1168.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
