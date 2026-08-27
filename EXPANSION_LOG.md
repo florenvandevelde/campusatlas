@@ -1727,7 +1727,22 @@ round. Used `fields: ["Humanities"]` / `open_fields: ["Arts, Media & Journalism"
 Humanities"]` — the "Arts, Media & Journalism" open_field value (seen on an existing PoliMi row) fits this
 subject well and is a candidate default for future Performing Arts / Art & Design additions.
 
-**Running total after these 29 rounds: 1173 programmes (1100 → 1173, +73), max id 1198, max rank 1169.**
+**Round 30 — Media & Communication, second pass this session (id 1199, translated ✅):** still the
+catalogue's single thinnest field even after round 1's +3, so returning to it rather than opening yet
+another new vertical.
+- 1199 University of British Columbia — Master of Journalism: QS Communication & Media Studies #42,
+  **NOT the same low-tuition pattern as UBC's 12 other rows this session** — this is a professional program
+  fee (School of Journalism, Writing & Media), confirmed CA$35,412.78 first-year on grad.ubc.ca, 20-month
+  programme. Another reminder that UBC's cheap rate is specifically for thesis-based Faculty-of-Science/Arts
+  research MAs/MScs, never professional degrees (MArch, MJ, MBA-adjacent, etc.).
+Skipped: University of Zurich (QS #27 in this subject) — its Communication and Media Research offering
+(IKMZ department) turned out to be structured as a combinable "minor" within UZH's degree system rather
+than a clean standalone major with its own dedicated page, and the department's own site 404'd; the
+otherwise-reliable "just price it like every other UZH programme" shortcut doesn't safely apply until the
+degree structure itself is confirmed. University of Toronto has no graduate journalism/media program at all
+(that's Toronto Metropolitan University, a different institution — easy to confuse, don't).
+
+**Running total after these 30 rounds: 1174 programmes (1100 → 1174, +74), max id 1199, max rank 1170.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
