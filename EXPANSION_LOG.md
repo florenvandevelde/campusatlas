@@ -2053,3 +2053,18 @@ reusing the school added in round 38.
   per its own official page) rather than a stretch-fit.
 
 **Running total after rounds 33-47: 1210 programmes (1179 → 1210, +31), max id 1235, max rank 1206.**
+
+**Round 48 — Psychology, second pass targeting ranks 51-100 (ids 1236-1237, translated ✅):**
+- 1236 University of Bristol — MSc Psychology (Conversion): QS Psychology #55, a BPS-accredited conversion
+  course (open to non-psychology graduates). Official bristol.ac.uk course page confirmed £33,000/yr, 1yr =
+  £33,000 total ÷ 0.85 = €38,824. Third Bristol row this session (after History and this one), all sourced
+  from official course pages.
+- 1237 Tilburg University — MSc Social Psychology: QS Psychology #66. First Tilburg row in this catalogue.
+  Tilburg's own programme page 403'd on direct fetch, but Tilburg's central tuition-fees page officially
+  states the general non-EU/EEA Master's rate as €19,900 for 2026-27 — used that (matches the standard-rate
+  pattern already established for Groningen/other Dutch schools this session). **Caught a rank-number typo
+  in this round**: initially inserted with "QS Psychology #62 band" (accidentally copied from Maastricht's
+  neighbouring rank in the source table) — corrected via follow-up UPDATE to the correct "#66" before
+  proceeding to translation. Second self-caught data-entry bug this session (see round 43 for the first).
+
+**Running total after rounds 33-48: 1212 programmes (1179 → 1212, +33), max id 1237, max rank 1208.**
