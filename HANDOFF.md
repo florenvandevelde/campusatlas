@@ -11,10 +11,17 @@ for historical context, not as current instructions._
 
 **Standing target is now 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1163 programmes, max id 1188, max rank
-1159** (verified live in Supabase, 0 untranslated). All 63 rows added this session are translated
+wider net than the earlier top-50-only audits). **Current state: 1173 programmes, max id 1198, max rank
+1169** (verified live in Supabase, 0 untranslated). All 73 rows added this session are translated
 (nl/fr/de/es) — re-run the translation-coverage query before ending any session to confirm nothing slipped
 through untranslated.
+
+**Seven entirely new fields were opened this session** (zero pre-existing rows before this session's first
+row in each): Development Studies, Sports-related Subjects, Nursing, Veterinary Science, Theology/Divinity/
+Religious Studies, Hospitality & Leisure Management, Performing Arts. None of these had a catalogue `fields`
+tag before either — each round improvised the closest-fitting existing tag combination (documented per round
+in EXPANSION_LOG.md); a future session should decide whether any of these deserve their own dedicated
+`fields` value once enough rows accumulate, rather than continuing to borrow neighbouring tags.
 
 **Method this push (see EXPANSION_LOG.md's "New push toward 1300" section for full round-by-round detail):**
 ranking-first, not university-first. Fetch a QS 2026 subject ranking's full top 100 (`xuanxiao.org/en/rankings/qs/subject/<slug>`,
