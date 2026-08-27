@@ -2114,3 +2114,12 @@ Several more LLM specialisations remain available at the identical rate for a fu
 European Law, Criminal Law and Criminal Justice, Innovation/Technology and the Law).
 
 **Running total after rounds 33-51: 1217 programmes (1179 → 1217, +38), max id 1242, max rank 1213.**
+
+**Round 52 — Law, third pass, two more Edinburgh LLMs from the same confirmed rate band (ids 1243-1244,
+translated ✅):** Continuing to draw down the Edinburgh School of Law goldmine identified in round 51.
+- 1243 University of Edinburgh — LLM Corporate Law
+- 1244 University of Edinburgh — LLM Criminal Law and Criminal Justice
+Both £32,000 total ÷ 0.85 = €37,647, same "QS Law #15 (2026)" tag. Remaining unused LLM titles at the
+identical rate for a future round: European Law, Innovation/Technology and the Law, Comparative Private Law.
+
+**Running total after rounds 33-52: 1219 programmes (1179 → 1219, +40), max id 1244, max rank 1215.**
