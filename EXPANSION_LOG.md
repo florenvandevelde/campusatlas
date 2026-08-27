@@ -2068,3 +2068,19 @@ reusing the school added in round 38.
   proceeding to translation. Second self-caught data-entry bug this session (see round 43 for the first).
 
 **Running total after rounds 33-48: 1212 programmes (1179 → 1212, +33), max id 1237, max rank 1208.**
+
+**Round 49 — Agriculture & Food, second pass targeting ranks 51-100 (ids 1238-1239, translated ✅):**
+- 1238 University of Leeds — MSc Food Science: QS Agriculture & Forestry #93. Official courses.leeds.ac.uk
+  page confirmed £34,000 as the TOTAL programme cost (not annual) for this 12-month MSc — caught the
+  discrepancy against an initial WebSearch figure of £25,750/yr and trusted the official page over the
+  aggregator, per standing practice. ÷0.85 = €40,000.
+- 1239 University of Edinburgh — MSc Food Security: QS Agriculture & Forestry #69, sourced via the
+  registryservices.ed.ac.uk table trick again, this time filtering for "agri|food|crop|soil". Genuinely new
+  School of Geosciences programme run jointly with Scotland's Rural College (SAC) — £40,800 total (2026/27),
+  distinct from the Moray House/general-Edinburgh rates seen in other fields this session (Geosciences runs
+  its own fee band). ÷0.85 = €48,000. University of Toronto was checked first for this field (QS #89) but
+  turned out not to have a dedicated agriculture programme findable in one pass — Toronto's MSc offerings
+  in this space appear to route through Sustainability Management or similar cross-listed degrees rather
+  than a literal agriculture/food-science MSc; skipped rather than force a stretch match.
+
+**Running total after rounds 33-49: 1214 programmes (1179 → 1214, +35), max id 1239, max rank 1210.**
