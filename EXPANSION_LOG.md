@@ -1688,7 +1688,18 @@ explicitly restricted to "qualified veterinarians" per RVC's own programme descr
 entry requirement to fit this catalogue's general international-student audience; worth reconsidering only
 if a future session wants to start using the `prereq` field more aggressively for licensure-gated programmes.
 
-**Running total after these 26 rounds: 1168 programmes (1100 → 1168, +68), max id 1193, max rank 1164.**
+**Round 27 — Theology, Divinity & Religious Studies, a fifth genuinely new field this session (ids
+1194-1195, translated ✅):** only one pre-existing row (KU Leuven, id 1011) before this round.
+- 1194 University of Edinburgh — MSc Religious Studies: QS Theology/Divinity/Religious Studies #16, sourced
+  via the registryservices.ed.ac.uk table (School of Divinity, £30,500 2025-26 rate) — £32,000 (2026/27
+  est.). The same table also surfaced Biblical Studies, Science and Religion, Theology in History and World
+  Christianity MSc/MTh options at the identical rate, all good next-session candidates.
+- 1195 University of Toronto — MA Religion: QS #19, same Faculty-of-Arts-&-Science CA$34,900/yr rate as
+  Toronto's other unfunded Arts & Science humanities MAs this session (History 1129, Political Science
+  1171) — no official fee page found for this specific department, so this figure is inferred from the
+  established Toronto SGS pattern rather than independently confirmed; flag for verification if audited.
+
+**Running total after these 27 rounds: 1170 programmes (1100 → 1170, +70), max id 1195, max rank 1166.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
