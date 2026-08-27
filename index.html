@@ -1074,7 +1074,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
     <div class="hpl-wash"></div>
   </div>
   <div class="wrap">
-    <div class="eyebrow"><span class="dot"></span> <span id="heroStats">1179 programmes, 46 countries, 7 continents</span></div>
+    <div class="eyebrow"><span class="dot"></span> <span id="heroStats">Loading the catalogue…</span></div>
     <h1>The best master's degrees, <em>anywhere</em> on earth.</h1>
     <p class="lede">Campus Atlas maps top-ranked master's programmes at the world's leading universities, business, engineering, science and more, so you can compare tuition, length, entry requirements and deadlines side by side, before you commit a year of your life.</p>
 
@@ -1099,13 +1099,14 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
     </div>
 
 
-    <!-- Static fallback shown until hydrateFromCatalogue() overwrites it post-fetch; keep
-         roughly current so a slow connection never flashes a wildly stale number. -->
+    <!-- Placeholder shown only until hydrateFromCatalogue() sets the real, live values post-fetch.
+         Deliberately not a hardcoded number: a baked-in count goes stale the moment the catalogue
+         grows, and would flash a wrong number before snapping to the right one. "…" never lies. -->
     <div class="stats">
-      <div class="stat"><b id="statPrograms">1179</b><span>PROGRAMMES</span></div>
-      <div class="stat"><b id="statCountries">46</b><span>COUNTRIES</span></div>
-      <div class="stat"><b id="statTuitionRange">€0–€172k</b><span>TUITION RANGE</span></div>
-      <div class="stat"><b id="statMonthsRange">9–42</b><span>MONTHS</span></div>
+      <div class="stat"><b id="statPrograms">…</b><span>PROGRAMMES</span></div>
+      <div class="stat"><b id="statCountries">…</b><span>COUNTRIES</span></div>
+      <div class="stat"><b id="statTuitionRange">…</b><span>TUITION RANGE</span></div>
+      <div class="stat"><b id="statMonthsRange">…</b><span>MONTHS</span></div>
     </div>
   </div>
 </section>
