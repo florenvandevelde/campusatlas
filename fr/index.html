@@ -1099,11 +1099,13 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
     </div>
 
 
-    <!-- Static fallback shown until hydrateFromCatalogue() overwrites it post-fetch; keep
-         roughly current so a slow connection never flashes a wildly stale number. -->
+    <!-- statPrograms/statCountries start at 0 on purpose: hydrateFromCatalogue() animates
+         them counting up once the real totals are known (see animateCount()), so the
+         load reads as an intentional reveal rather than a stale number sitting there.
+         The other two are ranges, not counts, so they just get set once, directly. -->
     <div class="stats">
-      <div class="stat"><b id="statPrograms">1173</b><span>PROGRAMMES</span></div>
-      <div class="stat"><b id="statCountries">46</b><span>PAYS</span></div>
+      <div class="stat"><b id="statPrograms">0</b><span>PROGRAMMES</span></div>
+      <div class="stat"><b id="statCountries">0</b><span>PAYS</span></div>
       <div class="stat"><b id="statTuitionRange">€0–€172k</b><span>FRAIS DE SCOLARITÉ</span></div>
       <div class="stat"><b id="statMonthsRange">9–42</b><span>MOIS</span></div>
     </div>
@@ -6585,6 +6587,23 @@ $("scholarshipApply").addEventListener("click", () => {
 
 const eurK = n => n === 0 ? "€0" : `€${Math.round(n / 1000)}k`;
 
+// Counts up from 0 to `to` on an ease-out curve (fast start, settles on the exact
+// figure) instead of the number just appearing once the fetch resolves — the load
+// itself can't be instant, but this reads as an intentional reveal rather than a
+// stat that looks stuck or broken while the catalogue loads.
+function animateCount(el, to, duration = 900) {
+  if (!el) return;
+  const start = performance.now();
+  function tick(now) {
+    const t = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1 - t, 3);
+    el.textContent = Math.round(to * eased);
+    if (t < 1) requestAnimationFrame(tick);
+    else el.textContent = to;
+  }
+  requestAnimationFrame(tick);
+}
+
 // Everything that reads the catalogue's shape rather than a single row: the tuition
 // slider's ceiling and the hero/footer counts. It runs after the fetch instead of at
 // script-eval time, and keeps the hero eyebrow and the footer stat tiles reading from
@@ -6597,8 +6616,8 @@ function hydrateFromCatalogue() {
 
   const statCountryCount = new Set(PROGRAMS.map(p => p.country)).size;
   const statContinentCount = new Set(PROGRAMS.map(p => p.region)).size;
-  $("statPrograms").textContent = PROGRAMS.length;
-  $("statCountries").textContent = statCountryCount;
+  animateCount($("statPrograms"), PROGRAMS.length);
+  animateCount($("statCountries"), statCountryCount);
   $("heroStats").textContent = `${PROGRAMS.length} programmes, ${statCountryCount} pays, ${statContinentCount} continents`;
   $("statTuitionRange").textContent = `${eurK(Math.min(...PROGRAMS.map(p => p.tuition)))}–${eurK(Math.max(...PROGRAMS.map(p => p.tuition)))}`;
   $("statMonthsRange").textContent = `${Math.min(...PROGRAMS.map(p => p.months))}–${Math.max(...PROGRAMS.map(p => p.months))}`;
