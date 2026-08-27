@@ -2040,3 +2040,16 @@ Both use the same £32,000 → €37,600 conversion and "QS Education & Training
 pre-existing Edinburgh Education rows (ids 1131, 1201, 1202), for internal consistency.
 
 **Running total after rounds 33-46: 1209 programmes (1179 → 1209, +30), max id 1234, max rank 1205.**
+
+**Round 47 — Information Science, second pass (id 1235, translated ✅):** the Edinburgh registry table's
+"information"/"data science" matches this round were all Data Science/Informatics programmes (Analytics/AI/
+CS-adjacent, already thick catalogue fields) rather than genuine Library & Information Management-subject
+matches, so none were added under this field — would have blurred field semantics. Pivoted to PolyU instead,
+reusing the school added in round 38.
+- 1235 Hong Kong Polytechnic University — MSc Knowledge and Technology Management: QS Library & Information
+  Management #40, second PolyU row in this catalogue, again using the confirmed standard HK$369,000 flat
+  taught-postgraduate rate (÷8.45 = €43,669) and PolyU's typical 1.5-year (18-month) MSc format. Genuinely
+  multidisciplinary programme (explicitly open to library-science, IT, engineering, healthcare backgrounds
+  per its own official page) rather than a stretch-fit.
+
+**Running total after rounds 33-47: 1210 programmes (1179 → 1210, +31), max id 1235, max rank 1206.**

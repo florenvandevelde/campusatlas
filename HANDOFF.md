@@ -11,8 +11,8 @@ for historical context, not as current instructions._
 
 **Standing target is now 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1209 programmes, max id 1234, max rank
-1205** (verified live in Supabase). All rows added so far are translated (nl/fr/de/es) — re-run the
+wider net than the earlier top-50-only audits). **Current state: 1210 programmes, max id 1235, max rank
+1206** (verified live in Supabase). All rows added so far are translated (nl/fr/de/es) — re-run the
 translation-coverage query before continuing to confirm nothing slipped through untranslated.
 
 **A second agent picked this up 2026-08-27 and pushed 1179 → 1200 (+21, rounds 33-42: Nursing, Veterinary
