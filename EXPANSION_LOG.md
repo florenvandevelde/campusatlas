@@ -1742,7 +1742,18 @@ otherwise-reliable "just price it like every other UZH programme" shortcut doesn
 degree structure itself is confirmed. University of Toronto has no graduate journalism/media program at all
 (that's Toronto Metropolitan University, a different institution — easy to confuse, don't).
 
-**Running total after these 30 rounds: 1174 programmes (1100 → 1174, +74), max id 1199, max rank 1170.**
+**Round 31 — Education, second pass this session (ids 1200-1202, translated ✅):**
+- 1200 University of British Columbia — MA Educational Studies: QS Education #22. **Another UBC pricing
+  exception**: International first-year tuition is $17,715.72 (2yr total ≈ $35,431), NOT the ~$10k pattern —
+  Faculty of Education programmes at UBC appear to sit at a different (higher) rate band than Science/Arts
+  research MScs/MAs; median funding is also modest here ($1,450/yr) vs. the $20-34k/yr seen in fully-funded
+  UBC departments. Keep checking each UBC programme's own page rather than assuming either rate.
+- 1201 University of Edinburgh — MSc Comparative Education and International Development: QS Education #9,
+  registry-table-sourced, £32,000 (2026/27 est.)
+- 1202 University of Edinburgh — MSc TESOL: QS Education #9, same Moray House rate, £32,000. Also
+  double-counts as a Development-Studies-adjacent programme worth remembering if that field needs more rows.
+
+**Running total after these 31 rounds: 1177 programmes (1100 → 1177, +77), max id 1202, max rank 1173.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
