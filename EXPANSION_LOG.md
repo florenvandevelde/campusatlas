@@ -2123,3 +2123,16 @@ Both £32,000 total ÷ 0.85 = €37,647, same "QS Law #15 (2026)" tag. Remaining
 identical rate for a future round: European Law, Innovation/Technology and the Law, Comparative Private Law.
 
 **Running total after rounds 33-52: 1219 programmes (1179 → 1219, +40), max id 1244, max rank 1215.**
+
+**Round 53 — Public Health, no QS subject ranking exists for this field (confirmed dead end from an earlier
+session, not re-tried) — sourced via the Edinburgh registry table instead (id 1245, translated ✅):**
+- 1245 University of Edinburgh — Master of Public Health (MPH): Edinburgh Medical School, £32,000 total
+  (2026/27) ÷ 0.85 = €37,647, 1 year full-time. Since no QS subject ranking exists to cite, followed the
+  established fallback convention already used by other Public-Health-tagged rows without one (Copenhagen,
+  Toronto Dalla Lana, Karolinska — a descriptive institutional credential instead of a rank number):
+  "Edinburgh Medical School, one of the world's oldest medical schools (est. 1726)" — factually verifiable,
+  not fabricated. Skipped University of Michigan SPH and UNC Gillings SPH (both famous, top-5 US public
+  health schools) — Michigan's tuition page 403'd, UNC's on-campus fee page 404'd and only the *online* MPH
+  programme's fee (a different, ambiguous $72,870-$85,394 total range) resolved, not a clean on-campus figure.
+
+**Running total after rounds 33-53: 1220 programmes (1179 → 1220, +41), max id 1245, max rank 1216.**
