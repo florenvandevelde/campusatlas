@@ -2099,3 +2099,18 @@ session) and WebSearch only returned broad institutional ranges, not a programme
 Worth another attempt next session with the browser tool if this field needs to grow further.
 
 **Running total after rounds 33-50: 1215 programmes (1179 → 1215, +36), max id 1240, max rank 1211.**
+
+**Round 51 — Law, second pass via the Edinburgh registry-table goldmine (ids 1241-1242, translated ✅):**
+The registry table returned ~10 distinct School of Law LLM titles (Commercial Law, Comparative Private Law,
+Corporate Law, Criminal Law and Criminal Justice, European Law, Human Rights, Global Environment and Climate
+Change Law, Information Technology Law, Innovation Technology and the Law), all at an identical £32,000
+international total for 2026/27 — only the pre-existing generic "LLM (Master of Laws)" row (stored at
+€39,500, an older/different figure not reconciled this round — out of scope) existed for Edinburgh Law
+before this pass. Added two distinctive specialisations:
+- 1241 University of Edinburgh — LLM Human Rights
+- 1242 University of Edinburgh — LLM Global Environment and Climate Change Law
+Both £32,000 total ÷ 0.85 = €37,647, "QS Law #15 (2026)" matching the existing Edinburgh Law row's rank.
+Several more LLM specialisations remain available at the identical rate for a future round (Corporate Law,
+European Law, Criminal Law and Criminal Justice, Innovation/Technology and the Law).
+
+**Running total after rounds 33-51: 1217 programmes (1179 → 1217, +38), max id 1242, max rank 1213.**
