@@ -1878,3 +1878,33 @@ its 2026/27 postgraduate Divinity fee is actually published.
 
 **Running total after these 4 rounds (33-36): 1189 programmes (1179 → 1189, +10), max id 1214, max rank
 1185. All 10 new rows translated (nl/fr/de/es) at insert time.**
+
+**Round 37 — Sports-related Subjects, second pass (ids 1215-1216, translated ✅):** QS top-50 pulled fresh;
+3 pre-existing rows (UBC #4, Toronto #6, Edinburgh #20) already inside it.
+- 1215 Loughborough University — MSc Sport Management: QS Sports-related Subjects **#1 in the world**,
+  official lboro.ac.uk course page confirmed £31,900/yr, 12 months = £31,900 total ÷ 0.85 = €37,529.
+- 1216 German Sport University Cologne — MSc Sport Management: QS #10, confirmed officially on
+  dshs-koeln.de: **no tuition fee at all**, only Germany's standard ~€330/semester contribution × 4 semesters
+  (2yr, 120 ECTS) ≈ €1,320 total — same "genuinely free NRW public university" pattern seen elsewhere in the
+  catalogue (RWTH-style), independently confirmed for this school specifically, not assumed.
+
+**Round 38 — Hospitality & Leisure Management, second pass (ids 1217-1218, translated ✅):** this QS ranking
+is dominated by dedicated Swiss hospitality schools (EHL, Les Roches, Glion etc.) whose fee sheets are
+PDF-download-only (confirmed again this round — not re-attempted, same dead end as round 28's note).
+Targeted mainstream universities instead.
+- 1217 Hotelschool The Hague — MBA International Hospitality Management: QS #7, official hotelschool.nl page
+  confirmed 13-month duration; €22,174 tuition is the figure found via WebSearch for 2026-27 entry
+  specifically (the live page has since rolled over to display the 2027-28 rate of €22,772 instead — normal
+  for a page showing "next available intake" — so treat this one as needing a quick re-check next session if
+  the 2026-27 cohort's own rate can't be re-confirmed).
+- 1218 Hong Kong Polytechnic University (PolyU) — MSc International Hospitality Management: QS #15, first
+  PolyU row in this catalogue. PolyU's own course page doesn't list a fee or duration, but PolyU's official
+  central tuition-fees page confirms **HK$369,000 as the standard flat rate for ALL PolyU taught-postgraduate
+  programmes** (a genuine uniform-fee pattern, not a Hospitality-specific number) — used that, converted
+  HK$369,000 ÷ 8.45 = €43,669. Duration taken as 18 months per WebSearch (most PolyU MSc/PgD schemes run
+  1.5 years) — not independently confirmed on the specific course page, flag if precision matters later.
+Skipped: UNLV Master of Hospitality Administration (QS #6) — official unlv.edu page only gives a
+per-credit/per-semester fee breakdown with no clean total, and directs to an interactive cost calculator
+tool rather than a static number; didn't resolve a confident total this round.
+
+**Running total after rounds 33-38: 1193 programmes (1179 → 1193, +14), max id 1218, max rank 1189.**

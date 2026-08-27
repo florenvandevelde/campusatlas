@@ -11,17 +11,18 @@ for historical context, not as current instructions._
 
 **Standing target is now 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1189 programmes, max id 1214, max rank
-1185** (verified live in Supabase). All rows added so far are translated (nl/fr/de/es) — re-run the
+wider net than the earlier top-50-only audits). **Current state: 1193 programmes, max id 1218, max rank
+1189** (verified live in Supabase). All rows added so far are translated (nl/fr/de/es) — re-run the
 translation-coverage query before continuing to confirm nothing slipped through untranslated.
 
-**A second agent picked this up 2026-08-27 and pushed 1179 → 1189 (+10, rounds 33-36: Nursing, Veterinary
-Science, Development Studies, Theology second passes) — see EXPANSION_LOG.md's "New session, resumed from
-1179 handoff" section for full detail, including a St Andrews near-miss (an undergraduate fee almost got
-mistaken for the postgraduate one — don't reuse £33,250 for St Andrews Divinity) and two well-corroborated-
-but-not-official-page-confirmed fees (Melbourne Nursing, Birmingham Theology) worth a follow-up verification
-pass.** 111 programmes short of the 1300 target. Nothing broken or mid-edit; continue the same way — re-run
-the field-thinness query below, pick the next QS subject, keep going.
+**A second agent picked this up 2026-08-27 and pushed 1179 → 1193 (+14, rounds 33-38: Nursing, Veterinary
+Science, Development Studies, Theology, Sports-related Subjects, Hospitality & Leisure Management second
+passes) — see EXPANSION_LOG.md's "New session, resumed from 1179 handoff" section for full detail, including
+a St Andrews near-miss (an undergraduate fee almost got mistaken for the postgraduate one — don't reuse
+£33,250 for St Andrews Divinity) and a few well-corroborated-but-not-official-page-confirmed fees (Melbourne
+Nursing, Birmingham Theology, Hotelschool The Hague, PolyU Hospitality duration) worth a follow-up
+verification pass.** 107 programmes short of the 1300 target. Nothing broken or mid-edit; continue the same
+way — re-run the field-thinness query below, pick the next QS subject, keep going.
 
 **Seven entirely new fields were opened this session** (zero pre-existing rows before this session's first
 row in each): Development Studies, Sports-related Subjects, Nursing, Veterinary Science, Theology/Divinity/
