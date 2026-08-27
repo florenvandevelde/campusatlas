@@ -2177,3 +2177,15 @@ listing for the whole school and found MA Journalism (IJCT026, £30,625) and MA 
   and Law is no longer among the catalogue's thinnest fields anyway, so not worth an unverified rank claim.
 
 **Running total: 1226 programmes (1225 → 1226, +1 this round), max id 1251, max rank 1222.**
+
+**Round 57 — History, fourth pass via the Edinburgh registry table (ids 1252-1253, translated ✅):** The
+School of History, Classics and Archaeology runs ~15 distinct MSc titles all at £32,000 international total
+(Ancient History, Archaeology, Classical Art and Archaeology, Classics, Contemporary History, History,
+Intellectual History, Medieval History, Mediterranean Archaeology, plus Edinburgh College of Art's art-history
+titles) — only the generic "MSc History" pre-existed in this catalogue.
+- 1252 University of Edinburgh — MSc Medieval History
+- 1253 University of Edinburgh — MSc Contemporary History
+Both £32,000 total ÷ 0.85 = €37,647, "QS History #22 (2026)". Several more titles remain available at the
+identical rate (Ancient History, Archaeology, Intellectual History, Classics) for a future round.
+
+**Running total: 1228 programmes (1226 → 1228, +2 this round), max id 1253, max rank 1224.**
