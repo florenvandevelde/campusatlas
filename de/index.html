@@ -1074,7 +1074,7 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
     <div class="hpl-wash"></div>
   </div>
   <div class="wrap">
-    <div class="eyebrow"><span class="dot"></span> <span id="heroStats">1173 programmes, 46 countries, 7 continents</span></div>
+    <div class="eyebrow"><span class="dot"></span> <span id="heroStats">1179 programmes, 46 countries, 7 continents</span></div>
     <h1>Die besten Masterstudiengänge, <em>überall</em> auf der Welt.</h1>
     <p class="lede">Campus Atlas kartiert die bestplatzierten Masterstudiengänge an den führenden Universitäten der Welt, Wirtschaft, Ingenieurwesen, Wissenschaft und mehr, sodass du Studiengebühren, Dauer, Zugangsvoraussetzungen und Fristen nebeneinander vergleichen kannst, bevor du ein Jahr deines Lebens festlegst.</p>
 
@@ -1099,13 +1099,11 @@ window.va = window.va || function () { (window.vaq = window.vaq || []).push(argu
     </div>
 
 
-    <!-- statPrograms/statCountries start at 0 on purpose: hydrateFromCatalogue() animates
-         them counting up once the real totals are known (see animateCount()), so the
-         load reads as an intentional reveal rather than a stale number sitting there.
-         The other two are ranges, not counts, so they just get set once, directly. -->
+    <!-- Static fallback shown until hydrateFromCatalogue() overwrites it post-fetch; keep
+         roughly current so a slow connection never flashes a wildly stale number. -->
     <div class="stats">
-      <div class="stat"><b id="statPrograms">0</b><span>STUDIENGÄNGE</span></div>
-      <div class="stat"><b id="statCountries">0</b><span>LÄNDER</span></div>
+      <div class="stat"><b id="statPrograms">1179</b><span>STUDIENGÄNGE</span></div>
+      <div class="stat"><b id="statCountries">46</b><span>LÄNDER</span></div>
       <div class="stat"><b id="statTuitionRange">€0–€172k</b><span>STUDIENGEBÜHREN</span></div>
       <div class="stat"><b id="statMonthsRange">9–42</b><span>MONATE</span></div>
     </div>
@@ -6587,23 +6585,6 @@ $("scholarshipApply").addEventListener("click", () => {
 
 const eurK = n => n === 0 ? "€0" : `€${Math.round(n / 1000)}k`;
 
-// Counts up from 0 to `to` on an ease-out curve (fast start, settles on the exact
-// figure) instead of the number just appearing once the fetch resolves — the load
-// itself can't be instant, but this reads as an intentional reveal rather than a
-// stat that looks stuck or broken while the catalogue loads.
-function animateCount(el, to, duration = 900) {
-  if (!el) return;
-  const start = performance.now();
-  function tick(now) {
-    const t = Math.min(1, (now - start) / duration);
-    const eased = 1 - Math.pow(1 - t, 3);
-    el.textContent = Math.round(to * eased);
-    if (t < 1) requestAnimationFrame(tick);
-    else el.textContent = to;
-  }
-  requestAnimationFrame(tick);
-}
-
 // Everything that reads the catalogue's shape rather than a single row: the tuition
 // slider's ceiling and the hero/footer counts. It runs after the fetch instead of at
 // script-eval time, and keeps the hero eyebrow and the footer stat tiles reading from
@@ -6616,8 +6597,8 @@ function hydrateFromCatalogue() {
 
   const statCountryCount = new Set(PROGRAMS.map(p => p.country)).size;
   const statContinentCount = new Set(PROGRAMS.map(p => p.region)).size;
-  animateCount($("statPrograms"), PROGRAMS.length);
-  animateCount($("statCountries"), statCountryCount);
+  $("statPrograms").textContent = PROGRAMS.length;
+  $("statCountries").textContent = statCountryCount;
   $("heroStats").textContent = `${PROGRAMS.length} Studiengänge, ${statCountryCount} Länder, ${statContinentCount} Kontinente`;
   $("statTuitionRange").textContent = `${eurK(Math.min(...PROGRAMS.map(p => p.tuition)))}–${eurK(Math.max(...PROGRAMS.map(p => p.tuition)))}`;
   $("statMonthsRange").textContent = `${Math.min(...PROGRAMS.map(p => p.months))}–${Math.max(...PROGRAMS.map(p => p.months))}`;
