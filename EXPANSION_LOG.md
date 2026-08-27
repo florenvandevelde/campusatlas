@@ -2025,3 +2025,18 @@ first for dup risk — none of the three schools targeted were already present.
   same Faculty of Arts rate band. Deadline 1 May 2026, confirmed on the same page.
 
 **Running total after rounds 33-45: 1207 programmes (1179 → 1207, +28), max id 1232, max rank 1203.**
+
+**Round 46 — Education, second pass via the Edinburgh Moray House goldmine (ids 1233-1234, translated ✅):**
+Went back to registryservices.ed.ac.uk with the `javascript_tool` table-query trick, this time filtering for
+"education"/"Moray House" broadly rather than one specific programme name. The table returned ~15 distinct
+Moray House School of Education and Sport MSc/PgDip titles all priced at the identical £32,000 international
+rate for 2026/27 (Education, Inclusive Education, Dance Science and Education, Digital Education, Education
+(Child and Adolescent Psychology), Education (Early Childhood Practice and Froebel), Education (Philosophy of
+Education), Education (Research)) — confirming this is a school-wide flat rate, not programme-specific
+pricing, and giving a ready supply of future additions if Education needs more rows later. Added two:
+- 1233 University of Edinburgh — MSc Education (Child and Adolescent Psychology)
+- 1234 University of Edinburgh — MSc Inclusive Education
+Both use the same £32,000 → €37,600 conversion and "QS Education & Training #9 (2026)" ext_rank as the three
+pre-existing Edinburgh Education rows (ids 1131, 1201, 1202), for internal consistency.
+
+**Running total after rounds 33-46: 1209 programmes (1179 → 1209, +30), max id 1234, max rank 1205.**
