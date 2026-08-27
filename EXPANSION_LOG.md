@@ -2231,3 +2231,9 @@ DOM interaction next time. Pivoted to Loughborough instead, reusing the school f
   CS-affiliated school, a materially different fit).
 
 **Running total: 1233 programmes (1232 → 1233, +1 this round), max id 1258, max rank 1229.**
+
+**Round 62 — Education, fourth pass via Sheffield's fee tool (id 1259, translated ✅):**
+- 1259 University of Sheffield — MA Psychology and Education: QS Education & Training #1 in the world,
+  £25,605 (EDCT004) ÷ 0.85 = €30,124.
+
+**Running total: 1234 programmes (1233 → 1234, +1 this round), max id 1259, max rank 1230.**
