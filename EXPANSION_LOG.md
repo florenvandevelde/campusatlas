@@ -1714,7 +1714,20 @@ options instead:
 Used `fields: ["Management"]` / `open_fields: ["Business & Economics"]`, matching the existing Wageningen
 tourism row's tagging convention (no dedicated Hospitality tag exists).
 
-**Running total after these 28 rounds: 1172 programmes (1100 → 1172, +72), max id 1197, max rank 1168.**
+**Round 29 — Performing Arts, a seventh genuinely new field this session (id 1198, translated ✅):** zero
+pre-existing rows (the one `%music%` match was an unrelated engineering programme). This QS ranking is
+dominated by dedicated conservatoires (Juilliard, Royal College of Music, etc.) rather than universities —
+a real, popular international-student vertical but a different institutional character from the rest of
+this catalogue.
+- 1198 University of Melbourne — Master of Music (Orchestral Performance): QS Performing Arts #28, 2yr,
+  A$46,976/yr × 2 = A$93,952 total
+Skipped: University of Toronto Faculty of Music — its tuition is a flat annual program fee looked up via an
+interactive "Tuition Fee Explorer" tool rather than a static published number, no figure resolved this
+round. Used `fields: ["Humanities"]` / `open_fields: ["Arts, Media & Journalism","Social Sciences &
+Humanities"]` — the "Arts, Media & Journalism" open_field value (seen on an existing PoliMi row) fits this
+subject well and is a candidate default for future Performing Arts / Art & Design additions.
+
+**Running total after these 29 rounds: 1173 programmes (1100 → 1173, +73), max id 1198, max rank 1169.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
