@@ -2084,3 +2084,18 @@ reusing the school added in round 38.
   than a literal agriculture/food-science MSc; skipped rather than force a stretch match.
 
 **Running total after rounds 33-49: 1214 programmes (1179 → 1214, +35), max id 1239, max rank 1210.**
+
+**Round 50 — Mechanical Engineering, second pass targeting ranks 51-100 (id 1240, translated ✅):**
+Edinburgh's registry table has NO programme literally named "Mechanical Engineering" or "Aerospace
+Engineering" — Edinburgh's mechanical/aero offering appears to be undergraduate-integrated (MEng) rather
+than a standalone taught MSc, a genuinely different structure from most other UK schools. Substituted the
+closest real match instead.
+- 1240 University of Edinburgh — MSc Digital Design and Manufacture: QS Mechanical, Aeronautical &
+  Manufacturing Engineering #87, School of Engineering, £39,200 total (registry table) ÷ 0.85 = €46,118.
+Skipped: University of Southampton MSc Mechatronics (QS #81=) and University of Bristol MSc Mechanical
+Engineering (QS #66=) — neither official course page rendered a fee in a static fetch (Southampton's course
+finder listing has no fee data at all; Bristol's is presumably JS-gated like its other course pages this
+session) and WebSearch only returned broad institutional ranges, not a programme-specific confirmed figure.
+Worth another attempt next session with the browser tool if this field needs to grow further.
+
+**Running total after rounds 33-50: 1215 programmes (1179 → 1215, +36), max id 1240, max rank 1211.**
