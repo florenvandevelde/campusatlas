@@ -2168,3 +2168,12 @@ listing for the whole school and found MA Journalism (IJCT026, £30,625) and MA 
 
 **Running total: 1225 programmes (1223 → 1225, +2 this round; 1220 → 1225 across rounds 54-55, +5), max id
 1250, max rank 1221.**
+
+**Round 56 — Psychology, third pass via Sheffield's fee tool (id 1251, translated ✅):**
+- 1251 University of Sheffield — MSc Psychological Research Methods: QS Psychology #89, £32,905 (PSYT107,
+  School of Psychology) ÷ 0.85 = €38,712. Checked Sheffield's Law offering too (LLM Law, £26,320,
+  SLWT005) but skipped it — couldn't confirm Sheffield sits inside the QS Law ranking (it wasn't in this
+  catalogue's original top-50 Law audit and wasn't independently re-verified for the 51-100 band this round),
+  and Law is no longer among the catalogue's thinnest fields anyway, so not worth an unverified rank claim.
+
+**Running total: 1226 programmes (1225 → 1226, +1 this round), max id 1251, max rank 1222.**
