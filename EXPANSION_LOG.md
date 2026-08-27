@@ -1939,3 +1939,34 @@ postgraduate fee *ranges* exist (KCL £25-40k, Goldsmiths PDF) but no MMus-speci
   duration; trust the institute's own page over the aggregator here.
 
 **Running total after rounds 33-40: 1197 programmes (1179 → 1197, +18), max id 1222, max rank 1193.**
+
+**Round 41 — Theology, third pass (id 1223, translated ✅):**
+- 1223 University of Groningen — MA Theology and Religious Studies (Religion, Conflict and Globalization
+  track): QS #48. Official rug.nl tuition page confirmed €19,900/yr for the Faculty of Religion, Culture and
+  Society, 2026-27 (up from €19,200 in 2025-26). Confirmed via the programme's own page that the standard
+  track is a genuine 1-year, 60-ECTS full-time MA (distinct from a separate 2-year Research Master's option)
+  — 12 months, not 24. Skipped: Vrije Universiteit Amsterdam (#40) — VU's tuition pages are all indirect
+  links to a PDF/lookup tool, no programme-specific figure resolved.
+
+**Round 42 — Art & Design, a new field for this catalogue (ids 1224-1225, translated ✅):** QS Art & Design
+top-50 pulled fresh. **No catalogue `fields` tag exists for this subject** (confirmed against HANDOFF's field
+vocabulary list) — used `fields: ['Engineering']` (matching the existing "materials-science masters borrow
+Engineering" convention) + `open_fields: ['Architecture & Design']`, the exact BACKGROUND_OPTIONS value
+confirmed via grep of index.html's array (~line 2360) rather than assumed from memory. This QS ranking is
+dominated by dedicated art/design schools (RCA, UAL, RISD, Pratt, etc.) with a different institutional
+character from the rest of the catalogue (same pattern as Performing Arts) — targeted the two mainstream
+technical universities in the top 15 instead, both of which happen to already have a well-established
+tuition-storage convention in this catalogue from their many existing Engineering rows.
+- 1224 Delft University of Technology — MSc Design for Interaction: QS Art & Design #13, Faculty of
+  Industrial Design Engineering. €22,290/yr — well-corroborated across two independent aggregators (not
+  independently official-page-confirmed, TU Delft's own course page doesn't list fees), but matches TU
+  Delft's existing rows' storage convention (annual, not total) and sits right in the €20,000-22,300 band
+  every other TU Delft row in the catalogue already uses.
+- 1225 Aalto University — MA Collaborative and Industrial Design: QS Art & Design #9. Officially confirmed
+  on aalto.fi's central scholarships-and-tuition-fees page: €20,000/yr for the "Fields of Art and
+  Architecture" master's category, 2-year normative duration. Matches the existing Aalto University MSc
+  Architecture row (id already in catalogue) exactly, which charges the identical €20,000/yr under the same
+  fee category — strong internal consistency check.
+
+**Running total after rounds 33-42: 1200 programmes (1179 → 1200, +21 across 10 rounds this pickup), max id
+1225, max rank 1196. All 21 new rows translated (nl/fr/de/es) at insert time.**

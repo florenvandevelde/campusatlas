@@ -11,19 +11,24 @@ for historical context, not as current instructions._
 
 **Standing target is now 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1197 programmes, max id 1222, max rank
-1193** (verified live in Supabase). All rows added so far are translated (nl/fr/de/es) — re-run the
+wider net than the earlier top-50-only audits). **Current state: 1200 programmes, max id 1225, max rank
+1196** (verified live in Supabase). All rows added so far are translated (nl/fr/de/es) — re-run the
 translation-coverage query before continuing to confirm nothing slipped through untranslated.
 
-**A second agent picked this up 2026-08-27 and pushed 1179 → 1197 (+18, rounds 33-40: Nursing, Veterinary
-Science, Development Studies ×2, Theology, Sports-related Subjects, Hospitality & Leisure Management,
-Performing Arts second/third passes) — see EXPANSION_LOG.md's "New session, resumed from 1179 handoff"
-section for full detail, including a St Andrews near-miss (an undergraduate fee almost got mistaken for the
-postgraduate one — don't reuse £33,250 for St Andrews Divinity) and a few well-corroborated-but-not-official-
-page-confirmed fees (Melbourne Nursing, Birmingham Theology, Hotelschool The Hague, PolyU Hospitality
-duration) worth a follow-up verification pass.** 103 programmes short of the 1300 target. Nothing broken or
-mid-edit; continue the same way — re-run the field-thinness query below, pick the next QS subject, keep
-going.
+**A second agent picked this up 2026-08-27 and pushed 1179 → 1200 (+21, rounds 33-42: Nursing, Veterinary
+Science, Development Studies ×3, Theology ×3, Sports-related Subjects, Hospitality & Leisure Management,
+Performing Arts second/third passes, plus a brand-new Art & Design field) — see EXPANSION_LOG.md's "New
+session, resumed from 1179 handoff" section for full detail, including a St Andrews near-miss (an
+undergraduate fee almost got mistaken for the postgraduate one — don't reuse £33,250 for St Andrews
+Divinity) and a few well-corroborated-but-not-official-page-confirmed fees (Melbourne Nursing, Birmingham
+Theology, Hotelschool The Hague, PolyU Hospitality duration, TU Delft Design for Interaction) worth a
+follow-up verification pass. **Art & Design is an eighth entirely new field opened this session** — no
+catalogue `fields` tag exists for it either; used `fields: ['Engineering']` + `open_fields: ['Architecture &
+Design']` (the exact BACKGROUND_OPTIONS value, grepped not assumed) as the closest fit for the two
+technical-university design programmes added (TU Delft, Aalto) — a future session should decide whether this
+deserves its own tag once more rows accumulate, same open question as the seven new fields from the prior
+session.** 100 programmes short of the 1300 target. Nothing broken or mid-edit; continue the same way —
+re-run the field-thinness query below, pick the next QS subject, keep going.
 
 **Seven entirely new fields were opened this session** (zero pre-existing rows before this session's first
 row in each): Development Studies, Sports-related Subjects, Nursing, Veterinary Science, Theology/Divinity/
