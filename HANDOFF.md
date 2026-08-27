@@ -11,8 +11,8 @@ for historical context, not as current instructions._
 
 **Standing target is now 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1230 programmes, max id 1255, max rank
-1226** (verified live in Supabase). Discovered this round: `tools.sheffield.ac.uk/fees/pgt/` is a searchable
+wider net than the earlier top-50-only audits). **Current state: 1232 programmes, max id 1257, max rank
+1228** (verified live in Supabase). Discovered this round: `tools.sheffield.ac.uk/fees/pgt/` is a searchable
 Home/Overseas fee table (like Edinburgh's registry table) — Sheffield's course pages are JS-gated and always
 blocked WebFetch before, but this tool works via the Browser pane. All rows added so far are translated (nl/fr/de/es) — re-run the
 translation-coverage query before continuing to confirm nothing slipped through untranslated.

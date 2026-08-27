@@ -2214,3 +2214,12 @@ DOM interaction next time. Pivoted to Loughborough instead, reusing the school f
   options.
 
 **Running total: 1230 programmes (1229 → 1230, +1 this round). Clean milestone: 1230/1300, 70 to go.**
+
+**Round 60 — Mechanical Engineering, third pass via Sheffield's fee tool (ids 1256-1257, translated ✅):**
+- 1256 University of Sheffield — MSc Advanced Mechanical Engineering: QS Mechanical, Aeronautical &
+  Manufacturing Engineering #63, £32,905 (MACT009, School of Mechanical, Aerospace and Civil Engineering) ÷
+  0.85 = €38,712.
+- 1257 University of Sheffield — MSc Aerospace Engineering: same QS #63 school, £32,905 (MACT002) ÷ 0.85 =
+  €38,712. Both fill the gap Southampton/Bristol left unresolved in round 50.
+
+**Running total: 1232 programmes (1230 → 1232, +2 this round), max id 1257, max rank 1228.**
