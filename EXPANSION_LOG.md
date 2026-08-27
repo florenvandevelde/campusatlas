@@ -1792,3 +1792,89 @@ CA$10k/yr for internationals, funded via TA/RA work — this is NOT a data-entry
 Canadian research master's are priced, confirmed independently across 3 different UBC programmes and one
 Toronto program this session. Don't "correct" these to match the much higher US or UK figures nearby in the
 catalogue.
+
+## New session, resumed from 1179 handoff (2026-08-27, "another agent" pickup)
+
+Picked up exactly where the 2026-08-26/27 session left off (1179/1300, all translated). Continued the
+same ranking-first method. 4 rounds this session so far (+10 rows, 1179 → 1189).
+
+**Round 33 — Nursing, second pass (ids 1205-1207, translated ✅):** QS Nursing top-50 pulled fresh; all 3
+pre-existing rows (UBC #22, Toronto #4, Edinburgh #44) already sit inside it, no dup risk.
+- 1205 Trinity College Dublin — MSc in Nursing: QS Nursing #10, official ku.ie-equivalent fee page (via
+  tcd.ie/courses/postgraduate/fees/) confirmed €22,950/yr, 1-year full-time = €22,950 total. Requires
+  current nurse registration (RN), same convention as the other Nursing rows (prereq left null, described
+  in blurb only).
+- 1206 Yale University, School of Nursing — MSN: QS Nursing #15, official nursing.yale.edu fee page
+  confirmed $27,168/semester × 2 = $54,336/yr; RN-pathway is 2 years full-time → $108,672 total ÷ 1.08 =
+  €100,622. RN license required (on-campus specialty tracks only enrol licensed nurses).
+- 1207 University of Melbourne — Master of Nursing Science: QS Nursing #29, a genuine pre-registration
+  entry-to-practice degree (open to graduates of ANY discipline, no nursing background needed — unlike
+  every other Nursing row in the catalogue). A$44,000/yr × 2yr = A$88,000 total ÷ 1.65 = €53,333. **Fee
+  figure is a well-corroborated WebSearch number, not independently official-page-confirmed** — both
+  study.unimelb.edu.au fee pages (course page and the PDF fee table) returned HTTP 403 on direct fetch;
+  multiple aggregators (IDP, IDP-linked IB, Shiksha) independently converge on the same $44,000 EFTSL figure
+  quoted as sourced from the official page, so treated as reliable, but flagging per the standing rule.
+Skipped this round (couldn't get an official, unambiguous figure in one pass): KCL MSc Clinical Nursing (fee
+page is JS-rendered, resolves nothing via WebFetch, generic aggregator range only), University of
+Manchester (same JS-rendered-fee-tab problem as before), University of Washington MSN (aggregator-only
+$35,325/yr, official nursing.uw.edu costs page 404'd and didn't list a traditional MSN), University of
+Michigan MSN (registrar PDF fee bulletin is a scanned/compressed PDF WebFetch couldn't parse, main tuition
+page 403'd), Karolinska Institutet (checked directly — KI does **not** offer a standalone Nursing master's,
+only undergraduate/specialist-nursing tracks; don't retry this one).
+
+**Round 34 — Veterinary Science, second pass (id 1208, translated ✅):** confirms the HANDOFF's existing
+note that this field is structurally awkward for a taught-master's catalogue — most QS-ranked vet schools'
+flagship degree is a DVM/BVetMed requiring a prior veterinary or science degree (or, at Melbourne,
+graduate-entry restricted to AU/NZ citizens for the clinical residency component), so this round again
+specifically hunted for non-clinical MSc-level programmes open to general life-sciences graduates.
+- 1208 University of Liverpool — MSc Planetary and One Health: QS Veterinary Science #11, confirmed
+  officially on liverpool.ac.uk at £30,000/yr, 12 months = £30,000 total ÷ 0.85 = €35,294. Genuinely open to
+  any life-sciences graduate, not vets only.
+Skipped: Glasgow's MSc One Health & Infectious Disease (QS #31) — confirmed officially at a flat £15,000
+total (uniform across all student categories, unusually cheap) but turned out to be 100%-online,
+part-time-only, 2.5-6 year format — too far from this catalogue's typical full-time on-campus taught-master's
+shape to add without a clearer product decision on how the `online` flag should represent multi-year
+distance credentials. University of Sydney Master of Animal Science ($43,000 AUD/yr per aggregator) and
+Master of Veterinary Public Health Management (distance-only, stale 2016-17 handbook data, no current fee
+found) both deferred — neither resolved a confidently-current, unambiguous official figure this round.
+University of Melbourne's own "Master of Veterinary Science" (distinct from the Master of Nursing Science
+added in round 33) explicitly requires an existing veterinary degree plus VETBOARD registration — not a fit,
+skip permanently, don't re-try.
+
+**Round 35 — Development Studies, second pass (ids 1209-1211, translated ✅):** QS Development Studies top-50
+pulled fresh; 3 pre-existing rows (Manchester #5, SOAS #2, Edinburgh #30) already inside it. Targeted the
+next-highest-ranked genuine gaps.
+- 1209 University of Sussex — MA Development Studies: QS Development Studies **#1 in the world**, taught at
+  the Institute of Development Studies (the founding institution of the field). Confirmed £18,975 for 2026
+  entry (Sussex's own fees page, via WebSearch synthesis) ÷ 0.85 = €22,324. 1 year, September start.
+- 1210 London School of Economics — MSc Development Studies: QS #4, official lse.ac.uk course page confirmed
+  £30,400/yr, 12 months = £30,400 total ÷ 0.85 = €35,765.
+- 1211 University College London — MSc Global Prosperity: QS #10. Programme title differs from
+  "Development Studies" (it's UCL's Institute for Global Prosperity's flagship interdisciplinary
+  development/prosperity degree, the closest genuine equivalent UCL offers within this QS subject) — flagged
+  here in case a future session finds a more literally-named UCL Development Studies programme instead.
+  Official ucl.ac.uk course page confirmed £35,400/yr, 12 months = £35,400 total ÷ 0.85 = €41,647.
+
+**Round 36 — Theology, Divinity & Religious Studies, second pass (ids 1212-1214, translated ✅):** QS
+Theology top-50 pulled fresh; 3 pre-existing rows (KU Leuven #8, Edinburgh #16, Toronto #19) already inside
+it.
+- 1212 Durham University — MA Theology and Religion: QS #4. Official durham.ac.uk course page (V8K407)
+  403'd on direct WebFetch, but the £28,250/yr figure came through clean via WebSearch synthesis directly
+  quoting that same official page (course code cited) — treated as well-corroborated. ÷0.85 = €33,235.
+- 1213 Leiden University — MA Religious Studies: QS #23, official universiteitleiden.nl tuition-fees page
+  for this exact programme confirmed €22,300/yr (native EUR, non-EEA rate), 1 year.
+- 1214 University of Birmingham — MA Theology and Religion: QS #31. First-ever Birmingham row in this
+  catalogue. Official course page's international fee is JS-rendered/dynamic (didn't resolve via WebFetch)
+  but duration (1yr), start (September) and deadline (28 August 2026) all came from the official page
+  directly; the £27,090/yr figure is WebSearch-corroborated only, not independently official-page-confirmed
+  — flag for verification if audited. ÷0.85 = €31,871.
+**Skipped and do not re-try the same way**: University of St Andrews MLitt Divinity/Theology programmes
+(QS #13) — checked two separate official St Andrews pages (the specific Christian Theology MLitt page, and
+the general postgraduate fees table); both explicitly say the international/overseas MLitt Divinity fee
+"has yet to be set" for 2026/27 entry, and an earlier £33,250 figure that looked plausible turned out on
+closer reading to be Andrews' **undergraduate** rate for Arts/Divinity/Science, not postgraduate — a
+near-miss worth flagging so a future session doesn't reuse that number by mistake. Revisit St Andrews once
+its 2026/27 postgraduate Divinity fee is actually published.
+
+**Running total after these 4 rounds (33-36): 1189 programmes (1179 → 1189, +10), max id 1214, max rank
+1185. All 10 new rows translated (nl/fr/de/es) at insert time.**
