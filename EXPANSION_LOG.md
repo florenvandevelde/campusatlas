@@ -1908,3 +1908,34 @@ per-credit/per-semester fee breakdown with no clean total, and directs to an int
 tool rather than a static number; didn't resolve a confident total this round.
 
 **Running total after rounds 33-38: 1193 programmes (1179 → 1193, +14), max id 1218, max rank 1189.**
+
+**Round 39 — Performing Arts, second pass (ids 1219-1220, translated ✅):** QS top-50 pulled fresh; only 1
+pre-existing row (Melbourne #28). Field is dominated by dedicated conservatoires (Juilliard, RCM, etc.) with
+a different institutional character — targeted mainstream universities with strong music departments.
+- 1219 McGill University, Schulich School of Music — Master of Music (Performance): QS #15. Official
+  mcgill.ca graduate tuition-rates page confirmed the general (non-exempted) international Master's rate
+  applies to Music — CA$10,674.30/term × 2 terms/yr × 2yr = CA$42,697.20 total ÷ 1.48 = €28,849. Same
+  thesis-based low-tuition Canadian pattern already well-documented in this catalogue.
+- 1220 Royal Holloway, University of London — MMus Music (Composition pathway): QS #37, first Royal Holloway
+  row in this catalogue. Official royalholloway.ac.uk course page confirmed £24,500/yr, 12 months = £24,500
+  total ÷ 0.85 = €28,824.
+Skipped: NYU Steinhardt MM (QS #8) — official per-credit rate ($2,363/credit) confirmed, but couldn't find
+an official total-credit-count for the MM Performance tracks in one pass (curriculum pages describe course
+structure, not a summable total), so didn't want to guess a total; revisit if a future session finds the
+exact credit count. King's College London MMus (QS #48) and Goldsmiths MMus (QS #43) both blocked by the
+same JS-rendered/PDF-only fee pages seen repeatedly this session for London institutions — general
+postgraduate fee *ranges* exist (KCL £25-40k, Goldsmiths PDF) but no MMus-specific figure resolved.
+
+**Round 40 — Development Studies, third pass (ids 1221-1222, translated ✅):**
+- 1221 Wageningen University & Research — MSc International Development Studies: QS #8, official wur.nl
+  tuition page confirmed the current non-EEA institutional rate €21,900/yr for 2026-27 — stored as the
+  ANNUAL fee (24 months), matching every other pre-existing WUR row's convention (see the tuition-basis
+  MAJOR OPEN ISSUE note near the top of HANDOFF.md).
+- 1222 Erasmus University Rotterdam, International Institute of Social Studies (ISS) — MA Development
+  Studies: QS #23, first ISS row in this catalogue (added under a distinct school name from RSM/Erasmus's
+  business-school rows, since ISS is a separate, dedicated development-studies institute in The Hague).
+  Official iss.nl fees page explicitly labels €21,000 as "Tuition fee (in total)" for a genuinely 1-year
+  programme — confirmed NOT a per-year rate despite one aggregator (topuniversities) claiming a 16-month
+  duration; trust the institute's own page over the aggregator here.
+
+**Running total after rounds 33-40: 1197 programmes (1179 → 1197, +18), max id 1222, max rank 1193.**
