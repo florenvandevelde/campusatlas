@@ -2237,3 +2237,13 @@ DOM interaction next time. Pivoted to Loughborough instead, reusing the school f
   £25,605 (EDCT004) ÷ 0.85 = €30,124.
 
 **Running total: 1234 programmes (1233 → 1234, +1 this round), max id 1259, max rank 1230.**
+
+**Round 63 — Law, fourth pass, two more Edinburgh LLMs from the already-confirmed rate band (ids 1260-1261,
+translated ✅):** No new research needed — drawing down the remaining titles identified in round 51's
+Edinburgh School of Law sweep.
+- 1260 University of Edinburgh — LLM European Law
+- 1261 University of Edinburgh — LLM Innovation, Technology and the Law
+Both £32,000 total ÷ 0.85 = €37,647, "QS Law #15 (2026)". Only Comparative Private Law remains unused from
+the originally identified list.
+
+**Running total: 1236 programmes (1234 → 1236, +2 this round), max id 1261, max rank 1232.**
