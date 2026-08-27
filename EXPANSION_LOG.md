@@ -2223,3 +2223,11 @@ DOM interaction next time. Pivoted to Loughborough instead, reusing the school f
   €38,712. Both fill the gap Southampton/Bristol left unresolved in round 50.
 
 **Running total: 1232 programmes (1230 → 1232, +2 this round), max id 1257, max rank 1228.**
+
+**Round 61 — Information Science, fourth pass via Sheffield's fee tool (id 1258, translated ✅):**
+- 1258 University of Sheffield — MSc Information Systems: QS Library & Information Management #1 in the
+  world, £30,625 (Information School/iSchool) ÷ 0.85 = €36,029. Genuinely housed in the QS #1 school for this
+  exact subject, unlike the Edinburgh Data Science programmes skipped in round 47 (those sit in a
+  CS-affiliated school, a materially different fit).
+
+**Running total: 1233 programmes (1232 → 1233, +1 this round), max id 1258, max rank 1229.**
