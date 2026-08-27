@@ -2189,3 +2189,17 @@ Both £32,000 total ÷ 0.85 = €37,647, "QS History #22 (2026)". Several more t
 identical rate (Ancient History, Archaeology, Intellectual History, Classics) for a future round.
 
 **Running total: 1228 programmes (1226 → 1228, +2 this round), max id 1253, max rank 1224.**
+
+**Round 58 — Media & Communication, fourth pass (id 1254, translated ✅):** Checked Edinburgh's registry
+table first for a Communication match, but Edinburgh isn't inside the QS Communication & Media Studies
+ranking (neither top-50 nor the 51-100 band fetched earlier this session), so skipped adding an Edinburgh
+row here to avoid an unbacked rank claim — the several genuinely well-priced Edinburgh matches found
+(Science Communication and Public Engagement, Design and Digital Media) stay unused for this field
+specifically. City St George's, University of London (QS #51-100 band) also attempted — its fee is behind a
+JS tab that didn't resolve via WebFetch or a first-pass browser read; worth a second look with more direct
+DOM interaction next time. Pivoted to Loughborough instead, reusing the school from round 37 (Sports).
+- 1254 Loughborough University — MA Media and Communication (London): QS Communication & Media Studies top
+  100 band, delivered at Loughborough's London campus. Official lboro.ac.uk course page confirmed £21,300/yr,
+  1yr = £21,300 total ÷ 0.85 = €25,059.
+
+**Running total: 1229 programmes (1228 → 1229, +1 this round), max id 1254, max rank 1225.**
