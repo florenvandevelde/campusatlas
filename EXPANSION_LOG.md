@@ -1998,3 +1998,30 @@ including id 1224 added this same session) with no way to reconcile which applie
 programme in one pass; skipped rather than risk an inconsistent figure.
 
 **Running total after rounds 33-43: 1201 programmes (1179 → 1201, +22), max id 1226, max rank 1197.**
+
+**Round 44 — History, second pass targeting ranks 51-100 specifically (ids 1227-1229, translated ✅):**
+Since History's top-50 was already fully audited in an earlier session, this round fetched
+`?page=2` of the QS History ranking to reach the 51-100 band (all tied, no precise numeric rank — QS reports
+this band as "51-100" rather than individual positions, so `ext_rank` stores "QS History #51-100 band
+(2026)" instead of a specific number for these three rows, matching the source data's own precision).
+- 1227 Queen Mary University of London — MA History: official qmul.ac.uk course page confirmed £27,250/yr,
+  1yr = £27,250 total ÷ 0.85 = €32,059.
+- 1228 University of Bristol — MA History: first Bristol row in this catalogue. Official bristol.ac.uk
+  course page confirmed £29,300/yr, 1yr = £29,300 total ÷ 0.85 = €34,471.
+- 1229 Utrecht University — MA Modern and Contemporary History: official uu.nl programme-specific fees page
+  confirmed €21,342 for 2026-27 (up from €20,605 in 2025-26) — matches the historically well-behaved
+  Dutch-official-page pattern seen all session.
+
+**Round 45 — Media & Communication, second pass targeting ranks 51-100 (ids 1230-1232, translated ✅):**
+Same "51-100 band" ext_rank precision note applies. Checked all 19 existing Media & Communication rows
+first for dup risk — none of the three schools targeted were already present.
+- 1230 University of Manchester — MA Digital Media, Culture and Society: official manchester.ac.uk course
+  page confirmed £33,100/yr, 1yr = £33,100 total ÷ 0.85 = €38,941.
+- 1231 Leiden University — MA Media Studies (Book and Digital Media Studies): official
+  universiteitleiden.nl programme fee page confirmed €22,300 for 2026-27, matching Leiden's now-familiar
+  standard non-EEA institutional rate seen across multiple Leiden rows this session.
+- 1232 University of Groningen — MA Media Studies (Journalism track): official rug.nl programme page
+  confirmed €19,900/yr, exactly matching the Groningen Theology row (id 1223) added earlier this session —
+  same Faculty of Arts rate band. Deadline 1 May 2026, confirmed on the same page.
+
+**Running total after rounds 33-45: 1207 programmes (1179 → 1207, +28), max id 1232, max rank 1203.**
