@@ -2136,3 +2136,22 @@ session, not re-tried) — sourced via the Edinburgh registry table instead (id 
   programme's fee (a different, ambiguous $72,870-$85,394 total range) resolved, not a clean on-campus figure.
 
 **Running total after rounds 33-53: 1220 programmes (1179 → 1220, +41), max id 1245, max rank 1216.**
+
+## New "continue" session, resumed from 1220 handoff
+
+**Round 54 — closed a long-standing gap flagged across TWO earlier sessions: University of Sheffield was
+QS #1 for both Information Science and Education but its fee page never resolved via WebFetch (ids
+1246-1248, translated ✅).** Found the fix this round: `tools.sheffield.ac.uk/fees/pgt/` is a proper
+searchable fee table (Home/Overseas toggle + keyword search), completely separate from the JS-gated course
+pages that blocked every previous attempt — driven via the Browser pane's click/type tools rather than
+WebFetch, similar in spirit to the Edinburgh registry-table trick but a different site entirely. Worth
+remembering as a third fast-path alongside Edinburgh/UBC/Toronto for any future Sheffield rows.
+- 1246 University of Sheffield — MSc Information Management: QS Library & Information Management **#1 in
+  the world**, Information School (iSchool). Confirmed £30,625 for 2026-27 (course code IJCT002, full-time)
+  ÷ 0.85 = €36,029.
+- 1247 University of Sheffield — MA Librarianship: same QS #1 school, CILIP-accredited. Confirmed £27,755
+  (IJCT001, full-time) ÷ 0.85 = €32,653.
+- 1248 University of Sheffield — MA Education: QS Education & Training **#1 in the world**. Confirmed
+  £25,605 (EDCT003, full-time) ÷ 0.85 = €30,124. First three Sheffield rows in this entire catalogue.
+
+**Running total: 1223 programmes (1220 → 1223, +3 this round), max id 1248, max rank 1219.**
