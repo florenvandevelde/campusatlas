@@ -11,10 +11,14 @@ for historical context, not as current instructions._
 
 **Standing target is now 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1173 programmes, max id 1198, max rank
-1169** (verified live in Supabase, 0 untranslated). All 73 rows added this session are translated
-(nl/fr/de/es) — re-run the translation-coverage query before ending any session to confirm nothing slipped
-through untranslated.
+wider net than the earlier top-50-only audits). **Current state: 1179 programmes, max id 1204, max rank
+1175** (verified live in Supabase). All 79 rows added this session are translated (nl/fr/de/es) — re-run the
+translation-coverage query before continuing to confirm nothing slipped through untranslated.
+
+**⏸️ Session paused by the user at 1179/1300 (2026-08-27) — "another agent will continue."** Nothing is
+broken or mid-edit; every round this session ended with a clean commit (see `git log`), so picking this back
+up is just: re-run the field-thinness query below, pick the next QS subject, keep going with the same
+method. 121 programmes short of the 1300 target.
 
 **Seven entirely new fields were opened this session** (zero pre-existing rows before this session's first
 row in each): Development Studies, Sports-related Subjects, Nursing, Veterinary Science, Theology/Divinity/
@@ -29,16 +33,30 @@ add `?page=2` for ranks 51-100), cross-check against the catalogue by both `fiel
 `ILIKE`, then verify + add genuinely missing schools' programmes — official fee page preferred, a
 well-corroborated WebSearch figure when the official page won't resolve, always cross-checked against how
 that *same school's* other existing rows store `tuition` (annual vs total — see the still-unresolved MAJOR
-OPEN ISSUE below) so within-school comparisons stay consistent. 20 rounds done so far this session (+53
-rows total): Media & Communication (+3), History (+2), Education (+3), Information Science (+2),
-Psychology (+3), Mathematics (+2), Law (+3), Biological Sciences/Biochemistry (+3), Agriculture & Food
-(+3), Chemistry (+3), Physics & Astronomy (+3), Mechanical Engineering (+3), Architecture (+2), Earth &
-Marine Sciences (+3), Materials Sciences (+3), Pharmacy & Pharmacology (+2), Economics & Econometrics (+2),
-Politics (+3), Linguistics (+3), Anthropology (+2). The fee-uniform-school harvest strategy (Bonn ~58
-unadded, TUM ~70, Utrecht ~108, Leiden ~80, University of Amsterdam ~195, Chalmers ~40 — see the 2026-08-22
-section below) is still available as a faster fallback if a field's QS top-100 gaps dry up or become hard to
-verify, but the user's explicit ask this session is rankings-first — prefer that method going forward unless
-told otherwise.
+OPEN ISSUE below) so within-school comparisons stay consistent. 32 rounds done so far this session (+79
+rows total): Media & Communication (+3, then +1 more in round 30), History (+2), Education (+3, then +3
+more in round 31), Information Science (+2, then +2 more in round 32), Psychology (+3), Mathematics (+2),
+Law (+3), Biological Sciences/Biochemistry (+3), Agriculture & Food (+3), Chemistry (+3), Physics &
+Astronomy (+3), Mechanical Engineering (+3), Architecture (+2), Earth & Marine Sciences (+3), Materials
+Sciences (+3), Pharmacy & Pharmacology (+2), Economics & Econometrics (+2), Politics (+3), Linguistics (+3),
+Anthropology (+2), Development Studies (+2, new field), Sports-related Subjects (+3, new field), Nursing
+(+3, new field), Veterinary Science (+2, new field), Theology/Divinity/Religious Studies (+2, new field),
+Hospitality & Leisure Management (+2, new field), Performing Arts (+1, new field). The fee-uniform-school
+harvest strategy (Bonn ~58 unadded, TUM ~70, Utrecht ~108, Leiden ~80, University of Amsterdam ~195,
+Chalmers ~40 — see the 2026-08-22 section below) is still available as a faster fallback if a field's QS
+top-100 gaps dry up or become hard to verify, but the user's explicit ask this session is rankings-first —
+prefer that method going forward unless told otherwise.
+
+**The registryservices.ed.ac.uk static fee table (see the dedicated note further down) turned out to be the
+single biggest efficiency unlock mid-session** — it lists exact fees for all ~759 Edinburgh taught masters
+in one page load, queryable via a `document.querySelectorAll('table tr')` filter through
+`mcp__Claude_Browser__javascript_tool`, completely sidestepping the JS-rendered fee tab that blocks every
+individual `study.ed.ac.uk` course page. Combined with UBC's `grad.ubc.ca` programme pages (consistently
+clean, static, `Ctrl+F`-able "QUICK FACTS" boxes) and Toronto's per-department tuition pages, these three
+schools (Edinburgh/UBC/Toronto) became a fast, reliable trio for filling QS gaps in almost any subject —
+**but their tuition conventions vary WITHIN each school by department/programme type**, not just between
+schools (see the pattern notes below) — always check the specific programme's own page, never assume a
+rate carries over.
 
 **Fields covered by a QS top-100 pass so far** (this session, extending past the old top-50 stops):
 Media & Communication, History, Education, Information Science, Psychology, Mathematics, Law, Biological
