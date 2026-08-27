@@ -1673,7 +1673,22 @@ pre-existing rows before this round. Reused `["Life Sciences"]` / `open_fields: 
 - 1191 University of Edinburgh — MSc Advanced Nursing: QS Nursing #44, sourced via the registryservices.ed.ac.uk
   table (School of Health in Social Science, £30,500 2025-26 rate) — £32,000 (2026/27 est.)
 
-**Running total after these 25 rounds: 1166 programmes (1100 → 1166, +66), max id 1191, max rank 1162.**
+**Round 26 — Veterinary Science, a fourth genuinely new field this session (ids 1192-1193, translated ✅):**
+zero pre-existing rows. Most QS-ranked vet schools' flagship degree is a DVM/BVetMed-equivalent professional
+degree requiring years of prior study — not a fit for this catalogue's taught-master's format — so this
+round specifically targeted the non-clinical MSc-level programmes that sit alongside the professional degree
+at top vet schools, open to graduates from a life-sciences background generally, not just vets.
+- 1192 University of Edinburgh — MSc Applied Animal Behaviour and Animal Welfare: QS Veterinary Science #6,
+  sourced via the registryservices.ed.ac.uk table (Royal (Dick) School of Veterinary Studies, £24,700
+  2025-26 rate) — £25,900 (2026/27 est.)
+- 1193 Utrecht University — MSc Epidemiology (Veterinary Epidemiology specialisation): QS Veterinary Science
+  #9, €25,306 confirmed official for 2026-27 on uu.nl
+Skipped: Royal Veterinary College (QS #1) — its non-DVM specialist master's (MSc Wild Animal Health) is
+explicitly restricted to "qualified veterinarians" per RVC's own programme description, too narrow an
+entry requirement to fit this catalogue's general international-student audience; worth reconsidering only
+if a future session wants to start using the `prereq` field more aggressively for licensure-gated programmes.
+
+**Running total after these 26 rounds: 1168 programmes (1100 → 1168, +68), max id 1193, max rank 1164.**
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
