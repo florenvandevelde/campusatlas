@@ -2155,3 +2155,16 @@ remembering as a third fast-path alongside Edinburgh/UBC/Toronto for any future 
   £25,605 (EDCT003, full-time) ÷ 0.85 = €30,124. First three Sheffield rows in this entire catalogue.
 
 **Running total: 1223 programmes (1220 → 1223, +3 this round), max id 1248, max rank 1219.**
+
+**Round 55 — Media & Communication, third pass, mining Sheffield's fee tool further (ids 1249-1250,
+translated ✅):** Sheffield's School of Information, Journalism and Communication (the same school as the
+round-54 additions) also runs Media & Communication-relevant programmes — checked the fee table's Overseas
+listing for the whole school and found MA Journalism (IJCT026, £30,625) and MA Global Journalism (IJCT027,
+£27,755) plus MA International Public and Political Communication (IJCT024, £27,755).
+- 1249 University of Sheffield — MA Journalism: £30,625 ÷ 0.85 = €36,029.
+- 1250 University of Sheffield — MA International Public and Political Communication: £27,755 ÷ 0.85 =
+  €32,653. Picked over MA Global Journalism (same price) as the more distinctive addition — Global
+  Journalism remains available as a near-identical future option if this field needs more rows.
+
+**Running total: 1225 programmes (1223 → 1225, +2 this round; 1220 → 1225 across rounds 54-55, +5), max id
+1250, max rank 1221.**
