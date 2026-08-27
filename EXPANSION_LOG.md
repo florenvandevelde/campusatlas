@@ -1970,3 +1970,31 @@ tuition-storage convention in this catalogue from their many existing Engineerin
 
 **Running total after rounds 33-42: 1200 programmes (1179 → 1200, +21 across 10 rounds this pickup), max id
 1225, max rank 1196. All 21 new rows translated (nl/fr/de/es) at insert time.**
+
+**Round 43 — Statistics & Operational Research, a new field for this catalogue (id 1226, translated ✅):**
+QS top-50 pulled fresh. No dedicated `fields` tag exists for this subject either — used `fields:
+['Mathematics']` (an exact fit, unlike the borrowed tags needed for Art & Design/Performing Arts) +
+`open_fields: ['Mathematics & Statistics']`. Significant overlap risk with this catalogue's existing
+`Mathematics` (37 rows) and `Analytics` (192 rows) tags was checked first — grepped for existing
+`%statistics%`/`%biostatistics%` programme names and found 10 pre-existing rows, 5 of which (ETH #9, Imperial
+#10, UCL #22, Toronto #16, UBC #39) already sit inside the QS top-50, so this pass targeted the next open
+gap instead of re-adding a covered school.
+- 1226 University of Edinburgh — MSc Statistics and Operational Research: QS Statistics & Operational
+  Research #33, an exact programme-name match to the QS subject itself (rare — most schools' stats degrees
+  are just "MSc Statistics"). Sourced via the registryservices.ed.ac.uk live fee table again (this session's
+  established fast-path for Edinburgh) using `mcp__Claude_Browser__javascript_tool` to query
+  `table tr` rows for "statistic" — confirmed £33,200 Overseas rate for 2026-27, School of Mathematics,
+  12 months full-time. **Caught and fixed a live insert bug in this round**: the first INSERT accidentally
+  stored the raw £33,200 GBP figure directly into `tuition` instead of the EUR-converted value — caught
+  immediately via a self-check against the standing "tuition is ALWAYS EUR" rule, corrected via a follow-up
+  UPDATE to the correct €39,059 (£33,200 ÷ 0.85) before this round's translation pass. Worth a spot-check of
+  id 1226 next session to confirm the fix landed cleanly.
+Skipped: University of Warwick MSc Statistics (QS #27) — official course page's "Tuition fees" tab is a
+stub that only links out to an interactive "Find your taught course fees" lookup tool (same dead-end pattern
+as Toronto's Tuition Fee Explorer, flagged earlier this session) — no static figure resolved. TU Delft MSc
+Applied Mathematics (QS #36) — TU Delft's own tuition-fee-finances page gave a materially different
+institutional rate (€25,633/yr) than what this session's other TU Delft rows use (€20,000-22,300/yr range,
+including id 1224 added this same session) with no way to reconcile which applies to this specific
+programme in one pass; skipped rather than risk an inconsistent figure.
+
+**Running total after rounds 33-43: 1201 programmes (1179 → 1201, +22), max id 1226, max rank 1197.**
