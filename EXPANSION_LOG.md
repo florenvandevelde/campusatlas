@@ -1753,7 +1753,30 @@ degree structure itself is confirmed. University of Toronto has no graduate jour
 - 1202 University of Edinburgh — MSc TESOL: QS Education #9, same Moray House rate, £32,000. Also
   double-counts as a Development-Studies-adjacent programme worth remembering if that field needs more rows.
 
-**Running total after these 31 rounds: 1177 programmes (1100 → 1177, +77), max id 1202, max rank 1173.**
+**Round 32 — Information Science, second pass this session (ids 1203-1204, translated ✅):**
+- 1203 University of British Columbia — Master of Library and Information Studies (MLIS): QS Library &
+  Info Mgmt #8, yet another distinct UBC rate band — International first-year $12,728.40 (2yr total
+  ≈ $25,457), between the ~$10k research-MSc rate and the higher professional-degree rates seen elsewhere.
+  UBC genuinely has multiple internal tuition tiers; don't assume any single number applies catalogue-wide.
+- 1204 University of Toronto — Master of Information (MI): QS Library & Info Mgmt #13, professional 2-year
+  iSchool degree, confirmed CA$45,000/yr × 2 = CA$90,000 total — Toronto's most expensive Information
+  Science row this session by a wide margin (contrast with the funded Linguistics/Materials Science rows).
+
+**Running total after these 32 rounds: 1179 programmes (1100 → 1179, +79), max id 1204, max rank 1175.**
+
+## Site bug fix, mid-session (2026-08-27, unrelated to catalogue content)
+User reported the live site's homepage stat counters stuck showing "62" — a static HTML placeholder from
+when the catalogue had 62 rows, now wildly stale at 1173+ rows. Root-caused and fixed in three follow-up
+commits (see `git log` around this point): (1) `fetchCatalogueTable()`'s pagination loop was fetching pages
+sequentially even though the programmes table has been over the 1000-row PostgREST page cap for a while,
+doubling the network round-trips — rewritten to fetch the first two pages in parallel; (2) tried a count-up
+animation for the stat tiles per user request, but it intermittently showed a negative value mid-animation
+(root cause not tracked down — reverted rather than keep debugging an animation-timing issue) so the counters
+now just get set instantly once the fetch resolves, same as the tuition/months range tiles always did; (3)
+refreshed the static HTML placeholder numbers to match live data so any residual slow-network case shows a
+correct-ish number rather than "62". **No catalogue rows were affected.** If stat-tile staleness ever
+resurfaces, re-check the static placeholder values in index.html's hero/stats markup first — they don't
+update themselves and there's no build step tying them to the live Supabase count.
 Note: QS doesn't publish a standalone "Public Health" or "Sociology" subject ranking (both 404'd when
 tried this session) — Public Health field gaps need a different sourcing strategy (school-specific research,
 not a QS top-100 pull) if picked up next; Sociology-tagged rows don't really exist as a distinct catalogue
