@@ -2247,3 +2247,13 @@ Both £32,000 total ÷ 0.85 = €37,647, "QS Law #15 (2026)". Only Comparative P
 the originally identified list.
 
 **Running total: 1236 programmes (1234 → 1236, +2 this round), max id 1261, max rank 1232.**
+
+**Round 64 — History, fifth pass, two more Edinburgh titles from the already-confirmed rate band (ids
+1262-1263, translated ✅):** No new research needed.
+- 1262 University of Edinburgh — MSc Intellectual History
+- 1263 University of Edinburgh — MSc Archaeology
+Both £32,000 total ÷ 0.85 = €37,647, "QS History #22 (2026)". Ancient History and Classics remain unused
+from the originally identified list for a future round.
+
+**Running total: 1238 programmes (1236 → 1238, +2 this round), max id 1263, max rank 1234. 62 short of the
+1300 target.**
