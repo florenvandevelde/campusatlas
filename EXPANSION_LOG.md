@@ -2598,3 +2598,16 @@ row just added) and MA Data Protection and Privacy (Law-adjacent, decent future 
 
 **Running total: 1324 programmes (1320 → 1324, +4 this round), max id 1349, max rank 1320. 676 short of the
 2000 target.**
+
+**Round 82 — eighth goldmine found: University of Galway's postgraduate fees page (ids 1350-1354,
+translated ✅).** `universityofgalway.ie/student-fees/how-much/postgraduate-fees/` is another WebFetch-
+readable comprehensive fee page, native EUR. First University of Galway rows in this catalogue. UL confirmed
+QS World Ranking 284th — used "top-300 world university" fallback (no subject-specific rank chased
+individually this round).
+- 1350 MA History (€19,440), 1351 MSc Health Psychology (€20,540), 1352 MA Global Media and Communication
+  (€20,890), 1353 MA Journalism (€20,890), 1354 Professional Master of Education (€18,940/yr, 2yr) —
+  spanning History, Psychology, Media & Communication (×2), Education.
+
+**Running total: 1329 programmes (1324 → 1329, +5 this round), max id 1354, max rank 1325. 671 short of the
+2000 target. Eight confirmed goldmine universities so far this session: Edinburgh, Sheffield, Glasgow, York,
+UCC, Limerick, DCU, Galway.**
