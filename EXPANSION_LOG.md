@@ -2279,3 +2279,14 @@ never attempted this session.
 
 **Running total: 1242 programmes (1241 → 1242, +1 this round), max id 1267, max rank 1238. 58 short of the
 1300 target.**
+
+**Round 67 — Agriculture & Food, third pass (id 1268, translated ✅):** Fresh Edinburgh registry-table
+sweep for this field, searching "forest|environment and development|sustainable food|ecolog" instead of the
+round-49 "agri|food|crop|soil" terms — found more of the SAC (Scotland's Rural College) joint-programme
+family beyond the Food Security row already added.
+- 1268 University of Edinburgh — MSc Ecological Economics: QS Agriculture & Forestry #69, £40,800 total
+  (School of Geosciences + SAC) ÷ 0.85 = €48,000. "MSc Environment and Development" (same school, same
+  £40,800 rate) remains available for a future round.
+
+**Running total: 1243 programmes (1242 → 1243, +1 this round), max id 1268, max rank 1239. 57 short of the
+1300 target.**
