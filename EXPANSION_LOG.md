@@ -2950,3 +2950,42 @@ that same set, not newly invented here).
 
 All 9 translated (nl/fr/de/es). Verified count: 1415. TCD fee-table goldmine now fully mined —
 no more unused TCD rows banked. Next round: find a 12th goldmine university.
+
+## Round 108: University of Aberdeen — 12th goldmine (1415 → 1425)
+
+Found a genuine full-catalogue PDF: `abdn.ac.uk/media/site/students/documents/PGTaught-tuition-fees-2026-27.pdf`
+— 22 pages listing EVERY taught postgraduate programme's UK/RUK and EU/International fee for
+2026/27, in GBP. Reached via WebSearch (site: search surfaced the direct PDF filename after the
+HTML fees page turned out to have no embedded figures) and read with the Read tool's native PDF
+support (WebFetch can't parse PDF binary — this is the reusable workaround). No dedup conflicts:
+Aberdeen had zero existing rows and isn't in the scholarships table (scholar=false for this batch).
+
+QS 2026: University of Aberdeen ranked **#262** overall (verified via WebSearch) — used as the
+neutral institutional citation ("ranked 262nd...") for all 10 rows, consistent with the established
+convention for schools outside top-N framing range (same pattern as Limerick #401, DCU #410).
+
+Added 10 rows (ids 1441–1450, ranks 1412–1421), all GBP→EUR converted at the standing 0.85 rate:
+- MSc Sociology — £23,000 → €27,059 (Social Sciences)
+- MSc Politics and Public Policy — £23,000 → €27,059 (Public Policy)
+- MSc Psychological Studies — £26,250 → €30,882 (Psychology)
+- MLitt Medieval and Early Modern Studies — £22,000 → €25,882 (History)
+- MPH Public Health — £23,000 → €27,059 (Public Health)
+- LLM International Human Rights — £23,000 → €27,059 (Law)
+- MEd Studies in Education — £23,000 → €27,059 (Education)
+- MSc Cultural and Creative Communication — £23,000 → €27,059 (Media & Communication)
+- MTh Theology — £22,000 → €25,882 (Theology, Divinity & Religious Studies — confirmed exact
+  string match against the one existing row using this field before insert)
+- MSc Medical Physics — £23,000 → €27,059 (Physics)
+
+All 10 translated (nl/fr/de/es). Verified count: 1425.
+
+This 22-page PDF is far from exhausted — dozens of unused fee rows remain banked for future rounds,
+notably: Sex, Gender, Violence (£23,000, Social Sciences), Museum Studies (£23,000, Arts/Media),
+Music MMus (£23,000, Performing Arts), Comparative Literature (£23,000, History/Humanities),
+English Language and Literature (£23,000, History/Humanities), Archaeology (£22,000, closest tag
+Earth Sciences or History), Translation Studies (£23,000, Media & Communication), TESOL (£23,000,
+Education), multiple more LLMs (Maritime Law, Natural Resources Law, International Trade Law,
+General LLM, Business Law and Sustainable Development — all £23,000), Strategic Studies (£23,000,
+Public Policy), Peace and Conflict Studies (£23,000, Public Policy/Politics), International
+Relations (£23,000, Politics). Full PDF content is cached in this session's tool-result history if
+needed again, but re-fetching is cheap (WebFetch the same PDF URL).
