@@ -2739,3 +2739,11 @@ Transitional Justice/Human Rights and Conflict) all banked at the same rate for 
 
 **Running total: 1360 programmes (1356 → 1360, +4 this round), max id 1385, max rank 1356. 640 short of the
 2000 target.**
+
+**Round 93 — remaining Galway LLM titles (ids 1386-1388, translated ✅):** No new research, drawing down
+round 92's fetch further.
+- 1386 LLM International Migration and Refugee Law and Policy, 1387 LLM Peace Operations Humanitarian Law
+  and Conflict, 1388 LLM Law and Digital Innovation — all €20,540, Law field.
+
+**Running total: 1363 programmes (1360 → 1363, +3 this round), max id 1388, max rank 1359. 637 short of the
+2000 target.**
