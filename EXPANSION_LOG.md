@@ -2924,3 +2924,29 @@ Physics), Health Policy and Management (€22,960), Digital Arts and Intermedia 
 Screen Studies (€21,550), Intellectual Property and IT Law (€22,430), Law and Finance (€22,000).
 Sociology/Politics: only PhD entries surfaced on the fees page, not usable for this taught-master's
 catalogue.
+
+## Round 107: TCD goldmine, batch 2 — remaining banked rows (1406 → 1415)
+
+Mined the rest of the TCD fee data banked from round 106's fetch. QS checks this round: Physics &
+Astronomy (top 100) and Performing Arts (top 100) subject rankings both fetched fresh for TCD —
+Physics not found in either top-50 or 51-100 pages (institutional credit used instead); Performing
+Arts confirmed TCD in the 51-100 band (exact numeric rank not shown on the mirror site, cited as
+"ranked 51-100").
+
+Added 9 rows (ids 1432–1440, ranks 1403–1411), all native EUR, scholar=true:
+- MFA Playwriting (The Lir Academy) — €23,480, 24 months (Performing Arts)
+- MFA Theatre Directing (The Lir Academy) — €23,480, 24 months (Performing Arts)
+- MSc Global Mental Health — €22,950 (Public Health)
+- Postgraduate Higher Diploma in Psychology (Conversion) — €22,000, 9 months (Psychology)
+- MSc Quantum Fields, Strings and Gravity — €25,560 (Physics)
+- MSc Health Policy and Management — €22,960 (Public Health)
+- MA Digital Arts and Intermedia Practices — €21,418 (Art & Design)
+- LLM Intellectual Property and Information Technology Law — €22,430 (Law)
+- LLM Law and Finance — €22,000 (Law)
+
+"Performing Arts" and "Art & Design" fields values used per the established new-field vocabulary
+(no dedicated fields tag existed before this session's earlier rounds; these two are drawn from
+that same set, not newly invented here).
+
+All 9 translated (nl/fr/de/es). Verified count: 1415. TCD fee-table goldmine now fully mined —
+no more unused TCD rows banked. Next round: find a 12th goldmine university.
