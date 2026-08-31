@@ -18,18 +18,19 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1425 programmes, max id 1450, max rank
-1421** (verified live in Supabase). Twelfth confirmed goldmine — and the richest one found this
+wider net than the earlier top-50-only audits). **Current state: 1434 programmes, max id 1459, max rank
+1430** (verified live in Supabase). Twelfth confirmed goldmine — and the richest one found this
 session: `abdn.ac.uk/media/site/students/documents/PGTaught-tuition-fees-2026-27.pdf` (University
 of Aberdeen), a 22-page PDF listing literally every taught postgraduate programme's UK and
 International fee for 2026/27 in GBP. **Key technique: WebFetch cannot parse PDF binary — find the
 direct PDF URL via WebSearch (site:abdn.ac.uk ... pdf), then read it with the Read tool, which has
-native PDF support.** Only 10 of the dozens of usable rows have been mined so far (round 108) —
-huge amount of banked, unused fee data remains: Sex/Gender/Violence, Museum Studies, Music MMus,
-Comparative Literature, English Language and Literature, Archaeology, Translation Studies, TESOL,
-several more Law LLMs (Maritime Law, Natural Resources Law, International Trade Law, General LLM),
-Strategic Studies, Peace and Conflict Studies, International Relations — see EXPANSION_LOG.md round
-108 for the full list and exact fees. Aberdeen QS 2026 overall: #262 (institutional credit used,
+native PDF support.** 19 rows mined across rounds 108-109 (ids 1441-1459); remaining banked-but-
+unused rows (Comparative Literature, English Language and Literature, General LLM, Natural
+Resources Law, International Trade Law, Business Law and Sustainable Development, Peace and
+Conflict Studies, Ethnology & Folklore, Literatures Environments and Places, Film Visual Culture
+and Arts Management — all £23,000) are lower-priority since their fields now duplicate what's
+already covered twice at Aberdeen — **next round should open a 13th goldmine university instead**
+rather than exhaust this one further. Aberdeen QS 2026 overall: #262 (institutional credit used,
 no top-N framing). Eleventh confirmed goldmine: `tcd.ie/courses/postgraduate/fees/`
 (Trinity College Dublin) — WebFetch-readable, native EUR, no browser needed, and a direct hit on the
 catalogue's thinnest fields at once (History, Psychology, Media, Law, Public Health, Education,

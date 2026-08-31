@@ -2989,3 +2989,28 @@ General LLM, Business Law and Sustainable Development — all £23,000), Strateg
 Public Policy), Peace and Conflict Studies (£23,000, Public Policy/Politics), International
 Relations (£23,000, Politics). Full PDF content is cached in this session's tool-result history if
 needed again, but re-fetching is cheap (WebFetch the same PDF URL).
+
+## Round 109: Aberdeen goldmine, batch 2 (1425 → 1434)
+
+Mined 9 more rows from the same Aberdeen PDF fee schedule found in round 108 (no new fetch needed —
+content was already in-session). Added ids 1451–1459, ranks 1422–1430, all GBP→EUR at 0.85:
+- MSc Sex, Gender, Violence — £23,000 → €27,059 (Social Sciences)
+- MLitt Museum Studies — £23,000 → €27,059 (History)
+- MMus Music — £23,000 → €27,059 (Performing Arts)
+- MSc Archaeology — £22,000 → €25,882 (History)
+- MSc Translation Studies — £23,000 → €27,059 (Media & Communication)
+- MSc TESOL — £23,000 → €27,059 (Education)
+- LLM Maritime Law — £23,000 → €27,059 (Law)
+- MSc International Relations — £23,000 → €27,059 (Social Sciences)
+- MSc Strategic Studies — £23,000 → €27,059 (Public Policy)
+
+All scholar=false (Aberdeen still not in scholarships table), all QS World 2026 #262 institutional
+citation. All 9 translated (nl/fr/de/es). Verified count: 1434.
+
+Remaining unused rows from this same PDF (still banked): Comparative Literature (£23,000), English
+Language and Literature (£23,000), General LLM (£23,000), Natural Resources Law (£23,000),
+International Trade Law (£23,000), Business Law and Sustainable Development (£23,000), Peace and
+Conflict Studies (£23,000), Ethnology & Folklore (£23,000), Literatures Environments and Places
+(£23,000), Film Visual Culture and Arts Management (£23,000) — plenty more headroom before this
+goldmine is exhausted, but diminishing distinctiveness (many now duplicate fields already covered
+twice at Aberdeen) — next round should pivot to a 13th goldmine university instead.
