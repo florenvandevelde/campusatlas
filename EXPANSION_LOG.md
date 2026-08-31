@@ -2271,3 +2271,11 @@ never attempted this session.
 
 **Running total: 1241 programmes (1238 → 1241, +3 this round), max id 1266, max rank 1237. 59 short of the
 1300 target.**
+
+**Round 66 — Public Health, third pass (id 1267, translated ✅):**
+- 1267 University of Edinburgh — MSc Global Health Policy: School of Social and Political Science, £32,000
+  total (2026/27) ÷ 0.85 = €37,647. No QS ranking exists for this field, so used the same institutional-
+  credit fallback as the round-53/59 Public Health rows.
+
+**Running total: 1242 programmes (1241 → 1242, +1 this round), max id 1267, max rank 1238. 58 short of the
+1300 target.**
