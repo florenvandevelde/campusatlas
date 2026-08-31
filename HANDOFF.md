@@ -18,8 +18,16 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1397 programmes, max id 1422, max rank
-1393** (verified live in Supabase). Kent (iframe-embedded fee table) and Reading (flat rate categories only,
+wider net than the earlier top-50-only audits). **Current state: 1406 programmes, max id 1431, max rank
+1402** (verified live in Supabase). Eleventh confirmed goldmine: `tcd.ie/courses/postgraduate/fees/`
+(Trinity College Dublin) — WebFetch-readable, native EUR, no browser needed, and a direct hit on the
+catalogue's thinnest fields at once (History, Psychology, Media, Law, Public Health, Education,
+Mathematics/CS). TCD QS 2026: History #50, Psychology #96 subject-ranked; #75 overall World Ranking used
+as institutional credit elsewhere. Unused TCD rows still banked: LIR Academy Playwriting/Stage
+Design/Theatre Directing (€23,480 each), MSc Global Mental Health, Postgraduate Higher Diploma in
+Psychology-Conversion, MSc Quantum Fields Strings and Gravity, Health Policy and Management, Digital
+Arts and Intermedia Practices, Screen Studies, Intellectual Property and IT Law, Law and Finance — see
+EXPANSION_LOG.md round 106 for exact fees. Kent (iframe-embedded fee table) and Reading (flat rate categories only,
 no per-course table) both explored and didn't pan out this round — don't re-attempt the same way. Third self-caught bug this session: a school-attribution mix-up
 (Glasgow vs UCC) caught and fixed before translation in round 98 — worth double-checking school/city/country
 fields match the actual source when assembling multi-school batches from banked data across several rounds. Tenth confirmed goldmine: `nottingham.ac.uk` fee page — WebFetch-

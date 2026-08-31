@@ -2881,3 +2881,46 @@ row) — confirmed via the full registry dump earlier this session.
 
 **Running total: 1397 programmes (1395 → 1397, +2 this round), max id 1422, max rank 1393. 603 short of the
 2000 target.**
+
+## Round 106: Trinity College Dublin (TCD) — 11th goldmine, thin-field jackpot (1397 → 1406)
+
+Found TCD's postgraduate fees page (`https://www.tcd.ie/courses/postgraduate/fees/`) via WebFetch —
+a comprehensive, filterable, native-EUR fee table for 2026/27 covering exactly the catalogue's
+thinnest fields: History, Psychology, Media, Law, Public Health, Education, Mathematics.
+TCD previously had only 1 row (Nursing, id 1205) — no dedup conflicts with any of the below.
+
+QS 2026 verification:
+- History subject ranking: TCD **#50** (confirmed via xuanxiao.org)
+- Psychology subject ranking: TCD **#96** (confirmed via xuanxiao.org page 2)
+- Law subject ranking: not found in top-100 pages fetched (top-50 confirmed absent; page-2 fetch
+  for Law came back empty/inconclusive) — used institutional credit instead
+- Overall QS World Ranking 2026: TCD **#75** (verified via WebSearch — TCD's own news page confirms
+  "Trinity climbs to 75th place in 2026 QS World University Rankings", up from #87 the prior year).
+  Used for Media, Law, Public Health, Education, Computer Science rows as institutional credit.
+
+Added 9 rows (ids 1423–1431, ranks 1394–1402), all native EUR, all scholar=true (TCD confirmed
+present in `scholarships` table):
+- MPhil International History — €17,830 (History)
+- MPhil Medieval Studies — €16,590 (History)
+- MSc Applied Psychology — €23,100 (Psychology)
+- MSc Applied Behaviour Analysis — €17,310 (Psychology)
+- MPhil Film Studies — €21,550 (Media & Communication)
+- LLM International and Comparative Law — €22,430 (Law)
+- MSc Global Health — €22,950 (Public Health)
+- Master in Education (M.Ed.) — €14,210 (Education; part-time, 24 months, work req "2 yrs" since
+  it targets practising teachers — the one row in this batch not aimed at fresh grads)
+- MSc High Performance Computing — €23,710 (Computer Science)
+
+open_fields values double-checked against the live `BACKGROUND_OPTIONS` array in index.html
+(grepped lines 2320-2364) before insert — no repeat of the earlier invalid-vocabulary bug.
+
+All 9 translated (nl/fr/de/es) via dollar-quoted JSON in the same round. Verified count: 1406.
+
+Not yet mined from the same TCD fee table (kept in reserve for a future round): the remaining
+LIR Academy programmes (Playwriting, Stage Design, Theatre Directing — €23,480 each, Media &
+Communication), MSc Global Mental Health (€22,950, Public Health), Postgraduate Higher Diploma
+in Psychology-Conversion (€22,000), MSc Quantum Fields Strings and Gravity (€25,560, Mathematics/
+Physics), Health Policy and Management (€22,960), Digital Arts and Intermedia Practices (€21,418),
+Screen Studies (€21,550), Intellectual Property and IT Law (€22,430), Law and Finance (€22,000).
+Sociology/Politics: only PhD entries surfaced on the fees page, not usable for this taught-master's
+catalogue.
