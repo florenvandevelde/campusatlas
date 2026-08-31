@@ -18,9 +18,12 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1313 programmes, max id 1338, max rank
-1309** (verified live in Supabase). Sixth confirmed goldmine: `ul.ie` (University of Limerick, native EUR,
-no browser needed). 🎯 Clean milestone this round: 1300/2000 (the original target, now a
+wider net than the earlier top-50-only audits). **Current state: 1320 programmes, max id 1345, max rank
+1316** (verified live in Supabase). Seventh confirmed goldmine: `dcu.ie` (Dublin City University, native
+EUR, no browser needed) — strong for Media & Communication/journalism specifically. Still-unused DCU rows
+banked: MSc Psychology (Conversion), MSc Psychology and Wellbeing, MA Documentary Practice, MSc Public
+Relations and Strategic Communications, MSc Science and Health Communication, MA Data Protection and
+Privacy. 🎯 Clean milestone this round: 1300/2000 (the original target, now a
 waypoint). Fifth confirmed goldmine: `ucc.ie` (University College Cork) fee schedule — WebFetch-readable,
 native EUR, no conversion needed. 717 short of the new 2000 target. Fourth confirmed goldmine found:
 `york.ac.uk/study/postgraduate-taught/fees/international/` (WebFetch-readable, no browser) — covers History,

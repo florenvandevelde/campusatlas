@@ -2570,3 +2570,20 @@ deliberately softer citation for a school ranked outside the world top 400, not 
 
 **Running total: 1313 programmes (1306 → 1313, +7 this round), max id 1338, max rank 1309. 687 short of the
 2000 target.**
+
+**Round 80 — seventh goldmine found: Dublin City University's fee page (ids 1339-1345, translated ✅).**
+`dcu.ie/fees/postgraduate-fees-2026-27` is another WebFetch-readable comprehensive fee page, native EUR.
+First DCU rows in this catalogue. DCU is well-known specifically for journalism (School of Communications)
+— a strong genuine fit for the thin Media & Communication field. No DCU subject-specific QS rank checked
+individually (DCU ranks 410th overall, similar band to UL); used the same neutral "QS World University
+Rankings 2026" credit line as UL rather than a "top-X" claim.
+- 1339 MA History (€17,200), 1340 MA Journalism (€17,200), 1341 MSc Emerging Media (€17,200), 1342 LLM
+  (€16,700), 1343 MA European Law and Policy (€17,200), 1344 MSc Financial Mathematics (€17,700), 1345
+  Master of Education (€8,700) — spanning History, Media & Communication, Law, Mathematics, Education.
+Banked and unused from the same DCU fetch: MSc Psychology (Conversion), MSc Psychology and Wellbeing, MA
+Documentary Practice, MSc Public Relations and Strategic Communications, MSc Science and Health
+Communication, MA Data Protection and Privacy, MSc Business Analytics/Business Analytics and AI (lower
+priority, Analytics is already a thick field).
+
+**Running total: 1320 programmes (1313 → 1320, +7 this round), max id 1345, max rank 1316. 680 short of the
+2000 target.**
