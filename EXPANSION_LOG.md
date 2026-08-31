@@ -2832,3 +2832,16 @@ This exhausts the UCC fee schedule data gathered this session.
 
 **Running total: 1389 programmes (1387 → 1389, +2 this round), max id 1414, max rank 1385. 611 short of the
 2000 target.**
+
+**Round 102 — Glasgow Sociology, final banked Glasgow row (id 1415, translated ✅):** QS doesn't publish
+Sociology under that exact slug on xuanxiao.org (confirmed 404 again, matching a much earlier session's dead
+end) even though the Edinburgh SPS page proved QS's real methodology does rank Sociology as a subject — the
+mirror site just doesn't host it under that name. Used Glasgow's institutional fallback instead.
+- 1415 MSc Sociology (£26,460 ÷ 0.85 = €31,129) — Social Sciences. This exhausts the round-71 Glasgow batch.
+Also explored University of Kent (fee table is iframe-embedded, not extractable via WebFetch or a quick
+Browser check) and University of Reading (flat non-lab/lab rate categories only, no per-course table, and
+the fetched rate was explicitly labelled 2025-26 not 2026-27) — neither added anything this round, logged so
+a future session doesn't re-attempt the same dead ends.
+
+**Running total: 1390 programmes (1389 → 1390, +1 this round), max id 1415, max rank 1386. 610 short of the
+2000 target.**
