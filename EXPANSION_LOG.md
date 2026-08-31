@@ -2695,3 +2695,15 @@ for Edinburgh via fresh fetch, added two genetics-focused MSc titles from the Sc
 
 **Running total: 1344 programmes (1342 → 1344, +2 this round), max id 1369, max rank 1340. 656 short of the
 2000 target.**
+
+**Round 89 — more banked York/Edinburgh titles (ids 1370-1375, translated ✅):** No new research per row,
+drawing down already-banked data.
+- 1370 Edinburgh MSc Climate Change Finance & Investment (Energy field), 1371 MSc Global Strategy and
+  Sustainability (Sustainability field) — both £32,000 ÷ 0.85 = €37,647, Edinburgh Business School.
+- 1372 York MA Peace and Conflict Studies, 1373 MA Global Development Politics — Social Sciences field,
+  £26,900 ÷ 0.85 = €31,647 each, "top-200 world university" fallback.
+- 1374 Edinburgh MSc Finance and Investment (£36,310 ÷ 0.85 = €42,718), 1375 MSc Banking Innovation and
+  Risk Analytics (£37,800 ÷ 0.85 = €44,471) — Economics field, Business School.
+
+**Running total: 1350 programmes (1344 → 1350, +6 this round), max id 1375, max rank 1346. 650 short of the
+2000 target.**

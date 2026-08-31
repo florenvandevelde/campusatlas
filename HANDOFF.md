@@ -18,8 +18,8 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1344 programmes, max id 1369, max rank
-1340** (verified live in Supabase). Maynooth's PDF fee list is unreachable both ways (WebFetch 403s it, the
+wider net than the earlier top-50-only audits). **Current state: 1350 programmes, max id 1375, max rank
+1346** (verified live in Supabase). Maynooth's PDF fee list is unreachable both ways (WebFetch 403s it, the
 Browser pane forces a file download instead of rendering) — don't retry, it's not fixable like QUB was. UCD's
 fee pages load but have no actual figures on them (checked the 2026/27 Graduate Taught sub-page directly) —
 UCD publishes fees some other way not yet found. QUB fix found: WebFetch 403s on qub.ac.uk, but the Browser pane works —
