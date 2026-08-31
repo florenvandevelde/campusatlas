@@ -2775,3 +2775,11 @@ future round.
 
 **Running total: 1373 programmes (1365 → 1373, +8 this round), max id 1398, max rank 1369. 627 short of the
 2000 target.**
+
+**Round 96 — more banked Nottingham titles (ids 1399-1401, translated ✅):**
+- 1399 LLM International Law (€30,294) — Law.
+- 1400 MSc Occupational Psychology (QS Psychology #94, £30,800 ÷ 0.85 = €36,235) — Psychology.
+- 1401 MA Film, Television and Screen Industries (€30,294) — Media & Communication.
+
+**Running total: 1376 programmes (1373 → 1376, +3 this round), max id 1401, max rank 1372. 624 short of the
+2000 target.**
