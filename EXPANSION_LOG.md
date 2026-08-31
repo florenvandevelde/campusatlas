@@ -2824,3 +2824,11 @@ Forestry #77 for Nottingham via fresh fetch.
 
 **Running total: 1387 programmes (1385 → 1387, +2 this round), max id 1412, max rank 1383. 613 short of the
 2000 target. Round 100 milestone reached this session's continuation.**
+
+**Round 101 — more banked UCC titles (ids 1413-1414, translated ✅):**
+- 1413 MSc Applied Coastal and Marine Management (€18,500) — Earth Sciences.
+- 1414 MA Sociology of Sustainability and Global Challenges (€18,500) — Social Sciences.
+This exhausts the UCC fee schedule data gathered this session.
+
+**Running total: 1389 programmes (1387 → 1389, +2 this round), max id 1414, max rank 1385. 611 short of the
+2000 target.**
