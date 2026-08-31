@@ -2669,3 +2669,20 @@ All three "top-250 world university" fallback, matching UCC's established conven
 
 **Running total: 1338 programmes (1335 → 1338, +3 this round), max id 1363, max rank 1334. 662 short of the
 2000 target.**
+
+**Round 87 — more UL titles across Media, Mathematics, Mechanical Engineering, Physics (ids 1364-1367,
+translated ✅):** Re-fetched UL's fee page for the subjects it initially reported as "not listed" (Media,
+Mathematics, Physics, Earth Sciences, Agriculture) — turned out they ARE there, just needed a differently
+worded prompt. Skipped UL's Nursing suite (€7,700, suspiciously low vs. every other Irish nursing rate seen
+this session — likely an EU/practising-nurse professional-development rate mislabeled or a genuinely
+different fee basis) rather than risk a currency/basis mistake; flag for verification if revisited.
+- 1364 MA Journalism (€18,600) — Media & Communication.
+- 1365 MSc Mathematical Modelling (€20,800) — Mathematics.
+- 1366 MSc Mechanical Engineering (€20,800) — Mechanical Engineering.
+- 1367 MSc Applied Physics (€20,800) — Physics.
+UL's fee page also has a large Music/Arts suite (Composition, Ethnomusicology, Irish Traditional Music,
+Songwriting, etc., all ~€18,000) and Data Science/AI/Software Engineering titles (already-thick fields,
+lower priority) banked for a future round.
+
+**Running total: 1342 programmes (1338 → 1342, +4 this round), max id 1367, max rank 1338. 658 short of the
+2000 target.**
