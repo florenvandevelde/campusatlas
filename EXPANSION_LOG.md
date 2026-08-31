@@ -2309,3 +2309,38 @@ PgDip/PgCert tiers) for a future round.
 
 **Running total: 1246 programmes (1243 → 1246, +3 this round), max id 1271, max rank 1242. 54 short of the
 1300 target.**
+
+**Round 69 — Glasgow goldmine continued (ids 1272-1273, translated ✅):**
+- 1272 University of Glasgow — MSc Media, Culture & Society: QS Communication & Media Studies top 100 band
+  (confirmed Glasgow is genuinely in this band from the round-45 QS fetch). £27,720 ÷ 0.85 = €32,612.
+- 1273 University of Glasgow — MSc Animal Nutrition: QS Veterinary Science #31 (confirmed from the round-34
+  QS Veterinary Science top-50 fetch). £14,300 total (uniform vet-school rate) ÷ 0.85 = €16,824.
+Checked Glasgow's live fee table for Mechanical Engineering, Sports Science and Development Studies too —
+all real, well-priced programmes, but Glasgow's QS-ranking membership in those three specific subjects
+couldn't be confirmed from this session's own fetched ranking lists, so skipped rather than assert an
+unverified rank. Revisit if a future session re-fetches those rankings and confirms Glasgow's position.
+
+## 🎯 TARGET RAISED TO 2000 (user instruction, 2026-08-31, mid-session, no further qualification)
+
+**The user raised the standing target from 1300 to 2000 partway through this session, at 1247/1300.** This
+is a ~5x jump from the original "push toward 1100" starting point and roughly 750 more rows from where this
+round left off (1248). At this scale, continuing to research and verify one programme page at a time will
+not realistically get there — **the comprehensive-fee-table goldmines are now the primary strategy**, not a
+nice-to-have shortcut:
+- `registryservices.ed.ac.uk/tuition-fees/find/postgraduate-taught/2026-2027/taught-masters` (Edinburgh) —
+  needs the Browser pane + `javascript_tool` querying `table tr` for a subject keyword (WebFetch alone
+  returns an empty shell, this table is JS-rendered).
+- `tools.sheffield.ac.uk/fees/pgt/` (Sheffield) — also Browser-pane-only, same JS-table pattern, use the
+  Overseas toggle + search box.
+- `gla.ac.uk/postgraduate/feesandfunding/feetable/live/` (Glasgow) — **WebFetch-readable directly, no
+  browser needed**, by far the fastest of the three. Prioritise this one and look for equivalent
+  "feetable/live"-style URLs at other Scottish/UK universities before defaulting to one-off course pages.
+Each of these tables covers the ENTIRE university's taught-postgraduate catalogue in one query, so a single
+subject-keyword search routinely surfaces 5-15 genuinely distinct, already-fee-confirmed titles at once —
+this is the only way 750 more rows is remotely tractable without months of individual research. The
+remaining discipline this scale demands: still confirm QS-ranking membership before claiming a specific rank
+(re-fetch the relevant top-100 list rather than assume), still dedupe against existing rows, still translate
+every batch before ending a session, still never fabricate a fee when a table doesn't cover a given school.
+
+**Running total: 1248 programmes (1246 → 1248, +2 this round), max id 1273, max rank 1244. 752 short of the
+new 2000 target.**

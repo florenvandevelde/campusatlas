@@ -7,9 +7,16 @@ for historical context, not as current instructions._
 
 ---
 
-## 🚧 IN PROGRESS: pushing from 1100 → 1300 (started 2026-08-26) — read this before deciding what to do next
+## 🚧 IN PROGRESS: pushing toward 2000 (started 2026-08-26, target raised 1100→1300→2000) — read this before deciding what to do next
 
-**Standing target is now 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
+**Standing target is now 2000** (raised from 1300 by the user on 2026-08-31, mid-session, with no further
+qualification — treat this as the new floor for all future sessions until raised or lowered again). At the
+scale of "1246 → 2000" (~750 more rows), the single-title-at-a-time research pace used for most of this
+catalogue's history will not keep up — **lean hard into the comprehensive-fee-table goldmines** discovered
+this session (see below): each one lets a single fee lookup back MANY rows at once, since whole departments
+often share one flat rate. Individually verifying 750 one-off programme pages is not the efficient path here.
+
+**Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
 wider net than the earlier top-50-only audits). **Current state: 1246 programmes, max id 1271, max rank
 1242** (verified live in Supabase). New fast-path discovered this round:
