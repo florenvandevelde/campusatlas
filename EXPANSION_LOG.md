@@ -2477,3 +2477,18 @@ banked for a future round if these fields need more depth.
 
 **Running total: 1283 programmes (1276 → 1283, +7 this round), max id 1308, max rank 1279. 717 short of the
 2000 target.**
+
+**Round 74 — York Archaeology, tagged under History (ids 1309-1310, translated ✅):** Checked York's rank
+in Politics, Communication & Media Studies (both not in top 100) before deciding not to add from the large
+Media/Politics/Linguistics/Economics/Sustainability/Biology harvest fetched this round — banked that data
+for later since none of those subjects' QS membership was confirmed for York yet. Archaeology programmes
+were tagged under `History` (matching Edinburgh's established Archaeology-under-History convention from
+earlier this session) using the already-confirmed History #51-100 band rank.
+- 1309 MSc Digital Archaeology, 1310 MSc Bioarchaeology — £27,250 ÷ 0.85 = €32,059 each.
+York's fee page also has a huge Film & TV Production suite (13 titles, all £32,900, genuinely
+Media-adjacent) and dozens more Archaeology/Politics/Linguistics/Economics/Sustainability titles — all
+banked, pending either a QS-ranking confirmation pass or a decision to use the institutional-credit fallback
+for the ones QS doesn't rank York in.
+
+**Running total: 1285 programmes (1283 → 1285, +2 this round), max id 1310, max rank 1281. 715 short of the
+2000 target.**
