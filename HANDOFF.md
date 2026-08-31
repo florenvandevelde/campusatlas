@@ -18,8 +18,8 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1320 programmes, max id 1345, max rank
-1316** (verified live in Supabase). Seventh confirmed goldmine: `dcu.ie` (Dublin City University, native
+wider net than the earlier top-50-only audits). **Current state: 1324 programmes, max id 1349, max rank
+1320** (verified live in Supabase). Seventh confirmed goldmine: `dcu.ie` (Dublin City University, native
 EUR, no browser needed) — strong for Media & Communication/journalism specifically. Still-unused DCU rows
 banked: MSc Psychology (Conversion), MSc Psychology and Wellbeing, MA Documentary Practice, MSc Public
 Relations and Strategic Communications, MSc Science and Health Communication, MA Data Protection and

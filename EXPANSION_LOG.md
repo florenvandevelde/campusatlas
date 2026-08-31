@@ -2587,3 +2587,14 @@ priority, Analytics is already a thick field).
 
 **Running total: 1320 programmes (1313 → 1320, +7 this round), max id 1345, max rank 1316. 680 short of the
 2000 target.**
+
+**Round 81 — remaining banked DCU titles (ids 1346-1349, translated ✅):** No new research, drawing down
+round 80's fetch.
+- 1346 MSc Psychology (Conversion), €16,800 — Psychology field.
+- 1347 MA Documentary Practice (€16,900), 1348 MSc Public Relations and Strategic Communications (€17,200),
+  1349 MSc Science and Health Communication (€17,200) — Media & Communication field.
+This exhausts DCU's fee page for now except MSc Psychology and Wellbeing (near-duplicate of the Conversion
+row just added) and MA Data Protection and Privacy (Law-adjacent, decent future option).
+
+**Running total: 1324 programmes (1320 → 1324, +4 this round), max id 1349, max rank 1320. 676 short of the
+2000 target.**
