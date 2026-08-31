@@ -2492,3 +2492,19 @@ for the ones QS doesn't rank York in.
 
 **Running total: 1285 programmes (1283 → 1285, +2 this round), max id 1310, max rank 1281. 715 short of the
 2000 target.**
+
+**Round 75 — York Sustainability + Film/TV (ids 1311-1314, translated ✅):** Found a genuine confirmed
+subject rank for York — QS Sustainability #40 — via a York news page about its own 2026 QS subject
+rankings, then used it for two of the Environmental Sustainability programmes banked from round 74's fetch.
+For the large Film & Television Production suite (13 titles at York, all £32,900), no QS Communication &
+Media Studies ranking exists for York (confirmed round 74), so used the "top-200 world university" fallback
+(York's actual overall QS World Ranking is 169th, confirmed via WebSearch — "top-200" is a safely
+conservative, verifiable phrasing).
+- 1311 MSc Corporate Sustainability and Environmental Management, 1312 MSc Environmental Science and
+  Management — Sustainability field, QS Sustainability #40, £31,900 ÷ 0.85 = €37,529.
+- 1313 MA Film and Television Production with Directing, 1314 ...with Producing — Media & Communication
+  field, institutional fallback, £32,900 ÷ 0.85 = €38,706. 11 more Film & TV specialisations (Cinematography,
+  Editing, Sound, Visual Effects, etc.) remain at the identical rate for a future round.
+
+**Running total: 1289 programmes (1285 → 1289, +4 this round), max id 1314, max rank 1285. 711 short of the
+2000 target.**

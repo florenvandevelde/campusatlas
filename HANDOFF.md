@@ -18,8 +18,8 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1285 programmes, max id 1310, max rank
-1281** (verified live in Supabase). 717 short of the new 2000 target. Fourth confirmed goldmine found:
+wider net than the earlier top-50-only audits). **Current state: 1289 programmes, max id 1314, max rank
+1285** (verified live in Supabase). 717 short of the new 2000 target. Fourth confirmed goldmine found:
 `york.ac.uk/study/postgraduate-taught/fees/international/` (WebFetch-readable, no browser) — covers History,
 Psychology, Law, Public Health, Education, Mathematics in one fetch; still has unused History/Education
 titles banked. See EXPANSION_LOG.md's "Status check-in" note (end of round 72) for realistic pacing
