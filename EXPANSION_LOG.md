@@ -3221,3 +3221,39 @@ All 5 translated (nl/fr/de/es). Verified count: 1492. Other KCL War Studies-dept
 not used this round (same £38,300 flat rate): MA Peace, Security and International Law; MA
 International Conflict Studies; MSc War & Psychiatry — worth a future round if more KCL rows are
 wanted.
+
+## Round 117: University of Bristol — 16th goldmine (1492 → 1502)
+
+Found by drilling into Bristol's cohort-specific overseas fees page rather than the general
+landing page: `bristol.ac.uk/students/support/finances/tuition-fees/pgt/overseas/26-27/
+2026-starters/` — the general `/pgt/overseas/` page has no table, just navigation, but the
+`26-27/2026-starters/` sub-page is a full, WebFetch-readable per-programme table for 2026/27.
+Worth remembering this "drill into the cohort-year sub-page" pattern for any university whose
+top-level fees page turns out to be navigation-only.
+
+Bristol had 2 existing rows (MA History, MSc Psychology (Conversion)) — avoided as exact-title
+duplicates, picked distinct titles from the same subject areas instead. QS World Ranking 2026:
+**#51** (confirmed), and Bristol's School of Education specifically confirmed at **#44 world** for
+Education (QS Subject Rankings 2026, via the School's own news page) — used for the Education row.
+
+Added 10 rows (ids 1518–1527, ranks 1489–1498), all GBP→EUR at 0.85, scholar=false (Bristol not in
+scholarships table):
+- MA History with Black Humanities — £29,500 → €34,706 (History)
+- MSc Mental Health Science — £29,800 → €35,059 (Psychology)
+- LLM Human Rights Law — £29,400 → €34,588 (Law)
+- LLM International Law and International Relations — £29,400 → €34,588 (Law)
+- MSc Public Health — £31,200 → €36,706 (Public Health)
+- MSc Health Economics and Policy Analysis — £25,500 → €30,000 (Public Health)
+- MSc Education (Policy and International Development) — £28,200 → €33,176 (Education) — QS Education #44
+- MA Film and Television — £30,800 → €36,235 (Media & Communication)
+- MSc Sociology — £30,400 → €35,765 (Social Sciences)
+- MSc International Security — £29,300 → €34,471 (Public Policy)
+
+All 10 translated (nl/fr/de/es). Verified count: 1502 — first time crossing 1500 this session.
+
+More Bristol rows remain unused in the same table if returning: Commercial Law/Health Law and
+Society/International Commercial Law/Banking and Finance Law LLMs (all £29,400), Applied
+Neuropsychology/Clinical Neuropsychology MSc (£29,800/£27,600), Epidemiology MSc (£31,200),
+remaining MSc Education specialisations (Inclusive Education, Mathematics Education, Teaching and
+Learning, Brain Mind and Education, Technology in Education — all £28,200), International
+Relations MSc (£30,400).

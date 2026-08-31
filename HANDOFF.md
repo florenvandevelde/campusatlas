@@ -18,8 +18,17 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1492 programmes, max id 1517, max rank
-1488** (verified live in Supabase). Round 116: King's College London mined via individual course
+wider net than the earlier top-50-only audits). **Current state: 1502 programmes, max id 1527, max rank
+1498** (verified live in Supabase) — first time crossing 1500 this session. Sixteenth confirmed
+goldmine: University of Bristol, found by drilling past the general `/pgt/overseas/` landing page
+(navigation only, no table) into the cohort-specific sub-page `bristol.ac.uk/students/support/
+finances/tuition-fees/pgt/overseas/26-27/2026-starters/`, which is a full per-programme table for
+2026/27. **Worth remembering this "drill into the cohort-year sub-page" pattern whenever a
+university's top-level fees page turns out to be navigation-only.** QS World Ranking 2026: #51;
+School of Education specifically #44 world (QS Subject Rankings 2026, via the School's own news
+page). 10 rows mined (round 117); more banked in the same table (Commercial/Health/International
+Commercial/Banking and Finance Law LLMs, Applied/Clinical Neuropsychology MSc, Epidemiology MSc,
+5 more MSc Education specialisations, International Relations MSc). Round 116: King's College London mined via individual course
 fee sub-pages (`kcl.ac.uk/study/postgraduate-taught/courses/<slug>/fees`, WebFetch-readable, exact
 2026/27 figure each time) rather than a single consolidated table — no true goldmine found there,
 but a viable pattern when a prestigious school (KCL: QS World #31, Politics subject #11) is worth
