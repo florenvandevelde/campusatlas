@@ -2783,3 +2783,12 @@ future round.
 
 **Running total: 1376 programmes (1373 → 1376, +3 this round), max id 1401, max rank 1372. 624 short of the
 2000 target.**
+
+**Round 97 — Sheffield Politics (ids 1402-1403, translated ✅):** Confirmed QS Politics #78 for Sheffield via
+fresh fetch, mined the fee tool for its School of Sociological Studies, Politics and International
+Relations.
+- 1402 MA International Relations, 1403 MA Politics, Governance and Public Policy — both £26,320 ÷ 0.85 =
+  €30,965, Social Sciences field.
+
+**Running total: 1378 programmes (1376 → 1378, +2 this round), max id 1403, max rank 1374. 622 short of the
+2000 target.**
