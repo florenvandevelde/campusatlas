@@ -2257,3 +2257,17 @@ from the originally identified list for a future round.
 
 **Running total: 1238 programmes (1236 → 1238, +2 this round), max id 1263, max rank 1234. 62 short of the
 1300 target.**
+
+**Round 65 — History sixth pass + Law fifth pass, clearing out the last two known Edinburgh goldmine titles
+(ids 1264-1266, translated ✅):** No new research needed.
+- 1264 University of Edinburgh — MSc Ancient History
+- 1265 University of Edinburgh — MSc Classics
+- 1266 University of Edinburgh — LLM Comparative Private Law
+All £32,000 total ÷ 0.85 = €37,647. This exhausts every title identified in the round-51/56 Edinburgh
+registry-table sweeps for Law and History — a future session should re-query the registry table fresh
+(`javascript_tool` querying `table tr` for a subject keyword) rather than assume these two lists are final;
+the table covers the whole university and other subject sweeps (e.g. Economics, Politics, Philosophy) were
+never attempted this session.
+
+**Running total: 1241 programmes (1238 → 1241, +3 this round), max id 1266, max rank 1237. 59 short of the
+1300 target.**
