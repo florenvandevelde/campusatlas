@@ -2655,3 +2655,17 @@ blind, as done successfully this round for Psychology and Law.
 
 **Running total: 1335 programmes (1333 → 1335, +2 this round), max id 1360, max rank 1331. 665 short of the
 2000 target.**
+
+**Round 86 — more banked UCC titles (ids 1361-1363, translated ✅), plus a Maynooth/UCD dead-end note:**
+Maynooth's PDF fee list still can't be read (WebFetch 403s it, and the Browser pane triggers a forced file
+download instead of rendering it — a genuinely different failure mode from a 403, worth remembering as
+"don't retry this exact URL, it's not fixable the way QUB was"). UCD's Non-EU Graduate Taught Fees page
+loads fine via Browser but is itself just another navigation shell with no actual fee table or figures on
+it (checked the 2026/27 sub-page directly) — UCD publishes fees some other way not found this round.
+- 1361 MSc Analytical Chemistry (€27,000) — Chemistry field.
+- 1362 MSc Marine Biology (€27,000) — Life Sciences field.
+- 1363 Master of Social Work (€19,900/yr, 2yr) — Public Health field.
+All three "top-250 world university" fallback, matching UCC's established convention this session.
+
+**Running total: 1338 programmes (1335 → 1338, +3 this round), max id 1363, max rank 1334. 662 short of the
+2000 target.**
