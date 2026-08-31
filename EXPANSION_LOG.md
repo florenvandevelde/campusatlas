@@ -2686,3 +2686,12 @@ lower priority) banked for a future round.
 
 **Running total: 1342 programmes (1338 → 1342, +4 this round), max id 1367, max rank 1338. 658 short of the
 2000 target.**
+
+**Round 88 — Edinburgh Biochemistry (ids 1368-1369, translated ✅):** Confirmed QS Biological Sciences #19
+for Edinburgh via fresh fetch, added two genetics-focused MSc titles from the School of Biological Sciences
+(no prior Edinburgh row in this field).
+- 1368 MSc Animal Breeding and Genetics, 1369 MSc Evolutionary Genetics — both £45,410 total ÷ 0.85 =
+  €53,424 (a fourth, higher Edinburgh rate band, specific to this School).
+
+**Running total: 1344 programmes (1342 → 1344, +2 this round), max id 1369, max rank 1340. 656 short of the
+2000 target.**
