@@ -2626,3 +2626,21 @@ WebFetch dead end.
 
 **Running total: 1332 programmes (1329 → 1332, +3 this round), max id 1357, max rank 1328. 668 short of the
 2000 target.**
+
+**Round 84 — Queen's University Belfast unblocked via the Browser pane (id 1358, translated ✅):** WebFetch
+403'd on every QUB URL tried in round 83; switched to the Browser pane instead and found individual course
+pages load fine (just not via WebFetch) — the trick was navigating directly to the page's `#fees` anchor and
+reading `document.getElementById('fees').innerText` via `javascript_tool`, since the fee panel is a
+JS-revealed tab that plain page-text extraction missed.
+- 1358 MA History: confirmed officially for 2026/27 entry (£23,000 international) ÷ 0.85 = €27,059. Used
+  the course page's own claim "ranked in the top 200 in the world by subject (QS World Rankings 2023)" as
+  the credit line — dated (2023, not this session's 2026 rankings) but explicitly QUB's own current
+  claim, so kept as-is rather than inventing a fresher number.
+QUB's overall postgraduate fee structure is a flat Fee-Rate system (FR1 classroom-based £20,800, FR2
+lab-based £25,300 for 2025/26 — 2026/27 rates not yet published site-wide, though individual course pages
+like this one already show 2026/27 figures) rather than a single searchable table — Psychology and a guessed
+Law URL both 404'd, so only History was confirmed this round. A future session could search QUB's course
+finder for exact slugs rather than guessing URL patterns.
+
+**Running total: 1333 programmes (1332 → 1333, +1 this round), max id 1358, max rank 1329. Ninth confirmed
+goldmine-adjacent school. 667 short of the 2000 target.**
