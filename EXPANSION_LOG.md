@@ -2856,3 +2856,17 @@ Both £26,900 ÷ 0.85 = €31,647. This exhausts the York Politics/IR suite gath
 
 **Running total: 1392 programmes (1390 → 1392, +2 this round), max id 1417, max rank 1388. 608 short of the
 2000 target.**
+
+**Round 104 — Edinburgh Geosciences (ids 1418-1420, translated ✅):** Explored St Andrews (still shows
+"tuition fees yet to be set" on every individual course page, confirming the round-56 dead end persists
+regardless of subject — St Andrews stays unusable this session) and University of Warwick (course-specific
+fee pages redirect to an authenticated single-sign-on page, unreachable) without success. Returned to
+Edinburgh's registry table, filtered specifically for `School of Geosciences`, and picked three genuinely
+new titles from the same confirmed £37,800 SAC-adjacent rate band (Food Security, Marine Systems, Ecological
+Economics were already added in earlier rounds).
+- 1418 MSc Applied Environmental Hydrogeology, 1419 MSc Climate Change Management, 1420 MSc Geographical
+  Information Science — all £37,800 total ÷ 0.85 = €44,471, Earth Sciences field, QS Earth & Marine
+  Sciences #27.
+
+**Running total: 1395 programmes (1392 → 1395, +3 this round), max id 1420, max rank 1391. 605 short of the
+2000 target.**
