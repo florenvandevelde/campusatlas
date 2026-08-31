@@ -3167,3 +3167,28 @@ Same fee table has more unused rows banked: Holocaust programme variants, Intern
 and Corporate Law LLM, International Law and Human Rights LLM, Maritime Law LLM (all £30,200), PGCE
 Primary/Secondary Education (£28,600/£29,900), Global Media and Publishing Management MA (£37,000),
 Public Health PGCert/PGDip (£12,500/£25,100) — worth a return trip in a future round.
+
+## Round 115: Southampton goldmine, batch 2 (1477 → 1487)
+
+Re-fetched the same Southampton fee page with a broader prompt and found even more thin-field
+coverage: Statistics (Applied Statistics/Statistics/Statistics with Applications in Medicine, all
+£30,100), Archaeology (£28,800), Philosophy (£28,800), Applied Linguistics (£29,100), International
+Relations and Security (£29,900), Economics (£34,100) — none of these appeared in round 114's
+narrower extraction.
+
+Added 10 rows (ids 1503–1512, ranks 1474–1483), all GBP→EUR at 0.85, QS World 2026 #87 citation
+throughout:
+- MSc Applied Statistics — £30,100 → €35,412 (Statistics & Operational Research — first use of this
+  field tag this session, matches the established "new fields" vocabulary)
+- MSc Archaeology - all pathways — £28,800 → €33,882 (History)
+- MA Philosophy — £28,800 → €33,882 (Humanities)
+- MA Applied Linguistics — £29,100 → €34,235 (Humanities)
+- MSc International Relations and Security — £29,900 → €35,176 (Public Policy)
+- MSc Economics — £34,100 → €40,118 (Economics)
+- LLM International Law and Human Rights — £30,200 → €35,529 (Law)
+- LLM Maritime Law — £30,200 → €35,529 (Law)
+- PGCE Secondary Education — £29,900 → €35,176 (Education)
+- MA Global Media and Publishing Management — £37,000 → €43,529 (Media & Communication)
+
+All 10 translated (nl/fr/de/es). Verified count: 1487. Dedup-checked against all prior Southampton
+titles (rounds 114-115 combined, 19 rows) before insert — no conflicts.

@@ -18,8 +18,12 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1477 programmes, max id 1502, max rank
-1473** (verified live in Supabase). Fifteenth confirmed goldmine: `southampton.ac.uk/courses/fees/
+wider net than the earlier top-50-only audits). **Current state: 1487 programmes, max id 1512, max rank
+1483** (verified live in Supabase). Southampton goldmine mined across rounds 114-115 (19 rows, ids
+1494-1512) — a second, broader-prompt fetch of the same fee page surfaced Statistics, Archaeology,
+Philosophy, Applied Linguistics, International Relations and Security, and Economics that a
+narrower first prompt missed; worth re-querying any goldmine page with a different subject list if
+the first pass feels thin. Fifteenth confirmed goldmine: `southampton.ac.uk/courses/fees/
 postgraduate.page` — a single HTML page (no PDF) with a full per-programme fee table for 2026/27,
 landing squarely on History/Psychology/Law/Public Health/Education/Media/Politics/Sociology. QS
 World Ranking 2026: #87 (strong institutional citation, used throughout). 9 rows mined (round 114);
