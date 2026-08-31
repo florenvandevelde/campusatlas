@@ -18,8 +18,8 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1265 programmes, max id 1290, max rank
-1261** (verified live in Supabase). 735 short of the new 2000 target. Fast-paths confirmed so far:
+wider net than the earlier top-50-only audits). **Current state: 1269 programmes, max id 1294, max rank
+1265** (verified live in Supabase). 731 short of the new 2000 target. Fast-paths confirmed so far:
 `gla.ac.uk/postgraduate/feesandfunding/feetable/live/` (WebFetch-readable, no browser needed — the fastest
 of the three), Edinburgh's registry table (Browser pane + `javascript_tool`, but a single dump of the whole
 ~219-row full-time table is far more efficient than one keyword search at a time — see round 70), and

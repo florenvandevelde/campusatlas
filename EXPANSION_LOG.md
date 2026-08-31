@@ -2403,3 +2403,20 @@ data-integrity fix logged just above) — no repeat of the earlier invented-valu
 
 **Running total: 1265 programmes (1248 → 1265, +17 this round), max id 1290, max rank 1261. Target is now
 2000 (raised mid-session) — 735 short.**
+
+**Round 71 — Glasgow Law batch (ids 1291-1294, translated ✅):** WebFetched Glasgow's live fee table again,
+this time asking in one prompt for entries across Law, Economics, Physics, Chemistry, Earth Sciences,
+Politics, Sociology, Philosophy, Linguistics, and Mathematics/Statistics simultaneously — a single request
+returned dozens of confirmed fee rows across all ten subjects at once, by far the highest-yield query this
+session. Then spent a few individual QS-rank lookups checking which of those subjects Glasgow is actually
+ranked in: **confirmed Glasgow is QS Law #63** (51-100 band, via a fresh page-2 fetch); checked and
+**confirmed Glasgow is NOT in the QS top-100 for Physics & Astronomy or Earth & Marine Sciences**, and
+Politics didn't resolve within a quick top-50 check — so only the Law rows got added this round, the
+Physics/Chemistry/Economics/Sociology/Philosophy/Linguistics/Statistics entries from the same fetch stay
+banked for a future round once/if a QS ranking membership check confirms them (or, for a field like
+Philosophy that has no dedicated catalogue `fields` tag anyway, once a tagging decision is made).
+- 1291-1294: LLM Human Rights, LLM International Law, LLM Climate Law & Justice, LLM Technology Law &
+  Regulation — all QS Law #63, £29,355 ÷ 0.85 = €34,535.
+
+**Running total: 1269 programmes (1265 → 1269, +4 this round), max id 1294, max rank 1265. 731 short of the
+2000 target.**
