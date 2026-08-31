@@ -18,8 +18,10 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1378 programmes, max id 1403, max rank
-1374** (verified live in Supabase). Tenth confirmed goldmine: `nottingham.ac.uk` fee page — WebFetch-
+wider net than the earlier top-50-only audits). **Current state: 1382 programmes, max id 1407, max rank
+1378** (verified live in Supabase). Third self-caught bug this session: a school-attribution mix-up
+(Glasgow vs UCC) caught and fixed before translation in round 98 — worth double-checking school/city/country
+fields match the actual source when assembling multi-school batches from banked data across several rounds. Tenth confirmed goldmine: `nottingham.ac.uk` fee page — WebFetch-
 readable, hits nearly every thin field at once. Unused banked data: more Law LLMs, more Psychology titles
 (Occupational/Management/Work and Organisational, £30,800), Film/Screen Translation media titles. Maynooth's PDF fee list is unreachable both ways (WebFetch 403s it, the
 Browser pane forces a file download instead of rendering) — don't retry, it's not fixable like QUB was. UCD's

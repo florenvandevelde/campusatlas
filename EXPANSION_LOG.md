@@ -2792,3 +2792,17 @@ Relations.
 
 **Running total: 1378 programmes (1376 → 1378, +2 this round), max id 1403, max rank 1374. 622 short of the
 2000 target.**
+
+**Round 98 — UCC/York batch, with a self-caught school-attribution error (ids 1404-1407, translated ✅):**
+- 1404 UCC MA Applied Linguistics (€18,500) — Humanities.
+- 1405 UCC MPlan Planning and Sustainable Development (€19,900) — Sustainability. **Caught a bug before
+  translation**: this row was initially inserted attributed to "University of Glasgow" by mistake — the
+  €19,900 non-EU figure was actually from the round-78 UCC fetch, not Glasgow's round-71 data (the two
+  schools' banked figures got crossed while assembling the batch). Fixed via UPDATE (school, city, country,
+  flag, link, ext_rank, tuition, blurb, highlights all corrected) before any translation happened, so no
+  wrong data ever reached the i18n columns or a live page.
+- 1406 York MA International Political Economy, 1407 MA International Relations and Human Rights — both
+  £26,900 ÷ 0.85 = €31,647, Social Sciences.
+
+**Running total: 1382 programmes (1378 → 1382, +4 this round), max id 1407, max rank 1378. 618 short of the
+2000 target.**
