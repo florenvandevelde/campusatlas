@@ -2754,3 +2754,24 @@ round 92's fetch further.
 
 **Running total: 1365 programmes (1363 → 1365, +2 this round), max id 1390, max rank 1361. 635 short of the
 2000 target.**
+
+**Round 95 — tenth goldmine found: University of Nottingham's fee page (ids 1391-1398, translated ✅).**
+`nottingham.ac.uk/fees/tuitionfees/202627/postgraduate-taught.aspx` is a WebFetch-readable comprehensive fee
+page hitting nearly every one of this catalogue's historically thin fields in one query (History, Psychology,
+Media & Communication, Law, Public Health, Education, Mathematics, Sociology). First Nottingham rows besides
+two pre-existing ones (Drug Discovery, Management). Confirmed QS Psychology #94 for Nottingham via fresh
+fetch; History wasn't found in the 51-100 band, so used Nottingham's own confirmed overall QS World Ranking
+(#97, genuinely top-100) as institutional fallback for the rest.
+- 1391 MA History, 1392 MA International Media and Communications Studies, 1393 LLM Human Rights Law
+  (Nottingham Human Rights Law Centre — a real, well-known UK centre), 1397 MA Social Science Research
+  (Sociology) — all £25,750 ÷ 0.85 = €30,294.
+- 1394 Master of Public Health, 1395 MA Education — both £28,600 ÷ 0.85 = €33,647.
+- 1396 MSc Financial and Computational Mathematics, 1398 MSc Psychology Research Methods (QS Psychology
+  #94) — both £33,000 ÷ 0.85 = €38,824.
+Same fee page also has more LLM titles (International Law, International Business and Commercial Law,
+Technology and Intellectual Property Law — all £25,750), more Psychology titles (Occupational, Management,
+Work and Organisational Psychology at £30,800), and Film/Screen Translation media titles — all banked for a
+future round.
+
+**Running total: 1373 programmes (1365 → 1373, +8 this round), max id 1398, max rank 1369. 627 short of the
+2000 target.**
