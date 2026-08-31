@@ -18,8 +18,17 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1468 programmes, max id 1493, max rank
-1464** (verified live in Supabase). SOAS goldmine fully mined across rounds 112-113 (15 rows, ids
+wider net than the earlier top-50-only audits). **Current state: 1477 programmes, max id 1502, max rank
+1473** (verified live in Supabase). Fifteenth confirmed goldmine: `southampton.ac.uk/courses/fees/
+postgraduate.page` — a single HTML page (no PDF) with a full per-programme fee table for 2026/27,
+landing squarely on History/Psychology/Law/Public Health/Education/Media/Politics/Sociology. QS
+World Ranking 2026: #87 (strong institutional citation, used throughout). 9 rows mined (round 114);
+more banked in the same table (Holocaust programme variants, International Commercial and Corporate
+Law LLM, International Law and Human Rights LLM, Maritime Law LLM, PGCE Primary/Secondary, Global
+Media and Publishing Management MA, Public Health PGCert/PGDip). **Dead ends this round** (checked,
+don't retry): Queen Mary (2025-26 PDF exists, no 2026-27 found), Leicester/Lancaster/Essex/Exeter/
+Liverpool/Manchester/Kent/UEA (no current comprehensive per-programme table) — Lancaster's cached
+fee page is actually stale 2015/16 data, confirmed via Browser pane. SOAS goldmine fully mined across rounds 112-113 (15 rows, ids
 1479-1493) — **next round should open a 15th goldmine university.** Fourteenth confirmed goldmine: SOAS University of London's
 postgraduate-taught fees page (`soas.ac.uk/study/student-fees-and-funding/tuition-fees/
 postgraduate-taught-fees`) — not a per-programme table but 4 official subject bands (Band 1 "all

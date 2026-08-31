@@ -3132,3 +3132,38 @@ no new fetch needed. Added ids 1489–1493, ranks 1460–1464, all GBP→EUR at 
 All 5 translated (nl/fr/de/es). Verified count: 1468. SOAS goldmine now fully mined across rounds
 112-113 (15 rows, ids 1479-1493) — dedup-checked against all prior SOAS titles before insert, no
 conflicts. Next round: find a 15th goldmine university.
+
+## Round 114: University of Southampton — 15th goldmine (1468 → 1477)
+
+Dead ends explored first (logged so future sessions skip these): Queen Mary University of London's
+2025-26 fee schedule PDF exists but no 2026-27 equivalent was found; University of Leicester and
+Lancaster fee pages redirect to per-course lookups (Lancaster's cached page is actually stale, still
+showing 2015/16 rates — confirmed via Browser pane, not usable); University of Essex, Exeter,
+Liverpool, Manchester, Kent, UEA all checked — none expose a current, comprehensive per-programme
+table (individual course-page lookups only, or PDF exists only for a prior year).
+
+University of Southampton came through: `southampton.ac.uk/courses/fees/postgraduate.page` is a
+single HTML page (no PDF needed) with a full, WebFetch-readable table of every postgraduate taught
+programme's 2026/27 international fee — and it lands squarely on the catalogue's thinnest fields
+(History, Psychology, Law, Public Health, Education, Media, Politics, Sociology). No existing
+Southampton rows, not in scholarships table (scholar=false). QS World Ranking 2026: **#87** —
+genuinely top-100, strong institutional citation used across the whole batch.
+
+Added 9 rows (ids 1494–1502, ranks 1465–1473), all GBP→EUR at 0.85:
+- MA History — £28,800 → €33,882 (History)
+- MSc Psychology (all pathways) — £34,000 → €40,000 (Psychology)
+- LLM Law — £30,200 → €35,529 (Law)
+- MPH Public Health — £34,700 → €40,824 (Public Health)
+- MSc Education — £28,600 → €33,647 (Education)
+- MA Digital Media — £32,000 → €37,647 (Media & Communication)
+- MSc Politics — £29,900 → €35,176 (Public Policy)
+- MSc Global Sociology — £29,900 → €35,176 (Social Sciences)
+- MA Holocaust: History Experience Heritage — £28,800 → €33,882 (History) — niche title via the
+  Parkes Institute, Southampton's well-known centre for Jewish/non-Jewish relations research
+
+All 9 translated (nl/fr/de/es). Verified count: 1477.
+
+Same fee table has more unused rows banked: Holocaust programme variants, International Commercial
+and Corporate Law LLM, International Law and Human Rights LLM, Maritime Law LLM (all £30,200), PGCE
+Primary/Secondary Education (£28,600/£29,900), Global Media and Publishing Management MA (£37,000),
+Public Health PGCert/PGDip (£12,500/£25,100) — worth a return trip in a future round.
