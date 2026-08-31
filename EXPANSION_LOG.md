@@ -2816,3 +2816,11 @@ used for all three.
 
 **Running total: 1385 programmes (1382 → 1385, +3 this round), max id 1410, max rank 1381. 615 short of the
 2000 target.**
+
+**Round 100 — Nottingham Agriculture & Food (ids 1411-1412, translated ✅):** Confirmed QS Agriculture &
+Forestry #77 for Nottingham via fresh fetch.
+- 1411 MSc Food Process Engineering (£33,000 ÷ 0.85 = €38,824), 1412 MSc Food Production Management
+  (£33,800 ÷ 0.85 = €39,765) — both Agriculture & Food field.
+
+**Running total: 1387 programmes (1385 → 1387, +2 this round), max id 1412, max rank 1383. 613 short of the
+2000 target. Round 100 milestone reached this session's continuation.**
