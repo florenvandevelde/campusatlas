@@ -2747,3 +2747,10 @@ round 92's fetch further.
 
 **Running total: 1363 programmes (1360 → 1363, +3 this round), max id 1388, max rank 1359. 637 short of the
 2000 target.**
+
+**Round 94 — more DCU titles (ids 1389-1390, translated ✅):**
+- 1389 MA International Relations (€17,200) — Social Sciences.
+- 1390 MSc Elite Sport Performance (€9,400) — Life Sciences (Sports).
+
+**Running total: 1365 programmes (1363 → 1365, +2 this round), max id 1390, max rank 1361. 635 short of the
+2000 target.**
