@@ -2290,3 +2290,22 @@ family beyond the Food Security row already added.
 
 **Running total: 1243 programmes (1242 → 1243, +1 this round), max id 1268, max rank 1239. 57 short of the
 1300 target.**
+
+**Round 68 — new goldmine found: University of Glasgow's live fee table (ids 1269-1271, translated ✅).**
+`gla.ac.uk/postgraduate/feesandfunding/feetable/live/` is a comprehensive, WebFetch-readable page listing
+essentially all Glasgow taught-postgraduate fees by subject (UK + International columns) — no browser
+interaction needed, unlike the Edinburgh/Sheffield tools. A third confirmed fast-path for future rounds.
+Verified via a fresh QS History 51-100 fetch that Glasgow, Bristol, QMUL and Utrecht (the four schools used
+in round 44's "51-100 band" additions) are all genuinely in that ranking band before trusting the label.
+- 1269 University of Glasgow — MSc Global History: QS History top 100 band, £26,460 ÷ 0.85 = €31,129.
+- 1270 University of Glasgow — Master of Public Health (MPH): no QS ranking for this field (as established),
+  used the "top-100 world university" institutional-credit fallback. £33,210 ÷ 0.85 = €39,071.
+- 1271 University of Glasgow — MSc Library & Information Studies: QS Library & Information Management top
+  100 band (Glasgow was already confirmed QS-ranked here from an earlier session's audit that added its
+  Archives, Records and Information Management row), CILIP-accredited. £27,720 ÷ 0.85 = €32,612.
+The live fee table also listed several unused adjacent titles at the same or similar rates (Early Modern
+History, Gender History, Medieval History, Modern History, Scottish History all at £26,460; Public Health
+PgDip/PgCert tiers) for a future round.
+
+**Running total: 1246 programmes (1243 → 1246, +3 this round), max id 1271, max rank 1242. 54 short of the
+1300 target.**
