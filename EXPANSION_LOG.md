@@ -2611,3 +2611,18 @@ individually this round).
 **Running total: 1329 programmes (1324 → 1329, +5 this round), max id 1354, max rank 1325. 671 short of the
 2000 target. Eight confirmed goldmine universities so far this session: Edinburgh, Sheffield, Glasgow, York,
 UCC, Limerick, DCU, Galway.**
+
+**Round 83 — more banked York titles via the institutional fallback (ids 1355-1357, translated ✅):**
+Checked York's rank in Linguistics (not in 51-100 band) and Economics & Econometrics (not in top 50) —
+neither confirmed, so used the same "top-200 world university" fallback already established for York this
+session (rounds 75-76) rather than chase further pages.
+- 1355 MA International Relations (£26,900 ÷ 0.85 = €31,647) — Social Sciences.
+- 1356 MA Applied Linguistics (£26,900 ÷ 0.85 = €31,647) — Humanities.
+- 1357 MSc Economics (£27,250 ÷ 0.85 = €32,059) — Economics.
+QUB (Queen's University Belfast) and Maynooth University were both attempted this round for a possible ninth
+goldmine but every URL tried (HTML pages and PDFs alike) returned 403 — both sites appear to block WebFetch
+entirely, not just PDFs. Worth a Browser-pane attempt in a future session rather than repeating the same
+WebFetch dead end.
+
+**Running total: 1332 programmes (1329 → 1332, +3 this round), max id 1357, max rank 1328. 668 short of the
+2000 target.**
