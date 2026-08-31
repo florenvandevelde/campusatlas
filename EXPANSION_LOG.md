@@ -3059,3 +3059,23 @@ Psychology, MA Sociology (Cultural Analysis / Inventive Urban Research), MA Post
 and Global Policy, MA Understanding Domestic Violence and Sexual Abuse, MRes Anthropology, MA
 Visual Anthropology, MA Theatre Performance & Participation, PGCE (Education), MMUS Popular Music /
 Sonic Arts. See EXPANSION_LOG.md round 110 tool history for the full price list.
+
+## Round 111: Goldsmiths goldmine, batch 2 (1444 → 1453)
+
+Mined 9 more rows from the same Goldsmiths PDF found in round 110 (no new fetch needed). Added
+ids 1470–1478, ranks 1441–1449, all GBP→EUR at 0.85:
+- MA Black British History — £21,000 → €24,706 (History)
+- MA Queer History — £21,000 → €24,706 (History)
+- MFA Curating — £27,500 → €32,353 (Art & Design) — QS Art & Design 2026 #26 citation
+- MSc Cognitive Behavioural Therapy — £21,000 → €24,706 (Psychology)
+- MSc Occupational Psychology — £25,500 → €30,000 (Psychology)
+- MA Postcolonial Culture and Global Policy — £21,000 → €24,706 (Public Policy)
+- MA Understanding Domestic Violence and Sexual Abuse — £25,500 → €30,000 (Social Sciences)
+- PGCE (Postgraduate Certificate in Education) — £22,000 → €25,882 (Education)
+- MMUS Popular Music — £25,500 → €30,000 (Performing Arts)
+
+All scholar=false, all 9 translated (nl/fr/de/es). Verified count: 1453.
+
+Goldsmiths PDF now substantially mined (19 rows across rounds 110-111). Remaining banked rows are
+thinner (mostly Computer Science/Business/Media titles that would duplicate existing coverage) —
+next round should open a 14th goldmine university rather than exhaust this one further.
