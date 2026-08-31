@@ -18,8 +18,8 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1333 programmes, max id 1358, max rank
-1329** (verified live in Supabase). QUB fix found: WebFetch 403s on qub.ac.uk, but the Browser pane works —
+wider net than the earlier top-50-only audits). **Current state: 1335 programmes, max id 1360, max rank
+1331** (verified live in Supabase). QUB fix found: WebFetch 403s on qub.ac.uk, but the Browser pane works —
 navigate directly to a course page's `#fees` anchor and read `document.getElementById('fees').innerText`
 (the fee panel is JS-revealed, not in plain page text). Maynooth still fully blocked, not yet retried via
 Browser pane. Eighth confirmed goldmine: `universityofgalway.ie` (native EUR, no

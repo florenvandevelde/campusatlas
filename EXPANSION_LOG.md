@@ -2644,3 +2644,14 @@ finder for exact slugs rather than guessing URL patterns.
 
 **Running total: 1333 programmes (1332 → 1333, +1 this round), max id 1358, max rank 1329. Ninth confirmed
 goldmine-adjacent school. 667 short of the 2000 target.**
+
+**Round 85 — two more QUB rows via the same #fees-anchor technique (ids 1359-1360, translated ✅):**
+- 1359 MSc Applied Developmental Psychology: £27,600 ÷ 0.85 = €32,471 — Psychology.
+- 1360 LLM International Human Rights Law: £23,000 ÷ 0.85 = €27,059 — Law.
+Both confirmed for 2026/27 entry via the same direct-navigation + `#fees` anchor trick. A guessed Public
+Health URL 404'd. QUB slugs are guessable from the course title pattern (`lowercase-hyphenated-title-msc`
+or `-llm`) but not reliably — worth using WebSearch to find the exact slug first rather than guessing
+blind, as done successfully this round for Psychology and Law.
+
+**Running total: 1335 programmes (1333 → 1335, +2 this round), max id 1360, max rank 1331. 665 short of the
+2000 target.**
