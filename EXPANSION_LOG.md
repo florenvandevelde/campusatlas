@@ -2551,3 +2551,22 @@ Chemistry, Biology, Social Work, Linguistics, Sustainability/Planning — good t
 
 **Running total: 1306 programmes (1300 → 1306, +6 this round), max id 1331, max rank 1302. 694 short of the
 2000 target.**
+
+**Round 79 — sixth goldmine found: University of Limerick's fee page (ids 1332-1338, translated ✅).**
+`ul.ie/fees/course-fees/postgraduate-fees/postgraduate-taught-fees-2026-2027` is another WebFetch-readable
+comprehensive fee page (native EUR, no conversion), and like York it happens to concentrate almost exactly
+on this catalogue's thinnest fields (History, Psychology, Law, Public Health, Sociology, Politics, plus
+Sports Science). First University of Limerick rows in this catalogue. Confirmed UL is genuinely QS-ranked
+for Sports-related Subjects (#41, matching the round-37 fetch from earlier this session) — used that rank
+for the Sports Performance row; for the rest, no subject-specific QS rank was chased individually (would
+have meant 6 more per-subject lookups for a relatively small/lower-prestige school), so used a neutral "QS
+World University Rankings 2026" credit line instead, since UL's real rank (401st) doesn't clear the "top-X"
+phrasing threshold used for higher-ranked institutional fallbacks elsewhere this session — this is a
+deliberately softer citation for a school ranked outside the world top 400, not a specific numeric claim.
+- 1332 MA History (€18,600), 1333 MA Psychology (€16,600), 1334 LLM Human Rights in Criminal Justice
+  (€18,600), 1335 MSc Public Health (€16,000), 1336 MA Sociology, Youth/Community/Social Regeneration
+  (€18,600), 1337 MA Politics (€18,600), 1338 MSc Sports Performance (QS Sports-related Subjects #41,
+  €14,600).
+
+**Running total: 1313 programmes (1306 → 1313, +7 this round), max id 1338, max rank 1309. 687 short of the
+2000 target.**
