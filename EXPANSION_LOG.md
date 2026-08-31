@@ -2508,3 +2508,14 @@ conservative, verifiable phrasing).
 
 **Running total: 1289 programmes (1285 → 1289, +4 this round), max id 1314, max rank 1285. 711 short of the
 2000 target.**
+
+**Round 76 — remaining York Film & TV Production titles (ids 1315-1318, translated ✅):** No new research,
+drawing down the confirmed rate band from round 75.
+- 1315 MA Cinematography, 1316 MA Editing, 1317 MSc Sound, 1318 MA Visual Effects (all "...for Film and
+  Television Production") — Media & Communication field, £32,900 ÷ 0.85 = €38,706 each. This exhausts the
+  York Film & TV suite except for the combined "Film and Television Production with X" MA variants (a
+  different but overlapping set of titles at the same school/rate — likely too close to what's already
+  added to be worth a separate row).
+
+**Running total: 1293 programmes (1289 → 1293, +4 this round), max id 1318, max rank 1289. 707 short of the
+2000 target.**
