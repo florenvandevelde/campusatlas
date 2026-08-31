@@ -2519,3 +2519,19 @@ drawing down the confirmed rate band from round 75.
 
 **Running total: 1293 programmes (1289 → 1293, +4 this round), max id 1318, max rank 1289. 707 short of the
 2000 target.**
+
+**Round 77 — fifth goldmine found: University College Cork's fee schedule (ids 1319-1325, translated ✅).**
+`ucc.ie/en/financeoffice/fees/schedules/postgraduateeuandinternationalfees202627/` is another
+WebFetch-readable comprehensive fee page, first Irish addition of this kind — and Ireland's native currency
+is already EUR, so no conversion needed at all this round. First UCC rows in this catalogue. Checked UCC's
+QS ranking membership for Psychology and Law (neither in the top 100), so used UCC's confirmed overall QS
+World Ranking (~220-246, via WebSearch) for a "top-250 world university" institutional-credit fallback
+across all 7 rows rather than a subject-specific rank.
+- 1319 MA History (€18,500), 1320 MA Applied Psychology (€23,500), 1321 MA Film and Screen Media (€19,900),
+  1322 LLM Law (€19,700), 1323 Master of Public Health (€16,700), 1324 MSc Financial and Computational
+  Mathematics (€28,000), 1325 MSc Applied Environmental Geoscience (€27,000) — spanning History, Psychology,
+  Media & Communication, Law, Public Health, Mathematics, Earth Sciences.
+
+**🎯 Clean milestone: 1300/2000 programmes reached this round** (the ORIGINAL target from earlier this
+session, now just a waypoint toward 2000). Running total: 1300 programmes (1293 → 1300, +7 this round), max
+id 1325, max rank 1296. 700 short of the 2000 target — exactly halfway from the 1300 waypoint to 2000.
