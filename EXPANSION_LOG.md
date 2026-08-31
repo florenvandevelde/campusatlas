@@ -2344,3 +2344,28 @@ every batch before ending a session, still never fabricate a fee when a table do
 
 **Running total: 1248 programmes (1246 → 1248, +2 this round), max id 1273, max rank 1244. 752 short of the
 new 2000 target.**
+
+## Data-integrity fix: invalid `open_fields` values across this session's inserts (2026-08-31)
+
+**Found while cross-checking the BACKGROUND_OPTIONS vocabulary before adding more rows.** Grepped
+index.html's `BACKGROUND_OPTIONS` array (lines 2320-2364) and its matching logic (`BACKGROUND_MATCHES`,
+lines 2367-2383) to understand exactly which `open_fields` strings the site's "your academic background"
+filter actually recognises. Two things worth remembering:
+- The four legacy bucket labels — `"Business & Economics"`, `"STEM & Engineering"`, `"Computer Science"`,
+  `"Social Sciences & Humanities"` — are explicitly still valid on their own (line 2373-2374), not just as
+  roll-ups. Rows storing these directly (several Sport/Hospitality Management rows this session) are correct,
+  not bugs.
+- But three values I'd been inventing were NOT in the vocabulary at all and would silently fail to match any
+  user's background filter: `"Law & Legal Studies"` (should be `"Law"`), `"Public Policy & International
+  Affairs"` (doesn't exist — closest real value is `"Politics & International Relations"`, added alongside
+  `"Social Sciences & Humanities"`), `"Education & Public Policy"` (should be `"Education"`), `"Engineering"`
+  (should be the granular `"Mechanical & Aerospace Engineering"`), and `"Agriculture, Environment &
+  Sustainability"` (should be `"Earth & Environmental Sciences"`, the closest real granular value).
+**Fixed 17 rows total** (ids 1209, 1210, 1211, 1221, 1222, 1233, 1234, 1238, 1239, 1240, 1241, 1242, 1243,
+1244, 1248, 1256, 1257, 1259, 1260, 1261, 1266, 1268 — all from this session's own additions, ids
+1205-1273) via direct UPDATEs, verified clean afterward with a distinct-values query. **Before typing any
+new `open_fields` value from memory, grep index.html's `BACKGROUND_OPTIONS` array first** — this is the same
+mistake flagged for the `fields` vocabulary back in the 2026-08-22 session's "Recurring mistake" note; it
+turns out the newer `open_fields` vocabulary has the identical trap. Did not audit the pre-existing catalogue
+(rows before id 1205) for the same issue — out of scope for this pass, but worth a dedicated sweep if
+`open_fields` data quality ever gets audited end-to-end.
