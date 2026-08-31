@@ -3274,3 +3274,31 @@ All 7 translated (nl/fr/de/es). Verified count: 1509. Bristol table now substant
 rounds 117-118 (17 rows, ids 1518-1534) — remaining unused rows (more LLM specialisations, Clinical
 Neuropsychology, 3 more MSc Education pathways) are lower priority; next round should open a 17th
 goldmine university.
+
+## Round 119: University of Surrey — 17th goldmine (1509 → 1515)
+
+Exeter's fee-band page was checked as an extension of the "drill into cohort sub-page" idea from
+round 117, but only had 2024/25 and 2025/26 data, no 2026/27 — dead end, don't retry. UCL's
+"students" (current-student) fee-schedule page was also checked as an alternative to the "study"
+prospective-student page tried earlier in the session — still no table, same dead end.
+
+University of Surrey's postgraduate-taught-course-fees-2026-entry page came through: a genuine
+alphabetical-by-programme fee list for 2026 entry, WebFetch-readable. Surrey had 1 existing row
+(MSc International Hotel Management) — no conflicts. QS World Ranking 2026: **#262** (confirmed) —
+used as neutral institutional citation (not top-N framing), consistent with the Aberdeen/Limerick
+convention for schools outside the top tier.
+
+Added 6 rows (ids 1535–1540, ranks 1506–1511), all GBP→EUR at 0.85, scholar=false (Surrey not in
+scholarships table):
+- MSc Clinical Psychology and Mental Health — £25,900 → €30,471 (Psychology)
+- MSc Health Psychology — £25,900 → €30,471 (Psychology)
+- MSc Occupational and Organizational Psychology — £25,900 → €30,471 (Psychology)
+- LLM Professional Legal Practice (SQE Pathway) — £20,700 → €24,353 (Law)
+- MSc International Relations — £22,700 → €26,706 (Public Policy)
+- MSc International Relations (International Intervention) — £22,700 → €26,706 (Public Policy)
+
+All 6 translated (nl/fr/de/es). Verified count: 1515. Surrey's programme list confirmed no entries
+for History, Public Health, Education, Media or Sociology (checked directly) — the school leans
+STEM/business/hospitality, so this goldmine is naturally limited to Psychology/Law/Politics; two
+more Psychology titles remain unused if needed (Environmental Psychology, Social Psychology MSc,
+both £25,900).
