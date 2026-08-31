@@ -2454,3 +2454,26 @@ rank membership for those still-unverified subjects, then insert; and/or find 2-
 Glasgow-style single-page WebFetch-readable comprehensive fee table** (searching "[university] fee table
 live" or "postgraduate fees search tool" tends to surface them, as it did for Sheffield and Glasgow this
 session).
+
+**Round 73 — new goldmine: University of York's international-fees page (ids 1302-1308, translated ✅).**
+`york.ac.uk/study/postgraduate-taught/fees/international/` is another WebFetch-readable comprehensive fee
+page (no browser needed), and unlike Glasgow's it happens to list dozens of programmes exactly across this
+catalogue's historically thinnest fields (History, Psychology, Law, Public Health, Education, Mathematics,
+Physics) in one fetch. Confirmed QS-ranking membership individually before adding: History #51-100 band,
+Education & Training #81, Psychology #98 (all freshly checked via page-2 fetches); Law was checked and York
+does NOT appear in the QS Law top-100, so none of York's 8 available LLM titles from the same fee page were
+added this round. First University of York row in this catalogue.
+- 1302 MA Medieval History, 1303 MA Modern History — History field, QS History top 100 band, £26,900 ÷
+  0.85 = €31,647.
+- 1304 MA Education, 1305 MA Comparative Education and International Development — Education field, QS
+  Education & Training #81, £26,900 ÷ 0.85 = €31,647.
+- 1306 MSc Psychology of Mental Health (£32,900 ÷ 0.85 = €38,706), 1307 MSc Psychology in Education
+  (£26,900 ÷ 0.85 = €31,647) — Psychology field, QS Psychology #98.
+- 1308 Master of Public Health (MPH) — Public Health field, no QS ranking for this subject, used the
+  "Russell Group research-intensive university" institutional-credit fallback. £29,900 ÷ 0.85 = €35,176.
+York's fee page also listed Mathematics/Physics PGCE-only entries (teacher training, not a fit for this
+catalogue's taught-master's format) and several more History/Education titles at the identical rates,
+banked for a future round if these fields need more depth.
+
+**Running total: 1283 programmes (1276 → 1283, +7 this round), max id 1308, max rank 1279. 717 short of the
+2000 target.**
