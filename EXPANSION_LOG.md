@@ -2806,3 +2806,13 @@ Relations.
 
 **Running total: 1382 programmes (1378 → 1382, +4 this round), max id 1407, max rank 1378. 618 short of the
 2000 target.**
+
+**Round 99 — Nottingham Architecture/Linguistics/Vet Physio (ids 1408-1410, translated ✅):**
+- 1408 MArch Architecture and Sustainable Design (£28,600 ÷ 0.85 = €33,647) — Architecture.
+- 1409 MA Applied Linguistics (£25,750 ÷ 0.85 = €30,294) — Humanities.
+- 1410 MSc Veterinary Physiotherapy (£25,750 ÷ 0.85 = €30,294) — Life Sciences.
+Nottingham QS rank in Architecture & Built Environment checked and not in top-50; institutional fallback
+used for all three.
+
+**Running total: 1385 programmes (1382 → 1385, +3 this round), max id 1410, max rank 1381. 615 short of the
+2000 target.**
