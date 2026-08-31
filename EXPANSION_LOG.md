@@ -3192,3 +3192,32 @@ throughout:
 
 All 10 translated (nl/fr/de/es). Verified count: 1487. Dedup-checked against all prior Southampton
 titles (rounds 114-115 combined, 19 rows) before insert — no conflicts.
+
+## Round 116: King's College London — individual-page mining, not a full-table goldmine (1487 → 1492)
+
+Cardiff University's postgraduate-taught-fees page (tried via Browser pane, which worked where
+WebFetch had 403'd before) confirmed a genuine dead end — no consolidated table, redirects to
+per-course lookup only. Logged, don't retry.
+
+KCL has no single consolidated fee table either, but individual course fee sub-pages
+(`kcl.ac.uk/study/postgraduate-taught/courses/<slug>/fees`) are WebFetch-readable and reliably
+state the exact 2026/27 international fee, so this round fetched five one-off pages directly rather
+than finding a true goldmine. KCL already had 11 existing rows — checked against all of them before
+picking new, non-duplicate titles.
+
+QS 2026: KCL overall World Ranking **#31** (confirmed), Politics subject ranking **#11** (confirmed
+via WebSearch) — used for the two War Studies department rows, since War Studies itself has no
+separate QS subject ranking but sits within/adjacent to the Politics discipline at KCL.
+
+Added 5 rows (ids 1513–1517, ranks 1484–1488), all GBP→EUR at 0.85, scholar=true (KCL confirmed in
+scholarships table):
+- MA War Studies — £38,300 → €45,059 (Public Policy) — QS Politics #11
+- MA Conflict, Security & Development — £38,300 → €45,059 (Development Studies) — QS Politics #11
+- MSc Global Health, Social Justice and Public Policy — £33,850 → €39,824 (Public Health) — QS World #31
+- MA Digital Humanities — £35,950 → €42,294 (Humanities) — QS World #31
+- MMus Music — £32,100 → €37,765 (Performing Arts) — QS World #31
+
+All 5 translated (nl/fr/de/es). Verified count: 1492. Other KCL War Studies-dept titles found but
+not used this round (same £38,300 flat rate): MA Peace, Security and International Law; MA
+International Conflict Studies; MSc War & Psychiatry — worth a future round if more KCL rows are
+wanted.
