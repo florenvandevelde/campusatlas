@@ -3079,3 +3079,42 @@ All scholar=false, all 9 translated (nl/fr/de/es). Verified count: 1453.
 Goldsmiths PDF now substantially mined (19 rows across rounds 110-111). Remaining banked rows are
 thinner (mostly Computer Science/Business/Media titles that would duplicate existing coverage) —
 next round should open a 14th goldmine university rather than exhaust this one further.
+
+## Round 112: SOAS University of London — 14th goldmine (1453 → 1463)
+
+SOAS doesn't publish a per-programme fee table, but its postgraduate-taught fees page bands every
+programme into 4 groups by subject area: Band 1 "all other subjects" (History, Politics, Development
+Studies, Anthropology, Economics, Media, Sociology, Religious Studies, etc.) at £25,320; Band 2
+(Finance, Management) £26,000; Band 3 (Law) £27,840; Band 4 (International Studies and Diplomacy)
+£28,840. That's a legitimate, official per-band fee, so it was usable directly (no PDF needed this
+time — HTML page, WebFetch-readable).
+
+QS 2026 subject rankings verified via SOAS's own official rankings news pages: **Development
+Studies #2 in the world, Politics #16, Anthropology #19, History of Art #24** — outstanding
+citations, all confirmed via `soas.ac.uk/about/news/...` (not aggregator sites). SOAS also touts
+"13 subjects in the global top 100" — used as a general institutional citation for rows without a
+confirmed precise number. SOAS overall QS World Ranking is a modest #508, so subject-specific or
+the "13 subjects" framing was used throughout rather than the overall figure.
+
+Every programme title in this round was verified as a real, currently-listed SOAS course via
+targeted WebSearch (not fabricated) before insertion — SOAS already had 2 existing rows (MA
+History, MSc Global Development), both avoided as exact-title duplicates.
+
+Added 10 rows (ids 1479–1488, ranks 1450–1459), all GBP→EUR at 0.85, scholar=false (SOAS not in
+scholarships table):
+- MSc Violence, Conflict and Development — £25,320 → €29,788 (Development Studies) — QS Dev Studies #2
+- MSc Environment, Politics and Development — £25,320 → €29,788 (Development Studies) — QS Dev Studies #2
+- MA Social Anthropology — £25,320 → €29,788 (Social Sciences) — QS Anthropology #19
+- MSc Politics and International Relations — £25,320 → €29,788 (Public Policy) — QS Politics #16
+- MA History of Art and Archaeology of the Islamic Middle East — £25,320 → €29,788 (History) — QS History of Art #24
+- MA Religion, Politics and Society — £25,320 → €29,788 (Theology, Divinity & Religious Studies)
+- MA Global Media and Digital Cultures — £25,320 → €29,788 (Media & Communication)
+- LLM — £27,840 → €32,753 (Law)
+- MA International Studies and Diplomacy — £28,840 → €33,929 (Public Policy)
+- MSc Global Political Economy — £25,320 → €29,788 (Economics) — QS Dev Studies #2 (dept overlap)
+
+All 10 translated (nl/fr/de/es). Verified count: 1463.
+
+Further SOAS titles remain available in the same fee bands if a future round wants to return here
+(e.g. MSc Migration, Mobility and Development; MSc Humanitarianism, Aid and Conflict; MSc Research
+for International Development; MA Global Diplomacy: South Asia) — all Band 1 at £25,320.

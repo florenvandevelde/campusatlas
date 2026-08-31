@@ -18,8 +18,22 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1453 programmes, max id 1478, max rank
-1449** (verified live in Supabase). Thirteenth confirmed goldmine: `gold.ac.uk/media/docs/students/
+wider net than the earlier top-50-only audits). **Current state: 1463 programmes, max id 1488, max rank
+1459** (verified live in Supabase). Fourteenth confirmed goldmine: SOAS University of London's
+postgraduate-taught fees page (`soas.ac.uk/study/student-fees-and-funding/tuition-fees/
+postgraduate-taught-fees`) — not a per-programme table but 4 official subject bands (Band 1 "all
+other subjects" incl. History/Politics/Development Studies/Anthropology/Economics/Media/Sociology/
+Religious Studies £25,320; Band 2 Finance/Management £26,000; Band 3 Law £27,840; Band 4
+International Studies and Diplomacy £28,840) — a legitimate, official per-band fee, HTML-readable,
+no PDF needed. QS 2026 subject rankings confirmed via SOAS's own news pages: **Development Studies
+#2 world, Politics #16, Anthropology #19, History of Art #24**, plus "13 subjects in the global top
+100" as a general institutional citation. SOAS overall QS World Ranking is only #508, so subject-
+specific framing was used throughout. Every programme title was verified as a real, currently-
+listed SOAS course via WebSearch before insertion (not fabricated) — 2 pre-existing SOAS rows (MA
+History, MSc Global Development) were avoided as exact-title duplicates. 10 rows mined (round 112);
+more Band-1 titles remain available if returning here (MSc Migration Mobility and Development, MSc
+Humanitarianism Aid and Conflict, MSc Research for International Development, MA Global Diplomacy:
+South Asia — all £25,320). Thirteenth confirmed goldmine: `gold.ac.uk/media/docs/students/
 pg-fees-2026-27.pdf` (Goldsmiths, University of London) — same WebFetch-can't-parse-PDF-binary +
 Read-tool-native-PDF-support technique as Aberdeen. Goldsmiths QS 2026 subject rankings (officially
 confirmed, not aggregator-sourced): **Communication and Media Studies #18 world, Art and Design #26
