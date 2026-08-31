@@ -2845,3 +2845,14 @@ a future session doesn't re-attempt the same dead ends.
 
 **Running total: 1390 programmes (1389 → 1390, +1 this round), max id 1415, max rank 1386. 610 short of the
 2000 target.**
+
+**Round 103 — final banked York Politics/History titles (ids 1416-1417, translated ✅):** Explored Monash
+University (PDF fee guide 403'd, same pattern as several other Australian/international PDF fee sheets this
+session) without success this round. Fell back to the last two unused York titles from the round-74 harvest.
+- 1416 MA International Relations and Comparative Politics — Social Sciences.
+- 1417 MA Contemporary History and International Politics — History field (joint History/Politics
+  programme).
+Both £26,900 ÷ 0.85 = €31,647. This exhausts the York Politics/IR suite gathered this session.
+
+**Running total: 1392 programmes (1390 → 1392, +2 this round), max id 1417, max rank 1388. 608 short of the
+2000 target.**
