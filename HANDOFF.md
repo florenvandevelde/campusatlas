@@ -18,8 +18,9 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1463 programmes, max id 1488, max rank
-1459** (verified live in Supabase). Fourteenth confirmed goldmine: SOAS University of London's
+wider net than the earlier top-50-only audits). **Current state: 1468 programmes, max id 1493, max rank
+1464** (verified live in Supabase). SOAS goldmine fully mined across rounds 112-113 (15 rows, ids
+1479-1493) — **next round should open a 15th goldmine university.** Fourteenth confirmed goldmine: SOAS University of London's
 postgraduate-taught fees page (`soas.ac.uk/study/student-fees-and-funding/tuition-fees/
 postgraduate-taught-fees`) — not a per-programme table but 4 official subject bands (Band 1 "all
 other subjects" incl. History/Politics/Development Studies/Anthropology/Economics/Media/Sociology/

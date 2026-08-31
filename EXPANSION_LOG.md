@@ -3118,3 +3118,17 @@ All 10 translated (nl/fr/de/es). Verified count: 1463.
 Further SOAS titles remain available in the same fee bands if a future round wants to return here
 (e.g. MSc Migration, Mobility and Development; MSc Humanitarianism, Aid and Conflict; MSc Research
 for International Development; MA Global Diplomacy: South Asia) — all Band 1 at £25,320.
+
+## Round 113: SOAS goldmine, batch 2 — final sweep (1463 → 1468)
+
+Mined 5 more verified-real SOAS titles from the same Band-1 fee group (£25,320) found in round 112,
+no new fetch needed. Added ids 1489–1493, ranks 1460–1464, all GBP→EUR at 0.85 (€29,788):
+- MSc Migration, Mobility and Development (Development Studies) — QS Dev Studies #2
+- MSc Humanitarianism, Aid and Conflict (Development Studies) — QS Dev Studies #2
+- MSc Research for International Development (Development Studies) — QS Dev Studies #2
+- MA Middle Eastern Studies and Intensive Language (History, 24 months)
+- MA South Asian Studies (History)
+
+All 5 translated (nl/fr/de/es). Verified count: 1468. SOAS goldmine now fully mined across rounds
+112-113 (15 rows, ids 1479-1493) — dedup-checked against all prior SOAS titles before insert, no
+conflicts. Next round: find a 15th goldmine university.
