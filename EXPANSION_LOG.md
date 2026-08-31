@@ -2535,3 +2535,19 @@ across all 7 rows rather than a subject-specific rank.
 **🎯 Clean milestone: 1300/2000 programmes reached this round** (the ORIGINAL target from earlier this
 session, now just a waypoint toward 2000). Running total: 1300 programmes (1293 → 1300, +7 this round), max
 id 1325, max rank 1296. 700 short of the 2000 target — exactly halfway from the 1300 waypoint to 2000.
+
+**Round 78 — mining UCC further across more fields (ids 1326-1331, translated ✅):** Re-fetched the same UCC
+fee schedule for Economics/Business, Computer Science, Engineering, Chemistry, Biology, Food Science,
+Nursing, Social Work, Politics/Sociology, Linguistics, Architecture, Sustainability — a huge additional
+yield in one call. Picked 6 genuinely distinct, well-fitting additions using the same "top-250 world
+university" fallback (no UCC subject-specific QS rank confirmed for any of these six either):
+- 1326 MSc Food Business and Innovation (€19,700), 1327 MSc Food Science (€27,000) — Agriculture & Food.
+- 1328 MSc Nursing, non-EU applicants (€20,100) — Life Sciences (Nursing).
+- 1329 MA Sociology (€18,500), 1330 MSc Government and Politics (€18,500) — Social Sciences.
+- 1331 MArch Architecture (€28,000/yr, 2yr) — Architecture field.
+Substantial UCC data remains banked and unused: Computer Science/Data Science/Cybersecurity (€28,000, but
+Analytics/CS is already a thick catalogue field so lower priority), several Engineering MEngSc titles,
+Chemistry, Biology, Social Work, Linguistics, Sustainability/Planning — good targets for a future round.
+
+**Running total: 1306 programmes (1300 → 1306, +6 this round), max id 1331, max rank 1302. 694 short of the
+2000 target.**
