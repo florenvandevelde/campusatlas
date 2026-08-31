@@ -2870,3 +2870,14 @@ Economics were already added in earlier rounds).
 
 **Running total: 1395 programmes (1392 → 1395, +3 this round), max id 1420, max rank 1391. 605 short of the
 2000 target.**
+
+**Round 105 — Edinburgh Divinity (ids 1421-1422, translated ✅):** Drawing down the round-27 note's flagged
+"good next-session candidates" (Biblical Studies, Science and Religion, Theology in History, World
+Christianity, all confirmed £32,000 at the same School of Divinity rate as the existing Religious Studies
+row) — confirmed via the full registry dump earlier this session.
+- 1421 MSc Biblical Studies, 1422 MSc World Christianity — both £32,000 total ÷ 0.85 = €37,647, Humanities
+  field, QS Theology/Divinity/Religious Studies #16 (matching the existing Edinburgh Religious Studies row's
+  rank). Science and Religion and Theology in History remain at the same rate for a future round.
+
+**Running total: 1397 programmes (1395 → 1397, +2 this round), max id 1422, max rank 1393. 603 short of the
+2000 target.**
