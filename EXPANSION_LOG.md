@@ -2420,3 +2420,37 @@ Philosophy that has no dedicated catalogue `fields` tag anyway, once a tagging d
 
 **Running total: 1269 programmes (1265 → 1269, +4 this round), max id 1294, max rank 1265. 731 short of the
 2000 target.**
+
+**Round 72 — more Edinburgh titles from the full registry dump, using the institutional-credit fallback for
+subjects without a dedicated QS ranking (ids 1295-1301, translated ✅):** Edinburgh's overall QS World
+Ranking was checked (conflicting sources cite 24th-34th; used the safely-conservative "top-40 world
+university" phrasing that both figures support) for programmes whose subject has no standalone QS ranking
+(Comparative Literature, Creative Writing, Translation Studies, Islamic and Middle Eastern Studies,
+Economics — none of these map to a QS subject ranking this catalogue tracks). Two rows DID get a real
+subject rank: Medical Anthropology under QS Social Anthropology #17 (freshly confirmed via the SPS
+subject-rankings news page fetched earlier this round), and Counselling Studies under QS Psychology #23
+(matching the two other PPLS-adjacent Psychology rows added in round 70).
+- 1295 MSc Comparative Literature, 1296 MSc Creative Writing, 1297 MSc Translation Studies, 1298 MSc
+  Islamic and Middle Eastern Studies — Humanities field, all £32,000 total ÷ 0.85 = €37,647.
+- 1299 MSc Economics — Economics field, £32,000 total ÷ 0.85 = €37,647.
+- 1300 MSc Medical Anthropology — Public Health field (health-focused anthropology), QS Social Anthropology
+  #17, £32,000 ÷ 0.85 = €37,647.
+- 1301 MSc Counselling Studies — Psychology field, QS Psychology #23, £32,000 ÷ 0.85 = €37,647.
+
+**Running total: 1276 programmes (1269 → 1276, +7 this round), max id 1301, max rank 1272. 724 short of the
+2000 target.**
+
+**Status check-in for whoever continues this (2026-08-31, mid-session)**: 76 rows added since the 2000
+target was set (1179 baseline → 1276 now within this one extended session). At the current pace (roughly
+15-20 well-verified rows per "round" when a comprehensive fee table is available, fewer when one isn't),
+reaching 2000 realistically needs several more full sessions, not one. The three confirmed goldmine
+universities (Edinburgh, Sheffield, Glasgow) are far from exhausted — Edinburgh alone still has dozens of
+unused titles from the full registry dump (business analytics, more sciences, more languages, more law
+LLMs), and neither Sheffield's full paginated catalogue nor Glasgow's remaining subject areas (Physics,
+Chemistry, Economics, Sociology, Philosophy, Linguistics, Statistics — fee data already gathered in round 71
+but QS-ranking membership not yet confirmed for most) have been fully drawn down. **Next session's fastest
+path: re-open this same Glasgow fee-table fetch's banked data and spend a few WebFetch calls confirming QS
+rank membership for those still-unverified subjects, then insert; and/or find 2-3 more universities with a
+Glasgow-style single-page WebFetch-readable comprehensive fee table** (searching "[university] fee table
+live" or "postgraduate fees search tool" tends to surface them, as it did for Sheffield and Glasgow this
+session).
