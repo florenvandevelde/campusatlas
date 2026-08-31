@@ -2725,3 +2725,17 @@ indefinitely.
 
 **Running total: 1356 programmes (1352 → 1356, +4 this round), max id 1381, max rank 1352. 644 short of the
 2000 target.**
+
+**Round 92 — Galway Law/Human Rights specialisations (ids 1382-1385, translated ✅):** Re-fetched Galway's
+fee page for its large LLM suite (11 titles, all €20,540, run through the Irish Centre for Human Rights — a
+genuinely globally recognised centre) plus Economics/Business entries.
+- 1382 LLM International Human Rights, 1383 LLM International Criminal Law, 1384 LLM Gender and Human
+  Rights Law and Policy — Law field, all €20,540.
+- 1385 MSc Health Economics — Public Health field, €20,540.
+Remaining unused Galway LLM titles (Criminology/Criminal Justice and Human Rights, International and
+Comparative Business Law, International and Comparative Disability Law and Policy, International Migration
+and Refugee Law and Policy, Law and Digital Innovation, Peace Operations/Humanitarian Law and Conflict,
+Transitional Justice/Human Rights and Conflict) all banked at the same rate for a future round.
+
+**Running total: 1360 programmes (1356 → 1360, +4 this round), max id 1385, max rank 1356. 640 short of the
+2000 target.**
