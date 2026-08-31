@@ -2707,3 +2707,10 @@ drawing down already-banked data.
 
 **Running total: 1350 programmes (1344 → 1350, +6 this round), max id 1375, max rank 1346. 650 short of the
 2000 target.**
+
+**Round 90 — more banked UCC Engineering titles (ids 1376-1377, translated ✅):**
+- 1376 MEngSc Electrical and Electronic Engineering (€28,000) — Mechanical Engineering field.
+- 1377 MEngSc Industrial Biotechnology and Biomanufacturing (€28,000) — Biochemistry field.
+
+**Running total: 1352 programmes (1350 → 1352, +2 this round), max id 1377, max rank 1348. 648 short of the
+2000 target.**
