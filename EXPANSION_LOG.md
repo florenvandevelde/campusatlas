@@ -2369,3 +2369,37 @@ mistake flagged for the `fields` vocabulary back in the 2026-08-22 session's "Re
 turns out the newer `open_fields` vocabulary has the identical trap. Did not audit the pre-existing catalogue
 (rows before id 1205) for the same issue — out of scope for this pass, but worth a dedicated sweep if
 `open_fields` data quality ever gets audited end-to-end.
+
+**Round 70 — big Edinburgh batch, first push toward the new 2000 target (ids 1274-1290, translated ✅).**
+Dumped the ENTIRE Edinburgh registry table (219 distinct full-time programmes, via repeated
+`javascript_tool` calls filtering `table tr` for `Full-time` and excluding `Part-time`/`Online`) rather than
+one subject-keyword search at a time — a much more efficient approach at this scale. Cross-checked against
+all 37 pre-existing Edinburgh rows for dedup, then researched exact QS subject ranks for each target field
+via fresh `xuanxiao.org` fetches (Politics & IR #27, Sociology #28, Linguistics #11, Mathematics #29,
+Physics & Astronomy #42, Earth & Marine Sciences #27, Communication & Media Studies #36, Psychology #23 —
+all newly confirmed this round via individual rank lookups, not assumed) before citing any of them.
+17 new rows added, spanning 9 fields:
+- **Law (+4)**: LLM Medical Law and Ethics, LLM International Law, LLM Intellectual Property Law, MSc
+  Global Crime, Justice and Security — all QS Law #15, £32,000 total ÷ 0.85 = €37,647.
+- **Social Sciences (+4)**: MSc International Relations (QS Politics & IR #27), MSc Sociology and Global
+  Change (QS Sociology #28 — genuinely distinct from any existing catalogue row, confirming Edinburgh DOES
+  have a real dedicated Sociology programme despite the earlier session's note that no catalogue `fields`
+  tag exists for it), MSc Africa and International Development + MSc Science, Technology and International
+  Development (both QS Development Studies #30).
+- **Psychology (+2)**: MSc Human Cognitive Neuropsychology, MSc Developmental Science — both QS Psychology
+  #23, £33,200 ÷ 0.85 = €39,059 (a different, higher rate band than the Moray House/general-Edinburgh
+  £32,000 seen elsewhere — School of Philosophy, Psychology and Language Sciences runs its own fee tier).
+- **Mathematics (+2)**: MSc Financial Modelling and Optimization (£42,310, a third distinct Edinburgh Math
+  rate band), MSc Operational Research (£33,200) — both QS Mathematics #29.
+- **Humanities (+1)**: MSc Applied Linguistics, QS Linguistics #11, £33,200.
+- **Physics (+1)**: MSc Particle and Nuclear Physics, QS Physics & Astronomy #42, £39,200.
+- **Earth Sciences (+1)**: MSc Marine Systems and Policies, QS Earth & Marine Sciences #27, £40,800 (SAC
+  rate band).
+- **Media & Communication (+1)**: MSc Film Studies, QS Communication & Media Studies #36, £32,000.
+- **Public Health (+1)**: MSc Global Mental Health and Society — no QS ranking for this field, used the
+  institutional-credit fallback.
+**Every `open_fields` value in this batch was written using the confirmed vocabulary** (see the
+data-integrity fix logged just above) — no repeat of the earlier invented-value mistake.
+
+**Running total: 1265 programmes (1248 → 1265, +17 this round), max id 1290, max rank 1261. Target is now
+2000 (raised mid-session) — 735 short.**
