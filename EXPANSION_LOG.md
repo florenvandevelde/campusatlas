@@ -3014,3 +3014,48 @@ Conflict Studies (£23,000), Ethnology & Folklore (£23,000), Literatures Enviro
 (£23,000), Film Visual Culture and Arts Management (£23,000) — plenty more headroom before this
 goldmine is exhausted, but diminishing distinctiveness (many now duplicate fields already covered
 twice at Aberdeen) — next round should pivot to a 13th goldmine university instead.
+
+## Round 110: Goldsmiths, University of London — 13th goldmine (1434 → 1444)
+
+Strathclyde's PG fees PDF was tried first and turned out to be access-blocked entirely — both
+WebFetch and the Browser pane hit "Page not authorised" even on the direct PDF URL found via
+WebSearch (not just a WebFetch-specific block like Aberdeen/Goldsmiths). Logged as a dead end,
+don't retry the same way. Dundee, Stirling, RGU, Heriot-Watt, UCL all checked too — none expose a
+consolidated per-programme fee table (individual course-page lookups only).
+
+Goldsmiths, University of London came through: `gold.ac.uk/media/docs/students/pg-fees-2026-27.pdf`,
+a 12-page PDF covering essentially every postgraduate programme (Home/International, FT/PT) for
+2026-27. Same WebFetch-can't-parse-PDF-binary situation as Aberdeen — fetched via WebFetch first
+(got a "binary, can't parse" response but the file was still saved locally), then read directly
+with the Read tool, which parsed it natively. Goldsmiths already had 1 existing row (MA Media &
+Communications, unrelated id) — avoided re-adding that exact title.
+
+QS 2026 subject rankings verified via Goldsmiths' own official rankings news page (not just
+aggregator sites): **Communication and Media Studies #18 world, Art and Design #26 world** — both
+excellent, precise citations. Other Goldsmiths subjects (Performing Arts, History of Art, Politics,
+Anthropology, Education, English, Psychology, Sociology) are QS-ranked but the official page didn't
+publish exact global numbers for those, only UK-domestic ranks — so used the neutral QS World 2026
+band ("ranked 711-720") for those rows instead of inventing precision that wasn't confirmed.
+
+Added 10 rows (ids 1460–1469, ranks 1431–1440), all GBP→EUR at 0.85, scholar=false (Goldsmiths not
+in scholarships table):
+- MA History — £21,000 → €24,706 (History)
+- MA Social Anthropology — £23,000 → €27,059 (Social Sciences)
+- MSc Forensic Psychology — £21,000 → €24,706 (Psychology)
+- LLM Human Rights & Social Justice — £23,000 → €27,059 (Law)
+- MA Political Communications — £23,000 → €27,059 (Media & Communication) — QS #18 citation
+- MFA Fine Art — £32,000 → €37,647 (Art & Design) — QS #26 citation
+- MA Musical Theatre — £25,500 → €30,000 (Performing Arts)
+- MA Education: Creativity, Policy & Society — £21,000 → €24,706 (Education)
+- MA Global Media and Politics — £23,000 → €27,059 (Media & Communication) — QS #18 citation
+- MSc Social Research — £23,000 → €27,059 (Social Sciences)
+
+All 10 translated (nl/fr/de/es). Verified count: 1444.
+
+This 12-page PDF is far from exhausted — dozens of strong candidates remain banked, notably: MA
+Black British History, MA Queer History, MRes History, MA Contemporary Art Theory, MFA Curating,
+MA Arts Administration and Cultural Policy, MSc Cognitive Behavioural Therapy, MSc Occupational
+Psychology, MA Sociology (Cultural Analysis / Inventive Urban Research), MA Postcolonial Culture
+and Global Policy, MA Understanding Domestic Violence and Sexual Abuse, MRes Anthropology, MA
+Visual Anthropology, MA Theatre Performance & Participation, PGCE (Education), MMUS Popular Music /
+Sonic Arts. See EXPANSION_LOG.md round 110 tool history for the full price list.

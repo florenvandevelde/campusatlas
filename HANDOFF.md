@@ -18,8 +18,21 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1434 programmes, max id 1459, max rank
-1430** (verified live in Supabase). Twelfth confirmed goldmine — and the richest one found this
+wider net than the earlier top-50-only audits). **Current state: 1444 programmes, max id 1469, max rank
+1440** (verified live in Supabase). Thirteenth confirmed goldmine: `gold.ac.uk/media/docs/students/
+pg-fees-2026-27.pdf` (Goldsmiths, University of London) — same WebFetch-can't-parse-PDF-binary +
+Read-tool-native-PDF-support technique as Aberdeen. Goldsmiths QS 2026 subject rankings (officially
+confirmed, not aggregator-sourced): **Communication and Media Studies #18 world, Art and Design #26
+world** — excellent citations, used for Media & Communication and Art & Design rows respectively.
+Other subjects use the neutral "QS World 2026: ranked 711-720" band since exact global numbers
+weren't published for those. 10 rows mined (round 110); dozens more remain banked (Black British
+History, Queer History, Contemporary Art Theory, Curating, Cognitive Behavioural Therapy,
+Occupational Psychology, Sociology Cultural Analysis, Postcolonial Culture and Global Policy,
+Domestic Violence and Sexual Abuse, Visual Anthropology, PGCE, Popular Music/Sonic Arts — see
+EXPANSION_LOG.md round 110). **Dead end this round: Strathclyde's PG fees PDF is fully access-
+blocked — both WebFetch and the Browser pane return "Page not authorised" even on the direct PDF
+URL. Don't retry.** Dundee, Stirling, RGU, Heriot-Watt, UCL checked too — none expose a
+consolidated per-programme fee table. Twelfth confirmed goldmine — and the richest one found this
 session: `abdn.ac.uk/media/site/students/documents/PGTaught-tuition-fees-2026-27.pdf` (University
 of Aberdeen), a 22-page PDF listing literally every taught postgraduate programme's UK and
 International fee for 2026/27 in GBP. **Key technique: WebFetch cannot parse PDF binary — find the
