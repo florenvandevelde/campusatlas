@@ -2714,3 +2714,14 @@ drawing down already-banked data.
 
 **Running total: 1352 programmes (1350 → 1352, +2 this round), max id 1377, max rank 1348. 648 short of the
 2000 target.**
+
+**Round 91 — remaining banked Glasgow titles via institutional fallback (ids 1378-1381, translated ✅):**
+Glasgow's subject-specific QS rank in Economics couldn't be confirmed (checked again, not in 51-100 either)
+so switched to Glasgow's own confirmed overall QS World Ranking (#79, a genuinely strong figure) as the
+"top-100 world university" fallback for this batch, rather than leaving the round-71 banked data unused
+indefinitely.
+- 1378 MSc Economics (£33,210 ÷ 0.85 = €39,071), 1379 MA Applied Linguistics (£27,720 ÷ 0.85 = €32,612),
+  1380 MSc Advanced Statistics (£33,210 ÷ 0.85 = €39,071), 1381 MA Philosophy (£26,460 ÷ 0.85 = €31,129).
+
+**Running total: 1356 programmes (1352 → 1356, +4 this round), max id 1381, max rank 1352. 644 short of the
+2000 target.**
