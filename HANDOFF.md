@@ -18,8 +18,9 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1502 programmes, max id 1527, max rank
-1498** (verified live in Supabase) — first time crossing 1500 this session. Sixteenth confirmed
+wider net than the earlier top-50-only audits). **Current state: 1509 programmes, max id 1534, max rank
+1505** (verified live in Supabase). Bristol table mined across rounds 117-118 (17 rows, ids
+1518-1534) — **next round should open a 17th goldmine university.** Sixteenth confirmed
 goldmine: University of Bristol, found by drilling past the general `/pgt/overseas/` landing page
 (navigation only, no table) into the cohort-specific sub-page `bristol.ac.uk/students/support/
 finances/tuition-fees/pgt/overseas/26-27/2026-starters/`, which is a full per-programme table for

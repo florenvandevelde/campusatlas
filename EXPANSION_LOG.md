@@ -3257,3 +3257,20 @@ Neuropsychology/Clinical Neuropsychology MSc (£29,800/£27,600), Epidemiology M
 remaining MSc Education specialisations (Inclusive Education, Mathematics Education, Teaching and
 Learning, Brain Mind and Education, Technology in Education — all £28,200), International
 Relations MSc (£30,400).
+
+## Round 118: Bristol goldmine, batch 2 (1502 → 1509)
+
+Mined 7 more rows from the same Bristol fee table found in round 117, no new fetch needed. Added
+ids 1528–1534, ranks 1499–1505, all GBP→EUR at 0.85:
+- LLM Health, Law and Society — £29,400 → €34,588 (Law)
+- MSc Applied Neuropsychology — £29,800 → €35,059 (Psychology)
+- MSc Epidemiology — £31,200 → €36,706 (Public Health)
+- MSc Education (Inclusive Education) — £28,200 → €33,176 (Education) — QS Education #44
+- MSc Education (Brain, Mind and Education) — £28,200 → €33,176 (Education) — QS Education #44
+- MSc International Relations — £30,400 → €35,765 (Public Policy)
+- LLM Banking and Finance Law — £29,400 → €34,588 (Law)
+
+All 7 translated (nl/fr/de/es). Verified count: 1509. Bristol table now substantially mined across
+rounds 117-118 (17 rows, ids 1518-1534) — remaining unused rows (more LLM specialisations, Clinical
+Neuropsychology, 3 more MSc Education pathways) are lower priority; next round should open a 17th
+goldmine university.
