@@ -3815,3 +3815,23 @@ Skipped "Advanced Statistics" (already existing Glasgow row, id 1380) as a dupli
 All 8 translated (nl/fr/de/es). Verified count: 1647. College of Social Sciences and College of
 Medical, Veterinary & Life Sciences sections of the Glasgow table remain completely unmined —
 strong target for a future round.
+
+## Round 137: University of Glasgow, batch 3 (1647 → 1655)
+
+Continued mining the Glasgow fee table, this time the College of Social Sciences section. Skipped
+"Climate Law & Justice (LLM)" (already existing Glasgow row, id 1293) and every 2-year Erasmus
+Mundus / MRes programme whose note explicitly confirms an annual (not total) fee — same
+annual-vs-total caution as prior rounds.
+
+Added 8 rows (ids 1681–1688, ranks 1651–1658), GBP→EUR via ÷0.85, QS World 2026: #79, all 12 months:
+- MSc Behavioural Science — £31,050 → €36,529 (Psychology)
+- MSc Business Analytics — £34,470 → €40,553 (Analytics)
+- MSc City Planning — £27,720 → €32,612 (Architecture) — RTPI-accredited
+- LLM Corporate & Financial Law — £29,355 → €34,535 (Law)
+- MSc Corporate Finance & Banking — £36,720 → €43,200 (Finance)
+- MSc Criminology & Criminal Justice — £26,460 → €31,129 (Social Sciences)
+- MSc Economic Development — £29,355 → €34,535 (Development Studies)
+- MSc Digital Society — £26,460 → €31,129 (Media & Communication)
+
+All 8 translated (nl/fr/de/es). Verified count: 1655. College of Medical, Veterinary & Life
+Sciences section of the Glasgow table remains entirely unmined — target for a future round.

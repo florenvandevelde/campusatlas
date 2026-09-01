@@ -18,8 +18,14 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1647 programmes, max id 1680, max rank
-1650** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1655 programmes, max id 1688, max rank
+1658** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Round 137 mined 8 more Glasgow rows from the College of Social Sciences section (Psychology,
+Analytics, Architecture, Law, Finance, Social Sciences, Development Studies, Media & Communication)
+— College of Medical, Veterinary & Life Sciences section still entirely unmined. Note: several rows
+in this section show 2-year Erasmus Mundus or MRes programmes with an explicit "per annum, same fee
+each year" note (e.g. "Economics MRes", the Erasmus Mundus IntM rows) — skipped all of these per the
+established annual-vs-total caution; only picked clearly single-year MSc/LLM rows.
 Round 136 mined 8 more Glasgow rows from the College of Science & Engineering section (Engineering,
 Physics, Computer Science, AI, Energy, Chemistry) — Social Sciences and Medical/Vet/Life Sciences
 college sections still entirely unmined, good next-round target. Glasgow's Science & Engineering
