@@ -4062,3 +4062,21 @@ Added 8 rows (ids 1761–1768, ranks 1731–1738), GBP→EUR via ÷0.85, QS Worl
 - MSc Stem Cell Technology and Regenerative Medicine — £33,000 → €38,824 (Life Sciences)
 
 All 8 translated (nl/fr/de/es). Verified count: 1735. 16 of ~172 available Nottingham rows used.
+
+## Round 148: University of Nottingham, batch 3 (1735 → 1743)
+
+Continued mining the Nottingham table, this time from the already-fetched round-146 data (rows
+15-90, not yet fully picked over) — no fresh browser call needed.
+
+Added 8 rows (ids 1769–1776, ranks 1739–1746), GBP→EUR via ÷0.85, QS World 2026: #97, all 12 months:
+- MSc Bioengineering — £33,000 → €38,824 (Engineering)
+- MSc Behavioural Economics — £30,800 → €36,235 (Economics)
+- MSc Cognitive Neuroscience — £33,000 → €38,824 (Psychology)
+- MSc Cyber Physical Systems — £33,800 → €39,765 (Computer Science)
+- MSc Development Economics — £30,800 → €36,235 (Development Studies)
+- MSc Financial Economics — £39,600 → €46,588 (Finance)
+- MSc Human Resource Management and Organisation — £33,800 → €39,765 (Management)
+- MSc Electrical Engineering for Sustainable and Renewable Energy — £33,000 → €38,824 (Energy)
+
+All 8 translated (nl/fr/de/es). Verified count: 1743. 24 of ~172 available Nottingham rows used
+across 3 rounds (146-148).

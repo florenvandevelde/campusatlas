@@ -18,8 +18,11 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1735 programmes, max id 1768, max rank
-1738** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1743 programmes, max id 1776, max rank
+1746** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Round 148 mined a 3rd Nottingham batch (Engineering, Economics, Psychology, Computer Science,
+Development Studies, Finance, Management, Energy) — 24 of ~172 rows used, drawn from the same table
+data already read in round 146 (no fresh browser call needed).
 Round 147 mined a 2nd Nottingham batch (Law, Management, AI, Mechanical Engineering, Public Health,
 Physics, Energy, Life Sciences) — 16 of ~172 rows used. Nottingham still has strong capacity
 (Humanities, Social Science Research variants, most of the Business school untouched).
