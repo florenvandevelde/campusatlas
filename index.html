@@ -2556,13 +2556,13 @@ const FIELD_VOCAB = {
   "Economics": ["economics", "econ", "economic", "econometrics"],
   "Sustainability": ["sustainability", "sustainable", "climate", "esg", "green", "circular economy"],
   "Engineering": ["engineering", "mechanical", "civil", "aerospace", "electrical", "industrial engineering", "robotics", "manufacturing"],
-  "Physics": ["physics", "astronomy", "astrophysics", "mathematics", "maths", "math"],
+  "Physics": ["physics", "astronomy", "astrophysics"],
   "Computer Science": ["computer science", "software", "software engineering", "programming", "cybersecurity", "security", "computing", "computer"],
   "Biochemistry": ["biochemistry", "biochemical"],
   "Life Sciences": ["life sciences", "biology", "biotech", "biotechnology", "bioinformatics", "biomedical", "genetics", "neuroscience"],
   "History": ["history", "historical"],
   "Law": ["law", "llm", "legal", "jurisprudence"],
-  "Social Sciences": ["social sciences", "sociology", "international relations", "politics", "political science", "anthropology", "psychology", "development studies"],
+  "Social Sciences": ["social sciences", "sociology", "international relations", "politics", "political science", "anthropology", "development studies"],
   "AI": ["ai", "artificial intelligence", "machine learning", "deep learning", "nlp", "natural language processing"],
   "Energy": ["energy", "renewables", "renewable energy", "nuclear", "petroleum"],
   "Public Policy": ["public policy", "policy", "mpp", "government", "governance", "public administration"],
@@ -2571,6 +2571,16 @@ const FIELD_VOCAB = {
   "Chemistry": ["chemistry", "chemical"],
   "Information Science": ["information science", "information systems", "human computer interaction", "hci", "library science"],
   "Education": ["education", "teaching", "pedagogy", "edtech"],
+  // Added alongside the FIELDS entries of the same name so a plain-English search
+  // for one of these actually resolves to it, instead of falling through to
+  // whichever older, adjacent field happened to list a related word (psychology
+  // was only reachable via "Social Sciences", mathematics only via "Physics").
+  "Mathematics": ["mathematics", "maths", "math", "operational research", "actuarial", "actuarial science"],
+  "Architecture": ["architecture", "architectural", "urban planning", "built environment"],
+  "Psychology": ["psychology", "psychological", "clinical psychology", "cognitive science"],
+  "Media & Communication": ["media", "communication", "communications", "journalism", "broadcasting", "film studies"],
+  "Agriculture & Food": ["agriculture", "agricultural", "food science", "farming", "forestry"],
+  "Humanities": ["humanities", "classics", "linguistics", "literature", "philosophy"],
 };
 
 // Place vocabulary, built once from the catalogue itself so it can never drift
@@ -2661,12 +2671,14 @@ function parseQuery(q) {
     else if (kind === "region") { intent.regions.add(value); intent.labels.push(value); }
     else if (kind === "field") {
       intent.fields.add(value); intent.labels.push(value);
-      // Engineering's vocabulary bundles named sub-disciplines (mechanical, civil,
-      // aerospace...) under one broad field tag. Recognising the field alone made
-      // "mechanical engineering" behave exactly like "engineering", so a Chemical
-      // Engineering programme tied a Mechanical one for top relevance. Keep the
-      // specific word as a search term too, so it still narrows and ranks results.
-      if (value === "Engineering" && phrase !== "engineering") intent.terms.push(phrase);
+      // Most fields' vocabulary bundles named sub-disciplines/specialisations
+      // (Engineering: mechanical, civil...; Finance: banking, venture capital...)
+      // under one broad tag. Recognising the field alone made a sub-discipline
+      // search behave identically to the bare field name, so an unrelated
+      // sub-discipline within the same field could rank equally or higher. Keep
+      // the specific phrase as a search term too (unless it just IS the field's
+      // own name) so it still narrows and ranks results toward what was asked.
+      if (phrase !== value.toLowerCase()) intent.terms.push(phrase);
     }
     else { value.apply(intent.flags); intent.labels.push(value.label); }
   });
