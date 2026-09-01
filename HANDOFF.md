@@ -18,8 +18,12 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1831 programmes, max id 1864, max rank
-1834** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1839 programmes, max id 1872, max rank
+1842** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Round 160 mined Bath's 4th and final faculty page (Humanities & Social Sciences — 243 rows, the
+biggest of the four) for 8 rows (Economics, Finance, Public Policy x2, Social Sciences, Humanities,
+Development Studies x2). All 4 Bath faculty pages now visited at least once. **161 short of 2000**
+— getting very close. Next round should open a 33rd goldmine.
 Round 159 visited Bath's Engineering & Design page (small — only 31 rows, 5 usable non-duplicate
 non-placement titles) and School of Management page (21 rows, several usable) to complete an
 8-row batch (Engineering x2, Mechanical Engineering, Management x2, Sustainability x2, Finance).

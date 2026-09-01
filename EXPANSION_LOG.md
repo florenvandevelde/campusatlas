@@ -4305,3 +4305,26 @@ Added 8 rows (ids 1857–1864, ranks 1827–1834), GBP→EUR via ÷0.85, QS Worl
 
 All 8 translated (nl/fr/de/es). Verified count: 1831. Bath's Humanities & Social Sciences faculty
 page is the only one of the 4 still unvisited. 169 rows short of the 2000 target.
+
+## Round 160: University of Bath, batch 4 — Humanities & Social Sciences (1831 → 1839)
+
+Mined the 4th and final Bath faculty fee page — Faculty of Humanities & Social Sciences (243 table
+rows, the largest of the four, though many are MRes/part-time/CPD variants not usable as clean
+1-year full-time figures). Skipped several near-duplicates of existing Bath rows (MSc Criminology,
+MSc Applied Clinical Psychology, MSc Applied Psychology and Economic Behaviour, MSc Health
+Psychology, MA International Relations, MA Interpreting and Translating variants, MA Translation
+and Professional Language Skills — all already in the catalogue under matching or near-matching
+titles).
+
+Added 8 rows (ids 1865–1872, ranks 1835–1842), GBP→EUR via ÷0.85, QS World 2026: #132, all 12 months:
+- MSc Applied Economics — £28,900 → €34,000 (Economics)
+- MSc Economics and Finance — £28,900 → €34,000 (Finance)
+- MA International Security — £28,900 → €34,000 (Public Policy)
+- MA Gender and Politics — £28,900 → €34,000 (Social Sciences)
+- MA Translation with Business Interpreting (Chinese) — £28,900 → €34,000 (Humanities)
+- MSc International Development with Economics — £28,900 → €34,000 (Development Studies)
+- MSc International Development, Social Justice and Sustainability — £28,900 → €34,000 (Development Studies)
+- MSc International Relations with International Security — £28,900 → €34,000 (Public Policy)
+
+All 8 translated (nl/fr/de/es). Verified count: 1839. All 4 Bath faculty pages now visited at least
+once (32 rows added across rounds 158-160). 161 rows short of the 2000 target.
