@@ -18,8 +18,12 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1711 programmes, max id 1744, max rank
-1714** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1719 programmes, max id 1752, max rank
+1722** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Round 145 mined a 4th Southampton batch (Finance, Art & Design, Earth Sciences, Public Health,
+Entrepreneurship, Management, Computer Science, Public Policy) — 32 of 175 rows used. **Next round
+should open a 29th goldmine** rather than continue Southampton immediately — 4 rounds is this
+session's typical stopping point per school before diminishing returns on remaining novel titles.
 Round 144 mined a 3rd Southampton batch (Mathematics/Actuarial, Analytics, Life Sciences, Chemistry/
 Battery tech, Art & Design x2, Management, Earth Sciences) — 24 of 175 rows used. Southampton still
 has strong remaining capacity (Business school and Medicine sections only lightly touched).

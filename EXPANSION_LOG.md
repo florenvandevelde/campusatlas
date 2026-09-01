@@ -3996,3 +3996,21 @@ Added 8 rows (ids 1737–1744, ranks 1707–1714), GBP→EUR via ÷0.85, QS Worl
 
 All 8 translated (nl/fr/de/es). Verified count: 1711. 24 of 175 available taught Full-time
 Southampton rows used.
+
+## Round 145: University of Southampton, batch 4 (1711 → 1719)
+
+Continued mining the same Southampton table for a 4th and final batch of this pass.
+
+Added 8 rows (ids 1745–1752, ranks 1715–1722), GBP→EUR via ÷0.85, QS World 2026: #87, all 12 months:
+- MSc Financial Technology and AI — £38,100 → €44,824 (Finance)
+- MA Fine Art — £32,000 → €37,647 (Art & Design)
+- MSc Geophysics — £35,200 → €41,412 (Earth Sciences)
+- MSc Gerontology — £29,900 → €35,176 (Public Health)
+- MSc International Entrepreneurship and Management — £37,000 → €43,529 (Entrepreneurship)
+- MSc Logistics and Supply Chain Analytics — £36,200 → €42,588 (Management)
+- MSc Software Engineering — £36,800 → €43,294 (Computer Science)
+- MA Public Administration — £30,100 → €35,412 (Public Policy)
+
+All 8 translated (nl/fr/de/es). Verified count: 1719. 32 of 175 available taught Full-time
+Southampton rows used across 4 rounds (142-145) — a solid pass; next round should open a new
+goldmine university rather than continue Southampton immediately.
