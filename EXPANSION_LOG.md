@@ -3477,3 +3477,24 @@ it "looks empty" — a combined multi-SELECT result can silently drop rows from 
 only checked at a glance.** Going forward, run the programmes-table dedup SELECT on its own (not
 combined with the scholarships SELECT) and read every returned title before building a batch,
 especially for schools that may have accumulated rows across many earlier, un-recalled rounds.
+
+## Round 125: LSE goldmine, batch 2 — properly deduped this time (1560 → 1570)
+
+Mined 10 more rows from the same LSE fee table, this time checking every title against the FULL
+current LSE programme list (run as its own standalone SELECT, not combined with scholarships) before
+inserting — no repeat of round 124's dedup miss. Added ids 1591–1600, ranks 1562–1571, all GBP→EUR
+at 0.85:
+- MSc in Human Rights — £34,700 → €40,824 (Law) — QS Law #9
+- MSc in Human Rights and Politics — £34,700 → €40,824 (Public Policy) — QS Politics #5
+- MSc in Criminology and Criminal Justice Policy — £30,750 → €36,176 (Social Sciences)
+- MSc in Political Sociology — £30,400 → €35,765 (Social Sciences) — QS Sociology #6
+- MSc in Political Theory — £30,400 → €35,765 (Humanities) — QS Politics #5
+- MSc in International Political Economy — £32,500 → €38,235 (Economics)
+- MSc in Regulation — £30,400 → €35,765 (Public Policy)
+- MSc in Urbanisation and Development — £30,400 → €35,765 (Development Studies) — QS Dev Studies #4
+- MSc in Gender, Policy and Inequalities — £30,400 → €35,765 (Public Policy)
+- MSc in China in Comparative Perspective — £30,400 → €35,765 (Social Sciences)
+
+All 10 translated (nl/fr/de/es). Verified count: 1570. LSE table still has more banked rows (Gender
+stream variants: Rights and Human Rights, Sexuality, Peace and Security; MSc Inequalities and
+Social Science; MSc Local Economic Development) if returning in a future round.
