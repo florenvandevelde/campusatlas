@@ -2659,11 +2659,19 @@ function parseQuery(q) {
     if (kind === "country") { intent.countries.add(value); intent.labels.push(value); }
     else if (kind === "city") { intent.cities.add(value); intent.labels.push(value); }
     else if (kind === "region") { intent.regions.add(value); intent.labels.push(value); }
-    else if (kind === "field") { intent.fields.add(value); intent.labels.push(value); }
+    else if (kind === "field") {
+      intent.fields.add(value); intent.labels.push(value);
+      // Engineering's vocabulary bundles named sub-disciplines (mechanical, civil,
+      // aerospace...) under one broad field tag. Recognising the field alone made
+      // "mechanical engineering" behave exactly like "engineering", so a Chemical
+      // Engineering programme tied a Mechanical one for top relevance. Keep the
+      // specific word as a search term too, so it still narrows and ranks results.
+      if (value === "Engineering" && phrase !== "engineering") intent.terms.push(phrase);
+    }
     else { value.apply(intent.flags); intent.labels.push(value.label); }
   });
 
-  intent.terms = s.trim().split(/\s+/).filter(w => w && !QUERY_FILLER.has(w));
+  intent.terms.push(...s.trim().split(/\s+/).filter(w => w && !QUERY_FILLER.has(w)));
   intent.labels = [...new Set(intent.labels)];
   return intent;
 }
