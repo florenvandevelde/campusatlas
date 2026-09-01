@@ -18,8 +18,18 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1687 programmes, max id 1720, max rank
-1690** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1695 programmes, max id 1728, max rank
+1698** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+**Twenty-eighth confirmed goldmine: University of Southampton's postgraduate fees page**
+(`southampton.ac.uk/courses/fees/postgraduate.page`) — a plain HTML `<table>` with **525 rows**
+(programme/award/attendance/home-fee/international-fee), no JS-rendering or DataTables needed at
+all — simplest extraction yet, just `document.querySelectorAll('table tr')` directly. Includes both
+taught and research (PhD/MPhil) rows mixed together — filter for MSc/MA/MBA + Full-time only. Only
+19 pre-existing Southampton rows. QS World 2026: **#87** (note: Southampton's own PR materials cite
+"#33" but that figure is the *QS Europe* regional ranking, not the global QS World Rankings — use
+#87 for the "QS World 2026" citation convention, not #33). Round 142 mined 8 of many available rows
+(AI, Computer Science, Engineering, Earth Sciences, Energy, Management, Marketing) — huge remaining
+capacity (Business, wider Engineering, Humanities, Health Sciences sections barely touched).
 Round 141 mined 8 more Sheffield rows (Medicine, remaining Info/CS, Humanities, Management sections)
 — 24 of 121 available rows now used. Sheffield's dataset is large enough to support at least one
 more round before diminishing returns; **next round should probably open a 28th goldmine** unless

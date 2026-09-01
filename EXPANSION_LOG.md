@@ -3931,3 +3931,31 @@ Added 8 rows (ids 1713–1720, ranks 1683–1690), GBP→EUR via ÷0.85, QS Worl
 - MSc East Asian Business — £29,190 → €34,341 (Management)
 
 All 8 translated (nl/fr/de/es). Verified count: 1687. 24 of 121 available Sheffield rows used.
+
+## Round 142: University of Southampton — 28th goldmine (1687 → 1695)
+
+Found University of Southampton's postgraduate fees page (`southampton.ac.uk/courses/fees/
+postgraduate.page`) — a plain HTML `<table>` with **525 rows** (programme / award / attendance /
+home fee / international fee), mixing taught (MSc/MA/MBA) and research (PhD/MPhil/EngD) programmes
+together. No JS-rendering or DataTables API needed at all — simplest extraction of any goldmine this
+session: `Array.from(document.querySelectorAll('table tr'))` directly on page load. Filtered to
+Full-time MSc/MA/MBA rows only.
+
+Standalone dedup SELECT found 19 pre-existing Southampton rows. QS 2026: University of Southampton
+ranks **#87 in the world** (QS World University Rankings 2026) — note Southampton's own PR cites
+"33rd" but that is the *QS Europe* regional ranking, not the QS World figure; used #87 for
+consistency with this session's "QS World 2026: #N" citation convention.
+
+Added 8 rows (ids 1721–1728, ranks 1691–1698), GBP→EUR via ÷0.85, all 12 months:
+- MSc Artificial Intelligence — £36,800 → €43,294 (AI)
+- MSc Cyber Security — £36,800 → €43,294 (Computer Science)
+- MSc Robotics and Autonomous Systems — £36,800 → €43,294 (Engineering)
+- MSc Oceanography — £35,200 → €41,412 (Earth Sciences) — based at the National Oceanography Centre
+- MSc Sustainable Energy Engineering — £36,200 → €42,588 (Energy)
+- MBA — £37,400 → €44,000 (Management)
+- MSc Marketing Analytics — £37,000 → €43,529 (Marketing)
+- MSc Space Systems Engineering — £36,800 → €43,294 (Engineering)
+
+All 8 translated (nl/fr/de/es). Verified count: 1695. Only 8 of 525 table rows used — Business,
+wider Engineering, Humanities and Health Sciences sections barely touched, an excellent return-trip
+target.
