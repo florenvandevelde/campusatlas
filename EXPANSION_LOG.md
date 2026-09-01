@@ -4097,3 +4097,31 @@ Added 8 rows (ids 1777–1784, ranks 1747–1754), GBP→EUR via ÷0.85, QS Worl
 
 All 8 translated (nl/fr/de/es). Verified count: 1751. 32 of ~172 available Nottingham rows used
 across rounds 146-149 — a solid pass; next round should open a new goldmine university.
+
+## Round 150: University of York — 30th goldmine (1751 → 1759)
+
+Found the University of York's "International and EU tuition fee rates 2026/27" page
+(`york.ac.uk/study/postgraduate-taught/fees/international/`) — no `<table>` element at all, but a
+single `get_page_text` call with a large `max_chars` (40000) pulled the entire course list as plain
+text: hundreds of "Course Name (Award)" entries each followed by fee lines like "Full-time (1 year):
+£N". By far the simplest large-scale extraction this session — no JS, no DataTables, no pagination.
+
+Standalone dedup SELECT found 28 pre-existing York rows, notably concentrated in Film and Television
+Production titles and International Relations variants — watch for those specifically if mining
+York further. Skipped online/distance-learning rows (fee listed as "Online course fees / Fees are
+subject to confirmation" or priced per-stage), multi-year rows without one clean annual figure, and
+two rows literally priced "#N/A". QS 2026: University of York ranks **#169 in the world** (36th in
+Europe) — used as institutional citation.
+
+Added 8 rows (ids 1785–1792, ranks 1755–1762), GBP→EUR via ÷0.85, all 12 months:
+- MSc Artificial Intelligence — £32,900 → €38,706 (AI)
+- MSc Corporate Finance — £34,500 → €40,588 (Finance)
+- MSc Cyber Security — £32,900 → €38,706 (Computer Science)
+- MSc Intelligent Robotics — £32,900 → €38,706 (Engineering)
+- MSc Human Resource Management — £31,900 → €37,529 (Management)
+- MSc Renewable Energy Technologies — £32,900 → €38,706 (Energy)
+- MA Museum Studies — £27,250 → €32,059 (Humanities)
+- MSc Health Economics — £27,250 → €32,059 (Public Health) — taught within York's globally renowned health economics centre
+
+All 8 translated (nl/fr/de/es). Verified count: 1759. Only 8 of hundreds of available York rows
+used — this page is an outstanding return-trip target, likely good for 30+ more rows.

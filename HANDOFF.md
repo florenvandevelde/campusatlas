@@ -18,8 +18,19 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1751 programmes, max id 1784, max rank
-1754** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1759 programmes, max id 1792, max rank
+1762** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+**Thirtieth confirmed goldmine: University of York's "International and EU tuition fee rates
+2026/27" page** (`york.ac.uk/study/postgraduate-taught/fees/international/`) — no `<table>` markup
+at all, but `get_page_text` with a large `max_chars` pulls the ENTIRE course list (hundreds of
+programmes) as plain text in one call, formatted as "Course Name (Award)" followed by "Full-time (1
+year): £N". Simplest large-scale extraction yet — a single `get_page_text` call, no JS needed. Skip
+online/distance-learning rows ("Fees are subject to confirmation" or a per-stage fee), multi-year
+rows without a clean 1-year figure, and "#N/A" fee rows. 28 pre-existing York rows (heavier on
+Film/TV Production and International Relations than most schools mined this session — watch for
+those categories specifically). QS World 2026: **#169** (36th in Europe). Round 150 mined 8 rows
+(AI, Finance, Computer Science, Engineering, Management, Energy, Humanities, Public Health) — this
+huge page has hundreds of rows left, an outstanding return-trip target.
 Round 149 mined a 4th Nottingham batch (Humanities, Public Health, Analytics, Sustainability,
 Computer Science, Management, Psychology, Entrepreneurship) — 32 of ~172 rows used across 4 rounds
 (146-149). **Next round should open a 30th goldmine** rather than continue Nottingham immediately —
