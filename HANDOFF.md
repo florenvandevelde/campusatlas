@@ -18,8 +18,12 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1679 programmes, max id 1712, max rank
-1682** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1687 programmes, max id 1720, max rank
+1690** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Round 141 mined 8 more Sheffield rows (Medicine, remaining Info/CS, Humanities, Management sections)
+— 24 of 121 available rows now used. Sheffield's dataset is large enough to support at least one
+more round before diminishing returns; **next round should probably open a 28th goldmine** unless
+returning to Sheffield specifically.
 Round 140 mined 8 more Sheffield rows (Management School + Engineering sections of the same
 121-row Overseas/Full-time dataset) — Marketing, Finance, Energy, Engineering x2, Computer Science,
 Chemistry, Economics. 16 of 121 rows used so far; Medicine, remaining Computer Science and

@@ -3914,3 +3914,20 @@ Added 8 rows (ids 1705–1712, ranks 1675–1682), GBP→EUR via ÷0.85, QS Worl
 
 All 8 translated (nl/fr/de/es). Verified count: 1679. 16 of 121 available Sheffield rows used —
 Medicine, remaining Computer Science and Electrical Engineering titles still untouched.
+
+## Round 141: University of Sheffield, batch 3 (1679 → 1687)
+
+Continued mining the same Sheffield dataset (rounds 139-141), this time from Medicine, remaining
+Information/Computer Science, Humanities and Management sections.
+
+Added 8 rows (ids 1713–1720, ranks 1683–1690), GBP→EUR via ÷0.85, QS World 2026: #92, all 12 months:
+- MSc Clinical Research — £30,625 → €36,029 (Public Health)
+- MSc Translational Neuroscience — £34,340 → €40,400 (Life Sciences)
+- MSc Drug Discovery Science — £32,905 → €38,712 (Chemistry)
+- MSc Biodiversity and Conservation — £35,840 → €42,165 (Sustainability)
+- MSc Data Science — £32,905 → €38,712 (Computer Science)
+- MA Archaeology and Heritage — £27,755 → €32,653 (Humanities)
+- MA Global Journalism — £27,755 → €32,653 (Media & Communication)
+- MSc East Asian Business — £29,190 → €34,341 (Management)
+
+All 8 translated (nl/fr/de/es). Verified count: 1687. 24 of 121 available Sheffield rows used.
