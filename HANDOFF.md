@@ -18,8 +18,12 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1671 programmes, max id 1704, max rank
-1674** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1679 programmes, max id 1712, max rank
+1682** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Round 140 mined 8 more Sheffield rows (Management School + Engineering sections of the same
+121-row Overseas/Full-time dataset) — Marketing, Finance, Energy, Engineering x2, Computer Science,
+Chemistry, Economics. 16 of 121 rows used so far; Medicine, remaining Computer Science and
+Electrical Engineering titles still available for a future round.
 **Twenty-seventh confirmed goldmine: University of Sheffield's fee tool** (`tools.sheffield.ac.uk/
 fees/pgt/`) — a DataTables-powered filterable app backed by a full in-page JS dataset (293 rows:
 ~146 programmes × Home/Overseas). Read via `jQuery('table').DataTable().rows().data().toArray()` in

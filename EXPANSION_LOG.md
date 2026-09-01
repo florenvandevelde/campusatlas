@@ -3896,3 +3896,21 @@ Added 8 rows (ids 1697–1704, ranks 1667–1674), GBP→EUR via ÷0.85, all 12 
 All 8 translated (nl/fr/de/es). Verified count: 1671. Only 8 of 121 available Overseas/Full-time
 Sheffield rows used — Management School, Chemical/Materials Engineering, Computer Science and
 Medicine sections are barely touched, a strong return-trip target.
+
+## Round 140: University of Sheffield, batch 2 (1671 → 1679)
+
+Continued mining the same Sheffield fee-tool dataset extracted in round 139, this time picking from
+the Management School and Engineering sections.
+
+Added 8 rows (ids 1705–1712, ranks 1675–1682), GBP→EUR via ÷0.85, QS World 2026: #92, all 12 months:
+- MSc International Marketing and Management — £34,340 → €40,400 (Marketing)
+- MSc Finance and Accounting — £35,840 → €42,165 (Finance)
+- MSc Sustainability and Energy Engineering — £34,340 → €40,400 (Energy)
+- MSc Materials Science and Engineering — £32,905 → €38,712 (Engineering)
+- MSc Advanced Computer Science — £32,905 → €38,712 (Computer Science)
+- MSc Robotics — £32,905 → €38,712 (Engineering)
+- MSc Pharmaceutical Engineering — £32,905 → €38,712 (Chemistry)
+- MSc Business Finance and Economics — £32,905 → €38,712 (Economics)
+
+All 8 translated (nl/fr/de/es). Verified count: 1679. 16 of 121 available Sheffield rows used —
+Medicine, remaining Computer Science and Electrical Engineering titles still untouched.
