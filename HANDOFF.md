@@ -18,8 +18,11 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1727 programmes, max id 1760, max rank
-1730** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1735 programmes, max id 1768, max rank
+1738** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Round 147 mined a 2nd Nottingham batch (Law, Management, AI, Mechanical Engineering, Public Health,
+Physics, Energy, Life Sciences) — 16 of ~172 rows used. Nottingham still has strong capacity
+(Humanities, Social Science Research variants, most of the Business school untouched).
 **Twenty-ninth confirmed goldmine: University of Nottingham's "Postgraduate taught courses 2026/27"
 page** (`nottingham.ac.uk/fees/tuitionfees/202627/postgraduate-taught.aspx`) — a clean HTML table,
 ~172 programme rows (code/qualification/title/UK fee/international fee), directly readable via

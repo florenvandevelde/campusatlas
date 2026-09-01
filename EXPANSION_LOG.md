@@ -4046,3 +4046,19 @@ Added 8 rows (ids 1753–1760, ranks 1723–1730), GBP→EUR via ÷0.85, all 12 
 
 All 8 translated (nl/fr/de/es). Verified count: 1727. Only 8 of ~172 available Nottingham rows
 used — strong return-trip target (Engineering, Medicine, Humanities sections barely touched).
+
+## Round 147: University of Nottingham, batch 2 (1727 → 1735)
+
+Continued mining the same Nottingham table, reading rows 90-172 (the remainder of the alphabet).
+
+Added 8 rows (ids 1761–1768, ranks 1731–1738), GBP→EUR via ÷0.85, QS World 2026: #97, all 12 months:
+- LLM International Business and Commercial Law — £25,750 → €30,294 (Law)
+- MSc Logistics and Supply Chain Management — £33,800 → €39,765 (Management)
+- MSc Machine Learning in Science — £33,000 → €38,824 (AI)
+- MSc Mechanical Engineering — £33,000 → €38,824 (Mechanical Engineering)
+- MSc Oncology — £33,000 → €38,824 (Public Health)
+- MSc Quantum Science and Technology — £25,750 → €30,294 (Physics)
+- MSc Renewable Energy and Architecture — £33,000 → €38,824 (Energy)
+- MSc Stem Cell Technology and Regenerative Medicine — £33,000 → €38,824 (Life Sciences)
+
+All 8 translated (nl/fr/de/es). Verified count: 1735. 16 of ~172 available Nottingham rows used.
