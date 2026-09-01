@@ -3858,3 +3858,41 @@ All 8 translated (nl/fr/de/es). Verified count: 1663. **Glasgow's 3 colleges hav
 sampled at least once (32 rows across rounds 135-138)** — next round should open a new (27th)
 goldmine university rather than continue mining Glasgow immediately, similar to the Edinburgh
 stopping point after round 134.
+
+## Round 139: University of Sheffield — 27th goldmine (1663 → 1671)
+
+Before finding this goldmine, hit two dead ends: (1) University of Strathclyde's postgraduate fees
+PDF is behind an authorisation wall — both a direct browser navigation and WebFetch returned "Page
+not authorised". (2) This environment currently has no `pdftoppm`/poppler-utils installed, so the
+Read-tool-native-PDF-parsing trick used successfully in earlier sessions (Aberdeen, Goldsmiths, UEA,
+LSE, Sciences Po) does not work here — `Read` on a WebFetch-saved PDF now errors asking to install
+poppler. Worth checking for poppler availability before relying on that technique again. Also
+checked Heriot-Watt and University of Leeds — both have only per-course fee pages, no comprehensive
+table.
+
+Found University of Sheffield's postgraduate fee tool (`tools.sheffield.ac.uk/fees/pgt/`) — a
+DataTables app with a **full dataset already loaded client-side** (293 rows: ~146 programmes ×
+Home/Overseas fee status). Extracted the whole dataset in one shot via `javascript_tool`:
+`jQuery('table').DataTable().rows().data().toArray()`, filtered to `student === 'Overseas' &&
+attendance === 'Full-time'` — 121 usable rows, by far the fastest goldmine extraction this session
+(no pagination, no JS-rendering workaround, no scrolling).
+
+Standalone dedup SELECT found 13 pre-existing Sheffield rows. QS 2026: University of Sheffield
+ranks **#92 in the world** (15th in the UK) — used as institutional citation. (Sheffield is also QS
+#1 in the world for Library & Information Management 2026, but Librarianship is already in the
+catalogue under a different row, so this citation wasn't used.) Skipped every row with a "(2 years)"
+suffix in the title (annual-vs-total ambiguity, same caution as Edinburgh/Glasgow).
+
+Added 8 rows (ids 1697–1704, ranks 1667–1674), GBP→EUR via ÷0.85, all 12 months:
+- MBA Business Administration — £35,840 → €42,165 (Management)
+- MSc Financial Technology and Innovation — £35,840 → €42,165 (Finance)
+- MSc Cybersecurity and Artificial Intelligence — £34,340 → €40,400 (AI)
+- MSc Urban Design and Planning — £27,755 → €32,653 (Architecture)
+- MSc Astrophysics — £30,625 → €36,029 (Physics)
+- MSc Cancer Biology and Therapeutics — £35,840 → €42,165 (Life Sciences)
+- MA Music, Management & Innovation — £32,905 → €38,712 (Performing Arts)
+- MA Digital Media and Society — £27,755 → €32,653 (Media & Communication)
+
+All 8 translated (nl/fr/de/es). Verified count: 1671. Only 8 of 121 available Overseas/Full-time
+Sheffield rows used — Management School, Chemical/Materials Engineering, Computer Science and
+Medicine sections are barely touched, a strong return-trip target.

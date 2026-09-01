@@ -18,8 +18,22 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1663 programmes, max id 1696, max rank
-1666** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1671 programmes, max id 1704, max rank
+1674** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+**Twenty-seventh confirmed goldmine: University of Sheffield's fee tool** (`tools.sheffield.ac.uk/
+fees/pgt/`) — a DataTables-powered filterable app backed by a full in-page JS dataset (293 rows:
+~146 programmes × Home/Overseas). Read via `jQuery('table').DataTable().rows().data().toArray()` in
+`javascript_tool` — pulls the entire underlying dataset directly, no pagination-clicking needed, the
+fastest extraction method found this session. Only 13 pre-existing Sheffield rows. QS World 2026:
+#92 (15th in UK); Sheffield is also QS #1 in the world for Library & Information Management 2026
+(not yet used as a citation since Librarianship is already in the catalogue). **Dead ends before
+Sheffield: Strathclyde's PG fees PDF is auth-walled (both direct fetch and WebFetch return "Page not
+authorised"), and this environment currently has no `pdftoppm`/poppler-utils installed so the
+Read-tool-native-PDF-parsing trick from earlier sessions doesn't work here — if PDF parsing is
+needed again, check for poppler first. Heriot-Watt and Leeds have no comprehensive table, only
+per-course fee pages.** Round 139 mined only 8 of 121 available Overseas/Full-time Sheffield rows —
+strong return-trip target (Management, Chemical/Materials Engineering, Computer Science and Medicine
+sections barely touched).
 Round 138 mined the College of Medical, Veterinary & Life Sciences section — Glasgow's 3 colleges
 (Arts & Humanities, Science & Engineering, Social Sciences, Medical/Vet/Life Sciences) have now all
 been mined at least once (32 rows across rounds 135-138). Many Medical college rows show "Total
