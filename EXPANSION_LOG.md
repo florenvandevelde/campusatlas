@@ -4256,3 +4256,33 @@ Added 8 rows (ids 1841–1848, ranks 1811–1818), GBP→EUR via ÷0.85, QS Worl
 
 All 8 translated (nl/fr/de/es). Verified count: 1815. 32 of 103 available Loughborough rows used
 across rounds 154-157 — a strong pass. 185 rows short of the 2000 target.
+
+## Round 158: University of Bath — 32nd goldmine (1815 → 1823)
+
+Found University of Bath's per-faculty tuition fee pages — Bath splits its fee data across 4 URLs
+by faculty rather than one combined table. Started with the Faculty of Science page
+(`bath.ac.uk/corporate-information/faculty-of-science-taught-postgraduate-tuition-fees-2026-27/`) —
+72 clean `<table>` rows, read via `document.querySelectorAll('table tr')`. Noted two row types to
+skip: "with placement" variants (an extra placement-year fee component changes the total cost — used
+only plain non-placement rows) and Pharmacy CPD/standalone-unit/module rows (tiny per-unit fees, not
+full master's programmes).
+
+Standalone dedup SELECT found 18 pre-existing Bath rows, all concentrated in Humanities, Social
+Sciences, Psychology and International Development — none in Computer Science, Data Science or
+Biosciences, so the Science faculty page was entirely fresh territory. QS 2026: University of Bath
+ranks **#132 in the world** (its highest-ever QS placement, per Bath's own announcement) — used as
+institutional citation.
+
+Added 8 rows (ids 1849–1856, ranks 1819–1826), GBP→EUR via ÷0.85, all 12 months:
+- MSc Computer Science — £30,900 → €36,353 (Computer Science)
+- MSc Data Science — £34,550 → €40,647 (Analytics)
+- MSc Advanced Machine Learning — £34,550 → €40,647 (AI)
+- MSc Biotechnology (Healthcare Technologies) — £34,550 → €40,647 (Life Sciences)
+- MSc Biotechnology with Entrepreneurship — £34,550 → €40,647 (Entrepreneurship)
+- MSc Drug Discovery — £34,550 → €40,647 (Chemistry)
+- MSc Financial Mathematics with Data Science — £30,900 → €36,353 (Mathematics)
+- MSc Statistics and Data Science — £30,900 → €36,353 (Statistics & Operational Research)
+
+All 8 translated (nl/fr/de/es). Verified count: 1823. Only the Science faculty page mined so far —
+Engineering & Design, Humanities & Social Sciences, and School of Management fee pages are
+completely unvisited, a strong next-round target. 177 rows short of the 2000 target.

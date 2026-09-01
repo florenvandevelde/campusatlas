@@ -18,8 +18,22 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1815 programmes, max id 1848, max rank
-1818** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1823 programmes, max id 1856, max rank
+1826** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+**Thirty-second confirmed goldmine: University of Bath's per-faculty tuition fee pages** — Bath
+splits its fee table across 4 URLs by faculty (`bath.ac.uk/corporate-information/faculty-of-
+science-taught-postgraduate-tuition-fees-2026-27/` plus equivalents for Engineering & Design,
+Humanities & Social Sciences, and School of Management — the other 3 not yet visited). The Science
+faculty page alone had 72 table rows, clean `<table>` markup, straightforward
+`document.querySelectorAll('table tr')` extraction. Watch for "with placement" row variants (extra
+placement-year fee component, different total cost — stuck to plain non-placement rows) and Pharmacy
+CPD/unit/standalone-module rows (not real full masters programmes, tiny per-unit fees). 18
+pre-existing Bath rows, concentrated in Humanities/Social Sciences/Psychology/Development — none in
+Computer Science/Data Science/Biosciences, so the Science faculty page was entirely fresh territory.
+QS World 2026: **#132**. Round 158 mined 8 of 72 Science-faculty rows (Computer Science, Analytics,
+AI, Life Sciences, Entrepreneurship, Chemistry, Mathematics, Statistics & Operational Research) —
+the other 3 faculty pages (Engineering & Design, Humanities & Social Sciences, Management) are
+completely unvisited, a strong next-round target.
 Round 157 mined a 4th Loughborough batch (Finance, Engineering, Analytics, Public Policy,
 Architecture, Mathematics, Economics, Development Studies) — 32 of 103 rows used across 4 rounds
 (154-157). **185 short of 2000.** Next round should open a 32nd goldmine rather than continue
