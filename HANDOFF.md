@@ -18,8 +18,15 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1655 programmes, max id 1688, max rank
-1658** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1663 programmes, max id 1696, max rank
+1666** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Round 138 mined the College of Medical, Veterinary & Life Sciences section — Glasgow's 3 colleges
+(Arts & Humanities, Science & Engineering, Social Sciences, Medical/Vet/Life Sciences) have now all
+been mined at least once (32 rows across rounds 135-138). Many Medical college rows show "Total
+cost" flat-fee or NHS-funded pricing rather than a clean UK/International split — read carefully
+before reusing any of those (skip anything without a clear one-year International fee figure).
+**Next round should open a 27th goldmine university** — Glasgow, like Edinburgh, is not fully
+exhausted but has had a solid first pass across all its sections.
 Round 137 mined 8 more Glasgow rows from the College of Social Sciences section (Psychology,
 Analytics, Architecture, Law, Finance, Social Sciences, Development Studies, Media & Communication)
 — College of Medical, Veterinary & Life Sciences section still entirely unmined. Note: several rows

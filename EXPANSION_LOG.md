@@ -3835,3 +3835,26 @@ Added 8 rows (ids 1681–1688, ranks 1651–1658), GBP→EUR via ÷0.85, QS Worl
 
 All 8 translated (nl/fr/de/es). Verified count: 1655. College of Medical, Veterinary & Life
 Sciences section of the Glasgow table remains entirely unmined — target for a future round.
+
+## Round 138: University of Glasgow, batch 4 — all colleges now sampled (1655 → 1663)
+
+Mined the College of Medical, Veterinary & Life Sciences section of the Glasgow fee table. This
+section is messier than the other three — many rows show NHS-funded pricing, "Total cost"
+lump-sums, or per-20-credits part-time-only pricing instead of a clean UK/International split
+(e.g. Health Economics & Health Technology Assessment, Infant Mental Health, Endodontology) — only
+picked rows with an unambiguous one-year International fee figure.
+
+Added 8 rows (ids 1689–1696, ranks 1659–1666), GBP→EUR via ÷0.85, QS World 2026: #79, all 12 months:
+- MSc Applied Neuropsychology — £31,050 → €36,529 (Psychology)
+- MSc Bioinformatics — £34,470 → €40,553 (Life Sciences)
+- MSc Global Mental Health — £33,210 → €39,071 (Public Health)
+- MSc Health Services Management — £33,210 → €39,071 (Public Health)
+- MSc Animal Welfare Science, Ethics & Law — £31,050 → €36,529 (Veterinary Science)
+- MSc Food Security — £33,210 → €39,071 (Agriculture & Food)
+- MSc Applied Conservation Science — £31,050 → €36,529 (Sustainability)
+- MSc Clinical Pharmacology — £34,470 → €40,553 (Life Sciences)
+
+All 8 translated (nl/fr/de/es). Verified count: 1663. **Glasgow's 3 colleges have now all been
+sampled at least once (32 rows across rounds 135-138)** — next round should open a new (27th)
+goldmine university rather than continue mining Glasgow immediately, similar to the Edinburgh
+stopping point after round 134.
