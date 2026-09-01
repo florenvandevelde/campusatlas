@@ -18,8 +18,9 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1525 programmes, max id 1550, max rank
-1521** (verified live in Supabase). Eighteenth confirmed goldmine: University of Bath's Faculty of
+wider net than the earlier top-50-only audits). **Current state: 1532 programmes, max id 1557, max rank
+1528** (verified live in Supabase). Bath goldmine fully mined across rounds 120-121 (17 rows, ids
+1541-1557) — **next round should open a 19th goldmine university.** Eighteenth confirmed goldmine: University of Bath's Faculty of
 Humanities & Social Sciences fee page (`bath.ac.uk/corporate-information/faculty-of-humanities-
 social-sciences-taught-postgraduate-tuition-fees-2026-27/`) — department-organised full table,
 confirmed to have NO History/Law/Media/Public Health programmes (real absence, not a mining gap).

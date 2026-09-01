@@ -3340,3 +3340,19 @@ and Translating (European and Russian) (£30,900), MA Translation and Profession
 (£28,900), MA Translation with Business Interpreting (Chinese) (£28,900), MSc Applied Psychology
 (Conversion) and Applied Psychology and Economic Behaviour (£30,900 each), MSc International
 Development Management (£28,900).
+
+## Round 121: Bath goldmine, batch 2 — final sweep (1525 → 1532)
+
+Mined 7 more rows from the same Bath fee table found in round 120, no new fetch needed. Added ids
+1551–1557, ranks 1522–1528, all GBP→EUR at 0.85:
+- MSc Economics — £28,900 → €34,000 (Economics)
+- MA International Education and Globalisation — £28,900 → €34,000 (Education)
+- MA Interpreting and Translating (European and Russian) — £30,900 → €36,353 (Humanities)
+- MA Translation and Professional Language Skills — £28,900 → €34,000 (Humanities)
+- MSc Applied Psychology (Conversion) — £30,900 → €36,353 (Psychology) — QS Psychology #57
+- MSc Applied Psychology and Economic Behaviour — £30,900 → €36,353 (Psychology) — QS Psychology #57
+- MSc International Development Management — £28,900 → €34,000 (Development Studies) — QS Dev Studies #31
+
+All 7 translated (nl/fr/de/es). Verified count: 1532. Bath goldmine now fully mined across rounds
+120-121 (17 rows, ids 1541-1557) — matched every non-Business/STEM programme on the Faculty of
+Humanities & Social Sciences fee page. Next round: find a 19th goldmine university.
