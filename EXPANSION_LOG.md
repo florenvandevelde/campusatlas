@@ -3959,3 +3959,22 @@ Added 8 rows (ids 1721–1728, ranks 1691–1698), GBP→EUR via ÷0.85, all 12 
 All 8 translated (nl/fr/de/es). Verified count: 1695. Only 8 of 525 table rows used — Business,
 wider Engineering, Humanities and Health Sciences sections barely touched, an excellent return-trip
 target.
+
+## Round 143: University of Southampton, batch 2 (1695 → 1703)
+
+Continued mining the same Southampton 525-row table (round 142), pulling a second slice covering
+rows 60-175 of the Full-time taught programmes. Noted several 2-year Nursing programmes flagged
+"fees will increase for year 2" — skipped per the standing annual-vs-total caution.
+
+Added 8 rows (ids 1729–1736, ranks 1699–1706), GBP→EUR via ÷0.85, QS World 2026: #87, all 12 months:
+- MSc Machine Learning — £36,800 → €43,294 (AI)
+- MSc Genomics — £35,300 → €41,529 (Life Sciences)
+- MSc Human Resource Management — £37,000 → €43,529 (Management)
+- LLM International Commercial and Corporate Law — £30,200 → €35,529 (Law)
+- MA Fashion Management — £37,000 → €43,529 (Art & Design)
+- MSc Global Health — £34,700 → €40,824 (Public Health)
+- MSc Internet of Things — £36,800 → €43,294 (Computer Science)
+- MSc Statistics — £30,100 → €35,412 (Statistics & Operational Research)
+
+All 8 translated (nl/fr/de/es). Verified count: 1703. 16 of 175 available taught Full-time
+Southampton rows used — still a large, productive return-trip target.
