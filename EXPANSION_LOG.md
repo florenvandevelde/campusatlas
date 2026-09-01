@@ -3618,3 +3618,27 @@ Added 10 rows (ids 1620–1629, ranks 1590–1599), all native EUR (no conversio
 - MA Sociology and Social Anthropology — €12,000 (Social Sciences)
 
 All 10 translated (nl/fr/de/es). Verified count: 1596.
+
+## Round 130: Bocconi University — 24th goldmine (1596 → 1599)
+
+Bocconi's official fees pages confirm a flat rate for standard MSc/MA programmes: **€18,550/year,
+native EUR (2026-27), no conversion**. No standard overall QS World rank (Bocconi is a specialised
+institution not covered under the general World Ranking) but QS Social Sciences & Management 2026:
+**#12 world** (4th in Europe) — used as the citation.
+
+Standalone dedup SELECT (`select program from public.programmes where school ilike '%bocconi%'`)
+found 7 pre-existing rows: MSc International Management, Full-Time MBA, Master in Fashion,
+Experience & Design Management (MAFED), International Master in Marketing Management, MSc in
+Economic and Social Sciences, MSc Data Science and Business Analytics, MSc in Finance. 3 new,
+non-duplicate titles found and verified via WebSearch against Bocconi's official programme listing.
+
+Standalone `scholarships` table check confirmed Bocconi present (`Bocconi University` / `Bocconi
+University, SDA Bocconi` / `Università Bocconi`) — `scholar=true` used for all 3 new rows.
+
+Added 3 rows (ids 1630–1632, ranks 1600–1602), all €18,550, 24 months:
+- MSc in Politics and Policy Analysis (Public Policy)
+- MSc in Economics and Management of Government and International Organizations (Public Policy)
+- Master of Arts in Global Law for Organizations, Business Enterprises and Institutions (Law)
+
+All 3 translated (nl/fr/de/es). Verified count: 1599. Bocconi likely has further mineable titles
+(many more MSc tracks exist) — good return-trip target for a future round.

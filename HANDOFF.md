@@ -18,8 +18,19 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1596 programmes, max id 1629, max rank
-1599** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1599 programmes, max id 1632, max rank
+1602** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Twenty-fourth confirmed goldmine: Bocconi University (Milan) — flat rate for all standard MSc/MA
+programmes, **€18,550/year native EUR, no conversion**. No standard overall QS World rank (Bocconi is
+a specialised institution not covered that way) but QS Social Sciences & Management 2026: #12 world
+(4th in Europe) — used as the citation. 7 pre-existing rows found via standalone dedup SELECT
+(International Management, MBA, MAFED, International Marketing Management, Economic and Social
+Sciences, Data Science and Business Analytics, Finance); 3 new non-duplicate titles added (round
+130): MSc in Politics and Policy Analysis, MSc in Economics and Management of Government and
+International Organizations, MA in Global Law for Organizations, Business Enterprises and
+Institutions. `scholar=true` confirmed via a standalone `scholarships` table match ("Bocconi
+University" / "Bocconi University, SDA Bocconi" / "Università Bocconi"). Bocconi likely has further
+mineable titles (Bocconi offers many more MSc tracks) — good return-trip target.
 Twenty-third confirmed goldmine: Central European University (Vienna) — banded fee schedule (most
 master's €12,000, Legal Studies €13,000, MPA €14,500), QS 2026: #45 world for Politics and
 International Studies, "historic debut" in the world's top 250 overall. Wageningen checked as a
