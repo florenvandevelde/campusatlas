@@ -3574,3 +3574,14 @@ Run the programmes-table dedup SELECT as its own standalone call, always, for ev
 building a batch — this is now the second time a combined call has silently hidden real duplicate
 risk. A single `select program from public.programmes where school ilike '%X%';` call, read in
 full, is the only safe pattern.
+
+## Round 128: Sciences Po, batch 2 — properly deduped with the corrected pattern (1583 → 1586)
+
+Added 3 more Sciences Po titles, this time using a single standalone dedup SELECT per the fix from
+the round 127 correction. Added ids 1617–1619, ranks 1587–1589, all €20,640, 24 months:
+- Master in Regional and Urban Strategy (Architecture) — Sciences Po Urban School
+- Master in Governing the Large Metropolis (Architecture) — Sciences Po Urban School
+- Master in Communications, Media and Creative Industries (Media & Communication) — School of
+  Management and Impact
+
+All 3 translated (nl/fr/de/es). Verified count: 1586.
