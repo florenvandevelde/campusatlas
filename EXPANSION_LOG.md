@@ -4080,3 +4080,20 @@ Added 8 rows (ids 1769–1776, ranks 1739–1746), GBP→EUR via ÷0.85, QS Worl
 
 All 8 translated (nl/fr/de/es). Verified count: 1743. 24 of ~172 available Nottingham rows used
 across 3 rounds (146-148).
+
+## Round 149: University of Nottingham, batch 4 (1743 → 1751)
+
+Continued mining the same Nottingham dataset for a 4th and final batch of this pass.
+
+Added 8 rows (ids 1777–1784, ranks 1747–1754), GBP→EUR via ÷0.85, QS World 2026: #97, all 12 months:
+- MA Classics — £25,750 → €30,294 (Humanities)
+- MSc Clinical Nutrition — £33,800 → €39,765 (Public Health)
+- MSc Business Analytics — £33,000 → €38,824 (Analytics)
+- MSc Environmental Leadership and Management — £28,600 → €33,647 (Sustainability)
+- MSc Human Computer Interaction — £33,800 → €39,765 (Computer Science)
+- MSc International Business — £33,800 → €39,765 (Management)
+- MSc Forensic and Criminological Psychology — £30,800 → €36,235 (Psychology)
+- MSc Cultural Industries and Entrepreneurship — £25,750 → €30,294 (Entrepreneurship)
+
+All 8 translated (nl/fr/de/es). Verified count: 1751. 32 of ~172 available Nottingham rows used
+across rounds 146-149 — a solid pass; next round should open a new goldmine university.
