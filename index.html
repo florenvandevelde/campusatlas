@@ -3114,8 +3114,23 @@ function render() {
 
   $("grid").querySelectorAll("[data-compare]").forEach(cb =>
     cb.addEventListener("change", e => {
-      toggleCompare(+cb.dataset.compare, cb);
-      render();
+      const id = +cb.dataset.compare;
+      const resTitleWasShortlist = $("resTitle").textContent === "Your shortlist";
+      toggleCompare(id, cb);
+      // toggleCompare() already calls render() itself in the exact cases where the
+      // shortlist-only view needs this card to disappear (see its own render trigger).
+      // Replicate that same condition here so we only patch this card's label instead
+      // of re-rendering the whole grid — with 1000+ cards a full render() here was the
+      // source of a ~1s lag on every single shortlist click.
+      const alreadyRendered = state.shortlistOnly || (state.compare.size === 0 && resTitleWasShortlist);
+      if (!alreadyRendered) {
+        const label = cb.closest(".card-select");
+        if (label) {
+          const selected = state.compare.has(id);
+          label.classList.toggle("selected", selected);
+          label.lastChild.textContent = selected ? "On your shortlist" : "Add to shortlist";
+        }
+      }
     }));
 
   $("grid").querySelectorAll(".card").forEach(c => {
