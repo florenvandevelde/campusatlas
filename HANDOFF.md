@@ -18,8 +18,18 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1515 programmes, max id 1540, max rank
-1511** (verified live in Supabase). Seventeenth confirmed goldmine: University of Surrey
+wider net than the earlier top-50-only audits). **Current state: 1525 programmes, max id 1550, max rank
+1521** (verified live in Supabase). Eighteenth confirmed goldmine: University of Bath's Faculty of
+Humanities & Social Sciences fee page (`bath.ac.uk/corporate-information/faculty-of-humanities-
+social-sciences-taught-postgraduate-tuition-fees-2026-27/`) — department-organised full table,
+confirmed to have NO History/Law/Media/Public Health programmes (real absence, not a mining gap).
+QS 2026 subject rankings confirmed via Bath's own announcements: **Sports-related Subjects #13
+world, Development Studies #31 world, Psychology #57 world, Social Policy & Administration in the
+global top 100**; overall QS World Ranking #132. 10 rows mined (round 120); more banked in the same
+table (Applied Economics/Economics/Economics and Finance MSc, International Education and
+Globalisation MA, more Interpreting/Translation MA variants, Applied Psychology (Conversion) and
+Applied Psychology and Economic Behaviour MSc, International Development Management MSc).
+Seventeenth confirmed goldmine: University of Surrey
 (`surrey.ac.uk/fees-and-funding/tuition-fees/postgraduate-taught-course-fees-2026-entry`) — a
 genuine alphabetical per-programme fee list, but the school is STEM/business/hospitality-leaning so
 it's naturally thin on History/Public Health/Education/Media/Sociology (confirmed absent, not just

@@ -3302,3 +3302,41 @@ for History, Public Health, Education, Media or Sociology (checked directly) —
 STEM/business/hospitality, so this goldmine is naturally limited to Psychology/Law/Politics; two
 more Psychology titles remain unused if needed (Environmental Psychology, Social Psychology MSc,
 both £25,900).
+
+## Round 120: University of Bath — 18th goldmine (1515 → 1525)
+
+City, University of London checked — no comprehensive fee table found, only a University of London
+(federal, distance-learning) Laws schedule PDF that's a different institution. Dead end, don't retry.
+
+University of Bath's Faculty of Humanities & Social Sciences taught postgraduate fees page came
+through: `bath.ac.uk/corporate-information/faculty-of-humanities-social-sciences-taught-
+postgraduate-tuition-fees-2026-27/` — a genuine department-organised full fee table, WebFetch-
+readable. No existing Bath rows; confirmed present in scholarships table (scholar=true). Page
+explicitly confirmed no History/Law/Media/Public Health programmes exist in this faculty at Bath —
+not a mining gap, a real absence.
+
+QS 2026 subject rankings confirmed via Bath's own announcement pages: **Sports-related Subjects
+#13 world, Development Studies #31 world, Psychology #57 world, Social Policy & Administration in
+the global top 100** (exact rank not published) — outstanding citations, all four used this round.
+Overall QS World Ranking: #132 (used for rows without a specific subject citation).
+
+Added 10 rows (ids 1541–1550, ranks 1512–1521), all GBP→EUR at 0.85:
+- MSc Sport Management — £30,900 → €36,353 (Sports-related Subjects) — QS #13
+- MSc International Development — £28,900 → €34,000 (Development Studies) — QS #31
+- MSc International Development with Conflict and Humanitarian Action — £28,900 → €34,000 (Development Studies) — QS #31
+- MSc Applied Clinical Psychology — £30,900 → €36,353 (Psychology) — QS #57
+- MSc Health Psychology — £30,900 → €36,353 (Psychology) — QS #57
+- MA Education — £28,900 → €34,000 (Education)
+- MA TESOL — £28,900 → €34,000 (Education)
+- MSc International Relations — £28,900 → €34,000 (Public Policy)
+- MSc Criminology — £28,900 → €34,000 (Social Sciences) — QS Social Policy & Administration top 100
+- MA Interpreting and Translating (Chinese) — £30,900 → €36,353 (Humanities)
+
+All 10 translated (nl/fr/de/es). Verified count: 1525.
+
+Same Bath fee table has more unused rows banked: MSc Applied Economics/Economics/Economics and
+Finance (£28,900 each), MA International Education and Globalisation (£28,900), MA Interpreting
+and Translating (European and Russian) (£30,900), MA Translation and Professional Language Skills
+(£28,900), MA Translation with Business Interpreting (Chinese) (£28,900), MSc Applied Psychology
+(Conversion) and Applied Psychology and Economic Behaviour (£30,900 each), MSc International
+Development Management (£28,900).
