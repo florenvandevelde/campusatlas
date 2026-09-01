@@ -3356,3 +3356,30 @@ Mined 7 more rows from the same Bath fee table found in round 120, no new fetch 
 All 7 translated (nl/fr/de/es). Verified count: 1532. Bath goldmine now fully mined across rounds
 120-121 (17 rows, ids 1541-1557) — matched every non-Business/STEM programme on the Faculty of
 Humanities & Social Sciences fee page. Next round: find a 19th goldmine university.
+
+## Round 122: Loughborough University — 19th goldmine (1532 → 1541)
+
+Loughborough's international-fees page (`lboro.ac.uk/study/postgraduate/fees-funding/tuition-fees/
+international-fees-2026-27/`) came through: a genuine comprehensive per-programme table,
+WebFetch-readable. Loughborough already had 3 existing rows (MSc Sport Management, MSc Management,
+MA Media and Communication (London)) — avoided as exact-title duplicates.
+
+QS 2026: Loughborough confirmed **#1 in the world for Sports-related Subjects — the tenth
+consecutive year holding that title** (verified via Loughborough's own press releases, a striking
+and precise citation). Overall QS World Ranking: #225 (used for non-sport rows).
+
+Added 9 rows (ids 1558–1566, ranks 1529–1537), all GBP→EUR at 0.85, scholar=false (Loughborough not
+in scholarships table):
+- MSc Sport Analytics and Artificial Intelligence — £32,800 → €38,588 (Sports-related Subjects)
+- MSc Sport and Exercise Psychology — £31,900 → €37,529 (Sports-related Subjects)
+- MSc Sport Business and Leadership — £32,800 → €38,588 (Sports-related Subjects)
+- MSc Sport Management, Politics and International Development — £31,900 → €37,529 (Sports-related Subjects)
+- MSc Sustainable Sport Business — £32,800 → €38,588 (Sports-related Subjects)
+- LLM Law — £30,900 → €36,353 (Law)
+- MSc Public Health — £25,000 → €29,412 (Public Health)
+- MA Media and Communication — £26,300 → €30,941 (Media & Communication)
+- MSc Work and Organisational Psychology — £26,300 → €30,941 (Psychology)
+
+All 9 translated (nl/fr/de/es). Verified count: 1541 — this is the single strongest concentration
+of "Sports-related Subjects" rows added this session, filling a field that was previously very thin
+in the catalogue.
