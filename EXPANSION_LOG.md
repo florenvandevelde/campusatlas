@@ -3383,3 +3383,29 @@ in scholarships table):
 All 9 translated (nl/fr/de/es). Verified count: 1541 — this is the single strongest concentration
 of "Sports-related Subjects" rows added this session, filling a field that was previously very thin
 in the catalogue.
+
+## Round 123: University of East Anglia — 20th goldmine (1541 → 1550)
+
+Found via the same PDF-comprehensive-table pattern as Aberdeen/Goldsmiths: UEA's overseas fees PDF
+(`assets.uea.ac.uk/f/185167/x/6e045e4fae/fees_table_2026-27_-_international_v6.pdf`) has a Table B
+listing Overseas Postgraduate Taught fees by school for 2026-27, WebFetch-couldn't-parse-binary so
+read via the Read tool's native PDF support. No existing UEA rows; not in scholarships table
+(scholar=false). Every programme title was verified as real via targeted WebSearch against UEA's
+own course pages before insertion (school-level fee bands aren't programme titles by themselves).
+
+QS 2026: UEA overall World Ranking **#381**; Development Studies **#23 world** (confirmed via
+WebSearch, UEA's own news article) — used for the Development Studies-adjacent rows.
+
+Added 9 rows (ids 1567–1575, ranks 1538–1546), all GBP→EUR at 0.85:
+- MA Global Development — £23,850 → €28,059 (Development Studies) — QS Dev Studies #23
+- MA Modern History — £23,850 → €28,059 (History)
+- MA in the Arts of Africa, Oceania and the Americas — £11,200 → €13,176 (History) — niche,
+  subsidised-rate title via UEA's Sainsbury Research Unit
+- LLM International Trade Law — £23,850 → €28,059 (Law)
+- MA Education and Development — £23,850 → €28,059 (Education) — QS Dev Studies #23
+- MA Media, Culture and Society — £23,850 → €28,059 (Media & Communication)
+- MSc Social and Applied Psychology — £23,850 → €28,059 (Psychology)
+- MA International Relations — £23,850 → €28,059 (Public Policy)
+- MRes Social Science Research Methods — £23,850 → €28,059 (Social Sciences)
+
+All 9 translated (nl/fr/de/es). Verified count: 1550.

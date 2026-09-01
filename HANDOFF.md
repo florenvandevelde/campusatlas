@@ -18,8 +18,12 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1541 programmes, max id 1566, max rank
-1537** (verified live in Supabase). Nineteenth confirmed goldmine: Loughborough University
+wider net than the earlier top-50-only audits). **Current state: 1550 programmes, max id 1575, max rank
+1546** (verified live in Supabase). Twentieth confirmed goldmine: University of East Anglia's
+overseas fees PDF (`assets.uea.ac.uk/f/185167/x/6e045e4fae/fees_table_2026-27_-_international_v6.pdf`)
+— same Read-tool-native-PDF-support technique as Aberdeen/Goldsmiths. QS 2026: overall #381,
+Development Studies #23 world. 9 rows mined (round 123), every title WebSearch-verified as real
+since the PDF lists school-level fee bands, not programme names. Nineteenth confirmed goldmine: Loughborough University
 (`lboro.ac.uk/study/postgraduate/fees-funding/tuition-fees/international-fees-2026-27/`) —
 comprehensive per-programme table. QS 2026: **#1 in the world for Sports-related Subjects, tenth
 consecutive year** (verified via Loughborough's own press releases) — the strongest concentration
