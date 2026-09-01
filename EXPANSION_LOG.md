@@ -3453,3 +3453,27 @@ Inequalities and Social Science, MSc in International Political Economy, MSc in 
 Comparative Perspective, MSc in Economic History, MSc in Regulation, MSc in Urbanisation and
 Development, MSc in Local Economic Development — an excellent return-trip target for a future
 round.
+
+## Round 124 correction: removed 5 duplicate LSE rows (1565 → 1560)
+
+Before starting a follow-up LSE batch, re-checked LSE's full existing programme list and discovered
+the round 124 dedup check had been silently incomplete: the query combined two SELECTs and only
+the scholarships-table row surfaced in the tool result, masking that programmes already had 11
+pre-existing LSE rows (ids 150, 314, 381, 506, 516, 542, 701, 721, 970, 1007, 1210) predating this
+session. Five of round 124's 15 new rows turned out to be duplicates of these under a "MSc X" vs
+"MSc in X" naming variant — same real-world degree, in three cases (1007/1210/970) at the exact
+same €35,765 tuition, confirming they were the identical programme:
+- id 1577 "MSc in Social and Cultural Psychology" ↔ pre-existing id 1007 "MSc Social and Cultural Psychology"
+- id 1582 "MSc in International Relations" ↔ pre-existing id 381 "MSc International Relations"
+- id 1583 "MSc in Development Studies" ↔ pre-existing id 1210 "MSc Development Studies"
+- id 1584 "Master of Laws (LLM)" ↔ pre-existing id 314 "LLM (Master of Laws)"
+- id 1585 "MSc in Media and Communications (All streams)" ↔ pre-existing id 970 "MSc Media and Communications"
+
+All five deleted. The other 10 round-124 rows (1576, 1578-1581, 1586-1590) were checked against the
+full pre-existing list and confirmed genuinely new. Verified count: 1560.
+
+**Lesson for future rounds: always inspect the full row-level dedup query result, not just whether
+it "looks empty" — a combined multi-SELECT result can silently drop rows from an earlier query if
+only checked at a glance.** Going forward, run the programmes-table dedup SELECT on its own (not
+combined with the scholarships SELECT) and read every returned title before building a batch,
+especially for schools that may have accumulated rows across many earlier, un-recalled rounds.

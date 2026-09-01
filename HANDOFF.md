@@ -18,8 +18,14 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1565 programmes, max id 1590, max rank
-1561** (verified live in Supabase). **Twenty-first confirmed goldmine — the strongest by subject
+wider net than the earlier top-50-only audits). **Current state: 1560 programmes, max id 1590, max rank
+1561** (verified live in Supabase; ids/ranks have small gaps from a dedup cleanup, that's fine).
+**Dedup lesson learned the hard way this round: LSE already had 11 pre-existing rows (ids 150, 314,
+381, 506, 516, 542, 701, 721, 970, 1007, 1210) that a combined-SELECT dedup check silently missed —
+5 new rows turned out to be "MSc X" vs "MSc in X" duplicates and had to be deleted. Always run the
+programmes-table dedup SELECT on its own and read every title, never trust a combined query result
+at a glance, especially for a school that may have accumulated rows across many earlier rounds this
+session.** Twenty-first confirmed goldmine — the strongest by subject
 fit found this session: London School of Economics.** LSE's own "Table of Fees 2026-27" PDF
 (`info.lse.ac.uk/staff/divisions/Planning-Division/Assets/Documents/Table-of-Fees-2026-27-and-PGR-
 structure-combined-28Nov2025.pdf`) is an exhaustive alphabetical per-programme fee list. QS 2026
