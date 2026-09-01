@@ -3552,3 +3552,25 @@ All 8 translated (nl/fr/de/es). Verified count: 1586. This is the first non-UK/I
 mined in this session's continuation — worth returning to for more Sciences Po titles (Sociology,
 Urban School, School of Research programmes) or exploring other continental European universities
 with similarly clean flat-rate fee structures.
+
+## Round 127 correction: root-caused and fixed the dedup-check bug (1586 → 1583)
+
+Found the actual root cause of both this round's and round 124's dedup misses: sending two SELECT
+statements in one execute_sql call (e.g. `select ... from programmes; select ... from
+scholarships;`) silently returns only the LAST statement's result — the programmes-table SELECT's
+output was being discarded every time, which is why both pre-checks appeared to show zero existing
+rows when Sciences Po already had 5 (ids 151, 308, 350, 800, 821) and LSE already had 11.
+
+3 of round 127's 8 new rows were duplicates of pre-existing Sciences Po programmes (same title,
+different — likely stale — tuition figure on the old row):
+- id 1613 "Master in International Public Management" ↔ pre-existing id 151 (€15,000 vs my €20,640)
+- id 1610 "Master in Public Policy" ↔ pre-existing id 308 (€19,000 vs my €20,640)
+- id 1616 "Master in Environmental Policy" ↔ pre-existing id 350 (€19,000 vs my €20,640)
+
+All three deleted. Verified count: 1583.
+
+**Permanent fix going forward: never combine two SELECT statements in a single execute_sql call.**
+Run the programmes-table dedup SELECT as its own standalone call, always, for every school before
+building a batch — this is now the second time a combined call has silently hidden real duplicate
+risk. A single `select program from public.programmes where school ilike '%X%';` call, read in
+full, is the only safe pattern.

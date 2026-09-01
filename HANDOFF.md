@@ -18,8 +18,13 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1586 programmes, max id 1616, max rank
-1587** (verified live in Supabase; ids/ranks have small gaps from a dedup cleanup, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1583 programmes, max id 1615, max rank
+1586** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+**ROOT CAUSE FOUND for both the LSE (round 124) and Sciences Po (round 127) dedup misses: sending
+two SELECT statements in one execute_sql call silently returns only the LAST statement's result —
+the programmes-table dedup query was being discarded every single time, making pre-existing rows
+invisible. NEVER combine two SELECTs in one execute_sql call again — always run the programmes
+dedup SELECT as its own standalone call, for every school, before building any batch.**
 **Twenty-second confirmed goldmine — Sciences Po, the first non-UK/Irish goldmine mined in this
 continuation.** Its official fee note confirms a genuine flat rate for non-EEA master's students:
 **€20,640/year for every master's programme**, native EUR, no conversion. QS 2026 (confirmed via
