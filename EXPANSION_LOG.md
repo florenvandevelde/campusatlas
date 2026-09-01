@@ -4014,3 +4014,35 @@ Added 8 rows (ids 1745–1752, ranks 1715–1722), GBP→EUR via ÷0.85, QS Worl
 All 8 translated (nl/fr/de/es). Verified count: 1719. 32 of 175 available taught Full-time
 Southampton rows used across 4 rounds (142-145) — a solid pass; next round should open a new
 goldmine university rather than continue Southampton immediately.
+
+## Round 146: University of Nottingham — 29th goldmine (1719 → 1727)
+
+Before finding this goldmine, checked Cardiff University, Newcastle University and University of
+Liverpool — all three only publish per-course fee pages, no comprehensive table (confirmed via
+WebSearch and, for Cardiff, direct page inspection showing zero `<table>` elements).
+
+Found University of Nottingham's "Postgraduate taught courses 2026/27" page
+(`nottingham.ac.uk/fees/tuitionfees/202627/postgraduate-taught.aspx`) — a clean HTML table with
+~172 programme rows (course code / qualification / title / UK fee / international fee), read
+directly via `document.querySelectorAll('table tr')`. Noted several "(2yr)" reduced-fee variants
+(e.g. "Computer Science (2yr)", "Cyber Physical Systems (2yr)") and rows with "Refer to School of X"
+or "Not applicable" fees — skipped both categories, the former for the usual annual-vs-total
+caution, the latter for lacking a usable number.
+
+Standalone dedup SELECT found 18 pre-existing Nottingham rows, including "MArch Architecture and
+Sustainable Design" which matches a row in this very table exactly — good reminder to always check
+titles against this table before assuming they're new. QS 2026: University of Nottingham ranks
+**#97 in the world** (17th in the UK) — used as institutional citation.
+
+Added 8 rows (ids 1753–1760, ranks 1723–1730), GBP→EUR via ÷0.85, all 12 months:
+- MBA Business Administration — £33,800 → €39,765 (Management)
+- MSc Cancer Immunology and Biotechnology — £33,000 → €38,824 (Life Sciences)
+- MSc Computer Science — £33,800 → €39,765 (Computer Science)
+- MSc Financial Technology — £33,800 → €39,765 (Finance)
+- MSc Gravity, Particles and Fields — £25,750 → €30,294 (Physics)
+- MSc Industrial Engineering and Operations Management — £33,000 → €38,824 (Engineering)
+- MSc Global Environmental Sustainability — £25,750 → €30,294 (Sustainability)
+- MSc Digital Marketing — £33,000 → €38,824 (Marketing)
+
+All 8 translated (nl/fr/de/es). Verified count: 1727. Only 8 of ~172 available Nottingham rows
+used — strong return-trip target (Engineering, Medicine, Humanities sections barely touched).

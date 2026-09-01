@@ -18,8 +18,21 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1719 programmes, max id 1752, max rank
-1722** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1727 programmes, max id 1760, max rank
+1730** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+**Twenty-ninth confirmed goldmine: University of Nottingham's "Postgraduate taught courses 2026/27"
+page** (`nottingham.ac.uk/fees/tuitionfees/202627/postgraduate-taught.aspx`) — a clean HTML table,
+~172 programme rows (code/qualification/title/UK fee/international fee), directly readable via
+`document.querySelectorAll('table tr')`, no JS-rendering issues. Watch for "(2yr)" titles (e.g.
+"Computer Science (2yr)", "Cyber Physical Systems (2yr)") — these are reduced-fee 2-year variants,
+skip per the usual annual-vs-total caution; also skip rows with "Refer to School of X" or "Not
+applicable" instead of a number. Only 18 pre-existing Nottingham rows (note: "MArch Architecture and
+Sustainable Design" already existed, id 1408 — matches a row in this table exactly, so watch for
+that one specifically if mining Nottingham further). QS World 2026: **#97** (17th in UK). Dead ends
+before Nottingham: Cardiff University and Newcastle University both only have per-course fee pages,
+no comprehensive table; University of Liverpool likewise (per-course only, confirmed via WebSearch).
+Round 146 mined 8 of ~172 rows (Management, Life Sciences, Computer Science, Finance, Physics,
+Engineering, Sustainability, Marketing) — huge remaining capacity.
 Round 145 mined a 4th Southampton batch (Finance, Art & Design, Earth Sciences, Public Health,
 Entrepreneurship, Management, Computer Science, Public Policy) — 32 of 175 rows used. **Next round
 should open a 29th goldmine** rather than continue Southampton immediately — 4 rounds is this
