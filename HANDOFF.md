@@ -18,8 +18,19 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1615 programmes, max id 1648, max rank
-1618** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1623 programmes, max id 1656, max rank
+1626** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Round 133 mined 8 more rows from the Edinburgh goldmine (Earth Sciences/Energy, Computer Science,
+Management, Engineering, Sustainability, Marketing, Chemistry, Physics/Mathematics) — used
+`javascript_tool` to pull raw `<table>` row text in large slices (`document.querySelectorAll('table
+tr')`), much more token-efficient than repeated `get_page_text` scrolling. Now 24 of 691 Edinburgh
+rows used. **Learned this round: entries in the table without an explicit "N Years" suffix in the
+title are the standard 1-year full-time programme (their part-time sibling row carries the year
+count instead) — but a bare MLA/MArch-style title with NO part-time sibling at all is ambiguous
+(could be a 2-year design programme priced as an annual rate) and was deliberately skipped (e.g.
+"Landscape Architecture (MLA)") pending the annual-vs-total convention question flagged in round
+131.** Rows with "Fees for X programmes" instead of a number (Architecture, Counselling, Nursing,
+Edinburgh Futures Institute programmes) have no directly usable figure — skip those, don't guess.
 Round 132 mined 8 more rows from the same Edinburgh goldmine (Physics, MBA, Sustainability,
 Psychology, Law, Computer Science, Engineering/Energy, Entrepreneurship) — still only 16 of 691
 Edinburgh table rows used; plenty left for a future round. Watch for near-duplicates against the

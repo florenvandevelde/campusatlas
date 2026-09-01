@@ -3704,3 +3704,32 @@ citation, all 12 months except the MBA (also 12 months, full-time):
 All 8 translated (nl/fr/de/es). Verified count: 1615. Still only 16 of 691 Edinburgh table rows
 used — excellent remaining return-trip target (Business School, Engineering and Informatics sections
 alone likely hold another 20-30 non-duplicate, well-fitting titles).
+
+## Round 133: University of Edinburgh, batch 3 (1615 → 1623)
+
+Continued mining the Edinburgh goldmine, this time pulling raw table rows via
+`javascript_tool` (`document.querySelectorAll('table tr')`) in 100-150 row slices instead of
+scrolling `get_page_text` — much cheaper and gave exact tab-separated fee data straight from the
+DOM. Covered the table from "Geoenergy" through "Religious Studies" alphabetically.
+
+Confirmed a reliable reading of the table's row-naming convention: a row with no "N Years" suffix
+and a sibling "(Part-time) - N Years" row is the standard 1-year full-time programme. A row with
+neither an explicit year count NOR any part-time sibling (e.g. "Landscape Architecture (MLA)") is
+ambiguous — could genuinely be a multi-year design programme priced at an annual rate — and was
+skipped rather than guessed, consistent with the annual-vs-total caution flagged in round 131. Also
+skip any row whose fee column reads "Fees for X programmes" instead of a number (Architecture,
+Counselling, Nursing, Edinburgh Futures Institute "Fusion" programmes) — no usable figure there.
+
+Added 8 rows (ids 1649–1656, ranks 1619–1626), GBP→EUR via ÷0.85, QS World 2026: #34, all 12 months:
+- MSc Geoenergy — £37,800 → €44,471 (Earth Sciences/Energy)
+- MSc High Performance Computing — £39,200 → €46,118 (Computer Science) — taught at EPCC, the UK's national supercomputing service
+- MSc Human Resource Management — £33,200 → €39,059 (Management)
+- MSc Fire Engineering Science — £39,200 → €46,118 (Engineering)
+- MSc Management of Bioeconomy, Innovation and Governance — £32,000 → €37,647 (Sustainability/Agriculture & Food)
+- MSc Marketing — £33,200 → €39,059 (Marketing)
+- MSc Materials Chemistry — £39,200 → €46,118 (Chemistry)
+- MSc Mathematical Physics — £32,000 → €37,647 (Physics/Mathematics)
+
+All 8 translated (nl/fr/de/es). Verified count: 1623. 24 of 691 Edinburgh rows used so far — table
+still has plenty left (S-Z alphabetically largely unmined: Social Policy, Sociology, Sport,
+Statistics, Sustainable Development, Theatre, Translation, Urban Studies, Veterinary sections).
