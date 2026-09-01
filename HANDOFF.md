@@ -18,8 +18,20 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1783 programmes, max id 1816, max rank
-1786** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1791 programmes, max id 1824, max rank
+1794** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+**Thirty-first confirmed goldmine: Loughborough University's "International fees 2026/27" page**
+(`lboro.ac.uk/study/postgraduate/fees-funding/tuition-fees/international-fees-2026-27/`) — a clean
+103-row HTML `<table>` (programme title / international fee only, no home-fee column), read directly
+via `document.querySelectorAll('table tr')`. 12 pre-existing Loughborough rows, heavily concentrated
+in Sport (Loughborough is QS **#1 in the world for Sports-related Subjects, 10 years running** —
+noted for future citation use, though all current sport titles already look covered) plus Law,
+Media and Communication, Management, Public Health — watch for those specifically. QS World 2026:
+**#225** (note: Loughborough's own June-2026 PR trumpets "203rd" but that is the *QS World University
+Rankings 2027* edition, not 2026 — used #225, the correct 2026-edition figure, per this session's
+"QS World 2026: #N" citation convention). Round 154 mined 8 of 103 rows (Management/MBA, Computer
+Science, AI, Mathematics, Sustainability, Energy, Chemistry, Social Sciences) — plenty more rows
+available (Construction/Civil Engineering, Design, remaining Business/Finance titles untouched).
 Round 153 mined a 4th York batch (Finance, Engineering, Computer Science, Sustainability,
 Humanities, Life Sciences, Chemistry, Management) — 32 of hundreds of rows used across 4 rounds
 (150-153), all from the single page-text dump. **217 short of 2000.** York's page still has more

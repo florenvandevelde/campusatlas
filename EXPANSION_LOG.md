@@ -4176,3 +4176,33 @@ Added 8 rows (ids 1809–1816, ranks 1779–1786), GBP→EUR via ÷0.85, QS Worl
 
 All 8 translated (nl/fr/de/es). Verified count: 1783. 32 of hundreds of available York rows used
 across rounds 150-153 — a strong pass; 217 rows short of the 2000 target overall.
+
+## Round 154: Loughborough University — 31st goldmine (1783 → 1791)
+
+Found Loughborough University's "International fees 2026/27" page (`lboro.ac.uk/study/
+postgraduate/fees-funding/tuition-fees/international-fees-2026-27/`) — a clean 103-row HTML table
+(programme title + international fee only), read directly via `document.querySelectorAll('table
+tr')`.
+
+Standalone dedup SELECT found 12 pre-existing Loughborough rows, concentrated in Sport-related
+titles (Loughborough is QS #1 in the world for Sports-related Subjects, 10 years running — a strong
+citation for future sport rows, though all current sport titles already look covered by this
+catalogue), plus Law, Media and Communication, Management and Public Health.
+
+QS 2026: Loughborough ranks **#225 in the world**. Note: Loughborough's own June-2026 press release
+trumpets "203rd", but that figure is from the *QS World University Rankings 2027* edition (released
+June 2026), not the 2026 edition — used #225, the correct figure for this session's "QS World 2026:
+#N" citation convention, confirmed via a separate WebSearch.
+
+Added 8 rows (ids 1817–1824, ranks 1787–1794), GBP→EUR via ÷0.85, all 12 months:
+- MBA Business Administration — £33,000 → €38,824 (Management)
+- MSc Cyber Resilience — £30,900 → €36,353 (Computer Science)
+- MSc Design and Artificial Intelligence — £30,900 → €36,353 (AI)
+- MSc Financial Mathematics — £30,900 → €36,353 (Mathematics)
+- MSc Climate Change Science and Management — £26,300 → €30,941 (Sustainability)
+- MSc Renewable Energy Systems Technology — £30,900 → €36,353 (Energy)
+- MSc Pharmaceutical Science and Medicinal Chemistry — £30,900 → €36,353 (Chemistry)
+- MSc Criminology — £25,000 → €29,412 (Social Sciences)
+
+All 8 translated (nl/fr/de/es). Verified count: 1791. 8 of 103 available rows used — Construction/
+Civil Engineering, Design, and remaining Business/Finance titles still untouched.
