@@ -4206,3 +4206,19 @@ Added 8 rows (ids 1817–1824, ranks 1787–1794), GBP→EUR via ÷0.85, all 12 
 
 All 8 translated (nl/fr/de/es). Verified count: 1791. 8 of 103 available rows used — Construction/
 Civil Engineering, Design, and remaining Business/Finance titles still untouched.
+
+## Round 155: Loughborough University, batch 2 (1791 → 1799)
+
+Continued mining the same Loughborough fee table for a 2nd batch.
+
+Added 8 rows (ids 1825–1832, ranks 1795–1802), GBP→EUR via ÷0.85, QS World 2026: #225, all 12 months:
+- MSc Automotive Engineering — £31,900 → €37,529 (Engineering)
+- MSc Data Science — £30,900 → €36,353 (Computer Science)
+- MSc Finance — £30,400 → €35,765 (Finance)
+- MSc International Security — £26,300 → €30,941 (Social Sciences)
+- MSc Graphic Design and Visualisation — £30,900 → €36,353 (Art & Design)
+- MSc Entrepreneurship and Innovation Management — £30,900 → €36,353 (Entrepreneurship)
+- MSc Public Policy — £25,000 → €29,412 (Public Policy)
+- MSc Net Zero Building Services Engineering — £26,300 → €30,941 (Energy)
+
+All 8 translated (nl/fr/de/es). Verified count: 1799. Only 201 rows short of the 2000 target.

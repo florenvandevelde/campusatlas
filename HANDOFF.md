@@ -18,8 +18,11 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1791 programmes, max id 1824, max rank
-1794** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1799 programmes, max id 1832, max rank
+1802** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Round 155 mined a 2nd Loughborough batch (Engineering, Computer Science, Finance, Social Sciences,
+Art & Design, Entrepreneurship, Public Policy, Energy) — 16 of 103 rows used. **Only 201 short of
+the 2000 target.**
 **Thirty-first confirmed goldmine: Loughborough University's "International fees 2026/27" page**
 (`lboro.ac.uk/study/postgraduate/fees-funding/tuition-fees/international-fees-2026-27/`) — a clean
 103-row HTML `<table>` (programme title / international fee only, no home-fee column), read directly
