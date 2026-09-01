@@ -18,8 +18,20 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1631 programmes, max id 1664, max rank
-1634** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1639 programmes, max id 1672, max rank
+1642** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+**Twenty-sixth confirmed goldmine: University of Glasgow's "Fee table - Live" page**
+(`gla.ac.uk/postgraduate/feesandfunding/feetable/live/`) — a huge official per-programme table
+organised by College (Arts & Humanities, Science & Engineering, Social Sciences, Medical Vet & Life
+Sciences), readable directly via `get_page_text` (no JS-rendering issue this time, unlike
+Edinburgh). Only 15 pre-existing Glasgow rows (confirmed via standalone dedup SELECT) — much less
+saturated than Edinburgh, strong return-trip target. QS World 2026: #79 (12th in UK) used as
+institutional citation. Round 135 mined only the Arts & Humanities college section (8 rows,
+Humanities/Media & Communication/Performing Arts/Management) — Science & Engineering, Social
+Sciences and Medical/Vet/Life Sciences college sections are entirely unmined, excellent next-round
+target. Note: skipped "Book & Paper Conservation (MPhil)" — a 2-year programme whose fee note
+explicitly confirms the listed figure is charged per year (not total) — same annual-vs-total
+ambiguity flagged for Edinburgh; stuck to clearly 1-year programmes this round.
 Round 134 finished reading the Edinburgh table end-to-end (S through Z) and mined a 4th and final
 batch of 8 rows for this pass — 32 of 691 Edinburgh rows now used across 4 rounds. Edinburgh is not
 exhausted (Business School, Engineering and Informatics still have unmined titles, and the whole

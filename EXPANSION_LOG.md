@@ -3759,3 +3759,37 @@ rounds (131-134) — a full A-Z pass is now complete.** Edinburgh is not fully e
 visit could still find a few more, especially in Business School and Engineering) but this is a
 natural stopping point; next round should open a new (26th) goldmine university rather than
 continue mining Edinburgh immediately.
+
+## Round 135: University of Glasgow — 26th goldmine (1631 → 1639)
+
+Discovered a new official per-programme fee table: University of Glasgow's "Fee table - Live" page
+(`gla.ac.uk/postgraduate/feesandfunding/feetable/live/`), organised by College (Arts & Humanities,
+Science & Engineering, Social Sciences, Medical Vet & Life Sciences) with UK and International fees
+per programme. Unlike Edinburgh's table, this one reads fine via plain `get_page_text` — no
+JS-rendering workaround needed.
+
+Standalone dedup SELECT found only 15 pre-existing Glasgow rows (LLMs, MSc Global History, MSc
+Library & Information Studies, MA Applied Linguistics, MSc Economics, MSc Sociology, etc.) — much
+less saturated than Edinburgh, so this is a strong goldmine for future rounds too.
+
+QS 2026: University of Glasgow ranks **#79 in the world** (12th in the UK) — used as institutional
+citation. Skipped "Book & Paper Conservation (MPhil)" — its fee note explicitly states the listed
+figure is an annual rate charged in each of its 2 years (not a one-off total), the same
+annual-vs-total ambiguity flagged for Edinburgh in rounds 131/133 — stuck to unambiguous 1-year
+programmes this round. Also skipped "Applied Linguistics", "Library & Information Studies" and
+"Global History" MSc rows as near-duplicates of existing Glasgow rows.
+
+Added 8 rows (ids 1665–1672, ranks 1635–1642) from the Arts & Humanities college section, GBP→EUR
+via ÷0.85, all 12 months:
+- MSc Ancient Cultures — £26,460 → €31,129 (Humanities)
+- MSc Archaeology — £26,460 → €31,129 (Humanities)
+- MSc Digital Humanities — £26,460 → €31,129 (Humanities)
+- MSc Creative Industries & Cultural Policy — £27,720 → €32,612 (Media & Communication)
+- MSc Media Management — £31,050 → €36,529 (Media & Communication)
+- MMus Musicology — £26,460 → €31,129 (Performing Arts)
+- MSc Global Cultural Enterprise — £27,720 → €32,612 (Management)
+- MLitt English Literature — £27,720 → €32,612 (Humanities)
+
+All 8 translated (nl/fr/de/es). Verified count: 1639. Only the Arts & Humanities college section of
+this table was mined — Science & Engineering, Social Sciences and Medical/Vet/Life Sciences college
+sections remain entirely untouched, an excellent target for a future round.
