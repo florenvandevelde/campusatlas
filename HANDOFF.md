@@ -18,8 +18,17 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1578 programmes, max id 1608, max rank
-1579** (verified live in Supabase; ids/ranks have small gaps from a dedup cleanup, that's fine). LSE
+wider net than the earlier top-50-only audits). **Current state: 1586 programmes, max id 1616, max rank
+1587** (verified live in Supabase; ids/ranks have small gaps from a dedup cleanup, that's fine).
+**Twenty-second confirmed goldmine — Sciences Po, the first non-UK/Irish goldmine mined in this
+continuation.** Its official fee note confirms a genuine flat rate for non-EEA master's students:
+**€20,640/year for every master's programme**, native EUR, no conversion. QS 2026 (confirmed via
+Sciences Po's own newsroom): **#3 in the world for Politics** (ahead of LSE, Princeton, Stanford;
+#1 in the EU for 11 years running), Law #59 world, Sociology #33 world (not yet used). 8 rows mined
+(round 127); more Sciences Po titles remain available (Sociology, Urban School, School of Research
+programmes) if returning. Dead ends this round: Queen Mary's fee-regulations PDF link is now a
+confirmed 404 (was working earlier this session); Manchester, Birkbeck, Warwick all re-checked, no
+comprehensive table found. LSE
 goldmine substantially mined across rounds 124-126 (33 net rows) — **next round should open a 22nd
 goldmine university.**
 **Dedup lesson learned the hard way this round: LSE already had 11 pre-existing rows (ids 150, 314,

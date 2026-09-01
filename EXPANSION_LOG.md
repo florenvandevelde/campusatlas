@@ -3514,3 +3514,41 @@ inserting. Added ids 1601–1608, ranks 1572–1579, all GBP→EUR at 0.85:
 
 All 8 translated (nl/fr/de/es). Verified count: 1578. LSE goldmine now substantially mined across
 rounds 124-126 (33 rows added net of the 5 deduped out). Next round: find a 22nd goldmine university.
+
+## Round 127: Sciences Po — 22nd goldmine, first non-UK addition in this stretch (1578 → 1586)
+
+Extensive dead-end search this round before finding Sciences Po: Queen Mary's "University Fee
+Regulations 2026-27.pdf" link is now a genuine 404 (confirmed via both WebFetch and direct curl
+download — link has gone dead since it was first found); University of Manchester, Birkbeck, and
+Warwick all checked again with no comprehensive per-programme table found (all redirect to
+individual course-page lookups).
+
+Sciences Po's official tuition-fees note (`sciencespo.fr/students/sites/sciencespo.fr.students/
+files/droits-scolarite-explication-formule-en.pdf`, read via the Read tool's native PDF support)
+confirms a genuine, simple, official flat rate for non-EEA master's students: **€20,640/year for
+every master's programme** (no per-programme variance — the French system prices by household
+income band for EEA students, flat-rate for everyone else). Native EUR, no conversion needed.
+Programme titles were verified as real via WebSearch against Sciences Po's own graduate-school
+pages before insertion (a flat national rate isn't a programme title by itself). No existing
+Sciences Po programme rows; confirmed in scholarships table (scholar=true).
+
+QS 2026 subject rankings confirmed via Sciences Po's own newsroom: **#3 in the world for Politics**
+(ahead of LSE, Princeton and Stanford; #1 in the EU for the eleventh consecutive year), **Law #59
+world**, Sociology #33 world (not used this round). Overall QS World Ranking: #367 (used for rows
+without a strong subject-specific citation).
+
+Added 8 rows (ids 1609–1616, ranks 1580–1587), all €20,640, 24 months (Sciences Po's standard
+two-year master's structure):
+- Master in Political Science (Public Policy) — QS Politics #3
+- Master in Public Policy (Public Policy) — QS Politics #3
+- Master in European Affairs (Public Policy) — QS Politics #3
+- Master in Journalism and International Affairs (Media & Communication)
+- Master in International Public Management (Public Policy) — QS Politics #3
+- Master in International Development (Development Studies)
+- Master in Human Rights and Humanitarian Action (Law) — QS Law #59
+- Master in Environmental Policy (Development Studies)
+
+All 8 translated (nl/fr/de/es). Verified count: 1586. This is the first non-UK/Irish goldmine
+mined in this session's continuation — worth returning to for more Sciences Po titles (Sociology,
+Urban School, School of Research programmes) or exploring other continental European universities
+with similarly clean flat-rate fee structures.
