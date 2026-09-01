@@ -3978,3 +3978,21 @@ Added 8 rows (ids 1729–1736, ranks 1699–1706), GBP→EUR via ÷0.85, QS Worl
 
 All 8 translated (nl/fr/de/es). Verified count: 1703. 16 of 175 available taught Full-time
 Southampton rows used — still a large, productive return-trip target.
+
+## Round 144: University of Southampton, batch 3 (1703 → 1711)
+
+Continued mining the same Southampton 525-row table, reading rows 0-60 of the Full-time taught
+slice (the beginning of the alphabet, not covered by rounds 142-143).
+
+Added 8 rows (ids 1737–1744, ranks 1707–1714), GBP→EUR via ÷0.85, QS World 2026: #87, all 12 months:
+- MSc Actuarial Science — £30,100 → €35,412 (Mathematics)
+- MSc Business Analytics and Finance — £35,800 → €42,118 (Analytics)
+- MSc Cancer Biology and Immunology — £35,300 → €41,529 (Life Sciences)
+- MSc Electrochemistry & Battery Technologies — £36,600 → €43,059 (Chemistry)
+- MA Communication Design — £32,000 → €37,647 (Art & Design)
+- MSc Creative Technologies — £35,800 → €42,118 (Art & Design)
+- MSc Digital Strategy and Information Systems — £35,800 → €42,118 (Management)
+- MSc Applied Coastal and Offshore Geoscience — £35,200 → €41,412 (Earth Sciences)
+
+All 8 translated (nl/fr/de/es). Verified count: 1711. 24 of 175 available taught Full-time
+Southampton rows used.
