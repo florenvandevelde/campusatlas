@@ -4125,3 +4125,20 @@ Added 8 rows (ids 1785–1792, ranks 1755–1762), GBP→EUR via ÷0.85, all 12 
 
 All 8 translated (nl/fr/de/es). Verified count: 1759. Only 8 of hundreds of available York rows
 used — this page is an outstanding return-trip target, likely good for 30+ more rows.
+
+## Round 151: University of York, batch 2 (1759 → 1767)
+
+Continued mining the same York course/fee page text already fetched in round 150 — no fresh browser
+call needed.
+
+Added 8 rows (ids 1793–1800, ranks 1763–1770), GBP→EUR via ÷0.85, QS World 2026: #169, all 12 months:
+- MSc Bioinformatics — £32,900 → €38,706 (Life Sciences)
+- MSc Green Chemistry and Sustainable Industrial Technology — £32,900 → €38,706 (Chemistry)
+- MSc Mathematical Sciences — £29,900 → €35,176 (Mathematics)
+- MSc Physician Associate Studies — £32,900 → €38,706 (Public Health)
+- MSc Global Marketing — £31,900 → €37,529 (Marketing)
+- MSc Fusion Energy Science and Technologies — £32,900 → €38,706 (Energy)
+- LLM Art Law — £28,600 → €33,647 (Law)
+- MSc Entrepreneurship and Innovation Management — £31,900 → €37,529 (Entrepreneurship)
+
+All 8 translated (nl/fr/de/es). Verified count: 1767. 16 of hundreds of available York rows used.

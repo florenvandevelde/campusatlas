@@ -18,8 +18,11 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1759 programmes, max id 1792, max rank
-1762** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1767 programmes, max id 1800, max rank
+1770** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Round 151 mined a 2nd York batch (Life Sciences, Chemistry, Mathematics, Public Health, Marketing,
+Energy, Law, Entrepreneurship) — 16 of hundreds of rows used, drawn from the same page text already
+fetched in round 150 (no fresh browser call needed).
 **Thirtieth confirmed goldmine: University of York's "International and EU tuition fee rates
 2026/27" page** (`york.ac.uk/study/postgraduate-taught/fees/international/`) — no `<table>` markup
 at all, but `get_page_text` with a large `max_chars` pulls the ENTIRE course list (hundreds of
