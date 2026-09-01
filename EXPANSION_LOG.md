@@ -3642,3 +3642,38 @@ Added 3 rows (ids 1630–1632, ranks 1600–1602), all €18,550, 24 months:
 
 All 3 translated (nl/fr/de/es). Verified count: 1599. Bocconi likely has further mineable titles
 (many more MSc tracks exist) — good return-trip target for a future round.
+
+## Round 131: University of Edinburgh — 25th goldmine (1599 → 1607)
+
+Discovered a very strong goldmine: the University of Edinburgh Registry Services fee-lookup page
+(`registryservices.ed.ac.uk/tuition-fees/find/postgraduate-taught/2026-2027/taught-masters`) is a
+searchable table of **691 individual postgraduate-taught programme rows**, each with exact annual
+fees split by fee status (Scotland / Rest of UK / International-EU / Online Distance Learning). The
+table is JS-rendered — plain WebFetch only returns the page shell — but the Browser pane's
+`get_page_text` renders and reads it fully. Confirmed the page explicitly states the listed fee is
+**per year, even for multi-year programmes** ("the tuition fee shown in the table is for one year
+only... you will be charged a fixed annual fee") — to avoid annual-vs-total ambiguity, this round
+stuck to 1-year full-time programmes only. A future round should resolve that convention (does our
+`tuition`/`months` pairing want annual or total for multi-year rows?) before mining Edinburgh's many
+2-year MSc rows.
+
+Edinburgh already had 71 pre-existing rows (confirmed via standalone dedup SELECT on `program`),
+concentrated in LLM/humanities/social-science titles. To maximise catalogue diversity rather than
+add near-duplicates, this round deliberately picked rows from thin fields: Finance, Engineering,
+Earth Sciences, Chemistry, AI, Computer Science, Architecture/Sustainability, Performing Arts.
+
+QS 2026: no subject-specific figures looked up this round (time); used institutional **QS World
+2026: #34** as citation for all 8 rows — a return trip could tighten this with per-subject QS ranks.
+
+Added 8 rows (ids 1633–1640, ranks 1603–1610), GBP→EUR via ÷0.85, all 12 months (1-year full-time):
+- MSc Accounting and Financial Management — £36,310 → €42,718 (Finance)
+- MSc Advanced Chemical Engineering — £39,200 → €46,118 (Engineering)
+- MSc Applied Environmental Hydrogeology — £37,800 → €44,471 (Earth Sciences)
+- MSc Analytical Chemistry — £39,200 → €46,118 (Chemistry)
+- MSc AI for Business — £32,000 → €37,647 (AI/Management)
+- MSc Advanced Technology for Financial Computing — £45,410 → €53,424 (Computer Science/Finance)
+- MSc Advanced Sustainable Design — £32,000 → €37,647 (Architecture/Sustainability)
+- MSc Acoustics and Music Technology — £33,200 → €39,059 (Performing Arts)
+
+All 8 translated (nl/fr/de/es). Verified count: 1607. Only 8 of 691 available rows mined — excellent
+return-trip target (20-40+ more rows plausible across engineering, sciences, business).

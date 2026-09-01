@@ -18,8 +18,25 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1599 programmes, max id 1632, max rank
-1602** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1607 programmes, max id 1640, max rank
+1610** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+**Twenty-fifth confirmed goldmine — a very strong one: University of Edinburgh's official Registry
+Services fee-lookup table** (`registryservices.ed.ac.uk/tuition-fees/find/postgraduate-taught/
+2026-2027/taught-masters`) — a searchable JS-rendered table of **691 individual programme rows**
+with exact GBP fees (Scotland/RUK/International-EU/ODL columns), readable via the Browser pane's
+`get_page_text` (WebFetch alone only sees the page shell, not the JS-rendered table — same class of
+issue as the Copenhagen dead end, but this one IS scrapeable via the browser tools). Fee is
+**annual** even for multi-year programmes (page states this explicitly) — stuck to 1-year full-time
+programmes only this round to avoid the annual-vs-total ambiguity for multi-year ones; a future
+round should investigate that convention before adding 2-year Edinburgh rows. GBP→EUR via the usual
+÷0.85. Edinburgh already had 71 pre-existing rows (heavy on LLM/MSc humanities/social science
+titles) — checked via standalone dedup SELECT — so round 131 deliberately diversified into thin
+fields instead: Finance, Engineering, Earth Sciences, Chemistry, AI, Computer Science, Architecture/
+Sustainability, Performing Arts. QS citation used: institutional **QS World 2026: #34** (no
+subject-specific figures chased this round, for time; a return trip could look those up per
+programme for tighter citations). 8 rows added (round 131). Only 8 of 691 rows mined — Edinburgh's
+table is an outstanding return-trip target, probably good for another 20-40 rows across engineering,
+sciences and business before running out of clearly non-duplicate, well-fitting titles.
 Twenty-fourth confirmed goldmine: Bocconi University (Milan) — flat rate for all standard MSc/MA
 programmes, **€18,550/year native EUR, no conversion**. No standard overall QS World rank (Bocconi is
 a specialised institution not covered that way) but QS Social Sciences & Management 2026: #12 world
