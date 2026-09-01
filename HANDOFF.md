@@ -18,8 +18,14 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1623 programmes, max id 1656, max rank
-1626** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1631 programmes, max id 1664, max rank
+1634** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Round 134 finished reading the Edinburgh table end-to-end (S through Z) and mined a 4th and final
+batch of 8 rows for this pass — 32 of 691 Edinburgh rows now used across 4 rounds. Edinburgh is not
+exhausted (Business School, Engineering and Informatics still have unmined titles, and the whole
+table is worth a fresh read on a future visit for anything missed), but this pass is a natural
+stopping point — **next round should open a 26th goldmine university** rather than mine Edinburgh
+further immediately.
 Round 133 mined 8 more rows from the Edinburgh goldmine (Earth Sciences/Energy, Computer Science,
 Management, Engineering, Sustainability, Marketing, Chemistry, Physics/Mathematics) — used
 `javascript_tool` to pull raw `<table>` row text in large slices (`document.querySelectorAll('table

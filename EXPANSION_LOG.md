@@ -3733,3 +3733,29 @@ Added 8 rows (ids 1649–1656, ranks 1619–1626), GBP→EUR via ÷0.85, QS Worl
 All 8 translated (nl/fr/de/es). Verified count: 1623. 24 of 691 Edinburgh rows used so far — table
 still has plenty left (S-Z alphabetically largely unmined: Social Policy, Sociology, Sport,
 Statistics, Sustainable Development, Theatre, Translation, Urban Studies, Veterinary sections).
+
+## Round 134: University of Edinburgh, batch 4 — table read completed (1623 → 1631)
+
+Read the remaining S-Z portion of the Edinburgh 691-row table (again via `javascript_tool` raw
+`<table>` extraction). This completes a full A-Z pass of the table across rounds 131-134.
+
+Added 8 rows (ids 1657–1664, ranks 1627–1634), GBP→EUR via ÷0.85, QS World 2026: #34, all 12 months:
+- MSc Signal Processing and Communications — £39,200 → €46,118 (Engineering)
+- MSc Social Psychology — £33,200 → €39,059 (Psychology)
+- MSc Statistics with Data Science — £33,200 → €39,059 (Statistics & Operational Research)
+- MSc Sustainable Energy Systems — £39,200 → €46,118 (Energy)
+- MSc Synthetic Biology and Biotechnology — £45,410 → €53,424 (Life Sciences)
+- MSc Theoretical Physics — £32,000 → €37,647 (Physics)
+- MSc Sound Design — £33,200 → €39,059 (Performing Arts)
+- MSc Speech and Language Processing — £45,410 → €53,424 (Computer Science)
+
+Skipped as too-similar-to-just-added or ambiguous-duration: "Statistics and Operational Research
+(MSc)" (already existing, id 1226), "Structural and Fire Safety Engineering (MSc)" (too close to
+round-133's Fire Engineering Science), "Social Work (MSW)" (no Full-time/Part-time pair shown,
+duration ambiguous per the round-131/133 caution).
+
+All 8 translated (nl/fr/de/es). Verified count: 1631. **32 of 691 Edinburgh rows used across 4
+rounds (131-134) — a full A-Z pass is now complete.** Edinburgh is not fully exhausted (a return
+visit could still find a few more, especially in Business School and Engineering) but this is a
+natural stopping point; next round should open a new (26th) goldmine university rather than
+continue mining Edinburgh immediately.
