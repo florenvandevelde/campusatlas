@@ -4239,3 +4239,20 @@ Added 8 rows (ids 1833–1840, ranks 1803–1810), GBP→EUR via ÷0.85, QS Worl
 
 All 8 translated (nl/fr/de/es). Verified count: 1807. 24 of 103 available Loughborough rows used.
 193 rows short of the 2000 target.
+
+## Round 157: Loughborough University, batch 4 (1807 → 1815)
+
+Continued mining the same Loughborough fee table for a 4th and final batch of this pass.
+
+Added 8 rows (ids 1841–1848, ranks 1811–1818), GBP→EUR via ÷0.85, QS World 2026: #225, all 12 months:
+- MSc Accounting and Finance — £26,300 → €30,941 (Finance)
+- MSc Advanced Manufacturing Engineering and Management — £30,900 → €36,353 (Engineering)
+- MSc Business Analytics — £26,300 → €30,941 (Analytics)
+- MSc Climate Change Politics and Policy — £26,300 → €30,941 (Public Policy)
+- MSc Construction Project Management — £26,300 → €30,941 (Architecture)
+- MSc Industrial Mathematical Modelling — £30,900 → €36,353 (Mathematics)
+- MSc International Financial and Political Relations — £26,300 → €30,941 (Economics)
+- MSc Water Engineering for Development — £26,300 → €30,941 (Development Studies)
+
+All 8 translated (nl/fr/de/es). Verified count: 1815. 32 of 103 available Loughborough rows used
+across rounds 154-157 — a strong pass. 185 rows short of the 2000 target.
