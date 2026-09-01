@@ -18,8 +18,14 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1775 programmes, max id 1808, max rank
-1778** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1783 programmes, max id 1816, max rank
+1786** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Round 153 mined a 4th York batch (Finance, Engineering, Computer Science, Sustainability,
+Humanities, Life Sciences, Chemistry, Management) — 32 of hundreds of rows used across 4 rounds
+(150-153), all from the single page-text dump. **217 short of 2000.** York's page still has more
+untouched rows (Film/TV Production variants, more Archaeology/History MA specialisations, more
+online/distance courses to re-check for clean 1-year figures) but 4 rounds is this session's typical
+per-school stopping point — next round should open a 31st goldmine.
 Round 152 mined a 3rd York batch (Performing Arts, Analytics, Psychology, Development Studies, Art
 & Design, Statistics & Operational Research, Public Policy, Engineering) — 24 of hundreds of rows
 used, all still from the single page-text dump fetched in round 150. **225 programmes short of the

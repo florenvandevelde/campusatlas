@@ -4159,3 +4159,20 @@ Added 8 rows (ids 1801–1808, ranks 1771–1778), GBP→EUR via ÷0.85, QS Worl
 
 All 8 translated (nl/fr/de/es). Verified count: 1775. 24 of hundreds of available York rows used —
 still substantial capacity left on this single page.
+
+## Round 153: University of York, batch 4 (1775 → 1783)
+
+Continued mining the same York page text for a 4th and final batch of this pass.
+
+Added 8 rows (ids 1809–1816, ranks 1779–1786), GBP→EUR via ÷0.85, QS World 2026: #169, all 12 months:
+- MSc Accounting and Finance — £34,500 → €40,588 (Finance)
+- MSc Biomedical Engineering — £32,900 → €38,706 (Engineering)
+- MSc Data Science — £32,900 → €38,706 (Computer Science)
+- MSc Environmental Economics and Environmental Management — £31,900 → €37,529 (Sustainability)
+- MSc Forensic Speech Science — £27,250 → €32,059 (Humanities)
+- MSc Neuroscience of Mental Health — £32,900 → €38,706 (Life Sciences)
+- MSc Pharmacology and Drug Development — £32,900 → €38,706 (Chemistry)
+- MSc International Business — £31,900 → €37,529 (Management)
+
+All 8 translated (nl/fr/de/es). Verified count: 1783. 32 of hundreds of available York rows used
+across rounds 150-153 — a strong pass; 217 rows short of the 2000 target overall.
