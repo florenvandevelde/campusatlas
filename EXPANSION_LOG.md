@@ -4286,3 +4286,22 @@ Added 8 rows (ids 1849–1856, ranks 1819–1826), GBP→EUR via ÷0.85, all 12 
 All 8 translated (nl/fr/de/es). Verified count: 1823. Only the Science faculty page mined so far —
 Engineering & Design, Humanities & Social Sciences, and School of Management fee pages are
 completely unvisited, a strong next-round target. 177 rows short of the 2000 target.
+
+## Round 159: University of Bath, batch 2 — Engineering & Design + Management (1823 → 1831)
+
+Visited two more of Bath's per-faculty fee pages. The Engineering & Design page is small (31 table
+rows total, mostly duplicates/placement variants) — only 5 clean non-duplicate, non-placement titles
+usable. The School of Management page (21 rows) had several. Combined both into one 8-row batch.
+
+Added 8 rows (ids 1857–1864, ranks 1827–1834), GBP→EUR via ÷0.85, QS World 2026: #132, all 12 months:
+- MSc Artificial Intelligence for Engineering and Design — £34,550 → €40,647 (Engineering)
+- MSc Advanced Mechanical Engineering — £34,550 → €40,647 (Mechanical Engineering)
+- MSc Automotive Engineering with Electric Propulsion — £34,550 → €40,647 (Engineering)
+- MSc Engineering Business Management — £31,700 → €37,294 (Management)
+- MSc Decarbonisation — £30,900 → €36,353 (Sustainability)
+- MBA — £38,950 → €45,824 (Management)
+- MSc Finance with Risk Management — £34,950 → €41,118 (Finance)
+- MSc Sustainability and Management — £31,700 → €37,294 (Sustainability)
+
+All 8 translated (nl/fr/de/es). Verified count: 1831. Bath's Humanities & Social Sciences faculty
+page is the only one of the 4 still unvisited. 169 rows short of the 2000 target.

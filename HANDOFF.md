@@ -18,8 +18,12 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1823 programmes, max id 1856, max rank
-1826** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1831 programmes, max id 1864, max rank
+1834** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Round 159 visited Bath's Engineering & Design page (small — only 31 rows, 5 usable non-duplicate
+non-placement titles) and School of Management page (21 rows, several usable) to complete an
+8-row batch (Engineering x2, Mechanical Engineering, Management x2, Sustainability x2, Finance).
+Humanities & Social Sciences faculty page still unvisited. **169 short of 2000.**
 **Thirty-second confirmed goldmine: University of Bath's per-faculty tuition fee pages** — Bath
 splits its fee table across 4 URLs by faculty (`bath.ac.uk/corporate-information/faculty-of-
 science-taught-postgraduate-tuition-fees-2026-27/` plus equivalents for Engineering & Design,
