@@ -18,8 +18,15 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1607 programmes, max id 1640, max rank
-1610** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1615 programmes, max id 1648, max rank
+1618** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Round 132 mined 8 more rows from the same Edinburgh goldmine (Physics, MBA, Sustainability,
+Psychology, Law, Computer Science, Engineering/Energy, Entrepreneurship) — still only 16 of 691
+Edinburgh table rows used; plenty left for a future round. Watch for near-duplicates against the
+now-79 pre-existing Edinburgh rows (e.g. skipped "Artificial Intelligence (MSc)", "Banking
+Innovation and Risk Analytics (MSc)", "Digital Design and Manufacture (MSc)", "Computational
+Applied Mathematics (MSc)", "Financial Modelling and Optimization (MSc)", "Economics (MSc)" this
+round — all already present under slightly different exact titles).
 **Twenty-fifth confirmed goldmine — a very strong one: University of Edinburgh's official Registry
 Services fee-lookup table** (`registryservices.ed.ac.uk/tuition-fees/find/postgraduate-taught/
 2026-2027/taught-masters`) — a searchable JS-rendered table of **691 individual programme rows**

@@ -3677,3 +3677,30 @@ Added 8 rows (ids 1633–1640, ranks 1603–1610), GBP→EUR via ÷0.85, all 12 
 
 All 8 translated (nl/fr/de/es). Verified count: 1607. Only 8 of 691 available rows mined — excellent
 return-trip target (20-40+ more rows plausible across engineering, sciences, business).
+
+## Round 132: University of Edinburgh, batch 2 (1607 → 1615)
+
+Continued mining the Edinburgh Registry Services goldmine (see round 131). Read further into the
+691-row table via `get_page_text` with a larger `max_chars`, covering entries A through F
+alphabetically. Cross-checked every candidate against both the 71 original pre-existing rows and the
+8 rows added in round 131 — skipped several near-duplicates found only on closer reading:
+"Artificial Intelligence (MSc)" (already "MSc Artificial Intelligence", id 238), "Banking Innovation
+and Risk Analytics (MSc)" (already id 1375), "Digital Design and Manufacture (MSc)" (already id
+1240), "Computational Applied Mathematics (MSc)" (existing "MSc Computational Applied Mathematics",
+id 1139, distinct from the newly-added "Computational Mathematical Finance" title — kept that one),
+"Financial Modelling and Optimization (MSc)" (already id 1281), "Economics (MSc)" (already id 1299).
+
+Added 8 rows (ids 1641–1648, ranks 1611–1618), GBP→EUR via ÷0.85, QS World 2026: #34 institutional
+citation, all 12 months except the MBA (also 12 months, full-time):
+- MSc Astrobiology and Planetary Sciences — £32,000 → €37,647 (Physics)
+- MBA Business Administration — £45,410 → €53,424 (Management)
+- MSc Carbon Management — £37,800 → €44,471 (Sustainability)
+- MSc Cognitive Science — £45,410 → €53,424 (Psychology)
+- LLM Commercial Law — £32,000 → €37,647 (Law)
+- MSc Computer Science — £45,410 → €53,424 (Computer Science)
+- MSc Electrical Power Engineering — £39,200 → €46,118 (Engineering/Energy)
+- MSc Entrepreneurship and Innovation — £27,100 → €31,882 (Entrepreneurship)
+
+All 8 translated (nl/fr/de/es). Verified count: 1615. Still only 16 of 691 Edinburgh table rows
+used — excellent remaining return-trip target (Business School, Engineering and Informatics sections
+alone likely hold another 20-30 non-duplicate, well-fitting titles).
