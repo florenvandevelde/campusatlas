@@ -3409,3 +3409,47 @@ Added 9 rows (ids 1567–1575, ranks 1538–1546), all GBP→EUR at 0.85:
 - MRes Social Science Research Methods — £23,850 → €28,059 (Social Sciences)
 
 All 9 translated (nl/fr/de/es). Verified count: 1550.
+
+## Round 124: London School of Economics — 21st goldmine (1550 → 1565)
+
+The single strongest goldmine found this session by subject fit: LSE's own "Table of Fees 2026-27"
+PDF (`info.lse.ac.uk/staff/divisions/Planning-Division/Assets/Documents/Table-of-Fees-2026-27-and-
+PGR-structure-combined-28Nov2025.pdf`) is a genuinely exhaustive, alphabetical-by-programme listing
+of every MSc/MA/LLM's Home and Overseas fee (full-time and part-time) — same WebFetch-can't-parse-
+PDF-binary + Read-tool-native-PDF-support pattern as Aberdeen/Goldsmiths/UEA. LSE had zero existing
+programme rows (only present in the scholarships table → scholar=true). Given LSE is arguably the
+world's premier social-science institution, this landed directly on the catalogue's thinnest fields.
+
+QS 2026 subject rankings confirmed via LSE's own official rankings article (not aggregator-sourced):
+**Development Studies #4 world, Social Policy and Administration #4 world, Politics and
+International Studies #5 world, Sociology #6 world, Law #9 world, Anthropology #8 world** —
+exceptional, precise citations, all used this round. Overall QS World Ranking: #56 (used for rows
+without a specific subject citation).
+
+Added 15 rows (ids 1576–1590, ranks 1547–1561), all GBP→EUR at 0.85:
+- MA in Modern History — £30,400 → €35,765 (History)
+- MSc in Social and Cultural Psychology — £30,400 → €35,765 (Psychology)
+- MSc in Organisational and Social Psychology — £32,500 → €38,235 (Psychology)
+- MSc in Sociology — £30,400 → €35,765 (Social Sciences) — QS Sociology #6
+- MSc in Social Anthropology (All streams) — £30,400 → €35,765 (Social Sciences) — QS Anthropology #8
+- MSc in Political Science (All streams) — £30,400 → €35,765 (Public Policy) — QS Politics #5
+- MSc in International Relations — £32,500 → €38,235 (Public Policy) — QS Politics #5
+- MSc in Development Studies — £30,400 → €35,765 (Development Studies) — QS Dev Studies #4
+- Master of Laws (LLM) — £39,900 → €46,941 (Law) — QS Law #9
+- MSc in Media and Communications (All streams) — £30,400 → €35,765 (Media & Communication)
+- MSc in Global Health Policy — £34,500 → €40,588 (Public Health)
+- MSc in Philosophy and Public Policy — £30,400 → €35,765 (Humanities)
+- MSc in Public Policy and Administration — £34,700 → €40,824 (Public Policy) — QS Social Policy & Administration #4
+- MSc in Social Research Methods — £30,400 → €35,765 (Social Sciences)
+- MSc in Gender, Media and Culture — £30,400 → €35,765 (Media & Communication)
+
+All 15 translated (nl/fr/de/es). Verified count: 1565.
+
+This LSE fee table is enormous and far from exhausted — dozens more genuinely strong titles remain
+banked: MSc in Human Rights, MSc in Human Rights and Politics, MSc in Gender (multiple streams:
+Rights and Human Rights, Sexuality, Peace and Security, Policy and Inequalities), MSc in Criminology
+and Criminal Justice Policy, MSc in Political Sociology, MSc in Political Theory, MSc in
+Inequalities and Social Science, MSc in International Political Economy, MSc in China in
+Comparative Perspective, MSc in Economic History, MSc in Regulation, MSc in Urbanisation and
+Development, MSc in Local Economic Development — an excellent return-trip target for a future
+round.

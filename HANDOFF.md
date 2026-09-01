@@ -18,8 +18,17 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1550 programmes, max id 1575, max rank
-1546** (verified live in Supabase). Twentieth confirmed goldmine: University of East Anglia's
+wider net than the earlier top-50-only audits). **Current state: 1565 programmes, max id 1590, max rank
+1561** (verified live in Supabase). **Twenty-first confirmed goldmine — the strongest by subject
+fit found this session: London School of Economics.** LSE's own "Table of Fees 2026-27" PDF
+(`info.lse.ac.uk/staff/divisions/Planning-Division/Assets/Documents/Table-of-Fees-2026-27-and-PGR-
+structure-combined-28Nov2025.pdf`) is an exhaustive alphabetical per-programme fee list. QS 2026
+(officially confirmed via LSE's own rankings article): Development Studies #4 world, Social Policy
+and Administration #4, Politics and International Studies #5, Sociology #6, Law #9, Anthropology
+#8; overall QS World #56. Only 15 of many strong rows mined so far (round 124) — dozens more remain
+banked (multiple Gender-stream MScs, Criminology and Criminal Justice Policy, Political Sociology,
+Political Theory, International Political Economy, Economic History, Regulation, Urbanisation and
+Development — see EXPANSION_LOG.md round 124), an excellent return-trip target. Twentieth confirmed goldmine: University of East Anglia's
 overseas fees PDF (`assets.uea.ac.uk/f/185167/x/6e045e4fae/fees_table_2026-27_-_international_v6.pdf`)
 — same Read-tool-native-PDF-support technique as Aberdeen/Goldsmiths. QS 2026: overall #381,
 Development Studies #23 world. 9 rows mined (round 123), every title WebSearch-verified as real
