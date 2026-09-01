@@ -4142,3 +4142,20 @@ Added 8 rows (ids 1793–1800, ranks 1763–1770), GBP→EUR via ÷0.85, QS Worl
 - MSc Entrepreneurship and Innovation Management — £31,900 → €37,529 (Entrepreneurship)
 
 All 8 translated (nl/fr/de/es). Verified count: 1767. 16 of hundreds of available York rows used.
+
+## Round 152: University of York, batch 3 (1767 → 1775)
+
+Continued mining the same York page text (fetched once in round 150, reused across rounds 151-152).
+
+Added 8 rows (ids 1801–1808, ranks 1771–1778), GBP→EUR via ÷0.85, QS World 2026: #169, all 12 months:
+- MSc Audio and Music Technology — £32,900 → €38,706 (Performing Arts)
+- MSc Business Analytics — £32,900 → €38,706 (Analytics)
+- MSc Cognitive Neuroscience — £32,900 → €38,706 (Psychology)
+- MSc Development Economics and Emerging Markets — £27,250 → €32,059 (Development Studies)
+- MSc Digital Design — £28,600 → €33,647 (Art & Design)
+- MSc Statistics and Computational Finance — £32,900 → €38,706 (Statistics & Operational Research)
+- MSc Economics and Public Policy — £27,250 → €32,059 (Public Policy)
+- MSc Safety Critical Systems Engineering — £32,900 → €38,706 (Engineering)
+
+All 8 translated (nl/fr/de/es). Verified count: 1775. 24 of hundreds of available York rows used —
+still substantial capacity left on this single page.
