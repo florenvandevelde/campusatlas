@@ -18,8 +18,10 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1799 programmes, max id 1832, max rank
-1802** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1807 programmes, max id 1840, max rank
+1810** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Round 156 mined a 3rd Loughborough batch (Physics, Chemistry, Marketing, Management, Engineering,
+Humanities, Development Studies, Art & Design) — 24 of 103 rows used. **193 short of 2000.**
 Round 155 mined a 2nd Loughborough batch (Engineering, Computer Science, Finance, Social Sciences,
 Art & Design, Entrepreneurship, Public Policy, Energy) — 16 of 103 rows used. **Only 201 short of
 the 2000 target.**

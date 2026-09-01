@@ -4222,3 +4222,20 @@ Added 8 rows (ids 1825–1832, ranks 1795–1802), GBP→EUR via ÷0.85, QS Worl
 - MSc Net Zero Building Services Engineering — £26,300 → €30,941 (Energy)
 
 All 8 translated (nl/fr/de/es). Verified count: 1799. Only 201 rows short of the 2000 target.
+
+## Round 156: Loughborough University, batch 3 (1799 → 1807)
+
+Continued mining the same Loughborough fee table for a 3rd batch.
+
+Added 8 rows (ids 1833–1840, ranks 1803–1810), GBP→EUR via ÷0.85, QS World 2026: #225, all 12 months:
+- MSc Advanced Physics — £30,900 → €36,353 (Physics)
+- MSc Analytical Chemistry — £30,900 → €36,353 (Chemistry)
+- MSc Marketing — £26,300 → €30,941 (Marketing)
+- MSc Supply Chain Management — £30,400 → €35,765 (Management)
+- MSc Civil Engineering — £26,300 → €30,941 (Engineering)
+- MA Contemporary Literature and Culture — £25,000 → €29,412 (Humanities)
+- MSc International Sustainable Development — £26,300 → €30,941 (Development Studies)
+- MSc User Experience Design — £31,900 → €37,529 (Art & Design)
+
+All 8 translated (nl/fr/de/es). Verified count: 1807. 24 of 103 available Loughborough rows used.
+193 rows short of the 2000 target.
