@@ -3793,3 +3793,25 @@ via ÷0.85, all 12 months:
 All 8 translated (nl/fr/de/es). Verified count: 1639. Only the Arts & Humanities college section of
 this table was mined — Science & Engineering, Social Sciences and Medical/Vet/Life Sciences college
 sections remain entirely untouched, an excellent target for a future round.
+
+## Round 136: University of Glasgow, batch 2 (1639 → 1647)
+
+Continued mining the Glasgow fee table, this time the College of Science & Engineering section.
+Read via `javascript_tool` (`document.querySelector('main').innerText`, sliced from the "College of
+Science" heading) rather than `get_page_text` — fast and precise for a known section.
+
+Added 8 rows (ids 1673–1680, ranks 1643–1650), GBP→EUR via ÷0.85, QS World 2026: #79, all 12 months:
+- MSc Aerospace Engineering — £34,470 → €40,553 (Engineering)
+- MSc Astrophysics — £31,050 → €36,529 (Physics)
+- MSc Cybersecurity — £34,470 → €40,553 (Computer Science)
+- MSc Human Computer Interaction — £34,470 → €40,553 (Computer Science)
+- MSc Quantum Technology — £31,050 → €36,529 (Physics)
+- MSc Robotics & AI — £34,470 → €40,553 (AI)
+- MSc Sustainable Energy — £34,470 → €40,553 (Energy)
+- MSc Nanoscience & Nanotechnology — £34,470 → €40,553 (Chemistry)
+
+Skipped "Advanced Statistics" (already existing Glasgow row, id 1380) as a duplicate.
+
+All 8 translated (nl/fr/de/es). Verified count: 1647. College of Social Sciences and College of
+Medical, Veterinary & Life Sciences sections of the Glasgow table remain completely unmined —
+strong target for a future round.

@@ -18,8 +18,13 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1639 programmes, max id 1672, max rank
-1642** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1647 programmes, max id 1680, max rank
+1650** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Round 136 mined 8 more Glasgow rows from the College of Science & Engineering section (Engineering,
+Physics, Computer Science, AI, Energy, Chemistry) — Social Sciences and Medical/Vet/Life Sciences
+college sections still entirely unmined, good next-round target. Glasgow's Science & Engineering
+fee table was read via `javascript_tool` on `document.querySelector('main').innerText` sliced from
+the "College of Science" heading — faster than `get_page_text` for a big known-location chunk.
 **Twenty-sixth confirmed goldmine: University of Glasgow's "Fee table - Live" page**
 (`gla.ac.uk/postgraduate/feesandfunding/feetable/live/`) — a huge official per-programme table
 organised by College (Arts & Humanities, Science & Engineering, Social Sciences, Medical Vet & Life
