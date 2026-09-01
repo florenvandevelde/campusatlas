@@ -18,8 +18,10 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1570 programmes, max id 1600, max rank
-1571** (verified live in Supabase; ids/ranks have small gaps from a dedup cleanup, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1578 programmes, max id 1608, max rank
+1579** (verified live in Supabase; ids/ranks have small gaps from a dedup cleanup, that's fine). LSE
+goldmine substantially mined across rounds 124-126 (33 net rows) — **next round should open a 22nd
+goldmine university.**
 **Dedup lesson learned the hard way this round: LSE already had 11 pre-existing rows (ids 150, 314,
 381, 506, 516, 542, 701, 721, 970, 1007, 1210) that a combined-SELECT dedup check silently missed —
 5 new rows turned out to be "MSc X" vs "MSc in X" duplicates and had to be deleted. Always run the

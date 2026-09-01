@@ -3498,3 +3498,19 @@ at 0.85:
 All 10 translated (nl/fr/de/es). Verified count: 1570. LSE table still has more banked rows (Gender
 stream variants: Rights and Human Rights, Sexuality, Peace and Security; MSc Inequalities and
 Social Science; MSc Local Economic Development) if returning in a future round.
+
+## Round 126: LSE goldmine, batch 3 — final sweep (1570 → 1578)
+
+Mined 8 more rows from the same LSE fee table, checked against the full current LSE list before
+inserting. Added ids 1601–1608, ranks 1572–1579, all GBP→EUR at 0.85:
+- MSc in Gender (Rights and Human Rights) — £30,400 → €35,765 (Law) — QS Law #9
+- MSc in Gender, Peace and Security — £30,400 → €35,765 (Public Policy) — QS Politics #5
+- MSc in Inequalities and Social Science — £30,400 → €35,765 (Social Sciences) — QS Sociology #6
+- MSc in Local Economic Development — £30,400 → €35,765 (Development Studies) — QS Dev Studies #4
+- MSc in Culture and Society — £30,400 → €35,765 (Humanities)
+- MSc in Empires, Colonialism and Globalisation — £30,400 → €35,765 (History)
+- MSc in Health and International Development — £30,400 → €35,765 (Public Health) — QS Dev Studies #4
+- MSc in Environment and Development — £34,700 → €40,824 (Development Studies) — QS Dev Studies #4
+
+All 8 translated (nl/fr/de/es). Verified count: 1578. LSE goldmine now substantially mined across
+rounds 124-126 (33 rows added net of the 5 deduped out). Next round: find a 22nd goldmine university.
