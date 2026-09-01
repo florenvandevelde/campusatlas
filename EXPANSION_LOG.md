@@ -3585,3 +3585,36 @@ the round 127 correction. Added ids 1617–1619, ranks 1587–1589, all €20,64
   Management and Impact
 
 All 3 translated (nl/fr/de/es). Verified count: 1586.
+
+## Round 129: Central European University — 23rd goldmine (1586 → 1596)
+
+Checked Wageningen University (currently the world #1 for Agriculture & Forestry, QS 2026) as a
+candidate first, but it already has 27 pre-existing catalogue rows and its programme range (heavily
+agriculture/environmental science) wouldn't meaningfully diversify the thin fields further —
+skipped rather than force-fit more rows there.
+
+Central European University (Vienna) came through with a banded, official fee structure
+(`ceu.edu/admissions/tuition-fees`): most master's €12,000, Legal Studies €13,000, MPA €14,500 — a
+legitimate categorical fee schedule, WebFetch-readable. No existing CEU rows (confirmed via a
+standalone SELECT); not in scholarships table (scholar=false). Every programme title verified as
+real via CEU's own official degree-programmes listing before insertion.
+
+QS 2026: CEU confirmed **#45 in the world for Politics and International Studies** (used for the
+IR/Politics/MPA rows), plus made its "historic debut" among the world's **top 250 universities**
+overall in 2026 (used as institutional citation for the rest, since no precise overall number was
+confirmed for the 2026 edition specifically — a 2027-edition #239 figure exists but wasn't used to
+avoid misattributing a different year's rank to 2026).
+
+Added 10 rows (ids 1620–1629, ranks 1590–1599), all native EUR (no conversion needed):
+- MA Historical Studies — €12,000 (History)
+- MA Museum Studies — €12,000 (History)
+- MA Critical Gender Studies — €12,000 (Social Sciences)
+- MA International Relations (2 Years) — €12,000, 24 months (Public Policy) — QS Politics #45
+- MA Human Rights — €13,000 (Law)
+- LLM Global Comparative Constitutional Studies — €13,000 (Law)
+- MA Philosophy — €12,000 (Humanities)
+- MA Politics (2 Years) — €12,000, 24 months (Public Policy) — QS Politics #45
+- Master of Public Administration — €14,500 (Public Policy) — QS Politics #45
+- MA Sociology and Social Anthropology — €12,000 (Social Sciences)
+
+All 10 translated (nl/fr/de/es). Verified count: 1596.

@@ -18,8 +18,12 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1586 programmes, max id 1619, max rank
-1589** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1596 programmes, max id 1629, max rank
+1599** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Twenty-third confirmed goldmine: Central European University (Vienna) — banded fee schedule (most
+master's €12,000, Legal Studies €13,000, MPA €14,500), QS 2026: #45 world for Politics and
+International Studies, "historic debut" in the world's top 250 overall. Wageningen checked as a
+candidate first but already has 27 pre-existing rows — skipped rather than force more in.
 **ROOT CAUSE FOUND for both the LSE (round 124) and Sciences Po (round 127) dedup misses: sending
 two SELECT statements in one execute_sql call silently returns only the LAST statement's result —
 the programmes-table dedup query was being discarded every single time, making pre-existing rows
