@@ -4361,3 +4361,24 @@ Added 8 rows (ids 1873–1880, ranks 1843–1850), GBP→EUR via ÷0.85, all 12 
 All 8 translated (nl/fr/de/es). Verified count: 1847. Only Engineering + Business School pages
 mined — Faculty of Natural Sciences, Faculty of Medicine and Centre for Languages, Culture and
 Communication pages still unvisited, a strong return-trip target. 153 rows short of the 2000 target.
+
+## Round 162: Imperial College London, batch 2 — Natural Sciences (1847 → 1855)
+
+Mined Imperial's Faculty of Natural Sciences fee page — much more granularly named than Engineering
+(most departments here list individual MSc titles rather than a bare "All Programmes" band),
+expanded the same way via `document.querySelector('.accordion-toggle').click()`.
+
+Added 8 rows (ids 1881–1888, ranks 1851–1858), GBP→EUR via ÷0.85, QS World 2026: #2, all 12 months:
+- MSc Environmental Technology — £34,500 → €40,588 (Sustainability)
+- MSc Conservation Science and Practice — £34,500 → €40,588 (Life Sciences)
+- MSc Applied Biosciences and Biotechnology — £40,500 → €47,647 (Life Sciences)
+- MSc Mathematics and Finance — £45,600 → €53,647 (Mathematics)
+- MSc Statistics — £39,900 → €46,941 (Statistics & Operational Research)
+- MSc Physics with Fusion and Plasma Physics — £40,400 → €47,529 (Physics)
+- MSc Living Planet with Nature-based Solutions — £36,500 → €42,941 (Sustainability)
+- MSc Taxonomy, Biodiversity and Evolution — £36,000 → €42,353 (Agriculture & Food)
+
+Skipped "MSc Optics and Photonics" (already existing Imperial row, id 681).
+
+All 8 translated (nl/fr/de/es). Verified count: 1855. Faculty of Medicine and Centre for Languages,
+Culture and Communication pages still unvisited. 145 rows short of the 2000 target.

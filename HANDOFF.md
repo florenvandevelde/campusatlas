@@ -36,8 +36,10 @@ the most productive. QS World 2026: **#2** — Imperial is elite-tier, cite the 
 "ranked Nth" framing. 30 pre-existing Imperial rows (including an existing duplicate pair of "MSc
 Advanced Mechanical Engineering", ids 716 and 1156 — a pre-existing anomaly, not something this
 round needed to fix). Round 161 mined 8 rows (Finance x2, AI x2, Sustainability, Economics, Public
-Health, Management) from Engineering + Business School pages — Natural Sciences, Medicine and
-Centre for Languages pages still unvisited.
+Health, Management) from Engineering + Business School pages. Round 162 mined the Faculty of
+Natural Sciences page (well-named, minimal banding) for 8 more rows (Sustainability x2, Life
+Sciences x2, Mathematics, Statistics & Operational Research, Physics, Agriculture & Food). Faculty
+of Medicine and Centre for Languages pages still unvisited. **145 short of 2000.**
 Round 160 mined Bath's 4th and final faculty page (Humanities & Social Sciences — 243 rows, the
 biggest of the four) for 8 rows (Economics, Finance, Public Policy x2, Social Sciences, Humanities,
 Development Studies x2). All 4 Bath faculty pages now visited at least once. **161 short of 2000**
