@@ -18,8 +18,26 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1839 programmes, max id 1872, max rank
-1842** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1847 programmes, max id 1880, max rank
+1850** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+**Thirty-third confirmed goldmine: Imperial College London's per-faculty tuition fee pages**
+(`imperial.ac.uk/students/fees-and-funding/tuition-fees/postgraduate-tuition-fees/2026-27/
+taught-postgraduate-programmes/`, split across 4 faculty URLs like Bath: Centre for Languages,
+Faculty of Engineering, Faculty of Medicine, Faculty of Natural Sciences, Imperial Business School).
+**Important structural difference from every other goldmine this session: most departments show
+only a flat "All Programmes" banded rate with NO individual programme names** (accordion sections,
+expand via `document.querySelector('.accordion-toggle').click()` then `get_page_text` — clicking
+individual `<button>` refs failed with a coordinate error, use the JS `.click()` workaround). Only
+pull rows where an actual named programme appears above its own fee table (e.g. "MSc Metals and
+Energy Finance", "MSc Applied Machine Learning") — skip anything under a bare "All Programmes" /
+"All Other Programmes" heading, since there's no way to know which specific title that banded rate
+covers without separate verification. The Business School page is fully named (no banding) and was
+the most productive. QS World 2026: **#2** — Imperial is elite-tier, cite the number directly, not
+"ranked Nth" framing. 30 pre-existing Imperial rows (including an existing duplicate pair of "MSc
+Advanced Mechanical Engineering", ids 716 and 1156 — a pre-existing anomaly, not something this
+round needed to fix). Round 161 mined 8 rows (Finance x2, AI x2, Sustainability, Economics, Public
+Health, Management) from Engineering + Business School pages — Natural Sciences, Medicine and
+Centre for Languages pages still unvisited.
 Round 160 mined Bath's 4th and final faculty page (Humanities & Social Sciences — 243 rows, the
 biggest of the four) for 8 rows (Economics, Finance, Public Policy x2, Social Sciences, Humanities,
 Development Studies x2). All 4 Bath faculty pages now visited at least once. **161 short of 2000**

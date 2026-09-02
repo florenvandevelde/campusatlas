@@ -4328,3 +4328,36 @@ Added 8 rows (ids 1865–1872, ranks 1835–1842), GBP→EUR via ÷0.85, QS Worl
 
 All 8 translated (nl/fr/de/es). Verified count: 1839. All 4 Bath faculty pages now visited at least
 once (32 rows added across rounds 158-160). 161 rows short of the 2000 target.
+
+## Round 161: Imperial College London — 33rd goldmine (1839 → 1847)
+
+Found Imperial College London's per-faculty tuition fee pages, structurally similar to Bath's
+4-faculty split but with an important twist: most departments on the Engineering, Medicine and
+Natural Sciences pages show only a flat "All Programmes" / "All Other Programmes" banded rate with
+no individual programme name attached — an accordion UI (`document.querySelector('.accordion-
+toggle').click()` to expand; clicking individual button refs failed with a coordinate error, so used
+the JS `.click()` workaround throughout). Only pulled rows where an actual named programme heading
+sits above its own fee table (e.g. "MSc Metals and Energy Finance", "MSc Applied Machine Learning",
+"MSc Artificial Intelligence Applications and Innovation" on the Engineering page) — skipped
+everything under a bare "All Programmes" heading since there's no way to know which specific title
+that banded rate covers. The Imperial Business School page has no banding at all — every MSc is
+individually named and priced, making it by far the most productive section.
+
+Standalone dedup SELECT found 30 pre-existing Imperial rows, including a pre-existing duplicate pair
+("MSc Advanced Mechanical Engineering", ids 716 and 1156) — a prior-session anomaly, left alone
+since fixing it wasn't this round's task. QS 2026: Imperial College London ranks **#2 in the world**
+— cited directly rather than with the "ranked Nth" framing used for lower-tier schools.
+
+Added 8 rows (ids 1873–1880, ranks 1843–1850), GBP→EUR via ÷0.85, all 12 months:
+- MSc Metals and Energy Finance — £48,900 → €57,529 (Finance)
+- MSc Applied Machine Learning — £46,000 → €54,118 (AI)
+- MSc Artificial Intelligence Applications and Innovation — £46,000 → €54,118 (AI)
+- MSc Climate Change, Management & Finance — £45,500 → €53,529 (Sustainability)
+- MSc Economics & Strategy for Business — £45,500 → €53,529 (Economics)
+- MSc Global Health Management — £45,500 → €53,529 (Public Health)
+- MSc Management — £47,000 → €55,294 (Management)
+- MSc Financial Technology — £51,000 → €60,000 (Finance)
+
+All 8 translated (nl/fr/de/es). Verified count: 1847. Only Engineering + Business School pages
+mined — Faculty of Natural Sciences, Faculty of Medicine and Centre for Languages, Culture and
+Communication pages still unvisited, a strong return-trip target. 153 rows short of the 2000 target.
