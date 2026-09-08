@@ -38,8 +38,10 @@ Education, Management, Computer Science) — 56 of hundreds of York rows used ac
 Round 167 mined an 8th York batch (Statistics & Operational Research, Engineering, Finance,
 Development Studies, Mathematics, Public Health, AI, Social Sciences) — 64 of hundreds of York rows
 used across 8 rounds. **105 short of 2000.** York's remaining rows are now mostly narrow
-Archaeology/History/Music sub-specialisations or online/multi-year variants — next rounds should
-likely pivot to Southampton (only 32 of 525 rows used) for fresher, higher-yield territory.
+Archaeology/History/Music sub-specialisations or online/multi-year variants.
+Round 168 pivoted to Southampton's still-huge table (round 5 there) for 8 more rows (Law,
+Engineering x2, Computer Science, Public Policy, Mechanical Engineering, Finance, Art & Design) —
+40 of 175 Southampton rows used now. **97 short of 2000** — under 100 for the first time.
 **Thirty-third confirmed goldmine: Imperial College London's per-faculty tuition fee pages**
 (`imperial.ac.uk/students/fees-and-funding/tuition-fees/postgraduate-tuition-fees/2026-27/
 taught-postgraduate-programmes/`, split across 4 faculty URLs like Bath: Centre for Languages,

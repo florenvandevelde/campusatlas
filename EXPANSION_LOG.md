@@ -4486,3 +4486,21 @@ All 8 translated (nl/fr/de/es). Verified count: 1895. 64 of hundreds of availabl
 across 8 rounds — remaining York rows are now mostly narrow Archaeology/History/Music
 sub-specialisations or online/multi-year variants. 105 rows short of the 2000 target; next rounds
 should likely pivot to Southampton (only 32 of 525 rows used) for fresher territory.
+
+## Round 168: University of Southampton, batch 5 (1895 → 1903)
+
+Pivoted back to Southampton's 525-row table (rounds 142-145) — still had ~143 of 175 taught
+Full-time rows unused.
+
+Added 8 rows (ids 1929–1936, ranks 1899–1906), GBP→EUR via ÷0.85, QS World 2026: #87, all 12 months:
+- LLM Maritime Law — £30,200 → €35,529 (Law)
+- MSc Micro and Nanotechnology — £36,800 → €43,294 (Engineering)
+- MSc Mobile Communications & Smart Networking — £36,800 → €43,294 (Computer Science)
+- MSc Optical Engineering — £36,200 → €42,588 (Engineering)
+- MSc Political Psychology and Electoral Behaviour — £29,900 → €35,176 (Public Policy)
+- MSc Race Car Aerodynamics — £36,800 → €43,294 (Mechanical Engineering)
+- MSc Shipping Finance — £38,100 → €44,824 (Finance)
+- MA Textile Design — £32,000 → €37,647 (Art & Design)
+
+All 8 translated (nl/fr/de/es). Verified count: 1903. 40 of 175 Southampton rows used. 97 rows
+short of the 2000 target — under 100 for the first time this session.
