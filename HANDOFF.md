@@ -95,6 +95,25 @@ Technologies" cluster), online/distance-learning variants, "by Research" rows, p
 partner"), or straightforward duplicates of titles already added (e.g. "Master of Business
 Administration" = existing "MBA"). **Next session should pick a new goldmine rather than continue
 Southampton.** **Current state: 1958 programmes, max id 1992, max rank 1962. 42 short of 2000.**
+Round 176 returned to the University of Bath goldmine (Southampton now exhausted) — revisited the
+Faculty of Science page (`bath.ac.uk/corporate-information/faculty-of-science-taught-postgraduate-
+tuition-fees-2026-27/`, only 8 of 72 rows used since round 158) and the Faculty of Humanities &
+Social Sciences page (`bath.ac.uk/corporate-information/faculty-of-humanities-social-sciences-
+taught-postgraduate-tuition-fees-2026-27/`, only 8 of 243 rows used since round 160). **Both pages
+turned out to be nearly fully covered already** — most remaining rows in Science are Pharmacy
+CPD/unit/standalone-module rows (not real masters, tiny per-unit or annual fees) or "with placement"
+variants; most remaining rows in H&SS duplicate titles already added in earlier rounds (18
+pre-existing + round 160's 8 concentrated exactly in H&SS's subject areas). Found only 4 clean new
+titles per page (8 total): MSc Artificial Intelligence, MSc Biotechnology (Sustainable
+Biotechnologies), MSc Molecular Biosciences (Bioinformatics), MSc Molecular Biosciences
+(Microbiology) from Science; MSc Applied Economics with Banking and Financial Markets, MSc
+International Relations with European Politics, MSc International Relations with Foreign Policy,
+MSc International Development with Education from H&SS. **Bath is now effectively exhausted too —
+next session should open a new goldmine (34th) rather than return to Bath.** Bath's Engineering &
+Design and School of Management pages were also already visited (round 159) with only partial
+extraction (5-8 rows each of ~31 and ~21 total) — worth a very quick re-check first since those are
+much smaller pages, but do not expect much headroom. **Current state: 1966 programmes, max id 2000,
+max rank 1970. 34 short of 2000.**
 **Note on the programmes table schema**: besides the columns listed in earlier goldmine notes, the
 table also has NOT NULL columns `lang`, `intake`, `deadline`, `work`, `gmat`, `link`,
 `fresh_grad_only`, `online` with no defaults for most of them (only `fields`, `open_fields`,

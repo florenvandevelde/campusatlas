@@ -4690,3 +4690,37 @@ sessions should pick a new goldmine rather than continue mining Southampton.
 
 All 8 translated (nl/fr/de/es). Verified count: 1958. 96 of 175 Southampton rows used (goldmine
 exhausted). 42 rows short of the 2000 target.
+
+## Round 176: University of Bath, Science + Humanities & Social Sciences faculty pages (1958 → 1966)
+
+Southampton is now exhausted, so returned to Bath (32nd goldmine, previously visited rounds
+158-160). Ran a fresh standalone dedup SELECT for Bath before this batch (41 pre-existing rows
+confirmed). Revisited the two Bath faculty pages with the most unused rows on paper:
+- Faculty of Science (72 rows, only 8 used in round 158)
+- Faculty of Humanities & Social Sciences (243 rows, only 8 used in round 160)
+
+Both turned out to be nearly fully covered already: Science's remaining rows are mostly Pharmacy
+CPD/standalone-unit/APEL fee rows (not real taught masters) or "with placement" variants; H&SS's
+243 rows are concentrated in exactly the subject areas (Economics, Politics/IR, Psychology,
+International Development, Translation/Interpreting, Education) that 18 pre-existing rows plus
+round 160's batch already covered, so almost every named row duplicated an existing title.
+
+Added 8 rows (ids 1993–2000, ranks 1963–1970), GBP→EUR via ÷0.85, QS World 2026: #132, all 12 months:
+- MSc Artificial Intelligence — £34,550 → €40,647 (AI) [Science]
+- MSc Biotechnology (Sustainable Biotechnologies) — £34,550 → €40,647 (Life Sciences/Sustainability) [Science]
+- MSc Molecular Biosciences (Bioinformatics) — £34,550 → €40,647 (Life Sciences/Computer Science) [Science]
+- MSc Molecular Biosciences (Microbiology) — £34,550 → €40,647 (Life Sciences/Biochemistry) [Science]
+- MSc Applied Economics with Banking and Financial Markets — £28,900 → €34,000 (Economics/Finance) [H&SS]
+- MSc International Relations with European Politics — £28,900 → €34,000 (Public Policy) [H&SS]
+- MSc International Relations with Foreign Policy — £28,900 → €34,000 (Public Policy) [H&SS]
+- MSc International Development with Education — £28,900 → €34,000 (Development Studies/Education) [H&SS]
+
+Note: this round also confirmed the ground-truth `open_fields` vocabulary directly from the
+database (`select distinct f from (select unnest(open_fields) as f from public.programmes) t`)
+rather than relying on memory of the BACKGROUND_OPTIONS array, since it turned out to include
+values (Economics, Business & Economics, Software & Data Engineering, STEM & Engineering, Any, etc.)
+not previously documented in this log. Future rounds should query this directly rather than assume.
+
+All 8 translated (nl/fr/de/es). Verified count: 1966. Bath is now effectively exhausted (Science and
+H&SS pages both nearly fully covered; Engineering & Design and Management pages were already
+partially mined in round 159 with only small remaining headroom). 34 rows short of the 2000 target.
