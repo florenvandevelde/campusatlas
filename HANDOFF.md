@@ -65,6 +65,11 @@ Audiology, Advanced Chemical Engineering, Aerodynamics and Computation, Applied 
 Information Systems and Remote Sensing, Arts & Cultural Leadership, Biomedical Engineering). 64 of
 175 Southampton rows used. **Current state: 1926 programmes, max id 1960, max rank 1930. 74 short
 of 2000.**
+Round 172 mined a 9th Southampton batch (fresh dedup run first) — Engineering, Public
+Health/Sports, Psychology, Computer Science x2, Humanities, Marketing, Engineering (Civil
+Engineering, Clinical Exercise Physiology, Clinical Psychology, Computer Science, Data Science,
+Cultural Heritage Studies, Digital Marketing, Electrical Power Systems). 72 of 175 Southampton rows
+used. **Current state: 1934 programmes, max id 1968, max rank 1938. 66 short of 2000.**
 **Note on the programmes table schema**: besides the columns listed in earlier goldmine notes, the
 table also has NOT NULL columns `lang`, `intake`, `deadline`, `work`, `gmat`, `link`,
 `fresh_grad_only`, `online` with no defaults for most of them (only `fields`, `open_fields`,

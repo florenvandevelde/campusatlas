@@ -4583,3 +4583,26 @@ online=false) — see HANDOFF.md for the full column note.
 
 All 8 translated (nl/fr/de/es). Verified count: 1926. 64 of 175 Southampton rows used. 74 rows
 short of the 2000 target.
+
+## Round 172: University of Southampton, batch 9 (1926 → 1934)
+
+Ran a fresh standalone dedup SELECT for Southampton before this batch (82 pre-existing rows
+confirmed, no near-duplicates found in the new picks). Continued mining the same plain HTML
+postgraduate fees table, moving further down the alphabetical rows (C–E range).
+
+Added 8 rows (ids 1961–1968, ranks 1931–1938), GBP→EUR via ÷0.85, QS World 2026: #87, all 12 months:
+- MSc Civil Engineering — £14,000 → €16,471 (Engineering)
+- MSc Clinical Exercise Physiology — £14,500 → €17,059 (Public Health/Sports-related Subjects)
+- MSc Clinical Psychology — £14,500 → €17,059 (Psychology)
+- MSc Computer Science — £14,300 → €16,824 (Computer Science)
+- MSc Data Science — £14,000 → €16,471 (Computer Science/Analytics)
+- MA Cultural Heritage Studies — £13,000 → €15,294 (Humanities)
+- MSc Digital Marketing — £18,700 → €22,000 (Marketing)
+- MSc Electrical Power Systems — £14,700 → €17,294 (Engineering)
+
+Skipped pathway-variant rows (Cultural Heritage Studies sub-pathways, English Literary Studies
+century sub-pathways, Design Innovation and Technology MA/MSc duplicate) to avoid near-duplicate
+clutter — only the base/primary title was taken from each variant cluster.
+
+All 8 translated (nl/fr/de/es). Verified count: 1934. 72 of 175 Southampton rows used. 66 rows
+short of the 2000 target.
