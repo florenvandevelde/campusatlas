@@ -114,6 +114,19 @@ Design and School of Management pages were also already visited (round 159) with
 extraction (5-8 rows each of ~31 and ~21 total) — worth a very quick re-check first since those are
 much smaller pages, but do not expect much headroom. **Current state: 1966 programmes, max id 2000,
 max rank 1970. 34 short of 2000.**
+Round 177 quick-checked Bath's two smaller remaining faculty pages (Engineering & Design, 31 rows;
+School of Management, 21 rows) — **this paid off much better than the Science/H&SS re-check**: the
+Management page in particular had 14 clean new titles (only 3 pre-existing Bath rows overlapped
+with it — Finance with Risk Management, Management, Sustainability and Management). Mined 6 rows
+from Management (Accounting and Finance, Business Analytics, Entrepreneurship and Management, Human
+Resource Management, Innovation and Technology Management, Marketing) and 2 from Engineering &
+Design (Automotive Technology, Automotive Engineering with Business Management). **~9 more clean
+titles remain unused on the Management page alone** (Finance, Finance with Banking, International
+Management, Management with Finance/Operations/Marketing, Operations Logistics and Supply Chain
+Management, Strategic Retailing) plus 1 more on Engineering & Design (Automotive Engineering with
+Business Management variant already taken; Automotive Technology with Business Management remains)
+— a good target for one more Bath round before it's truly exhausted. **Current state: 1974
+programmes, max id 2008, max rank 1978. 26 short of 2000.**
 **Note on the programmes table schema**: besides the columns listed in earlier goldmine notes, the
 table also has NOT NULL columns `lang`, `intake`, `deadline`, `work`, `gmat`, `link`,
 `fresh_grad_only`, `online` with no defaults for most of them (only `fields`, `open_fields`,

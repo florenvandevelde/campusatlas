@@ -4724,3 +4724,27 @@ not previously documented in this log. Future rounds should query this directly 
 All 8 translated (nl/fr/de/es). Verified count: 1966. Bath is now effectively exhausted (Science and
 H&SS pages both nearly fully covered; Engineering & Design and Management pages were already
 partially mined in round 159 with only small remaining headroom). 34 rows short of the 2000 target.
+
+## Round 177: University of Bath, Management + Engineering & Design faculty pages (1966 → 1974)
+
+Ran a fresh standalone dedup SELECT for Bath before this batch (49 pre-existing rows confirmed).
+Re-checked Bath's two smallest faculty pages more carefully than round 159's first pass — this paid
+off well, unlike round 176's Science/H&SS re-check: the School of Management page (21 rows) had only
+3 overlaps with pre-existing Bath rows, leaving ~14 clean new titles.
+
+Added 8 rows (ids 2001–2008, ranks 1971–1978), GBP→EUR via ÷0.85, QS World 2026: #132, all 12 months:
+- MSc Accounting and Finance — £34,950 → €41,118 (Finance) [Management]
+- MSc Business Analytics — £31,700 → €37,294 (Analytics) [Management]
+- MSc Entrepreneurship and Management — £31,700 → €37,294 (Entrepreneurship/Management) [Management]
+- MSc Human Resource Management — £31,700 → €37,294 (Management) [Management]
+- MSc Innovation and Technology Management — £31,700 → €37,294 (Management/Strategy) [Management]
+- MSc Marketing — £29,500 → €34,706 (Marketing) [Management]
+- MSc Automotive Technology — £34,550 → €40,647 (Mechanical Engineering) [Engineering & Design]
+- MSc Automotive Engineering with Business Management — £34,550 → €40,647 (Mechanical Engineering/Management) [Engineering & Design]
+
+Roughly 9 more clean, non-duplicate titles remain unused on the Management page (Finance, Finance
+with Banking, International Management, Management with Finance/Operations/Marketing, Operations
+Logistics and Supply Chain Management, Strategic Retailing) plus Automotive Technology with Business
+Management on Engineering & Design — a solid target for one more Bath round.
+
+All 8 translated (nl/fr/de/es). Verified count: 1974. 26 rows short of the 2000 target.
