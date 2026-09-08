@@ -32,7 +32,9 @@ for a 5th batch of 8 (Management x2, Computer Science x2, Economics, Finance x2,
 40 of hundreds of York rows used now.
 Round 165 mined a 6th York batch (Performing Arts, Social Sciences, Management, AI, Media &
 Communication, Sustainability, Public Policy, Public Health) — 48 of hundreds of York rows used
-across 6 rounds. **121 short of 2000.**
+across 6 rounds. Round 166 mined a 7th York batch (Law x2, Art & Design, Humanities, Psychology,
+Education, Management, Computer Science) — 56 of hundreds of York rows used across 7 rounds.
+**113 short of 2000** — very close now.
 **Thirty-third confirmed goldmine: Imperial College London's per-faculty tuition fee pages**
 (`imperial.ac.uk/students/fees-and-funding/tuition-fees/postgraduate-tuition-fees/2026-27/
 taught-postgraduate-programmes/`, split across 4 faculty URLs like Bath: Centre for Languages,

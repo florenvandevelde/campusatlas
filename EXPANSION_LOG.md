@@ -4447,3 +4447,20 @@ Added 8 rows (ids 1905–1912, ranks 1875–1882), GBP→EUR via ÷0.85, QS Worl
 
 All 8 translated (nl/fr/de/es). Verified count: 1879. 48 of hundreds of available York rows used
 across 6 rounds. 121 rows short of the 2000 target.
+
+## Round 166: University of York, batch 7 (1879 → 1887)
+
+Continued mining the same York page text for a 7th batch.
+
+Added 8 rows (ids 1913–1920, ranks 1883–1890), GBP→EUR via ÷0.85, QS World 2026: #169, all 12 months:
+- LLM International Banking and Corporate Finance Law and Practice — £27,250 → €32,059 (Law)
+- LLM International Human Rights Law and Practice — £27,250 → €32,059 (Law)
+- MA History of Art — £26,900 → €31,647 (Art & Design)
+- MA Creative Writing — £26,900 → €31,647 (Humanities)
+- MSc Psycholinguistics — £27,250 → €32,059 (Psychology)
+- MA Teaching English to Speakers of Other Languages — £26,900 → €31,647 (Education)
+- MSc International Strategic Management — £31,900 → €37,529 (Management)
+- MSc Data Science (Scientific) — £32,900 → €38,706 (Computer Science)
+
+All 8 translated (nl/fr/de/es). Verified count: 1887. 56 of hundreds of available York rows used
+across 7 rounds. 113 rows short of the 2000 target.
