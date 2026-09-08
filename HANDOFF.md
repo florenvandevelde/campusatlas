@@ -41,7 +41,16 @@ used across 8 rounds. **105 short of 2000.** York's remaining rows are now mostl
 Archaeology/History/Music sub-specialisations or online/multi-year variants.
 Round 168 pivoted to Southampton's still-huge table (round 5 there) for 8 more rows (Law,
 Engineering x2, Computer Science, Public Policy, Mechanical Engineering, Finance, Art & Design) —
-40 of 175 Southampton rows used now. **97 short of 2000** — under 100 for the first time.
+40 of 175 Southampton rows used now.
+**Dedup bug caught and fixed in round 168 (yet another instance of the same class of mistake):**
+inserted "LLM Maritime Law" for Southampton without a fresh standalone dedup SELECT immediately
+before the batch — relied on stale memory of round 142's dedup result instead, and it turned out
+Southampton already had this exact row (id 1510) from an earlier session. Deleted the duplicate
+(id 1929) as soon as a routine post-round dedup query surfaced it. **Lesson reinforced: always run
+a fresh standalone `select program from public.programmes where school ilike '%X%'` dedup SELECT
+immediately before building each new batch for a school — never rely on a dedup result from an
+earlier round in the same session, even a recent one.** Current count after fix: 1902/2000, 98
+short.
 **Thirty-third confirmed goldmine: Imperial College London's per-faculty tuition fee pages**
 (`imperial.ac.uk/students/fees-and-funding/tuition-fees/postgraduate-tuition-fees/2026-27/
 taught-postgraduate-programmes/`, split across 4 faculty URLs like Bath: Centre for Languages,

@@ -4504,3 +4504,18 @@ Added 8 rows (ids 1929–1936, ranks 1899–1906), GBP→EUR via ÷0.85, QS Worl
 
 All 8 translated (nl/fr/de/es). Verified count: 1903. 40 of 175 Southampton rows used. 97 rows
 short of the 2000 target — under 100 for the first time this session.
+
+## Round 168 correction: duplicate "LLM Maritime Law" caught and removed (1903 → 1902)
+
+A routine post-round dedup check (querying all Southampton programme titles) revealed that
+round 168's "LLM Maritime Law" (id 1929) duplicated a pre-existing Southampton row (id 1510,
+inserted in an earlier session) — same title, same school. Root cause: round 168 was built from
+memory of round 142's dedup results rather than a fresh standalone SELECT run immediately before
+picking that specific batch. Deleted id 1929 (and its i18n) to fix.
+
+**Reinforcing the standing rule from earlier in this session (the combined-SELECT dedup bug,
+rounds 124/127): always run a fresh, standalone dedup SELECT for a school immediately before
+building each new batch for it — never reuse a dedup result from an earlier round, no matter how
+recent, since the catalogue and this session's memory of it can silently drift apart.**
+
+Verified count after fix: 1902. 98 rows short of the 2000 target.
