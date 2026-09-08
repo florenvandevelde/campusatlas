@@ -29,7 +29,10 @@ out — Queen's University Belfast (fee schedule is a PDF; the international-fee
 College London and University of Bristol (both per-course only, no comprehensive table). Returned to
 University of York's still-huge fee page (only 32 of hundreds of rows used across rounds 150-153)
 for a 5th batch of 8 (Management x2, Computer Science x2, Economics, Finance x2, Public Policy) —
-40 of hundreds of York rows used now. **129 short of 2000.**
+40 of hundreds of York rows used now.
+Round 165 mined a 6th York batch (Performing Arts, Social Sciences, Management, AI, Media &
+Communication, Sustainability, Public Policy, Public Health) — 48 of hundreds of York rows used
+across 6 rounds. **121 short of 2000.**
 **Thirty-third confirmed goldmine: Imperial College London's per-faculty tuition fee pages**
 (`imperial.ac.uk/students/fees-and-funding/tuition-fees/postgraduate-tuition-fees/2026-27/
 taught-postgraduate-programmes/`, split across 4 faculty URLs like Bath: Centre for Languages,

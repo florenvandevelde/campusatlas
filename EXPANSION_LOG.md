@@ -4430,3 +4430,20 @@ Added 8 rows (ids 1897–1904, ranks 1867–1874), GBP→EUR via ÷0.85, QS Worl
 
 All 8 translated (nl/fr/de/es). Verified count: 1871. 40 of hundreds of available York rows used
 across 5 rounds. 129 rows short of the 2000 target.
+
+## Round 165: University of York, batch 6 (1871 → 1879)
+
+Continued mining the same York page text for a 6th batch.
+
+Added 8 rows (ids 1905–1912, ranks 1875–1882), GBP→EUR via ÷0.85, QS World 2026: #169, all 12 months:
+- MA Music, Management and Marketing — £31,900 → €37,529 (Performing Arts)
+- MA Global Culture and Society — £27,250 → €32,059 (Social Sciences)
+- MSc International Business and Strategic Management — £31,900 → €37,529 (Management)
+- MSc Leadership, Management and Artificial Intelligence — £31,900 → €37,529 (AI)
+- MSc Social Media and Management — £28,600 → €33,647 (Media & Communication)
+- MA Sustainability Studies — £27,250 → €32,059 (Sustainability)
+- MA Public Administration and Public Policy — £27,250 → €32,059 (Public Policy)
+- MSc Development, Disorders and Clinical Practice — £32,900 → €38,706 (Public Health)
+
+All 8 translated (nl/fr/de/es). Verified count: 1879. 48 of hundreds of available York rows used
+across 6 rounds. 121 rows short of the 2000 target.
