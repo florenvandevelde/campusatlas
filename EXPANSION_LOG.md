@@ -4748,3 +4748,24 @@ Logistics and Supply Chain Management, Strategic Retailing) plus Automotive Tech
 Management on Engineering & Design — a solid target for one more Bath round.
 
 All 8 translated (nl/fr/de/es). Verified count: 1974. 26 rows short of the 2000 target.
+
+## Round 178: University of Bath, School of Management page batch 2 (1974 → 1982)
+
+Ran a fresh standalone dedup SELECT for Bath before this batch (57 pre-existing rows confirmed).
+Finished off the remaining clean titles identified in round 177 from the Management page.
+
+Added 8 rows (ids 2009–2016, ranks 1979–1986), GBP→EUR via ÷0.85, QS World 2026: #132, all 12 months:
+- MSc Finance — £34,950 → €41,118 (Finance)
+- MSc Finance with Banking — £34,950 → €41,118 (Finance)
+- MSc International Management — £31,700 → €37,294 (Management)
+- MSc Management with Finance — £29,500 → €34,706 (Management/Finance)
+- MSc Management with Operations — £29,500 → €34,706 (Management)
+- MSc Management with Marketing — £29,500 → €34,706 (Management/Marketing)
+- MSc Operations, Logistics and Supply Chain Management — £31,700 → €37,294 (Management)
+- MSc Strategic Retailing — £31,700 → €37,294 (Marketing/Strategy)
+
+Bath's School of Management page is now fully exhausted. Only one clean title remains on Bath's
+Engineering & Design page (Automotive Technology with Business Management) — not enough for a
+dedicated round. Bath is now genuinely exhausted as a goldmine.
+
+All 8 translated (nl/fr/de/es). Verified count: 1982. 18 rows short of the 2000 target.

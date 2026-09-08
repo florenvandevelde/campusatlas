@@ -127,6 +127,14 @@ Management, Strategic Retailing) plus 1 more on Engineering & Design (Automotive
 Business Management variant already taken; Automotive Technology with Business Management remains)
 — a good target for one more Bath round before it's truly exhausted. **Current state: 1974
 programmes, max id 2008, max rank 1978. 26 short of 2000.**
+Round 178 finished off Bath's School of Management page with its remaining 8 clean titles (Finance,
+Finance with Banking, International Management, Management with Finance/Operations/Marketing,
+Operations Logistics and Supply Chain Management, Strategic Retailing). **Management page is now
+fully exhausted.** Only "Automotive Technology with Business Management" remains unused on
+Engineering & Design (1 row) — not worth a dedicated round on its own. **Bath is now genuinely
+exhausted. Next session needs a new (34th) goldmine, or can finish the catalogue with one-off
+verified titles given only ~18 rows remain to reach 2000.** **Current state: 1982 programmes, max id
+2016, max rank 1986. 18 short of 2000.**
 **Note on the programmes table schema**: besides the columns listed in earlier goldmine notes, the
 table also has NOT NULL columns `lang`, `intake`, `deadline`, `work`, `gmat`, `link`,
 `fresh_grad_only`, `online` with no defaults for most of them (only `fields`, `open_fields`,
