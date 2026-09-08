@@ -51,6 +51,10 @@ a fresh standalone `select program from public.programmes where school ilike '%X
 immediately before building each new batch for a school — never rely on a dedup result from an
 earlier round in the same session, even a recent one.** Current count after fix: 1902/2000, 98
 short.
+Round 169 mined a 6th Southampton batch — this time running a fresh standalone dedup SELECT
+immediately beforehand as reinforced above — for 8 more rows (Management x2, Finance, Social
+Sciences, Performing Arts, Public Policy, Humanities, Development Studies). 48 of 175 Southampton
+rows used now. **90 short of 2000.**
 **Thirty-third confirmed goldmine: Imperial College London's per-faculty tuition fee pages**
 (`imperial.ac.uk/students/fees-and-funding/tuition-fees/postgraduate-tuition-fees/2026-27/
 taught-postgraduate-programmes/`, split across 4 faculty URLs like Bath: Centre for Languages,

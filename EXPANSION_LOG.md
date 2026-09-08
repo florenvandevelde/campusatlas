@@ -4519,3 +4519,21 @@ building each new batch for it — never reuse a dedup result from an earlier ro
 recent, since the catalogue and this session's memory of it can silently drift apart.**
 
 Verified count after fix: 1902. 98 rows short of the 2000 target.
+
+## Round 169: University of Southampton, batch 6 (1902 → 1910)
+
+Ran a fresh standalone dedup SELECT for Southampton immediately before this batch (per the rule
+reinforced after the round 168 duplicate).
+
+Added 8 rows (ids 1937–1944, ranks 1907–1914), GBP→EUR via ÷0.85, QS World 2026: #87, all 12 months:
+- MA Global Business Ethics and Philosophy of Management — £28,800 → €33,882 (Management)
+- MSc International Accounting and Governance — £38,100 → €44,824 (Finance)
+- MSc International Criminology and Criminal Justice — £29,900 → €35,176 (Social Sciences)
+- MSc International Management — £37,000 → €43,529 (Management)
+- MA International Music Management — £32,800 → €38,588 (Performing Arts)
+- MSc International Security and Risk — £29,900 → €35,176 (Public Policy)
+- MA Languages and Cultures — £29,500 → €34,706 (Humanities)
+- MA Global Challenges: History, Policy, Practice — £28,800 → €33,882 (Development Studies)
+
+All 8 translated (nl/fr/de/es). Verified count: 1910. 48 of 175 Southampton rows used. 90 rows
+short of the 2000 target.
