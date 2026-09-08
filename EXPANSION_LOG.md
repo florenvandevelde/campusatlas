@@ -4537,3 +4537,21 @@ Added 8 rows (ids 1937–1944, ranks 1907–1914), GBP→EUR via ÷0.85, QS Worl
 
 All 8 translated (nl/fr/de/es). Verified count: 1910. 48 of 175 Southampton rows used. 90 rows
 short of the 2000 target.
+
+## Round 170: University of Southampton, batch 7 (1910 → 1918)
+
+Ran a fresh standalone dedup SELECT for Southampton before this batch (65 pre-existing/added rows
+confirmed, no near-duplicates found in the new picks).
+
+Added 8 rows (ids 1945–1952, ranks 1915–1922), GBP→EUR via ÷0.85, QS World 2026: #87, all 12 months:
+- MSc Energy and Sustainability: Energy, Environment and Buildings — £36,200 → €42,588 (Sustainability)
+- MA English Literature — £29,100 → €34,235 (Humanities)
+- MA Environmental and Spatial Design — £32,000 → €37,647 (Architecture)
+- MA Fashion Design — £32,000 → €37,647 (Art & Design)
+- MA Fashion Marketing and Branding — £37,000 → €43,529 (Marketing)
+- MA Film Studies — £32,000 → €37,647 (Media & Communication)
+- MSc Finance and Econometrics — £37,000 → €43,529 (Finance)
+- MA Global Advertising and Branding — £37,000 → €43,529 (Marketing)
+
+All 8 translated (nl/fr/de/es). Verified count: 1918. 56 of 175 Southampton rows used. 82 rows
+short of the 2000 target.
