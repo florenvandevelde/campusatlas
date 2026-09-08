@@ -135,6 +135,20 @@ Engineering & Design (1 row) — not worth a dedicated round on its own. **Bath 
 exhausted. Next session needs a new (34th) goldmine, or can finish the catalogue with one-off
 verified titles given only ~18 rows remain to reach 2000.** **Current state: 1982 programmes, max id
 2016, max rank 1986. 18 short of 2000.**
+**Thirty-fourth confirmed goldmine: University of Warwick's postgraduate tuition fees page**
+(`warwick.ac.uk/services/finance/studentfinance/fees/postgraduatefees/`) — a single massive 541-row
+table (`Course, Course Code, Course Intensity, Fee Status, 2024-25, 2025-26, 2026-27` columns),
+plain `<table>` markup, straightforward `document.querySelectorAll('table tr')` extraction. Filter
+to `Course Intensity === 'Full Time'`, `Fee Status === 'Overseas'`, a non-blank 2026-27 fee, and
+exclude "(now closed)" rows, Postgraduate Certificate/Diploma rows, "Diploma plus MSc" combined
+rows, joint "Double MA (with [partner university])" rows, and MBChB medicine (not a standard taught
+masters). ~160 clean usable rows after filtering. Only 8 pre-existing Warwick rows (added in an
+earlier session using per-subject QS rankings like "QS Mathematics #28 (2026)" as ext_rank — this
+session's new-goldmine convention of "QS World 2026: #N" was used instead for consistency with all
+other new-school batches this session). QS World 2026: **#74**. Round 179 mined 8 rows (Finance, Law,
+Mechanical Engineering, AI x2, Analytics, Engineering/Life Sciences, Computer Science) — 8 of ~160
+Warwick rows used. **Current state: 1990 programmes, max id 2024, max rank 1994. Only 10 short of
+2000 — the target is now within one more round.**
 **Note on the programmes table schema**: besides the columns listed in earlier goldmine notes, the
 table also has NOT NULL columns `lang`, `intake`, `deadline`, `work`, `gmat`, `link`,
 `fresh_grad_only`, `online` with no defaults for most of them (only `fields`, `open_fields`,

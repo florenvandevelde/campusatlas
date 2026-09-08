@@ -4769,3 +4769,26 @@ Engineering & Design page (Automotive Technology with Business Management) — n
 dedicated round. Bath is now genuinely exhausted as a goldmine.
 
 All 8 translated (nl/fr/de/es). Verified count: 1982. 18 rows short of the 2000 target.
+
+## Round 179: University of Warwick, postgraduate fees table batch 1 (1982 → 1990)
+
+Bath and Southampton both exhausted, so opened a new (34th) goldmine: Warwick's single 541-row
+postgraduate fees table at `warwick.ac.uk/services/finance/studentfinance/fees/postgraduatefees/`.
+Filtered to Full Time + Overseas + non-blank 2026-27 fee, excluding closed courses, PG
+Certificate/Diploma rows, "Diploma plus MSc" combined rows, joint double-degree "(with [partner
+university])" rows, and MBChB medicine — yielded ~160 clean usable rows. Ran a fresh standalone
+dedup SELECT for Warwick before this batch (8 pre-existing rows confirmed, added in an earlier
+session with per-subject QS citations rather than this session's QS World convention).
+
+Added 8 rows (ids 2017–2024, ranks 1987–1994), GBP→EUR via ÷0.85, QS World 2026: #74, all 12 months:
+- MSc Accounting and Financial Management — £43,580 → €51,271 (Finance)
+- LLM Advanced Legal Studies — £25,340 → €29,812 (Law)
+- MSc Advanced Mechanical Engineering — £31,670 → €37,259 (Mechanical Engineering)
+- MASc AI and Society — £29,340 → €34,518 (AI/Public Policy)
+- MSc Applied Artificial Intelligence — £37,460 → €44,071 (AI)
+- MSc Big Data and Digital Futures — £29,340 → €34,518 (Analytics)
+- MSc Biomedical Engineering — £31,670 → €37,259 (Engineering/Life Sciences)
+- MSc Computer Science — £37,460 → €44,071 (Computer Science)
+
+All 8 translated (nl/fr/de/es). Verified count: 1990. Only 10 rows short of the 2000 target — one
+more round finishes the catalogue expansion.
