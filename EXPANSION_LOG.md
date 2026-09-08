@@ -4464,3 +4464,25 @@ Added 8 rows (ids 1913–1920, ranks 1883–1890), GBP→EUR via ÷0.85, QS Worl
 
 All 8 translated (nl/fr/de/es). Verified count: 1887. 56 of hundreds of available York rows used
 across 7 rounds. 113 rows short of the 2000 target.
+
+## Round 167: University of York, batch 8 (1887 → 1895)
+
+Continued mining the same York page text for an 8th batch.
+
+Added 8 rows (ids 1921–1928, ranks 1891–1898), GBP→EUR via ÷0.85, QS World 2026: #169, all 12 months:
+- MSc Econometrics and Economics — £27,250 → €32,059 (Statistics & Operational Research)
+- MSc Engineering Management — £32,900 → €38,706 (Engineering)
+- MSc Finance and Investments — £34,500 → €40,588 (Finance)
+- MSc Global Markets and Economic Development — £27,250 → €32,059 (Development Studies)
+- MSc Mathematical Finance — £32,900 → €38,706 (Mathematics)
+- MSc Mental Health Research — £26,900 → €31,647 (Public Health)
+- MA Philosophy of Artificial Intelligence — £26,900 → €31,647 (AI)
+- MA Queer Studies — £26,900 → €31,647 (Social Sciences)
+
+Skipped "Social Work (MA)" — a 2-year programme priced as an annual (not total) fee, the usual
+annual-vs-total caution.
+
+All 8 translated (nl/fr/de/es). Verified count: 1895. 64 of hundreds of available York rows used
+across 8 rounds — remaining York rows are now mostly narrow Archaeology/History/Music
+sub-specialisations or online/multi-year variants. 105 rows short of the 2000 target; next rounds
+should likely pivot to Southampton (only 32 of 525 rows used) for fresher territory.
