@@ -4658,3 +4658,35 @@ with Applications in Medicine" (redundant with the existing Statistics row).
 
 All 8 translated (nl/fr/de/es). Verified count: 1950. 88 of 175 Southampton rows used. 50 rows
 short of the 2000 target.
+
+## Round 175: University of Southampton, batch 12 — final batch (1950 → 1958)
+
+Ran a fresh standalone dedup SELECT for Southampton before this batch (106 pre-existing rows
+confirmed, no near-duplicates found in the new picks). Pulled the complete 175-row filtered table
+(all Full-time MSc/MA/MBA/LLM/MPH rows) to systematically identify every remaining clean,
+non-variant candidate title across the whole table, not just an unexamined slice.
+
+Added 8 rows (ids 1985–1992, ranks 1955–1962), GBP→EUR via ÷0.85, QS World 2026: #87, all 12 months:
+- MSc Accounting and Management — £20,000 → €23,529 (Finance/Management)
+- MSc Banking and Finance — £18,700 → €22,000 (Finance)
+- MSc Chemistry — £14,000 → €16,471 (Chemistry)
+- MA Creative Writing — £12,600 → €14,824 (Humanities)
+- MSc Electronic Engineering — £14,700 → €17,294 (Engineering)
+- MSc Management — £18,700 → €22,000 (Management)
+- MSc Medical Technology, Innovation and Design — £22,500 → €26,471 (Engineering/Life Sciences)
+- MSc Transportation Planning and Engineering — £14,000 → €16,471 (Engineering)
+
+**This is the final Southampton batch.** A full-table sweep confirmed the remaining ~79 unused rows
+are almost entirely: near-duplicate pathway variants of already-added titles (Cultural Heritage
+Studies sub-pathways, English Literary Studies century sub-pathways, Design Innovation and
+Technology MA/MSc pair, Energy and Sustainability 2nd pathway, Sustainability and
+Energy/Sustainable Energy Technologies cluster, Archaeology sub-pathways), online/distance-learning
+variants (Gerontology, Global Ageing and Policy, Human Factors and Ergonomics — Online), "by
+Research" rows (Biomedical Science, Chemistry), multi-year/placement rows (Audiology with Clinical
+Placement, Nursing 2-year courses), partial or externally-paid fees (Global Marine Resource —
+Semester 1 only, Marine Environment and Resources — fees paid by external partner), or exact
+duplicates of titles already catalogued (Master of Business Administration = existing MBA). Future
+sessions should pick a new goldmine rather than continue mining Southampton.
+
+All 8 translated (nl/fr/de/es). Verified count: 1958. 96 of 175 Southampton rows used (goldmine
+exhausted). 42 rows short of the 2000 target.

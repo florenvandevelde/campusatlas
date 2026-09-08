@@ -83,6 +83,18 @@ in Health Sciences, Project Management, Risk and Finance, Social Research Method
 Statistics, Sustainable Finance, Systems Control and Signal Processing, TESOL, Translation and
 Professional Communication Skills). 88 of 175 Southampton rows used. **Current state: 1950
 programmes, max id 1984, max rank 1954. 50 short of 2000.**
+Round 175 mined a 12th and final Southampton batch (fresh dedup run first) — Finance/Management,
+Finance, Chemistry, Humanities, Engineering x2, Management, Engineering/Life Sciences (Accounting
+and Management, Banking and Finance, Chemistry, Creative Writing, Electronic Engineering,
+Management, Medical Technology Innovation and Design, Transportation Planning and Engineering).
+96 of 175 Southampton rows used — **Southampton is now effectively exhausted**: remaining rows are
+almost entirely near-duplicate pathway variants (e.g. "Design Innovation and Technology" MA/MSc
+pair, "Energy and Sustainability" 2nd pathway, "Sustainability and Energy"/"Sustainable Energy
+Technologies" cluster), online/distance-learning variants, "by Research" rows, partial/banded fees
+("Global Marine Resource - Semester 1 fees only", "Marine Environment... fees paid by external
+partner"), or straightforward duplicates of titles already added (e.g. "Master of Business
+Administration" = existing "MBA"). **Next session should pick a new goldmine rather than continue
+Southampton.** **Current state: 1958 programmes, max id 1992, max rank 1962. 42 short of 2000.**
 **Note on the programmes table schema**: besides the columns listed in earlier goldmine notes, the
 table also has NOT NULL columns `lang`, `intake`, `deadline`, `work`, `gmat`, `link`,
 `fresh_grad_only`, `online` with no defaults for most of them (only `fields`, `open_fields`,
