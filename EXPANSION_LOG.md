@@ -4606,3 +4606,30 @@ clutter — only the base/primary title was taken from each variant cluster.
 
 All 8 translated (nl/fr/de/es). Verified count: 1934. 72 of 175 Southampton rows used. 66 rows
 short of the 2000 target.
+
+## Round 173: University of Southampton, batch 10 (1934 → 1942)
+
+Ran a fresh standalone dedup SELECT for Southampton before this batch (90 pre-existing rows
+confirmed, no near-duplicates found in the new picks). Continued mining the same plain HTML
+postgraduate fees table (E–O alphabetical range).
+
+Added 8 rows (ids 1969–1976, ranks 1939–1946), GBP→EUR via ÷0.85, QS World 2026: #87, all 12 months:
+- MSc E-Textiles and Wearable Technologies — £16,000 → €18,824 (Engineering/Art & Design)
+- MA Film and Cultural Management — £13,000 → €15,294 (Media & Communication)
+- MSc Health Psychology — £14,500 → €17,059 (Psychology)
+- MSc Human Factors and Ergonomics — £16,300 → €19,176 (Engineering)
+- MSc International Accounting and Sustainability — £18,700 → €22,000 (Finance/Sustainability)
+- MA Luxury Brand Management — £30,300 → €35,647 (Marketing)
+- MSc Maritime Archaeology — £13,000 → €15,294 (Humanities/Earth Sciences)
+- MSc Operational Research and Data Science — £17,000 → €20,000 (Statistics & Operational Research)
+
+Skipped several near-duplicate/ambiguous rows encountered in this range: "European Masters in
+Embedded Computing Systems" (odd fee pairing, "not offered" for one column), "Finance and
+Economics"/"Finance and Investment" (redundant with existing Finance/Finance and Econometrics
+rows), "Financial Tecnology and AI" (typo duplicate of existing Financial Technology and AI),
+"Geographical Information Systems and Remote Sensing" (near-duplicate of the Applied GIS row added
+in round 172), "Gerontology (Distance Learning)" and "Global Ageing and Policy (Distance Learning)"
+(online variants), "Global Marine Resource - Semester 1 fees only" (partial-fee row).
+
+All 8 translated (nl/fr/de/es). Verified count: 1942. 80 of 175 Southampton rows used. 58 rows
+short of the 2000 target.

@@ -70,6 +70,13 @@ Health/Sports, Psychology, Computer Science x2, Humanities, Marketing, Engineeri
 Engineering, Clinical Exercise Physiology, Clinical Psychology, Computer Science, Data Science,
 Cultural Heritage Studies, Digital Marketing, Electrical Power Systems). 72 of 175 Southampton rows
 used. **Current state: 1934 programmes, max id 1968, max rank 1938. 66 short of 2000.**
+Round 173 mined a 10th Southampton batch (fresh dedup run first) — Engineering/Art & Design,
+Media & Communication, Psychology, Engineering, Finance/Sustainability, Marketing,
+Humanities/Earth Sciences, Statistics & Operational Research (E-Textiles and Wearable
+Technologies, Film and Cultural Management, Health Psychology, Human Factors and Ergonomics,
+International Accounting and Sustainability, Luxury Brand Management, Maritime Archaeology,
+Operational Research and Data Science). 80 of 175 Southampton rows used. **Current state: 1942
+programmes, max id 1976, max rank 1946. 58 short of 2000.**
 **Note on the programmes table schema**: besides the columns listed in earlier goldmine notes, the
 table also has NOT NULL columns `lang`, `intake`, `deadline`, `work`, `gmat`, `link`,
 `fresh_grad_only`, `online` with no defaults for most of them (only `fields`, `open_fields`,
