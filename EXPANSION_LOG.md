@@ -4403,3 +4403,30 @@ Added 8 rows (ids 1889–1896, ranks 1859–1866), GBP→EUR via ÷0.85, QS Worl
 All 8 translated (nl/fr/de/es). Verified count: 1863. Only the Centre for Languages, Culture and
 Communication page remains unvisited on Imperial's 4-page fee split. 137 rows short of the 2000
 target.
+
+## Round 164: University of York, batch 5 (1863 → 1871)
+
+Checked Imperial's last unvisited page (Centre for Languages, Culture and Communication) — fully
+banded with a single "All Programmes" rate and no named titles, nothing usable. Also ruled out
+several other candidate universities this round: Queen's University Belfast (fee schedule is a PDF;
+poppler-utils still unavailable in this environment, and the HTML international-fees page is stale
+2025/26 with only 30 banded, non-per-programme rows), UCL (fee page is behind a Cloudflare
+"Just a moment" bot-check that blocks automated access entirely), King's College London and
+University of Bristol (both confirmed per-course-only, no comprehensive fee table).
+
+Returned to the University of York's fee page (see rounds 150-153) — still had hundreds of unused
+rows. Re-fetched the full page text and picked another 8 clean, non-duplicate, 1-year full-time
+titles.
+
+Added 8 rows (ids 1897–1904, ranks 1867–1874), GBP→EUR via ÷0.85, QS World 2026: #169, all 12 months:
+- MSc Accounting and Management — £34,500 → €40,588 (Management)
+- MSc Advanced Computer Science — £32,900 → €38,706 (Computer Science)
+- MSc Financial Economics — £34,500 → €40,588 (Economics)
+- MSc Financial Engineering — £34,500 → €40,588 (Finance)
+- MSc Human-Centred Interactive Technologies — £32,900 → €38,706 (Computer Science)
+- MSc Logistics and Supply Chain Management — £31,900 → €37,529 (Management)
+- MSc Sustainable Finance — £34,500 → €40,588 (Finance)
+- MPP Global Public Health Policy — £26,900 → €31,647 (Public Health)
+
+All 8 translated (nl/fr/de/es). Verified count: 1871. 40 of hundreds of available York rows used
+across 5 rounds. 129 rows short of the 2000 target.

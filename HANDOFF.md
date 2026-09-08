@@ -21,8 +21,15 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 wider net than the earlier top-50-only audits). **Current state: 1863 programmes, max id 1896, max rank
 1866** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
 Round 163 mined the Faculty of Medicine page (fully named, minimal banding) for 8 more rows (Life
-Sciences x3, Public Health x2, Entrepreneurship, Chemistry, Analytics). Only the Centre for
-Languages, Culture and Communication page remains unvisited on Imperial. **137 short of 2000.**
+Sciences x3, Public Health x2, Entrepreneurship, Chemistry, Analytics). The Centre for Languages, Culture and Communication page turned out to be fully banded (a single
+"All Programmes" flat rate, no named titles) — nothing usable there, so Imperial's 4-page split is
+now fully explored (3 productive pages, 1 dead end). Also this round: dead ends checked and ruled
+out — Queen's University Belfast (fee schedule is a PDF; the international-fees HTML page is stale
+2025/26 and only 30 banded rows), UCL (Cloudflare bot-check blocks the fee page entirely), King's
+College London and University of Bristol (both per-course only, no comprehensive table). Returned to
+University of York's still-huge fee page (only 32 of hundreds of rows used across rounds 150-153)
+for a 5th batch of 8 (Management x2, Computer Science x2, Economics, Finance x2, Public Policy) —
+40 of hundreds of York rows used now. **129 short of 2000.**
 **Thirty-third confirmed goldmine: Imperial College London's per-faculty tuition fee pages**
 (`imperial.ac.uk/students/fees-and-funding/tuition-fees/postgraduate-tuition-fees/2026-27/
 taught-postgraduate-programmes/`, split across 4 faculty URLs like Bath: Centre for Languages,
