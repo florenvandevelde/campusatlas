@@ -77,6 +77,12 @@ Technologies, Film and Cultural Management, Health Psychology, Human Factors and
 International Accounting and Sustainability, Luxury Brand Management, Maritime Archaeology,
 Operational Research and Data Science). 80 of 175 Southampton rows used. **Current state: 1942
 programmes, max id 1976, max rank 1946. 58 short of 2000.**
+Round 174 mined an 11th Southampton batch (fresh dedup run first) — Public Health, Management,
+Finance x2, Social Sciences/Statistics, Engineering, Education, Humanities (Professional Practice
+in Health Sciences, Project Management, Risk and Finance, Social Research Methods with Applied
+Statistics, Sustainable Finance, Systems Control and Signal Processing, TESOL, Translation and
+Professional Communication Skills). 88 of 175 Southampton rows used. **Current state: 1950
+programmes, max id 1984, max rank 1954. 50 short of 2000.**
 **Note on the programmes table schema**: besides the columns listed in earlier goldmine notes, the
 table also has NOT NULL columns `lang`, `intake`, `deadline`, `work`, `gmat`, `link`,
 `fresh_grad_only`, `online` with no defaults for most of them (only `fields`, `open_fields`,

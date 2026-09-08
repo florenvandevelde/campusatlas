@@ -4633,3 +4633,28 @@ in round 172), "Gerontology (Distance Learning)" and "Global Ageing and Policy (
 
 All 8 translated (nl/fr/de/es). Verified count: 1942. 80 of 175 Southampton rows used. 58 rows
 short of the 2000 target.
+
+## Round 174: University of Southampton, batch 11 (1942 → 1950)
+
+Ran a fresh standalone dedup SELECT for Southampton before this batch (98 pre-existing rows
+confirmed, no near-duplicates found in the new picks). Continued mining the same plain HTML
+postgraduate fees table (O–T alphabetical range).
+
+Added 8 rows (ids 1977–1984, ranks 1947–1954), GBP→EUR via ÷0.85, QS World 2026: #87, all 12 months:
+- MSc Professional Practice in Health Sciences — £14,500 → €17,059 (Public Health)
+- MSc Project Management — £18,700 → €22,000 (Management)
+- MSc Risk and Finance — £20,000 → €23,529 (Finance)
+- MSc Social Research Methods with Applied Statistics — £17,000 → €20,000 (Social Sciences/Statistics & Operational Research)
+- MSc Sustainable Finance — £18,700 → €22,000 (Finance/Sustainability)
+- MSc Systems, Control and Signal Processing — £18,500 → €21,765 (Engineering)
+- MA TESOL — £13,000 → €15,294 (Education)
+- MA Translation and Professional Communication Skills — £13,000 → €15,294 (Humanities)
+
+Skipped near-duplicate/redundant rows encountered in this range: "Risk Management" (redundant with
+Risk and Finance), "Race Car Aerodynamics Technology" (near-duplicate of the existing Race Car
+Aerodynamics row), "Social Research Methods with Demography" (redundant variant of the Applied
+Statistics pathway), "TESOL for Experienced Teachers" (variant of the base TESOL row), "Statistics
+with Applications in Medicine" (redundant with the existing Statistics row).
+
+All 8 translated (nl/fr/de/es). Verified count: 1950. 88 of 175 Southampton rows used. 50 rows
+short of the 2000 target.
