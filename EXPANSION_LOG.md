@@ -4555,3 +4555,31 @@ Added 8 rows (ids 1945–1952, ranks 1915–1922), GBP→EUR via ÷0.85, QS Worl
 
 All 8 translated (nl/fr/de/es). Verified count: 1918. 56 of 175 Southampton rows used. 82 rows
 short of the 2000 target.
+
+## Round 171: University of Southampton, batch 8 (1918 → 1926)
+
+Ran a fresh standalone dedup SELECT for Southampton before this batch (74 pre-existing rows
+confirmed, no near-duplicates found in the new picks). Sourced from the plain HTML postgraduate
+fees table at southampton.ac.uk/courses/fees/postgraduate.page via
+`document.querySelectorAll('table tr')`, filtered to Full-time MSc/MA rows, skipping "Year 1 of 2"
+placement-year variants and "by Research" rows.
+
+Added 8 rows (ids 1953–1960, ranks 1923–1930), GBP→EUR via ÷0.85, QS World 2026: #87, all 12 months:
+- MSc Accounting and Finance — £20,000 → €23,529 (Finance)
+- MSc Acoustical & Vibration Engineering — £16,000 → €18,824 (Mechanical Engineering)
+- MSc Advanced Audiology — £14,700 → €17,294 (Public Health)
+- MSc Advanced Chemical Engineering — £14,100 → €16,588 (Engineering/Chemistry)
+- MSc Aerodynamics and Computation — £14,000 → €16,471 (Mechanical Engineering)
+- MSc Applied Geographical Information Systems and Remote Sensing — £14,500 → €17,059 (Earth Sciences)
+- MA Arts & Cultural Leadership — £15,000 → €17,647 (Humanities/Performing Arts)
+- MSc Biomedical Engineering — £14,000 → €16,471 (Engineering/Life Sciences)
+
+Hit an insert error on the first attempt: the `programmes` table has additional NOT NULL columns
+without defaults (`lang`, `intake`, `deadline`, `work`, `gmat`, `link`, `fresh_grad_only`, `online`)
+that earlier rounds' notes hadn't fully documented. Fixed by checking `information_schema.columns`
+and matching the existing Southampton pattern (lang='English', intake='September',
+deadline='Rolling', work='0 yrs', gmat=false, link=southampton fees page, fresh_grad_only=false,
+online=false) — see HANDOFF.md for the full column note.
+
+All 8 translated (nl/fr/de/es). Verified count: 1926. 64 of 175 Southampton rows used. 74 rows
+short of the 2000 target.

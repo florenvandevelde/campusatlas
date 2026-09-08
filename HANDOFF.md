@@ -58,6 +58,21 @@ rows used now. **90 short of 2000.**
 Round 170 mined a 7th Southampton batch (fresh dedup run first) — Sustainability, Humanities,
 Architecture, Art & Design, Marketing x2, Media & Communication, Finance. 56 of 175 Southampton
 rows used. **82 short of 2000.**
+Round 171 mined an 8th Southampton batch (fresh dedup run first) — Finance, Mechanical Engineering
+x2, Public Health, Chemistry/Engineering, Earth Sciences, Humanities/Performing Arts,
+Engineering/Life Sciences (Accounting and Finance, Acoustical & Vibration Engineering, Advanced
+Audiology, Advanced Chemical Engineering, Aerodynamics and Computation, Applied Geographical
+Information Systems and Remote Sensing, Arts & Cultural Leadership, Biomedical Engineering). 64 of
+175 Southampton rows used. **Current state: 1926 programmes, max id 1960, max rank 1930. 74 short
+of 2000.**
+**Note on the programmes table schema**: besides the columns listed in earlier goldmine notes, the
+table also has NOT NULL columns `lang`, `intake`, `deadline`, `work`, `gmat`, `link`,
+`fresh_grad_only`, `online` with no defaults for most of them (only `fields`, `open_fields`,
+`highlights` default to `'{}'`, `updated_at` defaults to `now()`, `online` defaults to `false`).
+Round 171 hit an insert error from omitting these; the established Southampton pattern is
+`lang='English'`, `intake='September'`, `deadline='Rolling'`, `work='0 yrs'`, `gmat=false`,
+`link='https://www.southampton.ac.uk/courses/fees/postgraduate.page'`, `fresh_grad_only=false`,
+`online=false` — match whatever pattern the school's existing rows use when adding to a new school.
 **Thirty-third confirmed goldmine: Imperial College London's per-faculty tuition fee pages**
 (`imperial.ac.uk/students/fees-and-funding/tuition-fees/postgraduate-tuition-fees/2026-27/
 taught-postgraduate-programmes/`, split across 4 faculty URLs like Bath: Centre for Languages,
