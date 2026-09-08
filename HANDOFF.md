@@ -18,8 +18,11 @@ often share one flat rate. Individually verifying 750 one-off programme pages is
 
 **Standing target was 1300** (raised from 1100 by the user on 2026-08-26, explicitly asking to go
 "through all the different university rankings" and map each subject's **QS top 50 through top 100** — a
-wider net than the earlier top-50-only audits). **Current state: 1847 programmes, max id 1880, max rank
-1850** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+wider net than the earlier top-50-only audits). **Current state: 1863 programmes, max id 1896, max rank
+1866** (verified live in Supabase; ids/ranks have small gaps from dedup cleanups, that's fine).
+Round 163 mined the Faculty of Medicine page (fully named, minimal banding) for 8 more rows (Life
+Sciences x3, Public Health x2, Entrepreneurship, Chemistry, Analytics). Only the Centre for
+Languages, Culture and Communication page remains unvisited on Imperial. **137 short of 2000.**
 **Thirty-third confirmed goldmine: Imperial College London's per-faculty tuition fee pages**
 (`imperial.ac.uk/students/fees-and-funding/tuition-fees/postgraduate-tuition-fees/2026-27/
 taught-postgraduate-programmes/`, split across 4 faculty URLs like Bath: Centre for Languages,

@@ -4382,3 +4382,24 @@ Skipped "MSc Optics and Photonics" (already existing Imperial row, id 681).
 
 All 8 translated (nl/fr/de/es). Verified count: 1855. Faculty of Medicine and Centre for Languages,
 Culture and Communication pages still unvisited. 145 rows short of the 2000 target.
+
+## Round 163: Imperial College London, batch 3 — Faculty of Medicine (1855 → 1863)
+
+Mined Imperial's Faculty of Medicine fee page — fully named per-programme, minimal banding, read
+via the same accordion-expand JS workaround. Skipped near-duplicates of existing Imperial rows
+(Epidemiology, Human Molecular Genetics, Immunology, Translational Neuroscience — all already
+present under matching titles).
+
+Added 8 rows (ids 1889–1896, ranks 1859–1866), GBP→EUR via ÷0.85, QS World 2026: #2, all 12 months:
+- MSc Applied Multiomics in Biomedicine — £47,300 → €55,647 (Life Sciences)
+- MSc Bioscience Futures: Communication, Innovation and Entrepreneurship — £47,300 → €55,647 (Entrepreneurship)
+- MSc Cardiovascular and Respiratory Healthcare — £47,300 → €55,647 (Public Health)
+- MSc Genes, Drugs and Stem Cells — £47,300 → €55,647 (Chemistry)
+- MSc Genomic Medicine — £47,300 → €55,647 (Public Health)
+- MSc Health Data Analytics and Machine Learning — £47,300 → €55,647 (Analytics)
+- MSc Medical Ultrasound — £47,300 → €55,647 (Life Sciences)
+- MSc Reproductive and Developmental Biology — £47,300 → €55,647 (Life Sciences)
+
+All 8 translated (nl/fr/de/es). Verified count: 1863. Only the Centre for Languages, Culture and
+Communication page remains unvisited on Imperial's 4-page fee split. 137 rows short of the 2000
+target.
